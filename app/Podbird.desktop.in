@@ -1,0 +1,11 @@
+[Desktop Entry]
+_Name=Podbird
+Comment=Podcast manager
+Exec=@EXEC@
+Icon=@ICON@
+Terminal=false
+Type=Application
+X-Ubuntu-Touch=true
+
+
+
