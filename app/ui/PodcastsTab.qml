@@ -137,16 +137,10 @@ Tab {
 
             delegate: Rectangle {
                 id: listItem
-                height: expanded ? desc.height + imgFrame.height : imgFrame.height
+                height: Math.max(imgFrame.height, detailCol.height)
                 width: parent.width
                 color: Theme.palette.normal.background
                 property bool expanded: false;
-
-                Behavior on height {
-                    UbuntuNumberAnimation {
-                        duration: UbuntuAnimation.SlowDuration
-                    }
-                }
 
                 MouseArea {
                     anchors.fill: parent
@@ -173,6 +167,7 @@ Tab {
                 }
 
                 Column {
+                    id: detailCol
                     anchors.left: imgFrame.right
                     anchors.leftMargin: units.gu(2)
                     anchors.right: parent.right
@@ -184,7 +179,8 @@ Tab {
                         spacing: units.gu(1)
 
                         Label {
-                            text: model.name
+                            textFormat: Text.PlainText
+                            text: model.name.trim()
                             width: parent.width - episodeCount.width - units.gu(1)
                             elide: Text.ElideRight
                         }
@@ -206,11 +202,20 @@ Tab {
                         Label {
                             id: desc
                             text: view.model === episodeModel ? model.description : model.artist
-                            maximumLineCount: listItem.expanded ? undefined : 1
+                            textFormat: Text.RichText
+                            clip: true
+                            height: listItem.expanded ? contentHeight : units.gu(2)
                             wrapMode: Text.WordWrap
                             width: parent.width - listened.width - units.gu(1)
                             elide: Text.ElideRight
                             fontSize: "small"
+
+                            Behavior on height {
+                                UbuntuNumberAnimation {
+                                    duration: UbuntuAnimation.SlowDuration
+                                }
+                            }
+
                         }
 
                         Rectangle {
