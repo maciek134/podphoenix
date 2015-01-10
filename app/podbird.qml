@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import QtMultimedia 5.0
 import QtQuick.LocalStorage 2.0
+import Ubuntu.DownloadManager 0.1
 import Ubuntu.Components 1.1
 import Podbird 1.0
 import "ui"
@@ -22,6 +23,18 @@ MainView {
 
     FileManager {
         id: fileManager
+    }
+
+    SingleDownload {
+        id: imageDownloader
+        property string feed;
+        onFinished: {
+            var db = Podcasts.init();
+            var finalLocation = fileManager.saveDownload(path);
+            db.transaction(function (tx) {
+                tx.executeSql("UPDATE Podcast SET image=? WHERE feed=?", [finalLocation, feed]);
+            });
+        }
     }
 
     MediaPlayer {

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-09 16:03+0000\n"
+"POT-Creation-Date: 2015-01-10 10:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,41 +17,69 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../app/ui/PodcastsTab.qml:28 ../app/ui/PodcastsTab.qml:39
-#: ../app/ui/PodcastsTab.qml:60
+#: ../app/ui/PodcastsTab.qml:29 ../app/ui/PodcastsTab.qml:52
+#: ../app/ui/PodcastsTab.qml:73
 msgid "Podcasts"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:35
-msgid "Up"
+#: ../app/ui/PodcastsTab.qml:37
+msgid "Add Podcast"
 msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:48
+msgid "Up"
+msgstr ""
+
+#: ../app/ui/PodcastsTab.qml:61
 msgid "Unsubscribe"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:110
+#: ../app/ui/PodcastsTab.qml:123
+msgid "Unable to subscribe"
+msgstr ""
+
+#: ../app/ui/PodcastsTab.qml:124
+msgid "Please check the URL and try again"
+msgstr ""
+
+#: ../app/ui/PodcastsTab.qml:126
+msgid "Close"
+msgstr ""
+
+#: ../app/ui/PodcastsTab.qml:136
 msgid "No Podcast Subscriptions"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:110
+#: ../app/ui/PodcastsTab.qml:136
 msgid ""
 "You haven't subscribed to any podcasts yet, visit the 'Search' page to add "
 "some."
 msgstr ""
 
-#: ../app/ui/SearchTab.qml:26
+#: ../app/ui/PodcastsTab.qml:393
+msgid "Feed URL..."
+msgstr ""
+
+#: ../app/ui/PodcastsTab.qml:407
+msgid "Cancel"
+msgstr ""
+
+#: ../app/ui/PodcastsTab.qml:417
+msgid "Add"
+msgstr ""
+
+#: ../app/ui/SearchTab.qml:25
 msgid "Search"
 msgstr ""
 
-#: ../app/ui/SearchTab.qml:39
+#: ../app/ui/SearchTab.qml:38
 msgid "Search..."
 msgstr ""
 
-#: ../app/ui/SearchTab.qml:99
+#: ../app/ui/SearchTab.qml:98
 msgid "Subscribe"
 msgstr ""
 
-#: /home/mike/src/build-podbird-Desktop-Default/po/Podbird.desktop.in.h:1
+#: /home/mike/src/build-podbird-Ubuntu_Device2_GCC_armhf_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
 msgid "Podbird"
 msgstr ""

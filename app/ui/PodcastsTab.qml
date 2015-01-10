@@ -21,15 +21,28 @@ import QtMultimedia 5.0
 import QtQuick.LocalStorage 2.0
 import Ubuntu.Components 1.1
 import Ubuntu.DownloadManager 0.1
+import Ubuntu.Components.Popups 1.0
 import "../podcasts.js" as Podcasts
 
 Tab {
     id: tab
     title: i18n.tr("Podcasts")
     property bool episodesUpdating: false;
+    property bool addPodcast: false;
 
     page: Page {
         tools: ToolbarItems {
+            ToolbarButton {
+                action: Action {
+                    text: i18n.tr("Add Podcast")
+                    iconName: "add"
+                    visible: view.model === podcastModel && !addPodcast
+                    onTriggered: {
+                        addPodcast = true;
+                    }
+                }
+            }
+
             ToolbarButton {
                 action: Action {
                     text: i18n.tr("Up")
@@ -101,6 +114,19 @@ Tab {
                     download(url);
                 }
             }
+        }
+
+        Component {
+               id: subscribeFailedDialog
+               Dialog {
+                   id: dialogInternal
+                   title: i18n.tr("Unable to subscribe")
+                   text: i18n.tr("Please check the URL and try again")
+                   Button {
+                       text: i18n.tr("Close")
+                       onClicked: PopupUtils.close(dialogInternal)
+                   }
+               }
         }
 
         Label {
@@ -322,6 +348,86 @@ Tab {
                 onRefresh: updateEpisodes();
             }
         }
+
+        Rectangle {
+            anchors.top: parent.top
+            anchors.topMargin: header.y + header.height
+            width: parent.width
+            height: addCol.height
+            opacity: addPodcast ? 1 : 0
+            color: Theme.palette.normal.background
+
+            onOpacityChanged: {
+                visible = opacity != 0;
+            }
+
+            onVisibleChanged: {
+                if (visible) {
+                    addText.forceActiveFocus()
+                }
+            }
+
+            Behavior on opacity {
+                UbuntuNumberAnimation {
+                    duration: UbuntuAnimation.SlowDuration
+                }
+            }
+
+            Column {
+                id: addCol
+                anchors.horizontalCenter: parent.horizontalCenter
+                spacing: units.gu(2)
+                width: parent.width - units.gu(4)
+                anchors.margins: units.gu(2)
+
+                Item {
+                    width: parent.width
+                    height: units.gu(2)
+                }
+
+                TextField {
+                    id: addText
+                    width: parent.width
+                    inputMethodHints: Qt.ImhUrlCharactersOnly
+                    placeholderText: i18n.tr("Feed URL...")
+                    onAccepted: {
+                        subscribeFromFeed(addText.text);
+                        addPodcast = false;
+                        addText.text = "";
+                    }
+                }
+
+                Row {
+                    spacing: units.gu(2)
+                    width: parent.width
+
+                    Button {
+                        width: (parent.width - parent.spacing) / 2
+                        text: i18n.tr("Cancel")
+                        onClicked: {
+                            addText.text = "";
+                            addPodcast = false;
+                        }
+                    }
+
+                    Button {
+                        width: (parent.width - parent.spacing) / 2
+                        color: UbuntuColors.orange
+                        text: i18n.tr("Add")
+                        onClicked: {
+                            subscribeFromFeed(addText.text);
+                            addPodcast = false;
+                            addText.text = "";
+                        }
+                    }
+                }
+
+                Item {
+                    width: parent.width
+                    height: units.gu(2)
+                }
+            }
+        }
     }
 
     function refreshModel() {
@@ -360,6 +466,58 @@ Tab {
                 episodeModel.append({"guid" : episode.guid, "listened" : episode.listened, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : img, "artist" : artist, "audiourl" : episode.audiourl});
             }
         });
+    }
+
+    function subscribeFromFeed(feed) {
+        var xhr = new XMLHttpRequest;
+        if (feed.indexOf("://") === -1) {
+            feed = "http://" + feed;
+        }
+        xhr.open("GET", feed);
+        xhr.onreadystatechange = function() {
+            var name = "";
+            var artist = "";
+            var image = "";
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status < 200 || xhr.status > 299 || xhr.responseXML === null) {
+                    PopupUtils.open(subscribeFailedDialog);
+                    addText.text = feed;
+                    addPodcast = true;
+                    return;
+                }
+
+                var e = xhr.responseXML.documentElement;
+                for(var h = 0; h < e.childNodes.length; h++) {
+                    if(e.childNodes[h].nodeName === "channel") {
+                        var c = e.childNodes[h];
+                        for(var j = 0; j < c.childNodes.length; j++) {
+                            var nodeName = c.childNodes[j].nodeName;
+                            if (nodeName === "title")               name = c.childNodes[j].childNodes[0].nodeValue;
+                            else if (nodeName === "author")         artist = c.childNodes[j].childNodes[0].nodeValue;
+                            else if (nodeName === "image") {
+                                var el = c.childNodes[j];
+                                for (var l = 0; l < el.attributes.length; l++) {
+                                    if(el.attributes[l].nodeName === "href")         image = el.attributes[l].nodeValue;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if(name != "") {
+                    Podcasts.subscribe(artist, name, feed, image);
+                    imageDownloader.feed = feed;
+                    imageDownloader.download(image);
+                    updateEpisodes();
+                } else {
+                    PopupUtils.open(subscribeFailedDialog);
+                    addText.text = feed;
+                    addPodcast = true;
+                    return;
+                }
+            }
+        }
+        xhr.send();
     }
 
     function updateEpisodes() {

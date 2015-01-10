@@ -18,7 +18,6 @@
 
 import QtQuick 2.0
 import Ubuntu.Components 1.1
-import Ubuntu.DownloadManager 0.1
 import QtQuick.LocalStorage 2.0
 import "../podcasts.js" as Podcasts
 
@@ -113,18 +112,6 @@ Tab {
 
     ListModel {
         id: searchResults
-    }
-
-    SingleDownload {
-        id: imageDownloader
-        property string feed;
-        onFinished: {
-            var db = Podcasts.init();
-            var finalLocation = fileManager.saveDownload(path);
-            db.transaction(function (tx) {
-                tx.executeSql("UPDATE Podcast SET image=? WHERE feed=?", [finalLocation, feed]);
-            });
-        }
     }
 
     function search(term) {
