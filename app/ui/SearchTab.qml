@@ -31,6 +31,7 @@ Tab {
             spacing: units.gu(2)
             anchors.fill: parent
             anchors.margins: units.gu(2)
+            anchors.bottomMargin: 0
 
             TextField {
                 id: searchField
@@ -49,7 +50,7 @@ Tab {
             ListView {
                 width: parent.width
                 model: searchResults
-                height: parent.height - searchField.height - units.gu(4)
+                height: parent.height - searchField.height - units.gu(2)
                 clip: true
                 spacing: units.gu(1)
                 footer: Item {

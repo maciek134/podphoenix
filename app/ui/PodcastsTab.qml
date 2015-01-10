@@ -153,12 +153,13 @@ Tab {
             id: view
             anchors.fill: parent
             anchors.margins: units.gu(2)
+            anchors.bottomMargin: 0
             model: podcastModel
             clip: true
             spacing: units.gu(1)
             footer: Item {
                 width: parent.width
-                height: units.gu(7)
+                height: units.gu(8)
             }
 
             delegate: Rectangle {
