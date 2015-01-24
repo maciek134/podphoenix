@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-25 00:02+0100\n"
+"POT-Creation-Date: 2015-01-25 00:10+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,54 +32,54 @@ msgstr ""
 msgid "%1m"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:31 ../app/ui/PodcastsTab.qml:54
-#: ../app/ui/PodcastsTab.qml:75
+#: ../app/ui/PodcastsTab.qml:31 ../app/ui/PodcastsTab.qml:51
+#: ../app/ui/PodcastsTab.qml:70
 msgid "Podcasts"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:39
+#: ../app/ui/PodcastsTab.qml:38
 msgid "Add Podcast"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:50
+#: ../app/ui/PodcastsTab.qml:47
 msgid "Up"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:63
+#: ../app/ui/PodcastsTab.qml:58
 msgid "Unsubscribe"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:94
+#: ../app/ui/PodcastsTab.qml:88
 msgid "Unable to subscribe"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:95
+#: ../app/ui/PodcastsTab.qml:89
 msgid "Please check the URL and try again"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:97
+#: ../app/ui/PodcastsTab.qml:91
 msgid "Close"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:107
+#: ../app/ui/PodcastsTab.qml:101
 msgid "No Podcast Subscriptions"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:107
+#: ../app/ui/PodcastsTab.qml:102
 msgid ""
 "You haven't subscribed to any podcasts yet, visit the 'Search' page to add "
 "some."
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:246
+#: ../app/ui/PodcastsTab.qml:239
 msgid "Feed URL..."
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:260
+#: ../app/ui/PodcastsTab.qml:253
 msgid "Cancel"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:270
+#: ../app/ui/PodcastsTab.qml:263
 msgid "Add"
 msgstr ""
 

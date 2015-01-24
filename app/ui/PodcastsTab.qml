@@ -33,53 +33,47 @@ Tab {
     property bool addPodcast: false;
 
     page: Page {
-        tools: ToolbarItems {
-            ToolbarButton {
-                action: Action {
-                    text: i18n.tr("Add Podcast")
-                    iconName: "add"
-                    visible: view.model === podcastModel && !addPodcast
-                    onTriggered: {
-                        addPodcast = true;
-                    }
+        head.actions: [
+            Action {
+                text: i18n.tr("Add Podcast")
+                iconName: "add"
+                visible: view.model === podcastModel && !addPodcast
+                onTriggered: {
+                    addPodcast = true;
                 }
-            }
+            },
 
-            ToolbarButton {
-                action: Action {
-                    text: i18n.tr("Up")
-                    iconName: "up"
-                    visible: view.model === episodeModel
-                    onTriggered: {
+            Action {
+                text: i18n.tr("Up")
+                iconName: "up"
+                visible: view.model === episodeModel
+                onTriggered: {
+                    page.title = i18n.tr("Podcasts");
+                    view.model = podcastModel;
+                    refreshModel();
+                }
+            },
+
+            Action {
+                text: i18n.tr("Unsubscribe")
+                iconName: "delete"
+                visible: view.model === episodeModel
+                onTriggered: {
+                    var db = Podcasts.init();
+                    db.transaction(function (tx) {
+                        var rs = tx.executeSql("SELECT downloadedfile FROM Episode WHERE downloadedfile NOT NULL AND podcast=?", [episodeModel.pid]);
+                        for(var i = 0; i < rs.rows.length; i++) {
+                            fileManager.deleteFile(rs.rows.item(i).downloadedfile);
+                        }
+                        tx.executeSql("DELETE FROM Episode WHERE podcast=?", [episodeModel.pid]);
+                        tx.executeSql("DELETE FROM Podcast WHERE rowid=?", [episodeModel.pid]);
                         page.title = i18n.tr("Podcasts");
                         view.model = podcastModel;
                         refreshModel();
-                    }
+                    });
                 }
             }
-
-            ToolbarButton {
-                action: Action {
-                    text: i18n.tr("Unsubscribe")
-                    iconName: "delete"
-                    visible: view.model === episodeModel
-                    onTriggered: {
-                        var db = Podcasts.init();
-                        db.transaction(function (tx) {
-                            var rs = tx.executeSql("SELECT downloadedfile FROM Episode WHERE downloadedfile NOT NULL AND podcast=?", [episodeModel.pid]);
-                            for(var i = 0; i < rs.rows.length; i++) {
-                                fileManager.deleteFile(rs.rows.item(i).downloadedfile);
-                            }
-                            tx.executeSql("DELETE FROM Episode WHERE podcast=?", [episodeModel.pid]);
-                            tx.executeSql("DELETE FROM Podcast WHERE rowid=?", [episodeModel.pid]);
-                            page.title = i18n.tr("Podcasts");
-                            view.model = podcastModel;
-                            refreshModel();
-                        });
-                    }
-                }
-            }
-        }
+        ]
 
         onVisibleChanged: {
             if(visible) {
@@ -100,13 +94,12 @@ Tab {
             }
         }
 
-        Label {
+        EmptyState {
             anchors.centerIn: parent
-            width: parent.width - units.gu(4)
-            horizontalAlignment: Text.AlignHCenter
-            text: "<b>" + i18n.tr("No Podcast Subscriptions") + "</b><br /><br />" + i18n.tr("You haven't subscribed to any podcasts yet, visit the 'Search' page to add some.")
-            wrapMode: Text.WordWrap
             visible: view.model === podcastModel && podcastModel.count === 0
+            iconName: "music-app-symbolic"
+            title: i18n.tr("No Podcast Subscriptions")
+            subTitle: i18n.tr("You haven't subscribed to any podcasts yet, visit the 'Search' page to add some.")
         }
 
         ListModel {
