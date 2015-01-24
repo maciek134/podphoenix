@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-10 10:09+0000\n"
+"POT-Creation-Date: 2015-01-24 21:07+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,54 +17,69 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../app/ui/PodcastsTab.qml:29 ../app/ui/PodcastsTab.qml:52
-#: ../app/ui/PodcastsTab.qml:73
+#: ../app/ui/PodcastsTab.qml:31 ../app/ui/PodcastsTab.qml:54
+#: ../app/ui/PodcastsTab.qml:75
 msgid "Podcasts"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:37
+#: ../app/ui/PodcastsTab.qml:39
 msgid "Add Podcast"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:48
+#: ../app/ui/PodcastsTab.qml:50
 msgid "Up"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:61
+#: ../app/ui/PodcastsTab.qml:63
 msgid "Unsubscribe"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:123
+#: ../app/ui/PodcastsTab.qml:125
 msgid "Unable to subscribe"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:124
+#: ../app/ui/PodcastsTab.qml:126
 msgid "Please check the URL and try again"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:126
+#: ../app/ui/PodcastsTab.qml:128
 msgid "Close"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:136
+#: ../app/ui/PodcastsTab.qml:138
 msgid "No Podcast Subscriptions"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:136
+#: ../app/ui/PodcastsTab.qml:138
 msgid ""
 "You haven't subscribed to any podcasts yet, visit the 'Search' page to add "
 "some."
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:393
+#: ../app/ui/PodcastsTab.qml:310
+#, qt-format
+msgid "%1h %2m"
+msgstr ""
+
+#: ../app/ui/PodcastsTab.qml:316
+#, qt-format
+msgid "%1h"
+msgstr ""
+
+#: ../app/ui/PodcastsTab.qml:321
+#, c-format, qt-format
+msgid "%1m"
+msgstr ""
+
+#: ../app/ui/PodcastsTab.qml:451
 msgid "Feed URL..."
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:407
+#: ../app/ui/PodcastsTab.qml:465
 msgid "Cancel"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:417
+#: ../app/ui/PodcastsTab.qml:475
 msgid "Add"
 msgstr ""
 
@@ -80,6 +95,6 @@ msgstr ""
 msgid "Subscribe"
 msgstr ""
 
-#: /home/mike/src/build-podbird-Ubuntu_Device2_GCC_armhf_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
+#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-new-listitem-actions-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
 msgid "Podbird"
 msgstr ""

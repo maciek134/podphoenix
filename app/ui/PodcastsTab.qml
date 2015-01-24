@@ -18,9 +18,11 @@
 
 import QtQuick 2.0
 import QtMultimedia 5.0
+import QtQuick.Layouts 1.1
 import QtQuick.LocalStorage 2.0
 import Ubuntu.Components 1.1
 import Ubuntu.DownloadManager 0.1
+import Ubuntu.Components.ListItems 1.0 as ListItem
 import Ubuntu.Components.Popups 1.0
 import "../podcasts.js" as Podcasts
 
@@ -117,16 +119,16 @@ Tab {
         }
 
         Component {
-               id: subscribeFailedDialog
-               Dialog {
-                   id: dialogInternal
-                   title: i18n.tr("Unable to subscribe")
-                   text: i18n.tr("Please check the URL and try again")
-                   Button {
-                       text: i18n.tr("Close")
-                       onClicked: PopupUtils.close(dialogInternal)
-                   }
-               }
+            id: subscribeFailedDialog
+            Dialog {
+                id: dialogInternal
+                title: i18n.tr("Unable to subscribe")
+                text: i18n.tr("Please check the URL and try again")
+                Button {
+                    text: i18n.tr("Close")
+                    onClicked: PopupUtils.close(dialogInternal)
+                }
+            }
         }
 
         Label {
@@ -152,7 +154,7 @@ Tab {
         ListView {
             id: view
             anchors.fill: parent
-            anchors.margins: units.gu(2)
+            anchors.margins: units.gu(1)
             anchors.bottomMargin: 0
             model: podcastModel
             clip: true
@@ -164,11 +166,12 @@ Tab {
 
             delegate: Rectangle {
                 id: listItem
-                height: Math.max(imgFrame.height, detailCol.height)
-                width: parent.width
-                color: Theme.palette.normal.background
-                property bool expanded: false;
 
+                property bool expanded: false
+
+                width: parent.width
+                height: mainColumn.height + units.gu(2)
+                color: "#E3E3E3"
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
@@ -182,96 +185,95 @@ Tab {
                     }
                 }
 
-                UbuntuShape {
-                    id: imgFrame
-                    width: units.gu(9.1)
-                    height: width
-
-                    anchors.left: parent.left
-                    image: Image {
-                        source: model.image
-                    }
-                }
-
                 Column {
-                    id: detailCol
-                    anchors.left: imgFrame.right
-                    anchors.leftMargin: units.gu(2)
-                    anchors.right: parent.right
-                    anchors.rightMargin: units.gu(2)
-                    spacing: units.gu(0.5)
+                    id: mainColumn
 
-                    Row {
-                        width: parent.width
-                        spacing: units.gu(1)
-
-                        Label {
-                            textFormat: Text.PlainText
-                            text: model.name.trim()
-                            width: parent.width - episodeCount.width - units.gu(1)
-                            elide: Text.ElideRight
-                        }
-
-                        Label {
-                            id: episodeCount
-                            width: units.gu(4)
-                            visible: view.model === episodeModel || model.episodeCount > 0
-                            text: view.model === episodeModel ? (!isNaN(model.duration) && model.duration !== 0 ? Podcasts.formatTime(model.duration) : "") : model.episodeCount
-                            horizontalAlignment: Text.AlignRight
-                            fontSize: "small"
-                        }
+                    anchors {
+                        top: parent.top
+                        left: parent.left
+                        right: parent.right
+                        margins: units.gu(1)
                     }
 
-                    Row {
+                    spacing: units.gu(1)
+
+                    RowLayout {
+                        id: titleRow
+
                         width: parent.width
                         spacing: units.gu(1)
 
-                        Label {
-                            id: desc
-                            text: view.model === episodeModel ? model.description : model.artist
-                            textFormat: Text.RichText
-                            clip: true
-                            height: listItem.expanded ? contentHeight : units.gu(2)
-                            wrapMode: Text.WordWrap
-                            width: parent.width - listened.width - units.gu(1)
-                            elide: Text.ElideRight
-                            fontSize: "small"
-
-                            Behavior on height {
-                                UbuntuNumberAnimation {
-                                    duration: UbuntuAnimation.SlowDuration
-                                }
+                        UbuntuShape {
+                            id: imgFrame
+                            width: units.gu(7)
+                            height: width
+                            image: Image {
+                                source: model.image
                             }
-
                         }
 
-                        Rectangle {
-                            id: listened
-                            border.color: UbuntuColors.lightGrey
-                            height: units.gu(2)
-                            width: height
-                            radius: width / 2
-                            visible: view.model === episodeModel && model.listened
-                            Icon {
-                                id: tick
-                                name: "tick"
-                                anchors.centerIn: parent
-                                anchors.verticalCenterOffset: units.gu(0.1)
-                                height: units.gu(1.4)
-                                width: height
+                        Column {
+                            id: detailColumn
+
+                            anchors.verticalCenter: imgFrame.verticalCenter
+                            Layout.fillWidth: true
+
+                            Label {
+                                textFormat: Text.PlainText
+                                text: model.name.trim()
+                                font.bold: true
+                                width: parent.width
+                                elide: Text.ElideRight
+                            }
+
+                            Label {
+                                id: episodeCount
+                                width: parent.width
+                                visible: view.model === episodeModel || model.episodeCount > 0
+                                text: view.model === episodeModel ? model.artist : model.episodeCount + " Episodes"
+                                fontSize: "small"
                             }
                         }
                     }
 
-                    Row {
+                    Label {
+                        id: desc
+                        text: visible ? model.description : "Null"
+                        textFormat: Text.RichText
+                        clip: true
+                        height: listItem.expanded ? contentHeight : units.gu(4)
+                        wrapMode: Text.WordWrap
                         width: parent.width
-                        spacing: units.gu(2)
+                        elide: Text.ElideRight
+                        fontSize: "small"
+                        visible: view.model === episodeModel
+                        Behavior on height {
+                            UbuntuNumberAnimation {
+                                duration: UbuntuAnimation.SlowDuration
+                            }
+                        }
+
+                    }
+
+                    ListItem.ThinDivider {
+                        visible: view.model === episodeModel
+                    }
+
+                    Item {
+                        id: actionRow
+
+                        width: parent.width
+                        height: units.gu(3)
+                        visible: view.model === episodeModel
+
                         Icon {
+                            id: playButton
                             name: player.playbackState === MediaPlayer.PlayingState && currentGuid === model.guid ? "media-playback-pause"
                                                                                                                   : "media-playback-start"
-                            visible: view.model === episodeModel
-                            width: units.gu(4)
+                            width: units.gu(2.5)
                             height: width
+                            anchors.left: parent.left
+                            anchors.verticalCenter: parent.verticalCenter
                             MouseArea {
                                 anchors.fill: parent
 
@@ -300,9 +302,66 @@ Tab {
                             }
                         }
 
+                        function formatTime(seconds) {
+                            var time = Podcasts.getTimeDiff(seconds)
+                            var hour = time[0]
+                            var minute = time[1]
+                            if(hour > 0 &&  minute > 0) {
+                                return (i18n.tr("%1h %2m"))
+                                .arg(hour)
+                                .arg(minute)
+                            }
+
+                            else if(hour > 0 && minute === 0) {
+                                return (i18n.tr("%1h"))
+                                .arg(hour)
+                            }
+
+                            else if(hour === 0 && minute > 0) {
+                                return (i18n.tr("%1m"))
+                                .arg(minute)
+                            }
+
+                            else {
+                                return Podcasts.formatTime(model.duration)
+                            }
+                        }
+
+                        Label {
+                            id: duration
+                            anchors.left: playButton.right
+                            anchors.leftMargin: units.gu(1)
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: view.model === episodeModel ? (!isNaN(model.duration) && model.duration !== 0 ? actionRow.formatTime(model.duration) : "") : "Null"
+                        }
+
+                        Rectangle {
+                            id: listened
+                            border.color: UbuntuColors.lightGrey
+                            height: units.gu(2.5)
+                            width: height
+                            radius: width / 2
+                            anchors.right: downloadButton.left
+                            anchors.rightMargin: units.gu(1)
+                            anchors.verticalCenter: parent.verticalCenter
+                            visible: model.listened
+                            Icon {
+                                id: tick
+                                name: "tick"
+                                anchors.centerIn: parent
+                                anchors.verticalCenterOffset: units.gu(0.1)
+                                height: units.gu(1.4)
+                                width: height
+                            }
+                        }
+
                         Item {
-                            width: units.gu(4)
+                            id: downloadButton
+
+                            width: units.gu(2.5)
                             height: width
+                            anchors.right: parent.right
+                            anchors.verticalCenter: parent.verticalCenter
 
                             ActivityIndicator {
                                 anchors.centerIn: parent
@@ -340,7 +399,6 @@ Tab {
                             }
                         }
                     }
-
                 }
             }
 
@@ -578,13 +636,13 @@ Tab {
                                                 var ers = tx2.executeSql("SELECT rowid FROM Episode WHERE guid=?", [track.guid]);
                                                 if (ers.rows.length === 0) {
                                                     tx2.executeSql("INSERT INTO Episode(podcast, name, description, audiourl, guid, listened, duration, published) VALUES(?, ?, ? , ?, ?, ?, ?, ?)", [pid,
-                                                                                                                                                                                                track.name,
-                                                                                                                                                                                                track.description,
-                                                                                                                                                                                                track.audiourl,
-                                                                                                                                                                                                track.guid,
-                                                                                                                                                                                                false,
-                                                                                                                                                                                                track.duration,
-                                                                                                                                                                                                track.published]);
+                                                                                                                                                                                                      track.name,
+                                                                                                                                                                                                      track.description,
+                                                                                                                                                                                                      track.audiourl,
+                                                                                                                                                                                                      track.guid,
+                                                                                                                                                                                                      false,
+                                                                                                                                                                                                      track.duration,
+                                                                                                                                                                                                      track.published]);
                                                 }
                                             });
                                         }
