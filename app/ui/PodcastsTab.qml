@@ -129,13 +129,12 @@ Tab {
                }
         }
 
-        Label {
+        EmptyState {
             anchors.centerIn: parent
-            width: parent.width - units.gu(4)
-            horizontalAlignment: Text.AlignHCenter
-            text: "<b>" + i18n.tr("No Podcast Subscriptions") + "</b><br /><br />" + i18n.tr("You haven't subscribed to any podcasts yet, visit the 'Search' page to add some.")
-            wrapMode: Text.WordWrap
             visible: view.model === podcastModel && podcastModel.count === 0
+            iconName: "music-app-symbolic"
+            title: i18n.tr("No Podcast Subscriptions")
+            subTitle: i18n.tr("You haven't subscribed to any podcasts yet, visit the 'Search' page to add some.")
         }
 
         ListModel {
