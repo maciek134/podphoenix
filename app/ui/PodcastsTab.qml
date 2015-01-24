@@ -87,37 +87,6 @@ Tab {
             }
         }
 
-        SingleDownload {
-            id: downloader
-            property var queue: []
-            property string downloadingGuid
-
-            onFinished: {
-                var db = Podcasts.init();
-                var finalLocation = fileManager.saveDownload(path);
-                db.transaction(function (tx) {
-                    tx.executeSql("UPDATE Episode SET downloadedfile=? WHERE guid=?", [finalLocation, downloadingGuid]);
-                    queue.shift();
-                    if (queue.length > 0) {
-                        downloadingGuid = queue[0][0];
-                        download(queue[0][1]);
-                    } else {
-                        downloadingGuid = "";
-                    }
-
-                    loadEpisodes(episodeModel.pid, episodeModel.artist, episodeModel.image);
-                });
-            }
-
-            function addDownload(guid, url) {
-                queue.push([guid, url]);
-                if (queue.length == 1) {
-                    downloadingGuid = guid;
-                    download(url);
-                }
-            }
-        }
-
         Component {
             id: subscribeFailedDialog
             Dialog {
@@ -172,16 +141,11 @@ Tab {
                 width: parent.width
                 height: mainColumn.height
                 color: "#E3E3E3"
+
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
-                        if (view.model === podcastModel) {
-                            page.title = model.name
-                            loadEpisodes(model.id, model.artist, model.image)
-                            view.model = episodeModel
-                        } else {
-                            listItem.expanded = !listItem.expanded
-                        }
+                        mainStack.push(Qt.resolvedUrl("EpisodesPage.qml"), {"episodeName": model.name, "episodeId": model.id, "episodeArtist": model.artist, "episodeImage": model.image})
                     }
                 }
 
@@ -192,7 +156,6 @@ Tab {
                         top: parent.top
                         left: parent.left
                         right: parent.right
-                        margins: view.model === podcastModel ? units.gu(0) : units.gu(1)
                     }
 
                     spacing: units.gu(1)
@@ -225,183 +188,9 @@ Tab {
                             Label {
                                 id: episodeCount
                                 width: parent.width
-                                visible: view.model === episodeModel || model.episodeCount > 0
-                                text: view.model === episodeModel ? model.artist : model.episodeCount + " Episodes"
+                                visible: model.episodeCount > 0
+                                text: model.episodeCount + " Episodes"
                                 fontSize: "small"
-                            }
-                        }
-                    }
-
-                    Label {
-                        id: desc
-                        text: visible ? model.description : "Null"
-                        textFormat: Text.RichText
-                        clip: true
-                        height: listItem.expanded ? contentHeight : units.gu(4)
-                        wrapMode: Text.WordWrap
-                        width: parent.width
-                        elide: Text.ElideRight
-                        fontSize: "small"
-                        visible: view.model === episodeModel
-                        Behavior on height {
-                            UbuntuNumberAnimation {
-                                duration: UbuntuAnimation.SlowDuration
-                            }
-                        }
-
-                    }
-
-                    ListItem.ThinDivider {
-                        visible: view.model === episodeModel
-                    }
-
-                    Item {
-                        id: statusBox
-
-                        width: parent.width
-                        height: units.gu(5)
-                        visible: view.model === episodeModel
-
-                        function formatTime(seconds) {
-                            var time = Podcasts.getTimeDiff(seconds)
-                            var hour = time[0]
-                            var minute = time[1]
-                            if(hour > 0 &&  minute > 0) {
-                                return (i18n.tr("%1h %2m"))
-                                .arg(hour)
-                                .arg(minute)
-                            }
-
-                            else if(hour > 0 && minute === 0) {
-                                return (i18n.tr("%1h"))
-                                .arg(hour)
-                            }
-
-                            else if(hour === 0 && minute > 0) {
-                                return (i18n.tr("%1m"))
-                                .arg(minute)
-                            }
-
-                            else {
-                                return Podcasts.formatTime(model.duration)
-                            }
-                        }
-
-                        Rectangle {
-                            id: listened
-                            border.color: UbuntuColors.lightGrey
-                            height: units.gu(2.5)
-                            width: height
-                            radius: width / 2
-                            anchors.right: durationIcon.left
-                            anchors.rightMargin: units.gu(1)
-                            visible: view.model === episodeModel && model.listened
-                            Icon {
-                                id: tick
-                                name: "tick"
-                                anchors.centerIn: parent
-                                anchors.verticalCenterOffset: units.gu(0.1)
-                                height: units.gu(1.4)
-                                width: height
-                            }
-                        }
-
-                        Icon {
-                            id: durationIcon
-                            width: units.gu(2.5)
-                            height: width
-                            name: "alarm-clock"
-                            anchors.right: duration.left
-                            anchors.rightMargin: units.gu(0.5)
-                        }
-
-                        Label {
-                            id: duration
-                            anchors.right: parent.right
-                            fontSize: "small"
-                            text: view.model === episodeModel ? (!isNaN(model.duration) && model.duration !== 0 ? statusBox.formatTime(model.duration) : "") : "Null"
-                        }
-
-                        Row {
-                            id: actionRow
-
-                            spacing: units.gu(1)
-                            anchors.left: parent.left
-
-                            Icon {
-                                id: playButton
-                                name: player.playbackState === MediaPlayer.PlayingState && currentGuid === model.guid ? "media-playback-pause"
-                                                                                                                      : "media-playback-start"
-                                width: units.gu(2.5)
-                                height: width
-                                MouseArea {
-                                    anchors.fill: parent
-
-                                    onClicked: {
-                                        var db = Podcasts.init();
-                                        db.transaction(function (tx) {
-                                            if (currentGuid === model.guid) {
-                                                if (player.playbackState === MediaPlayer.PlayingState) {
-                                                    player.pause()
-                                                } else {
-                                                    player.play()
-                                                }
-                                            } else {
-                                                currentGuid = "";
-                                                player.source = model.downloadedfile ? model.downloadedfile : model.audiourl;
-                                                var rs = tx.executeSql("SELECT position FROM Episode WHERE guid=?", [model.guid]);
-                                                player.play();
-                                                player.seek(rs.rows.item(0).position);
-                                                currentName = model.name;
-                                                currentArtist = model.artist;
-                                                currentImage = model.image;
-                                                currentGuid = model.guid;
-                                            }
-                                        });
-                                    }
-                                }
-                            }
-
-                            Item {
-                                id: downloadButton
-
-                                width: units.gu(2.5)
-                                height: width
-
-                                ActivityIndicator {
-                                    anchors.centerIn: parent
-                                    visible: downloader.downloadingGuid === model.guid
-                                    running: visible
-                                }
-
-                                Icon {
-                                    anchors.fill: parent
-                                    property bool queued: false;
-                                    name: model.downloadedfile ? "delete" : (queued && downloader.downloadingGuid !== model.guid ? "history" : "save")
-                                    width: units.gu(4)
-                                    height: width
-                                    visible: view.model === episodeModel
-                                    opacity: downloader.downloadingGuid === model.guid ? 0.4 : 1.0
-
-                                    MouseArea {
-                                        anchors.fill: parent
-                                        enabled: downloader.downloadingGuid !== model.guid
-
-                                        onClicked: {
-                                            if (model.downloadedfile) {
-                                                fileManager.deleteFile(model.downloadedfile);
-                                                var db = Podcasts.init();
-                                                db.transaction(function (tx) {
-                                                    tx.executeSql("UPDATE Episode SET downloadedfile = NULL WHERE guid = ?", [model.guid]);
-                                                });
-                                                loadEpisodes(episodeModel.pid, episodeModel.artist, episodeModel.image);
-                                            } else {
-                                                parent.queued = true;
-                                                downloader.addDownload(model.guid, model.audiourl);
-                                            }
-                                        }
-                                    }
-                                }
                             }
                         }
                     }

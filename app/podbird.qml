@@ -54,15 +54,20 @@ MainView {
         }
     }
 
-    Tabs {
-        id: tabs
+    PageStack {
+        id: mainStack
+        Component.onCompleted: push(tabs)
+        Tabs {
+            id: tabs
 
-        PodcastsTab {
-            objectName: "podcastsTab"
-        }
+            PodcastsTab {
+                id: podcastTab
+                objectName: "podcastsTab"
+            }
 
-        SearchTab {
-            objectName: "searchTab"
+            SearchTab {
+                objectName: "searchTab"
+            }
         }
     }
 
