@@ -31,53 +31,47 @@ Tab {
     property bool addPodcast: false;
 
     page: Page {
-        tools: ToolbarItems {
-            ToolbarButton {
-                action: Action {
-                    text: i18n.tr("Add Podcast")
-                    iconName: "add"
-                    visible: view.model === podcastModel && !addPodcast
-                    onTriggered: {
-                        addPodcast = true;
-                    }
+        head.actions: [
+            Action {
+                text: i18n.tr("Add Podcast")
+                iconName: "add"
+                visible: view.model === podcastModel && !addPodcast
+                onTriggered: {
+                    addPodcast = true;
                 }
-            }
+            },
 
-            ToolbarButton {
-                action: Action {
-                    text: i18n.tr("Up")
-                    iconName: "up"
-                    visible: view.model === episodeModel
-                    onTriggered: {
+            Action {
+                text: i18n.tr("Up")
+                iconName: "up"
+                visible: view.model === episodeModel
+                onTriggered: {
+                    page.title = i18n.tr("Podcasts");
+                    view.model = podcastModel;
+                    refreshModel();
+                }
+            },
+
+            Action {
+                text: i18n.tr("Unsubscribe")
+                iconName: "delete"
+                visible: view.model === episodeModel
+                onTriggered: {
+                    var db = Podcasts.init();
+                    db.transaction(function (tx) {
+                        var rs = tx.executeSql("SELECT downloadedfile FROM Episode WHERE downloadedfile NOT NULL AND podcast=?", [episodeModel.pid]);
+                        for(var i = 0; i < rs.rows.length; i++) {
+                            fileManager.deleteFile(rs.rows.item(i).downloadedfile);
+                        }
+                        tx.executeSql("DELETE FROM Episode WHERE podcast=?", [episodeModel.pid]);
+                        tx.executeSql("DELETE FROM Podcast WHERE rowid=?", [episodeModel.pid]);
                         page.title = i18n.tr("Podcasts");
                         view.model = podcastModel;
                         refreshModel();
-                    }
+                    });
                 }
             }
-
-            ToolbarButton {
-                action: Action {
-                    text: i18n.tr("Unsubscribe")
-                    iconName: "delete"
-                    visible: view.model === episodeModel
-                    onTriggered: {
-                        var db = Podcasts.init();
-                        db.transaction(function (tx) {
-                            var rs = tx.executeSql("SELECT downloadedfile FROM Episode WHERE downloadedfile NOT NULL AND podcast=?", [episodeModel.pid]);
-                            for(var i = 0; i < rs.rows.length; i++) {
-                                fileManager.deleteFile(rs.rows.item(i).downloadedfile);
-                            }
-                            tx.executeSql("DELETE FROM Episode WHERE podcast=?", [episodeModel.pid]);
-                            tx.executeSql("DELETE FROM Podcast WHERE rowid=?", [episodeModel.pid]);
-                            page.title = i18n.tr("Podcasts");
-                            view.model = podcastModel;
-                            refreshModel();
-                        });
-                    }
-                }
-            }
-        }
+        ]
 
         onVisibleChanged: {
             if(visible) {
@@ -117,16 +111,16 @@ Tab {
         }
 
         Component {
-               id: subscribeFailedDialog
-               Dialog {
-                   id: dialogInternal
-                   title: i18n.tr("Unable to subscribe")
-                   text: i18n.tr("Please check the URL and try again")
-                   Button {
-                       text: i18n.tr("Close")
-                       onClicked: PopupUtils.close(dialogInternal)
-                   }
-               }
+            id: subscribeFailedDialog
+            Dialog {
+                id: dialogInternal
+                title: i18n.tr("Unable to subscribe")
+                text: i18n.tr("Please check the URL and try again")
+                Button {
+                    text: i18n.tr("Close")
+                    onClicked: PopupUtils.close(dialogInternal)
+                }
+            }
         }
 
         EmptyState {
@@ -577,13 +571,13 @@ Tab {
                                                 var ers = tx2.executeSql("SELECT rowid FROM Episode WHERE guid=?", [track.guid]);
                                                 if (ers.rows.length === 0) {
                                                     tx2.executeSql("INSERT INTO Episode(podcast, name, description, audiourl, guid, listened, duration, published) VALUES(?, ?, ? , ?, ?, ?, ?, ?)", [pid,
-                                                                                                                                                                                                track.name,
-                                                                                                                                                                                                track.description,
-                                                                                                                                                                                                track.audiourl,
-                                                                                                                                                                                                track.guid,
-                                                                                                                                                                                                false,
-                                                                                                                                                                                                track.duration,
-                                                                                                                                                                                                track.published]);
+                                                                                                                                                                                                      track.name,
+                                                                                                                                                                                                      track.description,
+                                                                                                                                                                                                      track.audiourl,
+                                                                                                                                                                                                      track.guid,
+                                                                                                                                                                                                      false,
+                                                                                                                                                                                                      track.duration,
+                                                                                                                                                                                                      track.published]);
                                                 }
                                             });
                                         }
