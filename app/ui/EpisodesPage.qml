@@ -242,6 +242,7 @@ Page {
                         width: units.gu(2.5)
                         height: width
                         name: "alarm-clock"
+                        visible: duration.text !== ""
                         anchors.right: duration.left
                         anchors.rightMargin: units.gu(0.5)
                     }
