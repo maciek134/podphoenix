@@ -103,6 +103,7 @@ Tab {
                                 color: "#999999"
                                 text: model.artist
                                 fontSize: "x-small"
+                                elide: Text.ElideRight
                             }
                         }
 
