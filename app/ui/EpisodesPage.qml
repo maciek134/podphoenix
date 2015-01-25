@@ -139,6 +139,10 @@ Page {
 
                     Image {
                         id: imgFrame
+                        width: units.gu(6)
+                        height: width
+                        sourceSize.height: width
+                        sourceSize.width: width
                         source: model.image
                     }
 
