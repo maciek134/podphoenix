@@ -28,7 +28,9 @@ import "../podcasts.js" as Podcasts
 
 Tab {
     id: tab
+
     title: i18n.tr("Podcasts")
+
     property bool episodesUpdating: false;
     property bool addPodcast: false;
 
@@ -37,40 +39,9 @@ Tab {
             Action {
                 text: i18n.tr("Add Podcast")
                 iconName: "add"
-                visible: view.model === podcastModel && !addPodcast
+                visible: !addPodcast
                 onTriggered: {
                     addPodcast = true;
-                }
-            },
-
-            Action {
-                text: i18n.tr("Up")
-                iconName: "up"
-                visible: view.model === episodeModel
-                onTriggered: {
-                    page.title = i18n.tr("Podcasts");
-                    view.model = podcastModel;
-                    refreshModel();
-                }
-            },
-
-            Action {
-                text: i18n.tr("Unsubscribe")
-                iconName: "delete"
-                visible: view.model === episodeModel
-                onTriggered: {
-                    var db = Podcasts.init();
-                    db.transaction(function (tx) {
-                        var rs = tx.executeSql("SELECT downloadedfile FROM Episode WHERE downloadedfile NOT NULL AND podcast=?", [episodeModel.pid]);
-                        for(var i = 0; i < rs.rows.length; i++) {
-                            fileManager.deleteFile(rs.rows.item(i).downloadedfile);
-                        }
-                        tx.executeSql("DELETE FROM Episode WHERE podcast=?", [episodeModel.pid]);
-                        tx.executeSql("DELETE FROM Podcast WHERE rowid=?", [episodeModel.pid]);
-                        page.title = i18n.tr("Podcasts");
-                        view.model = podcastModel;
-                        refreshModel();
-                    });
                 }
             }
         ]
@@ -115,52 +86,60 @@ Tab {
 
         ListView {
             id: view
-            anchors.fill: parent
-            anchors.margins: units.gu(1)
-            anchors.bottomMargin: 0
-            model: podcastModel
+
             clip: true
-            spacing: units.gu(1)
+            model: podcastModel
+            anchors.fill: parent
+
             footer: Item {
                 width: parent.width
                 height: units.gu(8)
             }
 
-            delegate: Rectangle {
+            delegate: ListItem.Empty {
                 id: listItem
 
                 property bool expanded: false
 
-                width: parent.width
-                height: mainColumn.height
-                color: "#E3E3E3"
+                height: units.gu(8)
+                removable: true
+                confirmRemoval: true
+                onItemRemoved: {
+                    var db = Podcasts.init();
+                    db.transaction(function (tx) {
+                        var rs = tx.executeSql("SELECT downloadedfile FROM Episode WHERE downloadedfile NOT NULL AND podcast=?", [model.id]);
+                        for(var i = 0; i < rs.rows.length; i++) {
+                            fileManager.deleteFile(rs.rows.item(i).downloadedfile);
+                        }
+                        tx.executeSql("DELETE FROM Episode WHERE podcast=?", [model.id]);
+                        tx.executeSql("DELETE FROM Podcast WHERE rowid=?", [model.id]);
+                        refreshModel()
+                    });
+                }
 
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: {
-                        mainStack.push(Qt.resolvedUrl("EpisodesPage.qml"), {"episodeName": model.name, "episodeId": model.id, "episodeArtist": model.artist, "episodeImage": model.image})
-                    }
+                onClicked: {
+                    mainStack.push(Qt.resolvedUrl("EpisodesPage.qml"), {"episodeName": model.name, "episodeId": model.id, "episodeArtist": model.artist, "episodeImage": model.image})
                 }
 
                 Column {
                     id: mainColumn
 
-                    anchors {
-                        top: parent.top
-                        left: parent.left
-                        right: parent.right
-                    }
-
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.margins: units.gu(2)
+                    anchors.verticalCenter: parent.verticalCenter
                     spacing: units.gu(1)
 
                     RowLayout {
                         id: titleRow
 
                         width: parent.width
-                        spacing: units.gu(1)
+                        spacing: units.gu(2)
 
                         Image {
                             id: imgFrame
+                            width: units.gu(6)
+                            height: units.gu(6)
                             source: model.image
                         }
 
@@ -171,19 +150,21 @@ Tab {
                             Layout.fillWidth: true
 
                             Label {
+                                id: podcastTitle
                                 textFormat: Text.PlainText
                                 text: model.name.trim()
-                                font.bold: true
                                 width: parent.width
+                                fontSize: "small"
                                 elide: Text.ElideRight
                             }
 
                             Label {
                                 id: episodeCount
                                 width: parent.width
+                                color: "#999999"
                                 visible: model.episodeCount > 0
                                 text: model.episodeCount + " Episodes"
-                                fontSize: "small"
+                                fontSize: "x-small"
                             }
                         }
                     }
@@ -280,39 +261,20 @@ Tab {
     function refreshModel() {
         var db = Podcasts.init();
 
-        if (view.model === podcastModel) {
-            db.transaction(function (tx) {
-                podcastModel.clear();
-                var rs = tx.executeSql("SELECT rowid, * FROM Podcast ORDER BY name ASC");
-                for(var i = 0; i < rs.rows.length; i++) {
-                    var podcast = rs.rows.item(i);
-                    var rs2 = tx.executeSql("SELECT Count(*) AS epcount FROM Episode WHERE podcast=? AND NOT listened", [rs.rows.item(i).rowid]);
-                    podcastModel.append({"id" : podcast.rowid, "name" : podcast.name, "artist" : podcast.artist, "image" : podcast.image, "episodeCount" : rs2.rows.item(0).epcount});
-                    if (podcast.lastupdate === null && !episodesUpdating) {
-                        updateEpisodes();
-                    }
-                }
-            });
-        } else {
-            loadEpisodes(episodeModel.pid, episodeModel.artist, episodeModel.image);
-        }
-
-        episodesUpdating = false;
-    }
-
-    function loadEpisodes(pid, artist, img) {
-        var db = Podcasts.init();
         db.transaction(function (tx) {
-            episodeModel.clear();
-            var rs = tx.executeSql("SELECT rowid, * FROM Episode WHERE podcast=? ORDER BY published DESC", [pid]);
+            podcastModel.clear();
+            var rs = tx.executeSql("SELECT rowid, * FROM Podcast ORDER BY name ASC");
             for(var i = 0; i < rs.rows.length; i++) {
-                var episode = rs.rows.item(i);
-                episodeModel.pid = pid;
-                episodeModel.artist = artist;
-                episodeModel.image = img;
-                episodeModel.append({"guid" : episode.guid, "listened" : episode.listened, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : img, "artist" : artist, "audiourl" : episode.audiourl});
+                var podcast = rs.rows.item(i);
+                var rs2 = tx.executeSql("SELECT Count(*) AS epcount FROM Episode WHERE podcast=? AND NOT listened", [rs.rows.item(i).rowid]);
+                podcastModel.append({"id" : podcast.rowid, "name" : podcast.name, "artist" : podcast.artist, "image" : podcast.image, "episodeCount" : rs2.rows.item(0).epcount});
+                if (podcast.lastupdate === null && !episodesUpdating) {
+                    updateEpisodes();
+                }
             }
         });
+
+        episodesUpdating = false;
     }
 
     function subscribeFromFeed(feed) {

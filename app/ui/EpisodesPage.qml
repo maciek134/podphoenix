@@ -24,6 +24,40 @@ Page {
         loadEpisodes(episodeId, episodeArtist, episodeImage)
     }
 
+    head.contents: Label {
+        text: title
+        anchors.fill: parent
+        anchors.margins: units.gu(0.5)
+        verticalAlignment: Text.AlignVCenter
+
+        fontSize: "x-large"
+        fontSizeMode: Text.Fit
+
+        maximumLineCount: 3
+        minimumPointSize: 8
+        elide: Text.Right
+        wrapMode: Text.WordWrap
+    }
+
+    head.actions: [
+        Action {
+            text: i18n.tr("Unsubscribe")
+            iconName: "delete"
+            onTriggered: {
+                var db = Podcasts.init();
+                db.transaction(function (tx) {
+                    var rs = tx.executeSql("SELECT downloadedfile FROM Episode WHERE downloadedfile NOT NULL AND podcast=?", [episodeModel.pid]);
+                    for(var i = 0; i < rs.rows.length; i++) {
+                        fileManager.deleteFile(rs.rows.item(i).downloadedfile);
+                    }
+                    tx.executeSql("DELETE FROM Episode WHERE podcast=?", [episodeModel.pid]);
+                    tx.executeSql("DELETE FROM Podcast WHERE rowid=?", [episodeModel.pid]);
+                    mainStack.pop()
+                });
+            }
+        }
+    ]
+
     SingleDownload {
         id: downloader
         property var queue: []
@@ -65,31 +99,24 @@ Page {
     ListView {
         id: episodeList
 
-        anchors.fill: parent
-        anchors.margins: units.gu(1)
-        anchors.bottomMargin: 0
-        model: episodeModel
         clip: true
-        spacing: units.gu(1)
+        anchors.fill: parent
+        model: episodeModel
+
         footer: Item {
             width: parent.width
             height: units.gu(8)
         }
 
-        delegate: Rectangle {
+        delegate: ListItem.Empty {
             id: listItem
 
             property bool expanded: false
 
             width: parent.width
             height: mainColumn.height
-            color: "#E3E3E3"
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    listItem.expanded = !listItem.expanded
-                }
-            }
+
+            onClicked: listItem.expanded = !listItem.expanded
 
             Column {
                 id: mainColumn
@@ -98,7 +125,8 @@ Page {
                     top: parent.top
                     left: parent.left
                     right: parent.right
-                    margins: units.gu(1)
+                    margins: units.gu(2)
+                    topMargin: units.gu(1)
                 }
 
                 spacing: units.gu(1)
@@ -107,7 +135,7 @@ Page {
                     id: titleRow
 
                     width: parent.width
-                    spacing: units.gu(1)
+                    spacing: units.gu(2)
 
                     Image {
                         id: imgFrame
@@ -123,7 +151,6 @@ Page {
                         Label {
                             textFormat: Text.PlainText
                             text: model.name.trim()
-                            font.bold: true
                             width: parent.width
                             elide: Text.ElideRight
                         }
@@ -147,6 +174,7 @@ Page {
                     width: parent.width
                     elide: Text.ElideRight
                     fontSize: "small"
+                    color: "#999999"
                     Behavior on height {
                         UbuntuNumberAnimation {
                             duration: UbuntuAnimation.SlowDuration
@@ -155,13 +183,11 @@ Page {
 
                 }
 
-                ListItem.ThinDivider {}
-
                 Item {
                     id: statusBox
 
                     width: parent.width
-                    height: units.gu(5)
+                    height: units.gu(6)
 
                     function formatTime(seconds) {
                         var time = Podcasts.getTimeDiff(seconds)
