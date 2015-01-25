@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-25 19:00+0100\n"
+"POT-Creation-Date: 2015-01-25 21:21+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -57,42 +57,58 @@ msgstr ""
 msgid "Podcasts"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:40
+#: ../app/ui/PodcastsTab.qml:62
 msgid "Add Podcast"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:59
+#: ../app/ui/PodcastsTab.qml:72
+msgid "Search Podcast"
+msgstr ""
+
+#: ../app/ui/PodcastsTab.qml:86 ../app/ui/PodcastsTab.qml:109
+msgid "Back"
+msgstr ""
+
+#: ../app/ui/PodcastsTab.qml:97
+msgid "Search Podcast..."
+msgstr ""
+
+#: ../app/ui/PodcastsTab.qml:120
+msgid "Save Podcast"
+msgstr ""
+
+#: ../app/ui/PodcastsTab.qml:133
+msgid "Feed URL..."
+msgstr ""
+
+#: ../app/ui/PodcastsTab.qml:157
 msgid "Unable to subscribe"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:60
+#: ../app/ui/PodcastsTab.qml:158
 msgid "Please check the URL and try again"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:62
+#: ../app/ui/PodcastsTab.qml:160
 msgid "Close"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:72
+#: ../app/ui/PodcastsTab.qml:171
 msgid "No Podcast Subscriptions"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:73
+#: ../app/ui/PodcastsTab.qml:172
+msgid "No Podcasts found"
+msgstr ""
+
+#: ../app/ui/PodcastsTab.qml:173
 msgid ""
 "You haven't subscribed to any podcasts yet, visit the 'Search' page to add "
 "some."
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:222
-msgid "Feed URL..."
-msgstr ""
-
-#: ../app/ui/PodcastsTab.qml:236
-msgid "Cancel"
-msgstr ""
-
-#: ../app/ui/PodcastsTab.qml:246
-msgid "Add"
+#: ../app/ui/PodcastsTab.qml:174
+msgid "No podcasts found matching the search term."
 msgstr ""
 
 #: ../app/ui/SearchTab.qml:27
@@ -107,6 +123,6 @@ msgstr ""
 msgid "Subscribe"
 msgstr ""
 
-#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-new-listitem-actions-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
+#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-filter-podcast-list-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
 msgid "Podbird"
 msgstr ""

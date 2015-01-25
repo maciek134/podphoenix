@@ -17,6 +17,7 @@ MainView {
     property string currentGuid
 
     useDeprecatedToolbar: false
+    anchorToKeyboard: true
 
     width: units.gu(50)
     height: units.gu(75)
