@@ -77,8 +77,10 @@ Tab {
 
                         Image {
                             id: imgFrame
-                            width: units.gu(6)
-                            height: units.gu(6)
+                            width: units.gu(5)
+                            height: width
+                            sourceSize.height: width
+                            sourceSize.width: width
                             source: model.image
                         }
 
