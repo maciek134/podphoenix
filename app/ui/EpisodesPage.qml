@@ -129,10 +129,11 @@ Page {
                         }
 
                         Label {
-                            id: episodeCount
+                            id: episodeArtist
                             width: parent.width
                             text: model.artist
                             fontSize: "small"
+                            elide: Text.ElideRight
                         }
                     }
                 }

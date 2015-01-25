@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-25 17:59+0100\n"
+"POT-Creation-Date: 2015-01-25 18:22+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,17 +21,17 @@ msgstr ""
 msgid "Unsubscribe"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:170
+#: ../app/ui/EpisodesPage.qml:171
 #, qt-format
 msgid "%1h %2m"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:176
+#: ../app/ui/EpisodesPage.qml:177
 #, qt-format
 msgid "%1h"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:181
+#: ../app/ui/EpisodesPage.qml:182
 #, c-format, qt-format
 msgid "%1m"
 msgstr ""
@@ -90,6 +90,6 @@ msgstr ""
 msgid "Subscribe"
 msgstr ""
 
-#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-new-listitem-actions-rtm_stable_GCC_i386_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
+#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-new-listitem-actions-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
 msgid "Podbird"
 msgstr ""
