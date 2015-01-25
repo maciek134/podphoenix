@@ -58,37 +58,6 @@ Page {
         }
     ]
 
-    SingleDownload {
-        id: downloader
-        property var queue: []
-        property string downloadingGuid
-
-        onFinished: {
-            var db = Podcasts.init();
-            var finalLocation = fileManager.saveDownload(path);
-            db.transaction(function (tx) {
-                tx.executeSql("UPDATE Episode SET downloadedfile=? WHERE guid=?", [finalLocation, downloadingGuid]);
-                queue.shift();
-                if (queue.length > 0) {
-                    downloadingGuid = queue[0][0];
-                    download(queue[0][1]);
-                } else {
-                    downloadingGuid = "";
-                }
-
-                loadEpisodes(episodeModel.pid, episodeModel.artist, episodeModel.image);
-            });
-        }
-
-        function addDownload(guid, url) {
-            queue.push([guid, url]);
-            if (queue.length == 1) {
-                downloadingGuid = guid;
-                download(url);
-            }
-        }
-    }
-
     ListModel {
         id: episodeModel
         property string pid;

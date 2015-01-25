@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-25 17:57+0100\n"
+"POT-Creation-Date: 2015-01-25 17:59+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,17 +21,17 @@ msgstr ""
 msgid "Unsubscribe"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:201
+#: ../app/ui/EpisodesPage.qml:170
 #, qt-format
 msgid "%1h %2m"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:207
+#: ../app/ui/EpisodesPage.qml:176
 #, qt-format
 msgid "%1h"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:212
+#: ../app/ui/EpisodesPage.qml:181
 #, c-format, qt-format
 msgid "%1m"
 msgstr ""
@@ -86,7 +86,7 @@ msgstr ""
 msgid "Search..."
 msgstr ""
 
-#: ../app/ui/SearchTab.qml:112
+#: ../app/ui/SearchTab.qml:114
 msgid "Subscribe"
 msgstr ""
 
