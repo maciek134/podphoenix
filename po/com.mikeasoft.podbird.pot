@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-25 18:22+0100\n"
+"POT-Creation-Date: 2015-01-25 19:00+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,21 +17,38 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../app/ui/EpisodesPage.qml:44
+#: ../app/ui/EpisodesPage.qml:45
 msgid "Unsubscribe"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:171
+#: ../app/ui/EpisodesPage.qml:57
+msgid "Unsubscribe Confirmation"
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:58
+#, qt-format
+msgid "Are you sure you want to unsubscribe from <b>%1</b>?"
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:60
+msgid "Yes"
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:77
+msgid "No"
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:196
 #, qt-format
 msgid "%1h %2m"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:177
+#: ../app/ui/EpisodesPage.qml:202
 #, qt-format
 msgid "%1h"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:182
+#: ../app/ui/EpisodesPage.qml:207
 #, c-format, qt-format
 msgid "%1m"
 msgstr ""

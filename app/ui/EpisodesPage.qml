@@ -4,6 +4,7 @@ import Ubuntu.Components 1.1
 import QtQuick.Layouts 1.1
 import QtQuick.LocalStorage 2.0
 import Ubuntu.DownloadManager 0.1
+import Ubuntu.Components.Popups 1.0
 import Ubuntu.Components.ListItems 1.0 as ListItem
 import "../podcasts.js" as Podcasts
 
@@ -44,19 +45,43 @@ Page {
             text: i18n.tr("Unsubscribe")
             iconName: "delete"
             onTriggered: {
-                var db = Podcasts.init();
-                db.transaction(function (tx) {
-                    var rs = tx.executeSql("SELECT downloadedfile FROM Episode WHERE downloadedfile NOT NULL AND podcast=?", [episodeModel.pid]);
-                    for(var i = 0; i < rs.rows.length; i++) {
-                        fileManager.deleteFile(rs.rows.item(i).downloadedfile);
-                    }
-                    tx.executeSql("DELETE FROM Episode WHERE podcast=?", [episodeModel.pid]);
-                    tx.executeSql("DELETE FROM Podcast WHERE rowid=?", [episodeModel.pid]);
-                    mainStack.pop()
-                });
+                PopupUtils.open(confirmDeleteDialog);
             }
         }
     ]
+
+    Component {
+        id: confirmDeleteDialog
+        Dialog {
+            id: dialogInternal
+            title: i18n.tr("Unsubscribe Confirmation")
+            text: i18n.tr("Are you sure you want to unsubscribe from <b>%1</b>?").arg(episodesPage.episodeName)
+            Button {
+                text: i18n.tr("Yes")
+                color: UbuntuColors.orange
+                onClicked: {
+                    var db = Podcasts.init();
+                    db.transaction(function (tx) {
+                        var rs = tx.executeSql("SELECT downloadedfile FROM Episode WHERE downloadedfile NOT NULL AND podcast=?", [episodeModel.pid]);
+                        for(var i = 0; i < rs.rows.length; i++) {
+                            fileManager.deleteFile(rs.rows.item(i).downloadedfile);
+                        }
+                        tx.executeSql("DELETE FROM Episode WHERE podcast=?", [episodeModel.pid]);
+                        tx.executeSql("DELETE FROM Podcast WHERE rowid=?", [episodeModel.pid]);
+                        mainStack.pop()
+                        PopupUtils.close(dialogInternal)
+                    });
+                }
+            }
+            Button {
+                text: i18n.tr("No")
+                color: UbuntuColors.green
+                onClicked: {
+                    PopupUtils.close(dialogInternal)
+                }
+            }
+        }
+    }
 
     ListModel {
         id: episodeModel
