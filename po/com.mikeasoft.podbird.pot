@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-25 01:39+0100\n"
+"POT-Creation-Date: 2015-01-25 02:06+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -78,15 +78,15 @@ msgstr ""
 msgid "Add"
 msgstr ""
 
-#: ../app/ui/SearchTab.qml:25
+#: ../app/ui/SearchTab.qml:27
 msgid "Search"
 msgstr ""
 
-#: ../app/ui/SearchTab.qml:39
+#: ../app/ui/SearchTab.qml:42
 msgid "Search..."
 msgstr ""
 
-#: ../app/ui/SearchTab.qml:99
+#: ../app/ui/SearchTab.qml:111
 msgid "Subscribe"
 msgstr ""
 
