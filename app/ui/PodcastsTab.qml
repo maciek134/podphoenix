@@ -32,18 +32,116 @@ Tab {
     title: i18n.tr("Podcasts")
 
     property bool episodesUpdating: false;
-    property bool addPodcast: false;
 
     page: Page {
-        head.actions: [
-            Action {
-                text: i18n.tr("Add Podcast")
-                iconName: "add"
-                visible: !addPodcast
-                onTriggered: {
-                    addPodcast = true;
+        id: podcastPage
+
+        /*
+         #FIXME: The following lines of code is necessary due to a upstream bug
+         in the SDK http://pad.lv/1400297. This bug is still present in the rtm.
+         Once it is fixed, this following property and connection can be remvoed.
+        */
+        property Item __oldContents: null
+        Connections {
+            target: podcastPage.head
+            onContentsChanged: {
+                if (podcastPage.__oldContents) {
+                    podcastPage.__oldContents.parent = null;
+                }
+                podcastPage.__oldContents = podcastPage.head.contents;
+            }
+        }
+
+        state: "default"
+        states: [
+            PageHeadState {
+                name: "default"
+                head: podcastPage.head
+                actions: [
+                    Action {
+                        text: i18n.tr("Add Podcast")
+                        iconName: "add"
+                        onTriggered: {
+                            podcastPage.state = "add"
+                            feedUrlField.forceActiveFocus()
+                        }
+                    },
+
+                    Action {
+                        iconName: "search"
+                        text: i18n.tr("Search Podcast")
+                        onTriggered: {
+                            podcastPage.state = "search"
+                            searchField.forceActiveFocus()
+                        }
+                    }
+                ]
+            },
+
+            PageHeadState {
+                name: "search"
+                head: podcastPage.head
+                backAction: Action {
+                    iconName: "back"
+                    text: i18n.tr("Back")
+                    onTriggered: {
+                        view.forceActiveFocus()
+                        searchField.text = ""
+                        podcastPage.state = "default"
+                    }
+                }
+
+                contents: TextField {
+                    id: searchField
+                    inputMethodHints: Qt.ImhNoPredictiveText
+                    placeholderText: i18n.tr("Search Podcast...")
+                    anchors.left: parent ? parent.left : undefined
+                    anchors.right: parent ? parent.right : undefined
+                    anchors.rightMargin: units.gu(2)
+                }
+            },
+
+            PageHeadState {
+                name: "add"
+                head: podcastPage.head
+                backAction: Action {
+                    iconName: "back"
+                    text: i18n.tr("Back")
+                    onTriggered: {
+                        view.forceActiveFocus()
+                        feedUrlField.text = ""
+                        podcastPage.state = "default"
+                    }
+                }
+
+                actions: [
+                    Action {
+                        iconName: "ok"
+                        text: i18n.tr("Save Podcast")
+                        onTriggered: {
+                            view.forceActiveFocus()
+                            subscribeFromFeed(feedUrlField.text);
+                            feedUrlField.text = ""
+                            podcastPage.state = "default"
+                        }
+                    }
+                ]
+
+                contents: TextField {
+                    id: feedUrlField
+                    inputMethodHints: Qt.ImhUrlCharactersOnly
+                    placeholderText: i18n.tr("Feed URL...")
+                    anchors.left: parent ? parent.left : undefined
+                    anchors.right: parent ? parent.right : undefined
+                    onAccepted: {
+                        view.forceActiveFocus()
+                        subscribeFromFeed(feedUrlField.text);
+                        feedUrlField.text = ""
+                        podcastPage.state = "default"
+                    }
                 }
             }
+
         ]
 
         onVisibleChanged: {
@@ -67,15 +165,28 @@ Tab {
 
         EmptyState {
             anchors.centerIn: parent
-            visible: view.model === podcastModel && podcastModel.count === 0
+            anchors.verticalCenterOffset: Qt.inputMethod.visible ? units.gu(4) : 0
+            visible: podcastModel.count === 0 || sortedPodcastModel.count === 0
             iconName: "music-app-symbolic"
-            title: i18n.tr("No Podcast Subscriptions")
-            subTitle: i18n.tr("You haven't subscribed to any podcasts yet, visit the 'Search' page to add some.")
+            title: podcastModel.count === 0 ? i18n.tr("No Podcast Subscriptions")
+                                            : i18n.tr("No Podcasts found")
+            subTitle: podcastModel.count === 0 ? i18n.tr("You haven't subscribed to any podcasts yet, visit the 'Search' page to add some.")
+                                               : i18n.tr("No podcasts found matching the search term.")
         }
 
         ListModel {
             id: podcastModel
         }
+
+        SortFilterModel {
+            id: sortedPodcastModel
+            model: podcastModel
+            sort.property: "name"
+            sort.order: Qt.AscendingOrder
+            filter.property: "name"
+            filter.pattern: RegExp(searchField.text, "gi")
+        }
+
 
         ListModel {
             id: episodeModel
@@ -88,7 +199,7 @@ Tab {
             id: view
 
             clip: true
-            model: podcastModel
+            model: sortedPodcastModel
             anchors.fill: parent
 
             footer: Item {
@@ -118,6 +229,11 @@ Tab {
                 }
 
                 onClicked: {
+                    if(podcastPage.state === "search") {
+                        view.forceActiveFocus()
+                        searchField.text = ""
+                        podcastPage.state = "default"
+                    }
                     mainStack.push(Qt.resolvedUrl("EpisodesPage.qml"), {"episodeName": model.name, "episodeId": model.id, "episodeArtist": model.artist, "episodeImage": model.image})
                 }
 
@@ -178,86 +294,6 @@ Tab {
                 onRefresh: updateEpisodes();
             }
         }
-
-        Rectangle {
-            anchors.top: parent.top
-            anchors.topMargin: header.y + header.height
-            width: parent.width
-            height: addCol.height
-            opacity: addPodcast ? 1 : 0
-            color: Theme.palette.normal.background
-
-            onOpacityChanged: {
-                visible = opacity != 0;
-            }
-
-            onVisibleChanged: {
-                if (visible) {
-                    addText.forceActiveFocus()
-                }
-            }
-
-            Behavior on opacity {
-                UbuntuNumberAnimation {
-                    duration: UbuntuAnimation.SlowDuration
-                }
-            }
-
-            Column {
-                id: addCol
-                anchors.horizontalCenter: parent.horizontalCenter
-                spacing: units.gu(2)
-                width: parent.width - units.gu(4)
-                anchors.margins: units.gu(2)
-
-                Item {
-                    width: parent.width
-                    height: units.gu(2)
-                }
-
-                TextField {
-                    id: addText
-                    width: parent.width
-                    inputMethodHints: Qt.ImhUrlCharactersOnly
-                    placeholderText: i18n.tr("Feed URL...")
-                    onAccepted: {
-                        subscribeFromFeed(addText.text);
-                        addPodcast = false;
-                        addText.text = "";
-                    }
-                }
-
-                Row {
-                    spacing: units.gu(2)
-                    width: parent.width
-
-                    Button {
-                        width: (parent.width - parent.spacing) / 2
-                        text: i18n.tr("Cancel")
-                        onClicked: {
-                            addText.text = "";
-                            addPodcast = false;
-                        }
-                    }
-
-                    Button {
-                        width: (parent.width - parent.spacing) / 2
-                        color: UbuntuColors.orange
-                        text: i18n.tr("Add")
-                        onClicked: {
-                            subscribeFromFeed(addText.text);
-                            addPodcast = false;
-                            addText.text = "";
-                        }
-                    }
-                }
-
-                Item {
-                    width: parent.width
-                    height: units.gu(2)
-                }
-            }
-        }
     }
 
     function refreshModel() {
@@ -292,8 +328,8 @@ Tab {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status < 200 || xhr.status > 299 || xhr.responseXML === null) {
                     PopupUtils.open(subscribeFailedDialog);
-                    addText.text = feed;
-                    addPodcast = true;
+                    feedUrlField.text = feed
+                    podcastPage.state = "add"
                     return;
                 }
 
@@ -322,8 +358,8 @@ Tab {
                     updateEpisodes();
                 } else {
                     PopupUtils.open(subscribeFailedDialog);
-                    addText.text = feed;
-                    addPodcast = true;
+                    feedUrlField.text = feed
+                    podcastPage.state = "add"
                     return;
                 }
             }

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-25 19:00+0100\n"
+"POT-Creation-Date: 2015-01-27 16:53+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,38 +17,59 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../app/ui/EpisodesPage.qml:45
+#: ../app/ui/EpisodesPage.qml:66
 msgid "Unsubscribe"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:57
+#: ../app/ui/EpisodesPage.qml:75
+msgid "Search Episode"
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:89 ../app/ui/PodcastsTab.qml:86
+#: ../app/ui/PodcastsTab.qml:109
+msgid "Back"
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:100
+msgid "Search Episode..."
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:112
 msgid "Unsubscribe Confirmation"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:58
+#: ../app/ui/EpisodesPage.qml:113
 #, qt-format
 msgid "Are you sure you want to unsubscribe from <b>%1</b>?"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:60
+#: ../app/ui/EpisodesPage.qml:115
 msgid "Yes"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:77
+#: ../app/ui/EpisodesPage.qml:132
 msgid "No"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:196
+#: ../app/ui/EpisodesPage.qml:146
+msgid "No Episodes found"
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:147
+msgid "No episodes found matching the search term."
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:267
 #, qt-format
 msgid "%1h %2m"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:202
+#: ../app/ui/EpisodesPage.qml:273
 #, qt-format
 msgid "%1h"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:207
+#: ../app/ui/EpisodesPage.qml:278
 #, c-format, qt-format
 msgid "%1m"
 msgstr ""
@@ -57,42 +78,54 @@ msgstr ""
 msgid "Podcasts"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:40
+#: ../app/ui/PodcastsTab.qml:62
 msgid "Add Podcast"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:59
+#: ../app/ui/PodcastsTab.qml:72
+msgid "Search Podcast"
+msgstr ""
+
+#: ../app/ui/PodcastsTab.qml:97
+msgid "Search Podcast..."
+msgstr ""
+
+#: ../app/ui/PodcastsTab.qml:120
+msgid "Save Podcast"
+msgstr ""
+
+#: ../app/ui/PodcastsTab.qml:133
+msgid "Feed URL..."
+msgstr ""
+
+#: ../app/ui/PodcastsTab.qml:157
 msgid "Unable to subscribe"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:60
+#: ../app/ui/PodcastsTab.qml:158
 msgid "Please check the URL and try again"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:62
+#: ../app/ui/PodcastsTab.qml:160
 msgid "Close"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:72
+#: ../app/ui/PodcastsTab.qml:171
 msgid "No Podcast Subscriptions"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:73
+#: ../app/ui/PodcastsTab.qml:172
+msgid "No Podcasts found"
+msgstr ""
+
+#: ../app/ui/PodcastsTab.qml:173
 msgid ""
 "You haven't subscribed to any podcasts yet, visit the 'Search' page to add "
 "some."
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:222
-msgid "Feed URL..."
-msgstr ""
-
-#: ../app/ui/PodcastsTab.qml:236
-msgid "Cancel"
-msgstr ""
-
-#: ../app/ui/PodcastsTab.qml:246
-msgid "Add"
+#: ../app/ui/PodcastsTab.qml:174
+msgid "No podcasts found matching the search term."
 msgstr ""
 
 #: ../app/ui/SearchTab.qml:27
@@ -107,6 +140,6 @@ msgstr ""
 msgid "Subscribe"
 msgstr ""
 
-#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-new-listitem-actions-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
+#: /home/mike/src/build-podbird-Ubuntu_Device3_GCC_armhf_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
 msgid "Podbird"
 msgstr ""
