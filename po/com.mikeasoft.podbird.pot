@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-25 21:21+0100\n"
+"POT-Creation-Date: 2015-01-27 03:21+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,38 +17,59 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../app/ui/EpisodesPage.qml:45
+#: ../app/ui/EpisodesPage.qml:66
 msgid "Unsubscribe"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:57
+#: ../app/ui/EpisodesPage.qml:75
+msgid "Search Episode"
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:89 ../app/ui/PodcastsTab.qml:86
+#: ../app/ui/PodcastsTab.qml:109
+msgid "Back"
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:100
+msgid "Search Episode..."
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:112
 msgid "Unsubscribe Confirmation"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:58
+#: ../app/ui/EpisodesPage.qml:113
 #, qt-format
 msgid "Are you sure you want to unsubscribe from <b>%1</b>?"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:60
+#: ../app/ui/EpisodesPage.qml:115
 msgid "Yes"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:77
+#: ../app/ui/EpisodesPage.qml:132
 msgid "No"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:196
+#: ../app/ui/EpisodesPage.qml:146
+msgid "No Episodes found"
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:147
+msgid "No episodes found matching the search term."
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:267
 #, qt-format
 msgid "%1h %2m"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:202
+#: ../app/ui/EpisodesPage.qml:273
 #, qt-format
 msgid "%1h"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:207
+#: ../app/ui/EpisodesPage.qml:278
 #, c-format, qt-format
 msgid "%1m"
 msgstr ""
@@ -63,10 +84,6 @@ msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:72
 msgid "Search Podcast"
-msgstr ""
-
-#: ../app/ui/PodcastsTab.qml:86 ../app/ui/PodcastsTab.qml:109
-msgid "Back"
 msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:97

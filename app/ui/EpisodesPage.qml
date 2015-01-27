@@ -25,6 +25,22 @@ Page {
         loadEpisodes(episodeId, episodeArtist, episodeImage)
     }
 
+    /*
+     #FIXME: The following lines of code is necessary due to a upstream bug
+     in the SDK http://pad.lv/1400297. This bug is still present in the rtm.
+     Once it is fixed, this following property and connection can be remvoed.
+    */
+    property Item __oldContents: null
+    Connections {
+        target: episodesPage.head
+        onContentsChanged: {
+            if (episodesPage.__oldContents) {
+                episodesPage.__oldContents.parent = null;
+            }
+            episodesPage.__oldContents = episodesPage.head.contents;
+        }
+    }
+
     head.contents: Label {
         text: title
         anchors.fill: parent
@@ -40,12 +56,51 @@ Page {
         wrapMode: Text.WordWrap
     }
 
-    head.actions: [
-        Action {
-            text: i18n.tr("Unsubscribe")
-            iconName: "delete"
-            onTriggered: {
-                PopupUtils.open(confirmDeleteDialog);
+    state: "default"
+    states: [
+        PageHeadState {
+            name: "default"
+            head: episodesPage.head
+            actions: [
+                Action {
+                    text: i18n.tr("Unsubscribe")
+                    iconName: "delete"
+                    onTriggered: {
+                        PopupUtils.open(confirmDeleteDialog);
+                    }
+                },
+
+                Action {
+                    iconName: "search"
+                    text: i18n.tr("Search Episode")
+                    onTriggered: {
+                        episodesPage.state = "search"
+                        searchField.forceActiveFocus()
+                    }
+                }
+            ]
+        },
+
+        PageHeadState {
+            name: "search"
+            head: episodesPage.head
+            backAction: Action {
+                iconName: "back"
+                text: i18n.tr("Back")
+                onTriggered: {
+                    episodeList.forceActiveFocus()
+                    searchField.text = ""
+                    episodesPage.state = "default"
+                }
+            }
+
+            contents: TextField {
+                id: searchField
+                inputMethodHints: Qt.ImhNoPredictiveText
+                placeholderText: i18n.tr("Search Episode...")
+                anchors.left: parent ? parent.left : undefined
+                anchors.right: parent ? parent.right : undefined
+                anchors.rightMargin: units.gu(2)
             }
         }
     ]
@@ -83,6 +138,15 @@ Page {
         }
     }
 
+    EmptyState {
+        anchors.centerIn: parent
+        anchors.verticalCenterOffset: Qt.inputMethod.visible ? units.gu(4) : 0
+        visible: episodesPage.state === "search" && sortedEpisodeModel.count === 0
+        iconName: "music-app-symbolic"
+        title: i18n.tr("No Episodes found")
+        subTitle: i18n.tr("No episodes found matching the search term.")
+    }
+
     ListModel {
         id: episodeModel
         property string pid;
@@ -90,12 +154,19 @@ Page {
         property string image;
     }
 
+    SortFilterModel {
+        id: sortedEpisodeModel
+        model: episodeModel
+        filter.property: "name"
+        filter.pattern: RegExp(searchField.text, "gi")
+    }
+
     ListView {
         id: episodeList
 
         clip: true
         anchors.fill: parent
-        model: episodeModel
+        model: sortedEpisodeModel
 
         footer: Item {
             width: parent.width
