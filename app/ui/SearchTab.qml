@@ -17,8 +17,10 @@
  */
 
 import QtQuick 2.0
+import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.1
 import QtQuick.LocalStorage 2.0
+import Ubuntu.Components.ListItems 1.0 as ListItem
 import "../podcasts.js" as Podcasts
 
 Tab {
@@ -30,12 +32,13 @@ Tab {
         Column {
             spacing: units.gu(2)
             anchors.fill: parent
-            anchors.margins: units.gu(2)
-            anchors.bottomMargin: 0
+            anchors.topMargin: units.gu(2)
 
             TextField {
                 id: searchField
-                width: parent.width
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.margins: units.gu(2)
                 placeholderText: i18n.tr("Search...")
                 inputMethodHints: Qt.ImhNoPredictiveText;
                 onTextChanged: {
@@ -48,50 +51,62 @@ Tab {
             }
 
             ListView {
+                clip: true
                 width: parent.width
                 model: searchResults
                 height: parent.height - searchField.height - units.gu(2)
-                clip: true
-                spacing: units.gu(1)
+
                 footer: Item {
                     width: parent.width
                     height: units.gu(7)
                 }
 
-                delegate: Item {
+                delegate: ListItem.Empty {
 
-                    height: imgFrame.height
-                    width: parent.width
+                    height: units.gu(8)
 
-                    UbuntuShape {
-                        id: imgFrame
-                        width: units.gu(9.1)
-                        height: width
+                    RowLayout {
+                        id: titleRow
 
                         anchors.left: parent.left
-                        image: Image {
+                        anchors.right: parent.right
+                        anchors.margins: units.gu(2)
+                        anchors.verticalCenter: parent.verticalCenter
+
+                        spacing: units.gu(2)
+
+                        Image {
+                            id: imgFrame
+                            width: units.gu(5)
+                            height: width
+                            sourceSize.height: width
+                            sourceSize.width: width
                             source: model.image
                         }
-                    }
 
-                    Column {
-                        anchors.left: imgFrame.right
-                        anchors.leftMargin: units.gu(2)
-                        anchors.right: parent.right
-                        anchors.rightMargin: units.gu(2)
-                        spacing: units.gu(0.5)
+                        Column {
+                            id: detailColumn
 
-                        Label {
-                            text: model.name
-                            elide: Text.ElideRight
-                            width: parent.width
-                        }
+                            anchors.verticalCenter: imgFrame.verticalCenter
+                            Layout.fillWidth: true
 
-                        Label {
-                            text: model.artist
-                            width: parent.width
-                            elide: Text.ElideRight
-                            fontSize: "small"
+                            Label {
+                                id: podcastTitle
+                                textFormat: Text.PlainText
+                                text: model.name
+                                width: parent.width
+                                fontSize: "small"
+                                elide: Text.ElideRight
+                            }
+
+                            Label {
+                                id: episodeCount
+                                width: parent.width
+                                color: "#999999"
+                                text: model.artist
+                                fontSize: "x-small"
+                                elide: Text.ElideRight
+                            }
                         }
 
                         Button {
@@ -111,6 +126,7 @@ Tab {
         }
     }
 
+
     ListModel {
         id: searchResults
     }
@@ -124,9 +140,9 @@ Tab {
                 var json = JSON.parse(xhr.responseText);
                 for(var i in json.results) {
                     searchResults.append({"name" : json.results[i].trackName,
-                                          "artist" : json.results[i].artistName,
-                                          "feed" : json.results[i].feedUrl,
-                                          "image" : json.results[i].artworkUrl100});
+                                             "artist" : json.results[i].artistName,
+                                             "feed" : json.results[i].feedUrl,
+                                             "image" : json.results[i].artworkUrl100});
                 }
             }
         }

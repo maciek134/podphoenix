@@ -35,6 +35,14 @@ function subscribe(artist, name, feed, img) {
     });
 }
 
+function getTimeDiff(time) {
+    var hours, minutes;
+    time = Math.floor(time / 60)
+    minutes = time % 60
+    hours = Math.floor(time / 60)
+    return [hours, minutes]
+}
+
 function formatTime(seconds) {
     var rem = seconds % 3600;
     return Math.floor(seconds / 3600) + ":" + zeroFill(Math.floor(rem / 60), 2);

@@ -18,15 +18,19 @@
 
 import QtQuick 2.0
 import QtMultimedia 5.0
+import QtQuick.Layouts 1.1
 import QtQuick.LocalStorage 2.0
 import Ubuntu.Components 1.1
 import Ubuntu.DownloadManager 0.1
+import Ubuntu.Components.ListItems 1.0 as ListItem
 import Ubuntu.Components.Popups 1.0
 import "../podcasts.js" as Podcasts
 
 Tab {
     id: tab
+
     title: i18n.tr("Podcasts")
+
     property bool episodesUpdating: false;
     property bool addPodcast: false;
 
@@ -35,40 +39,9 @@ Tab {
             Action {
                 text: i18n.tr("Add Podcast")
                 iconName: "add"
-                visible: view.model === podcastModel && !addPodcast
+                visible: !addPodcast
                 onTriggered: {
                     addPodcast = true;
-                }
-            },
-
-            Action {
-                text: i18n.tr("Up")
-                iconName: "up"
-                visible: view.model === episodeModel
-                onTriggered: {
-                    page.title = i18n.tr("Podcasts");
-                    view.model = podcastModel;
-                    refreshModel();
-                }
-            },
-
-            Action {
-                text: i18n.tr("Unsubscribe")
-                iconName: "delete"
-                visible: view.model === episodeModel
-                onTriggered: {
-                    var db = Podcasts.init();
-                    db.transaction(function (tx) {
-                        var rs = tx.executeSql("SELECT downloadedfile FROM Episode WHERE downloadedfile NOT NULL AND podcast=?", [episodeModel.pid]);
-                        for(var i = 0; i < rs.rows.length; i++) {
-                            fileManager.deleteFile(rs.rows.item(i).downloadedfile);
-                        }
-                        tx.executeSql("DELETE FROM Episode WHERE podcast=?", [episodeModel.pid]);
-                        tx.executeSql("DELETE FROM Podcast WHERE rowid=?", [episodeModel.pid]);
-                        page.title = i18n.tr("Podcasts");
-                        view.model = podcastModel;
-                        refreshModel();
-                    });
                 }
             }
         ]
@@ -76,37 +49,6 @@ Tab {
         onVisibleChanged: {
             if(visible) {
                 refreshModel();
-            }
-        }
-
-        SingleDownload {
-            id: downloader
-            property var queue: []
-            property string downloadingGuid
-
-            onFinished: {
-                var db = Podcasts.init();
-                var finalLocation = fileManager.saveDownload(path);
-                db.transaction(function (tx) {
-                    tx.executeSql("UPDATE Episode SET downloadedfile=? WHERE guid=?", [finalLocation, downloadingGuid]);
-                    queue.shift();
-                    if (queue.length > 0) {
-                        downloadingGuid = queue[0][0];
-                        download(queue[0][1]);
-                    } else {
-                        downloadingGuid = "";
-                    }
-
-                    loadEpisodes(episodeModel.pid, episodeModel.artist, episodeModel.image);
-                });
-            }
-
-            function addDownload(guid, url) {
-                queue.push([guid, url]);
-                if (queue.length == 1) {
-                    downloadingGuid = guid;
-                    download(url);
-                }
             }
         }
 
@@ -144,196 +86,90 @@ Tab {
 
         ListView {
             id: view
-            anchors.fill: parent
-            anchors.margins: units.gu(2)
-            anchors.bottomMargin: 0
-            model: podcastModel
+
             clip: true
-            spacing: units.gu(1)
+            model: podcastModel
+            anchors.fill: parent
+
             footer: Item {
                 width: parent.width
                 height: units.gu(8)
             }
 
-            delegate: Rectangle {
+            delegate: ListItem.Empty {
                 id: listItem
-                height: Math.max(imgFrame.height, detailCol.height)
-                width: parent.width
-                color: Theme.palette.normal.background
-                property bool expanded: false;
 
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: {
-                        if (view.model === podcastModel) {
-                            page.title = model.name
-                            loadEpisodes(model.id, model.artist, model.image)
-                            view.model = episodeModel
-                        } else {
-                            listItem.expanded = !listItem.expanded
+                property bool expanded: false
+
+                height: units.gu(8)
+                removable: true
+                confirmRemoval: true
+                onItemRemoved: {
+                    var db = Podcasts.init();
+                    db.transaction(function (tx) {
+                        var rs = tx.executeSql("SELECT downloadedfile FROM Episode WHERE downloadedfile NOT NULL AND podcast=?", [model.id]);
+                        for(var i = 0; i < rs.rows.length; i++) {
+                            fileManager.deleteFile(rs.rows.item(i).downloadedfile);
                         }
-                    }
+                        tx.executeSql("DELETE FROM Episode WHERE podcast=?", [model.id]);
+                        tx.executeSql("DELETE FROM Podcast WHERE rowid=?", [model.id]);
+                        refreshModel()
+                    });
                 }
 
-                UbuntuShape {
-                    id: imgFrame
-                    width: units.gu(9.1)
-                    height: width
-
-                    anchors.left: parent.left
-                    image: Image {
-                        source: model.image
-                    }
+                onClicked: {
+                    mainStack.push(Qt.resolvedUrl("EpisodesPage.qml"), {"episodeName": model.name, "episodeId": model.id, "episodeArtist": model.artist, "episodeImage": model.image})
                 }
 
                 Column {
-                    id: detailCol
-                    anchors.left: imgFrame.right
-                    anchors.leftMargin: units.gu(2)
+                    id: mainColumn
+
+                    anchors.left: parent.left
                     anchors.right: parent.right
-                    anchors.rightMargin: units.gu(2)
-                    spacing: units.gu(0.5)
+                    anchors.margins: units.gu(2)
+                    anchors.verticalCenter: parent.verticalCenter
+                    spacing: units.gu(1)
 
-                    Row {
-                        width: parent.width
-                        spacing: units.gu(1)
+                    RowLayout {
+                        id: titleRow
 
-                        Label {
-                            textFormat: Text.PlainText
-                            text: model.name.trim()
-                            width: parent.width - episodeCount.width - units.gu(1)
-                            elide: Text.ElideRight
-                        }
-
-                        Label {
-                            id: episodeCount
-                            width: units.gu(4)
-                            visible: view.model === episodeModel || model.episodeCount > 0
-                            text: view.model === episodeModel ? (!isNaN(model.duration) && model.duration !== 0 ? Podcasts.formatTime(model.duration) : "") : model.episodeCount
-                            horizontalAlignment: Text.AlignRight
-                            fontSize: "small"
-                        }
-                    }
-
-                    Row {
-                        width: parent.width
-                        spacing: units.gu(1)
-
-                        Label {
-                            id: desc
-                            text: view.model === episodeModel ? model.description : model.artist
-                            textFormat: Text.RichText
-                            clip: true
-                            height: listItem.expanded ? contentHeight : units.gu(2)
-                            wrapMode: Text.WordWrap
-                            width: parent.width - listened.width - units.gu(1)
-                            elide: Text.ElideRight
-                            fontSize: "small"
-
-                            Behavior on height {
-                                UbuntuNumberAnimation {
-                                    duration: UbuntuAnimation.SlowDuration
-                                }
-                            }
-
-                        }
-
-                        Rectangle {
-                            id: listened
-                            border.color: UbuntuColors.lightGrey
-                            height: units.gu(2)
-                            width: height
-                            radius: width / 2
-                            visible: view.model === episodeModel && model.listened
-                            Icon {
-                                id: tick
-                                name: "tick"
-                                anchors.centerIn: parent
-                                anchors.verticalCenterOffset: units.gu(0.1)
-                                height: units.gu(1.4)
-                                width: height
-                            }
-                        }
-                    }
-
-                    Row {
                         width: parent.width
                         spacing: units.gu(2)
-                        Icon {
-                            name: player.playbackState === MediaPlayer.PlayingState && currentGuid === model.guid ? "media-playback-pause"
-                                                                                                                  : "media-playback-start"
-                            visible: view.model === episodeModel
-                            width: units.gu(4)
-                            height: width
-                            MouseArea {
-                                anchors.fill: parent
 
-                                onClicked: {
-                                    var db = Podcasts.init();
-                                    db.transaction(function (tx) {
-                                        if (currentGuid === model.guid) {
-                                            if (player.playbackState === MediaPlayer.PlayingState) {
-                                                player.pause()
-                                            } else {
-                                                player.play()
-                                            }
-                                        } else {
-                                            currentGuid = "";
-                                            player.source = model.downloadedfile ? model.downloadedfile : model.audiourl;
-                                            var rs = tx.executeSql("SELECT position FROM Episode WHERE guid=?", [model.guid]);
-                                            player.play();
-                                            player.seek(rs.rows.item(0).position);
-                                            currentName = model.name;
-                                            currentArtist = model.artist;
-                                            currentImage = model.image;
-                                            currentGuid = model.guid;
-                                        }
-                                    });
-                                }
-                            }
+                        Image {
+                            id: imgFrame
+                            width: units.gu(5)
+                            height: width
+                            sourceSize.height: width
+                            sourceSize.width: width
+                            source: model.image
                         }
 
-                        Item {
-                            width: units.gu(4)
-                            height: width
+                        Column {
+                            id: detailColumn
 
-                            ActivityIndicator {
-                                anchors.centerIn: parent
-                                visible: downloader.downloadingGuid === model.guid
-                                running: visible
+                            anchors.verticalCenter: imgFrame.verticalCenter
+                            Layout.fillWidth: true
+
+                            Label {
+                                id: podcastTitle
+                                textFormat: Text.PlainText
+                                text: model.name.trim()
+                                width: parent.width
+                                fontSize: "small"
+                                elide: Text.ElideRight
                             }
 
-                            Icon {
-                                anchors.fill: parent
-                                property bool queued: false;
-                                name: model.downloadedfile ? "delete" : (queued && downloader.downloadingGuid !== model.guid ? "history" : "save")
-                                width: units.gu(4)
-                                height: width
-                                visible: view.model === episodeModel
-                                opacity: downloader.downloadingGuid === model.guid ? 0.4 : 1.0
-
-                                MouseArea {
-                                    anchors.fill: parent
-                                    enabled: downloader.downloadingGuid !== model.guid
-
-                                    onClicked: {
-                                        if (model.downloadedfile) {
-                                            fileManager.deleteFile(model.downloadedfile);
-                                            var db = Podcasts.init();
-                                            db.transaction(function (tx) {
-                                                tx.executeSql("UPDATE Episode SET downloadedfile = NULL WHERE guid = ?", [model.guid]);
-                                            });
-                                            loadEpisodes(episodeModel.pid, episodeModel.artist, episodeModel.image);
-                                        } else {
-                                            parent.queued = true;
-                                            downloader.addDownload(model.guid, model.audiourl);
-                                        }
-                                    }
-                                }
+                            Label {
+                                id: episodeCount
+                                width: parent.width
+                                color: "#999999"
+                                visible: model.episodeCount > 0
+                                text: model.episodeCount + " Episodes"
+                                fontSize: "x-small"
                             }
                         }
                     }
-
                 }
             }
 
@@ -427,39 +263,20 @@ Tab {
     function refreshModel() {
         var db = Podcasts.init();
 
-        if (view.model === podcastModel) {
-            db.transaction(function (tx) {
-                podcastModel.clear();
-                var rs = tx.executeSql("SELECT rowid, * FROM Podcast ORDER BY name ASC");
-                for(var i = 0; i < rs.rows.length; i++) {
-                    var podcast = rs.rows.item(i);
-                    var rs2 = tx.executeSql("SELECT Count(*) AS epcount FROM Episode WHERE podcast=? AND NOT listened", [rs.rows.item(i).rowid]);
-                    podcastModel.append({"id" : podcast.rowid, "name" : podcast.name, "artist" : podcast.artist, "image" : podcast.image, "episodeCount" : rs2.rows.item(0).epcount});
-                    if (podcast.lastupdate === null && !episodesUpdating) {
-                        updateEpisodes();
-                    }
-                }
-            });
-        } else {
-            loadEpisodes(episodeModel.pid, episodeModel.artist, episodeModel.image);
-        }
-
-        episodesUpdating = false;
-    }
-
-    function loadEpisodes(pid, artist, img) {
-        var db = Podcasts.init();
         db.transaction(function (tx) {
-            episodeModel.clear();
-            var rs = tx.executeSql("SELECT rowid, * FROM Episode WHERE podcast=? ORDER BY published DESC", [pid]);
+            podcastModel.clear();
+            var rs = tx.executeSql("SELECT rowid, * FROM Podcast ORDER BY name ASC");
             for(var i = 0; i < rs.rows.length; i++) {
-                var episode = rs.rows.item(i);
-                episodeModel.pid = pid;
-                episodeModel.artist = artist;
-                episodeModel.image = img;
-                episodeModel.append({"guid" : episode.guid, "listened" : episode.listened, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : img, "artist" : artist, "audiourl" : episode.audiourl});
+                var podcast = rs.rows.item(i);
+                var rs2 = tx.executeSql("SELECT Count(*) AS epcount FROM Episode WHERE podcast=? AND NOT listened", [rs.rows.item(i).rowid]);
+                podcastModel.append({"id" : podcast.rowid, "name" : podcast.name, "artist" : podcast.artist, "image" : podcast.image, "episodeCount" : rs2.rows.item(0).epcount});
+                if (podcast.lastupdate === null && !episodesUpdating) {
+                    updateEpisodes();
+                }
             }
         });
+
+        episodesUpdating = false;
     }
 
     function subscribeFromFeed(feed) {
