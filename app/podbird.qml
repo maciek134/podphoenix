@@ -78,8 +78,8 @@ MainView {
 
             var db = Podcasts.init();
             db.transaction(function (tx) {
-                tx.executeSql("UPDATE Episode SET position=? WHERE guid=?", [position >= duration - 30 ? 0 : position, currentGuid]);
-                if (position >= duration - 30) {
+                tx.executeSql("UPDATE Episode SET position=? WHERE guid=?", [position >= duration ? 120 : position, currentGuid]);
+                if (position >= duration - 120) {
                     tx.executeSql("UPDATE Episode SET listened = 1 WHERE guid=?", [currentGuid]);
                 }
             });
