@@ -278,7 +278,7 @@ Tab {
                                 width: parent.width
                                 color: "#999999"
                                 visible: model.episodeCount > 0
-                                text: model.episodeCount + " Episodes"
+                                text: i18n.tr("%1 unheard episode", "%1 unheard episodes", model.episodeCount).arg(model.episodeCount)
                                 fontSize: "x-small"
                             }
                         }

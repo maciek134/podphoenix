@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-29 23:01+0000\n"
+"POT-Creation-Date: 2015-01-29 23:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
 #: ../app/ui/EpisodesPage.qml:67
 msgid "Search Episode"
@@ -131,6 +132,13 @@ msgstr ""
 #: ../app/ui/PodcastsTab.qml:174
 msgid "No podcasts found matching the search term."
 msgstr ""
+
+#: ../app/ui/PodcastsTab.qml:281
+#, qt-format
+msgid "%1 unheard episode"
+msgid_plural "%1 unheard episodes"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../app/ui/SearchTab.qml:27
 msgid "Search"
