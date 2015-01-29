@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-29 22:53+0000\n"
+"POT-Creation-Date: 2015-01-29 23:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,59 +17,63 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../app/ui/EpisodesPage.qml:66
-msgid "Unsubscribe"
-msgstr ""
-
-#: ../app/ui/EpisodesPage.qml:75
+#: ../app/ui/EpisodesPage.qml:67
 msgid "Search Episode"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:89 ../app/ui/PodcastsTab.qml:86
+#: ../app/ui/EpisodesPage.qml:76
+msgid "Mark all as listened"
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:87
+msgid "Unsubscribe"
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:102 ../app/ui/PodcastsTab.qml:86
 #: ../app/ui/PodcastsTab.qml:109
 msgid "Back"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:100
+#: ../app/ui/EpisodesPage.qml:113
 msgid "Search Episode..."
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:112
+#: ../app/ui/EpisodesPage.qml:125
 msgid "Unsubscribe Confirmation"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:113
+#: ../app/ui/EpisodesPage.qml:126
 #, qt-format
 msgid "Are you sure you want to unsubscribe from <b>%1</b>?"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:115
+#: ../app/ui/EpisodesPage.qml:128
 msgid "Yes"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:132
+#: ../app/ui/EpisodesPage.qml:145
 msgid "No"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:146
+#: ../app/ui/EpisodesPage.qml:159
 msgid "No Episodes found"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:147
+#: ../app/ui/EpisodesPage.qml:160
 msgid "No episodes found matching the search term."
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:267
+#: ../app/ui/EpisodesPage.qml:280
 #, qt-format
 msgid "%1h %2m"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:273
+#: ../app/ui/EpisodesPage.qml:286
 #, qt-format
 msgid "%1h"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:278
+#: ../app/ui/EpisodesPage.qml:291
 #, c-format, qt-format
 msgid "%1m"
 msgstr ""

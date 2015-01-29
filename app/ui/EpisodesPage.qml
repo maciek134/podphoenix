@@ -63,21 +63,34 @@ Page {
             head: episodesPage.head
             actions: [
                 Action {
-                    text: i18n.tr("Unsubscribe")
-                    iconName: "delete"
-                    onTriggered: {
-                        PopupUtils.open(confirmDeleteDialog);
-                    }
-                },
-
-                Action {
                     iconName: "search"
                     text: i18n.tr("Search Episode")
                     onTriggered: {
                         episodesPage.state = "search"
                         searchField.forceActiveFocus()
                     }
+                },
+
+                Action {
+                    iconName: "select"
+                    text: i18n.tr("Mark all as listened")
+                    onTriggered: {
+                        var db = Podcasts.init();
+                        db.transaction(function (tx) {
+                            tx.executeSql("UPDATE Episode SET listened=1 WHERE podcast=?", [episodeModel.pid]);
+                            updateEpisodes();
+                        });
+                    }
+                },
+
+                Action {
+                    text: i18n.tr("Unsubscribe")
+                    iconName: "delete"
+                    onTriggered: {
+                        PopupUtils.open(confirmDeleteDialog);
+                    }
                 }
+
             ]
         },
 
