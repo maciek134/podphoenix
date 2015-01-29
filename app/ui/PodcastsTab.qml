@@ -251,7 +251,7 @@ Tab {
 
                         Image {
                             id: imgFrame
-                            width: units.gu(5)
+                            width: units.gu(6)
                             height: width
                             sourceSize.height: width
                             sourceSize.width: width
