@@ -181,8 +181,6 @@ Tab {
         SortFilterModel {
             id: sortedPodcastModel
             model: podcastModel
-            sort.property: "name"
-            sort.order: Qt.AscendingOrder
             filter.property: "name"
             filter.pattern: RegExp(searchField.text, "gi")
         }

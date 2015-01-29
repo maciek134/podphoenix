@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-29 22:46+0000\n"
+"POT-Creation-Date: 2015-01-29 22:53+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -115,7 +115,7 @@ msgid "No Podcast Subscriptions"
 msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:172
-msgid "No Podcasts found"
+msgid "No Podcasts Found"
 msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:173
