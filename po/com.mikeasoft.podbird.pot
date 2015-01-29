@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-27 16:53+0000\n"
+"POT-Creation-Date: 2015-01-29 22:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -140,6 +140,6 @@ msgstr ""
 msgid "Subscribe"
 msgstr ""
 
-#: /home/mike/src/build-podbird-Ubuntu_Device3_GCC_armhf_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
+#: /home/mike/src/build-podbird-Desktop-Default/po/Podbird.desktop.in.h:1
 msgid "Podbird"
 msgstr ""
