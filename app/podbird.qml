@@ -60,8 +60,6 @@ MainView {
                 } else {
                     downloadingGuid = "";
                 }
-
-                loadEpisodes(episodeModel.pid, episodeModel.artist, episodeModel.image);
             });
         }
 

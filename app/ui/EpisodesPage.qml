@@ -118,6 +118,13 @@ Page {
         }
     ]
 
+    Connections {
+        target: downloader
+        onDownloadingGuidChanged: {
+            loadEpisodes(episodeId, episodeArtist, episodeImage);
+        }
+    }
+
     Component {
         id: confirmDeleteDialog
         Dialog {
