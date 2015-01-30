@@ -26,7 +26,12 @@
 FileManager::FileManager(QObject *parent):
     QObject(parent)
 {
-
+    // Remove any downloads that haven't been collected previously (because we were closed before they finished)
+    QString downloadManagerPath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QDir::separator() + "ubuntu-download-manager" + QDir::separator() + "com.mikeasoft.podbird";
+    QDir downloadDir(downloadManagerPath);
+    if (downloadDir.exists()) {
+        downloadDir.removeRecursively();
+    }
 }
 
 FileManager::~FileManager() {

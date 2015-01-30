@@ -26,6 +26,11 @@ MainView {
         id: fileManager
     }
 
+    Component.onDestruction: {
+        console.log("Download cancelled");
+        downloader.cancel();
+    }
+
     SingleDownload {
         id: imageDownloader
         property string feed;
