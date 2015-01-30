@@ -78,7 +78,7 @@ Page {
                         var db = Podcasts.init();
                         db.transaction(function (tx) {
                             tx.executeSql("UPDATE Episode SET listened=1 WHERE podcast=?", [episodeModel.pid]);
-                            updateEpisodes();
+                            refreshModel();
                         });
                     }
                 },
