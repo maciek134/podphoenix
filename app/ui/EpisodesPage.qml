@@ -73,7 +73,7 @@ Page {
 
                 Action {
                     iconName: "select"
-                    text: i18n.tr("Mark all as listened")
+                    text: i18n.tr("Mark all listened")
                     onTriggered: {
                         var db = Podcasts.init();
                         db.transaction(function (tx) {
