@@ -414,6 +414,16 @@ Page {
                                 }
                             }
                         }
+
+                        ProgressBar {
+                            visible: downloader.downloadingGuid === model.guid
+                            minimumValue: 0
+                            maximumValue: 100
+                            width: units.gu(16)
+                            height: units.gu(2.6)
+                            value: downloader.progress
+                        }
+
                     }
                 }
             }
