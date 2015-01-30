@@ -414,16 +414,18 @@ Page {
                                 }
                             }
                         }
+                    }
 
-                        ProgressBar {
-                            visible: downloader.downloadingGuid === model.guid
-                            minimumValue: 0
-                            maximumValue: 100
-                            width: units.gu(16)
-                            height: units.gu(2.6)
-                            value: downloader.progress
-                        }
-
+                    ProgressBar {
+                        visible: downloader.downloadingGuid === model.guid
+                        minimumValue: 0
+                        maximumValue: 100
+                        anchors.left: actionRow.right
+                        anchors.right: model.listened ? listened.left : durationIcon.left
+                        anchors.leftMargin: units.gu(2)
+                        anchors.rightMargin: units.gu(2)
+                        height: units.gu(2.6)
+                        value: downloader.progress
                     }
                 }
             }
