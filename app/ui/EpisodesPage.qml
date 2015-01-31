@@ -87,7 +87,7 @@ Page {
                     text: i18n.tr("Unsubscribe")
                     iconName: "delete"
                     onTriggered: {
-                        PopupUtils.open(confirmDeleteDialog);
+                        PopupUtils.open(confirmDeleteDialog, episodesPage);
                     }
                 }
 
