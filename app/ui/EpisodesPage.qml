@@ -147,10 +147,11 @@ Page {
                         Layout.fillWidth: true
 
                         Label {
-                            textFormat: Text.PlainText
                             text: model.name.trim()
                             width: parent.width
                             elide: Text.ElideRight
+                            color: currentGuid === model.guid ? UbuntuColors.orange
+                                                              : Theme.palette.normal.fieldText
                         }
 
                         Label {
@@ -158,6 +159,8 @@ Page {
                             width: parent.width
                             text: model.artist
                             fontSize: "small"
+                            color: currentGuid === model.guid ? UbuntuColors.orange
+                                                              : Theme.palette.normal.fieldText
                             elide: Text.ElideRight
                         }
                     }

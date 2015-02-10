@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-25 21:21+0100\n"
+"POT-Creation-Date: 2015-01-26 02:32+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,19 +38,23 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:196
+#: ../app/ui/EpisodesPage.qml:199
 #, qt-format
 msgid "%1h %2m"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:202
+#: ../app/ui/EpisodesPage.qml:205
 #, qt-format
 msgid "%1h"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:207
+#: ../app/ui/EpisodesPage.qml:210
 #, c-format, qt-format
 msgid "%1m"
+msgstr ""
+
+#: ../app/ui/NowPlayingPage.qml:11
+msgid "Now Playing"
 msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:32
@@ -123,6 +127,6 @@ msgstr ""
 msgid "Subscribe"
 msgstr ""
 
-#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-filter-podcast-list-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
+#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-now-playing-page-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
 msgid "Podbird"
 msgstr ""
