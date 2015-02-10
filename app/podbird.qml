@@ -28,6 +28,11 @@ MainView {
         id: fileManager
     }
 
+    Component.onDestruction: {
+        console.log("Download cancelled");
+        downloader.cancel();
+    }
+
     SingleDownload {
         id: imageDownloader
         property string feed;
@@ -57,8 +62,6 @@ MainView {
                 } else {
                     downloadingGuid = "";
                 }
-
-                loadEpisodes(episodeModel.pid, episodeModel.artist, episodeModel.image);
             });
         }
 
@@ -80,8 +83,8 @@ MainView {
 
             var db = Podcasts.init();
             db.transaction(function (tx) {
-                tx.executeSql("UPDATE Episode SET position=? WHERE guid=?", [position >= duration - 30 ? 0 : position, currentGuid]);
-                if (position >= duration - 30) {
+                tx.executeSql("UPDATE Episode SET position=? WHERE guid=?", [position >= duration ? 120 : position, currentGuid]);
+                if (position >= duration - 120) {
                     tx.executeSql("UPDATE Episode SET listened = 1 WHERE guid=?", [currentGuid]);
                 }
             });

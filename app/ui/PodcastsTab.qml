@@ -169,8 +169,8 @@ Tab {
             visible: podcastModel.count === 0 || sortedPodcastModel.count === 0
             iconName: "music-app-symbolic"
             title: podcastModel.count === 0 ? i18n.tr("No Podcast Subscriptions")
-                                            : i18n.tr("No Podcasts found")
-            subTitle: podcastModel.count === 0 ? i18n.tr("You haven't subscribed to any podcasts yet, visit the 'Search' page to add some.")
+                                            : i18n.tr("No Podcasts Found")
+            subTitle: podcastModel.count === 0 ? i18n.tr("You haven't subscribed to any podcasts yet, visit the 'Find New Podcasts' page to add some.")
                                                : i18n.tr("No podcasts found matching the search term.")
         }
 
@@ -181,12 +181,9 @@ Tab {
         SortFilterModel {
             id: sortedPodcastModel
             model: podcastModel
-            sort.property: "name"
-            sort.order: Qt.AscendingOrder
             filter.property: "name"
             filter.pattern: RegExp(searchField.text, "gi")
         }
-
 
         ListModel {
             id: episodeModel
@@ -254,7 +251,7 @@ Tab {
 
                         Image {
                             id: imgFrame
-                            width: units.gu(5)
+                            width: units.gu(6)
                             height: width
                             sourceSize.height: width
                             sourceSize.width: width
@@ -281,7 +278,7 @@ Tab {
                                 width: parent.width
                                 color: "#999999"
                                 visible: model.episodeCount > 0
-                                text: model.episodeCount + " Episodes"
+                                text: i18n.tr("%1 unheard episode", "%1 unheard episodes", model.episodeCount).arg(model.episodeCount)
                                 fontSize: "x-small"
                             }
                         }

@@ -24,7 +24,7 @@ import Ubuntu.Components.ListItems 1.0 as ListItem
 import "../podcasts.js" as Podcasts
 
 Tab {
-    title: i18n.tr("Search")
+    title: i18n.tr("Find New Podcasts")
 
     property var xhr: new XMLHttpRequest;
 
@@ -77,7 +77,7 @@ Tab {
 
                         Image {
                             id: imgFrame
-                            width: units.gu(5)
+                            width: units.gu(6)
                             height: width
                             sourceSize.height: width
                             sourceSize.width: width
