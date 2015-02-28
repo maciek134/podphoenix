@@ -129,12 +129,22 @@ Page {
             anchors.verticalCenter: parent.verticalCenter
             onClicked: player.seek(player.position - 15 * 1000)
 
-            Icon {
-                id: skipBackwardIcon
-                width: units.gu(3)
-                height: width
+            Row {
+                spacing: units.gu(1)
                 anchors.centerIn: parent
-                name: "media-skip-backward"
+
+                Label {
+                    text: "-15s"
+                    fontSize: "xx-small"
+                    anchors.verticalCenter: skipBackwardIcon.verticalCenter
+                }
+
+                Icon {
+                    id: skipBackwardIcon
+                    width: units.gu(3)
+                    height: width
+                    name: "media-skip-backward"
+                }
             }
         }
 
@@ -163,12 +173,22 @@ Page {
             opacity: player.position/1000 > player.duration/1000 - 15 ? .4 : 1
             onClicked: player.seek(player.position + 15 * 1000)
 
-            Icon {
-                id: skipForwardIcon
-                width: units.gu(3)
-                height: width
+            Row {
+                spacing: units.gu(1)
                 anchors.centerIn: parent
-                name: "media-skip-forward"
+
+                Icon {
+                    id: skipForwardIcon
+                    width: units.gu(3)
+                    height: width
+                    name: "media-skip-forward"
+                }
+
+                Label {
+                    text: "+15s"
+                    fontSize: "xx-small"
+                    anchors.verticalCenter: skipForwardIcon.verticalCenter
+                }
             }
         }
     }
