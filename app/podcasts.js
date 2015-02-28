@@ -43,9 +43,16 @@ function getTimeDiff(time) {
     return [hours, minutes]
 }
 
-function formatTime(seconds) {
-    var rem = seconds % 3600;
-    return Math.floor(seconds / 3600) + ":" + zeroFill(Math.floor(rem / 60), 2);
+function formatTime(time) {
+    var hours, minutes, seconds;
+    seconds = zeroFill(Math.floor(time % 60), 2)
+    time = Math.floor(time/60)
+    hours = zeroFill(Math.floor(time/60), 2)
+    minutes = zeroFill(time % 60, 2)
+    if (hours > 0)
+        return hours + ":" + minutes + ":" + seconds;
+    else
+        return minutes + ":" + seconds;
 }
 
 function zeroFill(n, width) {
