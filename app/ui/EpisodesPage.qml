@@ -350,44 +350,47 @@ Page {
                         spacing: units.gu(2)
                         anchors.left: parent.left
 
-                        Icon {
-                            id: playButton
-                            name: player.playbackState === MediaPlayer.PlayingState && currentGuid === model.guid ? "media-playback-pause"
-                                                                                                                  : "media-playback-start"
-                            width: units.gu(2.5)
+                        MouseArea {
+                            width: units.gu(3.5)
                             height: width
-                            MouseArea {
-                                anchors.fill: parent
 
-                                onClicked: {
-                                    var db = Podcasts.init();
-                                    db.transaction(function (tx) {
-                                        if (currentGuid === model.guid) {
-                                            if (player.playbackState === MediaPlayer.PlayingState) {
-                                                player.pause()
-                                            } else {
-                                                player.play()
-                                            }
+                            onClicked: {
+                                var db = Podcasts.init();
+                                db.transaction(function (tx) {
+                                    if (currentGuid === model.guid) {
+                                        if (player.playbackState === MediaPlayer.PlayingState) {
+                                            player.pause()
                                         } else {
-                                            currentGuid = "";
-                                            player.source = model.downloadedfile ? model.downloadedfile : model.audiourl;
-                                            var rs = tx.executeSql("SELECT position FROM Episode WHERE guid=?", [model.guid]);
-                                            player.play();
-                                            player.seek(rs.rows.item(0).position);
-                                            currentName = model.name;
-                                            currentArtist = model.artist;
-                                            currentImage = model.image;
-                                            currentGuid = model.guid;
+                                            player.play()
                                         }
-                                    });
-                                }
+                                    } else {
+                                        currentGuid = "";
+                                        player.source = model.downloadedfile ? model.downloadedfile : model.audiourl;
+                                        var rs = tx.executeSql("SELECT position FROM Episode WHERE guid=?", [model.guid]);
+                                        player.play();
+                                        player.seek(rs.rows.item(0).position);
+                                        currentName = model.name;
+                                        currentArtist = model.artist;
+                                        currentImage = model.image;
+                                        currentGuid = model.guid;
+                                    }
+                                });
+                            }
+
+                            Icon {
+                                id: playButton
+                                name: player.playbackState === MediaPlayer.PlayingState && currentGuid === model.guid ? "media-playback-pause"
+                                                                                                                      : "media-playback-start"
+                                width: units.gu(2.5)
+                                height: width
+                                anchors.centerIn: parent
                             }
                         }
 
                         Item {
                             id: downloadButton
 
-                            width: units.gu(2.5)
+                            width: units.gu(3.5)
                             height: width
 
                             ActivityIndicator {
@@ -397,29 +400,30 @@ Page {
                             }
 
                             Icon {
-                                anchors.fill: parent
+                                id: downloadIcon
                                 property bool queued: false;
                                 name: model.downloadedfile ? "delete" : (queued && downloader.downloadingGuid !== model.guid ? "history" : "save")
-                                width: units.gu(4)
+                                anchors.centerIn: parent
+                                width: units.gu(2.5)
                                 height: width
                                 opacity: downloader.downloadingGuid === model.guid ? 0.4 : 1.0
+                            }
 
-                                MouseArea {
-                                    anchors.fill: parent
-                                    enabled: downloader.downloadingGuid !== model.guid
+                            MouseArea {
+                                anchors.fill: parent
+                                enabled: downloader.downloadingGuid !== model.guid
 
-                                    onClicked: {
-                                        if (model.downloadedfile) {
-                                            fileManager.deleteFile(model.downloadedfile);
-                                            var db = Podcasts.init();
-                                            db.transaction(function (tx) {
-                                                tx.executeSql("UPDATE Episode SET downloadedfile = NULL WHERE guid = ?", [model.guid]);
-                                            });
-                                            loadEpisodes(episodeModel.pid, episodeModel.artist, episodeModel.image);
-                                        } else {
-                                            parent.queued = true;
-                                            downloader.addDownload(model.guid, model.audiourl);
-                                        }
+                                onClicked: {
+                                    if (model.downloadedfile) {
+                                        fileManager.deleteFile(model.downloadedfile);
+                                        var db = Podcasts.init();
+                                        db.transaction(function (tx) {
+                                            tx.executeSql("UPDATE Episode SET downloadedfile = NULL WHERE guid = ?", [model.guid]);
+                                        });
+                                        loadEpisodes(episodeModel.pid, episodeModel.artist, episodeModel.image);
+                                    } else {
+                                        downloadIcon.queued = true;
+                                        downloader.addDownload(model.guid, model.audiourl);
                                     }
                                 }
                             }
