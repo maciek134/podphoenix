@@ -241,14 +241,16 @@ Page {
                             textFormat: Text.PlainText
                             text: model.name.trim()
                             width: parent.width
+                            maximumLineCount: 2
+                            wrapMode: Text.WordWrap
                             elide: Text.ElideRight
                         }
 
                         Label {
-                            id: episodeArtist
+                            id: episodePublishDate
                             width: parent.width
-                            text: model.artist
-                            fontSize: "small"
+                            text: Qt.formatDate(new Date(model.published), "MMM d, yyyy")
+                            fontSize: "x-small"
                             elide: Text.ElideRight
                         }
                     }
@@ -460,7 +462,7 @@ Page {
                 episodeModel.pid = pid;
                 episodeModel.artist = artist;
                 episodeModel.image = img;
-                episodeModel.append({"guid" : episode.guid, "listened" : episode.listened, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : img, "artist" : artist, "audiourl" : episode.audiourl});
+                episodeModel.append({"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : img, "artist" : artist, "audiourl" : episode.audiourl});
             }
         });
     }
