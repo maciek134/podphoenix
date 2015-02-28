@@ -142,7 +142,7 @@ Page {
                     id: skipBackwardIcon
                     width: units.gu(3)
                     height: width
-                    name: "media-skip-backward"
+                    name: "media-seek-backward"
                 }
             }
         }
@@ -180,7 +180,7 @@ Page {
                     id: skipForwardIcon
                     width: units.gu(3)
                     height: width
-                    name: "media-skip-forward"
+                    name: "media-seek-forward"
                 }
 
                 Label {
