@@ -133,7 +133,7 @@ Page {
                 anchors.centerIn: parent
 
                 Label {
-                    text: "-15s"
+                    text: i18n.tr("-15s")
                     fontSize: "xx-small"
                     anchors.verticalCenter: skipBackwardIcon.verticalCenter
                 }
@@ -184,7 +184,7 @@ Page {
                 }
 
                 Label {
-                    text: "+15s"
+                    text: i18n.tr("+15s")
                     fontSize: "xx-small"
                     anchors.verticalCenter: skipForwardIcon.verticalCenter
                 }
