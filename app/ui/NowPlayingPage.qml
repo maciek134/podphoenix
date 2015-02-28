@@ -57,7 +57,7 @@ Page {
         anchors.margins: units.gu(2)
         text: currentName
         elide: Text.ElideRight
-        fontSize: "x-large"
+        fontSize: "large"
         maximumLineCount: 2
         wrapMode: Text.WordWrap
     }
