@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-28 10:42+0100\n"
+"POT-Creation-Date: 2015-02-28 13:50+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -79,8 +79,16 @@ msgstr ""
 msgid "%1m"
 msgstr ""
 
-#: ../app/ui/NowPlayingPage.qml:11
+#: ../app/ui/NowPlayingPage.qml:28
 msgid "Now Playing"
+msgstr ""
+
+#: ../app/ui/NowPlayingPage.qml:136
+msgid "-15s"
+msgstr ""
+
+#: ../app/ui/NowPlayingPage.qml:187
+msgid "+15s"
 msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:32
@@ -156,6 +164,6 @@ msgstr ""
 msgid "Subscribe"
 msgstr ""
 
-#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-now-playing-page-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
+#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-now-playing-page-UbuntuSDK_for_i386_GCC_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
 msgid "Podbird"
 msgstr ""
