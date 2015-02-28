@@ -18,7 +18,7 @@ Page {
         anchors.left: parent.left
         anchors.top: parent.top
         anchors.right: parent.right
-        height: parent.height/2.5
+        height: title.lineCount === 1 ? parent.height/2 + units.gu(3) : parent.height/2
         art: currentImage
 
         Image {
@@ -55,91 +55,103 @@ Page {
         fontSize: "small"
     }
 
-    RowLayout {
-        id: sliderRow
+    Slider {
+        id: scrubber
 
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.top: artist.bottom
-        anchors.margins: units.gu(2)
-        anchors.topMargin: units.gu(4)
-        spacing: units.gu(0.5)
-
-        Label {
-            id: startTime
-            fontSize: "small"
-            text: Podcasts.formatTime(player.position / 1000)
+        anchors {
+            left: parent.left
+            right: parent.right
+            margins: units.gu(2)
+            bottom: controls.top
+            bottomMargin: units.gu(2)
         }
 
-        Slider {
-            id: scrubber
-            minimumValue: 0
-            Layout.fillWidth: true
-            live: true
-            height: units.gu(2)
-            onValueChanged: {
-                if (pressed) {
-                    player.seek(value);
-                }
+        live: true
+        minimumValue: 0
+        maximumValue: player.duration
+        value: player.position
+        height: units.gu(2)
+
+        onValueChanged: {
+            if (pressed) {
+                player.seek(value);
             }
-            function formatValue(v) { return Podcasts.formatTime(v/1000); }
         }
 
-        Label {
-            id: endTime
-            fontSize: "small"
-            text: Podcasts.formatTime(player.duration / 1000)
-        }
+        function formatValue(v) { return Podcasts.formatTime(v/1000); }
     }
 
-    Connections {
-        target: player
-        onDurationChanged: {
-            scrubber.maximumValue = player.duration
-        }
-        onPositionChanged: {
-            scrubber.value = player.position
-        }
+    Label {
+        id: startTime
+        fontSize: "small"
+        anchors.left: scrubber.left
+        anchors.top: scrubber.bottom
+        text: Podcasts.formatTime(player.position / 1000)
+    }
+
+    Label {
+        id: endTime
+        fontSize: "small"
+        anchors.right: scrubber.right
+        anchors.top: scrubber.bottom
+        text: Podcasts.formatTime(player.duration / 1000)
     }
 
     Row {
         id: controls
-        anchors.top: sliderRow.bottom
+        anchors.bottom: parent.bottom
         anchors.horizontalCenter: parent.horizontalCenter
-        anchors.margins: units.gu(4)
-        spacing: units.gu(4)
+        spacing: units.gu(2)
 
-        Icon {
+        MouseArea {
+            id: skipBackwardButton
             width: units.gu(6)
             height: width
-            name: "media-skip-backward"
+            opacity: player.position/1000 < 15 ? .4 : 1
             anchors.verticalCenter: parent.verticalCenter
-        }
+            onClicked: player.seek(player.position - 15 * 1000)
 
-        Item {
-            width: units.gu(6); height: units.gu(6)
-            anchors.verticalCenter: parent.verticalCenter
             Icon {
-                anchors.centerIn: parent
-                //color: "gray"
-                width: units.gu(10)
+                id: skipBackwardIcon
+                width: units.gu(3)
                 height: width
-                name: player.playbackState === MediaPlayer.PlayingState ? "media-playback-pause"
-                                               : "media-playback-start"
-                opacity: play.pressed ? 0.4 : 1.0
-            }
-            MouseArea {
-                id: play
-                anchors.fill: parent
-                onClicked: player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
+                anchors.centerIn: parent
+                name: "media-skip-backward"
             }
         }
 
-        Icon {
+        MouseArea {
+            id: playButton
+            width: units.gu(10)
+            height: width
+            opacity: playButton.pressed ? 0.4 : 1.0
+            onClicked: player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
+
+            Icon {
+                id: playIcon
+                width: units.gu(6)
+                height: width
+                anchors.centerIn: parent
+                name: player.playbackState === MediaPlayer.PlayingState ? "media-playback-pause"
+                                                                        : "media-playback-start"
+            }
+        }
+
+        MouseArea {
+            id: skipForwardButton
             width: units.gu(6)
             height: width
-            name: "media-skip-forward"
             anchors.verticalCenter: parent.verticalCenter
+            opacity: player.position/1000 > player.duration/1000 - 15 ? .4 : 1
+            onClicked: player.seek(player.position + 15 * 1000)
+
+            Icon {
+                id: skipForwardIcon
+                width: units.gu(3)
+                height: width
+                anchors.centerIn: parent
+                name: "media-skip-forward"
+            }
         }
     }
 }
