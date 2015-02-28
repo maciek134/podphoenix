@@ -142,7 +142,7 @@ Tab {
                     searchResults.append({"name" : json.results[i].trackName,
                                              "artist" : json.results[i].artistName,
                                              "feed" : json.results[i].feedUrl,
-                                             "image" : json.results[i].artworkUrl100});
+                                             "image" : json.results[i].artworkUrl600});
                 }
             }
         }

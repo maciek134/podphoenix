@@ -39,7 +39,7 @@ Page {
         art: currentImage
 
         Image {
-            width: units.gu(6)
+            width: parent.width/2
             height: width
             sourceSize.height: width
             sourceSize.width: width
