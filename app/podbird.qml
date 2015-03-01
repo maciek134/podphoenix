@@ -8,6 +8,8 @@ import "ui"
 import "podcasts.js" as Podcasts
 
 MainView {
+    id: mainView
+
     objectName: "mainView"
     applicationName: "com.mikeasoft.podbird"
 
@@ -107,9 +109,25 @@ MainView {
     }
 
     PlayerControls {
+        id: playerControl
+
+        visible: !Qt.inputMethod.visible
         anchors.bottom: parent.bottom
-        height: player.source == "" ? 0 : units.gu(8)
-        width: parent.width
+
+        state: "hidden"
+        states: [
+            State {
+                name: "shown"
+                when: player.source != "" && !mainStack.currentPage.isNowPlayingPage
+                PropertyChanges { target: playerControl; height: units.gu(8) }
+            },
+
+            State {
+                name: "hidden"
+                when: player.source == ""
+                PropertyChanges { target: playerControl; height: 0 }
+            }
+        ]
 
         Behavior on height {
             UbuntuNumberAnimation {

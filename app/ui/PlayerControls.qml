@@ -23,11 +23,23 @@ import "../podcasts.js" as Podcasts
 
 Rectangle {
     id: controlRect
+
+    height: 0
     color: "black"
+    width: parent.width
+
+    MouseArea {
+        z: -1
+        anchors.fill: parent
+        onClicked: {
+            mainStack.push(Qt.resolvedUrl("NowPlayingPage.qml"))
+        }
+    }
 
     Item {
         anchors.fill: parent
         anchors.rightMargin: units.gu(2)
+        visible: controlRect.height > 0
 
         Image {
             anchors.verticalCenter: parent.verticalCenter

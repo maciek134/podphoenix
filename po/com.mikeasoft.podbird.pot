@@ -64,19 +64,31 @@ msgstr ""
 msgid "No episodes found matching the search term."
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:289
+#: ../app/ui/EpisodesPage.qml:290
 #, qt-format
 msgid "%1h %2m"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:295
+#: ../app/ui/EpisodesPage.qml:296
 #, qt-format
 msgid "%1h"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:300
+#: ../app/ui/EpisodesPage.qml:301
 #, c-format, qt-format
 msgid "%1m"
+msgstr ""
+
+#: ../app/ui/NowPlayingPage.qml:28
+msgid "Now Playing"
+msgstr ""
+
+#: ../app/ui/NowPlayingPage.qml:136
+msgid "-15s"
+msgstr ""
+
+#: ../app/ui/NowPlayingPage.qml:187
+msgid "+15s"
 msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:32
@@ -152,6 +164,6 @@ msgstr ""
 msgid "Subscribe"
 msgstr ""
 
-#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-show-publish-date-UbuntuSDK_for_i386_GCC_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
+#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-now-playing-page-UbuntuSDK_for_i386_GCC_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
 msgid "Podbird"
 msgstr ""
