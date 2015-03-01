@@ -124,9 +124,13 @@ Page {
             id: skipBackwardButton
             width: units.gu(6)
             height: width
-            opacity: player.position/1000 < 15 ? .4 : 1
             anchors.verticalCenter: parent.verticalCenter
-            onClicked: player.seek(player.position - 15 * 1000)
+            opacity: player.position === 0 ? 0.4 : 1.0
+            onClicked: {
+                if (player.position > 0) {
+                    player.seek(player.position - 15 * 1000);
+                }
+            }
 
             Row {
                 spacing: units.gu(1)
@@ -169,8 +173,12 @@ Page {
             width: units.gu(6)
             height: width
             anchors.verticalCenter: parent.verticalCenter
-            opacity: player.position/1000 > player.duration/1000 - 15 ? .4 : 1
-            onClicked: player.seek(player.position + 15 * 1000)
+            opacity: player.position === 0 ? 0.4 : 1.0
+            onClicked: {
+                if (player.position > 0) {
+                    player.seek(player.position + 15 * 1000);
+                }
+            }
 
             Row {
                 spacing: units.gu(1)

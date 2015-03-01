@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-28 20:40+0100\n"
+"POT-Creation-Date: 2015-03-01 21:13+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -64,17 +64,17 @@ msgstr ""
 msgid "No episodes found matching the search term."
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:290
+#: ../app/ui/EpisodesPage.qml:292
 #, qt-format
 msgid "%1h %2m"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:296
+#: ../app/ui/EpisodesPage.qml:298
 #, qt-format
 msgid "%1h"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:301
+#: ../app/ui/EpisodesPage.qml:303
 #, c-format, qt-format
 msgid "%1m"
 msgstr ""
@@ -83,11 +83,11 @@ msgstr ""
 msgid "Now Playing"
 msgstr ""
 
-#: ../app/ui/NowPlayingPage.qml:136
+#: ../app/ui/NowPlayingPage.qml:140
 msgid "-15s"
 msgstr ""
 
-#: ../app/ui/NowPlayingPage.qml:187
+#: ../app/ui/NowPlayingPage.qml:195
 msgid "+15s"
 msgstr ""
 
@@ -164,6 +164,6 @@ msgstr ""
 msgid "Subscribe"
 msgstr ""
 
-#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-now-playing-page-UbuntuSDK_for_i386_GCC_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
+#: /home/mike/src/build-podbird-Ubuntu_Device3_GCC_armhf_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
 msgid "Podbird"
 msgstr ""
