@@ -38,22 +38,29 @@ Rectangle {
 
     Item {
         anchors.fill: parent
-        anchors.rightMargin: units.gu(2)
         visible: controlRect.height > 0
 
         Image {
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.left: parent.left
             id: cover
+            anchors.top: parent.top
+            anchors.left: parent.left
             source: currentImage
-            width: parent.height
+            width: parent.height - units.gu(0.25)
             height: width
+        }
+
+        Rectangle {
+            id: progressBarHint
+            anchors.left: parent.left
+            anchors.top: cover.bottom
+            color: UbuntuColors.orange
+            height: units.gu(0.25)
+            width: player.duration > 0 ? (player.position / player.duration) * parent.width : 0
         }
 
         Column {
             anchors.verticalCenter: parent.verticalCenter
-            anchors.verticalCenterOffset: 1
-            anchors.right: controls.left
+            anchors.right: playButtonBackground.left
             anchors.left: cover.right
             anchors.leftMargin: units.gu(2)
 
@@ -64,82 +71,48 @@ Rectangle {
                 anchors.right: parent.right
                 color: "white"
                 elide: Text.ElideRight
+                maximumLineCount: 2
+                wrapMode: Text.WrapAnywhere
                 text: currentName
             }
+
             Label {
                 font.weight: Font.Light
                 fontSize: "small"
                 anchors.left: parent.left
                 anchors.right: parent.right
-                color: "white"
+                color: "#999999"
                 elide: Text.ElideRight
                 text: currentArtist
             }
-
-            Row {
-                width: parent.width
-                spacing: units.gu(0.5)
-
-                Slider {
-                    id: scrubber
-                    minimumValue: 0
-                    live: true
-                    width: parent.width - time.width - units.gu(0.5)
-                    height: units.gu(2)
-                    onValueChanged: {
-                        if (pressed) {
-                            player.seek(value);
-                        }
-                    }
-                    function formatValue(v) { return Podcasts.formatTime(v/1000); }
-                }
-
-                Label {
-                    id: time
-                    color: "white"
-                    fontSize: "small"
-                    horizontalAlignment: Text.AlignRight
-                    text: Podcasts.formatTime(player.position / 1000) + " / " + Podcasts.formatTime(player.duration / 1000)
-                }
-            }
         }
 
-        Connections {
-            target: player
-            onDurationChanged: {
-                scrubber.maximumValue = player.duration
-            }
-            onPositionChanged: {
-                scrubber.value = player.position
-            }
-        }
-
-        Row {
-            id: controls
+        Rectangle {
+            id: playButtonBackground
+            width: units.gu(7)
+            height: cover.height
+            color: "#FFF"
+            opacity: play.pressed ? 0.1 : 0
+            visible: controlRect.height > 0
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: parent.right
-            anchors.rightMargin: -units.gu(2)
 
-            Item {
-                width: units.gu(5); height: units.gu(7)
-                visible: controlRect.height > 0
-                anchors.verticalCenter: parent.verticalCenter
-                Icon {
-                    anchors.centerIn: parent
-                    color: "white"
-                    width: units.gu(3)
-                    height: width
-                    name: player.playbackState === MediaPlayer.PlayingState ? "media-playback-pause"
-                                                   : "media-playback-start"
-                    opacity: play.pressed ? 0.4 : 1.0
-                }
-                MouseArea {
-                    id: play
-                    anchors.fill: parent
-                    onClicked: player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
-                }
+            MouseArea {
+                id: play
+                anchors.fill: parent
+                onClicked: player.playbackState === MediaPlayer.PlayingState ? player.pause()
+                                                                             : player.play()
             }
+        }
 
+        Icon {
+            color: "white"
+            width: units.gu(3)
+            height: width
+            anchors.centerIn: playButtonBackground
+            name: player.playbackState === MediaPlayer.PlayingState ? "media-playback-pause"
+                                                                    : "media-playback-start"
+            opacity: play.pressed ? 0.4 : 1.0
         }
     }
 }
