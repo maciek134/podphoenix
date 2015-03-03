@@ -341,6 +341,7 @@ Page {
                         radius: width / 2
                         anchors.right: durationIcon.left
                         anchors.rightMargin: units.gu(2)
+                        anchors.verticalCenter: actionRow.verticalCenter
                         visible: model.listened
                         Icon {
                             id: tick
@@ -360,6 +361,7 @@ Page {
                         visible: duration.text !== ""
                         anchors.right: duration.left
                         anchors.rightMargin: units.gu(0.5)
+                        anchors.verticalCenter: actionRow.verticalCenter
                         color: podbird.theme.baseIcon
                     }
 
@@ -468,6 +470,7 @@ Page {
                         anchors.right: model.listened ? listened.left : durationIcon.left
                         anchors.leftMargin: units.gu(2)
                         anchors.rightMargin: units.gu(2)
+                        anchors.verticalCenter: actionRow.verticalCenter
                         height: units.gu(2.6)
                         value: downloader.progress
                     }
