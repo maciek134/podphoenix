@@ -58,7 +58,6 @@ MainView {
     }
 
     backgroundColor: theme.background
-    headerColor: theme.background
 
     Component.onDestruction: {
         console.log("Download cancelled");

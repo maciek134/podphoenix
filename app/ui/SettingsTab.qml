@@ -109,6 +109,7 @@ Tab {
                             var themeElement =   model.file
                             podbird.settings.themeName = themeElement
                             podbird.theme.name = themeElement
+                            themeSetting.expanded = false
                         }
 
                         Icon {
