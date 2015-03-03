@@ -212,6 +212,7 @@ Tab {
                 height: units.gu(8)
                 removable: true
                 confirmRemoval: true
+                highlightWhenPressed: false
                 onItemRemoved: {
                     var db = Podcasts.init();
                     db.transaction(function (tx) {
@@ -223,6 +224,11 @@ Tab {
                         tx.executeSql("DELETE FROM Podcast WHERE rowid=?", [model.id]);
                         refreshModel()
                     });
+                }
+
+                Rectangle {
+                    anchors.fill: parent
+                    color: listItem.pressed ? podbird.theme.hightlightListView : "transparent"
                 }
 
                 onClicked: {
@@ -271,12 +277,13 @@ Tab {
                                 width: parent.width
                                 fontSize: "small"
                                 elide: Text.ElideRight
+                                color: podbird.theme.baseText
                             }
 
                             Label {
                                 id: episodeCount
                                 width: parent.width
-                                color: "#999999"
+                                color: podbird.theme.baseSubText
                                 visible: model.episodeCount > 0
                                 text: i18n.tr("%1 unheard episode", "%1 unheard episodes", model.episodeCount).arg(model.episodeCount)
                                 fontSize: "x-small"

@@ -40,7 +40,7 @@ Item {
         anchors.horizontalCenter: parent.horizontalCenter
         height: units.gu(10)
         width: height
-        color: "#BBBBBB"
+        color: podbird.theme.baseIcon
     }
 
     Label {
@@ -50,6 +50,7 @@ Item {
         anchors.horizontalCenter: parent.horizontalCenter
         fontSize: "large"
         font.bold: true
+        color: podbird.theme.baseText
     }
 
     Label {
@@ -59,5 +60,6 @@ Item {
         anchors.right: parent.right
         horizontalAlignment: Text.AlignHCenter
         wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+        color: podbird.theme.baseText
     }
 }

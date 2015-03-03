@@ -62,8 +62,15 @@ Tab {
                 }
 
                 delegate: ListItem.Empty {
+                    id: listItem
 
                     height: units.gu(8)
+                    highlightWhenPressed: false
+
+                    Rectangle {
+                        anchors.fill: parent
+                        color: listItem.pressed ? podbird.theme.hightlightListView : "transparent"
+                    }
 
                     RowLayout {
                         id: titleRow
@@ -112,6 +119,7 @@ Tab {
                         Button {
                             anchors.right: parent.right
                             text: i18n.tr("Subscribe")
+                            color: UbuntuColors.green
                             onClicked: {
                                 Podcasts.subscribe(model.artist, model.name, model.feed, model.image);
                                 imageDownloader.feed = model.feed;

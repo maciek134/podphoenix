@@ -10,4 +10,5 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${DESKTOP_FILE_NAME} DESTINATION ${DES
 install(FILES ${QML_JS_FILES} DESTINATION ${PODBIRD_DIR})
 
 add_subdirectory(ui)
+add_subdirectory(themes)
 

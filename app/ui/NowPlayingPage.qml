@@ -59,6 +59,7 @@ Page {
         fontSize: "large"
         maximumLineCount: 2
         wrapMode: Text.WordWrap
+        color: podbird.theme.baseText
     }
 
     Label {
@@ -70,6 +71,7 @@ Page {
         text: currentArtist
         elide: Text.ElideRight
         fontSize: "small"
+        color: podbird.theme.baseSubText
     }
 
     Slider {
@@ -104,6 +106,7 @@ Page {
         anchors.left: scrubber.left
         anchors.top: scrubber.bottom
         text: Podcasts.formatTime(player.position / 1000)
+        color: podbird.theme.baseText
     }
 
     Label {
@@ -112,6 +115,7 @@ Page {
         anchors.right: scrubber.right
         anchors.top: scrubber.bottom
         text: Podcasts.formatTime(player.duration / 1000)
+        color: podbird.theme.baseText
     }
 
     Row {
@@ -140,6 +144,7 @@ Page {
                     text: i18n.tr("-15s")
                     fontSize: "xx-small"
                     anchors.verticalCenter: skipBackwardIcon.verticalCenter
+                    color: podbird.theme.baseText
                 }
 
                 Icon {
@@ -147,6 +152,7 @@ Page {
                     width: units.gu(3)
                     height: width
                     name: "media-seek-backward"
+                    color: podbird.theme.baseIcon
                 }
             }
         }
@@ -163,6 +169,7 @@ Page {
                 width: units.gu(6)
                 height: width
                 anchors.centerIn: parent
+                color: podbird.theme.baseIcon
                 name: player.playbackState === MediaPlayer.PlayingState ? "media-playback-pause"
                                                                         : "media-playback-start"
             }
@@ -189,12 +196,14 @@ Page {
                     width: units.gu(3)
                     height: width
                     name: "media-seek-forward"
+                    color: podbird.theme.baseIcon
                 }
 
                 Label {
                     text: i18n.tr("+15s")
                     fontSize: "xx-small"
                     anchors.verticalCenter: skipForwardIcon.verticalCenter
+                    color: podbird.theme.baseText
                 }
             }
         }

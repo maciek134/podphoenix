@@ -25,7 +25,7 @@ Rectangle {
     id: controlRect
 
     height: 0
-    color: "black"
+    color: podbird.theme.bottomBarBackground
     width: parent.width
 
     MouseArea {
