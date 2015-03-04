@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-04 00:19+0000\n"
+"POT-Creation-Date: 2015-03-04 04:24+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -79,11 +79,11 @@ msgstr ""
 msgid "Now Playing"
 msgstr ""
 
-#: ../app/ui/NowPlayingPage.qml:144
+#: ../app/ui/NowPlayingPage.qml:145
 msgid "-15s"
 msgstr ""
 
-#: ../app/ui/NowPlayingPage.qml:203
+#: ../app/ui/NowPlayingPage.qml:204
 msgid "+15s"
 msgstr ""
 
@@ -100,7 +100,7 @@ msgid "Search Podcast"
 msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:97
-msgid "Search Podcast..."
+msgid "Search podcast"
 msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:120
@@ -108,7 +108,7 @@ msgid "Save Podcast"
 msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:133
-msgid "Feed URL..."
+msgid "Feed URL"
 msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:157
@@ -123,25 +123,25 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:171
+#: ../app/ui/PodcastsTab.qml:172
 msgid "No Podcast Subscriptions"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:172
+#: ../app/ui/PodcastsTab.qml:173
 msgid "No Podcasts Found"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:173
+#: ../app/ui/PodcastsTab.qml:174
 msgid ""
 "You haven't subscribed to any podcasts yet, visit the 'Find New Podcasts' "
 "page to add some."
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:174
+#: ../app/ui/PodcastsTab.qml:175
 msgid "No podcasts found matching the search term."
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:288
+#: ../app/ui/PodcastsTab.qml:291
 #, qt-format
 msgid "%1 unheard episode"
 msgid_plural "%1 unheard episodes"
@@ -168,6 +168,6 @@ msgstr ""
 msgid "Theme"
 msgstr ""
 
-#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-1-add-theming-support-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_15_04_vivid-Default/po/Podbird.desktop.in.h:1
+#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-1-add-theming-support-UbuntuSDK_for_i386_GCC_ubuntu_sdk_14_10_utopic_2-Default/po/Podbird.desktop.in.h:1
 msgid "Podbird"
 msgstr ""

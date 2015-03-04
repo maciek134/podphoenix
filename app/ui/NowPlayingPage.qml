@@ -35,7 +35,8 @@ Page {
         anchors.left: parent.left
         anchors.top: parent.top
         anchors.right: parent.right
-        height: title.lineCount === 1 ? parent.height/2 + units.gu(3) : parent.height/2
+        height: title.lineCount === 1 ? parent.height/2 + units.gu(3)
+                                      : parent.height/2
         art: currentImage
 
         Image {
@@ -105,8 +106,8 @@ Page {
         fontSize: "small"
         anchors.left: scrubber.left
         anchors.top: scrubber.bottom
-        text: Podcasts.formatTime(player.position / 1000)
         color: podbird.theme.baseText
+        text: Podcasts.formatTime(player.position / 1000)
     }
 
     Label {
@@ -114,8 +115,8 @@ Page {
         fontSize: "small"
         anchors.right: scrubber.right
         anchors.top: scrubber.bottom
-        text: Podcasts.formatTime(player.duration / 1000)
         color: podbird.theme.baseText
+        text: Podcasts.formatTime(player.duration / 1000)
     }
 
     Row {
@@ -143,8 +144,8 @@ Page {
                 Label {
                     text: i18n.tr("-15s")
                     fontSize: "xx-small"
-                    anchors.verticalCenter: skipBackwardIcon.verticalCenter
                     color: podbird.theme.baseText
+                    anchors.verticalCenter: skipBackwardIcon.verticalCenter
                 }
 
                 Icon {
@@ -202,8 +203,8 @@ Page {
                 Label {
                     text: i18n.tr("+15s")
                     fontSize: "xx-small"
-                    anchors.verticalCenter: skipForwardIcon.verticalCenter
                     color: podbird.theme.baseText
+                    anchors.verticalCenter: skipForwardIcon.verticalCenter
                 }
             }
         }

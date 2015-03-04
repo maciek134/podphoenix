@@ -94,7 +94,7 @@ Tab {
                 contents: TextField {
                     id: searchField
                     inputMethodHints: Qt.ImhNoPredictiveText
-                    placeholderText: i18n.tr("Search Podcast...")
+                    placeholderText: i18n.tr("Search podcast")
                     anchors.left: parent ? parent.left : undefined
                     anchors.right: parent ? parent.right : undefined
                     anchors.rightMargin: units.gu(2)
@@ -130,7 +130,7 @@ Tab {
                 contents: TextField {
                     id: feedUrlField
                     inputMethodHints: Qt.ImhUrlCharactersOnly
-                    placeholderText: i18n.tr("Feed URL...")
+                    placeholderText: i18n.tr("Feed URL")
                     anchors.left: parent ? parent.left : undefined
                     anchors.right: parent ? parent.right : undefined
                     onAccepted: {
@@ -158,6 +158,7 @@ Tab {
                 text: i18n.tr("Please check the URL and try again")
                 Button {
                     text: i18n.tr("Close")
+                    color: podbird.theme.neutralActionButton
                     onClicked: PopupUtils.close(dialogInternal)
                 }
             }
@@ -213,6 +214,7 @@ Tab {
                 removable: true
                 confirmRemoval: true
                 highlightWhenPressed: false
+
                 onItemRemoved: {
                     var db = Podcasts.init();
                     db.transaction(function (tx) {
@@ -283,10 +285,10 @@ Tab {
                             Label {
                                 id: episodeCount
                                 width: parent.width
+                                fontSize: "x-small"
                                 color: podbird.theme.baseSubText
                                 visible: model.episodeCount > 0
                                 text: i18n.tr("%1 unheard episode", "%1 unheard episodes", model.episodeCount).arg(model.episodeCount)
-                                fontSize: "x-small"
                             }
                         }
                     }
