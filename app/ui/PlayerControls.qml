@@ -60,7 +60,7 @@ Rectangle {
 
         Column {
             anchors.verticalCenter: parent.verticalCenter
-            anchors.right: playButtonBackground.left
+            anchors.right: playButton.left
             anchors.left: cover.right
             anchors.leftMargin: units.gu(2)
 
@@ -87,32 +87,36 @@ Rectangle {
             }
         }
 
-        Rectangle {
-            id: playButtonBackground
+        AbstractButton {
+            id: playButton
+
             width: units.gu(7)
             height: cover.height
-            color: "#FFF"
-            opacity: play.pressed ? 0.1 : 0
-            visible: controlRect.height > 0
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: parent.right
+            enabled: controlRect.height > 0
+            visible: enabled
 
-            MouseArea {
-                id: play
+            Rectangle {
+                id: playButtonBackground
                 anchors.fill: parent
-                onClicked: player.playbackState === MediaPlayer.PlayingState ? player.pause()
-                                                                             : player.play()
+                color: "#FFF"
+                opacity: 0.1
+                visible: playButton.pressed
             }
-        }
 
-        Icon {
-            color: "white"
-            width: units.gu(3)
-            height: width
-            anchors.centerIn: playButtonBackground
-            name: player.playbackState === MediaPlayer.PlayingState ? "media-playback-pause"
-                                                                    : "media-playback-start"
-            opacity: play.pressed ? 0.4 : 1.0
+            onClicked: player.playbackState === MediaPlayer.PlayingState ? player.pause()
+                                                                         : player.play()
+
+            Icon {
+                color: "white"
+                width: units.gu(3)
+                height: width
+                anchors.centerIn: playButtonBackground
+                name: player.playbackState === MediaPlayer.PlayingState ? "media-playback-pause"
+                                                                        : "media-playback-start"
+                opacity: playButton.pressed ? 0.4 : 1.0
+            }
         }
     }
 }
