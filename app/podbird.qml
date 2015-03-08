@@ -119,7 +119,7 @@ MainView {
             State {
                 name: "shown"
                 when: player.source != "" && !mainStack.currentPage.isNowPlayingPage
-                PropertyChanges { target: playerControl; height: units.gu(8) }
+                PropertyChanges { target: playerControl; height: units.gu(7) }
             },
 
             State {
