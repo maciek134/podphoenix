@@ -1,3 +1,5 @@
+// This was adapted from ureadit (Michael Hall). Will need to get the copyright license after contacting michael hall
+
 import QtQuick 2.3
 import Ubuntu.Components 1.1
 
