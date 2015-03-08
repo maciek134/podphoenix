@@ -378,6 +378,7 @@ Page {
                         id: actionRow
 
                         anchors.left: parent.left
+                        anchors.leftMargin: units.gu(-1.5)
 
                         ActionButton {
                             width: units.gu(5)
