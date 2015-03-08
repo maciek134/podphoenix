@@ -30,98 +30,33 @@ Tab {
 
         ListModel {
             id: themeModel
-            ListElement {
-                name: "Light"
-                file: "Light.qml"
-            }
-
-            ListElement {
-                name: "Dark"
-                file: "Dark.qml"
-            }
+            ListElement { name: "Light"; file: "Light.qml" }
+            ListElement { name: "Dark"; file: "Dark.qml" }
         }
 
-        ListItem.Expandable {
+        ExpandableListItem {
             id: themeSetting
+            customModel: themeModel
+            customDelegate: ListItem.Standard {
+                text: model.name
+                divider.anchors.leftMargin: units.gu(1)
+                divider.anchors.rightMargin: units.gu(1)
 
-            anchors {
-                left: parent.left
-                right: parent.right
-            }
-
-            collapseOnClick: true
-            expandedHeight: _themeContentColumn.height + units.gu(1)
-
-            Column {
-                id: _themeContentColumn
-
-                anchors {
-                    left: parent.left
-                    right: parent.right
-                    margins: units.gu(-2)
+                onClicked: {
+                    var themeElement =   model.file
+                    podbird.settings.themeName = themeElement
+                    podbird.theme.name = themeElement
+                    themeSetting.expanded = false
                 }
 
-                Item {
-                    width: parent.width
-                    height: themeSetting.collapsedHeight
-
-                    ListItem.Subtitled {
-                        id: _themeHeader
-                        text: i18n.tr("Theme")
-                        subText: podbird.settings.themeName.split(".qml")[0]
-                        onClicked: themeSetting.expanded = true
-
-                        Icon {
-                            id: _snoozeUpArrow
-
-                            width: units.gu(2)
-                            height: width
-                            anchors.right: parent.right
-                            anchors.verticalCenter: parent.verticalCenter
-
-                            name: "go-down"
-                            color: "Grey"
-                            rotation: themeSetting.expanded ? 180 : 0
-
-                            Behavior on rotation {
-                                UbuntuNumberAnimation {}
-                            }
-                        }
-                    }
-                }
-
-                ListView {
-                    id: themeSettingList
-
-                    interactive: false
-                    model: themeModel
-                    anchors.left: parent.left
+                Icon {
+                    width: units.gu(2)
+                    height: width
+                    name: "ok"
+                    visible: podbird.settings.themeName === model.file
                     anchors.right: parent.right
-                    anchors.margins: units.gu(1)
-                    height: units.gu(11)
-
-                    delegate: ListItem.Standard {
-                        text: model.name
-                        showDivider: true
-                        divider.anchors.leftMargin: units.gu(1)
-                        divider.anchors.rightMargin: units.gu(1)
-                        onClicked: {
-                            var themeElement =   model.file
-                            podbird.settings.themeName = themeElement
-                            podbird.theme.name = themeElement
-                            themeSetting.expanded = false
-                        }
-
-                        Icon {
-                            width: units.gu(2)
-                            height: width
-                            name: "ok"
-                            visible: podbird.settings.themeName === model.file
-                            anchors.right: parent.right
-                            anchors.rightMargin: units.gu(2)
-                            anchors.verticalCenter: parent.verticalCenter
-                        }
-                    }
+                    anchors.rightMargin: units.gu(2)
+                    anchors.verticalCenter: parent.verticalCenter
                 }
             }
         }
