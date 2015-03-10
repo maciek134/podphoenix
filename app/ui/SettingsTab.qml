@@ -41,11 +41,13 @@ Tab {
 
             ExpandableListItem {
                 id: themeSetting
+
                 customModel: themeModel
+                title: i18n.tr("Theme")
+                subTitle: podbird.settings.themeName.split(".qml")[0]
+
                 customDelegate: ListItem.Standard {
                     text: model.name
-                    divider.anchors.leftMargin: units.gu(1)
-                    divider.anchors.rightMargin: units.gu(1)
 
                     onClicked: {
                         var themeElement =   model.file
