@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-08 12:42+0100\n"
+"POT-Creation-Date: 2015-03-11 00:48+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -73,6 +73,10 @@ msgstr ""
 #: ../app/ui/EpisodesPage.qml:327
 #, c-format, qt-format
 msgid "%1m"
+msgstr ""
+
+#: ../app/ui/ExpandableListItem.qml:53
+msgid "Theme"
 msgstr ""
 
 #: ../app/ui/NowPlayingPage.qml:28
@@ -164,10 +168,6 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: ../app/ui/SettingsTab.qml:70
-msgid "Theme"
-msgstr ""
-
-#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-2-add-button-feedback-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
+#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-3-auto-clean-episodes-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
 msgid "Podbird"
 msgstr ""

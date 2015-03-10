@@ -34,30 +34,41 @@ Tab {
             ListElement { name: "Dark"; file: "Dark.qml" }
         }
 
-        ExpandableListItem {
-            id: themeSetting
-            customModel: themeModel
-            customDelegate: ListItem.Standard {
-                text: model.name
-                divider.anchors.leftMargin: units.gu(1)
-                divider.anchors.rightMargin: units.gu(1)
+        Column {
+            id: settingsColumn
 
-                onClicked: {
-                    var themeElement =   model.file
-                    podbird.settings.themeName = themeElement
-                    podbird.theme.name = themeElement
-                    themeSetting.expanded = false
-                }
+            anchors.fill: parent
 
-                Icon {
-                    width: units.gu(2)
-                    height: width
-                    name: "ok"
-                    visible: podbird.settings.themeName === model.file
-                    anchors.right: parent.right
-                    anchors.rightMargin: units.gu(2)
-                    anchors.verticalCenter: parent.verticalCenter
+            ExpandableListItem {
+                id: themeSetting
+                customModel: themeModel
+                customDelegate: ListItem.Standard {
+                    text: model.name
+                    divider.anchors.leftMargin: units.gu(1)
+                    divider.anchors.rightMargin: units.gu(1)
+
+                    onClicked: {
+                        var themeElement =   model.file
+                        podbird.settings.themeName = themeElement
+                        podbird.theme.name = themeElement
+                        themeSetting.expanded = false
+                    }
+
+                    Icon {
+                        width: units.gu(2)
+                        height: width
+                        name: "ok"
+                        visible: podbird.settings.themeName === model.file
+                        anchors.right: parent.right
+                        anchors.rightMargin: units.gu(2)
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
                 }
+            }
+
+            ListItem.Subtitled {
+                text: "Clean up"
+                subText: "Delete Episodes older than 7 days"
             }
         }
     }
