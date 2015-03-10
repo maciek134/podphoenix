@@ -25,6 +25,8 @@ ListItem.Expandable {
 
     property ListModel customModel
     property Component customDelegate
+    property alias title: expandableHeader.text
+    property alias subTitle: expandableHeader.subText
     property alias listViewHeight: expandableList.height
 
     anchors {
@@ -50,8 +52,7 @@ ListItem.Expandable {
 
             ListItem.Subtitled {
                 id: expandableHeader
-                text: i18n.tr("Theme")
-                subText: podbird.settings.themeName.split(".qml")[0]
+
                 onClicked: expandableListItem.expanded = true
 
                 Icon {
@@ -77,10 +78,7 @@ ListItem.Expandable {
             id: expandableList
 
             height: units.gu(11)
-            anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.margins: units.gu(1)
-
+            width: parent.width
             interactive: false
             model: customModel
             delegate: customDelegate
