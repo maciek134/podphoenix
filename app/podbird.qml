@@ -68,7 +68,7 @@ MainView {
     property var settings: Settings {
         // Set "Light.qml" as the default theme
         property string themeName: "Light.qml"
-        property int retentionDays: 7
+        property int retentionDays: -1
         property var lastCheck: new Date()
     }
 
