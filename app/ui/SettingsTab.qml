@@ -87,7 +87,7 @@ Tab {
             ExpandableListItem {
                 id: cleanupSetting
 
-                listViewHeight: units.gu(30)
+                listViewHeight: units.gu(36)
                 customModel: cleanupModel
                 title: i18n.tr("Remove episodes older than")
                 subTitle: podbird.settings.retentionDays === -1 ? i18n.tr("Never")
