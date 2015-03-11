@@ -48,7 +48,7 @@ MainView {
     Component.onCompleted: {
         var today = new Date()
         // Only perform cleanup of old episodes once a day
-        if (Math.floor((today - settings.lastCheck)/86400000) >= 1) {
+        if (Math.floor((today - settings.lastCheck)/86400000) >= 1 && settings.retentionDays !== -1) {
             console.log("[LOG]: Starting cleanup of old episodes..")
             cleanUp(today, settings.retentionDays)
             settings.lastCheck = today

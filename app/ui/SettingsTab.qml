@@ -30,8 +30,24 @@ Tab {
 
         ListModel {
             id: themeModel
-            ListElement { name: "Light"; file: "Light.qml" }
-            ListElement { name: "Dark"; file: "Dark.qml" }
+            Component.onCompleted: initialize()
+            function initialize() {
+                themeModel.append({ name: i18n.tr("Light"), file: "Light.qml" })
+                themeModel.append({ name: i18n.tr("Dark"), file: "Dark.qml" })
+            }
+        }
+
+        ListModel {
+            id: cleanupModel
+            Component.onCompleted: initialize()
+            function initialize() {
+                cleanupModel.append({ name: i18n.tr("Never"), value: -1 })
+                cleanupModel.append({ name: i18n.tr("7 days"), value: 7 })
+                cleanupModel.append({ name: i18n.tr("31 days"), value: 31 })
+                cleanupModel.append({ name: i18n.tr("90 days"), value: 90 })
+                cleanupModel.append({ name: i18n.tr("180 days"), value: 180 })
+                cleanupModel.append({ name: i18n.tr("360 days"), value: 360 })
+            }
         }
 
         Column {
@@ -68,9 +84,33 @@ Tab {
                 }
             }
 
-            ListItem.Subtitled {
-                text: "Clean up"
-                subText: "Delete Episodes older than 7 days"
+            ExpandableListItem {
+                id: cleanupSetting
+
+                listViewHeight: units.gu(30)
+                customModel: cleanupModel
+                title: i18n.tr("Remove episodes older than")
+                subTitle: podbird.settings.retentionDays === -1 ? i18n.tr("Never")
+                                                                : i18n.tr("%1 days").arg(podbird.settings.retentionDays)
+
+                customDelegate: ListItem.Standard {
+                    text: model.name
+
+                    onClicked: {
+                        podbird.settings.retentionDays = model.value
+                        cleanupSetting.expanded = false
+                    }
+
+                    Icon {
+                        width: units.gu(2)
+                        height: width
+                        name: "ok"
+                        visible: podbird.settings.retentionDays === model.value
+                        anchors.right: parent.right
+                        anchors.rightMargin: units.gu(2)
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+                }
             }
         }
     }

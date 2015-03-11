@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-11 00:55+0100\n"
+"POT-Creation-Date: 2015-03-11 01:13+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -164,8 +164,49 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
+#: ../app/ui/SettingsTab.qml:35
+msgid "Light"
+msgstr ""
+
+#: ../app/ui/SettingsTab.qml:36
+msgid "Dark"
+msgstr ""
+
+#: ../app/ui/SettingsTab.qml:44 ../app/ui/SettingsTab.qml:93
+msgid "Never"
+msgstr ""
+
+#: ../app/ui/SettingsTab.qml:45
+msgid "7 days"
+msgstr ""
+
 #: ../app/ui/SettingsTab.qml:46
+msgid "30 days"
+msgstr ""
+
+#: ../app/ui/SettingsTab.qml:47
+msgid "90 days"
+msgstr ""
+
+#: ../app/ui/SettingsTab.qml:48
+msgid "180 days"
+msgstr ""
+
+#: ../app/ui/SettingsTab.qml:49
+msgid "360 days"
+msgstr ""
+
+#: ../app/ui/SettingsTab.qml:62
 msgid "Theme"
+msgstr ""
+
+#: ../app/ui/SettingsTab.qml:92
+msgid "Remove episodes older than"
+msgstr ""
+
+#: ../app/ui/SettingsTab.qml:94
+#, qt-format
+msgid "%1 days"
 msgstr ""
 
 #: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-3-auto-clean-episodes-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
