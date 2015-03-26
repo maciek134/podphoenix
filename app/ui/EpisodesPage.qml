@@ -291,7 +291,7 @@ Page {
                         // TRANSLATORS: the first argument is the number of hours,
                         // followed by minute (eg. 20h 3m)
                         if(hour > 0 &&  minute > 0) {
-                            //xgettext: no-c-format
+                            // xgettext: no-c-format
                             return (i18n.tr("%1h %2m"))
                             .arg(hour)
                             .arg(minute)
@@ -300,7 +300,7 @@ Page {
                         // TRANSLATORS: this string indicates the number of hours
                         // eg. 20h (no plural state required)
                         else if(hour > 0 && minute === 0) {
-                            //xgettext: no-c-format
+                            // xgettext: no-c-format
                             return (i18n.tr("%1h"))
                             .arg(hour)
                         }
@@ -308,7 +308,7 @@ Page {
                         // TRANSLATORS: this string indicates the number of minutes
                         // eg. 15m (no plural state required)
                         else if(hour === 0 && minute > 0) {
-                            //xgettext: no-c-format
+                            // xgettext: no-c-format
                             return (i18n.tr("%1m"))
                             .arg(minute)
                         }
