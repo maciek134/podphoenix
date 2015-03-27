@@ -50,10 +50,13 @@ MainView {
     property string currentImage
     property string currentGuid
 
-    property var theme: Themes.ThemeManager {
-        id: theme
-        name: settings.themeName
+    Themes.ThemeManager {
+        id: themeManager
+        source: settings.themeName
     }
+
+    property alias theme: themeManager.theme
+    property var themeManager: themeManager
 
     property var settings: Settings {
         // Set "Light.qml" as the default theme
