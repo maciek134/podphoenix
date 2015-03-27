@@ -23,10 +23,10 @@ import Ubuntu.Components.ListItems 1.0 as ListItem
 ListItem.Expandable {
     id: expandableListItem
 
-    property ListModel customModel
-    property Component customDelegate
-    property alias title: expandableHeader.text
-    property alias subTitle: expandableHeader.subText
+    property ListModel model
+    property Component delegate
+    property alias text: expandableHeader.text
+    property alias subText: expandableHeader.subText
     property alias listViewHeight: expandableList.height
 
     anchors {
@@ -80,8 +80,8 @@ ListItem.Expandable {
             height: units.gu(11)
             width: parent.width
             interactive: false
-            model: customModel
-            delegate: customDelegate
+            model: expandableListItem.model
+            delegate: expandableListItem.delegate
         }
     }
 }

@@ -1,0 +1,168 @@
+# Chinese (Traditional) translation for podbird
+# Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
+# This file is distributed under the same license as the podbird package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: podbird\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2015-03-26 13:11+0100\n"
+"PO-Revision-Date: 2015-03-26 11:08+0000\n"
+"Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
+"Language-Team: Chinese (Traditional) <zh_TW@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Launchpad-Export-Date: 2015-03-27 05:42+0000\n"
+"X-Generator: Launchpad (build 17413)\n"
+
+#: ../app/ui/EpisodesPage.qml:67
+msgid "Search Episode"
+msgstr "搜尋節目"
+
+#: ../app/ui/EpisodesPage.qml:76
+msgid "Mark all listened"
+msgstr "將全部標記為聽過"
+
+#: ../app/ui/EpisodesPage.qml:87
+msgid "Unsubscribe"
+msgstr "取消訂閱"
+
+#: ../app/ui/EpisodesPage.qml:102 ../app/ui/PodcastsTab.qml:86
+#: ../app/ui/PodcastsTab.qml:109
+msgid "Back"
+msgstr "返回"
+
+#: ../app/ui/EpisodesPage.qml:113
+msgid "Search Episode..."
+msgstr "搜尋節目…"
+
+#: ../app/ui/EpisodesPage.qml:132
+msgid "Unsubscribe Confirmation"
+msgstr "確認取消訂閱"
+
+#: ../app/ui/EpisodesPage.qml:133
+#, qt-format
+msgid "Are you sure you want to unsubscribe from <b>%1</b>?"
+msgstr "您確定要取消訂閱 <b>%1</b>？"
+
+#: ../app/ui/EpisodesPage.qml:135
+msgid "Yes"
+msgstr "是"
+
+#: ../app/ui/EpisodesPage.qml:152
+msgid "No"
+msgstr "否"
+
+#: ../app/ui/EpisodesPage.qml:166
+msgid "No Episodes found"
+msgstr "找無節目"
+
+#: ../app/ui/EpisodesPage.qml:167
+msgid "No episodes found matching the search term."
+msgstr "找不到符合搜尋字詞的節目。"
+
+#: ../app/ui/EpisodesPage.qml:295
+#, no-c-format, qt-format
+msgid "%1h %2m"
+msgstr "%1小時%2分鐘"
+
+#: ../app/ui/EpisodesPage.qml:304
+#, no-c-format, qt-format
+msgid "%1h"
+msgstr "%1小時"
+
+#: ../app/ui/EpisodesPage.qml:312
+#, no-c-format, qt-format
+msgid "%1m"
+msgstr ""
+
+#: ../app/ui/NowPlayingPage.qml:28
+msgid "Now Playing"
+msgstr "現正播放"
+
+#: ../app/ui/NowPlayingPage.qml:140
+msgid "-15s"
+msgstr "-15秒"
+
+#: ../app/ui/NowPlayingPage.qml:195
+msgid "+15s"
+msgstr "+15秒"
+
+#: ../app/ui/PodcastsTab.qml:32
+msgid "Podcasts"
+msgstr "Podcast"
+
+#: ../app/ui/PodcastsTab.qml:62
+msgid "Add Podcast"
+msgstr "加入 Podcast"
+
+#: ../app/ui/PodcastsTab.qml:72
+msgid "Search Podcast"
+msgstr "搜尋 Podcast"
+
+#: ../app/ui/PodcastsTab.qml:97
+msgid "Search Podcast..."
+msgstr "搜尋 Podcast…"
+
+#: ../app/ui/PodcastsTab.qml:120
+msgid "Save Podcast"
+msgstr "儲存 Podcast"
+
+#: ../app/ui/PodcastsTab.qml:133
+msgid "Feed URL..."
+msgstr "饋流 URL…"
+
+#: ../app/ui/PodcastsTab.qml:157
+msgid "Unable to subscribe"
+msgstr "無法訂閱"
+
+#: ../app/ui/PodcastsTab.qml:158
+msgid "Please check the URL and try again"
+msgstr "請檢查 URL 並重試一次"
+
+#: ../app/ui/PodcastsTab.qml:160
+msgid "Close"
+msgstr "關閉"
+
+#: ../app/ui/PodcastsTab.qml:171
+msgid "No Podcast Subscriptions"
+msgstr "無 Podcast 訂閱"
+
+#: ../app/ui/PodcastsTab.qml:172
+msgid "No Podcasts Found"
+msgstr "找不到 Podcast"
+
+#: ../app/ui/PodcastsTab.qml:173
+msgid ""
+"You haven't subscribed to any podcasts yet, visit the 'Find New Podcasts' "
+"page to add some."
+msgstr "您尚未訂閱任何 Podcast，請前往「尋找新的 Podcast」頁面來加入一些 Podcast。"
+
+#: ../app/ui/PodcastsTab.qml:174
+msgid "No podcasts found matching the search term."
+msgstr "找不到符合搜尋詞語的 Podcast"
+
+#: ../app/ui/PodcastsTab.qml:281
+#, qt-format
+msgid "%1 unheard episode"
+msgid_plural "%1 unheard episodes"
+msgstr[0] "%1 則未收聽的節目"
+
+#: ../app/ui/SearchTab.qml:27
+msgid "Find New Podcasts"
+msgstr "尋找新的 Podcast"
+
+#: ../app/ui/SearchTab.qml:42
+msgid "Search..."
+msgstr "搜尋…"
+
+#: ../app/ui/SearchTab.qml:114
+msgid "Subscribe"
+msgstr "訂閱"
+
+#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-fix-translation-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
+msgid "Podbird"
+msgstr "Podbird"

@@ -1,0 +1,174 @@
+# Slovenian translation for podbird
+# Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
+# This file is distributed under the same license as the podbird package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: podbird\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2015-03-26 13:11+0100\n"
+"PO-Revision-Date: 2015-03-26 11:48+0000\n"
+"Last-Translator: Damir Jerovšek <Unknown>\n"
+"Language-Team: Slovenian <sl@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || "
+"n%100==4 ? 3 : 0);\n"
+"X-Launchpad-Export-Date: 2015-03-27 05:42+0000\n"
+"X-Generator: Launchpad (build 17413)\n"
+
+#: ../app/ui/EpisodesPage.qml:67
+msgid "Search Episode"
+msgstr "Poišči epizodo"
+
+#: ../app/ui/EpisodesPage.qml:76
+msgid "Mark all listened"
+msgstr "Označi vse kot poslušane"
+
+#: ../app/ui/EpisodesPage.qml:87
+msgid "Unsubscribe"
+msgstr "Odjava"
+
+#: ../app/ui/EpisodesPage.qml:102 ../app/ui/PodcastsTab.qml:86
+#: ../app/ui/PodcastsTab.qml:109
+msgid "Back"
+msgstr "Nazaj"
+
+#: ../app/ui/EpisodesPage.qml:113
+msgid "Search Episode..."
+msgstr "Poišči epizodo ..."
+
+#: ../app/ui/EpisodesPage.qml:132
+msgid "Unsubscribe Confirmation"
+msgstr "Potrditev odjave"
+
+#: ../app/ui/EpisodesPage.qml:133
+#, qt-format
+msgid "Are you sure you want to unsubscribe from <b>%1</b>?"
+msgstr "Ali se res želite odjaviti od <b>%1</b>?"
+
+#: ../app/ui/EpisodesPage.qml:135
+msgid "Yes"
+msgstr "Da"
+
+#: ../app/ui/EpisodesPage.qml:152
+msgid "No"
+msgstr "Ne"
+
+#: ../app/ui/EpisodesPage.qml:166
+msgid "No Episodes found"
+msgstr "Ni najdenih epizod"
+
+#: ../app/ui/EpisodesPage.qml:167
+msgid "No episodes found matching the search term."
+msgstr "Nobena epizoda se ne ujema z iskalnim nizom."
+
+#: ../app/ui/EpisodesPage.qml:295
+#, no-c-format, qt-format
+msgid "%1h %2m"
+msgstr "%1h %2m"
+
+#: ../app/ui/EpisodesPage.qml:304
+#, no-c-format, qt-format
+msgid "%1h"
+msgstr "%1h"
+
+#: ../app/ui/EpisodesPage.qml:312
+#, no-c-format, qt-format
+msgid "%1m"
+msgstr "%1m"
+
+#: ../app/ui/NowPlayingPage.qml:28
+msgid "Now Playing"
+msgstr "Predvaja se"
+
+#: ../app/ui/NowPlayingPage.qml:140
+msgid "-15s"
+msgstr "-15s"
+
+#: ../app/ui/NowPlayingPage.qml:195
+msgid "+15s"
+msgstr "+15s"
+
+#: ../app/ui/PodcastsTab.qml:32
+msgid "Podcasts"
+msgstr "Poddaje"
+
+#: ../app/ui/PodcastsTab.qml:62
+msgid "Add Podcast"
+msgstr "Dodaj poddajo"
+
+#: ../app/ui/PodcastsTab.qml:72
+msgid "Search Podcast"
+msgstr "Poišči poddajo"
+
+#: ../app/ui/PodcastsTab.qml:97
+msgid "Search Podcast..."
+msgstr "Poišči poddajo ..."
+
+#: ../app/ui/PodcastsTab.qml:120
+msgid "Save Podcast"
+msgstr "Shrani poddajo"
+
+#: ../app/ui/PodcastsTab.qml:133
+msgid "Feed URL..."
+msgstr "URL vira ..."
+
+#: ../app/ui/PodcastsTab.qml:157
+msgid "Unable to subscribe"
+msgstr "Ni se moč naročiti"
+
+#: ../app/ui/PodcastsTab.qml:158
+msgid "Please check the URL and try again"
+msgstr "Preverite URL ter poskusite znova"
+
+#: ../app/ui/PodcastsTab.qml:160
+msgid "Close"
+msgstr "Zapri"
+
+#: ../app/ui/PodcastsTab.qml:171
+msgid "No Podcast Subscriptions"
+msgstr "Ni naročnin za poddaje"
+
+#: ../app/ui/PodcastsTab.qml:172
+msgid "No Podcasts Found"
+msgstr "Ni najdenih poddaj"
+
+#: ../app/ui/PodcastsTab.qml:173
+msgid ""
+"You haven't subscribed to any podcasts yet, visit the 'Find New Podcasts' "
+"page to add some."
+msgstr ""
+"Niste se še naročili na nobeno poddajo, obiščite stran 'Najdi nove poddaje' "
+"za dodanje novih."
+
+#: ../app/ui/PodcastsTab.qml:174
+msgid "No podcasts found matching the search term."
+msgstr "Nobena poddaja se ne ujema z iskalnim nizom."
+
+#: ../app/ui/PodcastsTab.qml:281
+#, qt-format
+msgid "%1 unheard episode"
+msgid_plural "%1 unheard episodes"
+msgstr[0] "%1 neposlušanih epizod"
+msgstr[1] "%1 neposlušana epizoda"
+msgstr[2] "%1 neposlušani epizodi"
+msgstr[3] "%1 neposlušane epizode"
+
+#: ../app/ui/SearchTab.qml:27
+msgid "Find New Podcasts"
+msgstr "Najdi nove poddaje"
+
+#: ../app/ui/SearchTab.qml:42
+msgid "Search..."
+msgstr "Iskanje ..."
+
+#: ../app/ui/SearchTab.qml:114
+msgid "Subscribe"
+msgstr "Naroči se"
+
+#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-fix-translation-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
+msgid "Podbird"
+msgstr ""
