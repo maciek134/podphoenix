@@ -45,9 +45,9 @@ Tab {
                 text: model.name
 
                 onClicked: {
-                    var themeElement =   model.file
+                    var themeElement = model.file
                     podbird.settings.themeName = themeElement
-                    podbird.theme.name = themeElement
+                    podbird.themeManager.source = themeElement
                     themeSetting.expanded = false
                 }
 
