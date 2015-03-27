@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-11 00:25+0100\n"
+"POT-Creation-Date: 2015-03-27 15:58+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -60,18 +60,18 @@ msgstr ""
 msgid "No episodes found matching the search term."
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:316
-#, qt-format
+#: ../app/ui/EpisodesPage.qml:319
+#, no-c-format, qt-format
 msgid "%1h %2m"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:322
-#, qt-format
+#: ../app/ui/EpisodesPage.qml:328
+#, no-c-format, qt-format
 msgid "%1h"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:327
-#, c-format, qt-format
+#: ../app/ui/EpisodesPage.qml:336
+#, no-c-format, qt-format
 msgid "%1m"
 msgstr ""
 
