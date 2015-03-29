@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-29 16:48+0100\n"
+"POT-Creation-Date: 2015-03-30 00:07+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -209,6 +209,78 @@ msgstr ""
 msgid "%1 days"
 msgstr ""
 
-#: /home/mike/src/build-podbird-Ubuntu_Device_GCC_armhf_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
+#. TRANSLATORS: This is shown as "Already used Podbird? Skip the tutorials (in bold leters)
+#: ../app/ui/Walkthrough.qml:88
+#, qt-format
+msgid "Already used %1? <b>Skip the tutorial</b>"
+msgstr ""
+
+#: ../app/ui/Walkthrough.qml:88
+msgid "Skip"
+msgstr ""
+
+#: ../app/welcomewizard/Slide1.qml:41
+msgid "Welcome to <b>Podbird</b>"
+msgstr ""
+
+#: ../app/welcomewizard/Slide1.qml:49
+msgid ""
+"Enjoy your favourite podcast with Podbird, the one and only podcast manager "
+"for Ubuntu Touch. Take a short tour on how to get started."
+msgstr ""
+
+#: ../app/welcomewizard/Slide2.qml:44
+msgid "Discover New Podcasts"
+msgstr ""
+
+#: ../app/welcomewizard/Slide2.qml:62
+msgid ""
+"Podbird uses the Itunes Database to provide access to a huge collections of "
+"Podcasts. You should be able to find every podcast you ever need."
+msgstr ""
+
+#: ../app/welcomewizard/Slide3.qml:44
+msgid "Smart Settings"
+msgstr ""
+
+#: ../app/welcomewizard/Slide3.qml:62
+msgid ""
+"Podbird auto downloads new episodes and deletes episodes that are older than "
+"a certain date. You can adjust these to suit your needs."
+msgstr ""
+
+#: ../app/welcomewizard/Slide4.qml:44
+msgid "Hallo! Bonjour!"
+msgstr ""
+
+#: ../app/welcomewizard/Slide4.qml:62
+msgid ""
+"Podbird is available in over 15 languages and is translated by the awesome "
+"Ubuntu Translators community."
+msgstr ""
+
+#: ../app/welcomewizard/Slide5.qml:44
+msgid "Support"
+msgstr ""
+
+#: ../app/welcomewizard/Slide5.qml:62
+msgid ""
+"If you can find any bugs or have any feature requests, you can let us know "
+"at our project page https://launchpad.net/podbird."
+msgstr ""
+
+#: ../app/welcomewizard/Slide6.qml:44
+msgid "Enjoy!"
+msgstr ""
+
+#: ../app/welcomewizard/Slide6.qml:62
+msgid "That's about it. We hope you enjoy using Podbird!"
+msgstr ""
+
+#: ../app/welcomewizard/Slide6.qml:75
+msgid "Start"
+msgstr ""
+
+#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-add-welcome-wizard-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
 msgid "Podbird"
 msgstr ""

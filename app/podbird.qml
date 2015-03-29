@@ -73,6 +73,7 @@ MainView {
         property string themeName: "Light.qml"
         property int retentionDays: -1
         property var lastCheck: new Date()
+        property bool firstRun: true
     }
 
     FileManager {
@@ -139,7 +140,13 @@ MainView {
 
     PageStack {
         id: mainStack
-        Component.onCompleted: push(tabs)
+        Component.onCompleted: {
+            if (settings.firstRun && settings.themeName === "Light.qml")
+                push(Qt.resolvedUrl("welcomewizard/WelcomeWizard.qml"))
+            else
+                push(tabs)
+        }
+
         Tabs {
             id: tabs
 
