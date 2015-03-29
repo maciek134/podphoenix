@@ -125,7 +125,7 @@ Page {
         anchors.horizontalCenter: parent.horizontalCenter
         spacing: units.gu(2)
 
-        MouseArea {
+        AbstractButton {
             id: skipBackwardButton
             width: units.gu(6)
             height: width
@@ -158,7 +158,7 @@ Page {
             }
         }
 
-        MouseArea {
+        AbstractButton {
             id: playButton
             width: units.gu(10)
             height: width
@@ -176,7 +176,7 @@ Page {
             }
         }
 
-        MouseArea {
+        AbstractButton {
             id: skipForwardButton
             width: units.gu(6)
             height: width

@@ -386,12 +386,15 @@ Page {
                     Row {
                         id: actionRow
 
-                        spacing: units.gu(2)
                         anchors.left: parent.left
+                        anchors.leftMargin: units.gu(-1.5)
 
-                        MouseArea {
-                            width: units.gu(3.5)
-                            height: width
+                        ActionButton {
+                            width: units.gu(5)
+                            height: units.gu(4)
+
+                            iconName: player.playbackState === MediaPlayer.PlayingState && currentGuid === model.guid ? "media-playback-pause"
+                                                                                                                      : "media-playback-start"
 
                             onClicked: {
                                 var db = Podcasts.init();
@@ -415,23 +418,19 @@ Page {
                                     }
                                 });
                             }
-
-                            Icon {
-                                id: playButton
-                                name: player.playbackState === MediaPlayer.PlayingState && currentGuid === model.guid ? "media-playback-pause"
-                                                                                                                      : "media-playback-start"
-                                width: units.gu(2.5)
-                                color: podbird.theme.baseIcon
-                                height: width
-                                anchors.centerIn: parent
-                            }
                         }
 
-                        Item {
+                        ActionButton {
                             id: downloadButton
 
-                            width: units.gu(3.5)
-                            height: width
+                            width: units.gu(5)
+                            height: units.gu(4)
+
+                            property bool queued: false
+
+                            iconName: model.downloadedfile ? "delete" : (queued && downloader.downloadingGuid !== model.guid ? "history" : "save")
+                            opacity: downloader.downloadingGuid === model.guid ? 0.4 : 1.0
+                            enabled: downloader.downloadingGuid !== model.guid
 
                             ActivityIndicator {
                                 anchors.centerIn: parent
@@ -439,37 +438,22 @@ Page {
                                 running: visible
                             }
 
-                            Icon {
-                                id: downloadIcon
-                                property bool queued: false;
-                                name: model.downloadedfile ? "delete" : (queued && downloader.downloadingGuid !== model.guid ? "history" : "save")
-                                anchors.centerIn: parent
-                                width: units.gu(2.5)
-                                height: width
-                                color: podbird.theme.baseIcon
-                                opacity: downloader.downloadingGuid === model.guid ? 0.4 : 1.0
-                            }
-
-                            MouseArea {
-                                anchors.fill: parent
-                                enabled: downloader.downloadingGuid !== model.guid
-
-                                onClicked: {
-                                    if (model.downloadedfile) {
-                                        fileManager.deleteFile(model.downloadedfile);
-                                        var db = Podcasts.init();
-                                        db.transaction(function (tx) {
-                                            tx.executeSql("UPDATE Episode SET downloadedfile = NULL WHERE guid = ?", [model.guid]);
-                                        });
-                                        loadEpisodes(episodeModel.pid, episodeModel.artist, episodeModel.image);
-                                    } else {
-                                        downloadIcon.queued = true;
-                                        downloader.addDownload(model.guid, model.audiourl);
-                                    }
+                            onClicked: {
+                                if (model.downloadedfile) {
+                                    fileManager.deleteFile(model.downloadedfile);
+                                    var db = Podcasts.init();
+                                    db.transaction(function (tx) {
+                                        tx.executeSql("UPDATE Episode SET downloadedfile = NULL WHERE guid = ?", [model.guid]);
+                                    });
+                                    loadEpisodes(episodeModel.pid, episodeModel.artist, episodeModel.image);
+                                } else {
+                                    downloadButton.queued = true;
+                                    downloader.addDownload(model.guid, model.audiourl);
                                 }
                             }
                         }
                     }
+
 
                     ProgressBar {
                         visible: downloader.downloadingGuid === model.guid
