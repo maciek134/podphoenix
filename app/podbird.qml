@@ -45,6 +45,16 @@ MainView {
         downloader.cancel();
     }
 
+    Component.onCompleted: {
+        var today = new Date()
+        // Only perform cleanup of old episodes once a day
+        if (Math.floor((today - settings.lastCheck)/86400000) >= 1 && settings.retentionDays !== -1) {
+            console.log("[LOG]: Starting cleanup of old episodes..")
+            cleanUp(today, settings.retentionDays)
+            settings.lastCheck = today
+        }
+    }
+
     property string currentName
     property string currentArtist
     property string currentImage
@@ -61,6 +71,8 @@ MainView {
     property var settings: Settings {
         // Set "Light.qml" as the default theme
         property string themeName: "Light.qml"
+        property int retentionDays: -1
+        property var lastCheck: new Date()
     }
 
     FileManager {
@@ -174,5 +186,24 @@ MainView {
                 duration: UbuntuAnimation.SlowDuration
             }
         }
+    }
+
+    function cleanUp(today, retentionDays) {
+        var dayToMs = 86400000; //1 * 24 * 60 * 60 * 1000
+        var db = Podcasts.init()
+        db.transaction(function (tx) {
+            var rs = tx.executeSql("SELECT rowid, * FROM Podcast ORDER BY name ASC");
+            for(var i = 0; i < rs.rows.length; i++) {
+                var podcast = rs.rows.item(i);
+                var rs2 = tx.executeSql("SELECT rowid, * FROM Episode WHERE podcast=?", [rs.rows.item(i).rowid]);
+                for (var j=0; j< rs2.rows.length; j++) {
+                    var diff = Math.floor((today - rs2.rows.item(j).published)/dayToMs)
+                    if (rs2.rows.item(j).downloadedfile && diff > retentionDays) {
+                        fileManager.deleteFile(rs2.rows.item(j).downloadedfile)
+                        tx.executeSql("UPDATE Episode SET downloadedfile = NULL WHERE guid = ?", [rs2.rows.item(j).guid]);
+                    }
+                }
+            }
+        });
     }
 }
