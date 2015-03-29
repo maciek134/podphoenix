@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick 2.0
+import QtQuick 2.3
 import QtMultimedia 5.0
 import Ubuntu.Components 1.1
 import "../podcasts.js" as Podcasts
@@ -35,7 +35,8 @@ Page {
         anchors.left: parent.left
         anchors.top: parent.top
         anchors.right: parent.right
-        height: title.lineCount === 1 ? parent.height/2 + units.gu(3) : parent.height/2
+        height: title.lineCount === 1 ? parent.height/2 + units.gu(3)
+                                      : parent.height/2
         art: currentImage
 
         Image {
@@ -59,6 +60,7 @@ Page {
         fontSize: "large"
         maximumLineCount: 2
         wrapMode: Text.WordWrap
+        color: podbird.theme.baseText
     }
 
     Label {
@@ -70,6 +72,7 @@ Page {
         text: currentArtist
         elide: Text.ElideRight
         fontSize: "small"
+        color: podbird.theme.baseSubText
     }
 
     Slider {
@@ -103,6 +106,7 @@ Page {
         fontSize: "small"
         anchors.left: scrubber.left
         anchors.top: scrubber.bottom
+        color: podbird.theme.baseText
         text: Podcasts.formatTime(player.position / 1000)
     }
 
@@ -111,6 +115,7 @@ Page {
         fontSize: "small"
         anchors.right: scrubber.right
         anchors.top: scrubber.bottom
+        color: podbird.theme.baseText
         text: Podcasts.formatTime(player.duration / 1000)
     }
 
@@ -139,6 +144,7 @@ Page {
                 Label {
                     text: i18n.tr("-15s")
                     fontSize: "xx-small"
+                    color: podbird.theme.baseText
                     anchors.verticalCenter: skipBackwardIcon.verticalCenter
                 }
 
@@ -147,6 +153,7 @@ Page {
                     width: units.gu(3)
                     height: width
                     name: "media-seek-backward"
+                    color: podbird.theme.baseIcon
                 }
             }
         }
@@ -163,6 +170,7 @@ Page {
                 width: units.gu(6)
                 height: width
                 anchors.centerIn: parent
+                color: podbird.theme.baseIcon
                 name: player.playbackState === MediaPlayer.PlayingState ? "media-playback-pause"
                                                                         : "media-playback-start"
             }
@@ -189,11 +197,13 @@ Page {
                     width: units.gu(3)
                     height: width
                     name: "media-seek-forward"
+                    color: podbird.theme.baseIcon
                 }
 
                 Label {
                     text: i18n.tr("+15s")
                     fontSize: "xx-small"
+                    color: podbird.theme.baseText
                     anchors.verticalCenter: skipForwardIcon.verticalCenter
                 }
             }

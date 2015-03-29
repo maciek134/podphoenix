@@ -1,36 +1,70 @@
-import QtQuick 2.0
+/*
+ * Copyright 2015 Michael Sheldon <mike@mikeasoft.com>
+ *
+ * This file is part of Podbird.
+ *
+ * Podbird is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; version 3.
+ *
+ * Podbird is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+import QtQuick 2.3
+import Podbird 1.0
 import QtMultimedia 5.0
+import Qt.labs.settings 1.0
+import Ubuntu.Components 1.1
 import QtQuick.LocalStorage 2.0
 import Ubuntu.DownloadManager 0.1
-import Ubuntu.Components 1.1
-import Podbird 1.0
 import "ui"
+import "themes" as Themes
 import "podcasts.js" as Podcasts
 
 MainView {
-    id: mainView
+    id: podbird
 
     objectName: "mainView"
     applicationName: "com.mikeasoft.podbird"
-
-    property string currentName
-    property string currentArtist
-    property string currentImage
-    property string currentGuid
-
     useDeprecatedToolbar: false
     anchorToKeyboard: true
 
     width: units.gu(50)
     height: units.gu(75)
 
-    FileManager {
-        id: fileManager
-    }
+    backgroundColor: theme.background
 
     Component.onDestruction: {
         console.log("Download cancelled");
         downloader.cancel();
+    }
+
+    property string currentName
+    property string currentArtist
+    property string currentImage
+    property string currentGuid
+
+    Themes.ThemeManager {
+        id: themeManager
+        source: settings.themeName
+    }
+
+    property alias theme: themeManager.theme
+    property var themeManager: themeManager
+
+    property var settings: Settings {
+        // Set "Light.qml" as the default theme
+        property string themeName: "Light.qml"
+    }
+
+    FileManager {
+        id: fileManager
     }
 
     SingleDownload {
@@ -103,7 +137,13 @@ MainView {
             }
 
             SearchTab {
+                id: searchTab
                 objectName: "searchTab"
+            }
+
+            SettingsTab {
+                id: settingsTab
+                objectName: "settingsTab"
             }
         }
     }
@@ -136,4 +176,3 @@ MainView {
         }
     }
 }
-

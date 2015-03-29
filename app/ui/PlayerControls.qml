@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick 2.0
+import QtQuick 2.3
 import QtMultimedia 5.0
 import Ubuntu.Components 1.1
 import "../podcasts.js" as Podcasts
@@ -25,8 +25,8 @@ Rectangle {
     id: controlRect
 
     height: 0
-    color: "black"
     width: parent.width
+    color: podbird.theme.bottomBarBackground
 
     MouseArea {
         z: -1
@@ -65,8 +65,8 @@ Rectangle {
             anchors.leftMargin: units.gu(2)
 
             Label {
-                font.weight: Font.Bold
                 fontSize: "small"
+                font.weight: Font.Bold
                 anchors.left: parent.left
                 anchors.right: parent.right
                 color: "white"
@@ -77,13 +77,13 @@ Rectangle {
             }
 
             Label {
-                font.weight: Font.Light
                 fontSize: "small"
+                color: "#999999"
+                text: currentArtist
+                elide: Text.ElideRight
+                font.weight: Font.Light
                 anchors.left: parent.left
                 anchors.right: parent.right
-                color: "#999999"
-                elide: Text.ElideRight
-                text: currentArtist
             }
         }
 

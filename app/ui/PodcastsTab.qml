@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick 2.0
+import QtQuick 2.3
 import QtMultimedia 5.0
 import QtQuick.Layouts 1.1
 import QtQuick.LocalStorage 2.0
@@ -94,7 +94,7 @@ Tab {
                 contents: TextField {
                     id: searchField
                     inputMethodHints: Qt.ImhNoPredictiveText
-                    placeholderText: i18n.tr("Search Podcast...")
+                    placeholderText: i18n.tr("Search podcast")
                     anchors.left: parent ? parent.left : undefined
                     anchors.right: parent ? parent.right : undefined
                     anchors.rightMargin: units.gu(2)
@@ -130,7 +130,7 @@ Tab {
                 contents: TextField {
                     id: feedUrlField
                     inputMethodHints: Qt.ImhUrlCharactersOnly
-                    placeholderText: i18n.tr("Feed URL...")
+                    placeholderText: i18n.tr("Feed URL")
                     anchors.left: parent ? parent.left : undefined
                     anchors.right: parent ? parent.right : undefined
                     onAccepted: {
@@ -158,6 +158,7 @@ Tab {
                 text: i18n.tr("Please check the URL and try again")
                 Button {
                     text: i18n.tr("Close")
+                    color: podbird.theme.neutralActionButton
                     onClicked: PopupUtils.close(dialogInternal)
                 }
             }
@@ -212,6 +213,8 @@ Tab {
                 height: units.gu(8)
                 removable: true
                 confirmRemoval: true
+                highlightWhenPressed: false
+
                 onItemRemoved: {
                     var db = Podcasts.init();
                     db.transaction(function (tx) {
@@ -223,6 +226,11 @@ Tab {
                         tx.executeSql("DELETE FROM Podcast WHERE rowid=?", [model.id]);
                         refreshModel()
                     });
+                }
+
+                Rectangle {
+                    anchors.fill: parent
+                    color: listItem.pressed ? podbird.theme.hightlightListView : "transparent"
                 }
 
                 onClicked: {
@@ -271,15 +279,16 @@ Tab {
                                 width: parent.width
                                 fontSize: "small"
                                 elide: Text.ElideRight
+                                color: podbird.theme.baseText
                             }
 
                             Label {
                                 id: episodeCount
                                 width: parent.width
-                                color: "#999999"
+                                fontSize: "x-small"
+                                color: podbird.theme.baseSubText
                                 visible: model.episodeCount > 0
                                 text: i18n.tr("%1 unheard episode", "%1 unheard episodes", model.episodeCount).arg(model.episodeCount)
-                                fontSize: "x-small"
                             }
                         }
                     }

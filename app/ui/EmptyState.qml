@@ -37,10 +37,10 @@ Item {
 
     Icon {
         id: emptyIcon
-        anchors.horizontalCenter: parent.horizontalCenter
-        height: units.gu(10)
         width: height
-        color: "#BBBBBB"
+        height: units.gu(10)
+        color: podbird.theme.baseIcon
+        anchors.horizontalCenter: parent.horizontalCenter
     }
 
     Label {
@@ -49,14 +49,15 @@ Item {
         anchors.topMargin: units.gu(5)
         anchors.horizontalCenter: parent.horizontalCenter
         fontSize: "large"
-        font.bold: true
+        color: podbird.theme.baseText
     }
 
     Label {
         id: emptySublabel
-        anchors.top: emptyLabel.bottom
         anchors.left: parent.left
         anchors.right: parent.right
+        anchors.top: emptyLabel.bottom
+        color: podbird.theme.baseSubText
         horizontalAlignment: Text.AlignHCenter
         wrapMode: Text.WrapAtWordBoundaryOrAnywhere
     }

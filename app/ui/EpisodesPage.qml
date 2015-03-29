@@ -1,4 +1,22 @@
-import QtQuick 2.0
+/*
+ * Copyright 2015 Podbird Team
+ *
+ * This file is part of Podbird.
+ *
+ * Podbird is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; version 3.
+ *
+ * Podbird is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+import QtQuick 2.3
 import QtMultimedia 5.0
 import Ubuntu.Components 1.1
 import QtQuick.Layouts 1.1
@@ -110,7 +128,7 @@ Page {
             contents: TextField {
                 id: searchField
                 inputMethodHints: Qt.ImhNoPredictiveText
-                placeholderText: i18n.tr("Search Episode...")
+                placeholderText: i18n.tr("Search episode")
                 anchors.left: parent ? parent.left : undefined
                 anchors.right: parent ? parent.right : undefined
                 anchors.rightMargin: units.gu(2)
@@ -132,8 +150,8 @@ Page {
             title: i18n.tr("Unsubscribe Confirmation")
             text: i18n.tr("Are you sure you want to unsubscribe from <b>%1</b>?").arg(episodesPage.episodeName)
             Button {
-                text: i18n.tr("Yes")
-                color: UbuntuColors.orange
+                text: i18n.tr("Unsubscribe")
+                color: podbird.theme.negativeActionButton
                 onClicked: {
                     var db = Podcasts.init();
                     db.transaction(function (tx) {
@@ -149,8 +167,8 @@ Page {
                 }
             }
             Button {
-                text: i18n.tr("No")
-                color: UbuntuColors.green
+                text: i18n.tr("Cancel")
+                color: podbird.theme.neutralActionButton
                 onClicked: {
                     PopupUtils.close(dialogInternal)
                 }
@@ -200,8 +218,14 @@ Page {
 
             width: parent.width
             height: mainColumn.height
+            highlightWhenPressed: false
 
             onClicked: listItem.expanded = !listItem.expanded
+
+            Rectangle {
+                anchors.fill: parent
+                color: listItem.pressed ? podbird.theme.hightlightListView : "transparent"
+            }
 
             Column {
                 id: mainColumn
@@ -243,8 +267,8 @@ Page {
                             maximumLineCount: 2
                             wrapMode: Text.WordWrap
                             elide: Text.ElideRight
-                            color: currentGuid === model.guid ? UbuntuColors.orange
-                                                              : Theme.palette.normal.fieldText
+                            color: currentGuid === model.guid ? podbird.theme.focusText
+                                                              : podbird.theme.baseText
                         }
 
                         Label {
@@ -252,8 +276,8 @@ Page {
                             width: parent.width
                             text: Qt.formatDate(new Date(model.published), "MMM d, yyyy")
                             fontSize: "x-small"
-                            color: currentGuid === model.guid ? UbuntuColors.orange
-                                                              : Theme.palette.normal.fieldText
+                            color: currentGuid === model.guid ? podbird.theme.focusText
+                                                              : podbird.theme.baseText
                             elide: Text.ElideRight
                         }
                     }
@@ -269,7 +293,7 @@ Page {
                     width: parent.width
                     elide: Text.ElideRight
                     fontSize: "small"
-                    color: "#999999"
+                    color: podbird.theme.baseSubText
                     Behavior on height {
                         UbuntuNumberAnimation {
                             duration: UbuntuAnimation.SlowDuration
@@ -326,6 +350,7 @@ Page {
                         radius: width / 2
                         anchors.right: durationIcon.left
                         anchors.rightMargin: units.gu(2)
+                        anchors.verticalCenter: actionRow.verticalCenter
                         visible: model.listened
                         Icon {
                             id: tick
@@ -345,10 +370,13 @@ Page {
                         visible: duration.text !== ""
                         anchors.right: duration.left
                         anchors.rightMargin: units.gu(0.5)
+                        anchors.verticalCenter: actionRow.verticalCenter
+                        color: podbird.theme.baseIcon
                     }
 
                     Label {
                         id: duration
+                        color: podbird.theme.baseText
                         anchors.right: parent.right
                         anchors.verticalCenter: durationIcon.verticalCenter
                         fontSize: "small"
@@ -393,6 +421,7 @@ Page {
                                 name: player.playbackState === MediaPlayer.PlayingState && currentGuid === model.guid ? "media-playback-pause"
                                                                                                                       : "media-playback-start"
                                 width: units.gu(2.5)
+                                color: podbird.theme.baseIcon
                                 height: width
                                 anchors.centerIn: parent
                             }
@@ -417,6 +446,7 @@ Page {
                                 anchors.centerIn: parent
                                 width: units.gu(2.5)
                                 height: width
+                                color: podbird.theme.baseIcon
                                 opacity: downloader.downloadingGuid === model.guid ? 0.4 : 1.0
                             }
 
@@ -449,6 +479,7 @@ Page {
                         anchors.right: model.listened ? listened.left : durationIcon.left
                         anchors.leftMargin: units.gu(2)
                         anchors.rightMargin: units.gu(2)
+                        anchors.verticalCenter: actionRow.verticalCenter
                         height: units.gu(2.6)
                         value: downloader.progress
                     }
