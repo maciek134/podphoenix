@@ -477,6 +477,10 @@ Page {
         }
     }
 
+    Scrollbar {
+        flickableItem: episodeList
+    }
+
     function refreshModel() {
         var db = Podcasts.init();
         loadEpisodes(episodeModel.pid, episodeModel.artist, episodeModel.image);

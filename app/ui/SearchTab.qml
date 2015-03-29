@@ -51,6 +51,7 @@ Tab {
             }
 
             ListView {
+                id: resultsView
                 clip: true
                 width: parent.width
                 model: searchResults
@@ -130,10 +131,14 @@ Tab {
                         }
                     }
                 }
+
+                Scrollbar {
+                    flickableItem: resultsView
+                }
+
             }
         }
     }
-
 
     ListModel {
         id: searchResults

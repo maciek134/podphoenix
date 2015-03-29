@@ -300,6 +300,9 @@ Tab {
                 onRefresh: updateEpisodes();
             }
         }
+        Scrollbar {
+            flickableItem: view
+        }
     }
 
     function refreshModel() {
