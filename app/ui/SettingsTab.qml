@@ -50,6 +50,17 @@ Tab {
             }
         }
 
+        ListModel {
+            id: episodeDownloadNumber
+            Component.onCompleted: initialize()
+            function initialize() {
+                episodeDownloadNumber.append({ name: i18n.tr("1 episode"), value: 1 })
+                episodeDownloadNumber.append({ name: i18n.tr("3 episodes"), value: 3 })
+                episodeDownloadNumber.append({ name: i18n.tr("5 episodes"), value: 5 })
+                episodeDownloadNumber.append({ name: i18n.tr("10 episodes"), value: 10 })
+            }
+        }
+
         Column {
             id: settingsColumn
 
@@ -78,7 +89,7 @@ Tab {
                         name: "ok"
                         visible: podbird.settings.themeName === model.file
                         anchors.right: parent.right
-                        anchors.rightMargin: units.gu(2)
+                        anchors.rightMargin: units.gu(3)
                         anchors.verticalCenter: parent.verticalCenter
                     }
                 }
@@ -107,7 +118,45 @@ Tab {
                         name: "ok"
                         visible: podbird.settings.retentionDays === model.value
                         anchors.right: parent.right
-                        anchors.rightMargin: units.gu(2)
+                        anchors.rightMargin: units.gu(3)
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+                }
+            }
+
+            ListItem.Standard {
+                text: i18n.tr("Auto download on WiFi only")
+                control: CheckBox {
+                    checked: podbird.settings.onlyWifiDownload
+                    onClicked: {
+                        podbird.settings.onlyWifiDownload = checked
+                    }
+                }
+            }
+
+            ExpandableListItem {
+                id: episodeDownloadNumberOption
+
+                listViewHeight: units.gu(36)
+                model: episodeDownloadNumber
+                text: i18n.tr("Max. number of episodes to download")
+                subText: i18n.tr("%1 episode", "%1 episodes", podbird.settings.maxEpisodeDownload).arg(podbird.settings.maxEpisodeDownload)
+
+                delegate: ListItem.Standard {
+                    text: model.name
+
+                    onClicked: {
+                        podbird.settings.maxEpisodeDownload = model.value
+                        episodeDownloadNumberOption.expanded = false
+                    }
+
+                    Icon {
+                        width: units.gu(2)
+                        height: width
+                        name: "ok"
+                        visible: podbird.settings.maxEpisodeDownload === model.value
+                        anchors.right: parent.right
+                        anchors.rightMargin: units.gu(3)
                         anchors.verticalCenter: parent.verticalCenter
                     }
                 }

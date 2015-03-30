@@ -61,6 +61,7 @@ ListItem.Expandable {
                     width: units.gu(2)
                     height: width
                     anchors.right: parent.right
+                    anchors.rightMargin: units.gu(1)
                     anchors.verticalCenter: parent.verticalCenter
 
                     name: "go-down"

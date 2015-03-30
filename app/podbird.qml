@@ -74,6 +74,8 @@ MainView {
         property int retentionDays: -1
         property var lastCheck: new Date()
         property bool firstRun: true
+        property bool onlyWifiDownload: true
+        property int maxEpisodeDownload: 1
     }
 
     FileManager {

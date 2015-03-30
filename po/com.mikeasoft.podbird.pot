@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-30 02:46+0200\n"
+"POT-Creation-Date: 2015-03-30 03:41+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -172,7 +172,7 @@ msgstr ""
 msgid "Dark"
 msgstr ""
 
-#: ../app/ui/SettingsTab.qml:44 ../app/ui/SettingsTab.qml:93
+#: ../app/ui/SettingsTab.qml:44 ../app/ui/SettingsTab.qml:104
 msgid "Never"
 msgstr ""
 
@@ -196,18 +196,49 @@ msgstr ""
 msgid "360 days"
 msgstr ""
 
-#: ../app/ui/SettingsTab.qml:62
+#: ../app/ui/SettingsTab.qml:57
+msgid "1 episode"
+msgstr ""
+
+#: ../app/ui/SettingsTab.qml:58
+msgid "3 episodes"
+msgstr ""
+
+#: ../app/ui/SettingsTab.qml:59
+msgid "5 episodes"
+msgstr ""
+
+#: ../app/ui/SettingsTab.qml:60
+msgid "10 episodes"
+msgstr ""
+
+#: ../app/ui/SettingsTab.qml:73
 msgid "Theme"
 msgstr ""
 
-#: ../app/ui/SettingsTab.qml:92
+#: ../app/ui/SettingsTab.qml:103
 msgid "Remove episodes older than"
 msgstr ""
 
-#: ../app/ui/SettingsTab.qml:94
+#: ../app/ui/SettingsTab.qml:105
 #, qt-format
 msgid "%1 days"
 msgstr ""
+
+#: ../app/ui/SettingsTab.qml:128
+msgid "Auto download on WiFi only"
+msgstr ""
+
+#: ../app/ui/SettingsTab.qml:142
+msgid "Max. number of episodes to download"
+msgstr ""
+
+#: ../app/ui/SettingsTab.qml:143
+#, qt-format
+msgid "%1 episode"
+msgid_plural "%1 episodes"
+msgstr[0] ""
+msgstr[1] ""
 
 #. TRANSLATORS: This is shown as "Already used Podbird? Skip the tutorials (in bold leters)
 #: ../app/ui/Walkthrough.qml:88
@@ -282,6 +313,6 @@ msgstr ""
 msgid "Start"
 msgstr ""
 
-#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-add-welcome-wizard-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
+#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-5-auto-download-option-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
 msgid "Podbird"
 msgstr ""
