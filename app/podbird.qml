@@ -19,6 +19,7 @@
 import QtQuick 2.3
 import Podbird 1.0
 import QtMultimedia 5.0
+import Ubuntu.Connectivity 1.0
 import Qt.labs.settings 1.0
 import Ubuntu.Components 1.1
 import QtQuick.LocalStorage 2.0
@@ -49,9 +50,14 @@ MainView {
         var today = new Date()
         // Only perform cleanup of old episodes once a day
         if (Math.floor((today - settings.lastCheck)/86400000) >= 1 && settings.retentionDays !== -1) {
-            console.log("[LOG]: Starting cleanup of old episodes..")
             cleanUp(today, settings.retentionDays)
             settings.lastCheck = today
+        }
+
+        if (NetworkingStatus.limitedBandwith && settings.onlyWifiDownload || !NetworkingStatus.online || settings.maxEpisodeDownload === -1) {
+            console.log("[LOG]: Skipped autodownloading due to missing wifi connectivity and only download on wifi preference.")
+        } else {
+            autoDownloadEpisodes(settings.maxEpisodeDownload)
         }
     }
 
@@ -198,6 +204,7 @@ MainView {
     }
 
     function cleanUp(today, retentionDays) {
+        console.log("[LOG]: Cleaning up old episodes")
         var dayToMs = 86400000; //1 * 24 * 60 * 60 * 1000
         var db = Podcasts.init()
         db.transaction(function (tx) {
@@ -210,6 +217,24 @@ MainView {
                     if (rs2.rows.item(j).downloadedfile && diff > retentionDays) {
                         fileManager.deleteFile(rs2.rows.item(j).downloadedfile)
                         tx.executeSql("UPDATE Episode SET downloadedfile = NULL WHERE guid = ?", [rs2.rows.item(j).guid]);
+                    }
+                }
+            }
+        });
+    }
+
+    function autoDownloadEpisodes(maxEpisodeDownload) {
+        console.log("[LOG]: Auto-downloading new episodes")
+        var db = Podcasts.init()
+        db.transaction(function (tx) {
+            var rs = tx.executeSql("SELECT rowid, * FROM Podcast ORDER BY name ASC");
+            for (var i=0; i < rs.rows.length; i++) {
+                var podcast = rs.rows.item(i);
+                var rs2 = tx.executeSql("SELECT rowid, * FROM Episode WHERE podcast=?", [rs.rows.item(i).rowid]);
+                var loopCount = maxEpisodeDownload > rs2.rows.length ? rs2.rows.length : maxEpisodeDownload
+                for (var j=0; j < loopCount; j++) {
+                    if (!rs2.rows.item(j).downloadedfile && !rs2.rows.item(j).listened) {
+                        downloader.addDownload(rs2.rows.item(j).guid, rs2.rows.item(j).audiourl)
                     }
                 }
             }

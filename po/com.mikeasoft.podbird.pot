@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-30 03:41+0200\n"
+"POT-Creation-Date: 2015-03-30 22:46+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,49 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: ../app/settings/CleanSetting.qml:9
+msgid "Delete older than"
+msgstr ""
+
+#: ../app/settings/CleanSetting.qml:15 ../app/settings/DownloadSetting.qml:15
+msgid "Never"
+msgstr ""
+
+#: ../app/settings/CleanSetting.qml:16 ../app/settings/CleanSetting.qml:17
+#: ../app/settings/CleanSetting.qml:18 ../app/settings/CleanSetting.qml:19
+#: ../app/settings/CleanSetting.qml:20
+#, qt-format
+msgid "%1 day"
+msgid_plural "%1 days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../app/settings/DownloadSetting.qml:9
+msgid "Download at most"
+msgstr ""
+
+#: ../app/settings/DownloadSetting.qml:16
+#: ../app/settings/DownloadSetting.qml:17
+#: ../app/settings/DownloadSetting.qml:18
+#: ../app/settings/DownloadSetting.qml:19
+#, qt-format
+msgid "%1 episode"
+msgid_plural "%1 episodes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../app/settings/ThemeSetting.qml:9 ../app/ui/SettingsTab.qml:53
+msgid "Theme"
+msgstr ""
+
+#: ../app/settings/ThemeSetting.qml:15
+msgid "Light"
+msgstr ""
+
+#: ../app/settings/ThemeSetting.qml:16
+msgid "Dark"
+msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:85
 msgid "Search Episode"
@@ -165,80 +208,49 @@ msgid "Settings"
 msgstr ""
 
 #: ../app/ui/SettingsTab.qml:35
-msgid "Light"
-msgstr ""
-
-#: ../app/ui/SettingsTab.qml:36
-msgid "Dark"
-msgstr ""
-
-#: ../app/ui/SettingsTab.qml:44 ../app/ui/SettingsTab.qml:104
-msgid "Never"
-msgstr ""
-
-#: ../app/ui/SettingsTab.qml:45
-msgid "7 days"
-msgstr ""
-
-#: ../app/ui/SettingsTab.qml:46
-msgid "31 days"
-msgstr ""
-
-#: ../app/ui/SettingsTab.qml:47
-msgid "90 days"
-msgstr ""
-
-#: ../app/ui/SettingsTab.qml:48
-msgid "180 days"
-msgstr ""
-
-#: ../app/ui/SettingsTab.qml:49
-msgid "360 days"
-msgstr ""
-
-#: ../app/ui/SettingsTab.qml:57
 msgid "1 episode"
 msgstr ""
 
-#: ../app/ui/SettingsTab.qml:58
+#: ../app/ui/SettingsTab.qml:36
 msgid "3 episodes"
 msgstr ""
 
-#: ../app/ui/SettingsTab.qml:59
+#: ../app/ui/SettingsTab.qml:37
 msgid "5 episodes"
 msgstr ""
 
-#: ../app/ui/SettingsTab.qml:60
+#: ../app/ui/SettingsTab.qml:38
 msgid "10 episodes"
 msgstr ""
 
+#: ../app/ui/SettingsTab.qml:48
+msgid "General Settings"
+msgstr ""
+
+#: ../app/ui/SettingsTab.qml:59
+msgid "Podcast Episode Settings"
+msgstr ""
+
 #: ../app/ui/SettingsTab.qml:73
-msgid "Theme"
+msgid "Automatically delete old episodes"
 msgstr ""
 
-#: ../app/ui/SettingsTab.qml:103
-msgid "Remove episodes older than"
+#: ../app/ui/SettingsTab.qml:81
+msgid ""
+"Delete episodes that are older than a given number of days for each podcast"
 msgstr ""
 
-#: ../app/ui/SettingsTab.qml:105
-#, qt-format
-msgid "%1 days"
-msgstr ""
-
-#: ../app/ui/SettingsTab.qml:128
+#: ../app/ui/SettingsTab.qml:87
 msgid "Auto download on WiFi only"
 msgstr ""
 
-#: ../app/ui/SettingsTab.qml:142
-msgid "Max. number of episodes to download"
+#: ../app/ui/SettingsTab.qml:107
+msgid "Automatically download new episodes"
 msgstr ""
 
-#: ../app/ui/SettingsTab.qml:143
-#, qt-format
-msgid "%1 episode"
-msgid_plural "%1 episodes"
-msgstr[0] ""
-msgstr[1] ""
+#: ../app/ui/SettingsTab.qml:115
+msgid "Default number of new episodes to download for each podcast"
+msgstr ""
 
 #. TRANSLATORS: This is shown as "Already used Podbird? Skip the tutorials (in bold leters)
 #: ../app/ui/Walkthrough.qml:88
