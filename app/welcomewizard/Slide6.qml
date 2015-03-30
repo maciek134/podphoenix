@@ -59,7 +59,7 @@ Component {
             }
             fontSize: "large"
             horizontalAlignment: Text.AlignHLeft
-            text: i18n.tr("That's about it. We hope you enjoy using Podbird!")
+            text: i18n.tr("That's about it. We hope you will enjoy using Podbird!")
             wrapMode: Text.WordWrap
         }
 

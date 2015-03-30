@@ -59,7 +59,7 @@ Component {
             }
             fontSize: "large"
             horizontalAlignment: Text.AlignHLeft
-            text: i18n.tr("If you can find any bugs or have any feature requests, you can let us know at our project page https://launchpad.net/podbird.")
+            text: i18n.tr("If you find any bugs or have any feature requests, you can let us know at our project page https://launchpad.net/podbird.")
             wrapMode: Text.WordWrap
         }
     }

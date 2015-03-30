@@ -59,8 +59,8 @@ Component {
             }
             fontSize: "large"
             horizontalAlignment: Text.AlignHLeft
-            text: i18n.tr("Podbird uses the Itunes Database to provide access to a huge collections of Podcasts. You should be able to find every \
-podcast you ever need.")
+            text: i18n.tr("Podbird uses the Itunes database to provide access to a huge collections of podcasts. You should be able to find every \
+podcast you would ever need. If not, you can also add podcasts by URL.")
             wrapMode: Text.WordWrap
         }
     }

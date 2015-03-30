@@ -59,8 +59,8 @@ Component {
             }
             fontSize: "large"
             horizontalAlignment: Text.AlignHLeft
-            text: i18n.tr("Podbird auto downloads new episodes and deletes episodes that are older than a certain date. \
-You can adjust these to suit your needs.")
+            text: i18n.tr("Podbird automatically downloads new episodes and deletes episodes that are older than a certain date. \
+You can adjust these settings to suit your needs.")
             wrapMode: Text.WordWrap
         }
     }
