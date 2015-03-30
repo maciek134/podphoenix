@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-30 00:07+0200\n"
+"POT-Creation-Date: 2015-03-30 02:46+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -225,7 +225,7 @@ msgstr ""
 
 #: ../app/welcomewizard/Slide1.qml:49
 msgid ""
-"Enjoy your favourite podcast with Podbird, the one and only podcast manager "
+"Enjoy your favourite podcasts with Podbird, the one and only podcast manager "
 "for Ubuntu Touch. Take a short tour on how to get started."
 msgstr ""
 
@@ -235,8 +235,9 @@ msgstr ""
 
 #: ../app/welcomewizard/Slide2.qml:62
 msgid ""
-"Podbird uses the Itunes Database to provide access to a huge collections of "
-"Podcasts. You should be able to find every podcast you ever need."
+"Podbird uses the Itunes database to provide access to a huge collections of "
+"podcasts. You should be able to find every podcast you would ever need. If "
+"not, you can also add podcasts by URL."
 msgstr ""
 
 #: ../app/welcomewizard/Slide3.qml:44
@@ -245,8 +246,8 @@ msgstr ""
 
 #: ../app/welcomewizard/Slide3.qml:62
 msgid ""
-"Podbird auto downloads new episodes and deletes episodes that are older than "
-"a certain date. You can adjust these to suit your needs."
+"Podbird automatically downloads new episodes and deletes episodes that are "
+"older than a certain date. You can adjust these settings to suit your needs."
 msgstr ""
 
 #: ../app/welcomewizard/Slide4.qml:44
@@ -265,8 +266,8 @@ msgstr ""
 
 #: ../app/welcomewizard/Slide5.qml:62
 msgid ""
-"If you can find any bugs or have any feature requests, you can let us know "
-"at our project page https://launchpad.net/podbird."
+"If you find any bugs or have any feature requests, you can let us know at "
+"our project page https://launchpad.net/podbird."
 msgstr ""
 
 #: ../app/welcomewizard/Slide6.qml:44
@@ -274,7 +275,7 @@ msgid "Enjoy!"
 msgstr ""
 
 #: ../app/welcomewizard/Slide6.qml:62
-msgid "That's about it. We hope you enjoy using Podbird!"
+msgid "That's about it. We hope you will enjoy using Podbird!"
 msgstr ""
 
 #: ../app/welcomewizard/Slide6.qml:75
