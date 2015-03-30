@@ -230,7 +230,7 @@ MainView {
             var rs = tx.executeSql("SELECT rowid, * FROM Podcast ORDER BY name ASC");
             for (var i=0; i < rs.rows.length; i++) {
                 var podcast = rs.rows.item(i);
-                var rs2 = tx.executeSql("SELECT rowid, * FROM Episode WHERE podcast=?", [rs.rows.item(i).rowid]);
+                var rs2 = tx.executeSql("SELECT rowid, * FROM Episode WHERE podcast=? ORDER BY published DESC", [rs.rows.item(i).rowid]);
                 var loopCount = maxEpisodeDownload > rs2.rows.length ? rs2.rows.length : maxEpisodeDownload
                 for (var j=0; j < loopCount; j++) {
                     if (!rs2.rows.item(j).downloadedfile && !rs2.rows.item(j).listened) {
