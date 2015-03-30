@@ -81,7 +81,7 @@ MainView {
         property var lastCheck: new Date()
         property bool firstRun: true
         property bool onlyWifiDownload: true
-        property int maxEpisodeDownload: 1
+        property int maxEpisodeDownload: -1
     }
 
     FileManager {
