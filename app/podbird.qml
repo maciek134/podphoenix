@@ -82,6 +82,7 @@ MainView {
         property bool firstRun: true
         property bool onlyWifiDownload: true
         property int maxEpisodeDownload: -1
+        property bool hideListened: false
     }
 
     FileManager {

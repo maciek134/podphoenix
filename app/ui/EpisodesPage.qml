@@ -179,10 +179,10 @@ Page {
     EmptyState {
         anchors.centerIn: parent
         anchors.verticalCenterOffset: Qt.inputMethod.visible ? units.gu(4) : 0
-        visible: episodesPage.state === "search" && sortedEpisodeModel.count === 0
+        visible: (episodesPage.state === "search" && sortedEpisodeModel.count === 0) || (episodeModel.count === 0 && podbird.settings.hideListened)
         iconName: "music-app-symbolic"
-        title: i18n.tr("No Episodes found")
-        subTitle: i18n.tr("No episodes found matching the search term.")
+        title: podbird.settings.hideListened ? i18n.tr("No more episodes") : i18n.tr("No Episodes found")
+        subTitle: podbird.settings.hideListened ? i18n.tr("All episodes have been listened to.") : i18n.tr("No episodes found matching the search term.")
     }
 
     ListModel {
@@ -491,7 +491,8 @@ Page {
         var db = Podcasts.init();
         db.transaction(function (tx) {
             episodeModel.clear();
-            var rs = tx.executeSql("SELECT rowid, * FROM Episode WHERE podcast=? ORDER BY published DESC", [pid]);
+            var rs = podbird.settings.hideListened ? tx.executeSql("SELECT rowid, * FROM Episode WHERE podcast=? AND listened=? ORDER BY published DESC", [pid, false])
+                                                   : tx.executeSql("SELECT rowid, * FROM Episode WHERE podcast=? ORDER BY published DESC", [pid])
             for(var i = 0; i < rs.rows.length; i++) {
                 var episode = rs.rows.item(i);
                 episodeModel.pid = pid;

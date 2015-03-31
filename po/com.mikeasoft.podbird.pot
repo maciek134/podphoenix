@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-31 10:34+0200\n"
+"POT-Creation-Date: 2015-03-31 10:56+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -109,7 +109,15 @@ msgid "Cancel"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:184
+msgid "No more episodes"
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:184
 msgid "No Episodes found"
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:185
+msgid "All episodes have been listened to."
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:185
@@ -228,24 +236,28 @@ msgstr ""
 msgid "Podcast Episode Settings"
 msgstr ""
 
-#: ../app/ui/SettingsTab.qml:62
-msgid "Automatically delete old episodes"
+#: ../app/ui/SettingsTab.qml:52
+msgid "Hide listened episodes"
 msgstr ""
 
 #: ../app/ui/SettingsTab.qml:70
+msgid "Automatically delete old episodes"
+msgstr ""
+
+#: ../app/ui/SettingsTab.qml:78
 msgid ""
 "Delete episodes that are older than a given number of days for each podcast"
 msgstr ""
 
-#: ../app/ui/SettingsTab.qml:76
+#: ../app/ui/SettingsTab.qml:84
 msgid "Auto download on WiFi only"
 msgstr ""
 
-#: ../app/ui/SettingsTab.qml:96
+#: ../app/ui/SettingsTab.qml:104
 msgid "Automatically download new episodes"
 msgstr ""
 
-#: ../app/ui/SettingsTab.qml:104
+#: ../app/ui/SettingsTab.qml:112
 msgid "Default number of new episodes to download for each podcast"
 msgstr ""
 
@@ -322,6 +334,6 @@ msgstr ""
 msgid "Start"
 msgstr ""
 
-#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-5-auto-download-option-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
+#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-6-hide-listened-episodes-option-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
 msgid "Podbird"
 msgstr ""
