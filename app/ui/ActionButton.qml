@@ -22,7 +22,8 @@ import Ubuntu.Components 1.1
 AbstractButton {
     id: abstractButton
 
-    property string iconName
+    property alias iconName: _icon.name
+    property alias iconSource: _icon.source
 
     Rectangle {
         visible: abstractButton.pressed

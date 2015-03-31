@@ -421,6 +421,26 @@ Page {
                         }
 
                         ActionButton {
+                            id: listenButton
+
+                            width: units.gu(5)
+                            height: units.gu(4)
+
+                            iconSource: model.listened ? Qt.resolvedUrl("../graphics/select-undefined.svg")
+                                                       : Qt.resolvedUrl("../graphics/select.svg")
+                            onClicked: {
+                                var db = Podcasts.init();
+                                db.transaction(function (tx) {
+                                    if (model.listened)
+                                        tx.executeSql("UPDATE Episode SET listened=0 WHERE guid=?", [model.guid])
+                                    else
+                                        tx.executeSql("UPDATE Episode SET listened=1 WHERE guid=?", [model.guid])
+                                    refreshModel();
+                                });
+                            }
+                        }
+
+                        ActionButton {
                             id: downloadButton
 
                             width: units.gu(5)
@@ -453,7 +473,6 @@ Page {
                             }
                         }
                     }
-
 
                     ProgressBar {
                         visible: downloader.downloadingGuid === model.guid
