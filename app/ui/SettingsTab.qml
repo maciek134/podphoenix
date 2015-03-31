@@ -28,17 +28,6 @@ Tab {
     page: Page {
         id: settingsPage
 
-        ListModel {
-            id: episodeDownloadNumber
-            Component.onCompleted: initialize()
-            function initialize() {
-                episodeDownloadNumber.append({ name: i18n.tr("1 episode"), value: 1 })
-                episodeDownloadNumber.append({ name: i18n.tr("3 episodes"), value: 3 })
-                episodeDownloadNumber.append({ name: i18n.tr("5 episodes"), value: 5 })
-                episodeDownloadNumber.append({ name: i18n.tr("10 episodes"), value: 10 })
-            }
-        }
-
         Column {
             id: settingsColumn
 

@@ -32,10 +32,10 @@ Page {
         function initialize() {
             cleanupModel.append({ name: i18n.tr("Never"), value: -1 })
             cleanupModel.append({ name: i18n.tr("%1 day", "%1 days", 7).arg(7), value: 7 })
-            cleanupModel.append({ name: i18n.tr("%1 day", "%1 days", 31).arg(31), value: 31 })
-            cleanupModel.append({ name: i18n.tr("%1 day", "%1 days", 90).arg(90), value: 90 })
-            cleanupModel.append({ name: i18n.tr("%1 day", "%1 days", 180).arg(180), value: 180 })
-            cleanupModel.append({ name: i18n.tr("%1 day", "%1 days", 360).arg(360), value: 360 })
+            cleanupModel.append({ name: i18n.tr("%1 month", "%1 months", 1).arg(1), value: 31 })
+            cleanupModel.append({ name: i18n.tr("%1 month", "%1 months", 3).arg(3), value: 90 })
+            cleanupModel.append({ name: i18n.tr("%1 month", "%1 months", 6).arg(6), value: 180 })
+            cleanupModel.append({ name: i18n.tr("%1 year", "%1 years", 1).arg(1), value: 360 })
         }
     }
 
