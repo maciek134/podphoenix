@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-01 02:48+0200\n"
+"POT-Creation-Date: 2015-04-01 03:01+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -226,7 +226,9 @@ msgstr ""
 #: ../app/welcomewizard/Slide1.qml:49
 msgid ""
 "Enjoy your favourite podcasts with Podbird, the one and only podcast manager "
-"for Ubuntu Touch. Take a short tour on how to get started."
+"for Ubuntu Touch.\n"
+"\n"
+"Take a short tour on how to get started."
 msgstr ""
 
 #: ../app/welcomewizard/Slide2.qml:44
@@ -274,10 +276,13 @@ msgid "Enjoy!"
 msgstr ""
 
 #: ../app/welcomewizard/Slide6.qml:62
-msgid "Well that's about it. We hope you will enjoy using Podbird!"
+msgid ""
+"Well that's about it. We hope you will enjoy using Podbird!\n"
+"\n"
+"Chirp Chirp.."
 msgstr ""
 
-#: ../app/welcomewizard/Slide6.qml:75
+#: ../app/welcomewizard/Slide6.qml:74
 msgid "Start"
 msgstr ""
 

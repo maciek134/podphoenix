@@ -47,7 +47,7 @@ Component {
         Label {
             id: bodyText
             text: i18n.tr("Enjoy your favourite podcasts with Podbird, the one and only podcast \
-manager for Ubuntu Touch. Take a short tour on how to get started.")
+manager for Ubuntu Touch.\n\nTake a short tour on how to get started.")
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.margins: units.gu(1)
