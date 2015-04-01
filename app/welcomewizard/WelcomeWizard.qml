@@ -25,6 +25,7 @@ Walkthrough {
     id: walkthrough
     appName: "Podbird"
     onFinished: {
+        console.log("[LOG]: Welcome tour complete")
         settings.firstRun = false
         mainStack.pop()
         mainStack.push(tabs)

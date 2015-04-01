@@ -54,12 +54,12 @@ Component {
                 bottom: parent.bottom
                 left: parent.left
                 right: parent.right
-                margins: units.gu(2)
+                margins: units.gu(1)
                 topMargin: units.gu(4)
             }
             fontSize: "large"
             horizontalAlignment: Text.AlignHLeft
-            text: i18n.tr("Podbird is available in over 15 languages and is translated by the awesome \
+            text: i18n.tr("Podbird is available in over 15 languages and is translated by the \
 Ubuntu Translators community.")
             wrapMode: Text.WordWrap
         }

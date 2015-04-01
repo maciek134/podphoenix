@@ -54,12 +54,12 @@ Component {
                 bottom: continueButton.top
                 left: parent.left
                 right: parent.right
-                margins: units.gu(2)
+                margins: units.gu(1)
                 topMargin: units.gu(4)
             }
             fontSize: "large"
             horizontalAlignment: Text.AlignHLeft
-            text: i18n.tr("That's about it. We hope you will enjoy using Podbird!")
+            text: i18n.tr("Well that's about it. We hope you will enjoy using Podbird!")
             wrapMode: Text.WordWrap
         }
 

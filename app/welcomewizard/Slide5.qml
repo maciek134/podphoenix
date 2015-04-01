@@ -54,12 +54,12 @@ Component {
                 bottom: parent.bottom
                 left: parent.left
                 right: parent.right
-                margins: units.gu(2)
+                margins: units.gu(1)
                 topMargin: units.gu(4)
             }
             fontSize: "large"
             horizontalAlignment: Text.AlignHLeft
-            text: i18n.tr("If you find any bugs or have any feature requests, you can let us know at our project page https://launchpad.net/podbird.")
+            text: i18n.tr("If you find any bugs or have any feature requests, feel free to let us know at our project page https://launchpad.net/podbird.")
             wrapMode: Text.WordWrap
         }
     }
