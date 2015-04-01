@@ -54,13 +54,13 @@ Component {
                 bottom: parent.bottom
                 left: parent.left
                 right: parent.right
-                margins: units.gu(2)
+                margins: units.gu(1)
                 topMargin: units.gu(4)
             }
             fontSize: "large"
             horizontalAlignment: Text.AlignHLeft
-            text: i18n.tr("Podbird automatically downloads new episodes and deletes episodes that are older than a certain date. \
-You can adjust these settings to suit your needs.")
+            text: i18n.tr("Podbird automatically downloads new episodes and cleans up old episodes. \
+As a power user you can also tweak these settings to suit your needs.")
             wrapMode: Text.WordWrap
         }
     }
