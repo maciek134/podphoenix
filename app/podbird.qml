@@ -56,6 +56,9 @@ MainView {
 
         if (NetworkingStatus.limitedBandwith && settings.onlyWifiDownload || !NetworkingStatus.online || settings.maxEpisodeDownload === -1) {
             console.log("[LOG]: Skipped autodownloading due to missing wifi connectivity and only download on wifi preference.")
+            console.log("[LOG]: Detecting limited bandwidth: " + NetworkingStatus.limitedBandwith)
+            console.log("[LOG]: Detecting online connectivity: " + NetworkingStatus.online)
+            console.log("[LOG]: User settings (onlywifidownload & maxEpisodeDownload): " + settings.onlyWifiDownload + ", " + settings.maxEpisodeDownload)
         } else {
             autoDownloadEpisodes(settings.maxEpisodeDownload)
         }
