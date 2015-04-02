@@ -294,8 +294,8 @@ Page {
 
             art: episodeImage
             width: parent.width
-            visible: episodesPage.state !== "search"
-            height: episodesPage.state !== "search" ? cover.height + units.gu(4) : 0
+            visible: episodesPage.state !== "search" && sortedEpisodeModel.count !== 0
+            height: episodesPage.state !== "search" && sortedEpisodeModel.count !== 0 ? cover.height + units.gu(4) : 0
             backgroundStrength: podbird.settings.themeName === "Light.qml" ? 0.3 : 0.6
 
             Image {
