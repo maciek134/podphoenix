@@ -262,10 +262,11 @@ Page {
         header: BlurredBackground {
             id: blurredBackground
 
-            width: parent.width
-            height: episodesPage.state !== "search" ? cover.height + units.gu(4) : 0
             art: episodeImage
+            width: parent.width
             visible: episodesPage.state !== "search"
+            height: episodesPage.state !== "search" ? cover.height + units.gu(4) : 0
+            backgroundStrength: podbird.settings.themeName === "Light.qml" ? 0.3 : 0.6
 
             Image {
                 id:cover
@@ -449,7 +450,7 @@ Page {
                     text: model.description
                     textFormat: Text.RichText
                     clip: true
-                    height: listItem.expanded ? contentHeight : units.gu(0)
+                    height: listItem.expanded ? contentHeight : 0
                     wrapMode: Text.WordWrap
                     width: parent.width
                     fontSize: "small"

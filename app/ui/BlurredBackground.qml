@@ -26,6 +26,7 @@ Item {
     width: parent.width
 
     property string art
+    property real backgroundStrength: 0.4
 
     // the album art
     Image {
@@ -36,16 +37,6 @@ Item {
         fillMode: Image.PreserveAspectCrop
         height: parent.height
         source: art // this has to be fixed for the default cover art to work - cant find in this dir
-
-        // TODO: This should be investigated once http://pad.lv/1391368
-        //       is resolved. Once it is, these can either be set to
-        //       "height" and "width" or a property exposed via the
-        //       SDK or Thumbnailer to avoid a regression caused by
-        //       these hardcoded values changing in the Thumbnailer.
-        //       512 is size of the "xlarge" thumbnails in pixels.
-        sourceSize.height: 512
-        sourceSize.width: 512
-
         visible: false
         width: Math.max(parent.height, parent.width)
     }
@@ -56,7 +47,7 @@ Item {
         anchors.fill: backgroundImage
         source: backgroundImage
         radius: units.dp(30)
-        opacity: 0.4
+        opacity: backgroundStrength
     }
     onArtChanged: {
         // TODO: This is a work around for LP:1261078 and LP:1306845. Ideally,
