@@ -26,13 +26,15 @@ Item {
     width: parent.width
 
     property string art  // : player.currentMetaFile === "" ? Qt.resolvedUrl("../images/music-app-cover@30.png") : player.currentMetaArt
+    property color shading: "black"
 
     // dark layer
     Rectangle {
+        id: layer
         anchors {
             fill: parent
         }
-        color: "black" 
+        color: parent.shading
     }
 
     // the album art

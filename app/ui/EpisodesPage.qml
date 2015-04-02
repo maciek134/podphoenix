@@ -30,7 +30,7 @@ Page {
     id: episodesPage
 
     visible: false
-    title: episodeName
+    title: i18n.tr("Podcast")
 
     property string episodeName
     property string episodeId
@@ -236,6 +236,7 @@ Page {
         anchors.fill: parent
         model: sortedEpisodeModel
 
+        clip: true
         section.property: "listened"
         section.labelPositioning: ViewSection.InlineLabels
 
@@ -253,6 +254,56 @@ Page {
                 }
                 fontSize: "x-large"
                 text: section === "0" ? "New" : "Listened"
+            }
+        }
+
+        header: BlurredBackground {
+            id: blurredBackground
+
+            width: parent.width
+            height: cover.height + units.gu(4)
+            art: episodeImage
+            shading: podbird.settings.themeName === "Light.qml" ? "white" : "black"
+
+            Image {
+                id:cover
+                width: units.gu(12)
+                height: width
+                sourceSize.height: width
+                sourceSize.width: width
+                source: episodeImage
+                anchors {
+                    left: parent.left
+                    top: parent.top
+                    margins: units.gu(2)
+                }
+            }
+
+            Column {
+                id: podcastTitle
+
+                anchors {
+                    left: cover.right
+                    right: parent.right
+                    bottom: parent.bottom
+                    margins: units.gu(2)
+                }
+
+                Label {
+                    text: episodeName
+                    wrapMode: Text.WordWrap
+                    maximumLineCount: 2
+                    elide: Text.ElideRight
+                    color: podbird.theme.baseText
+                }
+
+                Label {
+                    text: i18n.tr("%1 episode", "%1 episodes", episodeList.count).arg(episodeList.count)
+                    width: parent.width
+                    elide: Text.ElideRight
+                    fontSize: "x-small"
+                    color: podbird.theme.baseSubText
+                }
             }
         }
 
@@ -419,6 +470,7 @@ Page {
     Scrollbar {
         flickableItem: episodeList
     }
+
 
     ListModel {
         id: newEpisodesModel
