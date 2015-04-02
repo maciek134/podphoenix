@@ -37,6 +37,7 @@ Page {
     property string episodeId
     property string episodeArtist
     property string episodeImage
+    property string tempGuid: "NULL"
 
     property bool episodesUpdating: false;
 
@@ -141,7 +142,36 @@ Page {
     Connections {
         target: downloader
         onDownloadingGuidChanged: {
-            loadEpisodes(episodeId, episodeArtist, episodeImage);
+            var db = Podcasts.init();
+            db.transaction(function (tx) {
+                /*
+                 If tempGuid is NULL, then the episode currently being downloaded is not found within
+                 this podcast. On the other hand, if it is within this podcast, then update the episodeModel
+                 with the downloadedfile location we just received from the downloader.
+                */
+                if (tempGuid != "NULL") {
+                    var rs2 = tx.executeSql("SELECT downloadedfile, podcast FROM Episode WHERE guid=?", [tempGuid]);
+                    for (var i=0; i<episodeModel.count; i++) {
+                        if (episodeModel.get(i).guid == tempGuid) {
+                            console.log("[LOG]: Setting episode download URL to " + rs2.rows.item(0).downloadedfile)
+                            episodeModel.setProperty(i, "downloadedfile", rs2.rows.item(0).downloadedfile)
+                            break
+                        }
+                    }
+                    tempGuid = "NULL"
+                }
+
+                /*
+                 Here it is checked if the currently downloaded episode belongs to the podcast
+                 page being currently displayed. If it is, then the downloaded episode guid is
+                 stored in the tempGuid variable to track it.
+                */
+                var rs = tx.executeSql("SELECT podcast FROM Episode WHERE guid=?", [downloader.downloadingGuid]);
+
+                if (downloader.downloadingGuid != "" && rs.rows.item(0).podcast == episodeId && tempGuid == "NULL") {
+                    tempGuid = downloader.downloadingGuid
+                }
+            });
         }
     }
 
