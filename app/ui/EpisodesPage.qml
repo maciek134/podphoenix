@@ -426,6 +426,7 @@ Page {
                                     tx.executeSql("UPDATE Episode SET downloadedfile = NULL WHERE guid = ?", [model.guid]);
                                 });
                                 episodeModel.setProperty(index, "downloadedfile", "")
+                                downloadButton.queued = false
                             } else {
                                 downloadButton.queued = true;
                                 downloader.addDownload(model.guid, model.audiourl);
