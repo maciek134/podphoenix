@@ -25,17 +25,7 @@ import QtGraphicalEffects 1.0
 Item {
     width: parent.width
 
-    property string art  // : player.currentMetaFile === "" ? Qt.resolvedUrl("../images/music-app-cover@30.png") : player.currentMetaArt
-    property color shading: "black"
-
-    // dark layer
-    Rectangle {
-        id: layer
-        anchors {
-            fill: parent
-        }
-        color: parent.shading
-    }
+    property string art
 
     // the album art
     Image {
@@ -65,8 +55,8 @@ Item {
         id: backgroundBlur
         anchors.fill: backgroundImage
         source: backgroundImage
-        radius: units.dp(42)
-        opacity: 0.2
+        radius: units.dp(30)
+        opacity: 0.4
     }
     onArtChanged: {
         // TODO: This is a work around for LP:1261078 and LP:1306845. Ideally,

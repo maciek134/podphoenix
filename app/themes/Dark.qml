@@ -21,12 +21,12 @@ import Ubuntu.Components 1.1
 
 QtObject {
     // MainView
-    property color background: "#1E1E23"
+    property color background: "#242423"
 
     // Main Text Colors
     property color baseText: "White"
     property color baseSubText: "#999999"
-    property color focusText: "#FF9900"
+    property color focusText: "#35AF44"
 
     // Icon Colors
     property color baseIcon: "White"
@@ -40,5 +40,5 @@ QtObject {
     property color bottomBarBackground: "#0F0F0F"
 
     // Highlight Color
-    property color hightlightListView: "#2C2C34"
+    property color hightlightListView: "#333533"
 }

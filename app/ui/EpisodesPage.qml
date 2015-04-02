@@ -263,7 +263,6 @@ Page {
             width: parent.width
             height: cover.height + units.gu(4)
             art: episodeImage
-            shading: podbird.settings.themeName === "Light.qml" ? "white" : "black"
 
             Image {
                 id:cover
@@ -318,7 +317,7 @@ Page {
             property bool expanded
 
             height: dataColumn.height + units.gu(2)
-            highlightWhenPressed: true
+            highlightWhenPressed: false
             showDivider: false
 
             onClicked: {
