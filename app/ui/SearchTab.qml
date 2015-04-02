@@ -125,7 +125,7 @@ Tab {
 
                 Rectangle {
                     anchors.fill: parent
-                    opacity: 0.7
+                    opacity: 0.3
                     color: index % 2 === 0 ? podbird.theme.hightlightListView : "Transparent"
                 }
 
