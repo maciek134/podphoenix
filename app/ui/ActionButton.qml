@@ -23,6 +23,7 @@ AbstractButton {
     id: abstractButton
 
     property string iconName
+    property alias color: _icon.color
 
     Rectangle {
         visible: abstractButton.pressed

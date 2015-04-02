@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-01 14:17+0200\n"
+"POT-Creation-Date: 2015-04-02 14:12+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -116,19 +116,19 @@ msgstr ""
 msgid "No episodes found matching the search term."
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:319
+#: ../app/ui/EpisodesPage.qml:207
 #, no-c-format, qt-format
-msgid "%1h %2m"
+msgid "%1 hr %2 min"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:328
+#: ../app/ui/EpisodesPage.qml:216
 #, no-c-format, qt-format
-msgid "%1h"
+msgid "%1 hr"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:336
+#: ../app/ui/EpisodesPage.qml:224
 #, no-c-format, qt-format
-msgid "%1m"
+msgid "%1 min"
 msgstr ""
 
 #: ../app/ui/NowPlayingPage.qml:28
@@ -197,7 +197,7 @@ msgstr ""
 msgid "No podcasts found matching the search term."
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:291
+#: ../app/ui/PodcastsTab.qml:284
 #, qt-format
 msgid "%1 unheard episode"
 msgid_plural "%1 unheard episodes"
@@ -326,6 +326,6 @@ msgstr ""
 msgid "Start"
 msgstr ""
 
-#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-5-auto-download-option-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
+#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-5.5-kevin-episodes-design-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
 msgid "Podbird"
 msgstr ""

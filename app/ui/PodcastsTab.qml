@@ -186,13 +186,6 @@ Tab {
             filter.pattern: RegExp(searchField.text, "gi")
         }
 
-        ListModel {
-            id: episodeModel
-            property string pid;
-            property string artist;
-            property string image;
-        }
-
         ListView {
             id: view
 
