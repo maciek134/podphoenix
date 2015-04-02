@@ -304,7 +304,7 @@ Page {
                     width: parent.width
                     elide: Text.ElideRight
                     fontSize: "x-small"
-                    color: podbird.theme.baseSubText
+                    color: podbird.theme.baseText
                 }
             }
         }
@@ -456,7 +456,7 @@ Page {
                     color: podbird.theme.baseSubText
                     Behavior on height {
                         UbuntuNumberAnimation {
-                            duration: UbuntuAnimation.SlowDuration
+                            duration: UbuntuAnimation.BriskDuration
                         }
                     }
                 }
