@@ -72,7 +72,7 @@ Rectangle {
                 color: "white"
                 elide: Text.ElideRight
                 maximumLineCount: 2
-                wrapMode: Text.WrapAnywhere
+                wrapMode: Text.WordWrap
                 text: currentName
             }
 
