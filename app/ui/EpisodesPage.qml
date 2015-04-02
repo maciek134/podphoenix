@@ -31,6 +31,7 @@ Page {
 
     visible: false
     title: i18n.tr("Podcast")
+    flickable: null
 
     property string episodeName
     property string episodeId
@@ -122,6 +123,7 @@ Page {
                     episodeList.forceActiveFocus()
                     searchField.text = ""
                     episodesPage.state = "default"
+                    episodeList.positionViewAtBeginning()
                 }
             }
 
@@ -261,8 +263,9 @@ Page {
             id: blurredBackground
 
             width: parent.width
-            height: cover.height + units.gu(4)
+            height: episodesPage.state !== "search" ? cover.height + units.gu(4) : 0
             art: episodeImage
+            visible: episodesPage.state !== "search"
 
             Image {
                 id:cover
