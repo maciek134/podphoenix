@@ -471,15 +471,6 @@ Page {
         flickableItem: episodeList
     }
 
-
-    ListModel {
-        id: newEpisodesModel
-    }
-
-    ListModel {
-        id: listenedEpisodesModel
-    }
-
     function refreshModel() {
         var db = Podcasts.init();
         loadEpisodes(episodeId, episodeArtist, episodeImage);
@@ -488,33 +479,23 @@ Page {
 
     function loadEpisodes(pid, artist, img) {
         var i, episode;
+        var newCount = 0;
 
         episodeModel.clear();
-        listenedEpisodesModel.clear()
-        newEpisodesModel.clear()
 
         var db = Podcasts.init();
         db.transaction(function (tx) {
             var rs = tx.executeSql("SELECT rowid, * FROM Episode WHERE podcast=? ORDER BY published DESC", [pid]);
             for(i = 0; i < rs.rows.length; i++) {
                 episode = rs.rows.item(i);
-                if (episode.listened) {
-                    listenedEpisodesModel.append({"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "artist" : artist, "audiourl" : episode.audiourl})
+                if (!episode.listened) {
+                    episodeModel.insert(newCount, {"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : img, "artist" : artist, "audiourl" : episode.audiourl});
+                    newCount++;
                 } else {
-                    newEpisodesModel.append({"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "artist" : artist, "audiourl" : episode.audiourl})
+                    episodeModel.insert(i,{"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : img, "artist" : artist, "audiourl" : episode.audiourl});
                 }
             }
         });
-
-        for(i=0; i<newEpisodesModel.count; i++) {
-            episode = newEpisodesModel.get(i)
-            episodeModel.append({"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : img, "artist" : artist, "audiourl" : episode.audiourl});
-        }
-
-        for(i=0; i<listenedEpisodesModel.count; i++) {
-            episode = listenedEpisodesModel.get(i)
-            episodeModel.append({"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : img, "artist" : artist, "audiourl" : episode.audiourl});
-        }
     }
 
     function updateEpisodes() {
