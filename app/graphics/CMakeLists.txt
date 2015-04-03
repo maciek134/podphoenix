@@ -1,4 +1,4 @@
-file(GLOB GRAPHIC_FILES *.png *.jpg *.svg)
+file(GLOB GRAPHIC_FILES *.png *.jpg)
 
 # Make the files visible in the qtcreator tree
 add_custom_target(podbird_GRAPHICFiles ALL SOURCES ${GRAPHIC_FILES})

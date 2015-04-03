@@ -23,7 +23,6 @@ AbstractButton {
     id: abstractButton
 
     property alias iconName: _icon.name
-    property alias iconSource: _icon.source
     property alias color: _icon.color
 
     Rectangle {
@@ -37,7 +36,6 @@ AbstractButton {
         width: units.gu(2.5)
         height: width
         anchors.centerIn: parent
-        name: abstractButton.iconName
         color: podbird.theme.baseIcon
     }
 }
