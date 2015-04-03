@@ -43,6 +43,8 @@ Page {
 
     Component.onCompleted: {
         loadEpisodes(episodeId, episodeArtist, episodeImage)
+        if (downloader.downloadingGuid != "")
+            tempGuid = downloader.downloadingGuid
     }
 
     /*
