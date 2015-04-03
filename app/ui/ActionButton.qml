@@ -24,6 +24,7 @@ AbstractButton {
 
     property alias iconName: _icon.name
     property alias iconSource: _icon.source
+    property alias color: _icon.color
 
     Rectangle {
         visible: abstractButton.pressed
