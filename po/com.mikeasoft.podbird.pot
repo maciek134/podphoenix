@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-03 19:13+0200\n"
+"POT-Creation-Date: 2015-04-03 21:19+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -55,7 +55,7 @@ msgstr ""
 #: ../app/settings/DownloadSetting.qml:34
 #: ../app/settings/DownloadSetting.qml:35
 #: ../app/settings/DownloadSetting.qml:36
-#: ../app/settings/DownloadSetting.qml:37 ../app/ui/EpisodesPage.qml:336
+#: ../app/settings/DownloadSetting.qml:37 ../app/ui/EpisodesPage.qml:400
 #, qt-format
 msgid "%1 episode"
 msgid_plural "%1 episodes"
@@ -86,7 +86,7 @@ msgstr ""
 msgid "Mark all listened"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:109 ../app/ui/EpisodesPage.qml:187
+#: ../app/ui/EpisodesPage.qml:109 ../app/ui/EpisodesPage.qml:188
 msgid "Unsubscribe"
 msgstr ""
 
@@ -99,46 +99,58 @@ msgstr ""
 msgid "Search episode"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:184
+#: ../app/ui/EpisodesPage.qml:185
 msgid "Unsubscribe Confirmation"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:185
+#: ../app/ui/EpisodesPage.qml:186
 #, qt-format
 msgid "Are you sure you want to unsubscribe from <b>%1</b>?"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:204
+#: ../app/ui/EpisodesPage.qml:205
 msgid "Cancel"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:218
+#: ../app/ui/EpisodesPage.qml:235
+msgid "Delete local file"
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:236
+msgid "Episode queued for download"
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:237
+msgid "Download episode"
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:282
 msgid "No more episodes"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:218
+#: ../app/ui/EpisodesPage.qml:282
 msgid "No Episodes found"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:219
+#: ../app/ui/EpisodesPage.qml:283
 msgid "All episodes have been listened to."
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:219
+#: ../app/ui/EpisodesPage.qml:283
 msgid "No episodes found matching the search term."
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:241
+#: ../app/ui/EpisodesPage.qml:305
 #, no-c-format, qt-format
 msgid "%1 hr %2 min"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:250
+#: ../app/ui/EpisodesPage.qml:314
 #, no-c-format, qt-format
 msgid "%1 hr"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:258
+#: ../app/ui/EpisodesPage.qml:322
 #, no-c-format, qt-format
 msgid "%1 min"
 msgstr ""
