@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-03 23:16+0200\n"
+"POT-Creation-Date: 2015-04-05 18:11+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -55,7 +55,7 @@ msgstr ""
 #: ../app/settings/DownloadSetting.qml:34
 #: ../app/settings/DownloadSetting.qml:35
 #: ../app/settings/DownloadSetting.qml:36
-#: ../app/settings/DownloadSetting.qml:37 ../app/ui/EpisodesPage.qml:399
+#: ../app/settings/DownloadSetting.qml:37 ../app/ui/EpisodesPage.qml:407
 #, qt-format
 msgid "%1 episode"
 msgid_plural "%1 episodes"
@@ -90,8 +90,8 @@ msgstr ""
 msgid "Unsubscribe"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:124 ../app/ui/PodcastsTab.qml:86
-#: ../app/ui/PodcastsTab.qml:109 ../app/ui/SearchTab.qml:72
+#: ../app/ui/EpisodesPage.qml:124 ../app/ui/PodcastsTab.qml:99
+#: ../app/ui/PodcastsTab.qml:122 ../app/ui/SearchTab.qml:72
 msgid "Back"
 msgstr ""
 
@@ -171,57 +171,65 @@ msgstr ""
 msgid "Podcasts"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:62
+#: ../app/ui/PodcastsTab.qml:64
 msgid "Add Podcast"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:72
+#: ../app/ui/PodcastsTab.qml:74
 msgid "Search Podcast"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:97
+#: ../app/ui/PodcastsTab.qml:83
+msgid "Grid View"
+msgstr ""
+
+#: ../app/ui/PodcastsTab.qml:83
+msgid "List View"
+msgstr ""
+
+#: ../app/ui/PodcastsTab.qml:110
 msgid "Search podcast"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:120
+#: ../app/ui/PodcastsTab.qml:133
 msgid "Save Podcast"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:133
+#: ../app/ui/PodcastsTab.qml:146
 msgid "Feed URL"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:157
+#: ../app/ui/PodcastsTab.qml:170
 msgid "Unable to subscribe"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:158
+#: ../app/ui/PodcastsTab.qml:171
 msgid "Please check the URL and try again"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:160
+#: ../app/ui/PodcastsTab.qml:173
 msgid "Close"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:172
+#: ../app/ui/PodcastsTab.qml:185
 msgid "No Podcast Subscriptions"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:173
+#: ../app/ui/PodcastsTab.qml:186
 msgid "No Podcasts Found"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:174
+#: ../app/ui/PodcastsTab.qml:187
 msgid ""
 "You haven't subscribed to any podcasts yet, visit the 'Find New Podcasts' "
 "page to add some."
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:175 ../app/ui/SearchTab.qml:104
+#: ../app/ui/PodcastsTab.qml:188 ../app/ui/SearchTab.qml:104
 msgid "No podcasts found matching the search term."
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:286
+#: ../app/ui/PodcastsTab.qml:218 ../app/ui/PodcastsTab.qml:338
 #, qt-format
 msgid "%1 unheard episode"
 msgid_plural "%1 unheard episodes"
@@ -248,7 +256,7 @@ msgstr ""
 msgid "Click the 'magnifier' at the top to search."
 msgstr ""
 
-#: ../app/ui/SearchTab.qml:178
+#: ../app/ui/SearchTab.qml:185
 msgid "Subscribe"
 msgstr ""
 
@@ -366,6 +374,6 @@ msgstr ""
 msgid "Start"
 msgstr ""
 
-#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-7-mark-episode-listened-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
+#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-8-podcast-card-view-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
 msgid "Podbird"
 msgstr ""
