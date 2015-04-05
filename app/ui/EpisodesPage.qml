@@ -464,8 +464,8 @@ Page {
                             maximumLineCount: 2
                             wrapMode: Text.WordWrap
                             elide: Text.ElideRight
-                            color: listItem.expanded ? podbird.theme.focusText
-                                                     : podbird.theme.baseText
+                            color: listItem.expanded || currentGuid === model.guid ? podbird.theme.focusText
+                                                                                   : podbird.theme.baseText
                         }
 
                         Label {
@@ -485,6 +485,8 @@ Page {
                         height: units.gu(4)
 
                         iconName: "contextual-menu"
+                        color: progressBar.visible || listItem.expanded ? podbird.theme.focusText
+                                                                        : podbird.theme.baseIcon
                         onClicked: {
                             var popover = PopupUtils.open(popoverComponent, contextualMenu)
                             popover.queued = Qt.binding(function() { return model.queued })
@@ -502,6 +504,8 @@ Page {
 
                         iconName: player.playbackState === MediaPlayer.PlayingState && currentGuid === model.guid ? "media-playback-pause"
                                                                                                                   : "media-playback-start"
+                        color: player.playbackState === MediaPlayer.PlayingState && currentGuid === model.guid ? podbird.theme.focusText
+                                                                                                               : podbird.theme.baseIcon
 
                         onClicked: {
                             var db = Podcasts.init();
@@ -528,14 +532,21 @@ Page {
                     }
                 }
 
-                ProgressBar {
-                    visible: downloader.downloadingGuid === model.guid
-                    minimumValue: 0
-                    maximumValue: 100
+                Rectangle {
+                    id: progressBar
+                    radius: width/3
                     width: parent.width
                     height: units.dp(5)
-                    value: downloader.progress
-                    showProgressPercentage: false
+                    color: Theme.palette.normal.base
+                    visible: downloader.downloadingGuid === model.guid
+                    Rectangle {
+                        height: parent.height
+                        radius: parent.radius
+                        anchors.left: parent.left
+                        anchors.top: parent.top
+                        color: podbird.theme.focusText
+                        width: downloader.progress > 0 ? Math.min((downloader.progress / 100) * parent.width, parent.width) : 0
+                    }
                 }
 
                 Label {

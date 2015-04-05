@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-05 18:11+0200\n"
+"POT-Creation-Date: 2015-04-05 18:35+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -90,8 +90,8 @@ msgstr ""
 msgid "Unsubscribe"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:124 ../app/ui/PodcastsTab.qml:99
-#: ../app/ui/PodcastsTab.qml:122 ../app/ui/SearchTab.qml:72
+#: ../app/ui/EpisodesPage.qml:124 ../app/ui/PodcastsTab.qml:96
+#: ../app/ui/PodcastsTab.qml:119 ../app/ui/SearchTab.qml:72
 msgid "Back"
 msgstr ""
 
@@ -187,49 +187,49 @@ msgstr ""
 msgid "List View"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:110
+#: ../app/ui/PodcastsTab.qml:107
 msgid "Search podcast"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:133
+#: ../app/ui/PodcastsTab.qml:130
 msgid "Save Podcast"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:146
+#: ../app/ui/PodcastsTab.qml:143
 msgid "Feed URL"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:170
+#: ../app/ui/PodcastsTab.qml:167
 msgid "Unable to subscribe"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:171
+#: ../app/ui/PodcastsTab.qml:168
 msgid "Please check the URL and try again"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:173
+#: ../app/ui/PodcastsTab.qml:170
 msgid "Close"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:185
+#: ../app/ui/PodcastsTab.qml:182
 msgid "No Podcast Subscriptions"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:186
+#: ../app/ui/PodcastsTab.qml:183
 msgid "No Podcasts Found"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:187
+#: ../app/ui/PodcastsTab.qml:184
 msgid ""
 "You haven't subscribed to any podcasts yet, visit the 'Find New Podcasts' "
 "page to add some."
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:188 ../app/ui/SearchTab.qml:104
+#: ../app/ui/PodcastsTab.qml:185 ../app/ui/SearchTab.qml:104
 msgid "No podcasts found matching the search term."
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:218 ../app/ui/PodcastsTab.qml:338
+#: ../app/ui/PodcastsTab.qml:215 ../app/ui/PodcastsTab.qml:335
 #, qt-format
 msgid "%1 unheard episode"
 msgid_plural "%1 unheard episodes"
