@@ -397,6 +397,7 @@ Page {
 
                 Label {
                     text: episodeName
+                    width: parent.width
                     wrapMode: Text.WordWrap
                     maximumLineCount: 2
                     elide: Text.ElideRight
@@ -464,8 +465,8 @@ Page {
                             maximumLineCount: 2
                             wrapMode: Text.WordWrap
                             elide: Text.ElideRight
-                            color: listItem.expanded || currentGuid === model.guid ? podbird.theme.focusText
-                                                                                   : podbird.theme.baseText
+                            color: listItem.expanded || currentGuid === model.guid || downloader.downloadingGuid === model.guid ? podbird.theme.focusText
+                                                                                                                                : podbird.theme.baseText
                         }
 
                         Label {
