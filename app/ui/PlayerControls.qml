@@ -53,7 +53,7 @@ Rectangle {
             id: progressBarHint
             anchors.left: parent.left
             anchors.top: cover.bottom
-            color: UbuntuColors.orange
+            color: podbird.theme.focusText
             height: units.gu(0.25)
             width: player.duration > 0 ? (player.position / player.duration) * parent.width : 0
         }
