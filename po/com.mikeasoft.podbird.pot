@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-06 02:47+0200\n"
+"POT-Creation-Date: 2015-04-06 15:09+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,14 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: ../app/podbird.qml:179
+msgid "Find New Podcasts"
+msgstr ""
+
+#: ../app/podbird.qml:193
+msgid "Settings"
+msgstr ""
 
 #: ../app/settings/CleanSetting.qml:27
 msgid "Delete older than"
@@ -55,14 +63,14 @@ msgstr ""
 #: ../app/settings/DownloadSetting.qml:34
 #: ../app/settings/DownloadSetting.qml:35
 #: ../app/settings/DownloadSetting.qml:36
-#: ../app/settings/DownloadSetting.qml:37 ../app/ui/EpisodesPage.qml:450
+#: ../app/settings/DownloadSetting.qml:37 ../app/ui/EpisodesPage.qml:449
 #, qt-format
 msgid "%1 episode"
 msgid_plural "%1 episodes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../app/settings/ThemeSetting.qml:27 ../app/ui/SettingsTab.qml:42
+#: ../app/settings/ThemeSetting.qml:27 ../app/ui/SettingsPage.qml:37
 msgid "Theme"
 msgstr ""
 
@@ -78,7 +86,7 @@ msgstr ""
 msgid "Podcast"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:89 ../app/ui/SearchTab.qml:58
+#: ../app/ui/EpisodesPage.qml:89 ../app/ui/SearchPage.qml:55
 msgid "Search Episode"
 msgstr ""
 
@@ -91,7 +99,7 @@ msgid "Unsubscribe"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:124 ../app/ui/PodcastsTab.qml:86
-#: ../app/ui/PodcastsTab.qml:109 ../app/ui/SearchTab.qml:72
+#: ../app/ui/PodcastsTab.qml:109 ../app/ui/SearchPage.qml:69
 msgid "Back"
 msgstr ""
 
@@ -112,45 +120,45 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:258
+#: ../app/ui/EpisodesPage.qml:257
 msgid "Delete local file"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:259
+#: ../app/ui/EpisodesPage.qml:258
 msgid "Episode queued for download"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:260
+#: ../app/ui/EpisodesPage.qml:259
 msgid "Download episode"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:331
+#: ../app/ui/EpisodesPage.qml:330
 msgid "No more episodes"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:331
+#: ../app/ui/EpisodesPage.qml:330
 msgid "No Episodes found"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:332
+#: ../app/ui/EpisodesPage.qml:331
 msgid "All episodes have been listened to."
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:332
+#: ../app/ui/EpisodesPage.qml:331
 msgid "No episodes found matching the search term."
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:354
+#: ../app/ui/EpisodesPage.qml:353
 #, no-c-format, qt-format
 msgid "%1 hr %2 min"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:363
+#: ../app/ui/EpisodesPage.qml:362
 #, no-c-format, qt-format
 msgid "%1 hr"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:371
+#: ../app/ui/EpisodesPage.qml:370
 #, no-c-format, qt-format
 msgid "%1 min"
 msgstr ""
@@ -217,7 +225,7 @@ msgid ""
 "page to add some."
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:175 ../app/ui/SearchTab.qml:104
+#: ../app/ui/PodcastsTab.qml:175 ../app/ui/SearchPage.qml:101
 msgid "No podcasts found matching the search term."
 msgstr ""
 
@@ -228,64 +236,56 @@ msgid_plural "%1 unheard episodes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../app/ui/SearchTab.qml:27
-msgid "Find New Podcasts"
-msgstr ""
-
-#: ../app/ui/SearchTab.qml:83
+#: ../app/ui/SearchPage.qml:80
 msgid "Search..."
 msgstr ""
 
-#: ../app/ui/SearchTab.qml:103
+#: ../app/ui/SearchPage.qml:100
 msgid "Looking for a new Podcast?"
 msgstr ""
 
-#: ../app/ui/SearchTab.qml:103
+#: ../app/ui/SearchPage.qml:100
 msgid "No Podcasts found"
 msgstr ""
 
-#: ../app/ui/SearchTab.qml:104
+#: ../app/ui/SearchPage.qml:101
 msgid "Click the 'magnifier' at the top to search."
 msgstr ""
 
-#: ../app/ui/SearchTab.qml:178
+#: ../app/ui/SearchPage.qml:175
 msgid "Subscribe"
 msgstr ""
 
-#: ../app/ui/SettingsTab.qml:26
-msgid "Settings"
-msgstr ""
-
-#: ../app/ui/SettingsTab.qml:37
+#: ../app/ui/SettingsPage.qml:32
 msgid "General Settings"
 msgstr ""
 
-#: ../app/ui/SettingsTab.qml:48
+#: ../app/ui/SettingsPage.qml:43
 msgid "Podcast Episode Settings"
 msgstr ""
 
-#: ../app/ui/SettingsTab.qml:52
+#: ../app/ui/SettingsPage.qml:47
 msgid "Hide listened episodes"
 msgstr ""
 
-#: ../app/ui/SettingsTab.qml:70
+#: ../app/ui/SettingsPage.qml:65
 msgid "Automatically delete old episodes"
 msgstr ""
 
-#: ../app/ui/SettingsTab.qml:78
+#: ../app/ui/SettingsPage.qml:73
 msgid ""
 "Delete episodes that are older than a given number of days for each podcast"
 msgstr ""
 
-#: ../app/ui/SettingsTab.qml:84
+#: ../app/ui/SettingsPage.qml:79
 msgid "Auto download on WiFi only"
 msgstr ""
 
-#: ../app/ui/SettingsTab.qml:104
+#: ../app/ui/SettingsPage.qml:99
 msgid "Automatically download new episodes"
 msgstr ""
 
-#: ../app/ui/SettingsTab.qml:112
+#: ../app/ui/SettingsPage.qml:107
 msgid "Default number of new episodes to download for each podcast"
 msgstr ""
 
