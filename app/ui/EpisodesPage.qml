@@ -223,17 +223,43 @@ Page {
             property string audiourl: ""
             property int index: -1
 
+            contentWidth: mainColumn.width
+
             Column {
-                width: parent.width
+                id: mainColumn
+
+                width: Math.max(download.width, listen.width)
                 anchors.top: parent.top
 
-                ListItem.Standard {
+                ListItem.Empty {
                     id: download
-                    iconFrame: false
-                    iconName: popover.downloadedfile ? "delete" : (popover.queued && downloader.downloadingGuid !== popover.guid ? "history" : "save")
-                    text: popover.downloadedfile ? i18n.tr("Delete local file")
-                                                 : (popover.queued && downloader.downloadingGuid !== popover.guid ? i18n.tr("Episode queued for download")
-                                                                                                                  : i18n.tr("Download episode"))
+
+                    width: Math.max(row.width, row2.width)
+
+                    Row {
+                        id: row
+
+                        spacing: units.gu(3)
+                        anchors.left: parent.left
+                        anchors.leftMargin: units.gu(2)
+                        anchors.verticalCenter: parent.verticalCenter
+                        width: downloadIcon.width + downloadText.implicitWidth + row.spacing + units.gu(4)
+
+                        Icon {
+                            id: downloadIcon
+                            width: height
+                            height: downloadText.height
+                            name: popover.downloadedfile ? "delete" : (popover.queued && downloader.downloadingGuid !== popover.guid ? "history" : "save")
+                        }
+
+                        Label {
+                            id: downloadText
+                            text: popover.downloadedfile ? i18n.tr("Delete local file")
+                                                         : (popover.queued && downloader.downloadingGuid !== popover.guid ? i18n.tr("Episode queued for download")
+                                                                                                                          : i18n.tr("Download episode"))
+                        }
+                    }
+
                     enabled: downloader.downloadingGuid !== popover.guid
                     onClicked: {
                         if (popover.downloadedfile) {
@@ -252,11 +278,34 @@ Page {
                     }
                 }
 
-                ListItem.Standard {
+                ListItem.Empty {
                     id: listen
-                    iconFrame: false
-                    iconName: popover.listened ? "view-collapse" : "select"
-                    text: popover.listened ? "Mark episode unlistened" : "Mark episode listened"
+
+                    showDivider: false
+                    width: Math.max(row.width, row2.width)
+
+                    Row {
+                        id: row2
+
+                        spacing: units.gu(3)
+                        anchors.left: parent.left
+                        anchors.leftMargin: units.gu(2)
+                        anchors.verticalCenter: parent.verticalCenter
+                        width: listenIcon.width + listenText.implicitWidth + row2.spacing + units.gu(4)
+
+                        Icon {
+                            id: listenIcon
+                            width: height
+                            height: listenText.height
+                            name: popover.listened ? "view-collapse" : "select"
+                        }
+
+                        Label {
+                            id: listenText
+                            text: popover.listened ? "Mark episode unlistened" : "Mark episode listened"
+                        }
+                    }
+
                     onClicked: {
                         var db = Podcasts.init();
                         db.transaction(function (tx) {
