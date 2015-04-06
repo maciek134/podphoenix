@@ -182,7 +182,7 @@ MainView {
                     anchors.left: parent.left
                     anchors.right: parent.right
                     anchors.bottom: parent.bottom
-                    source: (tabs.selectedTab === searchTab) ? Qt.resolvedUrl("ui/SearchTab.qml") : ""
+                    source: (tabs.selectedTab === searchTab) ? Qt.resolvedUrl("ui/SearchPage.qml") : ""
                 }
             }
 

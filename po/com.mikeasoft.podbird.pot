@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-06 14:44+0200\n"
+"POT-Creation-Date: 2015-04-06 14:48+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -86,7 +86,7 @@ msgstr ""
 msgid "Podcast"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:89 ../app/ui/SearchTab.qml:55
+#: ../app/ui/EpisodesPage.qml:89 ../app/ui/SearchPage.qml:55
 msgid "Search Episode"
 msgstr ""
 
@@ -99,7 +99,7 @@ msgid "Unsubscribe"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:124 ../app/ui/PodcastsTab.qml:86
-#: ../app/ui/PodcastsTab.qml:109 ../app/ui/SearchTab.qml:69
+#: ../app/ui/PodcastsTab.qml:109 ../app/ui/SearchPage.qml:69
 msgid "Back"
 msgstr ""
 
@@ -205,7 +205,7 @@ msgid ""
 "page to add some."
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:175 ../app/ui/SearchTab.qml:101
+#: ../app/ui/PodcastsTab.qml:175 ../app/ui/SearchPage.qml:101
 msgid "No podcasts found matching the search term."
 msgstr ""
 
@@ -216,23 +216,23 @@ msgid_plural "%1 unheard episodes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../app/ui/SearchTab.qml:80
+#: ../app/ui/SearchPage.qml:80
 msgid "Search..."
 msgstr ""
 
-#: ../app/ui/SearchTab.qml:100
+#: ../app/ui/SearchPage.qml:100
 msgid "Looking for a new Podcast?"
 msgstr ""
 
-#: ../app/ui/SearchTab.qml:100
+#: ../app/ui/SearchPage.qml:100
 msgid "No Podcasts found"
 msgstr ""
 
-#: ../app/ui/SearchTab.qml:101
+#: ../app/ui/SearchPage.qml:101
 msgid "Click the 'magnifier' at the top to search."
 msgstr ""
 
-#: ../app/ui/SearchTab.qml:175
+#: ../app/ui/SearchPage.qml:175
 msgid "Subscribe"
 msgstr ""
 
