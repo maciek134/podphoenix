@@ -18,7 +18,6 @@
 import QtQuick 2.3
 import Ubuntu.Components 1.1
 
-
 Flickable {
     id: cardViewFlickable
     anchors {
@@ -28,7 +27,7 @@ Flickable {
 
     // dont use flow.contentHeight as it is inaccurate due to height of labels
     // changing as they load
-    contentHeight: flow.contentHeight + flow.anchors.margins * 2
+    contentHeight: flow.contentHeight + flow.anchors.margins * 2 + units.gu(8)
     contentWidth: width
 
     property alias count: flow.count
