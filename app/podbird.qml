@@ -174,14 +174,32 @@ MainView {
                 objectName: "podcastsTab"
             }
 
-            SearchTab {
+            Tab {
                 id: searchTab
-                objectName: "searchTab"
+
+                title: i18n.tr("Find New Podcasts")
+
+                page: Loader {
+                    parent: searchTab
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.bottom: parent.bottom
+                    source: (tabs.selectedTab === searchTab) ? Qt.resolvedUrl("ui/SearchPage.qml") : ""
+                }
             }
 
-            SettingsTab {
+            Tab {
                 id: settingsTab
-                objectName: "settingsTab"
+
+                title: i18n.tr("Settings")
+
+                page: Loader {
+                    parent: settingsTab
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.bottom: parent.bottom
+                    source: (tabs.selectedTab === settingsTab) ? Qt.resolvedUrl("ui/SettingsPage.qml") : ""
+                }
             }
         }
     }
