@@ -267,7 +267,7 @@ Tab {
                             }
                             tx.executeSql("DELETE FROM Episode WHERE podcast=?", [model.id]);
                             tx.executeSql("DELETE FROM Podcast WHERE rowid=?", [model.id]);
-                            refreshModel()
+                            podcastModel.remove(index, 1)
                         });
                     }
 
