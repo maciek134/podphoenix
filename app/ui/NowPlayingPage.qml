@@ -101,6 +101,11 @@ Page {
         function formatValue(v) { return Podcasts.formatTime(v/1000); }
     }
 
+    Connections {
+        target: player
+        onPositionChanged: scrubber.value = player.position
+    }
+
     Label {
         id: startTime
         fontSize: "small"
