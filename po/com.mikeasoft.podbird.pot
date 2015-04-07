@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-06 21:03+0200\n"
+"POT-Creation-Date: 2015-04-07 09:45+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -233,7 +233,7 @@ msgid ""
 "page to add some."
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:185 ../app/ui/SearchPage.qml:101
+#: ../app/ui/PodcastsTab.qml:185 ../app/ui/SearchPage.qml:103
 msgid "No podcasts found matching the search term."
 msgstr ""
 
@@ -248,19 +248,19 @@ msgstr[1] ""
 msgid "Search..."
 msgstr ""
 
-#: ../app/ui/SearchPage.qml:100
+#: ../app/ui/SearchPage.qml:102
 msgid "Looking for a new Podcast?"
 msgstr ""
 
-#: ../app/ui/SearchPage.qml:100
+#: ../app/ui/SearchPage.qml:102
 msgid "No Podcasts found"
 msgstr ""
 
-#: ../app/ui/SearchPage.qml:101
+#: ../app/ui/SearchPage.qml:103
 msgid "Click the 'magnifier' at the top to search."
 msgstr ""
 
-#: ../app/ui/SearchPage.qml:182
+#: ../app/ui/SearchPage.qml:184
 msgid "Subscribe"
 msgstr ""
 

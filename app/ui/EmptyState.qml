@@ -31,14 +31,18 @@ Item {
     property alias iconName: emptyIcon.name
     property alias title: emptyLabel.text
     property alias subTitle: emptySublabel.text
+    property alias iconSource: emptyIcon.source
+
+    property real iconHeight: units.gu(10)
+    property real iconWidth: units.gu(10)
 
     height: childrenRect.height
     width: parent.width
 
     Icon {
         id: emptyIcon
-        width: height
-        height: units.gu(10)
+        width: parent.iconWidth
+        height: parent.iconHeight
         color: podbird.theme.baseIcon
         anchors.horizontalCenter: parent.horizontalCenter
     }
