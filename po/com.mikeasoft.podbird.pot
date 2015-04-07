@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-07 09:45+0200\n"
+"POT-Creation-Date: 2015-04-07 17:41+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -285,16 +285,16 @@ msgid ""
 "Delete episodes that are older than a given number of days for each podcast"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:79
-msgid "Auto download on WiFi only"
-msgstr ""
-
-#: ../app/ui/SettingsPage.qml:99
+#: ../app/ui/SettingsPage.qml:89
 msgid "Automatically download new episodes"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:107
+#: ../app/ui/SettingsPage.qml:97
 msgid "Default number of new episodes to download for each podcast"
+msgstr ""
+
+#: ../app/ui/SettingsPage.qml:103
+msgid "Auto download on WiFi only"
 msgstr ""
 
 #. TRANSLATORS: This is shown as "Already used Podbird? Skip the tutorials (in bold leters)
