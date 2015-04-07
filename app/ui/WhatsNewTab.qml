@@ -20,8 +20,94 @@ Tab {
     page: Page {
         id: whatsNewPage
 
+        state: "default"
+        states: [
+            PageHeadState {
+                name: "default"
+                head: whatsNewPage.head
+                actions: [
+                    Action {
+                        iconName: "search"
+                        text: i18n.tr("Search Episode")
+                        onTriggered: {
+                            whatsNewPage.state = "search"
+                            searchField.forceActiveFocus()
+                        }
+                    },
+
+                    Action {
+                        iconName: "select"
+                        text: i18n.tr("Mark all listened")
+                        onTriggered: {
+                            var db = Podcasts.init();
+                            db.transaction(function (tx) {
+                                for (var i=0; i<whatsNewModel.count; i++) {
+                                    tx.executeSql("UPDATE Episode SET listened=1 WHERE guid=?", [whatsNewModel.get(i).guid]);
+                                    whatsNewModel.remove(i, 1)
+                                }
+                            });
+                        }
+                    },
+
+                    Action {
+                        iconName: "save"
+                        text: i18n.tr("Download all episodes")
+                        onTriggered: {
+                            for (var i=0; i<whatsNewModel.count; i++) {
+                                if (!whatsNewModel.get(i).downloadedfile) {
+                                    whatsNewModel.setProperty(i, "queued", true)
+                                    downloader.addDownload(whatsNewModel.get(i).guid, whatsNewModel.get(i).audiourl);
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+
+            PageHeadState {
+                name: "search"
+                head: whatsNewPage.head
+                backAction: Action {
+                    iconName: "back"
+                    text: i18n.tr("Back")
+                    onTriggered: {
+                        episodeList.forceActiveFocus()
+                        searchField.text = ""
+                        whatsNewPage.state = "default"
+                    }
+                }
+
+                contents: TextField {
+                    id: searchField
+                    inputMethodHints: Qt.ImhNoPredictiveText
+                    placeholderText: i18n.tr("Search episode")
+                    anchors.left: parent ? parent.left : undefined
+                    anchors.right: parent ? parent.right : undefined
+                    anchors.rightMargin: units.gu(2)
+                }
+            }
+        ]
+
+        EmptyState {
+            anchors.centerIn: parent
+            anchors.verticalCenterOffset: Qt.inputMethod.visible ? units.gu(4) : 0
+            visible: whatsNewModel.count === 0 || sortedEpisodeModel.count === 0
+            iconName: "music-app-symbolic"
+            title: whatsNewPage.state === "default" ? i18n.tr("No New Episodes")
+                                                    : i18n.tr("No Episodes Found")
+            subTitle: whatsNewPage.state === "default" ? i18n.tr("No more episodes to listen to!")
+                                                       : i18n.tr("No Episodes found matching the search term.")
+        }
+
         ListModel {
             id: whatsNewModel
+        }
+
+        SortFilterModel {
+            id: sortedEpisodeModel
+            model: whatsNewModel
+            filter.property: "name"
+            filter.pattern: RegExp(searchField.text, "gi")
         }
 
         onVisibleChanged: {
@@ -279,7 +365,7 @@ Tab {
             }
 
             anchors.fill: parent
-            model: whatsNewModel
+            model: sortedEpisodeModel
 
             clip: true
             section.property: "diff"
