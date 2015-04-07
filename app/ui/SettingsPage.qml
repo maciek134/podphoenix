@@ -67,16 +67,6 @@ Page {
             }
         }
 
-        ListItem.Standard {
-            text: i18n.tr("Auto download on WiFi only")
-            control: Switch {
-                checked: podbird.settings.onlyWifiDownload
-                onClicked: {
-                    podbird.settings.onlyWifiDownload = checked
-                }
-            }
-        }
-
         ListItem.Base {
             height: units.gu(10)
             progression: true
@@ -97,6 +87,17 @@ Page {
                     width: parent.width
                     wrapMode: Text.WordWrap
                     text: i18n.tr("Default number of new episodes to download for each podcast")
+                }
+            }
+        }
+
+        ListItem.Standard {
+            text: i18n.tr("Auto download on WiFi only")
+            enabled: podbird.settings.maxEpisodeDownload !== -1
+            control: Switch {
+                checked: podbird.settings.onlyWifiDownload
+                onClicked: {
+                    podbird.settings.onlyWifiDownload = checked
                 }
             }
         }
