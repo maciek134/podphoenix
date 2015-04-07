@@ -169,6 +169,11 @@ MainView {
         Tabs {
             id: tabs
 
+            WhatsNewTab {
+                id: whatsNewTab
+                objectName: "whatsNewTab"
+            }
+
             PodcastsTab {
                 id: podcastTab
                 objectName: "podcastsTab"

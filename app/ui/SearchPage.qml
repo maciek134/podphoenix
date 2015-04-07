@@ -187,7 +187,7 @@ Page {
                         Podcasts.subscribe(model.artist, model.name, model.feed, model.image);
                         imageDownloader.feed = model.feed;
                         imageDownloader.download(model.image);
-                        tabs.selectedTabIndex = 0;
+                        tabs.selectedTabIndex = 1;
                         searchField.text = ""
                     }
                 }
