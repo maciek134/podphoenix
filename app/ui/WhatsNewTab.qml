@@ -435,7 +435,6 @@ Tab {
 
                         width: parent.width
                         height: imgFrame.height
-                        spacing: units.gu(2)
 
                         Image {
                             id: imgFrame
@@ -444,6 +443,11 @@ Tab {
                             sourceSize.height: width
                             sourceSize.width: width
                             source: model.image
+                        }
+
+                        Item {
+                            width: units.gu(2)
+                            height: imgFrame.height
                         }
 
                         Column {
