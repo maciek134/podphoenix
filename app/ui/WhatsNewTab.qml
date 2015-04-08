@@ -234,6 +234,7 @@ Tab {
 
                             Label {
                                 id: downloadText
+                                color: UbuntuColors.darkGrey
                                 text: popover.downloadedfile ? i18n.tr("Delete local file")
                                                              : (popover.queued && downloader.downloadingGuid !== popover.guid ? i18n.tr("Episode queued for download")
                                                                                                                               : i18n.tr("Download episode"))
@@ -281,6 +282,7 @@ Tab {
 
                             Label {
                                 id: listenText
+                                color: UbuntuColors.darkGrey
                                 text: i18n.tr("Mark episode listened")
                             }
                         }
@@ -320,6 +322,7 @@ Tab {
 
                             Label {
                                 id: playText
+                                color: UbuntuColors.darkGrey
                                 text: player.playbackState === MediaPlayer.PlayingState && currentGuid === popover.guid ? i18n.tr("Pause Episode")
                                                                                                                         : i18n.tr("Play Episode")
                             }
