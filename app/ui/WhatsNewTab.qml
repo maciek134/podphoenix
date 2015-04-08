@@ -43,8 +43,8 @@ Tab {
                             db.transaction(function (tx) {
                                 for (var i=0; i<whatsNewModel.count; i++) {
                                     tx.executeSql("UPDATE Episode SET listened=1 WHERE guid=?", [whatsNewModel.get(i).guid]);
-                                    whatsNewModel.remove(i, 1)
                                 }
+                                whatsNewModel.clear()
                             });
                         }
                     },
@@ -561,7 +561,7 @@ Tab {
                             } else {
                                 whatsNewModel.append({"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : podcast.image, "artist" : podcast.artist, "audiourl" : episode.audiourl, "queued": false, "diff": "Older"})
                             }
-                        } else {
+                        } else if (diff >= 7){
                             break
                         }
                     }
