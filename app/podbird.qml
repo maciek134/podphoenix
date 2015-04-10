@@ -44,9 +44,18 @@ MainView {
     Component.onDestruction: {
         console.log("[LOG]: Download cancelled");
         downloader.cancel();
+        var db = Podcasts.init()
+        db.transaction(function (tx) {
+            tx.executeSql('UPDATE Episode SET queued=0 WHERE queued=1');
+        })
     }
 
     Component.onCompleted: {
+        var db = Podcasts.init()
+        db.transaction(function (tx) {
+            tx.executeSql('UPDATE Episode SET queued=0 WHERE queued=1');
+        })
+
         var today = new Date()
         // Only perform cleanup of old episodes once a day
         if (Math.floor((today - settings.lastCheck)/86400000) >= 1 && settings.retentionDays !== -1) {
@@ -114,7 +123,7 @@ MainView {
             var db = Podcasts.init();
             var finalLocation = fileManager.saveDownload(path);
             db.transaction(function (tx) {
-                tx.executeSql("UPDATE Episode SET downloadedfile=? WHERE guid=?", [finalLocation, downloadingGuid]);
+                tx.executeSql("UPDATE Episode SET downloadedfile=?, queued=0 WHERE guid=?", [finalLocation, downloadingGuid]);
                 queue.shift();
                 if (queue.length > 0) {
                     downloadingGuid = queue[0][0];

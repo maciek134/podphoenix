@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Michael Sheldon <mike@mikeasoft.com>
+ * Copyright 2015 Podbird Team
  *
  * This file is part of Podbird.
  *
@@ -22,6 +22,18 @@ function init() {
         tx.executeSql('CREATE TABLE IF NOT EXISTS Podcast(artist TEXT, name TEXT, description TEXT, feed TEXT, image TEXT, lastupdate TIMESTAMP)');
         tx.executeSql('CREATE TABLE IF NOT EXISTS Episode(guid TEXT, podcast INTEGER, name TEXT, subtitle TEXT, description TEXT, duration INTEGER, audiourl TEXT, downloadedfile TEXT, published TIMESTAMP, listened BOOLEAN, position INTEGER, FOREIGN KEY(podcast) REFERENCES Podcast(rowid))');
     });
+
+    /*
+     Schema Upgrade to v1.1 which adds a new queued boolean variable which is needed to track the queued status
+     of a episode properly.
+    */
+    if (db.version == "1.0") {
+        db.changeVersion("1.0", "1.1", function(tx) {
+            tx.executeSql('ALTER TABLE Episode ADD queued BOOLEAN');
+            tx.executeSql('UPDATE Episode SET queued=0');
+        });
+    }
+
     return db;
 }
 
