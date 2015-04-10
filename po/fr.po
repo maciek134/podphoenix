@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-03-29 16:48+0100\n"
-"PO-Revision-Date: 2015-03-07 10:37+0000\n"
-"Last-Translator: Jean Marc <Unknown>\n"
+"PO-Revision-Date: 2015-04-10 00:25+0000\n"
+"Last-Translator: Anne <anneonyme017@gmail.com>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Launchpad-Export-Date: 2015-03-30 05:48+0000\n"
+"X-Launchpad-Export-Date: 2015-04-10 05:32+0000\n"
 "X-Generator: Launchpad (build 17413)\n"
 
 #: ../app/ui/EpisodesPage.qml:85
@@ -37,7 +37,7 @@ msgstr "Précédent"
 
 #: ../app/ui/EpisodesPage.qml:131
 msgid "Search episode"
-msgstr ""
+msgstr "Rechercher un épisode"
 
 #: ../app/ui/EpisodesPage.qml:150
 msgid "Unsubscribe Confirmation"
@@ -50,7 +50,7 @@ msgstr "Êtes-vous sûr de vouloir vous désinscrire de <b>%1</b> ?"
 
 #: ../app/ui/EpisodesPage.qml:170
 msgid "Cancel"
-msgstr ""
+msgstr "Annuler"
 
 #: ../app/ui/EpisodesPage.qml:184
 msgid "No Episodes found"
@@ -101,7 +101,7 @@ msgstr "Chercher un podcast"
 
 #: ../app/ui/PodcastsTab.qml:97
 msgid "Search podcast"
-msgstr ""
+msgstr "Rechercher un podcast"
 
 #: ../app/ui/PodcastsTab.qml:120
 msgid "Save Podcast"
@@ -109,7 +109,7 @@ msgstr "Enregistrer le podcast"
 
 #: ../app/ui/PodcastsTab.qml:133
 msgid "Feed URL"
-msgstr ""
+msgstr "URL du flux"
 
 #: ../app/ui/PodcastsTab.qml:157
 msgid "Unable to subscribe"
@@ -164,52 +164,52 @@ msgstr "S’abonner"
 
 #: ../app/ui/SettingsTab.qml:26
 msgid "Settings"
-msgstr ""
+msgstr "Paramètres"
 
 #: ../app/ui/SettingsTab.qml:35
 msgid "Light"
-msgstr ""
+msgstr "Clair"
 
 #: ../app/ui/SettingsTab.qml:36
 msgid "Dark"
-msgstr ""
+msgstr "Sombre"
 
 #: ../app/ui/SettingsTab.qml:44 ../app/ui/SettingsTab.qml:93
 msgid "Never"
-msgstr ""
+msgstr "Jamais"
 
 #: ../app/ui/SettingsTab.qml:45
 msgid "7 days"
-msgstr ""
+msgstr "7 jours"
 
 #: ../app/ui/SettingsTab.qml:46
 msgid "31 days"
-msgstr ""
+msgstr "31 jours"
 
 #: ../app/ui/SettingsTab.qml:47
 msgid "90 days"
-msgstr ""
+msgstr "90 jours"
 
 #: ../app/ui/SettingsTab.qml:48
 msgid "180 days"
-msgstr ""
+msgstr "180 jours"
 
 #: ../app/ui/SettingsTab.qml:49
 msgid "360 days"
-msgstr ""
+msgstr "360 jours"
 
 #: ../app/ui/SettingsTab.qml:62
 msgid "Theme"
-msgstr ""
+msgstr "Thème"
 
 #: ../app/ui/SettingsTab.qml:92
 msgid "Remove episodes older than"
-msgstr ""
+msgstr "Supprimer les épisodes antérieurs à"
 
 #: ../app/ui/SettingsTab.qml:94
 #, qt-format
 msgid "%1 days"
-msgstr ""
+msgstr "%1 jours"
 
 #: /home/mike/src/build-podbird-Ubuntu_Device_GCC_armhf_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
 msgid "Podbird"
