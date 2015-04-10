@@ -330,7 +330,9 @@ Page {
         anchors.centerIn: parent
         anchors.verticalCenterOffset: Qt.inputMethod.visible ? units.gu(4) : 0
         visible: (episodesPage.state === "search" && sortedEpisodeModel.count === 0) || (episodeModel.count === 0 && podbird.settings.hideListened)
-        iconName: "music-app-symbolic"
+        iconHeight: units.gu(12)
+        iconWidth: iconHeight + units.gu(10)
+        iconSource: Qt.resolvedUrl("../graphics/owlSearch.png")
         title: podbird.settings.hideListened ? i18n.tr("No more episodes") : i18n.tr("No Episodes found")
         subTitle: podbird.settings.hideListened ? i18n.tr("All episodes have been listened to.") : i18n.tr("No episodes found matching the search term.")
     }
