@@ -140,6 +140,13 @@ Page {
             ListItem.Standard {
                 progression: true
                 showDivider: false
+                text: i18n.tr("Credits")
+                onClicked: mainStack.push(Qt.resolvedUrl("../settings/Credits.qml"))
+            }
+
+            ListItem.Standard {
+                progression: true
+                showDivider: false
                 text: i18n.tr("Report Bug")
                 onClicked: Qt.openUrlExternally("https://bugs.launchpad.net/podbird/+filebug")
             }

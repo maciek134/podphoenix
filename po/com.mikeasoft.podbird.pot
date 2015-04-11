@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-12 00:14+0200\n"
+"POT-Creation-Date: 2015-04-12 01:41+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,34 +35,22 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: ../app/settings/About.qml:26 ../app/settings/About.qml:29
-#: ../app/ui/SettingsPage.qml:136
+#: ../app/settings/About.qml:25 ../app/ui/SettingsPage.qml:136
 msgid "About"
 msgstr ""
 
-#: ../app/settings/About.qml:29
-msgid "Credits"
+#: ../app/settings/About.qml:53
+#, qt-format
+msgid "Version %1"
 msgstr ""
 
-#: ../app/settings/About.qml:83
+#: ../app/settings/About.qml:74
 msgid "Released under the terms of the GNU GPL v3"
 msgstr ""
 
-#: ../app/settings/About.qml:92
+#: ../app/settings/About.qml:83
 #, qt-format
 msgid "Source code available on %1"
-msgstr ""
-
-#: ../app/settings/About.qml:107
-msgid "Developers"
-msgstr ""
-
-#: ../app/settings/About.qml:121
-msgid "Designer"
-msgstr ""
-
-#: ../app/settings/About.qml:130
-msgid "Translators"
 msgstr ""
 
 #: ../app/settings/CleanSetting.qml:27
@@ -94,6 +82,22 @@ msgid "%1 year"
 msgid_plural "%1 years"
 msgstr[0] ""
 msgstr[1] ""
+
+#: ../app/settings/Credits.qml:26 ../app/ui/SettingsPage.qml:143
+msgid "Credits"
+msgstr ""
+
+#: ../app/settings/Credits.qml:33
+msgid "Developers"
+msgstr ""
+
+#: ../app/settings/Credits.qml:47
+msgid "Designer"
+msgstr ""
+
+#: ../app/settings/Credits.qml:56
+msgid "Translators"
+msgstr ""
 
 #: ../app/settings/DownloadSetting.qml:27
 msgid "Download at most"
@@ -348,7 +352,7 @@ msgstr ""
 msgid "Misc."
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:143
+#: ../app/ui/SettingsPage.qml:150
 msgid "Report Bug"
 msgstr ""
 
