@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-11 16:29+0200\n"
+"POT-Creation-Date: 2015-04-11 18:03+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -170,6 +170,14 @@ msgstr ""
 #: ../app/ui/EpisodesPage.qml:376
 #, no-c-format, qt-format
 msgid "%1 min"
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:416
+msgid "Unheard"
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:416
+msgid "Listened"
 msgstr ""
 
 #: ../app/ui/NowPlayingPage.qml:28
