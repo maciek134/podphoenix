@@ -259,6 +259,7 @@ MainView {
                 for (var j=0; j < loopCount; j++) {
                     if (!rs2.rows.item(j).downloadedfile && !rs2.rows.item(j).listened) {
                         downloader.addDownload(rs2.rows.item(j).guid, rs2.rows.item(j).audiourl)
+                        tx.executeSql("UPDATE Episode SET queued=1 WHERE guid = ?", [rs2.rows.item(j).guid]);
                     }
                 }
             }
