@@ -27,6 +27,7 @@ Component {
 
         Image {
             anchors {
+                top: parent.top
                 bottom: introductionText.top
                 bottomMargin: units.gu(6)
                 horizontalCenter: parent.horizontalCenter
@@ -47,15 +48,29 @@ Component {
         Label {
             id: bodyText
             text: i18n.tr("Enjoy your favourite podcasts with Podbird, the one and only podcast \
-manager for Ubuntu Touch.\n\nTake a short tour on how to get started.")
+manager for Ubuntu Touch.\n\nChirp Chirp..")
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.margins: units.gu(1)
             anchors.top: introductionText.bottom
             anchors.topMargin: units.gu(4)
-            anchors.bottom: parent.bottom
+            anchors.bottom: swipeText.top
             wrapMode: Text.WordWrap
-            fontSize: "large"
+            horizontalAlignment: Text.AlignHCenter
+        }
+
+        Label {
+            id: swipeText
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.margins: units.gu(1)
+            anchors.bottom: parent.bottom
+            color: "grey"
+            fontSize: "small"
+            wrapMode: Text.WordWrap
+            horizontalAlignment: Text.AlignHCenter
+            text: i18n.tr("Swipe to move between Pages")
+
         }
     }
 }

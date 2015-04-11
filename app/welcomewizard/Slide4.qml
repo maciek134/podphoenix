@@ -19,14 +19,15 @@
 import QtQuick 2.3
 import Ubuntu.Components 1.1
 
-// Slide 2
+// Slide 4
 Component {
-    id: slide2
+    id: slide4
     Item {
         id: slide1Container
 
         Image {
             anchors {
+                top: parent.top
                 bottom: introductionText.top
                 bottomMargin: units.gu(6)
                 horizontalCenter: parent.horizontalCenter
@@ -41,6 +42,9 @@ Component {
             elide: Text.ElideRight
             fontSize: "x-large"
             maximumLineCount: 2
+            // TRANSLATORS: This text should be in a language different from the language set by the user.
+            // For instance, if the app was in english, then it is appropriate to set this string as
+            // Hallo or Bonjour etc to symbolize the internationalization feature in podbird.
             text: i18n.tr("Hallo! Bonjour!")
             horizontalAlignment: Text.AlignHCenter
             width: parent.width
@@ -57,8 +61,7 @@ Component {
                 margins: units.gu(1)
                 topMargin: units.gu(4)
             }
-            fontSize: "large"
-            horizontalAlignment: Text.AlignHLeft
+            horizontalAlignment: Text.AlignHCenter
             text: i18n.tr("Podbird is available in over 15 languages and is translated by the \
 Ubuntu Translators community.")
             wrapMode: Text.WordWrap

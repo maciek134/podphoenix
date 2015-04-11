@@ -19,14 +19,15 @@
 import QtQuick 2.3
 import Ubuntu.Components 1.1
 
-// Slide 2
+// Slide 6
 Component {
-    id: slide2
+    id: slide6
     Item {
         id: slide1Container
 
         Image {
             anchors {
+                top: parent.top
                 bottom: introductionText.top
                 bottomMargin: units.gu(6)
                 horizontalCenter: parent.horizontalCenter
@@ -41,7 +42,7 @@ Component {
             elide: Text.ElideRight
             fontSize: "x-large"
             maximumLineCount: 2
-            text: i18n.tr("Enjoy!")
+            text: i18n.tr("Enjoy")
             horizontalAlignment: Text.AlignHCenter
             width: parent.width
             wrapMode: Text.WordWrap
@@ -57,9 +58,8 @@ Component {
                 margins: units.gu(1)
                 topMargin: units.gu(4)
             }
-            fontSize: "large"
-            horizontalAlignment: Text.AlignHLeft
-            text: i18n.tr("Well that's about it. We hope you will enjoy using Podbird!\n\nChirp Chirp..")
+            horizontalAlignment: Text.AlignHCenter
+            text: i18n.tr("We hope you will enjoy using Podbird!")
             wrapMode: Text.WordWrap
         }
 
@@ -70,8 +70,10 @@ Component {
                 bottomMargin: units.gu(3)
                 horizontalCenter: parent.horizontalCenter
             }
+            height: units.gu(6)
+            width: parent.width/1.3
             color: UbuntuColors.green
-            text: i18n.tr("Start")
+            text: i18n.tr("Finish")
             onClicked: finished()
         }
     }

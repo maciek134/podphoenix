@@ -19,14 +19,15 @@
 import QtQuick 2.3
 import Ubuntu.Components 1.1
 
-// Slide 2
+// Slide 5
 Component {
-    id: slide2
+    id: slide5
     Item {
         id: slide1Container
 
         Image {
             anchors {
+                top: parent.top
                 bottom: introductionText.top
                 bottomMargin: units.gu(6)
                 horizontalCenter: parent.horizontalCenter
@@ -57,9 +58,8 @@ Component {
                 margins: units.gu(1)
                 topMargin: units.gu(4)
             }
-            fontSize: "large"
-            horizontalAlignment: Text.AlignHLeft
-            text: i18n.tr("If you find any bugs or have any feature requests, feel free to let us know at our project page https://launchpad.net/podbird.")
+            horizontalAlignment: Text.AlignHCenter
+            text: i18n.tr("If you find any bugs or have any feature requests, let us know at our project page https://launchpad.net/podbird.")
             wrapMode: Text.WordWrap
         }
     }
