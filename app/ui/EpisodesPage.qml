@@ -327,8 +327,7 @@ Page {
     }
 
     EmptyState {
-        anchors.centerIn: parent
-        anchors.verticalCenterOffset: Qt.inputMethod.visible ? units.gu(4) : 0
+        anchors.verticalCenter: parent.verticalCenter
         visible: (episodesPage.state === "search" && sortedEpisodeModel.count === 0) || (episodeModel.count === 0 && podbird.settings.hideListened)
         iconHeight: units.gu(12)
         iconWidth: iconHeight + units.gu(10)
