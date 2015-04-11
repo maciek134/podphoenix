@@ -27,6 +27,7 @@ Component {
 
         Image {
             anchors {
+                top: parent.top
                 bottom: introductionText.top
                 bottomMargin: units.gu(6)
                 horizontalCenter: parent.horizontalCenter
@@ -57,8 +58,7 @@ Component {
                 margins: units.gu(1)
                 topMargin: units.gu(4)
             }
-            fontSize: "large"
-            horizontalAlignment: Text.AlignHLeft
+            horizontalAlignment: Text.AlignHCenter
             text: i18n.tr("Podbird uses the Itunes database to provide access to a huge collections of podcasts. You can also add podcasts by URL.")
             wrapMode: Text.WordWrap
         }
