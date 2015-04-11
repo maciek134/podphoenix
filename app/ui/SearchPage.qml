@@ -93,7 +93,7 @@ Page {
     ]
 
     EmptyState {
-        anchors.centerIn: parent
+        anchors.verticalCenter: parent.verticalCenter
         anchors.verticalCenterOffset: Qt.inputMethod.visible ? units.gu(4) : 0
         iconHeight: units.gu(12)
         iconWidth: iconHeight + units.gu(10)

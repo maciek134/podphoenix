@@ -37,7 +37,9 @@ Item {
     property real iconWidth: units.gu(10)
 
     height: childrenRect.height
-    width: parent.width
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.margins: units.gu(2)
 
     Icon {
         id: emptyIcon
@@ -51,15 +53,16 @@ Item {
         id: emptyLabel
         anchors.top: emptyIcon.bottom
         anchors.topMargin: units.gu(5)
-        anchors.horizontalCenter: parent.horizontalCenter
+        width: parent.width
         fontSize: "large"
         color: podbird.theme.baseText
+        horizontalAlignment: Text.AlignHCenter
+        wrapMode: Text.WrapAtWordBoundaryOrAnywhere
     }
 
     Label {
         id: emptySublabel
-        anchors.left: parent.left
-        anchors.right: parent.right
+        width: parent.width
         anchors.top: emptyLabel.bottom
         color: podbird.theme.baseSubText
         horizontalAlignment: Text.AlignHCenter
