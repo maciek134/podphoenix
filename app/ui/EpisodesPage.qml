@@ -374,7 +374,7 @@ Page {
         }
 
         else {
-            return Podcasts.formatTime(model.duration)
+            return Podcasts.formatTime(seconds)
         }
     }
 
@@ -401,7 +401,7 @@ Page {
                     verticalCenter: parent.verticalCenter
                 }
                 fontSize: "x-large"
-                text: section === "0" ? "New" : "Listened"
+                text: section === "0" ? i18n.tr("Unheard") : i18n.tr("Listened")
             }
         }
 
