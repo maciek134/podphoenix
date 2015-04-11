@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-11 03:29+0200\n"
+"POT-Creation-Date: 2015-04-11 03:32+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -66,7 +66,7 @@ msgid_plural "%1 episodes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../app/settings/ThemeSetting.qml:27 ../app/ui/SettingsPage.qml:37
+#: ../app/settings/ThemeSetting.qml:27 ../app/ui/SettingsPage.qml:38
 msgid "Theme"
 msgstr ""
 
@@ -224,28 +224,28 @@ msgstr ""
 msgid "General Settings"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:43
+#: ../app/ui/SettingsPage.qml:44
 msgid "Podcast Episode Settings"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:57
+#: ../app/ui/SettingsPage.qml:59
 msgid "Automatically delete old episodes"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:65
+#: ../app/ui/SettingsPage.qml:67
 msgid ""
 "Delete episodes that are older than a given number of days for each podcast"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:81
+#: ../app/ui/SettingsPage.qml:84
 msgid "Automatically download new episodes"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:89
+#: ../app/ui/SettingsPage.qml:92
 msgid "Default number of new episodes to download for each podcast"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:95
+#: ../app/ui/SettingsPage.qml:99
 msgid "Auto download on WiFi only"
 msgstr ""
 
