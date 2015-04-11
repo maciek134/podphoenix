@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-01 03:01+0200\n"
+"POT-Creation-Date: 2015-04-11 03:20+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -209,29 +209,27 @@ msgstr ""
 msgid "%1 days"
 msgstr ""
 
-#. TRANSLATORS: This is shown as "Already used Podbird? Skip the tutorials (in bold leters)
-#: ../app/ui/Walkthrough.qml:88
-#, qt-format
-msgid "Already used %1? <b>Skip the tutorial</b>"
-msgstr ""
-
-#: ../app/ui/Walkthrough.qml:88
+#: ../app/ui/Walkthrough.qml:87
 msgid "Skip"
 msgstr ""
 
-#: ../app/welcomewizard/Slide1.qml:41
+#: ../app/welcomewizard/Slide1.qml:42
 msgid "Welcome to Podbird"
 msgstr ""
 
-#: ../app/welcomewizard/Slide1.qml:49
+#: ../app/welcomewizard/Slide1.qml:50
 msgid ""
 "Enjoy your favourite podcasts with Podbird, the one and only podcast manager "
 "for Ubuntu Touch.\n"
 "\n"
-"Take a short tour on how to get started."
+"Chirp Chirp.."
 msgstr ""
 
-#: ../app/welcomewizard/Slide2.qml:44
+#: ../app/welcomewizard/Slide1.qml:72
+msgid "Swipe to move between Pages"
+msgstr ""
+
+#: ../app/welcomewizard/Slide2.qml:45
 msgid "Discover New Podcasts"
 msgstr ""
 
@@ -241,7 +239,7 @@ msgid ""
 "podcasts. You can also add podcasts by URL."
 msgstr ""
 
-#: ../app/welcomewizard/Slide3.qml:44
+#: ../app/welcomewizard/Slide3.qml:45
 msgid "Smart Settings"
 msgstr ""
 
@@ -251,39 +249,39 @@ msgid ""
 "a power user you can also tweak these settings to suit your needs."
 msgstr ""
 
-#: ../app/welcomewizard/Slide4.qml:44
+#. TRANSLATORS: This text should be in a language different from the language set by the user.
+#. For instance, if the app was in english, then it is appropriate to set this string as
+#. Hallo or Bonjour etc to symbolize the internationalization feature in podbird.
+#: ../app/welcomewizard/Slide4.qml:48
 msgid "Hallo! Bonjour!"
 msgstr ""
 
-#: ../app/welcomewizard/Slide4.qml:62
+#: ../app/welcomewizard/Slide4.qml:65
 msgid ""
 "Podbird is available in over 15 languages and is translated by the Ubuntu "
 "Translators community."
 msgstr ""
 
-#: ../app/welcomewizard/Slide5.qml:44
+#: ../app/welcomewizard/Slide5.qml:45
 msgid "Support"
 msgstr ""
 
 #: ../app/welcomewizard/Slide5.qml:62
 msgid ""
-"If you find any bugs or have any feature requests, feel free to let us know "
-"at our project page https://launchpad.net/podbird."
+"If you find any bugs or have any feature requests, let us know at our "
+"project page https://launchpad.net/podbird."
 msgstr ""
 
-#: ../app/welcomewizard/Slide6.qml:44
-msgid "Enjoy!"
+#: ../app/welcomewizard/Slide6.qml:45
+msgid "Enjoy"
 msgstr ""
 
 #: ../app/welcomewizard/Slide6.qml:62
-msgid ""
-"Well that's about it. We hope you will enjoy using Podbird!\n"
-"\n"
-"Chirp Chirp.."
+msgid "We hope you will enjoy using Podbird!"
 msgstr ""
 
-#: ../app/welcomewizard/Slide6.qml:74
-msgid "Start"
+#: ../app/welcomewizard/Slide6.qml:76
+msgid "Finish"
 msgstr ""
 
 #: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-add-welcome-wizard-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1

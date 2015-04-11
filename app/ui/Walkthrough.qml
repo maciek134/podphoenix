@@ -36,7 +36,7 @@ Page {
     property color completeColor: "green"
 
     // Property to set the color of the bottom circle to indicate the slide still left to cover
-    property color inCompleteColor: "grey"
+    property color inCompleteColor: "lightgrey"
 
     // Property to set the color of the skip welcome wizard text
     property color skipTextColor: "grey"
@@ -51,7 +51,7 @@ Page {
             left: parent.left
             right: parent.right
             top: skipLabel.bottom
-            bottom: separator.top
+            bottom: slideIndicator.top
         }
 
         model: walkthrough.model
@@ -84,8 +84,8 @@ Page {
         color: skipTextColor
         fontSize: "small"
         wrapMode: Text.WordWrap
-        // TRANSLATORS: This is shown as "Already used Podbird? Skip the tutorials (in bold leters)
-        text: listView.currentIndex === 0 ? i18n.tr("Already used %1? <b>Skip the tutorial</b>").arg(appName) : i18n.tr("Skip")
+        text: i18n.tr("Skip")
+        horizontalAlignment: Text.AlignRight
 
         anchors {
             top: parent.top
@@ -98,12 +98,6 @@ Page {
             anchors.fill: parent
             onClicked: walkthrough.finished()
         }
-    }
-
-    // Separator between walkthrough slides and slide indicator
-    ListItem.ThinDivider {
-        id: separator
-        anchors.bottom: slideIndicator.top
     }
 
     // Indicator element to represent the current slide of the walkthrough
@@ -123,8 +117,12 @@ Page {
                 radius: width/2
                 width: units.gu(2)
                 antialiasing: true
+                border.width: listView.currentIndex == index ? units.gu(0.2) : units.gu(0)
+                border.color: completeColor
                 anchors.verticalCenter: parent.verticalCenter
-                color: listView.currentIndex >= index ? completeColor : inCompleteColor
+                color: listView.currentIndex == index ? "White"
+                                                      : listView.currentIndex >= index ? completeColor
+                                                                                       : inCompleteColor
                 Behavior on color {
                     ColorAnimation {
                         duration: UbuntuAnimation.FastDuration
