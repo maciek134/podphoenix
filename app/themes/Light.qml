@@ -37,8 +37,8 @@ QtObject {
     property color neutralActionButton: UbuntuColors.coolGrey
 
     // Bottom Player Bar Colors
-    property color bottomBarBackground: "#0F0F0F"
+    property color bottomBarBackground: "#323435"
 
     // Highlight Color
-    property color hightlightListView: "#F3F3FF"
+    property color hightlightListView: "#F5F5F5"
 }
