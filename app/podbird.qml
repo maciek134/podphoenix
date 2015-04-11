@@ -18,6 +18,7 @@
 
 import QtQuick 2.3
 import Podbird 1.0
+import UserMetrics 0.1
 import QtMultimedia 5.0
 import Ubuntu.Connectivity 1.0
 import Qt.labs.settings 1.0
@@ -143,11 +144,34 @@ MainView {
         }
     }
 
+    // UserMetrics to show Podbird stats on welcome screen
+    Metric {
+        id: podcastsMetric
+        name: "podcast-metrics"
+        // TRANSLATORS: this refers to a number of songs greater than one. The actual number will be prepended to the string automatically (plural forms are not yet fully supported in usermetrics, the library that displays that string)
+        format: "<b>%1</b> " + i18n.tr("podcasts listened today")
+        emptyFormat: i18n.tr("No podcasts listened today")
+        domain: "com.mikeasoft.podbird"
+    }
+
     MediaPlayer {
         id: player
+
+        property bool podcastCounted: false
+
+        onSourceChanged: {
+            podcastCounted = false
+        }
+
         onPositionChanged: {
             if (currentGuid == "" || duration <= 0) {
                 return;
+            }
+
+            if (position > 10000 && !podcastCounted) {
+                podcastCounted = true
+                podcastsMetric.increment()
+                console.log("[LOG]: Podcast User metric incremented")
             }
 
             var db = Podcasts.init();
