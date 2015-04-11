@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-11 18:03+0200\n"
+"POT-Creation-Date: 2015-04-11 23:32+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,6 +33,36 @@ msgstr ""
 
 #: ../app/podbird.qml:224
 msgid "Settings"
+msgstr ""
+
+#: ../app/settings/About.qml:8 ../app/settings/About.qml:11
+#: ../app/ui/SettingsPage.qml:136
+msgid "About"
+msgstr ""
+
+#: ../app/settings/About.qml:11
+msgid "Credits"
+msgstr ""
+
+#: ../app/settings/About.qml:65
+msgid "Released under the terms of the GNU GPL v3"
+msgstr ""
+
+#: ../app/settings/About.qml:74
+#, qt-format
+msgid "Source code available on %1"
+msgstr ""
+
+#: ../app/settings/About.qml:89
+msgid "Developers"
+msgstr ""
+
+#: ../app/settings/About.qml:103
+msgid "Designer"
+msgstr ""
+
+#: ../app/settings/About.qml:112
+msgid "Translators"
 msgstr ""
 
 #: ../app/settings/CleanSetting.qml:27
@@ -79,7 +109,7 @@ msgid_plural "%1 episodes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../app/settings/ThemeSetting.qml:27 ../app/ui/SettingsPage.qml:38
+#: ../app/settings/ThemeSetting.qml:27 ../app/ui/SettingsPage.qml:49
 msgid "Theme"
 msgstr ""
 
@@ -281,37 +311,45 @@ msgstr ""
 msgid "Subscribe"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:32
+#: ../app/ui/SettingsPage.qml:43
 msgid "General Settings"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:44
+#: ../app/ui/SettingsPage.qml:55
 msgid "Podcast Episode Settings"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:49
+#: ../app/ui/SettingsPage.qml:60
 msgid "Hide listened episodes"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:68
+#: ../app/ui/SettingsPage.qml:79
 msgid "Automatically delete old episodes"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:76
+#: ../app/ui/SettingsPage.qml:87
 msgid ""
 "Delete episodes that are older than a given number of days for each podcast"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:93
+#: ../app/ui/SettingsPage.qml:104
 msgid "Automatically download new episodes"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:101
+#: ../app/ui/SettingsPage.qml:112
 msgid "Default number of new episodes to download for each podcast"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:108
+#: ../app/ui/SettingsPage.qml:119
 msgid "Auto download on WiFi only"
+msgstr ""
+
+#: ../app/ui/SettingsPage.qml:130
+msgid "Misc."
+msgstr ""
+
+#: ../app/ui/SettingsPage.qml:143
+msgid "Report Bug"
 msgstr ""
 
 #: ../app/ui/Walkthrough.qml:87
@@ -389,6 +427,6 @@ msgstr ""
 msgid "Finish"
 msgstr ""
 
-#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-8.5-usermetrics-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
+#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-8.6-aboutpage-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
 msgid "Podbird"
 msgstr ""
