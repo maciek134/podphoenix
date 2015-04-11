@@ -179,7 +179,7 @@ Tab {
             anchors.verticalCenterOffset: Qt.inputMethod.visible ? units.gu(4) : 0
             iconHeight: units.gu(12)
             iconWidth: iconHeight + units.gu(10)
-            iconSource: Qt.resolvedUrl("../graphics/owlSearch.png")
+            iconSource: Qt.resolvedUrl("../graphics/notFound.svg")
             visible: podcastModel.count === 0 || sortedPodcastModel.count === 0
             title: podcastModel.count === 0 ? i18n.tr("No Podcast Subscriptions")
                                             : i18n.tr("No Podcasts Found")
