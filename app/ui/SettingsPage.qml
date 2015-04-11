@@ -34,6 +34,7 @@ Page {
 
         ListItem.SingleValue {
             progression: true
+            showDivider: false
             text: i18n.tr("Theme")
             value: podbird.settings.themeName.split(".qml")[0]
             onClicked: mainStack.push(Qt.resolvedUrl("../settings/ThemeSetting.qml"))
@@ -46,6 +47,7 @@ Page {
         ListItem.Base {
             height: units.gu(10)
             progression: true
+            showDivider: false
             onClicked: mainStack.push(Qt.resolvedUrl("../settings/CleanSetting.qml"))
             Column {
                 anchors.verticalCenter: parent.verticalCenter
@@ -70,6 +72,7 @@ Page {
         ListItem.Base {
             height: units.gu(10)
             progression: true
+            showDivider: false
             onClicked: mainStack.push(Qt.resolvedUrl("../settings/DownloadSetting.qml"))
             Column {
                 anchors.verticalCenter: parent.verticalCenter
@@ -92,6 +95,7 @@ Page {
         }
 
         ListItem.Standard {
+            showDivider: false
             text: i18n.tr("Auto download on WiFi only")
             enabled: podbird.settings.maxEpisodeDownload !== -1
             control: Switch {

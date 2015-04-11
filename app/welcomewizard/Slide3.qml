@@ -19,14 +19,15 @@
 import QtQuick 2.3
 import Ubuntu.Components 1.1
 
-// Slide 2
+// Slide 3
 Component {
-    id: slide2
+    id: slide3
     Item {
         id: slide1Container
 
         Image {
             anchors {
+                top: parent.top
                 bottom: introductionText.top
                 bottomMargin: units.gu(6)
                 horizontalCenter: parent.horizontalCenter
@@ -57,8 +58,7 @@ Component {
                 margins: units.gu(1)
                 topMargin: units.gu(4)
             }
-            fontSize: "large"
-            horizontalAlignment: Text.AlignHLeft
+            horizontalAlignment: Text.AlignHCenter
             text: i18n.tr("Podbird automatically downloads new episodes and cleans up old episodes. \
 As a power user you can also tweak these settings to suit your needs.")
             wrapMode: Text.WordWrap
