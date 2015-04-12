@@ -53,12 +53,16 @@ Tab {
                         iconName: "save"
                         text: i18n.tr("Download all episodes")
                         onTriggered: {
-                            for (var i=0; i<whatsNewModel.count; i++) {
-                                if (!whatsNewModel.get(i).downloadedfile) {
-                                    whatsNewModel.setProperty(i, "queued", true)
-                                    downloader.addDownload(whatsNewModel.get(i).guid, whatsNewModel.get(i).audiourl);
+                            var db = Podcasts.init();
+                            db.transaction(function (tx) {
+                                for (var i=0; i<whatsNewModel.count; i++) {
+                                    if (!whatsNewModel.get(i).downloadedfile) {
+                                        whatsNewModel.setProperty(i, "queued", 1)
+                                        tx.executeSql("UPDATE Episode SET queued=1 WHERE guid = ?", [whatsNewModel.get(i).guid]);
+                                        downloader.addDownload(whatsNewModel.get(i).guid, whatsNewModel.get(i).audiourl);
+                                    }
                                 }
-                            }
+                            });
                         }
                     }
                 ]
@@ -244,16 +248,18 @@ Tab {
 
                         enabled: downloader.downloadingGuid !== popover.guid
                         onClicked: {
+                            var db = Podcasts.init();
                             if (popover.downloadedfile) {
                                 fileManager.deleteFile(popover.downloadedfile);
-                                var db = Podcasts.init();
                                 db.transaction(function (tx) {
                                     tx.executeSql("UPDATE Episode SET downloadedfile = NULL WHERE guid = ?", [popover.guid]);
                                 });
                                 whatsNewModel.setProperty(popover.index, "downloadedfile", "")
-                                whatsNewModel.setProperty(popover.index, "queued", false)
                             } else {
-                                whatsNewModel.setProperty(popover.index, "queued", true)
+                                db.transaction(function (tx) {
+                                    tx.executeSql("UPDATE Episode SET queued=1 WHERE guid = ?", [popover.guid]);
+                                });
+                                whatsNewModel.setProperty(popover.index, "queued", 1)
                                 downloader.addDownload(popover.guid, popover.audiourl);
                             }
                             PopupUtils.close(popover)
@@ -561,13 +567,13 @@ Tab {
                         diff = Math.floor((today - episode.published)/dayToMs)
                         if (diff < 7 && !episode.listened) {
                             if (diff < 1) {
-                                whatsNewModel.insert(todayCount, {"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : podcast.image, "artist" : podcast.artist, "audiourl" : episode.audiourl, "queued": false, "diff": "Today"})
+                                whatsNewModel.insert(todayCount, {"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : podcast.image, "artist" : podcast.artist, "audiourl" : episode.audiourl, "queued": model.queued, "diff": "Today"})
                                 todayCount++;
                             } else if (diff < 2) {
-                                whatsNewModel.insert(todayCount + yesterdayCount, {"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : podcast.image, "artist" : podcast.artist, "audiourl" : episode.audiourl, "queued": false, "diff": "Yesterday"})
+                                whatsNewModel.insert(todayCount + yesterdayCount, {"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : podcast.image, "artist" : podcast.artist, "audiourl" : episode.audiourl, "queued": model.queued, "diff": "Yesterday"})
                                 yesterdayCount++;
                             } else {
-                                whatsNewModel.append({"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : podcast.image, "artist" : podcast.artist, "audiourl" : episode.audiourl, "queued": false, "diff": "Older"})
+                                whatsNewModel.append({"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : podcast.image, "artist" : podcast.artist, "audiourl" : episode.audiourl, "queued": model.queued, "diff": "Older"})
                             }
                         } else if (diff >= 7){
                             break
