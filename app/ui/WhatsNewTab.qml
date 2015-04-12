@@ -95,9 +95,11 @@ Tab {
         EmptyState {
             anchors.centerIn: parent
             anchors.verticalCenterOffset: Qt.inputMethod.visible ? units.gu(4) : 0
+            iconHeight: units.gu(12)
+            iconWidth: iconHeight + units.gu(10)
             visible: whatsNewModel.count === 0 || sortedEpisodeModel.count === 0
-            iconName: whatsNewModel.count === 0 ? Qt.resolvedUrl("../graphics/owlSearch.svg")
-                                                : Qt.resolvedUrl("../graphics/notFound.svg")
+            iconSource: whatsNewModel.count === 0 ? Qt.resolvedUrl("../graphics/owlSearch.svg")
+                                                  : Qt.resolvedUrl("../graphics/notFound.svg")
             title: whatsNewModel.count === 0 ? i18n.tr("No New Episodes")
                                              : i18n.tr("No Episodes Found")
             subTitle: whatsNewModel.count === 0 ? i18n.tr("No more episodes to listen to!")
@@ -567,13 +569,13 @@ Tab {
                         diff = Math.floor((today - episode.published)/dayToMs)
                         if (diff < 7 && !episode.listened) {
                             if (diff < 1) {
-                                whatsNewModel.insert(todayCount, {"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : podcast.image, "artist" : podcast.artist, "audiourl" : episode.audiourl, "queued": model.queued, "diff": "Today"})
+                                whatsNewModel.insert(todayCount, {"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : podcast.image, "artist" : podcast.artist, "audiourl" : episode.audiourl, "queued": episode.queued, "diff": "Today"})
                                 todayCount++;
                             } else if (diff < 2) {
-                                whatsNewModel.insert(todayCount + yesterdayCount, {"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : podcast.image, "artist" : podcast.artist, "audiourl" : episode.audiourl, "queued": model.queued, "diff": "Yesterday"})
+                                whatsNewModel.insert(todayCount + yesterdayCount, {"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : podcast.image, "artist" : podcast.artist, "audiourl" : episode.audiourl, "queued": episode.queued, "diff": "Yesterday"})
                                 yesterdayCount++;
                             } else {
-                                whatsNewModel.append({"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : podcast.image, "artist" : podcast.artist, "audiourl" : episode.audiourl, "queued": model.queued, "diff": "Older"})
+                                whatsNewModel.append({"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : podcast.image, "artist" : podcast.artist, "audiourl" : episode.audiourl, "queued": episode.queued, "diff": "Older"})
                             }
                         } else if (diff >= 7){
                             break
