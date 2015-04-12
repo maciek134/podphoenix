@@ -92,11 +92,12 @@ Tab {
             anchors.centerIn: parent
             anchors.verticalCenterOffset: Qt.inputMethod.visible ? units.gu(4) : 0
             visible: whatsNewModel.count === 0 || sortedEpisodeModel.count === 0
-            iconName: "music-app-symbolic"
-            title: whatsNewPage.state === "default" ? i18n.tr("No New Episodes")
-                                                    : i18n.tr("No Episodes Found")
-            subTitle: whatsNewPage.state === "default" ? i18n.tr("No more episodes to listen to!")
-                                                       : i18n.tr("No Episodes found matching the search term.")
+            iconName: whatsNewModel.count === 0 ? Qt.resolvedUrl("../graphics/owlSearch.svg")
+                                                : Qt.resolvedUrl("../graphics/notFound.svg")
+            title: whatsNewModel.count === 0 ? i18n.tr("No New Episodes")
+                                             : i18n.tr("No Episodes Found")
+            subTitle: whatsNewModel.count === 0 ? i18n.tr("No more episodes to listen to!")
+                                                : i18n.tr("No Episodes found matching the search term.")
         }
 
         ListModel {
