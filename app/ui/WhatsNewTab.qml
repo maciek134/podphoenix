@@ -149,7 +149,7 @@ Tab {
             }
 
             else {
-                return Podcasts.formatTime(model.duration)
+                return Podcasts.formatTime(seconds)
             }
         }
 
