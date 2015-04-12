@@ -347,40 +347,6 @@ Page {
         filter.pattern: RegExp(searchField.text, "gi")
     }
 
-    function formatTime(seconds) {
-        var time = Podcasts.getTimeDiff(seconds)
-        var hour = time[0]
-        var minute = time[1]
-        // TRANSLATORS: the first argument is the number of hours,
-        // followed by minute (eg. 20h 3m)
-        if(hour > 0 &&  minute > 0) {
-            // xgettext: no-c-format
-            return (i18n.tr("%1 hr %2 min"))
-            .arg(hour)
-            .arg(minute)
-        }
-
-        // TRANSLATORS: this string indicates the number of hours
-        // eg. 20h (no plural state required)
-        else if(hour > 0 && minute === 0) {
-            // xgettext: no-c-format
-            return (i18n.tr("%1 hr"))
-            .arg(hour)
-        }
-
-        // TRANSLATORS: this string indicates the number of minutes
-        // eg. 15m (no plural state required)
-        else if(hour === 0 && minute > 0) {
-            // xgettext: no-c-format
-            return (i18n.tr("%1 min"))
-            .arg(minute)
-        }
-
-        else {
-            return Podcasts.formatTime(seconds)
-        }
-    }
-
     UbuntuListView {
         id: episodeList
 
@@ -526,7 +492,7 @@ Page {
                         Label {
                             id: episodePublishDate
                             width: parent.width
-                            text: formatTime(model.duration) + " | " + Qt.formatDate(new Date(model.published), "MMM d, yyyy")
+                            text: Podcasts.formatEpisodeTime(model.duration) + " | " + Qt.formatDate(new Date(model.published), "MMM d, yyyy")
                             fontSize: "x-small"
                             elide: Text.ElideRight
                             color: podbird.theme.baseSubText

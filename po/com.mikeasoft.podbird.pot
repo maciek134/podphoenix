@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-12 13:10+0200\n"
+"POT-Creation-Date: 2015-04-12 13:21+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,6 +33,21 @@ msgstr ""
 
 #: ../app/podbird.qml:229
 msgid "Settings"
+msgstr ""
+
+#: ../app/podcasts.js:79
+#, no-c-format, qt-format
+msgid "%1 hr %2 min"
+msgstr ""
+
+#: ../app/podcasts.js:88
+#, no-c-format, qt-format
+msgid "%1 hr"
+msgstr ""
+
+#: ../app/podcasts.js:96
+#, no-c-format, qt-format
+msgid "%1 min"
 msgstr ""
 
 #: ../app/settings/About.qml:25 ../app/ui/SettingsPage.qml:136
@@ -106,7 +121,7 @@ msgstr ""
 #: ../app/settings/DownloadSetting.qml:34
 #: ../app/settings/DownloadSetting.qml:35
 #: ../app/settings/DownloadSetting.qml:36
-#: ../app/settings/DownloadSetting.qml:37 ../app/ui/EpisodesPage.qml:462
+#: ../app/settings/DownloadSetting.qml:37 ../app/ui/EpisodesPage.qml:428
 #, qt-format
 msgid "%1 episode"
 msgid_plural "%1 episodes"
@@ -165,15 +180,15 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:258 ../app/ui/WhatsNewTab.qml:245
+#: ../app/ui/EpisodesPage.qml:258 ../app/ui/WhatsNewTab.qml:211
 msgid "Delete local file"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:259 ../app/ui/WhatsNewTab.qml:246
+#: ../app/ui/EpisodesPage.qml:259 ../app/ui/WhatsNewTab.qml:212
 msgid "Episode queued for download"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:260 ../app/ui/WhatsNewTab.qml:247
+#: ../app/ui/EpisodesPage.qml:260 ../app/ui/WhatsNewTab.qml:213
 msgid "Download episode"
 msgstr ""
 
@@ -193,26 +208,11 @@ msgstr ""
 msgid "No episodes found matching the search term."
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:358 ../app/ui/WhatsNewTab.qml:136
-#, no-c-format, qt-format
-msgid "%1 hr %2 min"
-msgstr ""
-
-#: ../app/ui/EpisodesPage.qml:367 ../app/ui/WhatsNewTab.qml:145
-#, no-c-format, qt-format
-msgid "%1 hr"
-msgstr ""
-
-#: ../app/ui/EpisodesPage.qml:375 ../app/ui/WhatsNewTab.qml:153
-#, no-c-format, qt-format
-msgid "%1 min"
-msgstr ""
-
-#: ../app/ui/EpisodesPage.qml:415
+#: ../app/ui/EpisodesPage.qml:381
 msgid "Unheard"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:415
+#: ../app/ui/EpisodesPage.qml:381
 msgid "Listened"
 msgstr ""
 
@@ -386,27 +386,27 @@ msgstr ""
 msgid "No Episodes found matching the search term."
 msgstr ""
 
-#: ../app/ui/WhatsNewTab.qml:295
+#: ../app/ui/WhatsNewTab.qml:261
 msgid "Mark episode listened"
 msgstr ""
 
-#: ../app/ui/WhatsNewTab.qml:335
+#: ../app/ui/WhatsNewTab.qml:301
 msgid "Pause Episode"
 msgstr ""
 
-#: ../app/ui/WhatsNewTab.qml:336
+#: ../app/ui/WhatsNewTab.qml:302
 msgid "Play Episode"
 msgstr ""
 
-#: ../app/ui/WhatsNewTab.qml:401
+#: ../app/ui/WhatsNewTab.qml:367
 msgid "Today"
 msgstr ""
 
-#: ../app/ui/WhatsNewTab.qml:405
+#: ../app/ui/WhatsNewTab.qml:371
 msgid "Yesterday"
 msgstr ""
 
-#: ../app/ui/WhatsNewTab.qml:409
+#: ../app/ui/WhatsNewTab.qml:375
 msgid "Older"
 msgstr ""
 
