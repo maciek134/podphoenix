@@ -263,16 +263,18 @@ Page {
 
                     enabled: downloader.downloadingGuid !== popover.guid
                     onClicked: {
+                        var db = Podcasts.init();
                         if (popover.downloadedfile) {
                             fileManager.deleteFile(popover.downloadedfile);
-                            var db = Podcasts.init();
                             db.transaction(function (tx) {
                                 tx.executeSql("UPDATE Episode SET downloadedfile = NULL WHERE guid = ?", [popover.guid]);
                             });
                             episodeModel.setProperty(popover.index, "downloadedfile", "")
-                            episodeModel.setProperty(popover.index, "queued", false)
                         } else {
-                            episodeModel.setProperty(popover.index, "queued", true)
+                            db.transaction(function (tx) {
+                                tx.executeSql("UPDATE Episode SET queued=1 WHERE guid = ?", [popover.guid]);
+                            });
+                            episodeModel.setProperty(popover.index, "queued", 1)
                             downloader.addDownload(popover.guid, popover.audiourl);
                         }
                         PopupUtils.close(popover)
@@ -325,10 +327,11 @@ Page {
     }
 
     EmptyState {
-        anchors.centerIn: parent
-        anchors.verticalCenterOffset: Qt.inputMethod.visible ? units.gu(4) : 0
+        anchors.verticalCenter: parent.verticalCenter
         visible: (episodesPage.state === "search" && sortedEpisodeModel.count === 0) || (episodeModel.count === 0 && podbird.settings.hideListened)
-        iconName: "music-app-symbolic"
+        iconHeight: units.gu(12)
+        iconWidth: iconHeight + units.gu(10)
+        iconSource: Qt.resolvedUrl("../graphics/notFound.svg")
         title: podbird.settings.hideListened ? i18n.tr("No more episodes") : i18n.tr("No Episodes found")
         subTitle: podbird.settings.hideListened ? i18n.tr("All episodes have been listened to.") : i18n.tr("No episodes found matching the search term.")
     }
@@ -374,7 +377,7 @@ Page {
         }
 
         else {
-            return Podcasts.formatTime(model.duration)
+            return Podcasts.formatTime(seconds)
         }
     }
 
@@ -409,7 +412,7 @@ Page {
                     verticalCenter: parent.verticalCenter
                 }
                 fontSize: "x-large"
-                text: section === "0" ? "New" : "Listened"
+                text: section === "0" ? i18n.tr("Unheard") : i18n.tr("Listened")
             }
         }
 
@@ -647,11 +650,12 @@ Page {
             var rs = tx.executeSql("SELECT rowid, * FROM Episode WHERE podcast=? ORDER BY published DESC", [pid]);
             for(i = 0; i < rs.rows.length; i++) {
                 episode = rs.rows.item(i);
+                //console.log(episode.queued)
                 if (!episode.listened) {
-                    episodeModel.insert(newCount, {"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : img, "artist" : artist, "audiourl" : episode.audiourl, "queued": false});
+                    episodeModel.insert(newCount, {"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : img, "artist" : artist, "audiourl" : episode.audiourl, "queued": episode.queued});
                     newCount++;
                 } else if (!podbird.settings.hideListened) {
-                    episodeModel.insert(i,{"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : img, "artist" : artist, "audiourl" : episode.audiourl, "queued": false});
+                    episodeModel.insert(i,{"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : img, "artist" : artist, "audiourl" : episode.audiourl, "queued": episode.queued});
                 }
             }
         });
@@ -713,11 +717,12 @@ Page {
                                             db.transaction(function(tx2) {
                                                 var ers = tx2.executeSql("SELECT rowid FROM Episode WHERE guid=?", [track.guid]);
                                                 if (ers.rows.length === 0) {
-                                                    tx2.executeSql("INSERT INTO Episode(podcast, name, description, audiourl, guid, listened, duration, published) VALUES(?, ?, ? , ?, ?, ?, ?, ?)", [pid,
+                                                    tx2.executeSql("INSERT INTO Episode(podcast, name, description, audiourl, guid, listened, queued, duration, published) VALUES(?, ?, ? , ?, ?, ?, ?, ?)", [pid,
                                                                                                                                                                                                       track.name,
                                                                                                                                                                                                       track.description,
                                                                                                                                                                                                       track.audiourl,
                                                                                                                                                                                                       track.guid,
+                                                                                                                                                                                                      false,
                                                                                                                                                                                                       false,
                                                                                                                                                                                                       track.duration,
                                                                                                                                                                                                       track.published]);

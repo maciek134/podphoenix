@@ -93,12 +93,12 @@ Page {
     ]
 
     EmptyState {
-        anchors.centerIn: parent
+        anchors.verticalCenter: parent.verticalCenter
         anchors.verticalCenterOffset: Qt.inputMethod.visible ? units.gu(4) : 0
         iconHeight: units.gu(12)
         iconWidth: iconHeight + units.gu(10)
-        visible: searchResults.count === 0
-        iconSource: Qt.resolvedUrl("../graphics/owlSearch.png")
+        visible: searchPage.state !== "search" ? true : searchResults.count === 0 && searchField.text.length > 2
+        iconSource: searchPage.state !== "search" ? Qt.resolvedUrl("../graphics/owlSearch.svg") : Qt.resolvedUrl("../graphics/notFound.svg")
         title: searchPage.state !== "search" ? i18n.tr("Looking for a new Podcast?") : i18n.tr("No Podcasts found")
         subTitle: searchPage.state !== "search" ? i18n.tr("Click the 'magnifier' at the top to search.") : i18n.tr("No podcasts found matching the search term.")
     }

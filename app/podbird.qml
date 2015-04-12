@@ -18,6 +18,7 @@
 
 import QtQuick 2.3
 import Podbird 1.0
+import UserMetrics 0.1
 import QtMultimedia 5.0
 import Ubuntu.Connectivity 1.0
 import Qt.labs.settings 1.0
@@ -44,9 +45,18 @@ MainView {
     Component.onDestruction: {
         console.log("[LOG]: Download cancelled");
         downloader.cancel();
+        var db = Podcasts.init()
+        db.transaction(function (tx) {
+            tx.executeSql('UPDATE Episode SET queued=0 WHERE queued=1');
+        })
     }
 
     Component.onCompleted: {
+        var db = Podcasts.init()
+        db.transaction(function (tx) {
+            tx.executeSql('UPDATE Episode SET queued=0 WHERE queued=1');
+        })
+
         var today = new Date()
         // Only perform cleanup of old episodes once a day
         if (Math.floor((today - settings.lastCheck)/86400000) >= 1 && settings.retentionDays !== -1) {
@@ -114,7 +124,7 @@ MainView {
             var db = Podcasts.init();
             var finalLocation = fileManager.saveDownload(path);
             db.transaction(function (tx) {
-                tx.executeSql("UPDATE Episode SET downloadedfile=? WHERE guid=?", [finalLocation, downloadingGuid]);
+                tx.executeSql("UPDATE Episode SET downloadedfile=?, queued=0 WHERE guid=?", [finalLocation, downloadingGuid]);
                 queue.shift();
                 if (queue.length > 0) {
                     downloadingGuid = queue[0][0];
@@ -134,11 +144,34 @@ MainView {
         }
     }
 
+    // UserMetrics to show Podbird stats on welcome screen
+    Metric {
+        id: podcastsMetric
+        name: "podcast-metrics"
+        // TRANSLATORS: this refers to a number of songs greater than one. The actual number will be prepended to the string automatically (plural forms are not yet fully supported in usermetrics, the library that displays that string)
+        format: "<b>%1</b> " + i18n.tr("podcasts listened today")
+        emptyFormat: i18n.tr("No podcasts listened today")
+        domain: "com.mikeasoft.podbird"
+    }
+
     MediaPlayer {
         id: player
+
+        property bool podcastCounted: false
+
+        onSourceChanged: {
+            podcastCounted = false
+        }
+
         onPositionChanged: {
             if (currentGuid == "" || duration <= 0) {
                 return;
+            }
+
+            if (position > 10000 && !podcastCounted) {
+                podcastCounted = true
+                podcastsMetric.increment()
+                console.log("[LOG]: Podcast User metric incremented")
             }
 
             var db = Podcasts.init();
@@ -154,11 +187,8 @@ MainView {
     PageStack {
         id: mainStack
         Component.onCompleted: {
-            /*
-             Show the welcome wizard only when running the app for the first time and also
-             only when the Light theme is used since the icons assets used are all dark.
-             */
-            if (settings.firstRun && settings.themeName === "Light.qml") {
+            // Show the welcome wizard only when running the app for the first time
+            if (settings.firstRun) {
                 console.log("[LOG]: Detecting first time run by user. Starting welcome wizard.")
                 push(Qt.resolvedUrl("welcomewizard/WelcomeWizard.qml"))
             } else {
@@ -269,6 +299,7 @@ MainView {
                 for (var j=0; j < loopCount; j++) {
                     if (!rs2.rows.item(j).downloadedfile && !rs2.rows.item(j).listened) {
                         downloader.addDownload(rs2.rows.item(j).guid, rs2.rows.item(j).audiourl)
+                        tx.executeSql("UPDATE Episode SET queued=1 WHERE guid = ?", [rs2.rows.item(j).guid]);
                     }
                 }
             }

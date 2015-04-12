@@ -175,10 +175,13 @@ Tab {
         }
 
         EmptyState {
-            anchors.centerIn: parent
+            anchors.verticalCenter: parent.verticalCenter
             anchors.verticalCenterOffset: Qt.inputMethod.visible ? units.gu(4) : 0
+            iconHeight: units.gu(12)
+            iconWidth: iconHeight + units.gu(10)
+            iconSource: podcastModel.count === 0 ? Qt.resolvedUrl("../graphics/owlSearch.svg")
+                                                 : Qt.resolvedUrl("../graphics/notFound.svg")
             visible: podcastModel.count === 0 || sortedPodcastModel.count === 0
-            iconName: "music-app-symbolic"
             title: podcastModel.count === 0 ? i18n.tr("No Podcast Subscriptions")
                                             : i18n.tr("No Podcasts Found")
             subTitle: podcastModel.count === 0 ? i18n.tr("You haven't subscribed to any podcasts yet, visit the 'Find New Podcasts' page to add some.")

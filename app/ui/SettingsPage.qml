@@ -23,90 +23,132 @@ import Ubuntu.Components.ListItems 1.0 as ListItem
 Page {
     id: settingsPage
 
-    Column {
-        id: settingsColumn
+    Flickable {
+        id: flickable
 
         anchors.fill: parent
+        contentHeight: settingsColumn.height + units.gu(8)
+        contentWidth: parent.width
 
-        ListItem.Header {
-            text: i18n.tr("General Settings")
-        }
+        Column {
+            id: settingsColumn
 
-        ListItem.SingleValue {
-            progression: true
-            text: i18n.tr("Theme")
-            value: podbird.settings.themeName.split(".qml")[0]
-            onClicked: mainStack.push(Qt.resolvedUrl("../settings/ThemeSetting.qml"))
-        }
-
-        ListItem.Header {
-            text: i18n.tr("Podcast Episode Settings")
-        }
-
-        ListItem.Standard {
-            text: i18n.tr("Hide listened episodes")
-            control: Switch {
-                checked: podbird.settings.hideListened
-                onClicked: podbird.settings.hideListened = checked
+            anchors {
+                top: parent.top
+                left: parent.left
+                right: parent.right
             }
-        }
 
-        ListItem.Base {
-            height: units.gu(10)
-            progression: true
-            onClicked: mainStack.push(Qt.resolvedUrl("../settings/CleanSetting.qml"))
-            Column {
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.right: parent.right
-                anchors.left: parent.left
-                Label {
-                    width: parent.width
-                    wrapMode: Text.WordWrap
-                    text: i18n.tr("Automatically delete old episodes")
-                }
+            ListItem.Header {
+                text: i18n.tr("General Settings")
+            }
 
-                Label {
-                    fontSize: "small"
-                    color: podbird.theme.baseSubText
-                    width: parent.width
-                    wrapMode: Text.WordWrap
-                    text: i18n.tr("Delete episodes that are older than a given number of days for each podcast")
+            ListItem.SingleValue {
+                progression: true
+                showDivider: false
+                text: i18n.tr("Theme")
+                value: podbird.settings.themeName.split(".qml")[0]
+                onClicked: mainStack.push(Qt.resolvedUrl("../settings/ThemeSetting.qml"))
+            }
+
+            ListItem.Header {
+                text: i18n.tr("Podcast Episode Settings")
+            }
+
+            ListItem.Standard {
+                showDivider: false
+                text: i18n.tr("Hide listened episodes")
+                control: Switch {
+                    checked: podbird.settings.hideListened
+                    onClicked: podbird.settings.hideListened = checked
                 }
             }
-        }
 
-        ListItem.Base {
-            height: units.gu(10)
-            progression: true
-            onClicked: mainStack.push(Qt.resolvedUrl("../settings/DownloadSetting.qml"))
-            Column {
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.right: parent.right
-                anchors.left: parent.left
-                Label {
-                    width: parent.width
-                    wrapMode: Text.WordWrap
-                    text: i18n.tr("Automatically download new episodes")
-                }
+            ListItem.Base {
+                height: units.gu(10)
+                progression: true
+                showDivider: false
+                onClicked: mainStack.push(Qt.resolvedUrl("../settings/CleanSetting.qml"))
+                Column {
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.right: parent.right
+                    anchors.left: parent.left
+                    Label {
+                        width: parent.width
+                        wrapMode: Text.WordWrap
+                        text: i18n.tr("Automatically delete old episodes")
+                    }
 
-                Label {
-                    fontSize: "small"
-                    color: podbird.theme.baseSubText
-                    width: parent.width
-                    wrapMode: Text.WordWrap
-                    text: i18n.tr("Default number of new episodes to download for each podcast")
+                    Label {
+                        fontSize: "small"
+                        color: podbird.theme.baseSubText
+                        width: parent.width
+                        wrapMode: Text.WordWrap
+                        text: i18n.tr("Delete episodes that are older than a given number of days for each podcast")
+                    }
                 }
             }
-        }
 
-        ListItem.Standard {
-            text: i18n.tr("Auto download on WiFi only")
-            enabled: podbird.settings.maxEpisodeDownload !== -1
-            control: Switch {
-                checked: podbird.settings.onlyWifiDownload
-                onClicked: {
-                    podbird.settings.onlyWifiDownload = checked
+            ListItem.Base {
+                height: units.gu(10)
+                progression: true
+                showDivider: false
+                onClicked: mainStack.push(Qt.resolvedUrl("../settings/DownloadSetting.qml"))
+                Column {
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.right: parent.right
+                    anchors.left: parent.left
+                    Label {
+                        width: parent.width
+                        wrapMode: Text.WordWrap
+                        text: i18n.tr("Automatically download new episodes")
+                    }
+
+                    Label {
+                        fontSize: "small"
+                        color: podbird.theme.baseSubText
+                        width: parent.width
+                        wrapMode: Text.WordWrap
+                        text: i18n.tr("Default number of new episodes to download for each podcast")
+                    }
                 }
+            }
+
+            ListItem.Standard {
+                showDivider: false
+                text: i18n.tr("Auto download on WiFi only")
+                enabled: podbird.settings.maxEpisodeDownload !== -1
+                control: Switch {
+                    checked: podbird.settings.onlyWifiDownload
+                    onClicked: {
+                        podbird.settings.onlyWifiDownload = checked
+                    }
+                }
+            }
+
+            ListItem.Header {
+                text: i18n.tr("Misc.")
+            }
+
+            ListItem.Standard {
+                progression: true
+                showDivider: false
+                text: i18n.tr("About")
+                onClicked: mainStack.push(Qt.resolvedUrl("../settings/About.qml"))
+            }
+
+            ListItem.Standard {
+                progression: true
+                showDivider: false
+                text: i18n.tr("Credits")
+                onClicked: mainStack.push(Qt.resolvedUrl("../settings/Credits.qml"))
+            }
+
+            ListItem.Standard {
+                progression: true
+                showDivider: false
+                text: i18n.tr("Report Bug")
+                onClicked: Qt.openUrlExternally("https://bugs.launchpad.net/podbird/+filebug")
             }
         }
     }

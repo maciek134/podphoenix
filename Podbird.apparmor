@@ -2,7 +2,8 @@
     "policy_groups": [
         "networking",
         "audio",
-        "connectivity"
+        "connectivity",
+        "usermetrics"
     ],
     "policy_version": 1.2
 }
