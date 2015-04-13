@@ -717,7 +717,7 @@ Page {
                                             db.transaction(function(tx2) {
                                                 var ers = tx2.executeSql("SELECT rowid FROM Episode WHERE guid=?", [track.guid]);
                                                 if (ers.rows.length === 0) {
-                                                    tx2.executeSql("INSERT INTO Episode(podcast, name, description, audiourl, guid, listened, queued, duration, published) VALUES(?, ?, ? , ?, ?, ?, ?, ?)", [pid,
+                                                    tx2.executeSql("INSERT INTO Episode(podcast, name, description, audiourl, guid, listened, queued, duration, published) VALUES(?, ?, ? , ?, ?, ?, ?,  ?, ?)", [pid,
                                                                                                                                                                                                       track.name,
                                                                                                                                                                                                       track.description,
                                                                                                                                                                                                       track.audiourl,
