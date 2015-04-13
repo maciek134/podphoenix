@@ -8,23 +8,23 @@ msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-03-29 16:48+0100\n"
-"PO-Revision-Date: 2015-03-30 14:29+0000\n"
-"Last-Translator: Luigi Biagi <luigibiagi@gmail.com>\n"
+"PO-Revision-Date: 2015-04-12 19:58+0000\n"
+"Last-Translator: Milo Casagrande <milo.casagrande@gmail.com>\n"
 "Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2015-03-31 06:04+0000\n"
-"X-Generator: Launchpad (build 17413)\n"
+"X-Launchpad-Export-Date: 2015-04-13 06:11+0000\n"
+"X-Generator: Launchpad (build 17423)\n"
 
 #: ../app/ui/EpisodesPage.qml:85
 msgid "Search Episode"
-msgstr ""
+msgstr "Cerca episodio"
 
 #: ../app/ui/EpisodesPage.qml:94
 msgid "Mark all listened"
-msgstr ""
+msgstr "Segnala tutti ascoltati"
 
 #: ../app/ui/EpisodesPage.qml:105 ../app/ui/EpisodesPage.qml:153
 msgid "Unsubscribe"
@@ -33,59 +33,59 @@ msgstr ""
 #: ../app/ui/EpisodesPage.qml:120 ../app/ui/PodcastsTab.qml:86
 #: ../app/ui/PodcastsTab.qml:109
 msgid "Back"
-msgstr ""
+msgstr "Indietro"
 
 #: ../app/ui/EpisodesPage.qml:131
 msgid "Search episode"
-msgstr ""
+msgstr "Cerca episodio"
 
 #: ../app/ui/EpisodesPage.qml:150
 msgid "Unsubscribe Confirmation"
-msgstr ""
+msgstr "Conferma rimozione"
 
 #: ../app/ui/EpisodesPage.qml:151
 #, qt-format
 msgid "Are you sure you want to unsubscribe from <b>%1</b>?"
-msgstr ""
+msgstr "Confermare la rimozione dell'iscrizione da <b>%1</b>?"
 
 #: ../app/ui/EpisodesPage.qml:170
 msgid "Cancel"
-msgstr ""
+msgstr "Annulla"
 
 #: ../app/ui/EpisodesPage.qml:184
 msgid "No Episodes found"
-msgstr ""
+msgstr "Nessun episodio trovato"
 
 #: ../app/ui/EpisodesPage.qml:185
 msgid "No episodes found matching the search term."
-msgstr ""
+msgstr "Nessun episodio trovato corrispondente ai termini di ricerca."
 
 #: ../app/ui/EpisodesPage.qml:319
 #, no-c-format, qt-format
 msgid "%1h %2m"
-msgstr ""
+msgstr "%1h %2m"
 
 #: ../app/ui/EpisodesPage.qml:328
 #, no-c-format, qt-format
 msgid "%1h"
-msgstr ""
+msgstr "%1h"
 
 #: ../app/ui/EpisodesPage.qml:336
 #, no-c-format, qt-format
 msgid "%1m"
-msgstr ""
+msgstr "%1m"
 
 #: ../app/ui/NowPlayingPage.qml:28
 msgid "Now Playing"
-msgstr ""
+msgstr "In riproduzione"
 
 #: ../app/ui/NowPlayingPage.qml:145
 msgid "-15s"
-msgstr ""
+msgstr "-15s"
 
 #: ../app/ui/NowPlayingPage.qml:204
 msgid "+15s"
-msgstr ""
+msgstr "+15s"
 
 #: ../app/ui/PodcastsTab.qml:32
 msgid "Podcasts"
@@ -97,39 +97,39 @@ msgstr "Aggiungi podcast"
 
 #: ../app/ui/PodcastsTab.qml:72
 msgid "Search Podcast"
-msgstr "Cerca podcast"
+msgstr "Ricerca podcast"
 
 #: ../app/ui/PodcastsTab.qml:97
 msgid "Search podcast"
-msgstr ""
+msgstr "Ricerca podcast"
 
 #: ../app/ui/PodcastsTab.qml:120
 msgid "Save Podcast"
-msgstr ""
+msgstr "Salva podcast"
 
 #: ../app/ui/PodcastsTab.qml:133
 msgid "Feed URL"
-msgstr ""
+msgstr "URL del feed"
 
 #: ../app/ui/PodcastsTab.qml:157
 msgid "Unable to subscribe"
-msgstr ""
+msgstr "Impossibile iscriversi"
 
 #: ../app/ui/PodcastsTab.qml:158
 msgid "Please check the URL and try again"
-msgstr ""
+msgstr "Controllare l'URL e riprovare"
 
 #: ../app/ui/PodcastsTab.qml:160
 msgid "Close"
-msgstr ""
+msgstr "Chiudi"
 
 #: ../app/ui/PodcastsTab.qml:172
 msgid "No Podcast Subscriptions"
-msgstr ""
+msgstr "Nessuna iscrizione ai podcast"
 
 #: ../app/ui/PodcastsTab.qml:173
 msgid "No Podcasts Found"
-msgstr ""
+msgstr "Nessun podcast trovato"
 
 #: ../app/ui/PodcastsTab.qml:174
 msgid ""
@@ -139,18 +139,18 @@ msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:175
 msgid "No podcasts found matching the search term."
-msgstr ""
+msgstr "Nessun episodio trovato corrispondente ai termini di ricerca."
 
 #: ../app/ui/PodcastsTab.qml:291
 #, qt-format
 msgid "%1 unheard episode"
 msgid_plural "%1 unheard episodes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 episodio non ascoltato"
+msgstr[1] "%1 episodi non ascoltati"
 
 #: ../app/ui/SearchTab.qml:27
 msgid "Find New Podcasts"
-msgstr ""
+msgstr "Ricerca nuovi podcast"
 
 #: ../app/ui/SearchTab.qml:42
 msgid "Search..."
@@ -158,7 +158,7 @@ msgstr "Cerca..."
 
 #: ../app/ui/SearchTab.qml:122
 msgid "Subscribe"
-msgstr ""
+msgstr "Iscrivi"
 
 #: ../app/ui/SettingsTab.qml:26
 msgid "Settings"
@@ -166,15 +166,15 @@ msgstr "Impostazioni"
 
 #: ../app/ui/SettingsTab.qml:35
 msgid "Light"
-msgstr ""
+msgstr "Chiaro"
 
 #: ../app/ui/SettingsTab.qml:36
 msgid "Dark"
-msgstr ""
+msgstr "Scuro"
 
 #: ../app/ui/SettingsTab.qml:44 ../app/ui/SettingsTab.qml:93
 msgid "Never"
-msgstr ""
+msgstr "Mai"
 
 #: ../app/ui/SettingsTab.qml:45
 msgid "7 days"
@@ -202,7 +202,7 @@ msgstr "Tema"
 
 #: ../app/ui/SettingsTab.qml:92
 msgid "Remove episodes older than"
-msgstr ""
+msgstr "Rimuovi gli episodi più vecchi di"
 
 #: ../app/ui/SettingsTab.qml:94
 #, qt-format
