@@ -595,8 +595,9 @@ Page {
         }
     }
 
-    Scrollbar {
-        flickableItem: episodeList
+    // #FIXME: Use SDK Scrollbar when it is themeable
+    CustomScrollBar {
+        listview: episodeList
     }
 
     function refreshModel() {
@@ -683,14 +684,14 @@ Page {
                                                 var ers = tx2.executeSql("SELECT rowid FROM Episode WHERE guid=?", [track.guid]);
                                                 if (ers.rows.length === 0) {
                                                     tx2.executeSql("INSERT INTO Episode(podcast, name, description, audiourl, guid, listened, queued, duration, published) VALUES(?, ?, ? , ?, ?, ?, ?,  ?, ?)", [pid,
-                                                                                                                                                                                                      track.name,
-                                                                                                                                                                                                      track.description,
-                                                                                                                                                                                                      track.audiourl,
-                                                                                                                                                                                                      track.guid,
-                                                                                                                                                                                                      false,
-                                                                                                                                                                                                      false,
-                                                                                                                                                                                                      track.duration,
-                                                                                                                                                                                                      track.published]);
+                                                                                                                                                                                                                  track.name,
+                                                                                                                                                                                                                  track.description,
+                                                                                                                                                                                                                  track.audiourl,
+                                                                                                                                                                                                                  track.guid,
+                                                                                                                                                                                                                  false,
+                                                                                                                                                                                                                  false,
+                                                                                                                                                                                                                  track.duration,
+                                                                                                                                                                                                                  track.published]);
                                                 }
                                             });
                                         }

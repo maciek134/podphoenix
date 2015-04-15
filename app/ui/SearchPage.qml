@@ -194,8 +194,9 @@ Page {
             }
         }
 
-        Scrollbar {
-            flickableItem: resultsView
+        // #FIXME: Use SDK Scrollbar when it is themeable
+        CustomScrollBar {
+            listview: resultsView
         }
     }
 
