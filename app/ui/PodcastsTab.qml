@@ -218,7 +218,7 @@ Tab {
                         }
                         tx.executeSql("DELETE FROM Episode WHERE podcast=?", [model.id]);
                         tx.executeSql("DELETE FROM Podcast WHERE rowid=?", [model.id]);
-                        refreshModel()
+                        podcastModel.remove(index, 1);
                     });
                 }
 
@@ -372,6 +372,7 @@ Tab {
     }
 
     function updateEpisodes() {
+        console.log("[LOG]: Checking for new episodes")
         var db = Podcasts.init();
         episodesUpdating = true;
         db.transaction(function(tx) {

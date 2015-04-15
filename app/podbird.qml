@@ -56,6 +56,8 @@ MainView {
             tx.executeSql('UPDATE Episode SET queued=0 WHERE queued=1');
         })
 
+        Podcasts.updateEpisodes()
+
         var today = new Date()
         // Only perform cleanup of old episodes once a day
         if (Math.floor((today - settings.lastCheck)/86400000) >= 1 && settings.retentionDays !== -1) {

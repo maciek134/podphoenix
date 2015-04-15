@@ -639,7 +639,6 @@ Page {
             var rs = tx.executeSql("SELECT rowid, * FROM Episode WHERE podcast=? ORDER BY published DESC", [pid]);
             for(i = 0; i < rs.rows.length; i++) {
                 episode = rs.rows.item(i);
-                //console.log(episode.queued)
                 if (!episode.listened) {
                     episodeModel.insert(newCount, {"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : img, "artist" : artist, "audiourl" : episode.audiourl, "queued": episode.queued});
                     newCount++;
