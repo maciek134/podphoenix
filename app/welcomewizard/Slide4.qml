@@ -61,10 +61,11 @@ Component {
                 margins: units.gu(1)
                 topMargin: units.gu(4)
             }
-            horizontalAlignment: Text.AlignHCenter
-            text: i18n.tr("Podbird is available in over 15 languages and is translated by the \
-Ubuntu Translators community.")
             wrapMode: Text.WordWrap
+            textFormat: Text.RichText
+            horizontalAlignment: Text.AlignHCenter
+            text: i18n.tr("Podbird is available in over 15 languages and is translated by the %1 community").arg("<a href=\"http://community.ubuntu.com/contribute/translations\">Ubuntu Translators</a>")
+            onLinkActivated: Qt.openUrlExternally("http://community.ubuntu.com/contribute/translations/")
         }
     }
 }
