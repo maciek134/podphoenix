@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-11 03:57+0200\n"
+"POT-Creation-Date: 2015-04-15 12:57+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: ../app/podbird.qml:186
+#: ../app/podbird.qml:188
 msgid "Find New Podcasts"
 msgstr ""
 
-#: ../app/podbird.qml:200
+#: ../app/podbird.qml:202
 msgid "Settings"
 msgstr ""
 
@@ -63,7 +63,7 @@ msgstr ""
 #: ../app/settings/DownloadSetting.qml:34
 #: ../app/settings/DownloadSetting.qml:35
 #: ../app/settings/DownloadSetting.qml:36
-#: ../app/settings/DownloadSetting.qml:37 ../app/ui/EpisodesPage.qml:463
+#: ../app/settings/DownloadSetting.qml:37 ../app/ui/EpisodesPage.qml:462
 #, qt-format
 msgid "%1 episode"
 msgid_plural "%1 episodes"
@@ -132,35 +132,43 @@ msgstr ""
 msgid "Download episode"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:336
+#: ../app/ui/EpisodesPage.qml:335
 msgid "No more episodes"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:336
+#: ../app/ui/EpisodesPage.qml:335
 msgid "No Episodes found"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:337
+#: ../app/ui/EpisodesPage.qml:336
 msgid "All episodes have been listened to."
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:337
+#: ../app/ui/EpisodesPage.qml:336
 msgid "No episodes found matching the search term."
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:359
+#: ../app/ui/EpisodesPage.qml:358
 #, no-c-format, qt-format
 msgid "%1 hr %2 min"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:368
+#: ../app/ui/EpisodesPage.qml:367
 #, no-c-format, qt-format
 msgid "%1 hr"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:376
+#: ../app/ui/EpisodesPage.qml:375
 #, no-c-format, qt-format
 msgid "%1 min"
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:415
+msgid "Unheard"
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:415
+msgid "Listened"
 msgstr ""
 
 #: ../app/ui/NowPlayingPage.qml:28
@@ -219,25 +227,25 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:184
+#: ../app/ui/PodcastsTab.qml:185
 msgid "No Podcast Subscriptions"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:185
+#: ../app/ui/PodcastsTab.qml:186
 msgid "No Podcasts Found"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:186
+#: ../app/ui/PodcastsTab.qml:187
 msgid ""
 "You haven't subscribed to any podcasts yet, visit the 'Find New Podcasts' "
 "page to add some."
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:187 ../app/ui/SearchPage.qml:103
+#: ../app/ui/PodcastsTab.qml:188 ../app/ui/SearchPage.qml:103
 msgid "No podcasts found matching the search term."
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:217 ../app/ui/PodcastsTab.qml:337
+#: ../app/ui/PodcastsTab.qml:218 ../app/ui/PodcastsTab.qml:338
 #, qt-format
 msgid "%1 unheard episode"
 msgid_plural "%1 unheard episodes"
