@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-03-26 13:11+0100\n"
+"POT-Creation-Date: 2015-03-29 16:48+0100\n"
 "PO-Revision-Date: 2015-03-26 16:34+0000\n"
 "Last-Translator: Hannie Dumoleyn <Unknown>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -15,66 +15,62 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2015-03-27 05:42+0000\n"
+"X-Launchpad-Export-Date: 2015-03-30 05:48+0000\n"
 "X-Generator: Launchpad (build 17413)\n"
 
-#: ../app/ui/EpisodesPage.qml:67
+#: ../app/ui/EpisodesPage.qml:85
 msgid "Search Episode"
 msgstr "Aflevering zoeken"
 
-#: ../app/ui/EpisodesPage.qml:76
+#: ../app/ui/EpisodesPage.qml:94
 msgid "Mark all listened"
 msgstr "Alle als beluisterd markeren"
 
-#: ../app/ui/EpisodesPage.qml:87
+#: ../app/ui/EpisodesPage.qml:105 ../app/ui/EpisodesPage.qml:153
 msgid "Unsubscribe"
 msgstr "Opzeggen"
 
-#: ../app/ui/EpisodesPage.qml:102 ../app/ui/PodcastsTab.qml:86
+#: ../app/ui/EpisodesPage.qml:120 ../app/ui/PodcastsTab.qml:86
 #: ../app/ui/PodcastsTab.qml:109
 msgid "Back"
 msgstr "Terug"
 
-#: ../app/ui/EpisodesPage.qml:113
-msgid "Search Episode..."
-msgstr "Aflevering zoeken…"
+#: ../app/ui/EpisodesPage.qml:131
+msgid "Search episode"
+msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:132
+#: ../app/ui/EpisodesPage.qml:150
 msgid "Unsubscribe Confirmation"
 msgstr "Opzeggen bevestigen"
 
-#: ../app/ui/EpisodesPage.qml:133
+#: ../app/ui/EpisodesPage.qml:151
 #, qt-format
 msgid "Are you sure you want to unsubscribe from <b>%1</b>?"
 msgstr "Weet u zeker dat u <b>%1</b> wilt opzeggen?"
 
-#: ../app/ui/EpisodesPage.qml:135
-msgid "Yes"
-msgstr "Ja"
+#: ../app/ui/EpisodesPage.qml:170
+msgid "Cancel"
+msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:152
-msgid "No"
-msgstr "Nee"
-
-#: ../app/ui/EpisodesPage.qml:166
+#: ../app/ui/EpisodesPage.qml:184
 msgid "No Episodes found"
 msgstr "Geen afleveringen gevonden"
 
-#: ../app/ui/EpisodesPage.qml:167
+#: ../app/ui/EpisodesPage.qml:185
 msgid "No episodes found matching the search term."
 msgstr "Er zijn geen afleveringen gevonden die overeenkomen met de zoekterm."
 
-#: ../app/ui/EpisodesPage.qml:295
+#: ../app/ui/EpisodesPage.qml:319
 #, no-c-format, qt-format
 msgid "%1h %2m"
 msgstr "%1u %2m"
 
-#: ../app/ui/EpisodesPage.qml:304
+#: ../app/ui/EpisodesPage.qml:328
 #, no-c-format, qt-format
 msgid "%1h"
 msgstr "%1u"
 
-#: ../app/ui/EpisodesPage.qml:312
+#: ../app/ui/EpisodesPage.qml:336
 #, no-c-format, qt-format
 msgid "%1m"
 msgstr "%1m"
@@ -83,11 +79,11 @@ msgstr "%1m"
 msgid "Now Playing"
 msgstr "Nu aan het afspelen"
 
-#: ../app/ui/NowPlayingPage.qml:140
+#: ../app/ui/NowPlayingPage.qml:145
 msgid "-15s"
 msgstr "-15s"
 
-#: ../app/ui/NowPlayingPage.qml:195
+#: ../app/ui/NowPlayingPage.qml:204
 msgid "+15s"
 msgstr "+15s"
 
@@ -104,16 +100,16 @@ msgid "Search Podcast"
 msgstr "Podcast zoeken"
 
 #: ../app/ui/PodcastsTab.qml:97
-msgid "Search Podcast..."
-msgstr "Podcast zoeken…"
+msgid "Search podcast"
+msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:120
 msgid "Save Podcast"
 msgstr "Podcast opslaan"
 
 #: ../app/ui/PodcastsTab.qml:133
-msgid "Feed URL..."
-msgstr "Feed URL…"
+msgid "Feed URL"
+msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:157
 msgid "Unable to subscribe"
@@ -127,15 +123,15 @@ msgstr "Controleer de URL en probeer het opnieuw"
 msgid "Close"
 msgstr "Sluiten"
 
-#: ../app/ui/PodcastsTab.qml:171
+#: ../app/ui/PodcastsTab.qml:172
 msgid "No Podcast Subscriptions"
 msgstr "Geen podcast-inschrijvingen"
 
-#: ../app/ui/PodcastsTab.qml:172
+#: ../app/ui/PodcastsTab.qml:173
 msgid "No Podcasts Found"
 msgstr "Geen podcasts gevonden"
 
-#: ../app/ui/PodcastsTab.qml:173
+#: ../app/ui/PodcastsTab.qml:174
 msgid ""
 "You haven't subscribed to any podcasts yet, visit the 'Find New Podcasts' "
 "page to add some."
@@ -143,11 +139,11 @@ msgstr ""
 "U heeft zich nog voor geen enkele podcast ingeschreven; bezoek de pagina "
 "‘Nieuwe podcasts zoeken’ om er een paar toe te voegen."
 
-#: ../app/ui/PodcastsTab.qml:174
+#: ../app/ui/PodcastsTab.qml:175
 msgid "No podcasts found matching the search term."
 msgstr "Er zijn geen podcasts gevonden die overeenkomen met de zoekterm."
 
-#: ../app/ui/PodcastsTab.qml:281
+#: ../app/ui/PodcastsTab.qml:291
 #, qt-format
 msgid "%1 unheard episode"
 msgid_plural "%1 unheard episodes"
@@ -162,10 +158,59 @@ msgstr "Nieuwe podcasts zoeken"
 msgid "Search..."
 msgstr "Zoeken…"
 
-#: ../app/ui/SearchTab.qml:114
+#: ../app/ui/SearchTab.qml:122
 msgid "Subscribe"
 msgstr "Inschrijven"
 
-#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-fix-translation-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
+#: ../app/ui/SettingsTab.qml:26
+msgid "Settings"
+msgstr ""
+
+#: ../app/ui/SettingsTab.qml:35
+msgid "Light"
+msgstr ""
+
+#: ../app/ui/SettingsTab.qml:36
+msgid "Dark"
+msgstr ""
+
+#: ../app/ui/SettingsTab.qml:44 ../app/ui/SettingsTab.qml:93
+msgid "Never"
+msgstr ""
+
+#: ../app/ui/SettingsTab.qml:45
+msgid "7 days"
+msgstr ""
+
+#: ../app/ui/SettingsTab.qml:46
+msgid "31 days"
+msgstr ""
+
+#: ../app/ui/SettingsTab.qml:47
+msgid "90 days"
+msgstr ""
+
+#: ../app/ui/SettingsTab.qml:48
+msgid "180 days"
+msgstr ""
+
+#: ../app/ui/SettingsTab.qml:49
+msgid "360 days"
+msgstr ""
+
+#: ../app/ui/SettingsTab.qml:62
+msgid "Theme"
+msgstr ""
+
+#: ../app/ui/SettingsTab.qml:92
+msgid "Remove episodes older than"
+msgstr ""
+
+#: ../app/ui/SettingsTab.qml:94
+#, qt-format
+msgid "%1 days"
+msgstr ""
+
+#: /home/mike/src/build-podbird-Ubuntu_Device_GCC_armhf_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
 msgid "Podbird"
 msgstr "Podbird"
