@@ -59,7 +59,7 @@ Component {
                 topMargin: units.gu(4)
             }
             horizontalAlignment: Text.AlignHCenter
-            text: i18n.tr("Podbird uses the Itunes database to provide access to a huge collections of podcasts. You can also add podcasts by URL.")
+            text: i18n.tr("Podbird uses the iTunes® database to provide access to a huge collections of podcasts. You can also add podcasts by URL.")
             wrapMode: Text.WordWrap
         }
     }
