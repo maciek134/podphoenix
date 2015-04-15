@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-15 20:42+0200\n"
+"POT-Creation-Date: 2015-04-15 23:27+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -219,14 +219,14 @@ msgstr ""
 
 #: ../app/welcomewizard/Slide1.qml:50
 msgid ""
-"Enjoy your favourite shows with Podbird, the best podcast manager for "
+"Enjoy your favourite shows with Podbird, the chirpiest podcast manager for "
 "Ubuntu.\n"
 "\n"
-"Chirp Chirp.."
+"Chirp Chirp..."
 msgstr ""
 
 #: ../app/welcomewizard/Slide1.qml:72
-msgid "Swipe to move between Pages"
+msgid "Swipe to move between pages"
 msgstr ""
 
 #: ../app/welcomewizard/Slide2.qml:45
@@ -235,8 +235,8 @@ msgstr ""
 
 #: ../app/welcomewizard/Slide2.qml:62
 msgid ""
-"Podbird uses the iTunes® database to provide access to a huge collections of "
-"podcasts. You can also add podcasts by URL."
+"Podbird uses the iTunes® database to provide access to a huge collection of "
+"podcasts. You can also add podcasts by their URL."
 msgstr ""
 
 #: ../app/welcomewizard/Slide3.qml:45
@@ -245,8 +245,8 @@ msgstr ""
 
 #: ../app/welcomewizard/Slide3.qml:62
 msgid ""
-"Podbird automatically downloads new episodes and cleans up old episodes. As "
-"a power user you can also tweak these settings to suit your needs."
+"Podbird can optionally download new episodes and clean up old episodes "
+"automatically, this can be enabled from the settings page."
 msgstr ""
 
 #. TRANSLATORS: This text should be in a language different from the language set by the user.
@@ -270,7 +270,7 @@ msgstr ""
 #: ../app/welcomewizard/Slide5.qml:65
 #, qt-format
 msgid ""
-"If you find any bugs or have any feature requests, let us know at our "
+"If you find any bugs or have any feature requests, let us know on our "
 "project page at %1"
 msgstr ""
 
@@ -279,7 +279,7 @@ msgid "Enjoy"
 msgstr ""
 
 #: ../app/welcomewizard/Slide6.qml:62
-msgid "We hope you will enjoy using Podbird!"
+msgid "We hope you enjoy using Podbird!"
 msgstr ""
 
 #: ../app/welcomewizard/Slide6.qml:76
