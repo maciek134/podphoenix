@@ -8,13 +8,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-11 03:37+0200\n"
+"POT-Creation-Date: 2015-04-15 20:55+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
@@ -151,6 +151,14 @@ msgstr ""
 msgid "%1 min"
 msgstr ""
 
+#: ../app/ui/EpisodesPage.qml:290
+msgid "Unheard"
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:290
+msgid "Listened"
+msgstr ""
+
 #: ../app/ui/NowPlayingPage.qml:28
 msgid "Now Playing"
 msgstr ""
@@ -252,28 +260,28 @@ msgstr ""
 msgid "Podcast Episode Settings"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:48
+#: ../app/ui/SettingsPage.qml:49
 msgid "Hide listened episodes"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:67
+#: ../app/ui/SettingsPage.qml:68
 msgid "Automatically delete old episodes"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:75
+#: ../app/ui/SettingsPage.qml:76
 msgid ""
 "Delete episodes that are older than a given number of days for each podcast"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:92
+#: ../app/ui/SettingsPage.qml:93
 msgid "Automatically download new episodes"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:100
+#: ../app/ui/SettingsPage.qml:101
 msgid "Default number of new episodes to download for each podcast"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:107
+#: ../app/ui/SettingsPage.qml:108
 msgid "Auto download on WiFi only"
 msgstr ""
 
@@ -287,8 +295,8 @@ msgstr ""
 
 #: ../app/welcomewizard/Slide1.qml:50
 msgid ""
-"Enjoy your favourite podcasts with Podbird, the one and only podcast manager "
-"for Ubuntu Touch.\n"
+"Enjoy your favourite shows with Podbird, the best podcast manager for "
+"Ubuntu.\n"
 "\n"
 "Chirp Chirp.."
 msgstr ""
@@ -303,7 +311,7 @@ msgstr ""
 
 #: ../app/welcomewizard/Slide2.qml:62
 msgid ""
-"Podbird uses the Itunes database to provide access to a huge collections of "
+"Podbird uses the iTunes® database to provide access to a huge collections of "
 "podcasts. You can also add podcasts by URL."
 msgstr ""
 
@@ -334,10 +342,12 @@ msgstr ""
 msgid "Support"
 msgstr ""
 
-#: ../app/welcomewizard/Slide5.qml:62
+#. TRANSLATORS: The %1 points to a url defined in html format <a href=\link\>Link</a>.
+#: ../app/welcomewizard/Slide5.qml:65
+#, qt-format
 msgid ""
 "If you find any bugs or have any feature requests, let us know at our "
-"project page https://launchpad.net/podbird."
+"project page at %1"
 msgstr ""
 
 #: ../app/welcomewizard/Slide6.qml:45
