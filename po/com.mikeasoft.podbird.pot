@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-16 00:06+0200\n"
+"POT-Creation-Date: 2015-04-16 01:05+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: ../app/podbird.qml:180
+#: ../app/podbird.qml:178
 msgid "Settings"
 msgstr ""
 
@@ -243,10 +243,6 @@ msgstr ""
 
 #: ../app/ui/SettingsPage.qml:92
 msgid "Default number of new episodes to download for each podcast"
-msgstr ""
-
-#: ../app/ui/SettingsPage.qml:99
-msgid "Auto download on WiFi only"
 msgstr ""
 
 #: ../app/ui/Walkthrough.qml:87

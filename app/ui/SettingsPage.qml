@@ -93,18 +93,6 @@ Page {
                 }
             }
         }
-
-        ListItem.Standard {
-            showDivider: false
-            text: i18n.tr("Auto download on WiFi only")
-            enabled: podbird.settings.maxEpisodeDownload !== -1
-            control: Switch {
-                checked: podbird.settings.onlyWifiDownload
-                onClicked: {
-                    podbird.settings.onlyWifiDownload = checked
-                }
-            }
-        }
     }
 }
 
