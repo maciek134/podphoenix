@@ -59,7 +59,7 @@ Component {
                 topMargin: units.gu(4)
             }
             horizontalAlignment: Text.AlignHCenter
-            text: i18n.tr("We hope you will enjoy using Podbird!")
+            text: i18n.tr("We hope you enjoy using Podbird!")
             wrapMode: Text.WordWrap
         }
 
