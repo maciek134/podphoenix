@@ -58,9 +58,12 @@ Component {
                 margins: units.gu(1)
                 topMargin: units.gu(4)
             }
-            horizontalAlignment: Text.AlignHCenter
-            text: i18n.tr("If you find any bugs or have any feature requests, let us know at our project page https://launchpad.net/podbird.")
             wrapMode: Text.WordWrap
+            textFormat: Text.RichText
+            horizontalAlignment: Text.AlignHCenter
+            // TRANSLATORS: The %1 points to a url defined in html format <a href=\link\>Link</a>.
+            text: i18n.tr("If you find any bugs or have any feature requests, let us know at our project page at %1").arg("<a href=\"https://launchpad.net/podbird\">launchpad.net</a>")
+            onLinkActivated: Qt.openUrlExternally("https://launchpad.net/podbird")
         }
     }
 }
