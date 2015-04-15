@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-12 13:21+0200\n"
+"POT-Creation-Date: 2015-04-15 13:03+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,33 +19,33 @@ msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
 #. TRANSLATORS: this refers to a number of songs greater than one. The actual number will be prepended to the string automatically (plural forms are not yet fully supported in usermetrics, the library that displays that string)
-#: ../app/podbird.qml:152
+#: ../app/podbird.qml:154
 msgid "podcasts listened today"
 msgstr ""
 
-#: ../app/podbird.qml:153
+#: ../app/podbird.qml:155
 msgid "No podcasts listened today"
 msgstr ""
 
-#: ../app/podbird.qml:215
+#: ../app/podbird.qml:217
 msgid "Find New Podcasts"
 msgstr ""
 
-#: ../app/podbird.qml:229
+#: ../app/podbird.qml:231
 msgid "Settings"
 msgstr ""
 
-#: ../app/podcasts.js:79
+#: ../app/podcasts.js:161
 #, no-c-format, qt-format
 msgid "%1 hr %2 min"
 msgstr ""
 
-#: ../app/podcasts.js:88
+#: ../app/podcasts.js:170
 #, no-c-format, qt-format
 msgid "%1 hr"
 msgstr ""
 
-#: ../app/podcasts.js:96
+#: ../app/podcasts.js:178
 #, no-c-format, qt-format
 msgid "%1 min"
 msgstr ""
@@ -481,6 +481,7 @@ msgstr ""
 msgid "Finish"
 msgstr ""
 
+#: ../builddir/po/Podbird.desktop.in.h:1
 #: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-9-whats-new-page-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
 msgid "Podbird"
 msgstr ""
