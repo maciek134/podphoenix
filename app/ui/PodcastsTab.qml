@@ -426,6 +426,7 @@ Tab {
     }
 
     function updateEpisodes() {
+        console.log("[LOG]: Checking for new episodes")
         var db = Podcasts.init();
         episodesUpdating = true;
         db.transaction(function(tx) {
