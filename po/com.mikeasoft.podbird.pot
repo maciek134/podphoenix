@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-12 01:41+0200\n"
+"POT-Creation-Date: 2015-04-15 13:00+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,19 +19,19 @@ msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
 #. TRANSLATORS: this refers to a number of songs greater than one. The actual number will be prepended to the string automatically (plural forms are not yet fully supported in usermetrics, the library that displays that string)
-#: ../app/podbird.qml:152
+#: ../app/podbird.qml:154
 msgid "podcasts listened today"
 msgstr ""
 
-#: ../app/podbird.qml:153
+#: ../app/podbird.qml:155
 msgid "No podcasts listened today"
 msgstr ""
 
-#: ../app/podbird.qml:210
+#: ../app/podbird.qml:212
 msgid "Find New Podcasts"
 msgstr ""
 
-#: ../app/podbird.qml:224
+#: ../app/podbird.qml:226
 msgid "Settings"
 msgstr ""
 
@@ -39,16 +39,16 @@ msgstr ""
 msgid "About"
 msgstr ""
 
-#: ../app/settings/About.qml:53
+#: ../app/settings/About.qml:52
 #, qt-format
 msgid "Version %1"
 msgstr ""
 
-#: ../app/settings/About.qml:74
+#: ../app/settings/About.qml:73
 msgid "Released under the terms of the GNU GPL v3"
 msgstr ""
 
-#: ../app/settings/About.qml:83
+#: ../app/settings/About.qml:82
 #, qt-format
 msgid "Source code available on %1"
 msgstr ""
