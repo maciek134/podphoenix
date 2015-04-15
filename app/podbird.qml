@@ -41,7 +41,7 @@ MainView {
     backgroundColor: theme.background
 
     Component.onDestruction: {
-        console.log("Download cancelled");
+        console.log("[LOG]: Download cancelled");
         downloader.cancel();
     }
 
@@ -73,6 +73,7 @@ MainView {
         property string themeName: "Light.qml"
         property int retentionDays: -1
         property var lastCheck: new Date()
+        property bool firstRun: true
     }
 
     FileManager {
@@ -139,7 +140,16 @@ MainView {
 
     PageStack {
         id: mainStack
-        Component.onCompleted: push(tabs)
+        Component.onCompleted: {
+            // Show the welcome wizard only when running the app for the first time
+            if (settings.firstRun) {
+                console.log("[LOG]: Detecting first time run by user. Starting welcome wizard.")
+                push(Qt.resolvedUrl("welcomewizard/WelcomeWizard.qml"))
+            } else {
+                push(tabs)
+            }
+        }
+
         Tabs {
             id: tabs
 

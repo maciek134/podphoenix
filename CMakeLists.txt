@@ -28,7 +28,7 @@ set(APP_NAME          podbird)
 set(APP_ID            "com.mikeasoft.podbird")
 set(PODBIRD_DIR "share/qml/podbird")
 set(MAIN_QML          "podbird.qml")
-set(ICON              "graphics/podbird.png")
+set(ICON              "podbird.png")
 
 # Set install paths
 set(CMAKE_INSTALL_PREFIX /)
@@ -49,7 +49,7 @@ configure_file(manifest.json.in ${CMAKE_CURRENT_BINARY_DIR}/manifest.json)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/manifest.json
         DESTINATION ${CMAKE_INSTALL_PREFIX})
 
-install(DIRECTORY "app/graphics" DESTINATION ${DATA_DIR})
+install(FILES "podbird.png" DESTINATION ${DATA_DIR})
 install(FILES "Podbird.apparmor" DESTINATION ${DATA_DIR})
 
 add_subdirectory(app)
