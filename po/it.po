@@ -1,4 +1,4 @@
-# Spanish translation for podbird
+# Italian translation for podbird
 # Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
 # This file is distributed under the same license as the podbird package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
@@ -8,57 +8,57 @@ msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-03-29 16:48+0100\n"
-"PO-Revision-Date: 2015-04-11 18:18+0000\n"
-"Last-Translator: Adolfo Jayme <fitoschido@gmail.com>\n"
-"Language-Team: Spanish <es@li.org>\n"
+"PO-Revision-Date: 2015-04-12 19:58+0000\n"
+"Last-Translator: Milo Casagrande <milo.casagrande@gmail.com>\n"
+"Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2015-04-12 06:05+0000\n"
+"X-Launchpad-Export-Date: 2015-04-13 06:11+0000\n"
 "X-Generator: Launchpad (build 17423)\n"
 
 #: ../app/ui/EpisodesPage.qml:85
 msgid "Search Episode"
-msgstr "Buscar episodio"
+msgstr "Cerca episodio"
 
 #: ../app/ui/EpisodesPage.qml:94
 msgid "Mark all listened"
-msgstr "Marcar todo como escuchado"
+msgstr "Segnala tutti ascoltati"
 
 #: ../app/ui/EpisodesPage.qml:105 ../app/ui/EpisodesPage.qml:153
 msgid "Unsubscribe"
-msgstr "Anular suscripción"
+msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:120 ../app/ui/PodcastsTab.qml:86
 #: ../app/ui/PodcastsTab.qml:109
 msgid "Back"
-msgstr "Volver"
+msgstr "Indietro"
 
 #: ../app/ui/EpisodesPage.qml:131
 msgid "Search episode"
-msgstr "Buscar episodio"
+msgstr "Cerca episodio"
 
 #: ../app/ui/EpisodesPage.qml:150
 msgid "Unsubscribe Confirmation"
-msgstr "Confirmar anulación"
+msgstr "Conferma rimozione"
 
 #: ../app/ui/EpisodesPage.qml:151
 #, qt-format
 msgid "Are you sure you want to unsubscribe from <b>%1</b>?"
-msgstr "¿Desea darse de baja de <b>%1</b>?"
+msgstr "Confermare la rimozione dell'iscrizione da <b>%1</b>?"
 
 #: ../app/ui/EpisodesPage.qml:170
 msgid "Cancel"
-msgstr "Cancelar"
+msgstr "Annulla"
 
 #: ../app/ui/EpisodesPage.qml:184
 msgid "No Episodes found"
-msgstr "No se han encontrado episodios."
+msgstr "Nessun episodio trovato"
 
 #: ../app/ui/EpisodesPage.qml:185
 msgid "No episodes found matching the search term."
-msgstr "No hay resultados que coincidan con la búsqueda."
+msgstr "Nessun episodio trovato corrispondente ai termini di ricerca."
 
 #: ../app/ui/EpisodesPage.qml:319
 #, no-c-format, qt-format
@@ -77,7 +77,7 @@ msgstr "%1m"
 
 #: ../app/ui/NowPlayingPage.qml:28
 msgid "Now Playing"
-msgstr "En reproducción"
+msgstr "In riproduzione"
 
 #: ../app/ui/NowPlayingPage.qml:145
 msgid "-15s"
@@ -89,114 +89,112 @@ msgstr "+15s"
 
 #: ../app/ui/PodcastsTab.qml:32
 msgid "Podcasts"
-msgstr "Podcasts"
+msgstr "Podcast"
 
 #: ../app/ui/PodcastsTab.qml:62
 msgid "Add Podcast"
-msgstr "Añadir podcast"
+msgstr "Aggiungi podcast"
 
 #: ../app/ui/PodcastsTab.qml:72
 msgid "Search Podcast"
-msgstr "Buscar podcast"
+msgstr "Ricerca podcast"
 
 #: ../app/ui/PodcastsTab.qml:97
 msgid "Search podcast"
-msgstr "Buscar podcast"
+msgstr "Ricerca podcast"
 
 #: ../app/ui/PodcastsTab.qml:120
 msgid "Save Podcast"
-msgstr "Guardar podcast"
+msgstr "Salva podcast"
 
 #: ../app/ui/PodcastsTab.qml:133
 msgid "Feed URL"
-msgstr "URL del canal"
+msgstr "URL del feed"
 
 #: ../app/ui/PodcastsTab.qml:157
 msgid "Unable to subscribe"
-msgstr "No se ha podido subscribir"
+msgstr "Impossibile iscriversi"
 
 #: ../app/ui/PodcastsTab.qml:158
 msgid "Please check the URL and try again"
-msgstr "Compruebe el URL e inténtelo de nuevo"
+msgstr "Controllare l'URL e riprovare"
 
 #: ../app/ui/PodcastsTab.qml:160
 msgid "Close"
-msgstr "Cerrar"
+msgstr "Chiudi"
 
 #: ../app/ui/PodcastsTab.qml:172
 msgid "No Podcast Subscriptions"
-msgstr "No hay subscripciones a podcasts"
+msgstr "Nessuna iscrizione ai podcast"
 
 #: ../app/ui/PodcastsTab.qml:173
 msgid "No Podcasts Found"
-msgstr "No se encontraron podcasts"
+msgstr "Nessun podcast trovato"
 
 #: ../app/ui/PodcastsTab.qml:174
 msgid ""
 "You haven't subscribed to any podcasts yet, visit the 'Find New Podcasts' "
 "page to add some."
 msgstr ""
-"No se ha suscrito a ningún podcast. Visite «Encontrar podcasts nuevos» para "
-"añadir algunos."
 
 #: ../app/ui/PodcastsTab.qml:175
 msgid "No podcasts found matching the search term."
-msgstr "No hay podcasts que coincidan con la búsqueda"
+msgstr "Nessun episodio trovato corrispondente ai termini di ricerca."
 
 #: ../app/ui/PodcastsTab.qml:291
 #, qt-format
 msgid "%1 unheard episode"
 msgid_plural "%1 unheard episodes"
-msgstr[0] "%1 del episodio no escuchado"
-msgstr[1] "%1 de los episodios no escuchados"
+msgstr[0] "%1 episodio non ascoltato"
+msgstr[1] "%1 episodi non ascoltati"
 
 #: ../app/ui/SearchTab.qml:27
 msgid "Find New Podcasts"
-msgstr "Encontrar podcasts nuevos"
+msgstr "Ricerca nuovi podcast"
 
 #: ../app/ui/SearchTab.qml:42
 msgid "Search..."
-msgstr "Buscar…"
+msgstr "Cerca..."
 
 #: ../app/ui/SearchTab.qml:122
 msgid "Subscribe"
-msgstr "Suscribir"
+msgstr "Iscrivi"
 
 #: ../app/ui/SettingsTab.qml:26
 msgid "Settings"
-msgstr "Configuración"
+msgstr "Impostazioni"
 
 #: ../app/ui/SettingsTab.qml:35
 msgid "Light"
-msgstr "Claro"
+msgstr "Chiaro"
 
 #: ../app/ui/SettingsTab.qml:36
 msgid "Dark"
-msgstr "Oscuro"
+msgstr "Scuro"
 
 #: ../app/ui/SettingsTab.qml:44 ../app/ui/SettingsTab.qml:93
 msgid "Never"
-msgstr "Nunca"
+msgstr "Mai"
 
 #: ../app/ui/SettingsTab.qml:45
 msgid "7 days"
-msgstr "7 días"
+msgstr "7 giorni"
 
 #: ../app/ui/SettingsTab.qml:46
 msgid "31 days"
-msgstr "31 días"
+msgstr "31 giorni"
 
 #: ../app/ui/SettingsTab.qml:47
 msgid "90 days"
-msgstr "90 días"
+msgstr "90 giorni"
 
 #: ../app/ui/SettingsTab.qml:48
 msgid "180 days"
-msgstr "180 días"
+msgstr "180 giorni"
 
 #: ../app/ui/SettingsTab.qml:49
 msgid "360 days"
-msgstr "360 días"
+msgstr "360 giorni"
 
 #: ../app/ui/SettingsTab.qml:62
 msgid "Theme"
@@ -204,12 +202,12 @@ msgstr "Tema"
 
 #: ../app/ui/SettingsTab.qml:92
 msgid "Remove episodes older than"
-msgstr ""
+msgstr "Rimuovi gli episodi più vecchi di"
 
 #: ../app/ui/SettingsTab.qml:94
 #, qt-format
 msgid "%1 days"
-msgstr "%1 días"
+msgstr "%1 giorni"
 
 #: /home/mike/src/build-podbird-Ubuntu_Device_GCC_armhf_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
 msgid "Podbird"
