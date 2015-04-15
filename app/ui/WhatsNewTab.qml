@@ -16,6 +16,7 @@ Tab {
     property var today: new Date()
     property int dayToMs: 86400000
     property string tempGuid: "NULL"
+    property bool episodesUpdating: false
 
     page: Page {
         id: whatsNewPage
@@ -508,10 +509,15 @@ Tab {
                     }
                 }
             }
-        }
 
-        Scrollbar {
-            flickableItem: episodeList
+            Scrollbar {
+                flickableItem: episodeList
+            }
+
+            PullToRefresh {
+                refreshing: episodesUpdating
+                onRefresh: whatsNewPage.updateEpisodes();
+            }
         }
 
         function refreshModel() {
@@ -547,6 +553,94 @@ Tab {
                             break
                         }
                     }
+
+                    if (podcast.lastupdate === null && !episodesUpdating) {
+                        Podcasts.updateEpisodes();
+                    }
+                }
+            });
+
+            episodesUpdating = false;
+        }
+
+        function updateEpisodes() {
+            console.log("[LOG]: Checking for new episodes")
+            var db = Podcasts.init();
+            episodesUpdating = true;
+            db.transaction(function(tx) {
+                var rs = tx.executeSql("SELECT rowid, feed FROM Podcast");
+                tx.executeSql("UPDATE Podcast SET lastupdate=CURRENT_TIMESTAMP");
+                var xhr = [];
+                for(var i = 0; i < rs.rows.length; i++) {
+                    (function (i) {
+                        xhr[i] = new XMLHttpRequest;
+                        var url = rs.rows.item(i).feed;
+                        var pid = rs.rows.item(i).rowid;
+                        xhr[i].open("GET", url);
+                        xhr[i].onreadystatechange = function() {
+                            if (xhr[i].readyState === XMLHttpRequest.DONE) {
+                                var e = xhr[i].responseXML.documentElement;
+                                for(var h = 0; h < e.childNodes.length; h++) {
+                                    if(e.childNodes[h].nodeName === "channel") {
+                                        var c = e.childNodes[h];
+                                        for(var j = 0; j < c.childNodes.length; j++) {
+                                            if(c.childNodes[j].nodeName === "item") {
+                                                var t = c.childNodes[j];
+                                                var track = {}
+                                                for(var k = 0; k < t.childNodes.length; k++) {
+                                                    try {
+                                                        var nodeName = t.childNodes[k].nodeName.toLowerCase();
+                                                        if (nodeName === "title")               track['name'] = t.childNodes[k].childNodes[0].nodeValue;
+                                                        else if (nodeName === "description")    track['description'] = t.childNodes[k].childNodes[0].nodeValue;
+                                                        else if (nodeName === "guid")           track['guid'] = t.childNodes[k].childNodes[0].nodeValue;
+                                                        else if (nodeName === "pubdate")        track['published'] = new Date(t.childNodes[k].childNodes[0].nodeValue).getTime();
+                                                        else if (nodeName === "duration") {
+                                                            var dur = t.childNodes[k].childNodes[0].nodeValue.split(":");
+                                                            if (dur.length === 1) {
+                                                                track['duration'] = parseInt(dur[0]);
+                                                            } else if (dur.length === 2) {
+                                                                track['duration'] = parseInt(dur[0]) * 60 + parseInt(dur[1]);
+                                                            } else if (dur.length === 3) {
+                                                                track['duration'] = parseInt(dur[0]) * 3600 + parseInt(dur[1]) * 60 + parseInt(dur[2]);
+                                                            }
+                                                        } else if (nodeName === "enclosure") {
+                                                            var el = t.childNodes[k];
+                                                            for (var l = 0; l < el.attributes.length; l++) {
+                                                                if(el.attributes[l].nodeName === "url")         track['audiourl'] = el.attributes[l].nodeValue;
+                                                            }
+                                                        }
+                                                    } catch(err) {
+                                                        console.debug(err.message);
+                                                    }
+                                                }
+                                                if (!track.hasOwnProperty("guid")) {
+                                                    track['guid'] = track.audiourl;
+                                                }
+
+                                                db.transaction(function(tx2) {
+                                                    var ers = tx2.executeSql("SELECT rowid FROM Episode WHERE guid=?", [track.guid]);
+                                                    if (ers.rows.length === 0) {
+                                                        tx2.executeSql("INSERT INTO Episode(podcast, name, description, audiourl, guid, listened, queued, duration, published) VALUES(?, ?, ? , ?, ?, ?, ?, ?, ?)", [pid,
+                                                                                                                                                                                                          track.name,
+                                                                                                                                                                                                          track.description,
+                                                                                                                                                                                                          track.audiourl,
+                                                                                                                                                                                                          track.guid,
+                                                                                                                                                                                                          false,
+                                                                                                                                                                                                          false,
+                                                                                                                                                                                                          track.duration,
+                                                                                                                                                                                                          track.published]);
+                                                    }
+                                                });
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            refreshModel();
+                        }
+                        xhr[i].send();
+
+                    })(i);
                 }
             });
         }
