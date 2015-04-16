@@ -59,8 +59,8 @@ Component {
                 topMargin: units.gu(4)
             }
             horizontalAlignment: Text.AlignHCenter
-            text: i18n.tr("Podbird automatically downloads new episodes and cleans up old episodes. \
-As a power user you can also tweak these settings to suit your needs.")
+            text: i18n.tr("Podbird can optionally download new episodes and clean up old episodes automatically, this \
+can be enabled from the settings page.")
             wrapMode: Text.WordWrap
         }
     }

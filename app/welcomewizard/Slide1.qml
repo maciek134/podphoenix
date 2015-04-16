@@ -47,8 +47,8 @@ Component {
 
         Label {
             id: bodyText
-            text: i18n.tr("Enjoy your favourite shows with Podbird, the best podcast \
-manager for Ubuntu.\n\nChirp Chirp..")
+            text: i18n.tr("Enjoy your favourite shows with Podbird, the chirpiest podcast \
+manager for Ubuntu.\n\nChirp Chirp...")
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.margins: units.gu(1)
@@ -69,7 +69,7 @@ manager for Ubuntu.\n\nChirp Chirp..")
             fontSize: "small"
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignHCenter
-            text: i18n.tr("Swipe to move between Pages")
+            text: i18n.tr("Swipe to move between pages")
 
         }
     }
