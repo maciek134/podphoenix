@@ -498,7 +498,7 @@ Page {
                                 height:episodePublishDate.height
                                 width:height
                                 name:"attachment"
-                                visible: episodeModel.get(index).downloadedfile
+                                visible: model.downloadedfile ? true : false
                             }
 
                             Label {
