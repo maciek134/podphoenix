@@ -36,7 +36,7 @@ Page {
             progression: true
             showDivider: false
             text: i18n.tr("Theme")
-            value: podbird.settings.themeName.split(".qml")[0]
+            value: podbird.settings.themeName.split(".qml")[0] === "Light" ? i18n.tr("Light") : i18n.tr("Dark")
             onClicked: mainStack.push(Qt.resolvedUrl("../settings/ThemeSetting.qml"))
         }
 
@@ -90,18 +90,6 @@ Page {
                     width: parent.width
                     wrapMode: Text.WordWrap
                     text: i18n.tr("Default number of new episodes to download for each podcast")
-                }
-            }
-        }
-
-        ListItem.Standard {
-            showDivider: false
-            text: i18n.tr("Auto download on WiFi only")
-            enabled: podbird.settings.maxEpisodeDownload !== -1
-            control: Switch {
-                checked: podbird.settings.onlyWifiDownload
-                onClicked: {
-                    podbird.settings.onlyWifiDownload = checked
                 }
             }
         }

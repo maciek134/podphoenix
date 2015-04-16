@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-16 00:50+0200\n"
+"POT-Creation-Date: 2015-04-16 12:43+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: ../app/podbird.qml:175
+#: ../app/podbird.qml:173
 msgid "Find New Podcasts"
 msgstr ""
 
-#: ../app/podbird.qml:189
+#: ../app/podbird.qml:187
 msgid "Settings"
 msgstr ""
 
@@ -74,11 +74,11 @@ msgstr[1] ""
 msgid "Theme"
 msgstr ""
 
-#: ../app/settings/ThemeSetting.qml:33
+#: ../app/settings/ThemeSetting.qml:33 ../app/ui/SettingsPage.qml:39
 msgid "Light"
 msgstr ""
 
-#: ../app/settings/ThemeSetting.qml:34
+#: ../app/settings/ThemeSetting.qml:34 ../app/ui/SettingsPage.qml:39
 msgid "Dark"
 msgstr ""
 
@@ -267,10 +267,6 @@ msgstr ""
 
 #: ../app/ui/SettingsPage.qml:92
 msgid "Default number of new episodes to download for each podcast"
-msgstr ""
-
-#: ../app/ui/SettingsPage.qml:99
-msgid "Auto download on WiFi only"
 msgstr ""
 
 #: ../app/ui/Walkthrough.qml:87
