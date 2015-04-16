@@ -61,15 +61,6 @@ Tab {
                 head: podcastPage.head
                 actions: [
                     Action {
-                        text: i18n.tr("Add Podcast")
-                        iconName: "add"
-                        onTriggered: {
-                            podcastPage.state = "add"
-                            feedUrlField.forceActiveFocus()
-                        }
-                    },
-
-                    Action {
                         iconName: "search"
                         text: i18n.tr("Search Podcast")
                         onTriggered: {
@@ -109,68 +100,12 @@ Tab {
                     anchors.right: parent ? parent.right : undefined
                     anchors.rightMargin: units.gu(2)
                 }
-            },
-
-            PageHeadState {
-                name: "add"
-                head: podcastPage.head
-                backAction: Action {
-                    iconName: "back"
-                    text: i18n.tr("Back")
-                    onTriggered: {
-                        viewLoader.item.forceActiveFocus()
-                        feedUrlField.text = ""
-                        podcastPage.state = "default"
-                    }
-                }
-
-                actions: [
-                    Action {
-                        iconName: "ok"
-                        text: i18n.tr("Save Podcast")
-                        onTriggered: {
-                            viewLoader.item.forceActiveFocus()
-                            subscribeFromFeed(feedUrlField.text);
-                            feedUrlField.text = ""
-                            podcastPage.state = "default"
-                        }
-                    }
-                ]
-
-                contents: TextField {
-                    id: feedUrlField
-                    inputMethodHints: Qt.ImhUrlCharactersOnly
-                    placeholderText: i18n.tr("Feed URL")
-                    anchors.left: parent ? parent.left : undefined
-                    anchors.right: parent ? parent.right : undefined
-                    onAccepted: {
-                        viewLoader.item.forceActiveFocus()
-                        subscribeFromFeed(feedUrlField.text);
-                        feedUrlField.text = ""
-                        podcastPage.state = "default"
-                    }
-                }
             }
-
         ]
 
         onVisibleChanged: {
             if(visible) {
                 refreshModel();
-            }
-        }
-
-        Component {
-            id: subscribeFailedDialog
-            Dialog {
-                id: dialogInternal
-                title: i18n.tr("Unable to subscribe")
-                text: i18n.tr("Please check the URL and try again")
-                Button {
-                    text: i18n.tr("Close")
-                    color: podbird.theme.neutralActionButton
-                    onClicked: PopupUtils.close(dialogInternal)
-                }
             }
         }
 
@@ -372,58 +307,6 @@ Tab {
         });
 
         episodesUpdating = false;
-    }
-
-    function subscribeFromFeed(feed) {
-        var xhr = new XMLHttpRequest;
-        if (feed.indexOf("://") === -1) {
-            feed = "http://" + feed;
-        }
-        xhr.open("GET", feed);
-        xhr.onreadystatechange = function() {
-            var name = "";
-            var artist = "";
-            var image = "";
-            if (xhr.readyState === XMLHttpRequest.DONE) {
-                if (xhr.status < 200 || xhr.status > 299 || xhr.responseXML === null) {
-                    PopupUtils.open(subscribeFailedDialog);
-                    feedUrlField.text = feed
-                    podcastPage.state = "add"
-                    return;
-                }
-
-                var e = xhr.responseXML.documentElement;
-                for(var h = 0; h < e.childNodes.length; h++) {
-                    if(e.childNodes[h].nodeName === "channel") {
-                        var c = e.childNodes[h];
-                        for(var j = 0; j < c.childNodes.length; j++) {
-                            var nodeName = c.childNodes[j].nodeName;
-                            if (nodeName === "title")               name = c.childNodes[j].childNodes[0].nodeValue;
-                            else if (nodeName === "author")         artist = c.childNodes[j].childNodes[0].nodeValue;
-                            else if (nodeName === "image") {
-                                var el = c.childNodes[j];
-                                for (var l = 0; l < el.attributes.length; l++) {
-                                    if(el.attributes[l].nodeName === "href")         image = el.attributes[l].nodeValue;
-                                }
-                            }
-                        }
-                    }
-                }
-
-                if(name != "") {
-                    Podcasts.subscribe(artist, name, feed, image);
-                    imageDownloader.feed = feed;
-                    imageDownloader.download(image);
-                    updateEpisodes();
-                } else {
-                    PopupUtils.open(subscribeFailedDialog);
-                    feedUrlField.text = feed
-                    podcastPage.state = "add"
-                    return;
-                }
-            }
-        }
-        xhr.send();
     }
 
     function updateEpisodes() {

@@ -20,6 +20,7 @@ import QtQuick 2.3
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.1
 import QtQuick.LocalStorage 2.0
+import Ubuntu.Components.Popups 1.0
 import Ubuntu.Components.ListItems 1.0 as ListItem
 import "../podcasts.js" as Podcasts
 
@@ -57,6 +58,15 @@ Page {
                         searchPage.state = "search"
                         searchField.forceActiveFocus()
                     }
+                },
+
+                Action {
+                    text: i18n.tr("Add Podcast")
+                    iconName: "add"
+                    onTriggered: {
+                        searchPage.state = "add"
+                        feedUrlField.forceActiveFocus()
+                    }
                 }
             ]
         },
@@ -89,18 +99,71 @@ Page {
                     }
                 }
             }
+        },
+
+        PageHeadState {
+            name: "add"
+            head: searchPage.head
+            backAction: Action {
+                iconName: "back"
+                text: i18n.tr("Back")
+                onTriggered: {
+                    resultsView.forceActiveFocus()
+                    feedUrlField.text = ""
+                    searchPage.state = "default"
+                }
+            }
+
+            actions: [
+                Action {
+                    iconName: "ok"
+                    text: i18n.tr("Save Podcast")
+                    onTriggered: {
+                        resultsView.forceActiveFocus()
+                        subscribeFromFeed(feedUrlField.text);
+                    }
+                }
+            ]
+
+            contents: TextField {
+                id: feedUrlField
+                inputMethodHints: Qt.ImhUrlCharactersOnly
+                placeholderText: i18n.tr("Feed URL")
+                anchors.left: parent ? parent.left : undefined
+                anchors.right: parent ? parent.right : undefined
+                onAccepted: {
+                    resultsView.forceActiveFocus()
+                    subscribeFromFeed(feedUrlField.text);
+                }
+            }
         }
     ]
+
+    Component {
+        id: subscribeFailedDialog
+        Dialog {
+            id: dialogInternal
+            title: i18n.tr("Unable to subscribe")
+            text: i18n.tr("Please check the URL and try again")
+            Button {
+                text: i18n.tr("Close")
+                color: podbird.theme.neutralActionButton
+                onClicked: {
+                    PopupUtils.close(dialogInternal)
+                }
+            }
+        }
+    }
 
     EmptyState {
         anchors.verticalCenter: parent.verticalCenter
         anchors.verticalCenterOffset: Qt.inputMethod.visible ? units.gu(4) : 0
         iconHeight: units.gu(12)
         iconWidth: iconHeight + units.gu(10)
-        visible: searchPage.state !== "search" ? true : searchResults.count === 0 && searchField.text.length > 2
+        visible: searchPage.state !== "search" && searchPage.state !== "add" ? true : searchResults.count === 0 && searchField.text.length > 2
         iconSource: searchPage.state !== "search" ? Qt.resolvedUrl("../graphics/owlSearch.svg") : Qt.resolvedUrl("../graphics/notFound.svg")
-        title: searchPage.state !== "search" ? i18n.tr("Looking for a new Podcast?") : i18n.tr("No Podcasts found")
-        subTitle: searchPage.state !== "search" ? i18n.tr("Click the 'magnifier' at the top to search.") : i18n.tr("No podcasts found matching the search term.")
+        title: searchPage.state !== "search" ? i18n.tr("Looking to add a new Podcast?") : i18n.tr("No Podcasts found")
+        subTitle: searchPage.state !== "search" ? i18n.tr("Click the 'magnifier' at the top to search or the 'plus' button to add by URL") : i18n.tr("No podcasts found matching the search term.")
     }
 
     ListView {
@@ -116,6 +179,7 @@ Page {
 
         model: searchResults
         anchors.fill: parent
+        visible: searchPage.state !== "add"
 
         footer: Item {
             width: parent.width
@@ -216,6 +280,58 @@ Page {
                                              "artist" : json.results[i].artistName,
                                              "feed" : json.results[i].feedUrl,
                                              "image" : json.results[i].artworkUrl600});
+                }
+            }
+        }
+        xhr.send();
+    }
+
+    function subscribeFromFeed(feed) {
+        var xhr = new XMLHttpRequest;
+        if (feed.indexOf("://") === -1) {
+            feed = "http://" + feed;
+        }
+        xhr.open("GET", feed);
+        xhr.onreadystatechange = function() {
+            var name = "";
+            var artist = "";
+            var image = "";
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status < 200 || xhr.status > 299 || xhr.responseXML === null) {
+                    PopupUtils.open(subscribeFailedDialog);
+                    feedUrlField.text = feed
+                    searchPage.state = "add"
+                    return;
+                }
+
+                var e = xhr.responseXML.documentElement;
+                for(var h = 0; h < e.childNodes.length; h++) {
+                    if(e.childNodes[h].nodeName === "channel") {
+                        var c = e.childNodes[h];
+                        for(var j = 0; j < c.childNodes.length; j++) {
+                            var nodeName = c.childNodes[j].nodeName;
+                            if (nodeName === "title")               name = c.childNodes[j].childNodes[0].nodeValue;
+                            else if (nodeName === "author")         artist = c.childNodes[j].childNodes[0].nodeValue;
+                            else if (nodeName === "image") {
+                                var el = c.childNodes[j];
+                                for (var l = 0; l < el.attributes.length; l++) {
+                                    if(el.attributes[l].nodeName === "href")         image = el.attributes[l].nodeValue;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if(name != "") {
+                    Podcasts.subscribe(artist, name, feed, image);
+                    imageDownloader.feed = feed;
+                    imageDownloader.download(image);
+                    tabs.selectedTabIndex = 1;
+                } else {
+                    PopupUtils.open(subscribeFailedDialog);
+                    feedUrlField.text = feed
+                    searchPage.state = "add"
+                    return;
                 }
             }
         }

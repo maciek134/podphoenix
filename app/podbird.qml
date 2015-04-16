@@ -214,7 +214,7 @@ MainView {
             Tab {
                 id: searchTab
 
-                title: i18n.tr("Find New Podcasts")
+                title: i18n.tr("Add New Podcasts")
 
                 page: Loader {
                     parent: searchTab
