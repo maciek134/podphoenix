@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-15 20:57+0200\n"
+"POT-Creation-Date: 2015-04-16 21:02+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: ../app/podbird.qml:188
+#: ../app/podbird.qml:186
 msgid "Find New Podcasts"
 msgstr ""
 
-#: ../app/podbird.qml:202
+#: ../app/podbird.qml:200
 msgid "Settings"
 msgstr ""
 
@@ -74,11 +74,11 @@ msgstr[1] ""
 msgid "Theme"
 msgstr ""
 
-#: ../app/settings/ThemeSetting.qml:33
+#: ../app/settings/ThemeSetting.qml:33 ../app/ui/SettingsPage.qml:39
 msgid "Light"
 msgstr ""
 
-#: ../app/settings/ThemeSetting.qml:34
+#: ../app/settings/ThemeSetting.qml:34 ../app/ui/SettingsPage.qml:39
 msgid "Dark"
 msgstr ""
 
@@ -301,10 +301,6 @@ msgstr ""
 msgid "Default number of new episodes to download for each podcast"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:108
-msgid "Auto download on WiFi only"
-msgstr ""
-
 #: ../app/ui/Walkthrough.qml:87
 msgid "Skip"
 msgstr ""
@@ -315,14 +311,14 @@ msgstr ""
 
 #: ../app/welcomewizard/Slide1.qml:50
 msgid ""
-"Enjoy your favourite shows with Podbird, the best podcast manager for "
+"Enjoy your favourite shows with Podbird, the chirpiest podcast manager for "
 "Ubuntu.\n"
 "\n"
-"Chirp Chirp.."
+"Chirp Chirp..."
 msgstr ""
 
 #: ../app/welcomewizard/Slide1.qml:72
-msgid "Swipe to move between Pages"
+msgid "Swipe to move between pages"
 msgstr ""
 
 #: ../app/welcomewizard/Slide2.qml:45
@@ -331,8 +327,8 @@ msgstr ""
 
 #: ../app/welcomewizard/Slide2.qml:62
 msgid ""
-"Podbird uses the iTunes® database to provide access to a huge collections of "
-"podcasts. You can also add podcasts by URL."
+"Podbird uses the iTunes® database to provide access to a huge collection of "
+"podcasts. You can also add podcasts by their URL."
 msgstr ""
 
 #: ../app/welcomewizard/Slide3.qml:45
@@ -341,8 +337,8 @@ msgstr ""
 
 #: ../app/welcomewizard/Slide3.qml:62
 msgid ""
-"Podbird automatically downloads new episodes and cleans up old episodes. As "
-"a power user you can also tweak these settings to suit your needs."
+"Podbird can optionally download new episodes and clean up old episodes "
+"automatically, this can be enabled from the settings page."
 msgstr ""
 
 #. TRANSLATORS: This text should be in a language different from the language set by the user.
@@ -352,10 +348,11 @@ msgstr ""
 msgid "Hallo! Bonjour!"
 msgstr ""
 
-#: ../app/welcomewizard/Slide4.qml:65
+#: ../app/welcomewizard/Slide4.qml:66
+#, qt-format
 msgid ""
-"Podbird is available in over 15 languages and is translated by the Ubuntu "
-"Translators community."
+"Podbird is available in over 15 languages and is translated by the %1 "
+"community"
 msgstr ""
 
 #: ../app/welcomewizard/Slide5.qml:45
@@ -363,10 +360,10 @@ msgid "Support"
 msgstr ""
 
 #. TRANSLATORS: The %1 points to a url defined in html format <a href=\link\>Link</a>.
-#: ../app/welcomewizard/Slide5.qml:65
+#: ../app/welcomewizard/Slide5.qml:64
 #, qt-format
 msgid ""
-"If you find any bugs or have any feature requests, let us know at our "
+"If you find any bugs or have any feature requests, let us know on our "
 "project page at %1"
 msgstr ""
 
@@ -375,7 +372,7 @@ msgid "Enjoy"
 msgstr ""
 
 #: ../app/welcomewizard/Slide6.qml:62
-msgid "We hope you will enjoy using Podbird!"
+msgid "We hope you enjoy using Podbird!"
 msgstr ""
 
 #: ../app/welcomewizard/Slide6.qml:76
