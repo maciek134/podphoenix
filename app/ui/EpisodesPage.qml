@@ -489,13 +489,26 @@ Page {
                                                                                                                                 : podbird.theme.baseText
                         }
 
-                        Label {
-                            id: episodePublishDate
-                            width: parent.width
-                            text: Podcasts.formatEpisodeTime(model.duration) + " | " + Qt.formatDate(new Date(model.published), "MMM d, yyyy")
-                            fontSize: "x-small"
-                            elide: Text.ElideRight
-                            color: podbird.theme.baseSubText
+                        Row {
+                            height:episodePublishDate.height
+                            width:parent.width
+                            spacing:units.gu(1)
+
+                            Icon{
+                                height:episodePublishDate.height
+                                width:height
+                                name:"attachment"
+                                visible: episodeModel.get(index).downloadedfile
+                            }
+
+                            Label {
+                                id: episodePublishDate
+                                width: parent.width
+                                text: Podcasts.formatEpisodeTime(model.duration) + " | " + Qt.formatDate(new Date(model.published), "MMM d, yyyy")
+                                fontSize: "x-small"
+                                elide: Text.ElideRight
+                                color: podbird.theme.baseSubText
+                            }
                         }
                     }
 

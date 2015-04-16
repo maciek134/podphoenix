@@ -441,13 +441,26 @@ Tab {
                                                                                                                                     : podbird.theme.baseText
                             }
 
-                            Label {
-                                id: episodePublishDate
-                                width: parent.width
-                                text: Podcasts.formatEpisodeTime(model.duration) + " | " + model.artist
-                                fontSize: "x-small"
-                                elide: Text.ElideRight
-                                color: podbird.theme.baseSubText
+                            Row {
+                                height:episodePublishDate.height
+                                width:parent.width
+                                spacing:units.gu(1)
+
+                                Icon{
+                                    height:episodePublishDate.height
+                                    width:height
+                                    name:"attachment"
+                                    visible: whatsNewModel.get(index).downloadedfile
+                                }
+
+                                Label {
+                                    id: episodePublishDate
+                                    width: parent.width
+                                    text: Podcasts.formatEpisodeTime(model.duration) + " | " + model.artist
+                                    fontSize: "x-small"
+                                    elide: Text.ElideRight
+                                    color: podbird.theme.baseSubText
+                                }
                             }
                         }
 
@@ -622,14 +635,14 @@ Tab {
                                                     var ers = tx2.executeSql("SELECT rowid FROM Episode WHERE guid=?", [track.guid]);
                                                     if (ers.rows.length === 0) {
                                                         tx2.executeSql("INSERT INTO Episode(podcast, name, description, audiourl, guid, listened, queued, duration, published) VALUES(?, ?, ? , ?, ?, ?, ?, ?, ?)", [pid,
-                                                                                                                                                                                                          track.name,
-                                                                                                                                                                                                          track.description,
-                                                                                                                                                                                                          track.audiourl,
-                                                                                                                                                                                                          track.guid,
-                                                                                                                                                                                                          false,
-                                                                                                                                                                                                          false,
-                                                                                                                                                                                                          track.duration,
-                                                                                                                                                                                                          track.published]);
+                                                                                                                                                                                                                     track.name,
+                                                                                                                                                                                                                     track.description,
+                                                                                                                                                                                                                     track.audiourl,
+                                                                                                                                                                                                                     track.guid,
+                                                                                                                                                                                                                     false,
+                                                                                                                                                                                                                     false,
+                                                                                                                                                                                                                     track.duration,
+                                                                                                                                                                                                                     track.published]);
                                                     }
                                                 });
                                             }
