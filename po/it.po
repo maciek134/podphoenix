@@ -1,4 +1,4 @@
-# Norwegian Bokmal translation for podbird
+# Italian translation for podbird
 # Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
 # This file is distributed under the same license as the podbird package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-04-15 22:50+0100\n"
-"PO-Revision-Date: 2015-03-26 12:11+0000\n"
-"Last-Translator: Åka Sikrom <Unknown>\n"
-"Language-Team: Norwegian Bokmal <nb@li.org>\n"
+"PO-Revision-Date: 2015-04-12 19:58+0000\n"
+"Last-Translator: Milo Casagrande <milo.casagrande@gmail.com>\n"
+"Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,45 +20,45 @@ msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:85
 msgid "Search Episode"
-msgstr "Søk etter episode"
+msgstr "Cerca episodio"
 
 #: ../app/ui/EpisodesPage.qml:94
 msgid "Mark all listened"
-msgstr "Merk alle som gjennomlyttet"
+msgstr "Segnala tutti ascoltati"
 
 #: ../app/ui/EpisodesPage.qml:105 ../app/ui/EpisodesPage.qml:153
 msgid "Unsubscribe"
-msgstr "Stopp abonnement"
+msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:120 ../app/ui/PodcastsTab.qml:86
 #: ../app/ui/PodcastsTab.qml:109
 msgid "Back"
-msgstr "Tilbake"
+msgstr "Indietro"
 
 #: ../app/ui/EpisodesPage.qml:131
 msgid "Search episode"
-msgstr ""
+msgstr "Cerca episodio"
 
 #: ../app/ui/EpisodesPage.qml:150
 msgid "Unsubscribe Confirmation"
-msgstr "Bekreftelse på abonnement-stopp"
+msgstr "Conferma rimozione"
 
 #: ../app/ui/EpisodesPage.qml:151
 #, qt-format
 msgid "Are you sure you want to unsubscribe from <b>%1</b>?"
-msgstr "Er du sikker på at du vil stoppe abonnementet på <b>%1</b>?"
+msgstr "Confermare la rimozione dell'iscrizione da <b>%1</b>?"
 
 #: ../app/ui/EpisodesPage.qml:170
 msgid "Cancel"
-msgstr ""
+msgstr "Annulla"
 
 #: ../app/ui/EpisodesPage.qml:184
 msgid "No Episodes found"
-msgstr "Fant ingen episoder"
+msgstr "Nessun episodio trovato"
 
 #: ../app/ui/EpisodesPage.qml:185
 msgid "No episodes found matching the search term."
-msgstr "Søket ga ingen treff på episoder."
+msgstr "Nessun episodio trovato corrispondente ai termini di ricerca."
 
 #: ../app/ui/EpisodesPage.qml:319
 #, no-c-format, qt-format
@@ -68,7 +68,7 @@ msgstr "%1h %2m"
 #: ../app/ui/EpisodesPage.qml:328
 #, no-c-format, qt-format
 msgid "%1h"
-msgstr "%1t"
+msgstr "%1h"
 
 #: ../app/ui/EpisodesPage.qml:336
 #, no-c-format, qt-format
@@ -77,7 +77,7 @@ msgstr "%1m"
 
 #: ../app/ui/NowPlayingPage.qml:28
 msgid "Now Playing"
-msgstr "Spilles nå"
+msgstr "In riproduzione"
 
 #: ../app/ui/NowPlayingPage.qml:145
 msgid "-15s"
@@ -89,127 +89,125 @@ msgstr "+15s"
 
 #: ../app/ui/PodcastsTab.qml:32
 msgid "Podcasts"
-msgstr "Podkaster"
+msgstr "Podcast"
 
 #: ../app/ui/PodcastsTab.qml:62
 msgid "Add Podcast"
-msgstr "Legg til podkast"
+msgstr "Aggiungi podcast"
 
 #: ../app/ui/PodcastsTab.qml:72
 msgid "Search Podcast"
-msgstr "Søk etter podkast"
+msgstr "Ricerca podcast"
 
 #: ../app/ui/PodcastsTab.qml:97
 msgid "Search podcast"
-msgstr ""
+msgstr "Ricerca podcast"
 
 #: ../app/ui/PodcastsTab.qml:120
 msgid "Save Podcast"
-msgstr "Lagre podkast"
+msgstr "Salva podcast"
 
 #: ../app/ui/PodcastsTab.qml:133
 msgid "Feed URL"
-msgstr ""
+msgstr "URL del feed"
 
 #: ../app/ui/PodcastsTab.qml:157
 msgid "Unable to subscribe"
-msgstr "Klarte ikke å abonnere"
+msgstr "Impossibile iscriversi"
 
 #: ../app/ui/PodcastsTab.qml:158
 msgid "Please check the URL and try again"
-msgstr "Kontroller nettadressen og prøv igjen"
+msgstr "Controllare l'URL e riprovare"
 
 #: ../app/ui/PodcastsTab.qml:160
 msgid "Close"
-msgstr "Lukk"
+msgstr "Chiudi"
 
 #: ../app/ui/PodcastsTab.qml:172
 msgid "No Podcast Subscriptions"
-msgstr "Ingen podkast-abonnementer"
+msgstr "Nessuna iscrizione ai podcast"
 
 #: ../app/ui/PodcastsTab.qml:173
 msgid "No Podcasts Found"
-msgstr "Fant ingen podkaster"
+msgstr "Nessun podcast trovato"
 
 #: ../app/ui/PodcastsTab.qml:174
 msgid ""
 "You haven't subscribed to any podcasts yet, visit the 'Find New Podcasts' "
 "page to add some."
 msgstr ""
-"Du har ikke abonnert på noen podkaster ennå. Besøk «Finn nye podkaster»-"
-"siden for å legge til noen."
 
 #: ../app/ui/PodcastsTab.qml:175
 msgid "No podcasts found matching the search term."
-msgstr "Søket ga ingen treff på podkaster."
+msgstr "Nessun episodio trovato corrispondente ai termini di ricerca."
 
 #: ../app/ui/PodcastsTab.qml:291
 #, qt-format
 msgid "%1 unheard episode"
 msgid_plural "%1 unheard episodes"
-msgstr[0] "%1 ny episode"
-msgstr[1] "%1 nye episoder"
+msgstr[0] "%1 episodio non ascoltato"
+msgstr[1] "%1 episodi non ascoltati"
 
 #: ../app/ui/SearchTab.qml:27
 msgid "Find New Podcasts"
-msgstr "Finn nye podkaster"
+msgstr "Ricerca nuovi podcast"
 
 #: ../app/ui/SearchTab.qml:42
 msgid "Search..."
-msgstr "Søk …"
+msgstr "Cerca..."
 
 #: ../app/ui/SearchTab.qml:122
 msgid "Subscribe"
-msgstr "Abonner"
+msgstr "Iscrivi"
 
 #: ../app/ui/SettingsTab.qml:26
 msgid "Settings"
-msgstr ""
+msgstr "Impostazioni"
 
 #: ../app/ui/SettingsTab.qml:35
 msgid "Light"
-msgstr ""
+msgstr "Chiaro"
 
 #: ../app/ui/SettingsTab.qml:36
 msgid "Dark"
-msgstr ""
+msgstr "Scuro"
 
 #: ../app/ui/SettingsTab.qml:44 ../app/ui/SettingsTab.qml:93
 msgid "Never"
-msgstr ""
+msgstr "Mai"
 
 #: ../app/ui/SettingsTab.qml:45
 msgid "7 days"
-msgstr ""
+msgstr "7 giorni"
 
 #: ../app/ui/SettingsTab.qml:46
 msgid "31 days"
-msgstr ""
+msgstr "31 giorni"
 
 #: ../app/ui/SettingsTab.qml:47
 msgid "90 days"
-msgstr ""
+msgstr "90 giorni"
 
 #: ../app/ui/SettingsTab.qml:48
 msgid "180 days"
-msgstr ""
+msgstr "180 giorni"
 
 #: ../app/ui/SettingsTab.qml:49
 msgid "360 days"
-msgstr ""
+msgstr "360 giorni"
 
 #: ../app/ui/SettingsTab.qml:62
 msgid "Theme"
-msgstr ""
+msgstr "Tema"
 
 #: ../app/ui/SettingsTab.qml:92
 msgid "Remove episodes older than"
-msgstr ""
+msgstr "Rimuovi gli episodi più vecchi di"
 
 #: ../app/ui/SettingsTab.qml:94
 #, qt-format
 msgid "%1 days"
-msgstr ""
+msgstr "%1 giorni"
 
 #: ../app/ui/Walkthrough.qml:87
 msgid "Skip"
