@@ -167,9 +167,18 @@ MainView {
                 objectName: "podcastsTab"
             }
 
-            SearchTab {
+            Tab {
                 id: searchTab
-                objectName: "searchTab"
+
+                title: i18n.tr("Find New Podcasts")
+
+                page: Loader {
+                    parent: searchTab
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.bottom: parent.bottom
+                    source: (tabs.selectedTab === searchTab) ? Qt.resolvedUrl("ui/SearchPage.qml") : ""
+                }
             }
 
             Tab {
@@ -248,6 +257,7 @@ MainView {
                 for (var j=0; j < loopCount; j++) {
                     if (!rs2.rows.item(j).downloadedfile && !rs2.rows.item(j).listened) {
                         downloader.addDownload(rs2.rows.item(j).guid, rs2.rows.item(j).audiourl)
+                        tx.executeSql("UPDATE Episode SET queued=1 WHERE guid = ?", [rs2.rows.item(j).guid]);
                     }
                 }
             }

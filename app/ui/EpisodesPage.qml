@@ -30,17 +30,21 @@ Page {
     id: episodesPage
 
     visible: false
-    title: episodeName
+    title: i18n.tr("Podcast")
+    flickable: null
 
     property string episodeName
     property string episodeId
     property string episodeArtist
     property string episodeImage
+    property string tempGuid: "NULL"
 
     property bool episodesUpdating: false;
 
     Component.onCompleted: {
         loadEpisodes(episodeId, episodeArtist, episodeImage)
+        if (downloader.downloadingGuid != "")
+            tempGuid = downloader.downloadingGuid
     }
 
     /*
@@ -95,7 +99,7 @@ Page {
                     onTriggered: {
                         var db = Podcasts.init();
                         db.transaction(function (tx) {
-                            tx.executeSql("UPDATE Episode SET listened=1 WHERE podcast=?", [episodeModel.pid]);
+                            tx.executeSql("UPDATE Episode SET listened=1 WHERE podcast=?", [episodeId]);
                             refreshModel();
                         });
                     }
@@ -122,6 +126,7 @@ Page {
                     episodeList.forceActiveFocus()
                     searchField.text = ""
                     episodesPage.state = "default"
+                    episodeList.positionViewAtBeginning()
                 }
             }
 
@@ -139,7 +144,36 @@ Page {
     Connections {
         target: downloader
         onDownloadingGuidChanged: {
-            loadEpisodes(episodeId, episodeArtist, episodeImage);
+            var db = Podcasts.init();
+            db.transaction(function (tx) {
+                /*
+                 If tempGuid is NULL, then the episode currently being downloaded is not found within
+                 this podcast. On the other hand, if it is within this podcast, then update the episodeModel
+                 with the downloadedfile location we just received from the downloader.
+                */
+                if (tempGuid != "NULL") {
+                    var rs2 = tx.executeSql("SELECT downloadedfile, podcast FROM Episode WHERE guid=?", [tempGuid]);
+                    for (var i=0; i<episodeModel.count; i++) {
+                        if (episodeModel.get(i).guid == tempGuid) {
+                            console.log("[LOG]: Setting episode download URL to " + rs2.rows.item(0).downloadedfile)
+                            episodeModel.setProperty(i, "downloadedfile", rs2.rows.item(0).downloadedfile)
+                            break
+                        }
+                    }
+                    tempGuid = "NULL"
+                }
+
+                /*
+                 Here it is checked if the currently downloaded episode belongs to the podcast
+                 page being currently displayed. If it is, then the downloaded episode guid is
+                 stored in the tempGuid variable to track it.
+                */
+                var rs = tx.executeSql("SELECT podcast FROM Episode WHERE guid=?", [downloader.downloadingGuid]);
+
+                if (downloader.downloadingGuid != "" && rs.rows.item(0).podcast == episodeId && tempGuid == "NULL") {
+                    tempGuid = downloader.downloadingGuid
+                }
+            });
         }
     }
 
@@ -155,12 +189,12 @@ Page {
                 onClicked: {
                     var db = Podcasts.init();
                     db.transaction(function (tx) {
-                        var rs = tx.executeSql("SELECT downloadedfile FROM Episode WHERE downloadedfile NOT NULL AND podcast=?", [episodeModel.pid]);
+                        var rs = tx.executeSql("SELECT downloadedfile FROM Episode WHERE downloadedfile NOT NULL AND podcast=?", [episodeId]);
                         for(var i = 0; i < rs.rows.length; i++) {
                             fileManager.deleteFile(rs.rows.item(i).downloadedfile);
                         }
-                        tx.executeSql("DELETE FROM Episode WHERE podcast=?", [episodeModel.pid]);
-                        tx.executeSql("DELETE FROM Podcast WHERE rowid=?", [episodeModel.pid]);
+                        tx.executeSql("DELETE FROM Episode WHERE podcast=?", [episodeId]);
+                        tx.executeSql("DELETE FROM Podcast WHERE rowid=?", [episodeId]);
                         mainStack.pop()
                         PopupUtils.close(dialogInternal)
                     });
@@ -187,9 +221,6 @@ Page {
 
     ListModel {
         id: episodeModel
-        property string pid;
-        property string artist;
-        property string image;
     }
 
     SortFilterModel {
@@ -199,12 +230,118 @@ Page {
         filter.pattern: RegExp(searchField.text, "gi")
     }
 
-    ListView {
+    function formatTime(seconds) {
+        var time = Podcasts.getTimeDiff(seconds)
+        var hour = time[0]
+        var minute = time[1]
+        // TRANSLATORS: the first argument is the number of hours,
+        // followed by minute (eg. 20h 3m)
+        if(hour > 0 &&  minute > 0) {
+            // xgettext: no-c-format
+            return (i18n.tr("%1 hr %2 min"))
+            .arg(hour)
+            .arg(minute)
+        }
+
+        // TRANSLATORS: this string indicates the number of hours
+        // eg. 20h (no plural state required)
+        else if(hour > 0 && minute === 0) {
+            // xgettext: no-c-format
+            return (i18n.tr("%1 hr"))
+            .arg(hour)
+        }
+
+        // TRANSLATORS: this string indicates the number of minutes
+        // eg. 15m (no plural state required)
+        else if(hour === 0 && minute > 0) {
+            // xgettext: no-c-format
+            return (i18n.tr("%1 min"))
+            .arg(minute)
+        }
+
+        else {
+            return Podcasts.formatTime(seconds)
+        }
+    }
+
+    UbuntuListView {
         id: episodeList
 
-        clip: true
         anchors.fill: parent
         model: sortedEpisodeModel
+
+        clip: true
+        section.property: "listened"
+        section.labelPositioning: ViewSection.InlineLabels
+
+        section.delegate: Rectangle {
+            width: parent.width
+            color: section === "0" ? podbird.theme.hightlightListView : "Transparent"
+            height: header.implicitHeight + units.gu(2)
+            Label {
+                id: header
+                anchors {
+                    left: parent.left
+                    right: parent.right
+                    margins: units.gu(2)
+                    verticalCenter: parent.verticalCenter
+                }
+                fontSize: "x-large"
+                text: section === "0" ? i18n.tr("Unheard") : i18n.tr("Listened")
+            }
+        }
+
+        header: BlurredBackground {
+            id: blurredBackground
+
+            art: episodeImage
+            width: parent.width
+            visible: episodesPage.state !== "search"
+            height: episodesPage.state !== "search" ? cover.height + units.gu(4) : 0
+            backgroundStrength: podbird.settings.themeName === "Light.qml" ? 0.3 : 0.6
+
+            Image {
+                id:cover
+                width: units.gu(12)
+                height: width
+                sourceSize.height: width
+                sourceSize.width: width
+                source: episodeImage
+                anchors {
+                    left: parent.left
+                    top: parent.top
+                    margins: units.gu(2)
+                }
+            }
+
+            Column {
+                id: podcastTitle
+
+                anchors {
+                    left: cover.right
+                    right: parent.right
+                    bottom: parent.bottom
+                    margins: units.gu(2)
+                }
+
+                Label {
+                    text: episodeName
+                    width: parent.width
+                    wrapMode: Text.WordWrap
+                    maximumLineCount: 2
+                    elide: Text.ElideRight
+                    color: podbird.theme.baseText
+                }
+
+                Label {
+                    text: i18n.tr("%1 episode", "%1 episodes", episodeList.count).arg(episodeList.count)
+                    width: parent.width
+                    elide: Text.ElideRight
+                    fontSize: "x-small"
+                    color: podbird.theme.baseText
+                }
+            }
+        }
 
         footer: Item {
             width: parent.width
@@ -214,51 +351,41 @@ Page {
         delegate: ListItem.Empty {
             id: listItem
 
-            property bool expanded: false
+            property bool expanded
 
-            width: parent.width
-            height: mainColumn.height
+            height: dataColumn.height + units.gu(2)
             highlightWhenPressed: false
+            showDivider: false
 
-            onClicked: listItem.expanded = !listItem.expanded
+            onClicked: {
+                expanded = !expanded;
+            }
 
             Rectangle {
-                anchors.fill: parent
-                color: listItem.pressed ? podbird.theme.hightlightListView : "transparent"
+                visible: !model.listened
+                width: parent.width
+                height: dataColumn.height + units.gu(2)
+                color: podbird.theme.hightlightListView
             }
 
             Column {
-                id: mainColumn
-
-                anchors {
-                    top: parent.top
-                    left: parent.left
-                    right: parent.right
-                    margins: units.gu(2)
-                    topMargin: units.gu(1)
-                }
+                id: dataColumn
 
                 spacing: units.gu(1)
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.margins: units.gu(2)
+                anchors.top: parent.top
+                anchors.topMargin: units.gu(0.5)
 
                 RowLayout {
-                    id: titleRow
+                    id: rowlayout
 
                     width: parent.width
-                    spacing: units.gu(2)
-
-                    Image {
-                        id: imgFrame
-                        width: units.gu(6)
-                        height: width
-                        sourceSize.height: width
-                        sourceSize.width: width
-                        source: model.image
-                    }
+                    height: titleColumn.height
 
                     Column {
-                        id: detailColumn
-
-                        anchors.verticalCenter: imgFrame.verticalCenter
+                        id: titleColumn
                         Layout.fillWidth: true
 
                         Label {
@@ -267,19 +394,97 @@ Page {
                             maximumLineCount: 2
                             wrapMode: Text.WordWrap
                             elide: Text.ElideRight
-                            color: currentGuid === model.guid ? podbird.theme.focusText
-                                                              : podbird.theme.baseText
+                            color: listItem.expanded || currentGuid === model.guid || downloader.downloadingGuid === model.guid ? podbird.theme.focusText
+                                                                                                                                : podbird.theme.baseText
                         }
 
                         Label {
                             id: episodePublishDate
                             width: parent.width
-                            text: Qt.formatDate(new Date(model.published), "MMM d, yyyy")
+                            text: formatTime(model.duration) + " | " + Qt.formatDate(new Date(model.published), "MMM d, yyyy")
                             fontSize: "x-small"
-                            color: currentGuid === model.guid ? podbird.theme.focusText
-                                                              : podbird.theme.baseText
                             elide: Text.ElideRight
+                            color: podbird.theme.baseSubText
                         }
+                    }
+
+                    ActionButton {
+                        id: downloadButton
+
+                        width: units.gu(5)
+                        height: units.gu(4)
+
+                        property bool queued: false
+
+                        iconName: model.downloadedfile ? "delete" : (queued && downloader.downloadingGuid !== model.guid ? "history" : "save")
+                        enabled: downloader.downloadingGuid !== model.guid
+                        color: downloader.downloadingGuid === model.guid ? podbird.theme.focusText
+                                                                         : podbird.theme.baseText
+
+                        onClicked: {
+                            if (model.downloadedfile) {
+                                fileManager.deleteFile(model.downloadedfile);
+                                var db = Podcasts.init();
+                                db.transaction(function (tx) {
+                                    tx.executeSql("UPDATE Episode SET downloadedfile = NULL WHERE guid = ?", [model.guid]);
+                                });
+                                episodeModel.setProperty(index, "downloadedfile", "")
+                                downloadButton.queued = false
+                            } else {
+                                downloadButton.queued = true;
+                                downloader.addDownload(model.guid, model.audiourl);
+                            }
+                        }
+                    }
+
+                    ActionButton {
+                        width: units.gu(4)
+                        height: units.gu(4)
+
+                        iconName: player.playbackState === MediaPlayer.PlayingState && currentGuid === model.guid ? "media-playback-pause"
+                                                                                                                  : "media-playback-start"
+                        color: player.playbackState === MediaPlayer.PlayingState && currentGuid === model.guid ? podbird.theme.focusText
+                                                                                                               : podbird.theme.baseIcon
+
+                        onClicked: {
+                            var db = Podcasts.init();
+                            db.transaction(function (tx) {
+                                if (currentGuid === model.guid) {
+                                    if (player.playbackState === MediaPlayer.PlayingState) {
+                                        player.pause()
+                                    } else {
+                                        player.play()
+                                    }
+                                } else {
+                                    currentGuid = "";
+                                    player.source = model.downloadedfile ? model.downloadedfile : model.audiourl;
+                                    var rs = tx.executeSql("SELECT position FROM Episode WHERE guid=?", [model.guid]);
+                                    player.play();
+                                    player.seek(rs.rows.item(0).position);
+                                    currentName = model.name;
+                                    currentArtist = model.artist;
+                                    currentImage = model.image;
+                                    currentGuid = model.guid;
+                                }
+                            });
+                        }
+                    }
+                }
+
+                Rectangle {
+                    id: progressBar
+                    radius: width/3
+                    width: parent.width
+                    height: units.dp(5)
+                    color: Theme.palette.normal.base
+                    visible: downloader.downloadingGuid === model.guid
+                    Rectangle {
+                        height: parent.height
+                        radius: parent.radius
+                        anchors.left: parent.left
+                        anchors.top: parent.top
+                        color: podbird.theme.focusText
+                        width: downloader.progress > 0 ? Math.min((downloader.progress / 100) * parent.width, parent.width) : 0
                     }
                 }
 
@@ -288,184 +493,15 @@ Page {
                     text: model.description
                     textFormat: Text.RichText
                     clip: true
-                    height: listItem.expanded ? contentHeight : units.gu(4)
+                    height: listItem.expanded ? contentHeight : 0
                     wrapMode: Text.WordWrap
                     width: parent.width
-                    elide: Text.ElideRight
                     fontSize: "small"
                     color: podbird.theme.baseSubText
                     Behavior on height {
                         UbuntuNumberAnimation {
-                            duration: UbuntuAnimation.SlowDuration
+                            duration: UbuntuAnimation.BriskDuration
                         }
-                    }
-
-                }
-
-                Item {
-                    id: statusBox
-
-                    width: parent.width
-                    height: units.gu(6)
-
-                    function formatTime(seconds) {
-                        var time = Podcasts.getTimeDiff(seconds)
-                        var hour = time[0]
-                        var minute = time[1]
-                        // TRANSLATORS: the first argument is the number of hours,
-                        // followed by minute (eg. 20h 3m)
-                        if(hour > 0 &&  minute > 0) {
-                            // xgettext: no-c-format
-                            return (i18n.tr("%1h %2m"))
-                            .arg(hour)
-                            .arg(minute)
-                        }
-
-                        // TRANSLATORS: this string indicates the number of hours
-                        // eg. 20h (no plural state required)
-                        else if(hour > 0 && minute === 0) {
-                            // xgettext: no-c-format
-                            return (i18n.tr("%1h"))
-                            .arg(hour)
-                        }
-
-                        // TRANSLATORS: this string indicates the number of minutes
-                        // eg. 15m (no plural state required)
-                        else if(hour === 0 && minute > 0) {
-                            // xgettext: no-c-format
-                            return (i18n.tr("%1m"))
-                            .arg(minute)
-                        }
-
-                        else {
-                            return Podcasts.formatTime(model.duration)
-                        }
-                    }
-
-                    Rectangle {
-                        id: listened
-                        border.color: UbuntuColors.lightGrey
-                        height: units.gu(2.5)
-                        width: height
-                        radius: width / 2
-                        anchors.right: durationIcon.left
-                        anchors.rightMargin: units.gu(2)
-                        anchors.verticalCenter: actionRow.verticalCenter
-                        visible: model.listened
-                        Icon {
-                            id: tick
-                            name: "tick"
-                            anchors.centerIn: parent
-                            anchors.verticalCenterOffset: units.gu(0.1)
-                            height: units.gu(1.4)
-                            width: height
-                        }
-                    }
-
-                    Icon {
-                        id: durationIcon
-                        width: units.gu(2.5)
-                        height: width
-                        name: "alarm-clock"
-                        visible: duration.text !== ""
-                        anchors.right: duration.left
-                        anchors.rightMargin: units.gu(0.5)
-                        anchors.verticalCenter: actionRow.verticalCenter
-                        color: podbird.theme.baseIcon
-                    }
-
-                    Label {
-                        id: duration
-                        color: podbird.theme.baseText
-                        anchors.right: parent.right
-                        anchors.verticalCenter: durationIcon.verticalCenter
-                        fontSize: "small"
-                        text: !isNaN(model.duration) && model.duration !== 0 ? statusBox.formatTime(model.duration) : ""
-                    }
-
-                    Row {
-                        id: actionRow
-
-                        anchors.left: parent.left
-                        anchors.leftMargin: units.gu(-1.5)
-
-                        ActionButton {
-                            width: units.gu(5)
-                            height: units.gu(4)
-
-                            iconName: player.playbackState === MediaPlayer.PlayingState && currentGuid === model.guid ? "media-playback-pause"
-                                                                                                                      : "media-playback-start"
-
-                            onClicked: {
-                                var db = Podcasts.init();
-                                db.transaction(function (tx) {
-                                    if (currentGuid === model.guid) {
-                                        if (player.playbackState === MediaPlayer.PlayingState) {
-                                            player.pause()
-                                        } else {
-                                            player.play()
-                                        }
-                                    } else {
-                                        currentGuid = "";
-                                        player.source = model.downloadedfile ? model.downloadedfile : model.audiourl;
-                                        var rs = tx.executeSql("SELECT position FROM Episode WHERE guid=?", [model.guid]);
-                                        player.play();
-                                        player.seek(rs.rows.item(0).position);
-                                        currentName = model.name;
-                                        currentArtist = model.artist;
-                                        currentImage = model.image;
-                                        currentGuid = model.guid;
-                                    }
-                                });
-                            }
-                        }
-
-                        ActionButton {
-                            id: downloadButton
-
-                            width: units.gu(5)
-                            height: units.gu(4)
-
-                            property bool queued: false
-
-                            iconName: model.downloadedfile ? "delete" : (queued && downloader.downloadingGuid !== model.guid ? "history" : "save")
-                            opacity: downloader.downloadingGuid === model.guid ? 0.4 : 1.0
-                            enabled: downloader.downloadingGuid !== model.guid
-
-                            ActivityIndicator {
-                                anchors.centerIn: parent
-                                visible: downloader.downloadingGuid === model.guid
-                                running: visible
-                            }
-
-                            onClicked: {
-                                if (model.downloadedfile) {
-                                    fileManager.deleteFile(model.downloadedfile);
-                                    var db = Podcasts.init();
-                                    db.transaction(function (tx) {
-                                        tx.executeSql("UPDATE Episode SET downloadedfile = NULL WHERE guid = ?", [model.guid]);
-                                    });
-                                    loadEpisodes(episodeModel.pid, episodeModel.artist, episodeModel.image);
-                                } else {
-                                    downloadButton.queued = true;
-                                    downloader.addDownload(model.guid, model.audiourl);
-                                }
-                            }
-                        }
-                    }
-
-
-                    ProgressBar {
-                        visible: downloader.downloadingGuid === model.guid
-                        minimumValue: 0
-                        maximumValue: 100
-                        anchors.left: actionRow.right
-                        anchors.right: model.listened ? listened.left : durationIcon.left
-                        anchors.leftMargin: units.gu(2)
-                        anchors.rightMargin: units.gu(2)
-                        anchors.verticalCenter: actionRow.verticalCenter
-                        height: units.gu(2.6)
-                        value: downloader.progress
                     }
                 }
             }
@@ -483,21 +519,27 @@ Page {
 
     function refreshModel() {
         var db = Podcasts.init();
-        loadEpisodes(episodeModel.pid, episodeModel.artist, episodeModel.image);
+        loadEpisodes(episodeId, episodeArtist, episodeImage);
         episodesUpdating = false;
     }
 
     function loadEpisodes(pid, artist, img) {
+        var i, episode;
+        var newCount = 0;
+
+        episodeModel.clear();
+
         var db = Podcasts.init();
         db.transaction(function (tx) {
-            episodeModel.clear();
             var rs = tx.executeSql("SELECT rowid, * FROM Episode WHERE podcast=? ORDER BY published DESC", [pid]);
-            for(var i = 0; i < rs.rows.length; i++) {
-                var episode = rs.rows.item(i);
-                episodeModel.pid = pid;
-                episodeModel.artist = artist;
-                episodeModel.image = img;
-                episodeModel.append({"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : img, "artist" : artist, "audiourl" : episode.audiourl});
+            for(i = 0; i < rs.rows.length; i++) {
+                episode = rs.rows.item(i);
+                if (!episode.listened) {
+                    episodeModel.insert(newCount, {"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : img, "artist" : artist, "audiourl" : episode.audiourl});
+                    newCount++;
+                } else {
+                    episodeModel.insert(i,{"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : img, "artist" : artist, "audiourl" : episode.audiourl});
+                }
             }
         });
     }

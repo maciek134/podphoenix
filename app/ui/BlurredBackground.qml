@@ -25,15 +25,8 @@ import QtGraphicalEffects 1.0
 Item {
     width: parent.width
 
-    property string art  // : player.currentMetaFile === "" ? Qt.resolvedUrl("../images/music-app-cover@30.png") : player.currentMetaArt
-
-    // dark layer
-    Rectangle {
-        anchors {
-            fill: parent
-        }
-        color: "black" 
-    }
+    property string art
+    property real backgroundStrength: 0.4
 
     // the album art
     Image {
@@ -44,16 +37,6 @@ Item {
         fillMode: Image.PreserveAspectCrop
         height: parent.height
         source: art // this has to be fixed for the default cover art to work - cant find in this dir
-
-        // TODO: This should be investigated once http://pad.lv/1391368
-        //       is resolved. Once it is, these can either be set to
-        //       "height" and "width" or a property exposed via the
-        //       SDK or Thumbnailer to avoid a regression caused by
-        //       these hardcoded values changing in the Thumbnailer.
-        //       512 is size of the "xlarge" thumbnails in pixels.
-        sourceSize.height: 512
-        sourceSize.width: 512
-
         visible: false
         width: Math.max(parent.height, parent.width)
     }
@@ -63,8 +46,8 @@ Item {
         id: backgroundBlur
         anchors.fill: backgroundImage
         source: backgroundImage
-        radius: units.dp(42)
-        opacity: 0.2
+        radius: units.dp(30)
+        opacity: backgroundStrength
     }
     onArtChanged: {
         // TODO: This is a work around for LP:1261078 and LP:1306845. Ideally,

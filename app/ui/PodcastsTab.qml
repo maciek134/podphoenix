@@ -186,13 +186,6 @@ Tab {
             filter.pattern: RegExp(searchField.text, "gi")
         }
 
-        ListModel {
-            id: episodeModel
-            property string pid;
-            property string artist;
-            property string image;
-        }
-
         ListView {
             id: view
 
@@ -213,6 +206,7 @@ Tab {
                 height: units.gu(8)
                 removable: true
                 confirmRemoval: true
+                showDivider: false
                 highlightWhenPressed: false
 
                 onItemRemoved: {
@@ -230,7 +224,8 @@ Tab {
 
                 Rectangle {
                     anchors.fill: parent
-                    color: listItem.pressed ? podbird.theme.hightlightListView : "transparent"
+                    opacity: 0.3
+                    color: index % 2 === 0 ? podbird.theme.hightlightListView : "Transparent"
                 }
 
                 onClicked: {
