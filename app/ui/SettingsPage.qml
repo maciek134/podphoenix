@@ -36,7 +36,7 @@ Page {
             progression: true
             showDivider: false
             text: i18n.tr("Theme")
-            value: podbird.settings.themeName.split(".qml")[0]
+            value: podbird.settings.themeName.split(".qml")[0] === "Light" ? i18n.tr("Light") : i18n.tr("Dark")
             onClicked: mainStack.push(Qt.resolvedUrl("../settings/ThemeSetting.qml"))
         }
 
