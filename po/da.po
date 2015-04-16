@@ -1,4 +1,4 @@
-# Norwegian Bokmal translation for podbird
+# Danish translation for podbird
 # Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
 # This file is distributed under the same license as the podbird package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-04-15 22:50+0100\n"
-"PO-Revision-Date: 2015-03-26 12:11+0000\n"
-"Last-Translator: Åka Sikrom <Unknown>\n"
-"Language-Team: Norwegian Bokmal <nb@li.org>\n"
+"PO-Revision-Date: 2015-03-30 06:59+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Danish <da@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,20 +20,20 @@ msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:85
 msgid "Search Episode"
-msgstr "Søk etter episode"
+msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:94
 msgid "Mark all listened"
-msgstr "Merk alle som gjennomlyttet"
+msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:105 ../app/ui/EpisodesPage.qml:153
 msgid "Unsubscribe"
-msgstr "Stopp abonnement"
+msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:120 ../app/ui/PodcastsTab.qml:86
 #: ../app/ui/PodcastsTab.qml:109
 msgid "Back"
-msgstr "Tilbake"
+msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:131
 msgid "Search episode"
@@ -41,12 +41,12 @@ msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:150
 msgid "Unsubscribe Confirmation"
-msgstr "Bekreftelse på abonnement-stopp"
+msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:151
 #, qt-format
 msgid "Are you sure you want to unsubscribe from <b>%1</b>?"
-msgstr "Er du sikker på at du vil stoppe abonnementet på <b>%1</b>?"
+msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:170
 msgid "Cancel"
@@ -54,50 +54,50 @@ msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:184
 msgid "No Episodes found"
-msgstr "Fant ingen episoder"
+msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:185
 msgid "No episodes found matching the search term."
-msgstr "Søket ga ingen treff på episoder."
+msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:319
 #, no-c-format, qt-format
 msgid "%1h %2m"
-msgstr "%1h %2m"
+msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:328
 #, no-c-format, qt-format
 msgid "%1h"
-msgstr "%1t"
+msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:336
 #, no-c-format, qt-format
 msgid "%1m"
-msgstr "%1m"
+msgstr ""
 
 #: ../app/ui/NowPlayingPage.qml:28
 msgid "Now Playing"
-msgstr "Spilles nå"
+msgstr ""
 
 #: ../app/ui/NowPlayingPage.qml:145
 msgid "-15s"
-msgstr "-15s"
+msgstr ""
 
 #: ../app/ui/NowPlayingPage.qml:204
 msgid "+15s"
-msgstr "+15s"
+msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:32
 msgid "Podcasts"
-msgstr "Podkaster"
+msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:62
 msgid "Add Podcast"
-msgstr "Legg til podkast"
+msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:72
 msgid "Search Podcast"
-msgstr "Søk etter podkast"
+msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:97
 msgid "Search podcast"
@@ -105,7 +105,7 @@ msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:120
 msgid "Save Podcast"
-msgstr "Lagre podkast"
+msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:133
 msgid "Feed URL"
@@ -113,54 +113,52 @@ msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:157
 msgid "Unable to subscribe"
-msgstr "Klarte ikke å abonnere"
+msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:158
 msgid "Please check the URL and try again"
-msgstr "Kontroller nettadressen og prøv igjen"
+msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:160
 msgid "Close"
-msgstr "Lukk"
+msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:172
 msgid "No Podcast Subscriptions"
-msgstr "Ingen podkast-abonnementer"
+msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:173
 msgid "No Podcasts Found"
-msgstr "Fant ingen podkaster"
+msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:174
 msgid ""
 "You haven't subscribed to any podcasts yet, visit the 'Find New Podcasts' "
 "page to add some."
 msgstr ""
-"Du har ikke abonnert på noen podkaster ennå. Besøk «Finn nye podkaster»-"
-"siden for å legge til noen."
 
 #: ../app/ui/PodcastsTab.qml:175
 msgid "No podcasts found matching the search term."
-msgstr "Søket ga ingen treff på podkaster."
+msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:291
 #, qt-format
 msgid "%1 unheard episode"
 msgid_plural "%1 unheard episodes"
-msgstr[0] "%1 ny episode"
-msgstr[1] "%1 nye episoder"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../app/ui/SearchTab.qml:27
 msgid "Find New Podcasts"
-msgstr "Finn nye podkaster"
+msgstr ""
 
 #: ../app/ui/SearchTab.qml:42
 msgid "Search..."
-msgstr "Søk …"
+msgstr ""
 
 #: ../app/ui/SearchTab.qml:122
 msgid "Subscribe"
-msgstr "Abonner"
+msgstr ""
 
 #: ../app/ui/SettingsTab.qml:26
 msgid "Settings"
@@ -291,4 +289,4 @@ msgstr ""
 
 #: /home/mike/src/build-podbird-Ubuntu_Device3_GCC_armhf_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
 msgid "Podbird"
-msgstr "Podbird"
+msgstr ""
