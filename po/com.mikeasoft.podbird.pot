@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-17 13:31+0200\n"
+"POT-Creation-Date: 2015-04-17 18:43+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -376,7 +376,7 @@ msgid "What's New"
 msgstr ""
 
 #: ../app/ui/WhatsNewTab.qml:55
-msgid "Download all episodes"
+msgid "Download all"
 msgstr ""
 
 #: ../app/ui/WhatsNewTab.qml:104
