@@ -189,9 +189,20 @@ Page {
         delegate: ListItem.Empty {
             id: listItem
 
-            height: units.gu(8)
+            property bool expanded: false
+            property bool fetchedDescription: false
+
+            height: dataColumn.height + units.gu(2)
             showDivider: false
             highlightWhenPressed: false
+
+            onClicked: {
+                expanded = !expanded;
+                if (expanded && !fetchedDescription) {
+                    getPodcastDescription(model.feed, index)
+                    fetchedDescription = true
+                }
+            }
 
             Rectangle {
                 anchors.fill: parent
@@ -199,60 +210,101 @@ Page {
                 color: index % 2 === 0 ? podbird.theme.hightlightListView : "Transparent"
             }
 
-            RowLayout {
-                id: titleRow
+            Column {
+                id: dataColumn
 
+                spacing: units.gu(1)
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.margins: units.gu(2)
-                anchors.verticalCenter: parent.verticalCenter
+                anchors.top: parent.top
+                anchors.topMargin: units.gu(1)
 
-                spacing: units.gu(2)
+                RowLayout {
+                    id: titleRow
 
-                Image {
-                    id: imgFrame
-                    width: units.gu(6)
-                    height: width
-                    sourceSize.height: width
-                    sourceSize.width: width
-                    source: model.image
-                }
+                    width: parent.width
+                    height: imgFrame.height
 
-                Column {
-                    id: detailColumn
+                    spacing: units.gu(2)
 
-                    anchors.verticalCenter: imgFrame.verticalCenter
-                    Layout.fillWidth: true
-
-                    Label {
-                        id: podcastTitle
-                        textFormat: Text.PlainText
-                        text: model.name
-                        width: parent.width
-                        fontSize: "medium"
-                        elide: Text.ElideRight
+                    Image {
+                        id: imgFrame
+                        width: units.gu(6)
+                        height: width
+                        sourceSize.height: width
+                        sourceSize.width: width
+                        source: model.image
                     }
 
-                    Label {
-                        id: episodeCount
-                        width: parent.width
-                        color: "#999999"
-                        text: model.artist
-                        fontSize: "x-small"
-                        elide: Text.ElideRight
+                    Column {
+                        id: detailColumn
+
+                        anchors.verticalCenter: imgFrame.verticalCenter
+                        Layout.fillWidth: true
+
+                        Label {
+                            id: podcastTitle
+                            textFormat: Text.PlainText
+                            text: model.name
+                            width: parent.width
+                            fontSize: "medium"
+                            elide: Text.ElideRight
+                        }
+
+                        Label {
+                            id: episodeCount
+                            width: parent.width
+                            color: "#999999"
+                            text: model.artist
+                            fontSize: "x-small"
+                            elide: Text.ElideRight
+                        }
+                    }
+
+                    Button {
+                        anchors.right: parent.right
+                        text: !model.subscribed ? i18n.tr("Subscribe") : i18n.tr("Unsubscribe")
+                        color: !model.subscribed ? UbuntuColors.green : UbuntuColors.red
+                        onClicked: {
+                            if (!model.subscribed) {
+                                Podcasts.subscribe(model.artist, model.name, model.feed, model.image);
+                                imageDownloader.feed = model.feed;
+                                imageDownloader.download(model.image);
+                            } else {
+                                var db = Podcasts.init();
+                                db.transaction(function (tx) {
+                                    var rs = tx.executeSql("SELECT rowid FROM Podcast WHERE feed = ?", model.feed);
+                                    if (rs.rows.length !== 0) {
+                                        var podcast = rs.rows.item(0)
+                                        var rs2 = tx.executeSql("SELECT downloadedfile FROM Episode WHERE downloadedfile NOT NULL AND podcast=?", [podcast.rowid]);
+                                        for(var i = 0; i < rs2.rows.length; i++) {
+                                            fileManager.deleteFile(rs2.rows.item(i).downloadedfile);
+                                        }
+                                        tx.executeSql("DELETE FROM Episode WHERE podcast=?", [podcast.rowid]);
+                                        tx.executeSql("DELETE FROM Podcast WHERE rowid=?", [podcast.rowid]);
+                                    }
+                                });
+                            }
+                            tabs.selectedTabIndex = 1;
+                            searchField.text = ""
+                        }
                     }
                 }
 
-                Button {
-                    anchors.right: parent.right
-                    text: i18n.tr("Subscribe")
-                    color: UbuntuColors.green
-                    onClicked: {
-                        Podcasts.subscribe(model.artist, model.name, model.feed, model.image);
-                        imageDownloader.feed = model.feed;
-                        imageDownloader.download(model.image);
-                        tabs.selectedTabIndex = 1;
-                        searchField.text = ""
+                Label {
+                    id: desc
+                    clip: true
+                    text: i18n.tr("Last Updated: %1\n%2").arg(model.releaseDate.split("T")[0]).arg(model.description)
+                    height: listItem.expanded ? contentHeight : 0
+                    wrapMode: Text.WordWrap
+                    width: parent.width
+                    fontSize: "small"
+                    color: podbird.theme.baseSubText
+                    Behavior on height {
+                        UbuntuNumberAnimation {
+                            duration: UbuntuAnimation.BriskDuration
+                        }
                     }
                 }
             }
@@ -275,11 +327,56 @@ Page {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 searchResults.clear();
                 var json = JSON.parse(xhr.responseText);
+                var db = Podcasts.init();
+
                 for(var i in json.results) {
+
+                    var subscribed = false
+                    db.transaction(function (tx) {
+                        var rs = tx.executeSql("SELECT rowid, * FROM Podcast ORDER BY name ASC");
+                        for(var j = 0; j < rs.rows.length; j++) {
+                            var podcast = rs.rows.item(j);
+                            if (podcast.name == json.results[i].trackName) {
+                                subscribed = true
+                                break
+                            }
+                        }
+                    });
+
                     searchResults.append({"name" : json.results[i].trackName,
                                              "artist" : json.results[i].artistName,
                                              "feed" : json.results[i].feedUrl,
-                                             "image" : json.results[i].artworkUrl600});
+                                             "image" : json.results[i].artworkUrl600,
+                                             "releaseDate": json.results[i].releaseDate,
+                                             "description": i18n.tr("Not Available"),
+                                             "subscribed": subscribed});
+                }
+            }
+        }
+        xhr.send();
+    }
+
+    function getPodcastDescription(feedUrl, index) {
+        var description = ""
+        var xhr = new XMLHttpRequest;
+        xhr.open("GET", feedUrl);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                var e = xhr.responseXML.documentElement;
+                for(var h = 0; h < e.childNodes.length; h++) {
+                    if(e.childNodes[h].nodeName === "channel") {
+                        var c = e.childNodes[h];
+                        for(var j = 0; j < c.childNodes.length; j++) {
+                            if (c.childNodes[j].nodeName === "description") {
+                                description = c.childNodes[j].childNodes[0].nodeValue
+                                if (description != undefined) {
+                                    console.log(description)
+                                    searchResults.setProperty(index, "description", description)
+                                    return
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }

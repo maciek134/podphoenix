@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-16 21:08+0200\n"
+"POT-Creation-Date: 2015-04-17 13:31+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -154,6 +154,7 @@ msgid "Mark all listened"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:109 ../app/ui/EpisodesPage.qml:187
+#: ../app/ui/SearchPage.qml:267
 msgid "Unsubscribe"
 msgstr ""
 
@@ -314,8 +315,19 @@ msgid ""
 "Click the 'magnifier' at the top to search or the 'plus' button to add by URL"
 msgstr ""
 
-#: ../app/ui/SearchPage.qml:248
+#: ../app/ui/SearchPage.qml:267
 msgid "Subscribe"
+msgstr ""
+
+#: ../app/ui/SearchPage.qml:298
+#, qt-format
+msgid ""
+"Last Updated: %1\n"
+"%2"
+msgstr ""
+
+#: ../app/ui/SearchPage.qml:351
+msgid "Not Available"
 msgstr ""
 
 #: ../app/ui/SettingsPage.qml:43
