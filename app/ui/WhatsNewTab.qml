@@ -52,7 +52,7 @@ Tab {
 
                     Action {
                         iconName: "save"
-                        text: i18n.tr("Download all episodes")
+                        text: i18n.tr("Download all")
                         onTriggered: {
                             var db = Podcasts.init();
                             db.transaction(function (tx) {
