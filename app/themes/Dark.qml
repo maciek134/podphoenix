@@ -27,6 +27,7 @@ QtObject {
     property color baseText: "White"
     property color baseSubText: "#999999"
     property color focusText: "#35AF44"
+    property color linkText: "Cyan"
 
     // Icon Colors
     property color baseIcon: "White"

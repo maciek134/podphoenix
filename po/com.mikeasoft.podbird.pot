@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-19 00:37+0200\n"
+"POT-Creation-Date: 2015-04-19 01:06+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,6 +33,24 @@ msgstr ""
 
 #: ../app/podbird.qml:228
 msgid "Settings"
+msgstr ""
+
+#: ../app/settings/About.qml:25 ../app/ui/SettingsPage.qml:124
+msgid "About"
+msgstr ""
+
+#: ../app/settings/About.qml:52
+#, qt-format
+msgid "Version %1"
+msgstr ""
+
+#: ../app/settings/About.qml:73
+msgid "Released under the terms of the GNU GPL v3"
+msgstr ""
+
+#: ../app/settings/About.qml:83
+#, qt-format
+msgid "Source code available on %1"
 msgstr ""
 
 #: ../app/settings/CleanSetting.qml:27
@@ -65,6 +83,22 @@ msgid_plural "%1 years"
 msgstr[0] ""
 msgstr[1] ""
 
+#: ../app/settings/Credits.qml:26 ../app/ui/SettingsPage.qml:131
+msgid "Credits"
+msgstr ""
+
+#: ../app/settings/Credits.qml:33
+msgid "Developers"
+msgstr ""
+
+#: ../app/settings/Credits.qml:47
+msgid "Designer"
+msgstr ""
+
+#: ../app/settings/Credits.qml:56
+msgid "Translators"
+msgstr ""
+
 #: ../app/settings/DownloadSetting.qml:27
 msgid "Download at most"
 msgstr ""
@@ -79,15 +113,15 @@ msgid_plural "%1 episodes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../app/settings/ThemeSetting.qml:27 ../app/ui/SettingsPage.qml:38
+#: ../app/settings/ThemeSetting.qml:27 ../app/ui/SettingsPage.qml:49
 msgid "Theme"
 msgstr ""
 
-#: ../app/settings/ThemeSetting.qml:33 ../app/ui/SettingsPage.qml:39
+#: ../app/settings/ThemeSetting.qml:33 ../app/ui/SettingsPage.qml:50
 msgid "Light"
 msgstr ""
 
-#: ../app/settings/ThemeSetting.qml:34 ../app/ui/SettingsPage.qml:39
+#: ../app/settings/ThemeSetting.qml:34 ../app/ui/SettingsPage.qml:50
 msgid "Dark"
 msgstr ""
 
@@ -281,33 +315,41 @@ msgstr ""
 msgid "Subscribe"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:32
+#: ../app/ui/SettingsPage.qml:43
 msgid "General Settings"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:44
+#: ../app/ui/SettingsPage.qml:55
 msgid "Podcast Episode Settings"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:49
+#: ../app/ui/SettingsPage.qml:60
 msgid "Hide listened episodes"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:68
+#: ../app/ui/SettingsPage.qml:79
 msgid "Automatically delete old episodes"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:76
+#: ../app/ui/SettingsPage.qml:87
 msgid ""
 "Delete episodes that are older than a given number of days for each podcast"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:93
+#: ../app/ui/SettingsPage.qml:104
 msgid "Automatically download new episodes"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:101
+#: ../app/ui/SettingsPage.qml:112
 msgid "Default number of new episodes to download for each podcast"
+msgstr ""
+
+#: ../app/ui/SettingsPage.qml:118
+msgid "Misc."
+msgstr ""
+
+#: ../app/ui/SettingsPage.qml:138
+msgid "Report Bug"
 msgstr ""
 
 #: ../app/ui/Walkthrough.qml:87
@@ -357,7 +399,7 @@ msgstr ""
 msgid "Hallo! Bonjour!"
 msgstr ""
 
-#: ../app/welcomewizard/Slide4.qml:66
+#: ../app/welcomewizard/Slide4.qml:67
 #, qt-format
 msgid ""
 "Podbird is available in over 15 languages and is translated by the %1 "
@@ -369,7 +411,7 @@ msgid "Support"
 msgstr ""
 
 #. TRANSLATORS: The %1 points to a url defined in html format <a href=\link\>Link</a>.
-#: ../app/welcomewizard/Slide5.qml:64
+#: ../app/welcomewizard/Slide5.qml:65
 #, qt-format
 msgid ""
 "If you find any bugs or have any feature requests, let us know on our "
@@ -388,6 +430,6 @@ msgstr ""
 msgid "Finish"
 msgstr ""
 
-#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-8.5-usermetrics-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
+#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-8.6-aboutpage-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
 msgid "Podbird"
 msgstr ""
