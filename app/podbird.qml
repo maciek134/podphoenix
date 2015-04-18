@@ -153,8 +153,8 @@ MainView {
         id: podcastsMetric
         name: "podcast-metrics"
         // TRANSLATORS: this refers to a number of songs greater than one. The actual number will be prepended to the string automatically (plural forms are not yet fully supported in usermetrics, the library that displays that string)
-        format: "<b>%1</b> " + i18n.tr("podcasts listened today")
-        emptyFormat: i18n.tr("No podcasts listened today")
+        format: "<b>%1</b> " + i18n.tr("podcasts listened to today")
+        emptyFormat: i18n.tr("No podcasts listened to today")
         domain: "com.mikeasoft.podbird"
     }
 
