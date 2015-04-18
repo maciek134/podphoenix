@@ -51,13 +51,17 @@ MainView {
         })
     }
 
+    // Blank function required inorder to call the generic updateEpisodes() functions
+    // which requires refreshModel() argument which doesn't apply here.
+    function blankFunction() {}
+
     Component.onCompleted: {
         var db = Podcasts.init()
         db.transaction(function (tx) {
             tx.executeSql('UPDATE Episode SET queued=0 WHERE queued=1');
         })
 
-        Podcasts.updateEpisodes()
+        Podcasts.updateEpisodes(blankFunction)
 
         var today = new Date()
         // Only perform cleanup of old episodes once a day
@@ -149,8 +153,8 @@ MainView {
         id: podcastsMetric
         name: "podcast-metrics"
         // TRANSLATORS: this refers to a number of songs greater than one. The actual number will be prepended to the string automatically (plural forms are not yet fully supported in usermetrics, the library that displays that string)
-        format: "<b>%1</b> " + i18n.tr("podcasts listened today")
-        emptyFormat: i18n.tr("No podcasts listened today")
+        format: "<b>%1</b> " + i18n.tr("podcasts listened to today")
+        emptyFormat: i18n.tr("No podcasts listened to today")
         domain: "com.mikeasoft.podbird"
     }
 
