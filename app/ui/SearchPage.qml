@@ -301,6 +301,7 @@ Page {
                     width: parent.width
                     fontSize: "small"
                     color: podbird.theme.baseSubText
+                    linkColor: podbird.theme.linkText
                     Behavior on height {
                         UbuntuNumberAnimation {
                             duration: UbuntuAnimation.BriskDuration
