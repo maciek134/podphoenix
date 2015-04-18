@@ -332,7 +332,7 @@ Page {
         iconHeight: units.gu(12)
         iconWidth: iconHeight + units.gu(10)
         iconSource: Qt.resolvedUrl("../graphics/notFound.svg")
-        title: podbird.settings.hideListened ? i18n.tr("No more episodes") : i18n.tr("No Episodes found")
+        title: podbird.settings.hideListened ? i18n.tr("No more episodes") : i18n.tr("No episodes found")
         subTitle: podbird.settings.hideListened ? i18n.tr("All episodes have been listened to.") : i18n.tr("No episodes found matching the search term.")
     }
 
@@ -526,7 +526,7 @@ Page {
                         Label {
                             id: episodePublishDate
                             width: parent.width
-                            text: formatTime(model.duration) + " | " + Qt.formatDate(new Date(model.published), "MMM d, yyyy")
+                            text: model.duration === undefined ? Qt.formatDate(new Date(model.published), "MMM d, yyyy") : formatTime(model.duration) + " | " + Qt.formatDate(new Date(model.published), "MMM d, yyyy")
                             fontSize: "x-small"
                             elide: Text.ElideRight
                             color: podbird.theme.baseSubText
@@ -595,12 +595,23 @@ Page {
                     color: Theme.palette.normal.base
                     visible: downloader.downloadingGuid === model.guid
                     Rectangle {
+                        id: currentProgress
                         height: parent.height
                         radius: parent.radius
                         anchors.left: parent.left
                         anchors.top: parent.top
                         color: podbird.theme.focusText
-                        width: downloader.progress > 0 ? Math.min((downloader.progress / 100) * parent.width, parent.width) : 0
+                        width: downloader.progress >= 0 && downloader.progress <= 100 ? (downloader.progress / 100) * parent.width : parent.width / 6
+
+                        SequentialAnimation {
+                            running: downloader.progress < 0 || downloader.progress > 100 && downloader.downloadingGuid === model.guid
+                            onRunningChanged: {
+                                currentProgress.anchors.leftMargin = 0;
+                            }
+                            loops: Animation.Infinite
+                            PropertyAnimation { target: currentProgress.anchors; property: "leftMargin"; from: 0.0; to: parent.width  - parent.width / 6 - units.gu(3); duration: UbuntuAnimation.SleepyDuration; easing.type:  Easing.InOutQuad; }
+                            PropertyAnimation { target: currentProgress.anchors; property: "leftMargin"; from: parent.width  - parent.width / 6 - units.gu(3); to: 0; duration: UbuntuAnimation.SleepyDuration; easing.type: Easing.InOutQuad; }
+                        }
                     }
                 }
 
@@ -625,7 +636,7 @@ Page {
 
         PullToRefresh {
             refreshing: episodesUpdating
-            onRefresh: updateEpisodes();
+            onRefresh: updateEpisodesDatabase();
         }
     }
 
@@ -660,84 +671,8 @@ Page {
         });
     }
 
-    function updateEpisodes() {
-        var db = Podcasts.init();
+    function updateEpisodesDatabase() {
         episodesUpdating = true;
-        db.transaction(function(tx) {
-            var rs = tx.executeSql("SELECT rowid, feed FROM Podcast");
-            tx.executeSql("UPDATE Podcast SET lastupdate=CURRENT_TIMESTAMP");
-            var xhr = [];
-            for(var i = 0; i < rs.rows.length; i++) {
-                (function (i) {
-                    xhr[i] = new XMLHttpRequest;
-                    var url = rs.rows.item(i).feed;
-                    var pid = rs.rows.item(i).rowid;
-                    xhr[i].open("GET", url);
-                    xhr[i].onreadystatechange = function() {
-                        if (xhr[i].readyState === XMLHttpRequest.DONE) {
-                            var e = xhr[i].responseXML.documentElement;
-                            for(var h = 0; h < e.childNodes.length; h++) {
-                                if(e.childNodes[h].nodeName === "channel") {
-                                    var c = e.childNodes[h];
-                                    for(var j = 0; j < c.childNodes.length; j++) {
-                                        if(c.childNodes[j].nodeName === "item") {
-                                            var t = c.childNodes[j];
-                                            var track = {}
-                                            for(var k = 0; k < t.childNodes.length; k++) {
-                                                try {
-                                                    var nodeName = t.childNodes[k].nodeName.toLowerCase();
-                                                    if (nodeName === "title")               track['name'] = t.childNodes[k].childNodes[0].nodeValue;
-                                                    else if (nodeName === "description")    track['description'] = t.childNodes[k].childNodes[0].nodeValue;
-                                                    else if (nodeName === "guid")           track['guid'] = t.childNodes[k].childNodes[0].nodeValue;
-                                                    else if (nodeName === "pubdate")        track['published'] = new Date(t.childNodes[k].childNodes[0].nodeValue).getTime();
-                                                    else if (nodeName === "duration") {
-                                                        var dur = t.childNodes[k].childNodes[0].nodeValue.split(":");
-                                                        if (dur.length === 1) {
-                                                            track['duration'] = parseInt(dur[0]);
-                                                        } else if (dur.length === 2) {
-                                                            track['duration'] = parseInt(dur[0]) * 60 + parseInt(dur[1]);
-                                                        } else if (dur.length === 3) {
-                                                            track['duration'] = parseInt(dur[0]) * 3600 + parseInt(dur[1]) * 60 + parseInt(dur[2]);
-                                                        }
-                                                    } else if (nodeName === "enclosure") {
-                                                        var el = t.childNodes[k];
-                                                        for (var l = 0; l < el.attributes.length; l++) {
-                                                            if(el.attributes[l].nodeName === "url")         track['audiourl'] = el.attributes[l].nodeValue;
-                                                        }
-                                                    }
-                                                } catch(err) {
-                                                    console.debug(err.message);
-                                                }
-                                            }
-                                            if (!track.hasOwnProperty("guid")) {
-                                                track['guid'] = track.audiourl;
-                                            }
-
-                                            db.transaction(function(tx2) {
-                                                var ers = tx2.executeSql("SELECT rowid FROM Episode WHERE guid=?", [track.guid]);
-                                                if (ers.rows.length === 0) {
-                                                    tx2.executeSql("INSERT INTO Episode(podcast, name, description, audiourl, guid, listened, queued, duration, published) VALUES(?, ?, ? , ?, ?, ?, ?,  ?, ?)", [pid,
-                                                                                                                                                                                                      track.name,
-                                                                                                                                                                                                      track.description,
-                                                                                                                                                                                                      track.audiourl,
-                                                                                                                                                                                                      track.guid,
-                                                                                                                                                                                                      false,
-                                                                                                                                                                                                      false,
-                                                                                                                                                                                                      track.duration,
-                                                                                                                                                                                                      track.published]);
-                                                }
-                                            });
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        refreshModel();
-                    }
-                    xhr[i].send();
-
-                })(i);
-            }
-        });
+        Podcasts.updateEpisodes(refreshModel)
     }
 }

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-04-15 22:50+0100\n"
+"POT-Creation-Date: 2015-04-16 12:16+0200\n"
 "PO-Revision-Date: 2015-03-27 13:53+0000\n"
 "Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <zh_TW@li.org>\n"
@@ -15,8 +15,68 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Launchpad-Export-Date: 2015-04-16 05:55+0000\n"
-"X-Generator: Launchpad (build 17428)\n"
+"X-Launchpad-Export-Date: 2015-04-17 05:43+0000\n"
+"X-Generator: Launchpad (build 17430)\n"
+
+#: ../app/podbird.qml:178
+msgid "Settings"
+msgstr ""
+
+#: ../app/settings/CleanSetting.qml:27
+msgid "Delete older than"
+msgstr ""
+
+#: ../app/settings/CleanSetting.qml:33 ../app/settings/DownloadSetting.qml:33
+msgid "Never"
+msgstr ""
+
+#: ../app/settings/CleanSetting.qml:34
+#, qt-format
+msgid "%1 day"
+msgid_plural "%1 days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../app/settings/CleanSetting.qml:35 ../app/settings/CleanSetting.qml:36
+#: ../app/settings/CleanSetting.qml:37
+#, qt-format
+msgid "%1 month"
+msgid_plural "%1 months"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../app/settings/CleanSetting.qml:38
+#, qt-format
+msgid "%1 year"
+msgid_plural "%1 years"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../app/settings/DownloadSetting.qml:27
+msgid "Download at most"
+msgstr ""
+
+#: ../app/settings/DownloadSetting.qml:34
+#: ../app/settings/DownloadSetting.qml:35
+#: ../app/settings/DownloadSetting.qml:36
+#: ../app/settings/DownloadSetting.qml:37
+#, qt-format
+msgid "%1 episode"
+msgid_plural "%1 episodes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../app/settings/ThemeSetting.qml:27 ../app/ui/SettingsPage.qml:38
+msgid "Theme"
+msgstr ""
+
+#: ../app/settings/ThemeSetting.qml:33 ../app/ui/SettingsPage.qml:39
+msgid "Light"
+msgstr ""
+
+#: ../app/settings/ThemeSetting.qml:34 ../app/ui/SettingsPage.qml:39
+msgid "Dark"
+msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:85
 msgid "Search Episode"
@@ -159,53 +219,29 @@ msgstr "搜尋…"
 msgid "Subscribe"
 msgstr "訂閱"
 
-#: ../app/ui/SettingsTab.qml:26
-msgid "Settings"
+#: ../app/ui/SettingsPage.qml:32
+msgid "General Settings"
 msgstr ""
 
-#: ../app/ui/SettingsTab.qml:35
-msgid "Light"
+#: ../app/ui/SettingsPage.qml:44
+msgid "Podcast Episode Settings"
 msgstr ""
 
-#: ../app/ui/SettingsTab.qml:36
-msgid "Dark"
+#: ../app/ui/SettingsPage.qml:59
+msgid "Automatically delete old episodes"
 msgstr ""
 
-#: ../app/ui/SettingsTab.qml:44 ../app/ui/SettingsTab.qml:93
-msgid "Never"
+#: ../app/ui/SettingsPage.qml:67
+msgid ""
+"Delete episodes that are older than a given number of days for each podcast"
 msgstr ""
 
-#: ../app/ui/SettingsTab.qml:45
-msgid "7 days"
+#: ../app/ui/SettingsPage.qml:84
+msgid "Automatically download new episodes"
 msgstr ""
 
-#: ../app/ui/SettingsTab.qml:46
-msgid "31 days"
-msgstr ""
-
-#: ../app/ui/SettingsTab.qml:47
-msgid "90 days"
-msgstr ""
-
-#: ../app/ui/SettingsTab.qml:48
-msgid "180 days"
-msgstr ""
-
-#: ../app/ui/SettingsTab.qml:49
-msgid "360 days"
-msgstr ""
-
-#: ../app/ui/SettingsTab.qml:62
-msgid "Theme"
-msgstr ""
-
-#: ../app/ui/SettingsTab.qml:92
-msgid "Remove episodes older than"
-msgstr ""
-
-#: ../app/ui/SettingsTab.qml:94
-#, qt-format
-msgid "%1 days"
+#: ../app/ui/SettingsPage.qml:92
+msgid "Default number of new episodes to download for each podcast"
 msgstr ""
 
 #: ../app/ui/Walkthrough.qml:87
@@ -286,6 +322,6 @@ msgstr ""
 msgid "Finish"
 msgstr ""
 
-#: /home/mike/src/build-podbird-Ubuntu_Device3_GCC_armhf_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
+#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-5-auto-download-option-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
 msgid "Podbird"
 msgstr "Podbird"
