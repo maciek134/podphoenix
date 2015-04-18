@@ -27,6 +27,7 @@ QtObject {
     property color baseText: UbuntuColors.darkGrey
     property color baseSubText: "#999999"
     property color focusText: "#35AF44"
+    property color linkText: "Blue"
 
     // Icon Colors
     property color baseIcon: UbuntuColors.darkGrey
