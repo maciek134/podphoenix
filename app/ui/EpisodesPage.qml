@@ -401,7 +401,7 @@ Page {
                         Label {
                             id: episodePublishDate
                             width: parent.width
-                            text: formatTime(model.duration) + " | " + Qt.formatDate(new Date(model.published), "MMM d, yyyy")
+                            text: model.duration === undefined ? Qt.formatDate(new Date(model.published), "MMM d, yyyy") : formatTime(model.duration) + " | " + Qt.formatDate(new Date(model.published), "MMM d, yyyy")
                             fontSize: "x-small"
                             elide: Text.ElideRight
                             color: podbird.theme.baseSubText
