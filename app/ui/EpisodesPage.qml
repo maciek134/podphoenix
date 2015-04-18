@@ -603,6 +603,7 @@ Page {
                     wrapMode: Text.WordWrap
                     width: parent.width
                     fontSize: "small"
+                    linkColor: podbird.theme.linkText
                     color: podbird.theme.baseSubText
                     Behavior on height {
                         UbuntuNumberAnimation {

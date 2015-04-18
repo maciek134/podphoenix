@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-19 00:43+0200\n"
+"POT-Creation-Date: 2015-04-19 01:11+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -63,7 +63,7 @@ msgstr ""
 msgid "Released under the terms of the GNU GPL v3"
 msgstr ""
 
-#: ../app/settings/About.qml:82
+#: ../app/settings/About.qml:83
 #, qt-format
 msgid "Source code available on %1"
 msgstr ""
@@ -462,7 +462,7 @@ msgstr ""
 msgid "Hallo! Bonjour!"
 msgstr ""
 
-#: ../app/welcomewizard/Slide4.qml:66
+#: ../app/welcomewizard/Slide4.qml:67
 #, qt-format
 msgid ""
 "Podbird is available in over 15 languages and is translated by the %1 "
@@ -474,7 +474,7 @@ msgid "Support"
 msgstr ""
 
 #. TRANSLATORS: The %1 points to a url defined in html format <a href=\link\>Link</a>.
-#: ../app/welcomewizard/Slide5.qml:64
+#: ../app/welcomewizard/Slide5.qml:65
 #, qt-format
 msgid ""
 "If you find any bugs or have any feature requests, let us know on our "
