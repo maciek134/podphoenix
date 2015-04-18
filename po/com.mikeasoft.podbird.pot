@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-16 12:43+0200\n"
+"POT-Creation-Date: 2015-04-16 20:59+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: ../app/podbird.qml:173
+#: ../app/podbird.qml:174
 msgid "Find New Podcasts"
 msgstr ""
 
-#: ../app/podbird.qml:187
+#: ../app/podbird.qml:188
 msgid "Settings"
 msgstr ""
 
@@ -121,7 +121,15 @@ msgid "Cancel"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:218
+msgid "No more episodes"
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:218
 msgid "No Episodes found"
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:219
+msgid "All episodes have been listened to."
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:219
@@ -252,20 +260,24 @@ msgstr ""
 msgid "Podcast Episode Settings"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:59
+#: ../app/ui/SettingsPage.qml:49
+msgid "Hide listened episodes"
+msgstr ""
+
+#: ../app/ui/SettingsPage.qml:68
 msgid "Automatically delete old episodes"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:67
+#: ../app/ui/SettingsPage.qml:76
 msgid ""
 "Delete episodes that are older than a given number of days for each podcast"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:84
+#: ../app/ui/SettingsPage.qml:93
 msgid "Automatically download new episodes"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:92
+#: ../app/ui/SettingsPage.qml:101
 msgid "Default number of new episodes to download for each podcast"
 msgstr ""
 
@@ -347,6 +359,6 @@ msgstr ""
 msgid "Finish"
 msgstr ""
 
-#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-5.5-kevin-episodes-design-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
+#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-6-hide-listened-episodes-option-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
 msgid "Podbird"
 msgstr ""

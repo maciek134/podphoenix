@@ -213,10 +213,10 @@ Page {
     EmptyState {
         anchors.centerIn: parent
         anchors.verticalCenterOffset: Qt.inputMethod.visible ? units.gu(4) : 0
-        visible: episodesPage.state === "search" && sortedEpisodeModel.count === 0
+        visible: (episodesPage.state === "search" && sortedEpisodeModel.count === 0) || (episodeModel.count === 0 && podbird.settings.hideListened)
         iconName: "music-app-symbolic"
-        title: i18n.tr("No Episodes found")
-        subTitle: i18n.tr("No episodes found matching the search term.")
+        title: podbird.settings.hideListened ? i18n.tr("No more episodes") : i18n.tr("No episodes found")
+        subTitle: podbird.settings.hideListened ? i18n.tr("All episodes have been listened to.") : i18n.tr("No episodes found matching the search term.")
     }
 
     ListModel {
@@ -296,8 +296,8 @@ Page {
 
             art: episodeImage
             width: parent.width
-            visible: episodesPage.state !== "search"
-            height: episodesPage.state !== "search" ? cover.height + units.gu(4) : 0
+            visible: episodesPage.state !== "search" && sortedEpisodeModel.count !== 0
+            height: episodesPage.state !== "search" && sortedEpisodeModel.count !== 0 ? cover.height + units.gu(4) : 0
             backgroundStrength: podbird.settings.themeName === "Light.qml" ? 0.3 : 0.6
 
             Image {
@@ -545,7 +545,7 @@ Page {
                 if (!episode.listened) {
                     episodeModel.insert(newCount, {"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : img, "artist" : artist, "audiourl" : episode.audiourl});
                     newCount++;
-                } else {
+                } else if (!podbird.settings.hideListened) {
                     episodeModel.insert(i,{"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : img, "artist" : artist, "audiourl" : episode.audiourl});
                 }
             }

@@ -83,6 +83,7 @@ MainView {
         property var lastCheck: new Date()
         property bool firstRun: true
         property int maxEpisodeDownload: -1
+        property bool hideListened: false
     }
 
     FileManager {

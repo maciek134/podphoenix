@@ -44,6 +44,15 @@ Page {
             text: i18n.tr("Podcast Episode Settings")
         }
 
+        ListItem.Standard {
+            showDivider: false
+            text: i18n.tr("Hide listened episodes")
+            control: Switch {
+                checked: podbird.settings.hideListened
+                onClicked: podbird.settings.hideListened = checked
+            }
+        }
+
         ListItem.Base {
             height: units.gu(10)
             progression: true
