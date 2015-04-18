@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-16 21:00+0200\n"
+"POT-Creation-Date: 2015-04-18 22:28+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -137,7 +137,7 @@ msgid "No more episodes"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:332
-msgid "No Episodes found"
+msgid "No episodes found"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:333

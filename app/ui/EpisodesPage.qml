@@ -329,7 +329,7 @@ Page {
         anchors.verticalCenterOffset: Qt.inputMethod.visible ? units.gu(4) : 0
         visible: (episodesPage.state === "search" && sortedEpisodeModel.count === 0) || (episodeModel.count === 0 && podbird.settings.hideListened)
         iconName: "music-app-symbolic"
-        title: podbird.settings.hideListened ? i18n.tr("No more episodes") : i18n.tr("No Episodes found")
+        title: podbird.settings.hideListened ? i18n.tr("No more episodes") : i18n.tr("No episodes found")
         subTitle: podbird.settings.hideListened ? i18n.tr("All episodes have been listened to.") : i18n.tr("No episodes found matching the search term.")
     }
 
@@ -515,7 +515,7 @@ Page {
                         Label {
                             id: episodePublishDate
                             width: parent.width
-                            text: formatTime(model.duration) + " | " + Qt.formatDate(new Date(model.published), "MMM d, yyyy")
+                            text: model.duration === undefined ? Qt.formatDate(new Date(model.published), "MMM d, yyyy") : formatTime(model.duration) + " | " + Qt.formatDate(new Date(model.published), "MMM d, yyyy")
                             fontSize: "x-small"
                             elide: Text.ElideRight
                             color: podbird.theme.baseSubText
@@ -584,12 +584,23 @@ Page {
                     color: Theme.palette.normal.base
                     visible: downloader.downloadingGuid === model.guid
                     Rectangle {
+                        id: currentProgress
                         height: parent.height
                         radius: parent.radius
                         anchors.left: parent.left
                         anchors.top: parent.top
                         color: podbird.theme.focusText
-                        width: downloader.progress > 0 ? Math.min((downloader.progress / 100) * parent.width, parent.width) : 0
+                        width: downloader.progress >= 0 && downloader.progress <= 100 ? (downloader.progress / 100) * parent.width : parent.width / 6
+
+                        SequentialAnimation {
+                            running: downloader.progress < 0 || downloader.progress > 100 && downloader.downloadingGuid === model.guid
+                            onRunningChanged: {
+                                currentProgress.anchors.leftMargin = 0;
+                            }
+                            loops: Animation.Infinite
+                            PropertyAnimation { target: currentProgress.anchors; property: "leftMargin"; from: 0.0; to: parent.width  - parent.width / 6 - units.gu(3); duration: UbuntuAnimation.SleepyDuration; easing.type:  Easing.InOutQuad; }
+                            PropertyAnimation { target: currentProgress.anchors; property: "leftMargin"; from: parent.width  - parent.width / 6 - units.gu(3); to: 0; duration: UbuntuAnimation.SleepyDuration; easing.type: Easing.InOutQuad; }
+                        }
                     }
                 }
 
