@@ -50,13 +50,17 @@ MainView {
         })
     }
 
+    // Blank function required inorder to call the generic updateEpisodes() functions
+    // which requires refreshModel() argument which doesn't apply here.
+    function blankFunction() {}
+
     Component.onCompleted: {
         var db = Podcasts.init()
         db.transaction(function (tx) {
             tx.executeSql('UPDATE Episode SET queued=0 WHERE queued=1');
         })
 
-        Podcasts.updateEpisodes()
+        Podcasts.updateEpisodes(blankFunction)
 
         var today = new Date()
         // Only perform cleanup of old episodes once a day

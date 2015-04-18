@@ -48,7 +48,7 @@ function subscribe(artist, name, feed, img) {
     });
 }
 
-function updateEpisodes() {
+function updateEpisodes(refreshModel) {
     console.log("[LOG]: Checking for new episodes")
 
     var db = Podcasts.init();
@@ -95,7 +95,7 @@ function updateEpisodes() {
                                                     }
                                                 }
                                             } catch(err) {
-                                                console.debug(err.message);
+                                                console.debug("Error: " + err.message);
                                             }
                                         }
                                         if (!track.hasOwnProperty("guid")) {
@@ -121,6 +121,7 @@ function updateEpisodes() {
                             }
                         }
                     }
+                    refreshModel();
                 }
                 xhr[i].send();
             })(i);
