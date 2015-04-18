@@ -479,12 +479,20 @@ Page {
                     color: Theme.palette.normal.base
                     visible: downloader.downloadingGuid === model.guid
                     Rectangle {
+                        id: currentProgress
                         height: parent.height
                         radius: parent.radius
                         anchors.left: parent.left
                         anchors.top: parent.top
                         color: podbird.theme.focusText
-                        width: downloader.progress > 0 ? Math.min((downloader.progress / 100) * parent.width, parent.width) : 0
+                        width: downloader.progress >= 0 && downloader.progress <= 100 ? (downloader.progress / 100) * parent.width : parent.width / 6
+
+                        SequentialAnimation {
+                            running: downloader.progress < 0 || downloader.progress > 100 && downloader.downloadingGuid === model.guid
+                            loops: Animation.Infinite
+                            PropertyAnimation { target: currentProgress.anchors; property: "leftMargin"; from: 0.0; to: parent.width  - parent.width / 6 - units.gu(3); duration: UbuntuAnimation.SleepyDuration; easing.type:  Easing.InOutQuad; }
+                            PropertyAnimation { target: currentProgress.anchors; property: "leftMargin"; from: parent.width  - parent.width / 6 - units.gu(3); to: 0; duration: UbuntuAnimation.SleepyDuration; easing.type: Easing.InOutQuad; }
+                        }
                     }
                 }
 
