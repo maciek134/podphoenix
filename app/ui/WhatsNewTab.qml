@@ -456,7 +456,7 @@ Tab {
                                 Label {
                                     id: episodePublishDate
                                     width: parent.width
-                                    text: Podcasts.formatEpisodeTime(model.duration) + " | " + model.artist
+                                    text: model.duration === undefined ? model.artist : Podcasts.formatEpisodeTime(model.duration) + " | " + model.artist
                                     fontSize: "x-small"
                                     elide: Text.ElideRight
                                     color: podbird.theme.baseSubText
