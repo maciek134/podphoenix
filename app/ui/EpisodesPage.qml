@@ -489,6 +489,9 @@ Page {
 
                         SequentialAnimation {
                             running: downloader.progress < 0 || downloader.progress > 100 && downloader.downloadingGuid === model.guid
+                            onRunningChanged: {
+                                currentProgress.anchors.leftMargin = 0;
+                            }
                             loops: Animation.Infinite
                             PropertyAnimation { target: currentProgress.anchors; property: "leftMargin"; from: 0.0; to: parent.width  - parent.width / 6 - units.gu(3); duration: UbuntuAnimation.SleepyDuration; easing.type:  Easing.InOutQuad; }
                             PropertyAnimation { target: currentProgress.anchors; property: "leftMargin"; from: parent.width  - parent.width / 6 - units.gu(3); to: 0; duration: UbuntuAnimation.SleepyDuration; easing.type: Easing.InOutQuad; }
