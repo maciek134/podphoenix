@@ -254,6 +254,7 @@ Page {
 
                         Label {
                             id: downloadText
+                            color: UbuntuColors.darkGrey
                             text: popover.downloadedfile ? i18n.tr("Delete local file")
                                                          : (popover.queued && downloader.downloadingGuid !== popover.guid ? i18n.tr("Episode queued for download")
                                                                                                                           : i18n.tr("Download episode"))
@@ -304,6 +305,7 @@ Page {
 
                         Label {
                             id: listenText
+                            color: UbuntuColors.darkGrey
                             text: popover.listened ? "Mark episode unlistened" : "Mark episode listened"
                         }
                     }
@@ -325,10 +327,11 @@ Page {
     }
 
     EmptyState {
-        anchors.centerIn: parent
-        anchors.verticalCenterOffset: Qt.inputMethod.visible ? units.gu(4) : 0
+        anchors.verticalCenter: parent.verticalCenter
         visible: (episodesPage.state === "search" && sortedEpisodeModel.count === 0) || (episodeModel.count === 0 && podbird.settings.hideListened)
-        iconName: "music-app-symbolic"
+        iconHeight: units.gu(12)
+        iconWidth: iconHeight + units.gu(10)
+        iconSource: Qt.resolvedUrl("../graphics/notFound.svg")
         title: podbird.settings.hideListened ? i18n.tr("No more episodes") : i18n.tr("No episodes found")
         subTitle: podbird.settings.hideListened ? i18n.tr("All episodes have been listened to.") : i18n.tr("No episodes found matching the search term.")
     }
@@ -380,6 +383,14 @@ Page {
 
     UbuntuListView {
         id: episodeList
+
+        Component.onCompleted: {
+            // FIXME: workaround for qtubuntu not returning values depending on the grid unit definition
+            // for Flickable.maximumFlickVelocity and Flickable.flickDeceleration
+            var scaleFactor = units.gridUnit / 8;
+            maximumFlickVelocity = maximumFlickVelocity * scaleFactor;
+            flickDeceleration = flickDeceleration * scaleFactor;
+        }
 
         anchors.fill: parent
         model: sortedEpisodeModel

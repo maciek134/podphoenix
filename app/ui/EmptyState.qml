@@ -31,14 +31,20 @@ Item {
     property alias iconName: emptyIcon.name
     property alias title: emptyLabel.text
     property alias subTitle: emptySublabel.text
+    property alias iconSource: emptyIcon.source
+
+    property real iconHeight: units.gu(10)
+    property real iconWidth: units.gu(10)
 
     height: childrenRect.height
-    width: parent.width
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.margins: units.gu(2)
 
     Icon {
         id: emptyIcon
-        width: height
-        height: units.gu(10)
+        width: parent.iconWidth
+        height: parent.iconHeight
         color: podbird.theme.baseIcon
         anchors.horizontalCenter: parent.horizontalCenter
     }
@@ -47,15 +53,16 @@ Item {
         id: emptyLabel
         anchors.top: emptyIcon.bottom
         anchors.topMargin: units.gu(5)
-        anchors.horizontalCenter: parent.horizontalCenter
+        width: parent.width
         fontSize: "large"
         color: podbird.theme.baseText
+        horizontalAlignment: Text.AlignHCenter
+        wrapMode: Text.WrapAtWordBoundaryOrAnywhere
     }
 
     Label {
         id: emptySublabel
-        anchors.left: parent.left
-        anchors.right: parent.right
+        width: parent.width
         anchors.top: emptyLabel.bottom
         color: podbird.theme.baseSubText
         horizontalAlignment: Text.AlignHCenter

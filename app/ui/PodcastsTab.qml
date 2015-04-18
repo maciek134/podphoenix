@@ -36,6 +36,8 @@ Tab {
     page: Page {
         id: podcastPage
 
+        flickable: viewLoader.item
+
         /*
          #FIXME: The following lines of code is necessary due to a upstream bug
          in the SDK http://pad.lv/1400297. This bug is still present in the rtm.
@@ -74,6 +76,14 @@ Tab {
                             podcastPage.state = "search"
                             searchField.forceActiveFocus()
                         }
+                    },
+
+                    Action {
+                        iconName: podbird.settings.showListView ? "view-grid-symbolic" : "view-list-symbolic"
+                        text: podbird.settings.showListView ? i18n.tr("Grid View") : i18n.tr("List View")
+                        onTriggered: {
+                            podbird.settings.showListView = !podbird.settings.showListView
+                        }
                     }
                 ]
             },
@@ -85,7 +95,7 @@ Tab {
                     iconName: "back"
                     text: i18n.tr("Back")
                     onTriggered: {
-                        view.forceActiveFocus()
+                        viewLoader.item.forceActiveFocus()
                         searchField.text = ""
                         podcastPage.state = "default"
                     }
@@ -108,7 +118,7 @@ Tab {
                     iconName: "back"
                     text: i18n.tr("Back")
                     onTriggered: {
-                        view.forceActiveFocus()
+                        viewLoader.item.forceActiveFocus()
                         feedUrlField.text = ""
                         podcastPage.state = "default"
                     }
@@ -119,7 +129,7 @@ Tab {
                         iconName: "ok"
                         text: i18n.tr("Save Podcast")
                         onTriggered: {
-                            view.forceActiveFocus()
+                            viewLoader.item.forceActiveFocus()
                             subscribeFromFeed(feedUrlField.text);
                             feedUrlField.text = ""
                             podcastPage.state = "default"
@@ -134,7 +144,7 @@ Tab {
                     anchors.left: parent ? parent.left : undefined
                     anchors.right: parent ? parent.right : undefined
                     onAccepted: {
-                        view.forceActiveFocus()
+                        viewLoader.item.forceActiveFocus()
                         subscribeFromFeed(feedUrlField.text);
                         feedUrlField.text = ""
                         podcastPage.state = "default"
@@ -165,10 +175,13 @@ Tab {
         }
 
         EmptyState {
-            anchors.centerIn: parent
+            anchors.verticalCenter: parent.verticalCenter
             anchors.verticalCenterOffset: Qt.inputMethod.visible ? units.gu(4) : 0
+            iconHeight: units.gu(12)
+            iconWidth: iconHeight + units.gu(10)
+            iconSource: podcastModel.count === 0 ? Qt.resolvedUrl("../graphics/owlSearch.svg")
+                                                 : Qt.resolvedUrl("../graphics/notFound.svg")
             visible: podcastModel.count === 0 || sortedPodcastModel.count === 0
-            iconName: "music-app-symbolic"
             title: podcastModel.count === 0 ? i18n.tr("No Podcast Subscriptions")
                                             : i18n.tr("No Podcasts Found")
             subTitle: podcastModel.count === 0 ? i18n.tr("You haven't subscribed to any podcasts yet, visit the 'Find New Podcasts' page to add some.")
@@ -186,117 +199,158 @@ Tab {
             filter.pattern: RegExp(searchField.text, "gi")
         }
 
-        ListView {
-            id: view
-
-            clip: true
-            model: sortedPodcastModel
+        Loader {
+            id: viewLoader
             anchors.fill: parent
+            sourceComponent: podbird.settings.showListView ? listviewComponent : cardviewComponent
+        }
 
-            footer: Item {
-                width: parent.width
-                height: units.gu(8)
-            }
+        Component {
+            id: cardviewComponent
 
-            delegate: ListItem.Empty {
-                id: listItem
-
-                property bool expanded: false
-
-                height: units.gu(8)
-                removable: true
-                confirmRemoval: true
-                showDivider: false
-                highlightWhenPressed: false
-
-                onItemRemoved: {
-                    var db = Podcasts.init();
-                    db.transaction(function (tx) {
-                        var rs = tx.executeSql("SELECT downloadedfile FROM Episode WHERE downloadedfile NOT NULL AND podcast=?", [model.id]);
-                        for(var i = 0; i < rs.rows.length; i++) {
-                            fileManager.deleteFile(rs.rows.item(i).downloadedfile);
+            CardView {
+                id: cardView
+                model: sortedPodcastModel
+                delegate: Card {
+                    id: albumCard
+                    coverArt: model.image
+                    primaryText: model.name.trim()
+                    secondaryText: i18n.tr("%1 unheard episode", "%1 unheard episodes", model.episodeCount).arg(model.episodeCount)
+                    onClicked: {
+                        if(podcastPage.state === "search") {
+                            cardView.forceActiveFocus()
+                            searchField.text = ""
+                            podcastPage.state = "default"
                         }
-                        tx.executeSql("DELETE FROM Episode WHERE podcast=?", [model.id]);
-                        tx.executeSql("DELETE FROM Podcast WHERE rowid=?", [model.id]);
-                        podcastModel.remove(index, 1);
-                    });
-                }
-
-                Rectangle {
-                    anchors.fill: parent
-                    opacity: 0.3
-                    color: index % 2 === 0 ? podbird.theme.hightlightListView : "Transparent"
-                }
-
-                onClicked: {
-                    if(podcastPage.state === "search") {
-                        view.forceActiveFocus()
-                        searchField.text = ""
-                        podcastPage.state = "default"
-                    }
-                    mainStack.push(Qt.resolvedUrl("EpisodesPage.qml"), {"episodeName": model.name, "episodeId": model.id, "episodeArtist": model.artist, "episodeImage": model.image})
-                }
-
-                Column {
-                    id: mainColumn
-
-                    anchors.left: parent.left
-                    anchors.right: parent.right
-                    anchors.margins: units.gu(2)
-                    anchors.verticalCenter: parent.verticalCenter
-                    spacing: units.gu(1)
-
-                    RowLayout {
-                        id: titleRow
-
-                        width: parent.width
-                        spacing: units.gu(2)
-
-                        Image {
-                            id: imgFrame
-                            width: units.gu(6)
-                            height: width
-                            sourceSize.height: width
-                            sourceSize.width: width
-                            source: model.image
-                        }
-
-                        Column {
-                            id: detailColumn
-
-                            anchors.verticalCenter: imgFrame.verticalCenter
-                            Layout.fillWidth: true
-
-                            Label {
-                                id: podcastTitle
-                                textFormat: Text.PlainText
-                                text: model.name.trim()
-                                width: parent.width
-                                fontSize: "small"
-                                elide: Text.ElideRight
-                                color: podbird.theme.baseText
-                            }
-
-                            Label {
-                                id: episodeCount
-                                width: parent.width
-                                fontSize: "x-small"
-                                color: podbird.theme.baseSubText
-                                visible: model.episodeCount > 0
-                                text: i18n.tr("%1 unheard episode", "%1 unheard episodes", model.episodeCount).arg(model.episodeCount)
-                            }
-                        }
+                        mainStack.push(Qt.resolvedUrl("EpisodesPage.qml"), {"episodeName": model.name, "episodeId": model.id, "episodeArtist": model.artist, "episodeImage": model.image})
                     }
                 }
-            }
-
-            PullToRefresh {
-                refreshing: episodesUpdating
-                onRefresh: updateEpisodesDatabase();
             }
         }
-        Scrollbar {
-            flickableItem: view
+
+        Component {
+            id: listviewComponent
+
+            ListView {
+                id: listView
+
+                Component.onCompleted: {
+                    // FIXME: workaround for qtubuntu not returning values depending on the grid unit definition
+                    // for Flickable.maximumFlickVelocity and Flickable.flickDeceleration
+                    var scaleFactor = units.gridUnit / 8;
+                    maximumFlickVelocity = maximumFlickVelocity * scaleFactor;
+                    flickDeceleration = flickDeceleration * scaleFactor;
+                }
+
+                model: sortedPodcastModel
+                anchors.fill: parent
+
+                footer: Item {
+                    width: parent.width
+                    height: units.gu(8)
+                }
+
+                delegate: ListItem.Empty {
+                    id: listItem
+
+                    property bool expanded: false
+
+                    height: units.gu(8)
+                    removable: true
+                    confirmRemoval: true
+                    showDivider: false
+                    highlightWhenPressed: false
+
+                    onItemRemoved: {
+                        var db = Podcasts.init();
+                        db.transaction(function (tx) {
+                            var rs = tx.executeSql("SELECT downloadedfile FROM Episode WHERE downloadedfile NOT NULL AND podcast=?", [model.id]);
+                            for(var i = 0; i < rs.rows.length; i++) {
+                                fileManager.deleteFile(rs.rows.item(i).downloadedfile);
+                            }
+                            tx.executeSql("DELETE FROM Episode WHERE podcast=?", [model.id]);
+                            tx.executeSql("DELETE FROM Podcast WHERE rowid=?", [model.id]);
+                            podcastModel.remove(index, 1)
+                        });
+                    }
+
+                    Rectangle {
+                        anchors.fill: parent
+                        opacity: 0.3
+                        color: index % 2 === 0 ? podbird.theme.hightlightListView : "Transparent"
+                    }
+
+                    onClicked: {
+                        if(podcastPage.state === "search") {
+                            listView.forceActiveFocus()
+                            searchField.text = ""
+                            podcastPage.state = "default"
+                        }
+                        mainStack.push(Qt.resolvedUrl("EpisodesPage.qml"), {"episodeName": model.name, "episodeId": model.id, "episodeArtist": model.artist, "episodeImage": model.image})
+                    }
+
+                    Column {
+                        id: mainColumn
+
+                        anchors.left: parent.left
+                        anchors.right: parent.right
+                        anchors.margins: units.gu(2)
+                        anchors.verticalCenter: parent.verticalCenter
+                        spacing: units.gu(1)
+
+                        RowLayout {
+                            id: titleRow
+
+                            width: parent.width
+                            spacing: units.gu(2)
+
+                            Image {
+                                id: imgFrame
+                                width: units.gu(6)
+                                height: width
+                                sourceSize.height: width
+                                sourceSize.width: width
+                                source: model.image
+                            }
+
+                            Column {
+                                id: detailColumn
+
+                                anchors.verticalCenter: imgFrame.verticalCenter
+                                Layout.fillWidth: true
+
+                                Label {
+                                    id: podcastTitle
+                                    textFormat: Text.PlainText
+                                    text: model.name.trim()
+                                    width: parent.width
+                                    fontSize: "small"
+                                    elide: Text.ElideRight
+                                    color: podbird.theme.baseText
+                                }
+
+                                Label {
+                                    id: episodeCount
+                                    width: parent.width
+                                    fontSize: "x-small"
+                                    color: podbird.theme.baseSubText
+                                    visible: model.episodeCount > 0
+                                    text: i18n.tr("%1 unheard episode", "%1 unheard episodes", model.episodeCount).arg(model.episodeCount)
+                                }
+                            }
+                        }
+                    }
+                }
+
+                Scrollbar {
+                    flickableItem: listView
+                }
+
+                PullToRefresh {
+                    refreshing: episodesUpdating
+                    onRefresh: updateEpisodesDatabase();
+                }
+            }
         }
     }
 

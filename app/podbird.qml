@@ -99,6 +99,7 @@ MainView {
         property bool firstRun: true
         property int maxEpisodeDownload: -1
         property bool hideListened: false
+        property bool showListView: true
     }
 
     FileManager {
