@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-18 17:56+0100\n"
+"POT-Creation-Date: 2015-04-18 23:04+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: ../app/podbird.qml:174
+#: ../app/podbird.qml:187
 msgid "Find New Podcasts"
 msgstr ""
 
-#: ../app/podbird.qml:188
+#: ../app/podbird.qml:201
 msgid "Settings"
 msgstr ""
 
@@ -63,7 +63,7 @@ msgstr ""
 #: ../app/settings/DownloadSetting.qml:34
 #: ../app/settings/DownloadSetting.qml:35
 #: ../app/settings/DownloadSetting.qml:36
-#: ../app/settings/DownloadSetting.qml:37 ../app/ui/EpisodesPage.qml:337
+#: ../app/settings/DownloadSetting.qml:37 ../app/ui/EpisodesPage.qml:451
 #, qt-format
 msgid "%1 episode"
 msgid_plural "%1 episodes"
@@ -120,42 +120,54 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:218
+#: ../app/ui/EpisodesPage.qml:257
+msgid "Delete local file"
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:258
+msgid "Episode queued for download"
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:259
+msgid "Download episode"
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:332
 msgid "No more episodes"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:218
+#: ../app/ui/EpisodesPage.qml:332
 msgid "No episodes found"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:219
+#: ../app/ui/EpisodesPage.qml:333
 msgid "All episodes have been listened to."
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:219
+#: ../app/ui/EpisodesPage.qml:333
 msgid "No episodes found matching the search term."
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:241
+#: ../app/ui/EpisodesPage.qml:355
 #, no-c-format, qt-format
 msgid "%1 hr %2 min"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:250
+#: ../app/ui/EpisodesPage.qml:364
 #, no-c-format, qt-format
 msgid "%1 hr"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:258
+#: ../app/ui/EpisodesPage.qml:372
 #, no-c-format, qt-format
 msgid "%1 min"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:290
+#: ../app/ui/EpisodesPage.qml:404
 msgid "Unheard"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:290
+#: ../app/ui/EpisodesPage.qml:404
 msgid "Listened"
 msgstr ""
 
@@ -359,6 +371,6 @@ msgstr ""
 msgid "Finish"
 msgstr ""
 
-#: /home/mike/src/build-podbird-Ubuntu_Device3_GCC_armhf_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
+#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-7-mark-episode-listened-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
 msgid "Podbird"
 msgstr ""

@@ -22,7 +22,7 @@ import Ubuntu.Components 1.1
 AbstractButton {
     id: abstractButton
 
-    property string iconName
+    property alias iconName: _icon.name
     property alias color: _icon.color
 
     Rectangle {
@@ -36,7 +36,6 @@ AbstractButton {
         width: units.gu(2.5)
         height: width
         anchors.centerIn: parent
-        name: abstractButton.iconName
         color: podbird.theme.baseIcon
     }
 }

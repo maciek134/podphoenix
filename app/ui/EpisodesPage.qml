@@ -210,6 +210,120 @@ Page {
         }
     }
 
+    Component {
+        id: popoverComponent
+
+        Popover {
+            id: popover
+
+            property bool queued: false
+            property bool listened: false
+            property string downloadedfile: ""
+            property string guid: ""
+            property string audiourl: ""
+            property int index: -1
+
+            contentWidth: mainColumn.width
+
+            Column {
+                id: mainColumn
+
+                width: Math.max(download.width, listen.width)
+                anchors.top: parent.top
+
+                ListItem.Empty {
+                    id: download
+
+                    width: Math.max(row.width, row2.width)
+
+                    Row {
+                        id: row
+
+                        spacing: units.gu(3)
+                        anchors.left: parent.left
+                        anchors.leftMargin: units.gu(2)
+                        anchors.verticalCenter: parent.verticalCenter
+                        width: downloadIcon.width + downloadText.implicitWidth + row.spacing + units.gu(4)
+
+                        Icon {
+                            id: downloadIcon
+                            width: height
+                            height: downloadText.height
+                            name: popover.downloadedfile ? "delete" : (popover.queued && downloader.downloadingGuid !== popover.guid ? "history" : "save")
+                        }
+
+                        Label {
+                            id: downloadText
+                            text: popover.downloadedfile ? i18n.tr("Delete local file")
+                                                         : (popover.queued && downloader.downloadingGuid !== popover.guid ? i18n.tr("Episode queued for download")
+                                                                                                                          : i18n.tr("Download episode"))
+                        }
+                    }
+
+                    enabled: downloader.downloadingGuid !== popover.guid
+                    onClicked: {
+                        var db = Podcasts.init();
+                        if (popover.downloadedfile) {
+                            fileManager.deleteFile(popover.downloadedfile);
+                            db.transaction(function (tx) {
+                                tx.executeSql("UPDATE Episode SET downloadedfile = NULL WHERE guid = ?", [popover.guid]);
+                            });
+                            episodeModel.setProperty(popover.index, "downloadedfile", "")
+                        } else {
+                            db.transaction(function (tx) {
+                                tx.executeSql("UPDATE Episode SET queued=1 WHERE guid = ?", [popover.guid]);
+                            });
+                            episodeModel.setProperty(popover.index, "queued", 1)
+                            downloader.addDownload(popover.guid, popover.audiourl);
+                        }
+                        PopupUtils.close(popover)
+                    }
+                }
+
+                ListItem.Empty {
+                    id: listen
+
+                    showDivider: false
+                    width: Math.max(row.width, row2.width)
+
+                    Row {
+                        id: row2
+
+                        spacing: units.gu(3)
+                        anchors.left: parent.left
+                        anchors.leftMargin: units.gu(2)
+                        anchors.verticalCenter: parent.verticalCenter
+                        width: listenIcon.width + listenText.implicitWidth + row2.spacing + units.gu(4)
+
+                        Icon {
+                            id: listenIcon
+                            width: height
+                            height: listenText.height
+                            name: popover.listened ? "view-collapse" : "select"
+                        }
+
+                        Label {
+                            id: listenText
+                            text: popover.listened ? "Mark episode unlistened" : "Mark episode listened"
+                        }
+                    }
+
+                    onClicked: {
+                        var db = Podcasts.init();
+                        db.transaction(function (tx) {
+                            if (popover.listened)
+                                tx.executeSql("UPDATE Episode SET listened=0 WHERE guid=?", [popover.guid])
+                            else
+                                tx.executeSql("UPDATE Episode SET listened=1 WHERE guid=?", [popover.guid])
+                            refreshModel();
+                        });
+                        PopupUtils.close(popover)
+                    }
+                }
+            }
+        }
+    }
+
     EmptyState {
         anchors.centerIn: parent
         anchors.verticalCenterOffset: Qt.inputMethod.visible ? units.gu(4) : 0
@@ -409,31 +523,22 @@ Page {
                     }
 
                     ActionButton {
-                        id: downloadButton
+                        id: contextualMenu
 
                         width: units.gu(5)
                         height: units.gu(4)
 
-                        property bool queued: false
-
-                        iconName: model.downloadedfile ? "delete" : (queued && downloader.downloadingGuid !== model.guid ? "history" : "save")
-                        enabled: downloader.downloadingGuid !== model.guid
-                        color: downloader.downloadingGuid === model.guid ? podbird.theme.focusText
-                                                                         : podbird.theme.baseText
-
+                        iconName: "contextual-menu"
+                        color: progressBar.visible || listItem.expanded ? podbird.theme.focusText
+                                                                        : podbird.theme.baseIcon
                         onClicked: {
-                            if (model.downloadedfile) {
-                                fileManager.deleteFile(model.downloadedfile);
-                                var db = Podcasts.init();
-                                db.transaction(function (tx) {
-                                    tx.executeSql("UPDATE Episode SET downloadedfile = NULL WHERE guid = ?", [model.guid]);
-                                });
-                                episodeModel.setProperty(index, "downloadedfile", "")
-                                downloadButton.queued = false
-                            } else {
-                                downloadButton.queued = true;
-                                downloader.addDownload(model.guid, model.audiourl);
-                            }
+                            var popover = PopupUtils.open(popoverComponent, contextualMenu)
+                            popover.queued = Qt.binding(function() { return model.queued })
+                            popover.listened = Qt.binding(function() { return model.listened })
+                            popover.guid = Qt.binding(function() { return model.guid })
+                            popover.audiourl = Qt.binding(function() { return model.audiourl })
+                            popover.downloadedfile = Qt.binding(function() { return episodeModel.get(index).downloadedfile })
+                            popover.index = Qt.binding(function() { return index })
                         }
                     }
 
@@ -520,7 +625,7 @@ Page {
 
         PullToRefresh {
             refreshing: episodesUpdating
-            onRefresh: updateEpisodes();
+            onRefresh: updateEpisodesDatabase();
         }
     }
 
@@ -546,92 +651,17 @@ Page {
             for(i = 0; i < rs.rows.length; i++) {
                 episode = rs.rows.item(i);
                 if (!episode.listened) {
-                    episodeModel.insert(newCount, {"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : img, "artist" : artist, "audiourl" : episode.audiourl});
+                    episodeModel.insert(newCount, {"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : img, "artist" : artist, "audiourl" : episode.audiourl, "queued": episode.queued});
                     newCount++;
                 } else if (!podbird.settings.hideListened) {
-                    episodeModel.insert(i,{"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : img, "artist" : artist, "audiourl" : episode.audiourl});
+                    episodeModel.insert(i,{"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : img, "artist" : artist, "audiourl" : episode.audiourl, "queued": episode.queued});
                 }
             }
         });
     }
 
-    function updateEpisodes() {
-        var db = Podcasts.init();
+    function updateEpisodesDatabase() {
         episodesUpdating = true;
-        db.transaction(function(tx) {
-            var rs = tx.executeSql("SELECT rowid, feed FROM Podcast");
-            tx.executeSql("UPDATE Podcast SET lastupdate=CURRENT_TIMESTAMP");
-            var xhr = [];
-            for(var i = 0; i < rs.rows.length; i++) {
-                (function (i) {
-                    xhr[i] = new XMLHttpRequest;
-                    var url = rs.rows.item(i).feed;
-                    var pid = rs.rows.item(i).rowid;
-                    xhr[i].open("GET", url);
-                    xhr[i].onreadystatechange = function() {
-                        if (xhr[i].readyState === XMLHttpRequest.DONE) {
-                            var e = xhr[i].responseXML.documentElement;
-                            for(var h = 0; h < e.childNodes.length; h++) {
-                                if(e.childNodes[h].nodeName === "channel") {
-                                    var c = e.childNodes[h];
-                                    for(var j = 0; j < c.childNodes.length; j++) {
-                                        if(c.childNodes[j].nodeName === "item") {
-                                            var t = c.childNodes[j];
-                                            var track = {}
-                                            for(var k = 0; k < t.childNodes.length; k++) {
-                                                try {
-                                                    var nodeName = t.childNodes[k].nodeName.toLowerCase();
-                                                    if (nodeName === "title")               track['name'] = t.childNodes[k].childNodes[0].nodeValue;
-                                                    else if (nodeName === "description")    track['description'] = t.childNodes[k].childNodes[0].nodeValue;
-                                                    else if (nodeName === "guid")           track['guid'] = t.childNodes[k].childNodes[0].nodeValue;
-                                                    else if (nodeName === "pubdate")        track['published'] = new Date(t.childNodes[k].childNodes[0].nodeValue).getTime();
-                                                    else if (nodeName === "duration") {
-                                                        var dur = t.childNodes[k].childNodes[0].nodeValue.split(":");
-                                                        if (dur.length === 1) {
-                                                            track['duration'] = parseInt(dur[0]);
-                                                        } else if (dur.length === 2) {
-                                                            track['duration'] = parseInt(dur[0]) * 60 + parseInt(dur[1]);
-                                                        } else if (dur.length === 3) {
-                                                            track['duration'] = parseInt(dur[0]) * 3600 + parseInt(dur[1]) * 60 + parseInt(dur[2]);
-                                                        }
-                                                    } else if (nodeName === "enclosure") {
-                                                        var el = t.childNodes[k];
-                                                        for (var l = 0; l < el.attributes.length; l++) {
-                                                            if(el.attributes[l].nodeName === "url")         track['audiourl'] = el.attributes[l].nodeValue;
-                                                        }
-                                                    }
-                                                } catch(err) {
-                                                    console.debug(err.message);
-                                                }
-                                            }
-                                            if (!track.hasOwnProperty("guid")) {
-                                                track['guid'] = track.audiourl;
-                                            }
-
-                                            db.transaction(function(tx2) {
-                                                var ers = tx2.executeSql("SELECT rowid FROM Episode WHERE guid=?", [track.guid]);
-                                                if (ers.rows.length === 0) {
-                                                    tx2.executeSql("INSERT INTO Episode(podcast, name, description, audiourl, guid, listened, duration, published) VALUES(?, ?, ? , ?, ?, ?, ?, ?)", [pid,
-                                                                                                                                                                                                      track.name,
-                                                                                                                                                                                                      track.description,
-                                                                                                                                                                                                      track.audiourl,
-                                                                                                                                                                                                      track.guid,
-                                                                                                                                                                                                      false,
-                                                                                                                                                                                                      track.duration,
-                                                                                                                                                                                                      track.published]);
-                                                }
-                                            });
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        refreshModel();
-                    }
-                    xhr[i].send();
-
-                })(i);
-            }
-        });
+        Podcasts.updateEpisodes(refreshModel)
     }
 }
