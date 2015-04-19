@@ -20,20 +20,31 @@ execute_process(
     OUTPUT_STRIP_TRAILING_WHITESPACE
 )
 
-set(QT_IMPORTS_DIR "lib/${ARCH_TRIPLET}")
 
 option(INSTALL_TESTS "Install the tests on make install" on)
 
 set(APP_NAME          podbird)
 set(APP_ID            "com.mikeasoft.podbird")
-set(PODBIRD_DIR "share/qml/podbird")
+if(DEFINED ENV{DESKTOP_BUILD})
+    set(PODBIRD_DIR "/usr/share/podbird/qml/podbird")
+    set(ICON "/usr/share/podbird/podbird.png")
+    set(QT_IMPORTS_DIR "/usr/lib/${ARCH_TRIPLET}/qt5/qml/")
+else(DEFINED ENV{DESKTOP_BUILD})
+    set(PODBIRD_DIR "share/qml/podbird")
+    set(ICON "podbird.png")
+    set(QT_IMPORTS_DIR "lib/${ARCH_TRIPLET}")
+endif(DEFINED ENV{DESKTOP_BUILD})
 set(MAIN_QML          "podbird.qml")
-set(ICON              "podbird.png")
 
 # Set install paths
 set(CMAKE_INSTALL_PREFIX /)
-set(DATA_DIR /)
-set(DESKTOP_DIR ${DATA_DIR})
+if(DEFINED ENV{DESKTOP_BUILD})
+    set(DATA_DIR "/usr/share/podbird/")
+    set(DESKTOP_DIR "/usr/share/applications/")
+else(DEFINED ENV{DESKTOP_BUILD})
+    set(DATA_DIR /)
+    set(DESKTOP_DIR ${DATA_DIR})
+endif(DEFINED ENV{DESKTOP_BUILD})
 set(DESKTOP_FILE_NAME "Podbird.desktop")
 
 set(EXEC "qmlscene $@ ${PODBIRD_DIR}/${MAIN_QML}")
@@ -46,8 +57,10 @@ execute_process(
 )
 
 configure_file(manifest.json.in ${CMAKE_CURRENT_BINARY_DIR}/manifest.json)
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/manifest.json
-        DESTINATION ${CMAKE_INSTALL_PREFIX})
+if(NOT DEFINED ENV{DESKTOP_BUILD})
+    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/manifest.json
+            DESTINATION ${CMAKE_INSTALL_PREFIX})
+endif(NOT DEFINED ENV{DESKTOP_BUILD})
 
 install(FILES "podbird.png" DESTINATION ${DATA_DIR})
 install(FILES "Podbird.apparmor" DESTINATION ${DATA_DIR})
@@ -61,9 +74,9 @@ add_custom_target("autopilot" chmod +x ${CMAKE_SOURCE_DIR}/app/tests/autopilot/r
                     DEPENDS podbirdbackend podbirdbackend-qmldir
                     WORKING_DIRECTORY ./app)
 
-add_custom_target("check" /usr/bin/qmltestrunner -input ${CMAKE_SOURCE_DIR}/app/tests/unit -import ${CMAKE_BINARY_DIR}/backend
-                    DEPENDS podbirdbackend podbirdbackend-qmldir
-                    WORKING_DIRECTORY ./app)
+#add_custom_target("check" /usr/bin/qmltestrunner -input ${CMAKE_SOURCE_DIR}/app/tests/unit -import ${CMAKE_BINARY_DIR}/backend
+#                    DEPENDS podbirdbackend podbirdbackend-qmldir
+#                    WORKING_DIRECTORY ./app)
 
 add_custom_target("run" /usr/bin/qmlscene -I ${CMAKE_BINARY_DIR}/backend  ${CMAKE_SOURCE_DIR}/app/podbird.qml
                     DEPENDS podbirdbackend podbirdbackend-qmldir
