@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-19 14:56+0200\n"
+"POT-Creation-Date: 2015-04-19 15:09+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,19 +19,19 @@ msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
 #. TRANSLATORS: this refers to a number of songs greater than one. The actual number will be prepended to the string automatically (plural forms are not yet fully supported in usermetrics, the library that displays that string)
-#: ../app/podbird.qml:156
+#: ../app/podbird.qml:162
 msgid "podcasts listened to today"
 msgstr ""
 
-#: ../app/podbird.qml:157
+#: ../app/podbird.qml:163
 msgid "No podcasts listened to today"
 msgstr ""
 
-#: ../app/podbird.qml:219
+#: ../app/podbird.qml:225
 msgid "Add New Podcasts"
 msgstr ""
 
-#: ../app/podbird.qml:233
+#: ../app/podbird.qml:239
 msgid "Settings"
 msgstr ""
 

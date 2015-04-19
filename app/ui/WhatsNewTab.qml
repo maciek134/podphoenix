@@ -522,57 +522,58 @@ Tab {
 
             PullToRefresh {
                 refreshing: episodesUpdating
-                onRefresh: whatsNewPage.updateEpisodesDatabase();
+                onRefresh: updateEpisodesDatabase();
             }
         }
+    }
 
-        function refreshModel() {
-            var today = new Date()
-            var dayToMs = 86400000; //1 * 24 * 60 * 60 * 1000
-            var i, j, episode, diff
-            var todayCount, yesterdayCount
+    function refreshModel() {
+        var today = new Date()
+        var dayToMs = 86400000; //1 * 24 * 60 * 60 * 1000
+        var i, j, episode, diff
+        var todayCount, yesterdayCount
 
-            whatsNewModel.clear()
-            todayCount = 0
-            yesterdayCount = 0
+        whatsNewModel.clear()
+        todayCount = 0
+        yesterdayCount = 0
 
-            var db = Podcasts.init()
-            db.transaction(function (tx) {
-                var rs = tx.executeSql("SELECT rowid, * FROM Podcast ORDER BY name ASC");
-                for (i=0; i < rs.rows.length; i++) {
-                    var podcast = rs.rows.item(i);
-                    var rs2 = tx.executeSql("SELECT rowid, * FROM Episode WHERE podcast=? ORDER BY published DESC", [rs.rows.item(i).rowid]);
-                    for (j=0; j < rs2.rows.length; j++) {
-                        episode = rs2.rows.item(j)
-                        diff = Math.floor((today - episode.published)/dayToMs)
-                        if (diff < 7 && !episode.listened) {
-                            if (diff < 1) {
-                                whatsNewModel.insert(todayCount, {"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : podcast.image, "artist" : podcast.artist, "audiourl" : episode.audiourl, "queued": episode.queued, "diff": "Today"})
-                                todayCount++;
-                            } else if (diff < 2) {
-                                whatsNewModel.insert(todayCount + yesterdayCount, {"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : podcast.image, "artist" : podcast.artist, "audiourl" : episode.audiourl, "queued": episode.queued, "diff": "Yesterday"})
-                                yesterdayCount++;
-                            } else {
-                                whatsNewModel.append({"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : podcast.image, "artist" : podcast.artist, "audiourl" : episode.audiourl, "queued": episode.queued, "diff": "Older"})
-                            }
-                        } else if (diff >= 7){
-                            break
+        var db = Podcasts.init()
+        db.transaction(function (tx) {
+            var rs = tx.executeSql("SELECT rowid, * FROM Podcast ORDER BY name ASC");
+            for (i=0; i < rs.rows.length; i++) {
+                var podcast = rs.rows.item(i);
+                var rs2 = tx.executeSql("SELECT rowid, * FROM Episode WHERE podcast=? ORDER BY published DESC", [rs.rows.item(i).rowid]);
+                for (j=0; j < rs2.rows.length; j++) {
+                    episode = rs2.rows.item(j)
+                    diff = Math.floor((today - episode.published)/dayToMs)
+                    if (diff < 7 && !episode.listened) {
+                        if (diff < 1) {
+                            whatsNewModel.insert(todayCount, {"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : podcast.image, "artist" : podcast.artist, "audiourl" : episode.audiourl, "queued": episode.queued, "diff": "Today"})
+                            todayCount++;
+                        } else if (diff < 2) {
+                            whatsNewModel.insert(todayCount + yesterdayCount, {"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : podcast.image, "artist" : podcast.artist, "audiourl" : episode.audiourl, "queued": episode.queued, "diff": "Yesterday"})
+                            yesterdayCount++;
+                        } else {
+                            whatsNewModel.append({"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : podcast.image, "artist" : podcast.artist, "audiourl" : episode.audiourl, "queued": episode.queued, "diff": "Older"})
                         }
-                    }
-
-                    if (podcast.lastupdate === null && !episodesUpdating) {
-                        updateEpisodesDatabase();
+                    } else if (diff >= 7){
+                        break
                     }
                 }
-            });
 
-            episodesUpdating = false;
-        }
+                if (podcast.lastupdate === null && !episodesUpdating) {
+                    updateEpisodesDatabase();
+                }
+            }
+        });
 
-        function updateEpisodesDatabase() {
-            console.log("[LOG]: Checking for new episodes")
-            episodesUpdating = true;
-            Podcasts.updateEpisodes(refreshModel)
-        }
+        episodesUpdating = false;
+    }
+
+    function updateEpisodesDatabase() {
+        console.log("[LOG]: Checking for new episodes")
+        episodesUpdating = true;
+        Podcasts.updateEpisodes(refreshModel)
     }
 }
+
