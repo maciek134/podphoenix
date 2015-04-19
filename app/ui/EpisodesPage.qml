@@ -597,7 +597,6 @@ Page {
                 Label {
                     id: desc
                     text: model.description
-                    textFormat: Text.RichText
                     clip: true
                     height: listItem.expanded ? contentHeight : 0
                     wrapMode: Text.WordWrap
