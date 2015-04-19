@@ -347,40 +347,6 @@ Page {
         filter.pattern: RegExp(searchField.text, "gi")
     }
 
-    function formatTime(seconds) {
-        var time = Podcasts.getTimeDiff(seconds)
-        var hour = time[0]
-        var minute = time[1]
-        // TRANSLATORS: the first argument is the number of hours,
-        // followed by minute (eg. 20h 3m)
-        if(hour > 0 &&  minute > 0) {
-            // xgettext: no-c-format
-            return (i18n.tr("%1 hr %2 min"))
-            .arg(hour)
-            .arg(minute)
-        }
-
-        // TRANSLATORS: this string indicates the number of hours
-        // eg. 20h (no plural state required)
-        else if(hour > 0 && minute === 0) {
-            // xgettext: no-c-format
-            return (i18n.tr("%1 hr"))
-            .arg(hour)
-        }
-
-        // TRANSLATORS: this string indicates the number of minutes
-        // eg. 15m (no plural state required)
-        else if(hour === 0 && minute > 0) {
-            // xgettext: no-c-format
-            return (i18n.tr("%1 min"))
-            .arg(minute)
-        }
-
-        else {
-            return Podcasts.formatTime(seconds)
-        }
-    }
-
     UbuntuListView {
         id: episodeList
 
@@ -523,13 +489,26 @@ Page {
                                                                                                                                 : podbird.theme.baseText
                         }
 
-                        Label {
-                            id: episodePublishDate
-                            width: parent.width
-                            text: model.duration === undefined ? Qt.formatDate(new Date(model.published), "MMM d, yyyy") : formatTime(model.duration) + " | " + Qt.formatDate(new Date(model.published), "MMM d, yyyy")
-                            fontSize: "x-small"
-                            elide: Text.ElideRight
-                            color: podbird.theme.baseSubText
+                        Row {
+                            height:episodePublishDate.height
+                            width:parent.width
+                            spacing:units.gu(1)
+
+                            Icon{
+                                height:episodePublishDate.height
+                                width:height
+                                name:"attachment"
+                                visible: model.downloadedfile ? true : false
+                            }
+
+                            Label {
+                                id: episodePublishDate
+                                width: parent.width
+                                text: model.duration === undefined ? Qt.formatDate(new Date(model.published), "MMM d, yyyy") : Podcasts.formatEpisodeTime(model.duration) + " | " + Qt.formatDate(new Date(model.published), "MMM d, yyyy")
+                                fontSize: "x-small"
+                                elide: Text.ElideRight
+                                color: podbird.theme.baseSubText
+                            }
                         }
                     }
 
@@ -587,38 +566,17 @@ Page {
                     }
                 }
 
-                Rectangle {
+                CustomProgressBar {
                     id: progressBar
-                    radius: width/3
                     width: parent.width
-                    height: units.dp(5)
-                    color: Theme.palette.normal.base
                     visible: downloader.downloadingGuid === model.guid
-                    Rectangle {
-                        id: currentProgress
-                        height: parent.height
-                        radius: parent.radius
-                        anchors.left: parent.left
-                        anchors.top: parent.top
-                        color: podbird.theme.focusText
-                        width: downloader.progress >= 0 && downloader.progress <= 100 ? (downloader.progress / 100) * parent.width : parent.width / 6
-
-                        SequentialAnimation {
-                            running: downloader.progress < 0 || downloader.progress > 100 && downloader.downloadingGuid === model.guid
-                            onRunningChanged: {
-                                currentProgress.anchors.leftMargin = 0;
-                            }
-                            loops: Animation.Infinite
-                            PropertyAnimation { target: currentProgress.anchors; property: "leftMargin"; from: 0.0; to: parent.width  - parent.width / 6 - units.gu(3); duration: UbuntuAnimation.SleepyDuration; easing.type:  Easing.InOutQuad; }
-                            PropertyAnimation { target: currentProgress.anchors; property: "leftMargin"; from: parent.width  - parent.width / 6 - units.gu(3); to: 0; duration: UbuntuAnimation.SleepyDuration; easing.type: Easing.InOutQuad; }
-                        }
-                    }
+                    indeterminateProgress: downloader.progress < 0 || downloader.progress > 100 && downloader.downloadingGuid === model.guid
+                    progress: downloader.progress
                 }
 
                 Label {
                     id: desc
                     text: model.description
-                    textFormat: Text.RichText
                     clip: true
                     height: listItem.expanded ? contentHeight : 0
                     wrapMode: Text.WordWrap
@@ -626,6 +584,7 @@ Page {
                     fontSize: "small"
                     linkColor: podbird.theme.linkText
                     color: podbird.theme.baseSubText
+                    onLinkActivated: Qt.openUrlExternally(link)
                     Behavior on height {
                         UbuntuNumberAnimation {
                             duration: UbuntuAnimation.BriskDuration
@@ -641,8 +600,9 @@ Page {
         }
     }
 
-    Scrollbar {
-        flickableItem: episodeList
+    // #FIXME: Use SDK Scrollbar when it is themeable
+    CustomScrollBar {
+        listview: episodeList
     }
 
     function refreshModel() {

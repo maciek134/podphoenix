@@ -49,7 +49,7 @@ Page {
             Label {
                 width: parent.width
                 horizontalAlignment: Text.AlignHCenter
-                text: i18n.tr("Version %1").arg("0.6.beta2")
+                text: i18n.tr("Version %1").arg("0.6.beta3")
             }
         }
 

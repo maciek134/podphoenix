@@ -203,6 +203,11 @@ MainView {
         Tabs {
             id: tabs
 
+            WhatsNewTab {
+                id: whatsNewTab
+                objectName: "whatsNewTab"
+            }
+
             PodcastsTab {
                 id: podcastTab
                 objectName: "podcastsTab"
@@ -211,7 +216,7 @@ MainView {
             Tab {
                 id: searchTab
 
-                title: i18n.tr("Find New Podcasts")
+                title: i18n.tr("Add New Podcasts")
 
                 page: Loader {
                     parent: searchTab
