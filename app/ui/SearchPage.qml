@@ -302,6 +302,7 @@ Page {
                     fontSize: "small"
                     color: podbird.theme.baseSubText
                     linkColor: podbird.theme.linkText
+                    onLinkActivated: Qt.openUrlExternally(link)
                     Behavior on height {
                         UbuntuNumberAnimation {
                             duration: UbuntuAnimation.BriskDuration

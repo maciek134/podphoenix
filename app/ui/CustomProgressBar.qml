@@ -22,33 +22,30 @@ import Ubuntu.Components 1.1
 Rectangle {
     id: progressBar
 
-    property alias progress: currentProgress.width
+    property real progress
     property bool indeterminateProgress: false
 
     radius: width/3
-    width: parent.width
     height: units.dp(5)
     color: Theme.palette.normal.base
 
     Rectangle {
         id: currentProgress
-
         height: parent.height
         radius: parent.radius
         anchors.left: parent.left
         anchors.top: parent.top
         color: podbird.theme.focusText
-        
-        SequentialAnimation {
-            loops: Animation.Infinite
-            running: indeterminateProgress
+        width: progress >= 0 && progress <= 100 ? (progress / 100) * parent.width : parent.width / 6
 
+        SequentialAnimation {
+            running: indeterminateProgress
             onRunningChanged: {
                 currentProgress.anchors.leftMargin = 0;
             }
-
-            PropertyAnimation { target: currentProgress.anchors; property: "leftMargin"; from: 0.0; to: parent.width  - parent.width / 6 - units.gu(3); duration: UbuntuAnimation.SleepyDuration; easing.type:  Easing.InOutQuad; }
-            PropertyAnimation { target: currentProgress.anchors; property: "leftMargin"; from: parent.width  - parent.width / 6 - units.gu(3); to: 0; duration: UbuntuAnimation.SleepyDuration; easing.type: Easing.InOutQuad; }
+            loops: Animation.Infinite
+            PropertyAnimation { target: currentProgress.anchors; property: "leftMargin"; from: 0.0; to: parent.width  - parent.width / 6; duration: UbuntuAnimation.SleepyDuration; easing.type:  Easing.InOutQuad; }
+            PropertyAnimation { target: currentProgress.anchors; property: "leftMargin"; from: parent.width  - parent.width / 6; to: 0; duration: UbuntuAnimation.SleepyDuration; easing.type: Easing.InOutQuad; }
         }
     }
 }

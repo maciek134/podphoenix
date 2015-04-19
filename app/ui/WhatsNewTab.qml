@@ -487,11 +487,41 @@ Tab {
                         }
                     }
 
-                    CustomProgressBar {
+
+                    Rectangle {
                         id: progressBar
+                        radius: width/3
+                        width: parent.width
+                        height: units.dp(5)
+                        color: Theme.palette.normal.base
+                        visible: downloader.downloadingGuid === model.guid
+                        Rectangle {
+                            id: currentProgress
+                            height: parent.height
+                            radius: parent.radius
+                            anchors.left: parent.left
+                            anchors.top: parent.top
+                            color: podbird.theme.focusText
+                            width: downloader.progress >= 0 && downloader.progress <= 100 ? (downloader.progress / 100) * parent.width : parent.width / 6
+
+                            SequentialAnimation {
+                                running: downloader.progress < 0 || downloader.progress > 100 && downloader.downloadingGuid === model.guid
+                                onRunningChanged: {
+                                    currentProgress.anchors.leftMargin = 0;
+                                }
+                                loops: Animation.Infinite
+                                PropertyAnimation { target: currentProgress.anchors; property: "leftMargin"; from: 0.0; to: parent.width  - parent.width / 6 - units.gu(3); duration: UbuntuAnimation.SleepyDuration; easing.type:  Easing.InOutQuad; }
+                                PropertyAnimation { target: currentProgress.anchors; property: "leftMargin"; from: parent.width  - parent.width / 6 - units.gu(3); to: 0; duration: UbuntuAnimation.SleepyDuration; easing.type: Easing.InOutQuad; }
+                            }
+                        }
+                    }
+
+                    CustomProgressBar {
+                        id: progressBar2
+                        width: parent.width
                         visible: downloader.downloadingGuid === model.guid
                         indeterminateProgress: downloader.progress < 0 || downloader.progress > 100 && downloader.downloadingGuid === model.guid
-                        progress: downloader.progress > 0 ? Math.min((downloader.progress / 100) * parent.width, parent.width) : 0
+                        progress: downloader.progress
                     }
 
                     Label {
@@ -504,6 +534,7 @@ Tab {
                         fontSize: "small"
                         color: podbird.theme.baseSubText
                         linkColor: podbird.theme.linkText
+                        onLinkActivated: Qt.openUrlExternally(link)
                         Behavior on height {
                             UbuntuNumberAnimation {
                                 duration: UbuntuAnimation.BriskDuration

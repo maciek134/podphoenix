@@ -568,9 +568,10 @@ Page {
 
                 CustomProgressBar {
                     id: progressBar
+                    width: parent.width
                     visible: downloader.downloadingGuid === model.guid
                     indeterminateProgress: downloader.progress < 0 || downloader.progress > 100 && downloader.downloadingGuid === model.guid
-                    progress: downloader.progress >= 0 && downloader.progress <= 100 ? (downloader.progress / 100) * parent.width : parent.width / 6
+                    progress: downloader.progress
                 }
 
                 Label {
@@ -583,6 +584,7 @@ Page {
                     fontSize: "small"
                     linkColor: podbird.theme.linkText
                     color: podbird.theme.baseSubText
+                    onLinkActivated: Qt.openUrlExternally(link)
                     Behavior on height {
                         UbuntuNumberAnimation {
                             duration: UbuntuAnimation.BriskDuration
