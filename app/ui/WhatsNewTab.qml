@@ -487,21 +487,11 @@ Tab {
                         }
                     }
 
-                    Rectangle {
+                    CustomProgressBar {
                         id: progressBar
-                        radius: width/3
-                        width: parent.width
-                        height: units.dp(5)
-                        color: Theme.palette.normal.base
                         visible: downloader.downloadingGuid === model.guid
-                        Rectangle {
-                            height: parent.height
-                            radius: parent.radius
-                            anchors.left: parent.left
-                            anchors.top: parent.top
-                            color: podbird.theme.focusText
-                            width: downloader.progress > 0 ? Math.min((downloader.progress / 100) * parent.width, parent.width) : 0
-                        }
+                        indeterminateProgress: downloader.progress < 0 || downloader.progress > 100 && downloader.downloadingGuid === model.guid
+                        progress: downloader.progress > 0 ? Math.min((downloader.progress / 100) * parent.width, parent.width) : 0
                     }
 
                     Label {
