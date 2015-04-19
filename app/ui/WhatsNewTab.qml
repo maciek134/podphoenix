@@ -488,7 +488,7 @@ Tab {
                     }
 
                     CustomProgressBar {
-                        id: progressBar2
+                        id: progressBar
                         width: parent.width
                         visible: downloader.downloadingGuid === model.guid
                         indeterminateProgress: downloader.progress < 0 || downloader.progress > 100 && downloader.downloadingGuid === model.guid
