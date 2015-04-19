@@ -51,9 +51,15 @@ MainView {
         })
     }
 
-    // Blank function required inorder to call the generic updateEpisodes() functions
-    // which requires refreshModel() argument which doesn't apply here.
-    function blankFunction() {}
+    // RefreshModel function to call refreshModel() function of the tab currently
+    // visible on application start.
+    function refreshModels() {
+        if (tabs.selectedTabIndex === 0) {
+            whatsNewTab.refreshModel()
+        } else if (tabs.selectedTabIndex === 1) {
+            podcastTab.refreshModel()
+        }
+    }
 
     Component.onCompleted: {
         var db = Podcasts.init()
@@ -61,7 +67,7 @@ MainView {
             tx.executeSql('UPDATE Episode SET queued=0 WHERE queued=1');
         })
 
-        Podcasts.updateEpisodes(blankFunction)
+        Podcasts.updateEpisodes(refreshModels)
 
         var today = new Date()
         // Only perform cleanup of old episodes once a day
