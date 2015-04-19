@@ -40,7 +40,7 @@ Page {
         art: currentImage
 
         Image {
-            width: parent.width/2
+            width: Math.min(parent.width/2, parent.height)
             height: width
             sourceSize.height: width
             sourceSize.width: width
