@@ -1,6 +1,6 @@
 podbird (0.6-vivid1) vivid; urgency=low
 
-  * Fix missing dependency on qtdeclarative5-ubuntu-ui-toolkit-plugin
+  * Fix missing dependency on qtdeclarative5-ubuntu-ui-toolkit-plugin and qml-module-qtmultimedia
 
  -- Michael Sheldon <michael.sheldon@canonical.com>  Mon, 20 Apr 2015 18:06:53 +0100
 

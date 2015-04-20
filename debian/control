@@ -19,6 +19,7 @@ Vcs-Browser: http://bazaar.launchpad.net/~michael-sheldon/podbird/trunk/files
 Package: podbird
 Architecture: any
 Depends: qmlscene,
+         qml-module-qtmultimedia,
          qtdeclarative5-gsettings1.0,
          qtdeclarative5-qtquick2-plugin,
          qtdeclarative5-ubuntu-download-manager0.1,
