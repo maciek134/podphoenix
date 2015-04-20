@@ -32,7 +32,7 @@ Page {
 
         Image {
             height: width
-            width: parent.width/2
+            width: Math.min(parent.width/2, parent.height/2)
             source: "../graphics/podbird.png"
             anchors.horizontalCenter: parent.horizontalCenter
         }
