@@ -1,3 +1,9 @@
+podbird (0.6-vivid1) vivid; urgency=low
+
+  * Fix missing dependency on qtdeclarative5-ubuntu-ui-toolkit-plugin
+
+ -- Michael Sheldon <michael.sheldon@canonical.com>  Mon, 20 Apr 2015 18:06:53 +0100
+
 podbird (0.6) vivid; urgency=low
 
   * Initial packaging
