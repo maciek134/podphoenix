@@ -11,6 +11,7 @@ install(FILES ${QML_JS_FILES} DESTINATION ${PODBIRD_DIR})
 
 add_subdirectory(ui)
 add_subdirectory(themes)
+add_subdirectory(components)
 add_subdirectory(welcomewizard)
 add_subdirectory(graphics)
 add_subdirectory(settings)

@@ -20,6 +20,7 @@ import QtQuick 2.3
 import QtMultimedia 5.0
 import Ubuntu.Components 1.1
 import "../podcasts.js" as Podcasts
+import "../components"
 
 Page {
     id: nowPlayingPage

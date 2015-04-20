@@ -18,7 +18,7 @@
 
 import QtQuick 2.3
 import Ubuntu.Components 1.1
-import "../ui"
+import "../components"
 
 // Initial Walkthrough tutorial
 Walkthrough {
