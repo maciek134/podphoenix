@@ -36,7 +36,12 @@ Tab {
     page: Page {
         id: podcastPage
 
-        flickable: viewLoader.item
+        /*
+         #FIXME: The page flickable is to null instead of viewLoader.item since
+         it otherwise creates bug http://pad.lv/1446162 which can confuse a
+         new user.
+        */
+        flickable: null
 
         /*
          #FIXME: The following lines of code is necessary due to a upstream bug
@@ -145,6 +150,7 @@ Tab {
 
             CardView {
                 id: cardView
+                clip: true
                 model: sortedPodcastModel
                 delegate: Card {
                     id: albumCard
@@ -177,6 +183,7 @@ Tab {
                     flickDeceleration = flickDeceleration * scaleFactor;
                 }
 
+                clip: true
                 model: sortedPodcastModel
                 anchors.fill: parent
 
