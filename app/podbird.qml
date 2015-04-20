@@ -226,9 +226,6 @@ MainView {
 
                 page: Loader {
                     parent: searchTab
-                    anchors.left: parent.left
-                    anchors.right: parent.right
-                    anchors.bottom: parent.bottom
                     source: (tabs.selectedTab === searchTab) ? Qt.resolvedUrl("ui/SearchPage.qml") : ""
                 }
             }
@@ -240,9 +237,6 @@ MainView {
 
                 page: Loader {
                     parent: settingsTab
-                    anchors.left: parent.left
-                    anchors.right: parent.right
-                    anchors.bottom: parent.bottom
                     source: (tabs.selectedTab === settingsTab) ? Qt.resolvedUrl("ui/SettingsPage.qml") : ""
                 }
             }
