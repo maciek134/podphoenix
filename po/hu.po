@@ -7,55 +7,70 @@ msgid ""
 msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-04-19 01:06+0200\n"
-"PO-Revision-Date: 2015-04-17 08:23+0000\n"
+"POT-Creation-Date: 2015-04-20 00:36+0100\n"
+"PO-Revision-Date: 2015-04-19 18:29+0000\n"
 "Last-Translator: Richard Somlói <ricsipontaz@gmail.com>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2015-04-19 06:00+0000\n"
+"X-Launchpad-Export-Date: 2015-04-20 06:40+0000\n"
 "X-Generator: Launchpad (build 17430)\n"
 
 #. TRANSLATORS: this refers to a number of songs greater than one. The actual number will be prepended to the string automatically (plural forms are not yet fully supported in usermetrics, the library that displays that string)
-#: ../app/podbird.qml:156
+#: ../app/podbird.qml:162
 msgid "podcasts listened to today"
-msgstr ""
+msgstr "ma meghallgatott podcast"
 
-#: ../app/podbird.qml:157
+#: ../app/podbird.qml:163
 msgid "No podcasts listened to today"
-msgstr ""
+msgstr "Nem hallgatott meg ma egy podcastet sem"
 
-#: ../app/podbird.qml:214
-msgid "Find New Podcasts"
-msgstr "Új Podcast keresése"
+#: ../app/podbird.qml:225
+msgid "Add New Podcasts"
+msgstr "Új Podcast hozzáadása"
 
-#: ../app/podbird.qml:228
+#: ../app/podbird.qml:239
 msgid "Settings"
 msgstr "Beállítások"
 
+#: ../app/podcasts.js:179
+#, no-c-format, qt-format
+msgid "%1 hr %2 min"
+msgstr "%1 óra %2 perc"
+
+#: ../app/podcasts.js:188
+#, no-c-format, qt-format
+msgid "%1 hr"
+msgstr "%1 óra"
+
+#: ../app/podcasts.js:196
+#, no-c-format, qt-format
+msgid "%1 min"
+msgstr "%1 perc"
+
 #: ../app/settings/About.qml:25 ../app/ui/SettingsPage.qml:124
 msgid "About"
-msgstr ""
+msgstr "Névjegy"
 
 #: ../app/settings/About.qml:52
 #, qt-format
 msgid "Version %1"
-msgstr ""
+msgstr "Verzió: %1"
 
 #: ../app/settings/About.qml:73
 msgid "Released under the terms of the GNU GPL v3"
-msgstr ""
+msgstr "A GNU GPL v3 feltételei alatt lett kiadva"
 
 #: ../app/settings/About.qml:83
 #, qt-format
 msgid "Source code available on %1"
-msgstr ""
+msgstr "A forráskód elérhető a %1 oldalon"
 
 #: ../app/settings/CleanSetting.qml:27
 msgid "Delete older than"
-msgstr "Ennél régebbiek törlése:"
+msgstr "Régebbiek törlése:"
 
 #: ../app/settings/CleanSetting.qml:33 ../app/settings/DownloadSetting.qml:33
 msgid "Never"
@@ -65,53 +80,53 @@ msgstr "Soha"
 #, qt-format
 msgid "%1 day"
 msgid_plural "%1 days"
-msgstr[0] "%1 nap"
-msgstr[1] "%1 nap"
+msgstr[0] "%1 napnál"
+msgstr[1] "%1 napnál"
 
 #: ../app/settings/CleanSetting.qml:35 ../app/settings/CleanSetting.qml:36
 #: ../app/settings/CleanSetting.qml:37
 #, qt-format
 msgid "%1 month"
 msgid_plural "%1 months"
-msgstr[0] "%1 hónap"
-msgstr[1] "%1 hónap"
+msgstr[0] "%1 hónapnál"
+msgstr[1] "%1 hónapnál"
 
 #: ../app/settings/CleanSetting.qml:38
 #, qt-format
 msgid "%1 year"
 msgid_plural "%1 years"
-msgstr[0] "%1 év"
-msgstr[1] "%1 év"
+msgstr[0] "%1 évnél"
+msgstr[1] "%1 évnél"
 
 #: ../app/settings/Credits.qml:26 ../app/ui/SettingsPage.qml:131
 msgid "Credits"
-msgstr ""
+msgstr "Közreműködők"
 
 #: ../app/settings/Credits.qml:33
 msgid "Developers"
-msgstr ""
+msgstr "Fejlesztők"
 
 #: ../app/settings/Credits.qml:47
 msgid "Designer"
-msgstr ""
+msgstr "Dízájner"
 
 #: ../app/settings/Credits.qml:56
 msgid "Translators"
-msgstr ""
+msgstr "Fordítók"
 
 #: ../app/settings/DownloadSetting.qml:27
 msgid "Download at most"
-msgstr "Legfeljebb töltsön le:"
+msgstr "Legfeljebb letölthető:"
 
 #: ../app/settings/DownloadSetting.qml:34
 #: ../app/settings/DownloadSetting.qml:35
 #: ../app/settings/DownloadSetting.qml:36
-#: ../app/settings/DownloadSetting.qml:37 ../app/ui/EpisodesPage.qml:462
+#: ../app/settings/DownloadSetting.qml:37 ../app/ui/EpisodesPage.qml:428
 #, qt-format
 msgid "%1 episode"
 msgid_plural "%1 episodes"
-msgstr[0] "%1 részt"
-msgstr[1] "%1 részt"
+msgstr[0] "%1 rész"
+msgstr[1] "%1 rész"
 
 #: ../app/settings/ThemeSetting.qml:27 ../app/ui/SettingsPage.qml:49
 msgid "Theme"
@@ -127,26 +142,29 @@ msgstr "Sötét"
 
 #: ../app/ui/EpisodesPage.qml:33
 msgid "Podcast"
-msgstr ""
+msgstr "Podcast"
 
-#: ../app/ui/EpisodesPage.qml:89 ../app/ui/SearchPage.qml:55
+#: ../app/ui/EpisodesPage.qml:89 ../app/ui/SearchPage.qml:56
+#: ../app/ui/WhatsNewTab.qml:32
 msgid "Search Episode"
 msgstr "Részek keresése"
 
-#: ../app/ui/EpisodesPage.qml:98
+#: ../app/ui/EpisodesPage.qml:98 ../app/ui/WhatsNewTab.qml:41
 msgid "Mark all listened"
-msgstr "Összes hallgatottnak jelölése"
+msgstr "Mind meghallgatva"
 
 #: ../app/ui/EpisodesPage.qml:109 ../app/ui/EpisodesPage.qml:187
+#: ../app/ui/SearchPage.qml:267
 msgid "Unsubscribe"
 msgstr "Leiratkozás"
 
-#: ../app/ui/EpisodesPage.qml:124 ../app/ui/PodcastsTab.qml:96
-#: ../app/ui/PodcastsTab.qml:119 ../app/ui/SearchPage.qml:69
+#: ../app/ui/EpisodesPage.qml:124 ../app/ui/PodcastsTab.qml:87
+#: ../app/ui/SearchPage.qml:79 ../app/ui/SearchPage.qml:109
+#: ../app/ui/WhatsNewTab.qml:77
 msgid "Back"
 msgstr "Vissza"
 
-#: ../app/ui/EpisodesPage.qml:136
+#: ../app/ui/EpisodesPage.qml:136 ../app/ui/WhatsNewTab.qml:88
 msgid "Search episode"
 msgstr "Rész keresése"
 
@@ -163,56 +181,41 @@ msgstr "Biztos benne, hogy le szeretne iratkozni innen: <b>%1</b>?"
 msgid "Cancel"
 msgstr "Mégse"
 
-#: ../app/ui/EpisodesPage.qml:258
+#: ../app/ui/EpisodesPage.qml:258 ../app/ui/WhatsNewTab.qml:212
 msgid "Delete local file"
-msgstr ""
+msgstr "Helyi fájl törlése"
 
-#: ../app/ui/EpisodesPage.qml:259
+#: ../app/ui/EpisodesPage.qml:259 ../app/ui/WhatsNewTab.qml:213
 msgid "Episode queued for download"
-msgstr ""
+msgstr "Rész sorba állítva letöltésre"
 
-#: ../app/ui/EpisodesPage.qml:260
+#: ../app/ui/EpisodesPage.qml:260 ../app/ui/WhatsNewTab.qml:214
 msgid "Download episode"
-msgstr ""
+msgstr "Rész letöltése"
 
 #: ../app/ui/EpisodesPage.qml:335
 msgid "No more episodes"
-msgstr ""
+msgstr "Nincs több rész"
 
 #: ../app/ui/EpisodesPage.qml:335
 msgid "No episodes found"
-msgstr ""
+msgstr "Nem találhatóak részek"
 
 #: ../app/ui/EpisodesPage.qml:336
 msgid "All episodes have been listened to."
-msgstr ""
+msgstr "Az összes rész meg lett hallgatva."
 
 #: ../app/ui/EpisodesPage.qml:336
 msgid "No episodes found matching the search term."
 msgstr "Egy rész sem felelt meg a keresési feltételnek."
 
-#: ../app/ui/EpisodesPage.qml:358
-#, no-c-format, qt-format
-msgid "%1 hr %2 min"
-msgstr ""
-
-#: ../app/ui/EpisodesPage.qml:367
-#, no-c-format, qt-format
-msgid "%1 hr"
-msgstr ""
-
-#: ../app/ui/EpisodesPage.qml:375
-#, no-c-format, qt-format
-msgid "%1 min"
-msgstr ""
-
-#: ../app/ui/EpisodesPage.qml:415
+#: ../app/ui/EpisodesPage.qml:381
 msgid "Unheard"
-msgstr ""
+msgstr "Nem meghallgatott"
 
-#: ../app/ui/EpisodesPage.qml:415
+#: ../app/ui/EpisodesPage.qml:381
 msgid "Listened"
-msgstr ""
+msgstr "Meghallgatott"
 
 #: ../app/ui/NowPlayingPage.qml:28
 msgid "Now Playing"
@@ -230,55 +233,31 @@ msgstr "+15mp"
 msgid "Podcasts"
 msgstr "Podcastek"
 
-#: ../app/ui/PodcastsTab.qml:64
-msgid "Add Podcast"
-msgstr "Podcast hozzáadása"
-
-#: ../app/ui/PodcastsTab.qml:74
+#: ../app/ui/PodcastsTab.qml:65
 msgid "Search Podcast"
 msgstr "Podcast keresése"
 
-#: ../app/ui/PodcastsTab.qml:83
+#: ../app/ui/PodcastsTab.qml:74
 msgid "Grid View"
-msgstr ""
+msgstr "Rácsnézet"
 
-#: ../app/ui/PodcastsTab.qml:83
+#: ../app/ui/PodcastsTab.qml:74
 msgid "List View"
-msgstr ""
+msgstr "Listanézet"
 
-#: ../app/ui/PodcastsTab.qml:107
+#: ../app/ui/PodcastsTab.qml:98
 msgid "Search podcast"
 msgstr "Podcast keresése"
 
-#: ../app/ui/PodcastsTab.qml:130
-msgid "Save Podcast"
-msgstr "Podcast mentése"
-
-#: ../app/ui/PodcastsTab.qml:143
-msgid "Feed URL"
-msgstr "URL megadása"
-
-#: ../app/ui/PodcastsTab.qml:167
-msgid "Unable to subscribe"
-msgstr "Nem sikerült feliratkozni"
-
-#: ../app/ui/PodcastsTab.qml:168
-msgid "Please check the URL and try again"
-msgstr "Ellenőrizze az URL-t és próbálja újra"
-
-#: ../app/ui/PodcastsTab.qml:170
-msgid "Close"
-msgstr "Bezárás"
-
-#: ../app/ui/PodcastsTab.qml:185
+#: ../app/ui/PodcastsTab.qml:120
 msgid "No Podcast Subscriptions"
 msgstr "Nincs feliratkozva semmire"
 
-#: ../app/ui/PodcastsTab.qml:186
+#: ../app/ui/PodcastsTab.qml:121
 msgid "No Podcasts Found"
 msgstr "Nem találhatóak Podcastek"
 
-#: ../app/ui/PodcastsTab.qml:187
+#: ../app/ui/PodcastsTab.qml:122
 msgid ""
 "You haven't subscribed to any podcasts yet, visit the 'Find New Podcasts' "
 "page to add some."
@@ -286,36 +265,76 @@ msgstr ""
 "Nem iratkozott fel még egy Podcast-re sem, az „Új Podcast keresése” oldalon "
 "változtathat ezen."
 
-#: ../app/ui/PodcastsTab.qml:188 ../app/ui/SearchPage.qml:103
+#: ../app/ui/PodcastsTab.qml:123 ../app/ui/SearchPage.qml:166
 msgid "No podcasts found matching the search term."
 msgstr "Nem felelt meg egy Podcast sem a keresési feltételnek."
 
-#: ../app/ui/PodcastsTab.qml:218 ../app/ui/PodcastsTab.qml:338
+#: ../app/ui/PodcastsTab.qml:153 ../app/ui/PodcastsTab.qml:273
 #, qt-format
 msgid "%1 unheard episode"
 msgid_plural "%1 unheard episodes"
 msgstr[0] "%1 meg nem hallgatott rész"
 msgstr[1] "%1 meg nem hallgatott rész"
 
-#: ../app/ui/SearchPage.qml:80
+#: ../app/ui/SearchPage.qml:64
+msgid "Add Podcast"
+msgstr "Podcast hozzáadása"
+
+#: ../app/ui/SearchPage.qml:90
 msgid "Search..."
 msgstr "Keresés…"
 
-#: ../app/ui/SearchPage.qml:102
-msgid "Looking for a new Podcast?"
-msgstr ""
+#: ../app/ui/SearchPage.qml:120
+msgid "Save Podcast"
+msgstr "Podcast mentése"
 
-#: ../app/ui/SearchPage.qml:102
+#: ../app/ui/SearchPage.qml:131
+msgid "Feed URL"
+msgstr "URL megadása"
+
+#: ../app/ui/SearchPage.qml:146
+msgid "Unable to subscribe"
+msgstr "Nem sikerült feliratkozni"
+
+#: ../app/ui/SearchPage.qml:147
+msgid "Please check the URL and try again"
+msgstr "Ellenőrizze az URL-t és próbálja újra"
+
+#: ../app/ui/SearchPage.qml:149
+msgid "Close"
+msgstr "Bezárás"
+
+#: ../app/ui/SearchPage.qml:165
+msgid "Looking to add a new Podcast?"
+msgstr "Új Podcastet szeretne hozzáadni?"
+
+#: ../app/ui/SearchPage.qml:165
 msgid "No Podcasts found"
-msgstr ""
+msgstr "Nem található ilyen Podcast"
 
-#: ../app/ui/SearchPage.qml:103
-msgid "Click the 'magnifier' at the top to search."
+#: ../app/ui/SearchPage.qml:166
+msgid ""
+"Click the 'magnifier' at the top to search or the 'plus' button to add by URL"
 msgstr ""
+"A „nagyító” ikon segítségével kereshet új Podcastokat, a „plusz” ikonnal "
+"pedig URL cím alapján adhat hozzá újakat."
 
-#: ../app/ui/SearchPage.qml:184
+#: ../app/ui/SearchPage.qml:267
 msgid "Subscribe"
 msgstr "Feliratkozás"
+
+#: ../app/ui/SearchPage.qml:298
+#, qt-format
+msgid ""
+"Last Updated: %1\n"
+"%2"
+msgstr ""
+"Utolsó frissítés: %1\n"
+"%2"
+
+#: ../app/ui/SearchPage.qml:353
+msgid "Not Available"
+msgstr "Nem elérhető"
 
 #: ../app/ui/SettingsPage.qml:43
 msgid "General Settings"
@@ -327,7 +346,7 @@ msgstr "Podcast részek beállításai"
 
 #: ../app/ui/SettingsPage.qml:60
 msgid "Hide listened episodes"
-msgstr ""
+msgstr "Meghallgatott részek elrejtése"
 
 #: ../app/ui/SettingsPage.qml:79
 msgid "Automatically delete old episodes"
@@ -336,7 +355,7 @@ msgstr "Régi részek automatikus törlése"
 #: ../app/ui/SettingsPage.qml:87
 msgid ""
 "Delete episodes that are older than a given number of days for each podcast"
-msgstr "Megadott napnál régebbi részek automatikus törlése"
+msgstr "A megadott napnál régebbi részek automatikus törlése"
 
 #: ../app/ui/SettingsPage.qml:104
 msgid "Automatically download new episodes"
@@ -348,15 +367,63 @@ msgstr "A Podcastenként automatikusan letöltődő részek mennyisége"
 
 #: ../app/ui/SettingsPage.qml:118
 msgid "Misc."
-msgstr ""
+msgstr "Egyéb"
 
 #: ../app/ui/SettingsPage.qml:138
 msgid "Report Bug"
-msgstr ""
+msgstr "Hiba jelentése"
 
 #: ../app/ui/Walkthrough.qml:87
 msgid "Skip"
 msgstr "Kihagyás"
+
+#: ../app/ui/WhatsNewTab.qml:14
+msgid "What's New"
+msgstr "Újdonságok"
+
+#: ../app/ui/WhatsNewTab.qml:55
+msgid "Download all"
+msgstr "Minden letöltése"
+
+#: ../app/ui/WhatsNewTab.qml:104
+msgid "No New Episodes"
+msgstr "Nincsenek új részek"
+
+#: ../app/ui/WhatsNewTab.qml:105
+msgid "No Episodes Found"
+msgstr "Nem találhatóak részek"
+
+#: ../app/ui/WhatsNewTab.qml:106
+msgid "No more episodes to listen to!"
+msgstr "Nincs több hallgatni való."
+
+#: ../app/ui/WhatsNewTab.qml:107
+msgid "No Episodes found matching the search term."
+msgstr "Nem található olyan rész, ami megfelel a keresési feltételnek."
+
+#: ../app/ui/WhatsNewTab.qml:262
+msgid "Mark episode listened"
+msgstr "Rész hallgatottnak jelölése"
+
+#: ../app/ui/WhatsNewTab.qml:302
+msgid "Pause Episode"
+msgstr "Rész szüneteltetése"
+
+#: ../app/ui/WhatsNewTab.qml:303
+msgid "Play Episode"
+msgstr "Rész lejátszása"
+
+#: ../app/ui/WhatsNewTab.qml:368
+msgid "Today"
+msgstr "Ma"
+
+#: ../app/ui/WhatsNewTab.qml:372
+msgid "Yesterday"
+msgstr "Tegnap"
+
+#: ../app/ui/WhatsNewTab.qml:376
+msgid "Older"
+msgstr "Régebbi"
 
 #: ../app/welcomewizard/Slide1.qml:42
 msgid "Welcome to Podbird"
@@ -444,6 +511,6 @@ msgstr "Reméljük a Podbird elnyeri a tetszését!"
 msgid "Finish"
 msgstr "Befejezés"
 
-#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-8.6-aboutpage-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
+#: /home/mike/src/podbird/build-debian-packaging-Ubuntu_Device3_GCC_armhf_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
 msgid "Podbird"
 msgstr "Podbird"

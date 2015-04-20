@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-04-19 01:06+0200\n"
-"PO-Revision-Date: 2015-03-26 11:13+0000\n"
+"POT-Creation-Date: 2015-04-20 00:36+0100\n"
+"PO-Revision-Date: 2015-04-19 15:37+0000\n"
 "Last-Translator: Yuri Chornoivan <yurchor@gmail.com>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -16,140 +16,162 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Launchpad-Export-Date: 2015-04-19 06:00+0000\n"
+"X-Launchpad-Export-Date: 2015-04-20 06:40+0000\n"
 "X-Generator: Launchpad (build 17430)\n"
 
 #. TRANSLATORS: this refers to a number of songs greater than one. The actual number will be prepended to the string automatically (plural forms are not yet fully supported in usermetrics, the library that displays that string)
-#: ../app/podbird.qml:156
+#: ../app/podbird.qml:162
 msgid "podcasts listened to today"
-msgstr ""
+msgstr "трансляцій прослухано сьогодні"
 
-#: ../app/podbird.qml:157
+#: ../app/podbird.qml:163
 msgid "No podcasts listened to today"
-msgstr ""
+msgstr "Сьогодні трансляцій не прослуховувалося"
 
-#: ../app/podbird.qml:214
-msgid "Find New Podcasts"
-msgstr "Пошук нових трансляцій"
+#: ../app/podbird.qml:225
+msgid "Add New Podcasts"
+msgstr "Додати нові трансляції"
 
-#: ../app/podbird.qml:228
+#: ../app/podbird.qml:239
 msgid "Settings"
-msgstr ""
+msgstr "Параметри"
+
+#: ../app/podcasts.js:179
+#, no-c-format, qt-format
+msgid "%1 hr %2 min"
+msgstr "%1 год. %2 хв."
+
+#: ../app/podcasts.js:188
+#, no-c-format, qt-format
+msgid "%1 hr"
+msgstr "%1 год."
+
+#: ../app/podcasts.js:196
+#, no-c-format, qt-format
+msgid "%1 min"
+msgstr "%1 хв."
 
 #: ../app/settings/About.qml:25 ../app/ui/SettingsPage.qml:124
 msgid "About"
-msgstr ""
+msgstr "Про проґраму"
 
 #: ../app/settings/About.qml:52
 #, qt-format
 msgid "Version %1"
-msgstr ""
+msgstr "Версія %1"
 
 #: ../app/settings/About.qml:73
 msgid "Released under the terms of the GNU GPL v3"
-msgstr ""
+msgstr "Випущено за умов дотримання GNU GPL 3"
 
 #: ../app/settings/About.qml:83
 #, qt-format
 msgid "Source code available on %1"
-msgstr ""
+msgstr "Початковий код можна отримати на %1"
 
 #: ../app/settings/CleanSetting.qml:27
 msgid "Delete older than"
-msgstr ""
+msgstr "Вилучити старіші за"
 
 #: ../app/settings/CleanSetting.qml:33 ../app/settings/DownloadSetting.qml:33
 msgid "Never"
-msgstr ""
+msgstr "без обмежень"
 
 #: ../app/settings/CleanSetting.qml:34
 #, qt-format
 msgid "%1 day"
 msgid_plural "%1 days"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 день"
+msgstr[1] "%1 дні"
+msgstr[2] "%1 днів"
 
 #: ../app/settings/CleanSetting.qml:35 ../app/settings/CleanSetting.qml:36
 #: ../app/settings/CleanSetting.qml:37
 #, qt-format
 msgid "%1 month"
 msgid_plural "%1 months"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 місяць"
+msgstr[1] "%1 місяці"
+msgstr[2] "%1 місяців"
 
 #: ../app/settings/CleanSetting.qml:38
 #, qt-format
 msgid "%1 year"
 msgid_plural "%1 years"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 рік"
+msgstr[1] "%1 роки"
+msgstr[2] "%1 років"
 
 #: ../app/settings/Credits.qml:26 ../app/ui/SettingsPage.qml:131
 msgid "Credits"
-msgstr ""
+msgstr "Подяки"
 
 #: ../app/settings/Credits.qml:33
 msgid "Developers"
-msgstr ""
+msgstr "Розробники"
 
 #: ../app/settings/Credits.qml:47
 msgid "Designer"
-msgstr ""
+msgstr "Дизайнер"
 
 #: ../app/settings/Credits.qml:56
 msgid "Translators"
-msgstr ""
+msgstr "Перекладачі"
 
 #: ../app/settings/DownloadSetting.qml:27
 msgid "Download at most"
-msgstr ""
+msgstr "Отримувати не більше"
 
 #: ../app/settings/DownloadSetting.qml:34
 #: ../app/settings/DownloadSetting.qml:35
 #: ../app/settings/DownloadSetting.qml:36
-#: ../app/settings/DownloadSetting.qml:37 ../app/ui/EpisodesPage.qml:462
+#: ../app/settings/DownloadSetting.qml:37 ../app/ui/EpisodesPage.qml:428
 #, qt-format
 msgid "%1 episode"
 msgid_plural "%1 episodes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 епізода"
+msgstr[1] "%1 епізодів"
+msgstr[2] "%1 епізодів"
 
 #: ../app/settings/ThemeSetting.qml:27 ../app/ui/SettingsPage.qml:49
 msgid "Theme"
-msgstr ""
+msgstr "Тема"
 
 #: ../app/settings/ThemeSetting.qml:33 ../app/ui/SettingsPage.qml:50
 msgid "Light"
-msgstr ""
+msgstr "Світла"
 
 #: ../app/settings/ThemeSetting.qml:34 ../app/ui/SettingsPage.qml:50
 msgid "Dark"
-msgstr ""
+msgstr "Темна"
 
 #: ../app/ui/EpisodesPage.qml:33
 msgid "Podcast"
-msgstr ""
+msgstr "Трансляція"
 
-#: ../app/ui/EpisodesPage.qml:89 ../app/ui/SearchPage.qml:55
+#: ../app/ui/EpisodesPage.qml:89 ../app/ui/SearchPage.qml:56
+#: ../app/ui/WhatsNewTab.qml:32
 msgid "Search Episode"
 msgstr "Пошук епізоду"
 
-#: ../app/ui/EpisodesPage.qml:98
+#: ../app/ui/EpisodesPage.qml:98 ../app/ui/WhatsNewTab.qml:41
 msgid "Mark all listened"
 msgstr "Позначити усі як прослухані"
 
 #: ../app/ui/EpisodesPage.qml:109 ../app/ui/EpisodesPage.qml:187
+#: ../app/ui/SearchPage.qml:267
 msgid "Unsubscribe"
 msgstr "Відписатися"
 
-#: ../app/ui/EpisodesPage.qml:124 ../app/ui/PodcastsTab.qml:96
-#: ../app/ui/PodcastsTab.qml:119 ../app/ui/SearchPage.qml:69
+#: ../app/ui/EpisodesPage.qml:124 ../app/ui/PodcastsTab.qml:87
+#: ../app/ui/SearchPage.qml:79 ../app/ui/SearchPage.qml:109
+#: ../app/ui/WhatsNewTab.qml:77
 msgid "Back"
 msgstr "Назад"
 
-#: ../app/ui/EpisodesPage.qml:136
+#: ../app/ui/EpisodesPage.qml:136 ../app/ui/WhatsNewTab.qml:88
 msgid "Search episode"
-msgstr ""
+msgstr "Шукати епізод"
 
 #: ../app/ui/EpisodesPage.qml:184
 msgid "Unsubscribe Confirmation"
@@ -162,58 +184,43 @@ msgstr "Ви справді хочете скасувати підписку н�
 
 #: ../app/ui/EpisodesPage.qml:204
 msgid "Cancel"
-msgstr ""
+msgstr "Скасувати"
 
-#: ../app/ui/EpisodesPage.qml:258
+#: ../app/ui/EpisodesPage.qml:258 ../app/ui/WhatsNewTab.qml:212
 msgid "Delete local file"
-msgstr ""
+msgstr "Вилучити локальний файл"
 
-#: ../app/ui/EpisodesPage.qml:259
+#: ../app/ui/EpisodesPage.qml:259 ../app/ui/WhatsNewTab.qml:213
 msgid "Episode queued for download"
-msgstr ""
+msgstr "Епізод додано до черги отримання"
 
-#: ../app/ui/EpisodesPage.qml:260
+#: ../app/ui/EpisodesPage.qml:260 ../app/ui/WhatsNewTab.qml:214
 msgid "Download episode"
-msgstr ""
+msgstr "Отримати епізод"
 
 #: ../app/ui/EpisodesPage.qml:335
 msgid "No more episodes"
-msgstr ""
+msgstr "Більше епізодів немає"
 
 #: ../app/ui/EpisodesPage.qml:335
 msgid "No episodes found"
-msgstr ""
+msgstr "Епізодів не знайдено"
 
 #: ../app/ui/EpisodesPage.qml:336
 msgid "All episodes have been listened to."
-msgstr ""
+msgstr "Усі епізоди прослухано."
 
 #: ../app/ui/EpisodesPage.qml:336
 msgid "No episodes found matching the search term."
 msgstr "Не знайдено епізодів, відповідних до критерію пошуку."
 
-#: ../app/ui/EpisodesPage.qml:358
-#, no-c-format, qt-format
-msgid "%1 hr %2 min"
-msgstr ""
-
-#: ../app/ui/EpisodesPage.qml:367
-#, no-c-format, qt-format
-msgid "%1 hr"
-msgstr ""
-
-#: ../app/ui/EpisodesPage.qml:375
-#, no-c-format, qt-format
-msgid "%1 min"
-msgstr ""
-
-#: ../app/ui/EpisodesPage.qml:415
+#: ../app/ui/EpisodesPage.qml:381
 msgid "Unheard"
-msgstr ""
+msgstr "Непрослухані"
 
-#: ../app/ui/EpisodesPage.qml:415
+#: ../app/ui/EpisodesPage.qml:381
 msgid "Listened"
-msgstr ""
+msgstr "Прослухані"
 
 #: ../app/ui/NowPlayingPage.qml:28
 msgid "Now Playing"
@@ -231,55 +238,31 @@ msgstr "+15 с"
 msgid "Podcasts"
 msgstr "Радіотрансляції"
 
-#: ../app/ui/PodcastsTab.qml:64
-msgid "Add Podcast"
-msgstr "Додати радіотрансляцію"
-
-#: ../app/ui/PodcastsTab.qml:74
+#: ../app/ui/PodcastsTab.qml:65
 msgid "Search Podcast"
 msgstr "Пошук трансляції"
 
-#: ../app/ui/PodcastsTab.qml:83
+#: ../app/ui/PodcastsTab.qml:74
 msgid "Grid View"
-msgstr ""
+msgstr "Перегляд таблиці"
 
-#: ../app/ui/PodcastsTab.qml:83
+#: ../app/ui/PodcastsTab.qml:74
 msgid "List View"
-msgstr ""
+msgstr "Перегляд списків"
 
-#: ../app/ui/PodcastsTab.qml:107
+#: ../app/ui/PodcastsTab.qml:98
 msgid "Search podcast"
-msgstr ""
+msgstr "Шукати трансляцію"
 
-#: ../app/ui/PodcastsTab.qml:130
-msgid "Save Podcast"
-msgstr "Зберегти трансляцію"
-
-#: ../app/ui/PodcastsTab.qml:143
-msgid "Feed URL"
-msgstr ""
-
-#: ../app/ui/PodcastsTab.qml:167
-msgid "Unable to subscribe"
-msgstr "Не вдалося підписатися"
-
-#: ../app/ui/PodcastsTab.qml:168
-msgid "Please check the URL and try again"
-msgstr "Будь ласка, перевірте адресу і повторіть спробу"
-
-#: ../app/ui/PodcastsTab.qml:170
-msgid "Close"
-msgstr "Закрити"
-
-#: ../app/ui/PodcastsTab.qml:185
+#: ../app/ui/PodcastsTab.qml:120
 msgid "No Podcast Subscriptions"
 msgstr "Немає підписок на трансляції"
 
-#: ../app/ui/PodcastsTab.qml:186
+#: ../app/ui/PodcastsTab.qml:121
 msgid "No Podcasts Found"
 msgstr "Трансляцій не знайдено"
 
-#: ../app/ui/PodcastsTab.qml:187
+#: ../app/ui/PodcastsTab.qml:122
 msgid ""
 "You haven't subscribed to any podcasts yet, visit the 'Find New Podcasts' "
 "page to add some."
@@ -287,11 +270,11 @@ msgstr ""
 "Ви ще не підписалися на жодну трансляцію. Зверніться до сторінки «Пошук "
 "нових трансляцій», щоб додати трансляції."
 
-#: ../app/ui/PodcastsTab.qml:188 ../app/ui/SearchPage.qml:103
+#: ../app/ui/PodcastsTab.qml:123 ../app/ui/SearchPage.qml:166
 msgid "No podcasts found matching the search term."
 msgstr "Не знайдено трансляцій, відповідних до критерію пошуку."
 
-#: ../app/ui/PodcastsTab.qml:218 ../app/ui/PodcastsTab.qml:338
+#: ../app/ui/PodcastsTab.qml:153 ../app/ui/PodcastsTab.qml:273
 #, qt-format
 msgid "%1 unheard episode"
 msgid_plural "%1 unheard episodes"
@@ -299,70 +282,159 @@ msgstr[0] "%1 непрослуханий епізод"
 msgstr[1] "%1 непрослуханих епізоди"
 msgstr[2] "%1 непрослуханих епізодів"
 
-#: ../app/ui/SearchPage.qml:80
+#: ../app/ui/SearchPage.qml:64
+msgid "Add Podcast"
+msgstr "Додати радіотрансляцію"
+
+#: ../app/ui/SearchPage.qml:90
 msgid "Search..."
 msgstr "Шукати…"
 
-#: ../app/ui/SearchPage.qml:102
-msgid "Looking for a new Podcast?"
-msgstr ""
+#: ../app/ui/SearchPage.qml:120
+msgid "Save Podcast"
+msgstr "Зберегти трансляцію"
 
-#: ../app/ui/SearchPage.qml:102
+#: ../app/ui/SearchPage.qml:131
+msgid "Feed URL"
+msgstr "Адреса подачі"
+
+#: ../app/ui/SearchPage.qml:146
+msgid "Unable to subscribe"
+msgstr "Не вдалося підписатися"
+
+#: ../app/ui/SearchPage.qml:147
+msgid "Please check the URL and try again"
+msgstr "Будь ласка, перевірте адресу і повторіть спробу"
+
+#: ../app/ui/SearchPage.qml:149
+msgid "Close"
+msgstr "Закрити"
+
+#: ../app/ui/SearchPage.qml:165
+msgid "Looking to add a new Podcast?"
+msgstr "Хочете додати нову трансляцію?"
+
+#: ../app/ui/SearchPage.qml:165
 msgid "No Podcasts found"
-msgstr ""
+msgstr "Трансляцій не знайдено"
 
-#: ../app/ui/SearchPage.qml:103
-msgid "Click the 'magnifier' at the top to search."
+#: ../app/ui/SearchPage.qml:166
+msgid ""
+"Click the 'magnifier' at the top to search or the 'plus' button to add by URL"
 msgstr ""
+"Натисніть кнопку з лупою згори, щоб шукати, або кнопку «плюс», щоб додати "
+"адресу"
 
-#: ../app/ui/SearchPage.qml:184
+#: ../app/ui/SearchPage.qml:267
 msgid "Subscribe"
 msgstr "Підписатися"
 
+#: ../app/ui/SearchPage.qml:298
+#, qt-format
+msgid ""
+"Last Updated: %1\n"
+"%2"
+msgstr ""
+"Востаннє оновлено: %1\n"
+"%2"
+
+#: ../app/ui/SearchPage.qml:353
+msgid "Not Available"
+msgstr "Недоступне"
+
 #: ../app/ui/SettingsPage.qml:43
 msgid "General Settings"
-msgstr ""
+msgstr "Загальні параметри"
 
 #: ../app/ui/SettingsPage.qml:55
 msgid "Podcast Episode Settings"
-msgstr ""
+msgstr "Параметри епізодів трансляцій"
 
 #: ../app/ui/SettingsPage.qml:60
 msgid "Hide listened episodes"
-msgstr ""
+msgstr "Приховати прослухані епізоди"
 
 #: ../app/ui/SettingsPage.qml:79
 msgid "Automatically delete old episodes"
-msgstr ""
+msgstr "Автоматично вилучати старі епізоди"
 
 #: ../app/ui/SettingsPage.qml:87
 msgid ""
 "Delete episodes that are older than a given number of days for each podcast"
 msgstr ""
+"Вилучати епізоди, старіші за вказану кількість днів для кожної трансляції"
 
 #: ../app/ui/SettingsPage.qml:104
 msgid "Automatically download new episodes"
-msgstr ""
+msgstr "Автоматично отримувати нові епізоди"
 
 #: ../app/ui/SettingsPage.qml:112
 msgid "Default number of new episodes to download for each podcast"
-msgstr ""
+msgstr "Типова кількість нових епізодів для отримання для кожної трансляції"
 
 #: ../app/ui/SettingsPage.qml:118
 msgid "Misc."
-msgstr ""
+msgstr "Інше"
 
 #: ../app/ui/SettingsPage.qml:138
 msgid "Report Bug"
-msgstr ""
+msgstr "Сповістити про помилку"
 
 #: ../app/ui/Walkthrough.qml:87
 msgid "Skip"
-msgstr ""
+msgstr "Пропустити"
+
+#: ../app/ui/WhatsNewTab.qml:14
+msgid "What's New"
+msgstr "Що нового?"
+
+#: ../app/ui/WhatsNewTab.qml:55
+msgid "Download all"
+msgstr "Отримати всі"
+
+#: ../app/ui/WhatsNewTab.qml:104
+msgid "No New Episodes"
+msgstr "Немає нових епізодів"
+
+#: ../app/ui/WhatsNewTab.qml:105
+msgid "No Episodes Found"
+msgstr "Епізодів не знайдено"
+
+#: ../app/ui/WhatsNewTab.qml:106
+msgid "No more episodes to listen to!"
+msgstr "Більше немає епізодів для прослуховування!"
+
+#: ../app/ui/WhatsNewTab.qml:107
+msgid "No Episodes found matching the search term."
+msgstr "Критеріям пошуку не відповідає жоден епізод."
+
+#: ../app/ui/WhatsNewTab.qml:262
+msgid "Mark episode listened"
+msgstr "Позначити епізод як прослуханий"
+
+#: ../app/ui/WhatsNewTab.qml:302
+msgid "Pause Episode"
+msgstr "Призупинити епізод"
+
+#: ../app/ui/WhatsNewTab.qml:303
+msgid "Play Episode"
+msgstr "Відтворити епізод"
+
+#: ../app/ui/WhatsNewTab.qml:368
+msgid "Today"
+msgstr "Сьогодні"
+
+#: ../app/ui/WhatsNewTab.qml:372
+msgid "Yesterday"
+msgstr "Вчора"
+
+#: ../app/ui/WhatsNewTab.qml:376
+msgid "Older"
+msgstr "Раніше"
 
 #: ../app/welcomewizard/Slide1.qml:42
 msgid "Welcome to Podbird"
-msgstr ""
+msgstr "Вітаємо у Podbird"
 
 #: ../app/welcomewizard/Slide1.qml:50
 msgid ""
@@ -371,37 +443,45 @@ msgid ""
 "\n"
 "Chirp Chirp..."
 msgstr ""
+"Насолоджуйтеся вашими улюбленими шоу за допомогою Podbird, найголосистішим "
+"засобом керування трансляціями для Ubuntu.\n"
+"\n"
+"Цвірінь, цвірінь..."
 
 #: ../app/welcomewizard/Slide1.qml:72
 msgid "Swipe to move between pages"
-msgstr ""
+msgstr "Проведіть для пересування між сторінками"
 
 #: ../app/welcomewizard/Slide2.qml:45
 msgid "Discover New Podcasts"
-msgstr ""
+msgstr "Знайти нові трансляції"
 
 #: ../app/welcomewizard/Slide2.qml:62
 msgid ""
 "Podbird uses the iTunes® database to provide access to a huge collection of "
 "podcasts. You can also add podcasts by their URL."
 msgstr ""
+"Podbird використовує базу даних iTunes® для доступу до величезної збірки "
+"трансляцій. Крім того, ви можете додавати трансляції за адресами."
 
 #: ../app/welcomewizard/Slide3.qml:45
 msgid "Smart Settings"
-msgstr ""
+msgstr "Кмітливі параметри"
 
 #: ../app/welcomewizard/Slide3.qml:62
 msgid ""
 "Podbird can optionally download new episodes and clean up old episodes "
 "automatically, this can be enabled from the settings page."
 msgstr ""
+"Podbird також може отримувати нові епізоди і автоматично вилучати застарілі "
+"епізоди, усе це можна увімкнути за допомогою сторінки параметрів."
 
 #. TRANSLATORS: This text should be in a language different from the language set by the user.
 #. For instance, if the app was in english, then it is appropriate to set this string as
 #. Hallo or Bonjour etc to symbolize the internationalization feature in podbird.
 #: ../app/welcomewizard/Slide4.qml:48
 msgid "Hallo! Bonjour!"
-msgstr ""
+msgstr "Hallo! Bonjour!"
 
 #: ../app/welcomewizard/Slide4.qml:67
 #, qt-format
@@ -409,10 +489,11 @@ msgid ""
 "Podbird is available in over 15 languages and is translated by the %1 "
 "community"
 msgstr ""
+"Podbird перекладено понад 15 мовами, за переклад відповідає спільнота %1"
 
 #: ../app/welcomewizard/Slide5.qml:45
 msgid "Support"
-msgstr ""
+msgstr "Підтримка"
 
 #. TRANSLATORS: The %1 points to a url defined in html format <a href=\link\>Link</a>.
 #: ../app/welcomewizard/Slide5.qml:65
@@ -421,19 +502,21 @@ msgid ""
 "If you find any bugs or have any feature requests, let us know on our "
 "project page at %1"
 msgstr ""
+"Якщо вами буде виявлено вади або ви маєте запит щодо можливостей, повідомте "
+"нам за допомогою сторінки нашого проекту. %1"
 
 #: ../app/welcomewizard/Slide6.qml:45
 msgid "Enjoy"
-msgstr ""
+msgstr "Насолоджуйтеся"
 
 #: ../app/welcomewizard/Slide6.qml:62
 msgid "We hope you enjoy using Podbird!"
-msgstr ""
+msgstr "Сподіваємося, вам сподобається Podbird!"
 
 #: ../app/welcomewizard/Slide6.qml:76
 msgid "Finish"
-msgstr ""
+msgstr "Завершити"
 
-#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-8.6-aboutpage-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
+#: /home/mike/src/podbird/build-debian-packaging-Ubuntu_Device3_GCC_armhf_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
 msgid "Podbird"
 msgstr "Podbird"

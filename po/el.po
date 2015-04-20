@@ -1,4 +1,4 @@
-# Finnish translation for podbird
+# Greek translation for podbird
 # Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
 # This file is distributed under the same license as the podbird package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-04-20 00:36+0100\n"
-"PO-Revision-Date: 2015-04-19 16:16+0000\n"
-"Last-Translator: Jiri Grönroos <Unknown>\n"
-"Language-Team: Finnish <fi@li.org>\n"
+"PO-Revision-Date: 2015-04-19 16:11+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Greek <el@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,102 +21,102 @@ msgstr ""
 #. TRANSLATORS: this refers to a number of songs greater than one. The actual number will be prepended to the string automatically (plural forms are not yet fully supported in usermetrics, the library that displays that string)
 #: ../app/podbird.qml:162
 msgid "podcasts listened to today"
-msgstr "podcastia kuunneltu tänään"
+msgstr ""
 
 #: ../app/podbird.qml:163
 msgid "No podcasts listened to today"
-msgstr "Ei tänään kuunneltuja podcasteja"
+msgstr ""
 
 #: ../app/podbird.qml:225
 msgid "Add New Podcasts"
-msgstr "Lisää uusia podcasteja"
+msgstr ""
 
 #: ../app/podbird.qml:239
 msgid "Settings"
-msgstr "Asetukset"
+msgstr ""
 
 #: ../app/podcasts.js:179
 #, no-c-format, qt-format
 msgid "%1 hr %2 min"
-msgstr "%1 t %2 min"
+msgstr ""
 
 #: ../app/podcasts.js:188
 #, no-c-format, qt-format
 msgid "%1 hr"
-msgstr "%1 t"
+msgstr ""
 
 #: ../app/podcasts.js:196
 #, no-c-format, qt-format
 msgid "%1 min"
-msgstr "%1 min"
+msgstr ""
 
 #: ../app/settings/About.qml:25 ../app/ui/SettingsPage.qml:124
 msgid "About"
-msgstr "Tietoja"
+msgstr ""
 
 #: ../app/settings/About.qml:52
 #, qt-format
 msgid "Version %1"
-msgstr "Versio %1"
+msgstr ""
 
 #: ../app/settings/About.qml:73
 msgid "Released under the terms of the GNU GPL v3"
-msgstr "Julkaistu GNU GPL v3 -lisenssillä"
+msgstr ""
 
 #: ../app/settings/About.qml:83
 #, qt-format
 msgid "Source code available on %1"
-msgstr "Lähdekoodi saatavilla - %1"
+msgstr ""
 
 #: ../app/settings/CleanSetting.qml:27
 msgid "Delete older than"
-msgstr "Poista vanhemmat kuin"
+msgstr ""
 
 #: ../app/settings/CleanSetting.qml:33 ../app/settings/DownloadSetting.qml:33
 msgid "Never"
-msgstr "Ei koskaan"
+msgstr ""
 
 #: ../app/settings/CleanSetting.qml:34
 #, qt-format
 msgid "%1 day"
 msgid_plural "%1 days"
-msgstr[0] "%1 päivä"
-msgstr[1] "%1 päivää"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../app/settings/CleanSetting.qml:35 ../app/settings/CleanSetting.qml:36
 #: ../app/settings/CleanSetting.qml:37
 #, qt-format
 msgid "%1 month"
 msgid_plural "%1 months"
-msgstr[0] "%1 kuukausi"
-msgstr[1] "%1 kuukautta"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../app/settings/CleanSetting.qml:38
 #, qt-format
 msgid "%1 year"
 msgid_plural "%1 years"
-msgstr[0] "%1 vuosi"
-msgstr[1] "%1 vuotta"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../app/settings/Credits.qml:26 ../app/ui/SettingsPage.qml:131
 msgid "Credits"
-msgstr "Tekijät"
+msgstr ""
 
 #: ../app/settings/Credits.qml:33
 msgid "Developers"
-msgstr "Kehittäjät"
+msgstr ""
 
 #: ../app/settings/Credits.qml:47
 msgid "Designer"
-msgstr "Suunnittelija"
+msgstr ""
 
 #: ../app/settings/Credits.qml:56
 msgid "Translators"
-msgstr "Kääntäjät"
+msgstr ""
 
 #: ../app/settings/DownloadSetting.qml:27
 msgid "Download at most"
-msgstr "Lataa enintään"
+msgstr ""
 
 #: ../app/settings/DownloadSetting.qml:34
 #: ../app/settings/DownloadSetting.qml:35
@@ -125,203 +125,199 @@ msgstr "Lataa enintään"
 #, qt-format
 msgid "%1 episode"
 msgid_plural "%1 episodes"
-msgstr[0] "%1 jakso"
-msgstr[1] "%1 jaksoa"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../app/settings/ThemeSetting.qml:27 ../app/ui/SettingsPage.qml:49
 msgid "Theme"
-msgstr "Teema"
+msgstr ""
 
 #: ../app/settings/ThemeSetting.qml:33 ../app/ui/SettingsPage.qml:50
 msgid "Light"
-msgstr "Vaalea"
+msgstr ""
 
 #: ../app/settings/ThemeSetting.qml:34 ../app/ui/SettingsPage.qml:50
 msgid "Dark"
-msgstr "Tumma"
+msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:33
 msgid "Podcast"
-msgstr "Podcast"
+msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:89 ../app/ui/SearchPage.qml:56
 #: ../app/ui/WhatsNewTab.qml:32
 msgid "Search Episode"
-msgstr "Etsi jaksoa"
+msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:98 ../app/ui/WhatsNewTab.qml:41
 msgid "Mark all listened"
-msgstr "Merkitse kaikki kuunnelluiksi"
+msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:109 ../app/ui/EpisodesPage.qml:187
 #: ../app/ui/SearchPage.qml:267
 msgid "Unsubscribe"
-msgstr "Peru tilaus"
+msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:124 ../app/ui/PodcastsTab.qml:87
 #: ../app/ui/SearchPage.qml:79 ../app/ui/SearchPage.qml:109
 #: ../app/ui/WhatsNewTab.qml:77
 msgid "Back"
-msgstr "Takaisin"
+msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:136 ../app/ui/WhatsNewTab.qml:88
 msgid "Search episode"
-msgstr "Etsi jaksoa"
+msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:184
 msgid "Unsubscribe Confirmation"
-msgstr "Tilauksen perumisen vahvistus"
+msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:185
 #, qt-format
 msgid "Are you sure you want to unsubscribe from <b>%1</b>?"
-msgstr "Haluatko varmasti poistaa tilauksen <b>%1</b>?"
+msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:204
 msgid "Cancel"
-msgstr "Peru"
+msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:258 ../app/ui/WhatsNewTab.qml:212
 msgid "Delete local file"
-msgstr "Poista paikallinen tiedosto"
+msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:259 ../app/ui/WhatsNewTab.qml:213
 msgid "Episode queued for download"
-msgstr "Jakso asetettu latausjonoon"
+msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:260 ../app/ui/WhatsNewTab.qml:214
 msgid "Download episode"
-msgstr "Lataa jakso"
+msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:335
 msgid "No more episodes"
-msgstr "Ei enempää jaksoja"
+msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:335
 msgid "No episodes found"
-msgstr "Jaksoja ei löytynyt."
+msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:336
 msgid "All episodes have been listened to."
-msgstr "Kaikki jaksot on jo kuunneltu."
+msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:336
 msgid "No episodes found matching the search term."
-msgstr "Hakuehtojasi vastaavia jaksoja ei löytynyt."
+msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:381
 msgid "Unheard"
-msgstr "Kuuntelemattomat"
+msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:381
 msgid "Listened"
-msgstr "Kuunnellut"
+msgstr ""
 
 #: ../app/ui/NowPlayingPage.qml:28
 msgid "Now Playing"
-msgstr "Nyt soi"
+msgstr ""
 
 #: ../app/ui/NowPlayingPage.qml:150
 msgid "-15s"
-msgstr "-15s"
+msgstr ""
 
 #: ../app/ui/NowPlayingPage.qml:209
 msgid "+15s"
-msgstr "+15s"
+msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:32
 msgid "Podcasts"
-msgstr "Podcastit"
+msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:65
 msgid "Search Podcast"
-msgstr "Etsi podcastia"
+msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:74
 msgid "Grid View"
-msgstr "Ruudukkonäkymä"
+msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:74
 msgid "List View"
-msgstr "Luettelonäkymä"
+msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:98
 msgid "Search podcast"
-msgstr "Etsi podcastia"
+msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:120
 msgid "No Podcast Subscriptions"
-msgstr "Ei podcast-tilauksia"
+msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:121
 msgid "No Podcasts Found"
-msgstr "Podcasteja ei löytynyt"
+msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:122
 msgid ""
 "You haven't subscribed to any podcasts yet, visit the 'Find New Podcasts' "
 "page to add some."
 msgstr ""
-"Et ole vielä tilannut podcasteja. Siirry \"Etsi uusia podcasteja\"-sivulle "
-"lisätäksesi tilauksia."
 
 #: ../app/ui/PodcastsTab.qml:123 ../app/ui/SearchPage.qml:166
 msgid "No podcasts found matching the search term."
-msgstr "Hakuehtoja vastaavia podcasteja ei löytynyt."
+msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:153 ../app/ui/PodcastsTab.qml:273
 #, qt-format
 msgid "%1 unheard episode"
 msgid_plural "%1 unheard episodes"
-msgstr[0] "%1 kuuntelematon jakso"
-msgstr[1] "%1 kuuntelematonta jaksoa"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../app/ui/SearchPage.qml:64
 msgid "Add Podcast"
-msgstr "Lisää podcast"
+msgstr ""
 
 #: ../app/ui/SearchPage.qml:90
 msgid "Search..."
-msgstr "Etsi..."
+msgstr ""
 
 #: ../app/ui/SearchPage.qml:120
 msgid "Save Podcast"
-msgstr "Tallenna podcast"
+msgstr ""
 
 #: ../app/ui/SearchPage.qml:131
 msgid "Feed URL"
-msgstr "Syötteen osoite"
+msgstr ""
 
 #: ../app/ui/SearchPage.qml:146
 msgid "Unable to subscribe"
-msgstr "Tilaus ei onnistunut"
+msgstr ""
 
 #: ../app/ui/SearchPage.qml:147
 msgid "Please check the URL and try again"
-msgstr "Tarkista osoite ja yritä uudelleen"
+msgstr ""
 
 #: ../app/ui/SearchPage.qml:149
 msgid "Close"
-msgstr "Sulje"
+msgstr ""
 
 #: ../app/ui/SearchPage.qml:165
 msgid "Looking to add a new Podcast?"
-msgstr "Aikeissa lisätä uusia podcasteja?"
+msgstr ""
 
 #: ../app/ui/SearchPage.qml:165
 msgid "No Podcasts found"
-msgstr "Podcasteja ei löytynyt"
+msgstr ""
 
 #: ../app/ui/SearchPage.qml:166
 msgid ""
 "Click the 'magnifier' at the top to search or the 'plus' button to add by URL"
 msgstr ""
-"Napauta ylhäällä olevan suurennuslasin kuvaketta tai + lisätäksesi "
-"osoitteeseen."
 
 #: ../app/ui/SearchPage.qml:267
 msgid "Subscribe"
-msgstr "Tilaa"
+msgstr ""
 
 #: ../app/ui/SearchPage.qml:298
 #, qt-format
@@ -329,106 +325,103 @@ msgid ""
 "Last Updated: %1\n"
 "%2"
 msgstr ""
-"Viimeksi päivitetty: %1\n"
-"%2"
 
 #: ../app/ui/SearchPage.qml:353
 msgid "Not Available"
-msgstr "Ei saatavilla"
+msgstr ""
 
 #: ../app/ui/SettingsPage.qml:43
 msgid "General Settings"
-msgstr "Yleiset asetukset"
+msgstr ""
 
 #: ../app/ui/SettingsPage.qml:55
 msgid "Podcast Episode Settings"
-msgstr "Podcast-jaksojen asetukset"
+msgstr ""
 
 #: ../app/ui/SettingsPage.qml:60
 msgid "Hide listened episodes"
-msgstr "Piilota kuunnellut jaksot"
+msgstr ""
 
 #: ../app/ui/SettingsPage.qml:79
 msgid "Automatically delete old episodes"
-msgstr "Poista automaattisesti vanhat jaksot"
+msgstr ""
 
 #: ../app/ui/SettingsPage.qml:87
 msgid ""
 "Delete episodes that are older than a given number of days for each podcast"
 msgstr ""
-"Poista jaksot, jotka ovat vanhempia kuin asetettu määrä päiviä per podcast"
 
 #: ../app/ui/SettingsPage.qml:104
 msgid "Automatically download new episodes"
-msgstr "Lataa automaattisesti uudet jaksot"
+msgstr ""
 
 #: ../app/ui/SettingsPage.qml:112
 msgid "Default number of new episodes to download for each podcast"
-msgstr "Oletusmäärä jaksoja, jotka ladataan per podcast"
+msgstr ""
 
 #: ../app/ui/SettingsPage.qml:118
 msgid "Misc."
-msgstr "Muut"
+msgstr ""
 
 #: ../app/ui/SettingsPage.qml:138
 msgid "Report Bug"
-msgstr "Ilmoita viasta"
+msgstr ""
 
 #: ../app/ui/Walkthrough.qml:87
 msgid "Skip"
-msgstr "Ohita"
+msgstr ""
 
 #: ../app/ui/WhatsNewTab.qml:14
 msgid "What's New"
-msgstr "Uutuudet"
+msgstr ""
 
 #: ../app/ui/WhatsNewTab.qml:55
 msgid "Download all"
-msgstr "Lataa kaikki"
+msgstr ""
 
 #: ../app/ui/WhatsNewTab.qml:104
 msgid "No New Episodes"
-msgstr "Ei uusia jaksoja"
+msgstr ""
 
 #: ../app/ui/WhatsNewTab.qml:105
 msgid "No Episodes Found"
-msgstr "Jaksoja ei löytynyt"
+msgstr ""
 
 #: ../app/ui/WhatsNewTab.qml:106
 msgid "No more episodes to listen to!"
-msgstr "Ei enempää kuunneltavia jaksoja!"
+msgstr ""
 
 #: ../app/ui/WhatsNewTab.qml:107
 msgid "No Episodes found matching the search term."
-msgstr "Hakuehtojasi vastaavia jaksoja ei löytynyt."
+msgstr ""
 
 #: ../app/ui/WhatsNewTab.qml:262
 msgid "Mark episode listened"
-msgstr "Merkitse jakso kuunnelluksi"
+msgstr ""
 
 #: ../app/ui/WhatsNewTab.qml:302
 msgid "Pause Episode"
-msgstr "Keskeytä jakso"
+msgstr ""
 
 #: ../app/ui/WhatsNewTab.qml:303
 msgid "Play Episode"
-msgstr "Toista jakso"
+msgstr ""
 
 #: ../app/ui/WhatsNewTab.qml:368
 msgid "Today"
-msgstr "Tänään"
+msgstr ""
 
 #: ../app/ui/WhatsNewTab.qml:372
 msgid "Yesterday"
-msgstr "Eilen"
+msgstr ""
 
 #: ../app/ui/WhatsNewTab.qml:376
 msgid "Older"
-msgstr "Vanhempi"
+msgstr ""
 
 #: ../app/welcomewizard/Slide1.qml:42
 msgid "Welcome to Podbird"
-msgstr "Terveuloa Podbirdiin"
+msgstr ""
 
 #: ../app/welcomewizard/Slide1.qml:50
 msgid ""
@@ -437,55 +430,48 @@ msgid ""
 "\n"
 "Chirp Chirp..."
 msgstr ""
-"Nauti suosikkiohjelmistasi Podbirdiä käyttäen.\n"
-"\n"
-"Tsirp tsirp..."
 
 #: ../app/welcomewizard/Slide1.qml:72
 msgid "Swipe to move between pages"
-msgstr "Vedä vaihtaaksesi sivujen välillä"
+msgstr ""
 
 #: ../app/welcomewizard/Slide2.qml:45
 msgid "Discover New Podcasts"
-msgstr "Löydä uusia podcasteja"
+msgstr ""
 
 #: ../app/welcomewizard/Slide2.qml:62
 msgid ""
 "Podbird uses the iTunes® database to provide access to a huge collection of "
 "podcasts. You can also add podcasts by their URL."
 msgstr ""
-"Podbird käyttää iTunes® -tietokantaa, joten sinulla on pääsy valtavaan "
-"määrään eri podcasteja. Voit myös lisätä podcasteja antamalla osoitteen."
 
 #: ../app/welcomewizard/Slide3.qml:45
 msgid "Smart Settings"
-msgstr "Fiksut asetukset"
+msgstr ""
 
 #: ../app/welcomewizard/Slide3.qml:62
 msgid ""
 "Podbird can optionally download new episodes and clean up old episodes "
 "automatically, this can be enabled from the settings page."
 msgstr ""
-"Podbird voi automaattisesti ladata uudet jaksot ja poistaa vanhat jaksot. "
-"Tämän ominaisuuden voi ottaa käyttöön asetussivulla."
 
 #. TRANSLATORS: This text should be in a language different from the language set by the user.
 #. For instance, if the app was in english, then it is appropriate to set this string as
 #. Hallo or Bonjour etc to symbolize the internationalization feature in podbird.
 #: ../app/welcomewizard/Slide4.qml:48
 msgid "Hallo! Bonjour!"
-msgstr "Hallo! Bonjour!"
+msgstr ""
 
 #: ../app/welcomewizard/Slide4.qml:67
 #, qt-format
 msgid ""
 "Podbird is available in over 15 languages and is translated by the %1 "
 "community"
-msgstr "Podbird on saatavilla yli 15 kielellä, käännökset tuottaa %1-yhteisö"
+msgstr ""
 
 #: ../app/welcomewizard/Slide5.qml:45
 msgid "Support"
-msgstr "Tuki"
+msgstr ""
 
 #. TRANSLATORS: The %1 points to a url defined in html format <a href=\link\>Link</a>.
 #: ../app/welcomewizard/Slide5.qml:65
@@ -494,21 +480,19 @@ msgid ""
 "If you find any bugs or have any feature requests, let us know on our "
 "project page at %1"
 msgstr ""
-"Jos huomaat vikoja tai kaipaat uusia ominaisuuksia, kerro siitä meille "
-"projektisivustollamme %1"
 
 #: ../app/welcomewizard/Slide6.qml:45
 msgid "Enjoy"
-msgstr "Nauti"
+msgstr ""
 
 #: ../app/welcomewizard/Slide6.qml:62
 msgid "We hope you enjoy using Podbird!"
-msgstr "Toivottavasti pidät Podbirdin käyttämisestä!"
+msgstr ""
 
 #: ../app/welcomewizard/Slide6.qml:76
 msgid "Finish"
-msgstr "Valmis"
+msgstr ""
 
 #: /home/mike/src/podbird/build-debian-packaging-Ubuntu_Device3_GCC_armhf_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
 msgid "Podbird"
-msgstr "Podbird"
+msgstr ""
