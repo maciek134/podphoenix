@@ -598,11 +598,11 @@ Page {
             refreshing: episodesUpdating
             onRefresh: updateEpisodesDatabase();
         }
-    }
 
-    // #FIXME: Use SDK Scrollbar when it is themeable
-    CustomScrollBar {
-        listview: episodeList
+        // #FIXME: Use SDK Scrollbar when it is themeable
+        CustomScrollBar {
+            listview: episodeList
+        }
     }
 
     function refreshModel() {
