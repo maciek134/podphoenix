@@ -61,7 +61,7 @@ Page {
         fontSize: "large"
         maximumLineCount: 2
         wrapMode: Text.WordWrap
-        color: podbird.theme.baseText
+        color: podbird.appTheme.baseText
     }
 
     Label {
@@ -73,7 +73,7 @@ Page {
         text: currentArtist
         elide: Text.ElideRight
         fontSize: "small"
-        color: podbird.theme.baseSubText
+        color: podbird.appTheme.baseSubText
     }
 
     Slider {
@@ -112,7 +112,7 @@ Page {
         fontSize: "small"
         anchors.left: scrubber.left
         anchors.top: scrubber.bottom
-        color: podbird.theme.baseText
+        color: podbird.appTheme.baseText
         text: Podcasts.formatTime(player.position / 1000)
     }
 
@@ -121,7 +121,7 @@ Page {
         fontSize: "small"
         anchors.right: scrubber.right
         anchors.top: scrubber.bottom
-        color: podbird.theme.baseText
+        color: podbird.appTheme.baseText
         text: Podcasts.formatTime(player.duration / 1000)
     }
 
@@ -150,7 +150,7 @@ Page {
                 Label {
                     text: i18n.tr("-15s")
                     fontSize: "xx-small"
-                    color: podbird.theme.baseText
+                    color: podbird.appTheme.baseText
                     anchors.verticalCenter: skipBackwardIcon.verticalCenter
                 }
 
@@ -159,7 +159,7 @@ Page {
                     width: units.gu(3)
                     height: width
                     name: "media-seek-backward"
-                    color: podbird.theme.baseIcon
+                    color: podbird.appTheme.baseIcon
                 }
             }
         }
@@ -176,7 +176,7 @@ Page {
                 width: units.gu(6)
                 height: width
                 anchors.centerIn: parent
-                color: podbird.theme.baseIcon
+                color: podbird.appTheme.baseIcon
                 name: player.playbackState === MediaPlayer.PlayingState ? "media-playback-pause"
                                                                         : "media-playback-start"
             }
@@ -203,13 +203,13 @@ Page {
                     width: units.gu(3)
                     height: width
                     name: "media-seek-forward"
-                    color: podbird.theme.baseIcon
+                    color: podbird.appTheme.baseIcon
                 }
 
                 Label {
                     text: i18n.tr("+15s")
                     fontSize: "xx-small"
-                    color: podbird.theme.baseText
+                    color: podbird.appTheme.baseText
                     anchors.verticalCenter: skipForwardIcon.verticalCenter
                 }
             }

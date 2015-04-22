@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-04-20 00:36+0100\n"
+"POT-Creation-Date: 2015-04-21 16:27+0100\n"
 "PO-Revision-Date: 2015-03-30 06:59+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Danish <da@li.org>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2015-04-20 06:40+0000\n"
+"X-Launchpad-Export-Date: 2015-04-22 06:16+0000\n"
 "X-Generator: Launchpad (build 17430)\n"
 
 #. TRANSLATORS: this refers to a number of songs greater than one. The actual number will be prepended to the string automatically (plural forms are not yet fully supported in usermetrics, the library that displays that string)
@@ -158,7 +158,7 @@ msgstr ""
 msgid "Unsubscribe"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:124 ../app/ui/PodcastsTab.qml:87
+#: ../app/ui/EpisodesPage.qml:124 ../app/ui/PodcastsTab.qml:92
 #: ../app/ui/SearchPage.qml:79 ../app/ui/SearchPage.qml:109
 #: ../app/ui/WhatsNewTab.qml:77
 msgid "Back"
@@ -233,41 +233,41 @@ msgstr ""
 msgid "Podcasts"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:65
+#: ../app/ui/PodcastsTab.qml:70
 msgid "Search Podcast"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:74
+#: ../app/ui/PodcastsTab.qml:79
 msgid "Grid View"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:74
+#: ../app/ui/PodcastsTab.qml:79
 msgid "List View"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:98
+#: ../app/ui/PodcastsTab.qml:103
 msgid "Search podcast"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:120
+#: ../app/ui/PodcastsTab.qml:125
 msgid "No Podcast Subscriptions"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:121
+#: ../app/ui/PodcastsTab.qml:126
 msgid "No Podcasts Found"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:122
+#: ../app/ui/PodcastsTab.qml:127
 msgid ""
 "You haven't subscribed to any podcasts yet, visit the 'Find New Podcasts' "
 "page to add some."
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:123 ../app/ui/SearchPage.qml:166
+#: ../app/ui/PodcastsTab.qml:128 ../app/ui/SearchPage.qml:166
 msgid "No podcasts found matching the search term."
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:153 ../app/ui/PodcastsTab.qml:273
+#: ../app/ui/PodcastsTab.qml:159 ../app/ui/PodcastsTab.qml:280
 #, qt-format
 msgid "%1 unheard episode"
 msgid_plural "%1 unheard episodes"
@@ -493,6 +493,6 @@ msgstr ""
 msgid "Finish"
 msgstr ""
 
-#: /home/mike/src/podbird/build-debian-packaging-Ubuntu_Device3_GCC_armhf_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
+#: /home/mike/src/podbird/debian-packaging/obj-x86_64-linux-gnu/po/Podbird.desktop.in.h:1
 msgid "Podbird"
 msgstr ""

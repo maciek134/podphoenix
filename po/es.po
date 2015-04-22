@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-04-20 00:36+0100\n"
-"PO-Revision-Date: 2015-04-20 00:51+0000\n"
+"POT-Creation-Date: 2015-04-21 16:27+0100\n"
+"PO-Revision-Date: 2015-04-21 19:36+0000\n"
 "Last-Translator: Adolfo Jayme <fitoschido@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2015-04-20 06:40+0000\n"
+"X-Launchpad-Export-Date: 2015-04-22 06:16+0000\n"
 "X-Generator: Launchpad (build 17430)\n"
 
 #. TRANSLATORS: this refers to a number of songs greater than one. The actual number will be prepended to the string automatically (plural forms are not yet fully supported in usermetrics, the library that displays that string)
@@ -158,7 +158,7 @@ msgstr "Marcar todo como escuchado"
 msgid "Unsubscribe"
 msgstr "Anular suscripción"
 
-#: ../app/ui/EpisodesPage.qml:124 ../app/ui/PodcastsTab.qml:87
+#: ../app/ui/EpisodesPage.qml:124 ../app/ui/PodcastsTab.qml:92
 #: ../app/ui/SearchPage.qml:79 ../app/ui/SearchPage.qml:109
 #: ../app/ui/WhatsNewTab.qml:77
 msgid "Back"
@@ -233,31 +233,31 @@ msgstr "+15 s"
 msgid "Podcasts"
 msgstr "Podcasts"
 
-#: ../app/ui/PodcastsTab.qml:65
+#: ../app/ui/PodcastsTab.qml:70
 msgid "Search Podcast"
 msgstr "Buscar podcast"
 
-#: ../app/ui/PodcastsTab.qml:74
+#: ../app/ui/PodcastsTab.qml:79
 msgid "Grid View"
 msgstr "Cuadrícula"
 
-#: ../app/ui/PodcastsTab.qml:74
+#: ../app/ui/PodcastsTab.qml:79
 msgid "List View"
 msgstr "Lista"
 
-#: ../app/ui/PodcastsTab.qml:98
+#: ../app/ui/PodcastsTab.qml:103
 msgid "Search podcast"
 msgstr "Buscar podcast"
 
-#: ../app/ui/PodcastsTab.qml:120
+#: ../app/ui/PodcastsTab.qml:125
 msgid "No Podcast Subscriptions"
 msgstr "No hay suscripciones a podcasts"
 
-#: ../app/ui/PodcastsTab.qml:121
+#: ../app/ui/PodcastsTab.qml:126
 msgid "No Podcasts Found"
 msgstr "No se encontraron podcasts"
 
-#: ../app/ui/PodcastsTab.qml:122
+#: ../app/ui/PodcastsTab.qml:127
 msgid ""
 "You haven't subscribed to any podcasts yet, visit the 'Find New Podcasts' "
 "page to add some."
@@ -265,11 +265,11 @@ msgstr ""
 "No se ha suscrito a ningún podcast. Visite «Encontrar podcasts nuevos» para "
 "añadir algunos."
 
-#: ../app/ui/PodcastsTab.qml:123 ../app/ui/SearchPage.qml:166
+#: ../app/ui/PodcastsTab.qml:128 ../app/ui/SearchPage.qml:166
 msgid "No podcasts found matching the search term."
 msgstr "No hay podcasts que coincidan con la búsqueda"
 
-#: ../app/ui/PodcastsTab.qml:153 ../app/ui/PodcastsTab.qml:273
+#: ../app/ui/PodcastsTab.qml:159 ../app/ui/PodcastsTab.qml:280
 #, qt-format
 msgid "%1 unheard episode"
 msgid_plural "%1 unheard episodes"
@@ -306,16 +306,18 @@ msgstr "Cerrar"
 
 #: ../app/ui/SearchPage.qml:165
 msgid "Looking to add a new Podcast?"
-msgstr ""
+msgstr "¿Busca añadir podcasts nuevos?"
 
 #: ../app/ui/SearchPage.qml:165
 msgid "No Podcasts found"
-msgstr ""
+msgstr "No se encontraron podcasts"
 
 #: ../app/ui/SearchPage.qml:166
 msgid ""
 "Click the 'magnifier' at the top to search or the 'plus' button to add by URL"
 msgstr ""
+"Toque el icono de la lupa en la parte superior para buscar. Toque el + para "
+"añadir por URL"
 
 #: ../app/ui/SearchPage.qml:267
 msgid "Subscribe"
@@ -327,6 +329,8 @@ msgid ""
 "Last Updated: %1\n"
 "%2"
 msgstr ""
+"Última actualización: %1\n"
+"%2"
 
 #: ../app/ui/SearchPage.qml:353
 msgid "Not Available"
@@ -352,18 +356,21 @@ msgstr "Eliminar episodios antiguos automáticamente"
 msgid ""
 "Delete episodes that are older than a given number of days for each podcast"
 msgstr ""
+"Eliminar episodios anteriores a una cantidad determinada de días por cada "
+"podcast"
 
 #: ../app/ui/SettingsPage.qml:104
 msgid "Automatically download new episodes"
-msgstr ""
+msgstr "Descargar episodios nuevos automáticamente"
 
 #: ../app/ui/SettingsPage.qml:112
 msgid "Default number of new episodes to download for each podcast"
 msgstr ""
+"N.º predeterminado de episodios nuevos que descargar por cada podcast"
 
 #: ../app/ui/SettingsPage.qml:118
 msgid "Misc."
-msgstr ""
+msgstr "Varios"
 
 #: ../app/ui/SettingsPage.qml:138
 msgid "Report Bug"
@@ -387,23 +394,23 @@ msgstr "No hay episodios nuevos"
 
 #: ../app/ui/WhatsNewTab.qml:105
 msgid "No Episodes Found"
-msgstr ""
+msgstr "No se encontraron episodios"
 
 #: ../app/ui/WhatsNewTab.qml:106
 msgid "No more episodes to listen to!"
-msgstr ""
+msgstr "No quedan episodios por escuchar."
 
 #: ../app/ui/WhatsNewTab.qml:107
 msgid "No Episodes found matching the search term."
-msgstr ""
+msgstr "No se encontraron resultados para el término buscado."
 
 #: ../app/ui/WhatsNewTab.qml:262
 msgid "Mark episode listened"
-msgstr ""
+msgstr "Marcar episodio como escuchado"
 
 #: ../app/ui/WhatsNewTab.qml:302
 msgid "Pause Episode"
-msgstr ""
+msgstr "Pausar episodio"
 
 #: ../app/ui/WhatsNewTab.qml:303
 msgid "Play Episode"
@@ -415,11 +422,11 @@ msgstr "Hoy"
 
 #: ../app/ui/WhatsNewTab.qml:372
 msgid "Yesterday"
-msgstr ""
+msgstr "Ayer"
 
 #: ../app/ui/WhatsNewTab.qml:376
 msgid "Older"
-msgstr ""
+msgstr "Más antiguos"
 
 #: ../app/welcomewizard/Slide1.qml:42
 msgid "Welcome to Podbird"
@@ -506,6 +513,6 @@ msgstr "¡Esperamos que le guste Podbird!"
 msgid "Finish"
 msgstr "Finalizar"
 
-#: /home/mike/src/podbird/build-debian-packaging-Ubuntu_Device3_GCC_armhf_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
+#: /home/mike/src/podbird/debian-packaging/obj-x86_64-linux-gnu/po/Podbird.desktop.in.h:1
 msgid "Podbird"
 msgstr "Podbird"

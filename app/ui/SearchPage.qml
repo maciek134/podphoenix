@@ -148,7 +148,7 @@ Page {
             text: i18n.tr("Please check the URL and try again")
             Button {
                 text: i18n.tr("Close")
-                color: podbird.theme.neutralActionButton
+                color: podbird.appTheme.neutralActionButton
                 onClicked: {
                     PopupUtils.close(dialogInternal)
                 }
@@ -208,7 +208,7 @@ Page {
             Rectangle {
                 anchors.fill: parent
                 opacity: 0.3
-                color: index % 2 === 0 ? podbird.theme.hightlightListView : "Transparent"
+                color: index % 2 === 0 ? podbird.appTheme.hightlightListView : "Transparent"
             }
 
             Column {
@@ -301,8 +301,8 @@ Page {
                     wrapMode: Text.WordWrap
                     width: parent.width
                     fontSize: "small"
-                    color: podbird.theme.baseSubText
-                    linkColor: podbird.theme.linkText
+                    color: podbird.appTheme.baseSubText
+                    linkColor: podbird.appTheme.linkText
                     onLinkActivated: Qt.openUrlExternally(link)
                     Behavior on height {
                         UbuntuNumberAnimation {

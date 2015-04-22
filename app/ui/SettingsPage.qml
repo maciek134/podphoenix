@@ -81,7 +81,7 @@ Page {
 
                     Label {
                         fontSize: "small"
-                        color: podbird.theme.baseSubText
+                        color: podbird.appTheme.baseSubText
                         width: parent.width
                         wrapMode: Text.WordWrap
                         text: i18n.tr("Delete episodes that are older than a given number of days for each podcast")
@@ -106,7 +106,7 @@ Page {
 
                     Label {
                         fontSize: "small"
-                        color: podbird.theme.baseSubText
+                        color: podbird.appTheme.baseSubText
                         width: parent.width
                         wrapMode: Text.WordWrap
                         text: i18n.tr("Default number of new episodes to download for each podcast")

@@ -7,117 +7,120 @@ msgid ""
 msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-04-20 00:36+0100\n"
-"PO-Revision-Date: 2015-03-27 16:46+0000\n"
-"Last-Translator: GTriderXC <gtriderxc@yahoo.com>\n"
+"POT-Creation-Date: 2015-04-21 16:27+0100\n"
+"PO-Revision-Date: 2015-04-21 07:41+0000\n"
+"Last-Translator: Bartosz Kosiorek <Unknown>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Launchpad-Export-Date: 2015-04-20 06:40+0000\n"
+"X-Launchpad-Export-Date: 2015-04-22 06:16+0000\n"
 "X-Generator: Launchpad (build 17430)\n"
 
 #. TRANSLATORS: this refers to a number of songs greater than one. The actual number will be prepended to the string automatically (plural forms are not yet fully supported in usermetrics, the library that displays that string)
 #: ../app/podbird.qml:162
 msgid "podcasts listened to today"
-msgstr ""
+msgstr "podcastów odtworzonych dzisiaj"
 
 #: ../app/podbird.qml:163
 msgid "No podcasts listened to today"
-msgstr ""
+msgstr "Dzisiaj nie odtwarzano podcastów"
 
 #: ../app/podbird.qml:225
 msgid "Add New Podcasts"
-msgstr ""
+msgstr "Dodaj Nowy Podcast"
 
 #: ../app/podbird.qml:239
 msgid "Settings"
-msgstr ""
+msgstr "Ustawienia"
 
 #: ../app/podcasts.js:179
 #, no-c-format, qt-format
 msgid "%1 hr %2 min"
-msgstr ""
+msgstr "%1 h %2 min"
 
 #: ../app/podcasts.js:188
 #, no-c-format, qt-format
 msgid "%1 hr"
-msgstr ""
+msgstr "%1 h"
 
 #: ../app/podcasts.js:196
 #, no-c-format, qt-format
 msgid "%1 min"
-msgstr ""
+msgstr "%1 min"
 
 #: ../app/settings/About.qml:25 ../app/ui/SettingsPage.qml:124
 msgid "About"
-msgstr ""
+msgstr "O programie"
 
 #: ../app/settings/About.qml:52
 #, qt-format
 msgid "Version %1"
-msgstr ""
+msgstr "Wersja %1"
 
 #: ../app/settings/About.qml:73
 msgid "Released under the terms of the GNU GPL v3"
-msgstr ""
+msgstr "Wydano zgodnie z licencją GNU GPL v3"
 
 #: ../app/settings/About.qml:83
 #, qt-format
 msgid "Source code available on %1"
-msgstr ""
+msgstr "Kod źródłowy dostępny na %1"
 
 #: ../app/settings/CleanSetting.qml:27
 msgid "Delete older than"
-msgstr ""
+msgstr "Usuń starsze niż"
 
 #: ../app/settings/CleanSetting.qml:33 ../app/settings/DownloadSetting.qml:33
 msgid "Never"
-msgstr ""
+msgstr "Nigdy"
 
 #: ../app/settings/CleanSetting.qml:34
 #, qt-format
 msgid "%1 day"
 msgid_plural "%1 days"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 dzień"
+msgstr[1] "%1 dni"
+msgstr[2] "%1 dni"
 
 #: ../app/settings/CleanSetting.qml:35 ../app/settings/CleanSetting.qml:36
 #: ../app/settings/CleanSetting.qml:37
 #, qt-format
 msgid "%1 month"
 msgid_plural "%1 months"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 miesiąc"
+msgstr[1] "%1 miesiące"
+msgstr[2] "%1 miesięcy"
 
 #: ../app/settings/CleanSetting.qml:38
 #, qt-format
 msgid "%1 year"
 msgid_plural "%1 years"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 rok"
+msgstr[1] "%1 lata"
+msgstr[2] "%1 lat"
 
 #: ../app/settings/Credits.qml:26 ../app/ui/SettingsPage.qml:131
 msgid "Credits"
-msgstr ""
+msgstr "Twórcy"
 
 #: ../app/settings/Credits.qml:33
 msgid "Developers"
-msgstr ""
+msgstr "Deweloperzy"
 
 #: ../app/settings/Credits.qml:47
 msgid "Designer"
-msgstr ""
+msgstr "Projektant"
 
 #: ../app/settings/Credits.qml:56
 msgid "Translators"
-msgstr ""
+msgstr "Tłumacze"
 
 #: ../app/settings/DownloadSetting.qml:27
 msgid "Download at most"
-msgstr ""
+msgstr "Ściągnij co najwyżej"
 
 #: ../app/settings/DownloadSetting.qml:34
 #: ../app/settings/DownloadSetting.qml:35
@@ -126,24 +129,25 @@ msgstr ""
 #, qt-format
 msgid "%1 episode"
 msgid_plural "%1 episodes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 odcinek"
+msgstr[1] "%1 odcinki"
+msgstr[2] "%1 odcinków"
 
 #: ../app/settings/ThemeSetting.qml:27 ../app/ui/SettingsPage.qml:49
 msgid "Theme"
-msgstr ""
+msgstr "Motyw"
 
 #: ../app/settings/ThemeSetting.qml:33 ../app/ui/SettingsPage.qml:50
 msgid "Light"
-msgstr ""
+msgstr "Jasny"
 
 #: ../app/settings/ThemeSetting.qml:34 ../app/ui/SettingsPage.qml:50
 msgid "Dark"
-msgstr ""
+msgstr "Ciemny"
 
 #: ../app/ui/EpisodesPage.qml:33
 msgid "Podcast"
-msgstr ""
+msgstr "Podcast"
 
 #: ../app/ui/EpisodesPage.qml:89 ../app/ui/SearchPage.qml:56
 #: ../app/ui/WhatsNewTab.qml:32
@@ -159,7 +163,7 @@ msgstr "Zaznacz jako odsłuchany"
 msgid "Unsubscribe"
 msgstr "Zrezygnuj z subskrypcji"
 
-#: ../app/ui/EpisodesPage.qml:124 ../app/ui/PodcastsTab.qml:87
+#: ../app/ui/EpisodesPage.qml:124 ../app/ui/PodcastsTab.qml:92
 #: ../app/ui/SearchPage.qml:79 ../app/ui/SearchPage.qml:109
 #: ../app/ui/WhatsNewTab.qml:77
 msgid "Back"
@@ -167,7 +171,7 @@ msgstr "Powrót"
 
 #: ../app/ui/EpisodesPage.qml:136 ../app/ui/WhatsNewTab.qml:88
 msgid "Search episode"
-msgstr ""
+msgstr "Znajdź odcinek"
 
 #: ../app/ui/EpisodesPage.qml:184
 msgid "Unsubscribe Confirmation"
@@ -180,31 +184,31 @@ msgstr "Czy na pewno zrezygnować z subskrybcji <b>%1</b>?"
 
 #: ../app/ui/EpisodesPage.qml:204
 msgid "Cancel"
-msgstr ""
+msgstr "Anuluj"
 
 #: ../app/ui/EpisodesPage.qml:258 ../app/ui/WhatsNewTab.qml:212
 msgid "Delete local file"
-msgstr ""
+msgstr "Usuń plik lokalny"
 
 #: ../app/ui/EpisodesPage.qml:259 ../app/ui/WhatsNewTab.qml:213
 msgid "Episode queued for download"
-msgstr ""
+msgstr "Odcinków w kolejce do pobrania"
 
 #: ../app/ui/EpisodesPage.qml:260 ../app/ui/WhatsNewTab.qml:214
 msgid "Download episode"
-msgstr ""
+msgstr "Ściągnij odcinek"
 
 #: ../app/ui/EpisodesPage.qml:335
 msgid "No more episodes"
-msgstr ""
+msgstr "Brak dalszych odcinków"
 
 #: ../app/ui/EpisodesPage.qml:335
 msgid "No episodes found"
-msgstr ""
+msgstr "Nie znaleziono odcinków"
 
 #: ../app/ui/EpisodesPage.qml:336
 msgid "All episodes have been listened to."
-msgstr ""
+msgstr "Odsłuchano wszystkie odcinki."
 
 #: ../app/ui/EpisodesPage.qml:336
 msgid "No episodes found matching the search term."
@@ -212,11 +216,11 @@ msgstr "Dla podanej frazy nie odnaleziono żadnych epizodów"
 
 #: ../app/ui/EpisodesPage.qml:381
 msgid "Unheard"
-msgstr ""
+msgstr "Nieprzesłuchane"
 
 #: ../app/ui/EpisodesPage.qml:381
 msgid "Listened"
-msgstr ""
+msgstr "Przesłuchane"
 
 #: ../app/ui/NowPlayingPage.qml:28
 msgid "Now Playing"
@@ -234,31 +238,31 @@ msgstr "+15s"
 msgid "Podcasts"
 msgstr "Podcasty"
 
-#: ../app/ui/PodcastsTab.qml:65
+#: ../app/ui/PodcastsTab.qml:70
 msgid "Search Podcast"
 msgstr "Znajdź podcast"
 
-#: ../app/ui/PodcastsTab.qml:74
+#: ../app/ui/PodcastsTab.qml:79
 msgid "Grid View"
-msgstr ""
+msgstr "Siatka"
 
-#: ../app/ui/PodcastsTab.qml:74
+#: ../app/ui/PodcastsTab.qml:79
 msgid "List View"
-msgstr ""
+msgstr "Lista"
 
-#: ../app/ui/PodcastsTab.qml:98
+#: ../app/ui/PodcastsTab.qml:103
 msgid "Search podcast"
-msgstr ""
+msgstr "Znajdź podcast"
 
-#: ../app/ui/PodcastsTab.qml:120
+#: ../app/ui/PodcastsTab.qml:125
 msgid "No Podcast Subscriptions"
 msgstr "Brak subskrypcji podcastów"
 
-#: ../app/ui/PodcastsTab.qml:121
+#: ../app/ui/PodcastsTab.qml:126
 msgid "No Podcasts Found"
 msgstr "Nie odnaleziono podcastów"
 
-#: ../app/ui/PodcastsTab.qml:122
+#: ../app/ui/PodcastsTab.qml:127
 msgid ""
 "You haven't subscribed to any podcasts yet, visit the 'Find New Podcasts' "
 "page to add some."
@@ -266,11 +270,11 @@ msgstr ""
 "Nie zostały zasubskrybowane żadne podcasty. Otwórz stronę \"Znajdź nowe "
 "Podcasty\", by jakieś dodać."
 
-#: ../app/ui/PodcastsTab.qml:123 ../app/ui/SearchPage.qml:166
+#: ../app/ui/PodcastsTab.qml:128 ../app/ui/SearchPage.qml:166
 msgid "No podcasts found matching the search term."
 msgstr "Dla podanej frazy nie odnaleziono żadnych podcastów."
 
-#: ../app/ui/PodcastsTab.qml:153 ../app/ui/PodcastsTab.qml:273
+#: ../app/ui/PodcastsTab.qml:159 ../app/ui/PodcastsTab.qml:280
 #, qt-format
 msgid "%1 unheard episode"
 msgid_plural "%1 unheard episodes"
@@ -292,7 +296,7 @@ msgstr "Zapisz Podcast"
 
 #: ../app/ui/SearchPage.qml:131
 msgid "Feed URL"
-msgstr ""
+msgstr "Kanał URL"
 
 #: ../app/ui/SearchPage.qml:146
 msgid "Unable to subscribe"
@@ -308,16 +312,17 @@ msgstr "Zamknij"
 
 #: ../app/ui/SearchPage.qml:165
 msgid "Looking to add a new Podcast?"
-msgstr ""
+msgstr "Szukasz, aby dodać nowy podcast?"
 
 #: ../app/ui/SearchPage.qml:165
 msgid "No Podcasts found"
-msgstr ""
+msgstr "Nie znaleziono podcastów"
 
 #: ../app/ui/SearchPage.qml:166
 msgid ""
 "Click the 'magnifier' at the top to search or the 'plus' button to add by URL"
 msgstr ""
+"Wybierz przycisk 'lupy' u góry, by wyszukać albo przycisk 'plus' by dodać URL"
 
 #: ../app/ui/SearchPage.qml:267
 msgid "Subscribe"
@@ -329,103 +334,105 @@ msgid ""
 "Last Updated: %1\n"
 "%2"
 msgstr ""
+"Ostatnio zaktualizowano: %1\n"
+"%2"
 
 #: ../app/ui/SearchPage.qml:353
 msgid "Not Available"
-msgstr ""
+msgstr "Niedostępne"
 
 #: ../app/ui/SettingsPage.qml:43
 msgid "General Settings"
-msgstr ""
+msgstr "Ustawienia ogólne"
 
 #: ../app/ui/SettingsPage.qml:55
 msgid "Podcast Episode Settings"
-msgstr ""
+msgstr "Ustawienia odcinków podcastu"
 
 #: ../app/ui/SettingsPage.qml:60
 msgid "Hide listened episodes"
-msgstr ""
+msgstr "Ukryj odsłuchane odcinki"
 
 #: ../app/ui/SettingsPage.qml:79
 msgid "Automatically delete old episodes"
-msgstr ""
+msgstr "Automatycznie usuń stare odcinki"
 
 #: ../app/ui/SettingsPage.qml:87
 msgid ""
 "Delete episodes that are older than a given number of days for each podcast"
-msgstr ""
+msgstr "Dla każdego podcastu, usuwa odcinki starsze niż określona ilość dni"
 
 #: ../app/ui/SettingsPage.qml:104
 msgid "Automatically download new episodes"
-msgstr ""
+msgstr "Automatycznie ściągnij nowe odcinki"
 
 #: ../app/ui/SettingsPage.qml:112
 msgid "Default number of new episodes to download for each podcast"
-msgstr ""
+msgstr "Domyślna liczba nowych odcinków do pobrania dla każdego podcastu"
 
 #: ../app/ui/SettingsPage.qml:118
 msgid "Misc."
-msgstr ""
+msgstr "Różne"
 
 #: ../app/ui/SettingsPage.qml:138
 msgid "Report Bug"
-msgstr ""
+msgstr "Zgłoś błąd"
 
 #: ../app/ui/Walkthrough.qml:87
 msgid "Skip"
-msgstr ""
+msgstr "Pomiń"
 
 #: ../app/ui/WhatsNewTab.qml:14
 msgid "What's New"
-msgstr ""
+msgstr "Co nowego"
 
 #: ../app/ui/WhatsNewTab.qml:55
 msgid "Download all"
-msgstr ""
+msgstr "Ściągnij wszystko"
 
 #: ../app/ui/WhatsNewTab.qml:104
 msgid "No New Episodes"
-msgstr ""
+msgstr "Brak nowych odcinków"
 
 #: ../app/ui/WhatsNewTab.qml:105
 msgid "No Episodes Found"
-msgstr ""
+msgstr "Nie znaleziono odcinków"
 
 #: ../app/ui/WhatsNewTab.qml:106
 msgid "No more episodes to listen to!"
-msgstr ""
+msgstr "Brak więcej odcinków do odsłuchania!"
 
 #: ../app/ui/WhatsNewTab.qml:107
 msgid "No Episodes found matching the search term."
-msgstr ""
+msgstr "Nie znaleziono odcinków spełniających kryteria wyszukiwania"
 
 #: ../app/ui/WhatsNewTab.qml:262
 msgid "Mark episode listened"
-msgstr ""
+msgstr "Zaznacz odsłuchane odcinki"
 
 #: ../app/ui/WhatsNewTab.qml:302
 msgid "Pause Episode"
-msgstr ""
+msgstr "Pauza odcinka"
 
 #: ../app/ui/WhatsNewTab.qml:303
 msgid "Play Episode"
-msgstr ""
+msgstr "Odtwórz odcinek"
 
 #: ../app/ui/WhatsNewTab.qml:368
 msgid "Today"
-msgstr ""
+msgstr "Dziś"
 
 #: ../app/ui/WhatsNewTab.qml:372
 msgid "Yesterday"
-msgstr ""
+msgstr "Wczoraj"
 
 #: ../app/ui/WhatsNewTab.qml:376
 msgid "Older"
-msgstr ""
+msgstr "Starsze"
 
 #: ../app/welcomewizard/Slide1.qml:42
 msgid "Welcome to Podbird"
-msgstr ""
+msgstr "WItaj w Podbird"
 
 #: ../app/welcomewizard/Slide1.qml:50
 msgid ""
@@ -434,37 +441,45 @@ msgid ""
 "\n"
 "Chirp Chirp..."
 msgstr ""
+"CIesz się ulubionymi audycjami z Podbirdem, najbardziej rozćwierkanym "
+"menadżerze podcastów dla Ubuntu\n"
+"\n"
+"Ćwir, Ćwir..."
 
 #: ../app/welcomewizard/Slide1.qml:72
 msgid "Swipe to move between pages"
-msgstr ""
+msgstr "Przesuń palcem, aby poruszać się między stronami"
 
 #: ../app/welcomewizard/Slide2.qml:45
 msgid "Discover New Podcasts"
-msgstr ""
+msgstr "Odkryj Nowe Podcasty"
 
 #: ../app/welcomewizard/Slide2.qml:62
 msgid ""
 "Podbird uses the iTunes® database to provide access to a huge collection of "
 "podcasts. You can also add podcasts by their URL."
 msgstr ""
+"Podbird używa bazy danych iTunes®, aby dostarczyć ogromną kolekcję "
+"podcastów. Oczywiście możesz dodać swój własny podając adres URL."
 
 #: ../app/welcomewizard/Slide3.qml:45
 msgid "Smart Settings"
-msgstr ""
+msgstr "Inteligentne ustawienia"
 
 #: ../app/welcomewizard/Slide3.qml:62
 msgid ""
 "Podbird can optionally download new episodes and clean up old episodes "
 "automatically, this can be enabled from the settings page."
 msgstr ""
+"Podbird może opcjonalnie ściągać nowe odcinki i automatycznie usuwać stare; "
+"możesz włączyć tą opcję w ustawieniach."
 
 #. TRANSLATORS: This text should be in a language different from the language set by the user.
 #. For instance, if the app was in english, then it is appropriate to set this string as
 #. Hallo or Bonjour etc to symbolize the internationalization feature in podbird.
 #: ../app/welcomewizard/Slide4.qml:48
 msgid "Hallo! Bonjour!"
-msgstr ""
+msgstr "Hello! Olá!"
 
 #: ../app/welcomewizard/Slide4.qml:67
 #, qt-format
@@ -472,10 +487,12 @@ msgid ""
 "Podbird is available in over 15 languages and is translated by the %1 "
 "community"
 msgstr ""
+"Podbird jest dostępny w ponad 15 językach i jest tłumaczony przez "
+"społeczność %1"
 
 #: ../app/welcomewizard/Slide5.qml:45
 msgid "Support"
-msgstr ""
+msgstr "Wsparcie"
 
 #. TRANSLATORS: The %1 points to a url defined in html format <a href=\link\>Link</a>.
 #: ../app/welcomewizard/Slide5.qml:65
@@ -484,19 +501,21 @@ msgid ""
 "If you find any bugs or have any feature requests, let us know on our "
 "project page at %1"
 msgstr ""
+"Jeśli znajdziesz błąd bądź masz pomysł ulepszenia aplikacji, daj nam znać na "
+"naszej stronie projektu %1"
 
 #: ../app/welcomewizard/Slide6.qml:45
 msgid "Enjoy"
-msgstr ""
+msgstr "Zapraszamy"
 
 #: ../app/welcomewizard/Slide6.qml:62
 msgid "We hope you enjoy using Podbird!"
-msgstr ""
+msgstr "Mamy nadzieje, że Podbird przypadnie ci do gustu!"
 
 #: ../app/welcomewizard/Slide6.qml:76
 msgid "Finish"
-msgstr ""
+msgstr "Koniec"
 
-#: /home/mike/src/podbird/build-debian-packaging-Ubuntu_Device3_GCC_armhf_ubuntu_sdk_14_10_utopic-Default/po/Podbird.desktop.in.h:1
+#: /home/mike/src/podbird/debian-packaging/obj-x86_64-linux-gnu/po/Podbird.desktop.in.h:1
 msgid "Podbird"
 msgstr "Podbird"

@@ -220,7 +220,7 @@ Tab {
                     Rectangle {
                         anchors.fill: parent
                         opacity: 0.3
-                        color: index % 2 === 0 ? podbird.theme.hightlightListView : "Transparent"
+                        color: index % 2 === 0 ? podbird.appTheme.hightlightListView : "Transparent"
                     }
 
                     onClicked: {
@@ -269,14 +269,14 @@ Tab {
                                     width: parent.width
                                     fontSize: "small"
                                     elide: Text.ElideRight
-                                    color: podbird.theme.baseText
+                                    color: podbird.appTheme.baseText
                                 }
 
                                 Label {
                                     id: episodeCount
                                     width: parent.width
                                     fontSize: "x-small"
-                                    color: podbird.theme.baseSubText
+                                    color: podbird.appTheme.baseSubText
                                     visible: model.episodeCount > 0
                                     text: i18n.tr("%1 unheard episode", "%1 unheard episodes", model.episodeCount).arg(model.episodeCount)
                                 }

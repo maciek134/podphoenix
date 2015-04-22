@@ -28,7 +28,7 @@ AbstractButton {
     Rectangle {
         visible: abstractButton.pressed
         anchors.fill: parent
-        color: podbird.theme.hightlightListView
+        color: podbird.appTheme.hightlightListView
     }
 
     Icon {
@@ -36,6 +36,6 @@ AbstractButton {
         width: units.gu(2.5)
         height: width
         anchors.centerIn: parent
-        color: podbird.theme.baseIcon
+        color: podbird.appTheme.baseIcon
     }
 }
