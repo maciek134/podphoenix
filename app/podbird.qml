@@ -40,7 +40,7 @@ MainView {
     width: units.gu(50)
     height: units.gu(75)
 
-    backgroundColor: theme.background
+    backgroundColor: appTheme.background
 
     Component.onDestruction: {
         console.log("[LOG]: Download cancelled");
@@ -95,7 +95,7 @@ MainView {
         source: settings.themeName
     }
 
-    property alias theme: themeManager.theme
+    property alias appTheme: themeManager.theme
     property var themeManager: themeManager
 
     property var settings: Settings {

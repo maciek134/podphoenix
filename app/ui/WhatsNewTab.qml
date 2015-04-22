@@ -94,7 +94,7 @@ Tab {
         ]
 
         EmptyState {
-            anchors.centerIn: parent
+            anchors.verticalCenter: parent.verticalCenter
             anchors.verticalCenterOffset: Qt.inputMethod.visible ? units.gu(4) : 0
             iconHeight: units.gu(12)
             iconWidth: iconHeight + units.gu(10)
@@ -437,8 +437,8 @@ Tab {
                                 maximumLineCount: 2
                                 wrapMode: Text.WordWrap
                                 elide: Text.ElideRight
-                                color: listItem.expanded || currentGuid === model.guid || downloader.downloadingGuid === model.guid ? podbird.theme.focusText
-                                                                                                                                    : podbird.theme.baseText
+                                color: listItem.expanded || currentGuid === model.guid || downloader.downloadingGuid === model.guid ? podbird.appTheme.focusText
+                                                                                                                                    : podbird.appTheme.baseText
                             }
 
                             Row {
@@ -459,7 +459,7 @@ Tab {
                                     text: model.duration === 0 || model.duration === undefined ? model.artist : Podcasts.formatEpisodeTime(model.duration) + " | " + model.artist
                                     fontSize: "x-small"
                                     elide: Text.ElideRight
-                                    color: podbird.theme.baseSubText
+                                    color: podbird.appTheme.baseSubText
                                 }
                             }
                         }
@@ -471,8 +471,8 @@ Tab {
                             height: units.gu(4)
 
                             iconName: "contextual-menu"
-                            color: progressBar.visible || listItem.expanded ? podbird.theme.focusText
-                                                                            : podbird.theme.baseIcon
+                            color: progressBar.visible || listItem.expanded ? podbird.appTheme.focusText
+                                                                            : podbird.appTheme.baseIcon
                             onClicked: {
                                 var popover = PopupUtils.open(popoverComponent, contextualMenu)
                                 popover.queued = Qt.binding(function() { return model.queued })
@@ -503,8 +503,8 @@ Tab {
                         wrapMode: Text.WordWrap
                         width: parent.width
                         fontSize: "small"
-                        color: podbird.theme.baseSubText
-                        linkColor: podbird.theme.linkText
+                        color: podbird.appTheme.baseSubText
+                        linkColor: podbird.appTheme.linkText
                         onLinkActivated: Qt.openUrlExternally(link)
                         Behavior on height {
                             UbuntuNumberAnimation {

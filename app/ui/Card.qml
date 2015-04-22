@@ -40,7 +40,7 @@ Item {
         id: bg
         anchors.fill: parent
         anchors.margins: units.gu(1)
-        color: podbird.theme.hightlightListView
+        color: podbird.appTheme.hightlightListView
     }
 
     /* Column containing image and labels */
@@ -70,7 +70,7 @@ Item {
                 right: parent.right
                 margins: units.gu(1)
             }
-            color: podbird.theme.baseText
+            color: podbird.appTheme.baseText
             elide: Text.ElideRight
             fontSize: "small"
             opacity: 1.0
@@ -86,7 +86,7 @@ Item {
                 right: parent.right
                 rightMargin: units.gu(1)
             }
-            color: podbird.theme.baseSubText
+            color: podbird.appTheme.baseSubText
             elide: Text.ElideRight
             fontSize: "small"
             opacity: 1.0

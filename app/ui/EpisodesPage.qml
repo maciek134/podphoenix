@@ -185,7 +185,7 @@ Page {
             text: i18n.tr("Are you sure you want to unsubscribe from <b>%1</b>?").arg(episodesPage.episodeName)
             Button {
                 text: i18n.tr("Unsubscribe")
-                color: podbird.theme.negativeActionButton
+                color: podbird.appTheme.negativeActionButton
                 onClicked: {
                     var db = Podcasts.init();
                     db.transaction(function (tx) {
@@ -202,7 +202,7 @@ Page {
             }
             Button {
                 text: i18n.tr("Cancel")
-                color: podbird.theme.neutralActionButton
+                color: podbird.appTheme.neutralActionButton
                 onClicked: {
                     PopupUtils.close(dialogInternal)
                 }
@@ -367,7 +367,7 @@ Page {
 
         section.delegate: Rectangle {
             width: parent.width
-            color: section === "0" ? podbird.theme.hightlightListView : "Transparent"
+            color: section === "0" ? podbird.appTheme.hightlightListView : "Transparent"
             height: header.implicitHeight + units.gu(2)
             Label {
                 id: header
@@ -421,7 +421,7 @@ Page {
                     wrapMode: Text.WordWrap
                     maximumLineCount: 2
                     elide: Text.ElideRight
-                    color: podbird.theme.baseText
+                    color: podbird.appTheme.baseText
                 }
 
                 Label {
@@ -429,7 +429,7 @@ Page {
                     width: parent.width
                     elide: Text.ElideRight
                     fontSize: "x-small"
-                    color: podbird.theme.baseText
+                    color: podbird.appTheme.baseText
                 }
             }
         }
@@ -456,7 +456,7 @@ Page {
                 visible: !model.listened
                 width: parent.width
                 height: dataColumn.height + units.gu(2)
-                color: podbird.theme.hightlightListView
+                color: podbird.appTheme.hightlightListView
             }
 
             Column {
@@ -485,8 +485,8 @@ Page {
                             maximumLineCount: 2
                             wrapMode: Text.WordWrap
                             elide: Text.ElideRight
-                            color: listItem.expanded || currentGuid === model.guid || downloader.downloadingGuid === model.guid ? podbird.theme.focusText
-                                                                                                                                : podbird.theme.baseText
+                            color: listItem.expanded || currentGuid === model.guid || downloader.downloadingGuid === model.guid ? podbird.appTheme.focusText
+                                                                                                                                : podbird.appTheme.baseText
                         }
 
                         Row {
@@ -507,7 +507,7 @@ Page {
                                 text: model.duration === 0 || model.duration === undefined ? Qt.formatDate(new Date(model.published), "MMM d, yyyy") : Podcasts.formatEpisodeTime(model.duration) + " | " + Qt.formatDate(new Date(model.published), "MMM d, yyyy")
                                 fontSize: "x-small"
                                 elide: Text.ElideRight
-                                color: podbird.theme.baseSubText
+                                color: podbird.appTheme.baseSubText
                             }
                         }
                     }
@@ -519,8 +519,8 @@ Page {
                         height: units.gu(4)
 
                         iconName: "contextual-menu"
-                        color: progressBar.visible || listItem.expanded ? podbird.theme.focusText
-                                                                        : podbird.theme.baseIcon
+                        color: progressBar.visible || listItem.expanded ? podbird.appTheme.focusText
+                                                                        : podbird.appTheme.baseIcon
                         onClicked: {
                             var popover = PopupUtils.open(popoverComponent, contextualMenu)
                             popover.queued = Qt.binding(function() { return model.queued })
@@ -538,8 +538,8 @@ Page {
 
                         iconName: player.playbackState === MediaPlayer.PlayingState && currentGuid === model.guid ? "media-playback-pause"
                                                                                                                   : "media-playback-start"
-                        color: player.playbackState === MediaPlayer.PlayingState && currentGuid === model.guid ? podbird.theme.focusText
-                                                                                                               : podbird.theme.baseIcon
+                        color: player.playbackState === MediaPlayer.PlayingState && currentGuid === model.guid ? podbird.appTheme.focusText
+                                                                                                               : podbird.appTheme.baseIcon
 
                         onClicked: {
                             var db = Podcasts.init();
@@ -582,8 +582,8 @@ Page {
                     wrapMode: Text.WordWrap
                     width: parent.width
                     fontSize: "small"
-                    linkColor: podbird.theme.linkText
-                    color: podbird.theme.baseSubText
+                    linkColor: podbird.appTheme.linkText
+                    color: podbird.appTheme.baseSubText
                     onLinkActivated: Qt.openUrlExternally(link)
                     Behavior on height {
                         UbuntuNumberAnimation {

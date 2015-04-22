@@ -26,7 +26,7 @@ Rectangle {
 
     height: 0
     width: parent.width
-    color: podbird.theme.bottomBarBackground
+    color: podbird.appTheme.bottomBarBackground
 
     MouseArea {
         z: -1
@@ -53,7 +53,7 @@ Rectangle {
             id: progressBarHint
             anchors.left: parent.left
             anchors.top: cover.bottom
-            color: podbird.theme.focusText
+            color: podbird.appTheme.focusText
             height: units.gu(0.25)
             width: player.duration > 0 ? (player.position / player.duration) * parent.width : 0
         }

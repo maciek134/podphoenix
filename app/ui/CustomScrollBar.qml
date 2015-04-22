@@ -26,7 +26,7 @@ Rectangle {
 
     anchors.right: parent.right
     anchors.rightMargin: units.gu(0.5)
-    color: podbird.theme.focusText
+    color: podbird.appTheme.focusText
     radius: width
     width: units.dp(4)
     visible: listview.moving && listview.contentHeight > listview.height
