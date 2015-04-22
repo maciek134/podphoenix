@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-22 13:42+0000\n"
+"POT-Creation-Date: 2015-04-22 15:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -191,6 +191,14 @@ msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:260 ../app/ui/WhatsNewTab.qml:214
 msgid "Download episode"
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:309
+msgid "Mark episode unlistened"
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:309 ../app/ui/WhatsNewTab.qml:262
+msgid "Mark episode listened"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:335
@@ -393,10 +401,6 @@ msgstr ""
 
 #: ../app/ui/WhatsNewTab.qml:107
 msgid "No Episodes found matching the search term."
-msgstr ""
-
-#: ../app/ui/WhatsNewTab.qml:262
-msgid "Mark episode listened"
 msgstr ""
 
 #: ../app/ui/WhatsNewTab.qml:302
