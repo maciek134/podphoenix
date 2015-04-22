@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-22 09:52+0000\n"
+"POT-Creation-Date: 2015-04-22 13:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,19 +19,19 @@ msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
 #. TRANSLATORS: this refers to a number of songs greater than one. The actual number will be prepended to the string automatically (plural forms are not yet fully supported in usermetrics, the library that displays that string)
-#: ../app/podbird.qml:162
+#: ../app/podbird.qml:165
 msgid "podcasts listened to today"
 msgstr ""
 
-#: ../app/podbird.qml:163
+#: ../app/podbird.qml:166
 msgid "No podcasts listened to today"
 msgstr ""
 
-#: ../app/podbird.qml:225
+#: ../app/podbird.qml:228
 msgid "Add New Podcasts"
 msgstr ""
 
-#: ../app/podbird.qml:239
+#: ../app/podbird.qml:242
 msgid "Settings"
 msgstr ""
 
@@ -493,6 +493,6 @@ msgstr ""
 msgid "Finish"
 msgstr ""
 
-#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-fix-vivid-crash-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_15_04_vivid-Default/po/Podbird.desktop.in.h:1
+#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-fix-textfield-color-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_15_04_vivid-Default/po/Podbird.desktop.in.h:1
 msgid "Podbird"
 msgstr ""
