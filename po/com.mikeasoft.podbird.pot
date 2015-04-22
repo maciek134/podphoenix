@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-22 23:05+0000\n"
+"POT-Creation-Date: 2015-04-22 23:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,19 +23,19 @@ msgid "Skip"
 msgstr ""
 
 #. TRANSLATORS: this refers to a number of songs greater than one. The actual number will be prepended to the string automatically (plural forms are not yet fully supported in usermetrics, the library that displays that string)
-#: ../app/podbird.qml:162
+#: ../app/podbird.qml:165
 msgid "podcasts listened to today"
 msgstr ""
 
-#: ../app/podbird.qml:163
+#: ../app/podbird.qml:166
 msgid "No podcasts listened to today"
 msgstr ""
 
-#: ../app/podbird.qml:225
+#: ../app/podbird.qml:228
 msgid "Add New Podcasts"
 msgstr ""
 
-#: ../app/podbird.qml:239
+#: ../app/podbird.qml:242
 msgid "Settings"
 msgstr ""
 
@@ -195,6 +195,14 @@ msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:261 ../app/ui/WhatsNewTab.qml:215
 msgid "Download episode"
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:310
+msgid "Mark episode unlistened"
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:310 ../app/ui/WhatsNewTab.qml:263
+msgid "Mark episode listened"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:336
@@ -393,10 +401,6 @@ msgstr ""
 
 #: ../app/ui/WhatsNewTab.qml:108
 msgid "No Episodes found matching the search term."
-msgstr ""
-
-#: ../app/ui/WhatsNewTab.qml:263
-msgid "Mark episode listened"
 msgstr ""
 
 #: ../app/ui/WhatsNewTab.qml:303

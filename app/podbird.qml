@@ -93,6 +93,9 @@ MainView {
     Themes.ThemeManager {
         id: themeManager
         source: settings.themeName
+        onSourceChanged: {
+            Theme.palette.normal.backgroundText = UbuntuColors.lightGrey
+        }
     }
 
     property alias appTheme: themeManager.theme
