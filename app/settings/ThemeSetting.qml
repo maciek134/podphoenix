@@ -46,7 +46,7 @@ Page {
             onClicked: {
                 var themeElement = model.file
                 podbird.settings.themeName = themeElement
-                podbird.themeManager.source = themeElement
+                podbird.appThemeManager.source = themeElement
             }
 
             Icon {

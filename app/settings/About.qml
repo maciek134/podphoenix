@@ -79,7 +79,7 @@ Page {
             wrapMode: Text.WordWrap
             fontSize: "small"
             horizontalAlignment: Text.AlignHCenter
-            linkColor: podbird.theme.linkText
+            linkColor: podbird.appTheme.linkText
             text: i18n.tr("Source code available on %1").arg("<a href=\"https://launchpad.net/podbird\">launchpad.net</a>")
             onLinkActivated: Qt.openUrlExternally(link)
         }

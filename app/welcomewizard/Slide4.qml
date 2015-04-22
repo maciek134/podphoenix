@@ -63,7 +63,7 @@ Component {
             }
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignHCenter
-            linkColor: podbird.theme.linkText
+            linkColor: podbird.appTheme.linkText
             text: i18n.tr("Podbird is available in over 15 languages and is translated by the %1 community").arg("<a href=\"http://community.ubuntu.com/contribute/translations\">Ubuntu Translators</a>")
             onLinkActivated: Qt.openUrlExternally(link)
         }

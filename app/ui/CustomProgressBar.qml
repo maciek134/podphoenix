@@ -35,7 +35,7 @@ Rectangle {
         radius: parent.radius
         anchors.left: parent.left
         anchors.top: parent.top
-        color: podbird.theme.focusText
+        color: podbird.appTheme.focusText
         width: progress >= 0 && progress <= 100 ? (progress / 100) * parent.width : parent.width / 6
 
         SequentialAnimation {
