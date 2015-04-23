@@ -115,12 +115,15 @@ Page {
             }
 
             ListItem.Header {
+                // TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
+                // that doesn't fit into any other category.
                 text: i18n.tr("Misc.")
             }
 
             ListItem.Standard {
                 progression: true
                 showDivider: false
+                // TRANSLATORS: About as in information about the app
                 text: i18n.tr("About")
                 onClicked: mainStack.push(Qt.resolvedUrl("../settings/About.qml"))
             }
@@ -128,6 +131,7 @@ Page {
             ListItem.Standard {
                 progression: true
                 showDivider: false
+                // TRANSTORS: Credits as in the code and design contributors to the app
                 text: i18n.tr("Credits")
                 onClicked: mainStack.push(Qt.resolvedUrl("../settings/Credits.qml"))
             }

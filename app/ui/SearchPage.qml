@@ -54,7 +54,7 @@ Page {
             actions: [
                 Action {
                     iconName: "search"
-                    text: i18n.tr("Search Episode")
+                    text: i18n.tr("Search Podcast")
                     onTriggered: {
                         searchPage.state = "search"
                         searchField.forceActiveFocus()
@@ -88,7 +88,7 @@ Page {
             contents: TextField {
                 id: searchField
                 inputMethodHints: Qt.ImhNoPredictiveText
-                placeholderText: i18n.tr("Search...")
+                placeholderText: i18n.tr("Search Podcast")
                 anchors.left: parent ? parent.left : undefined
                 anchors.right: parent ? parent.right : undefined
                 anchors.rightMargin: units.gu(2)
@@ -296,6 +296,8 @@ Page {
                 Label {
                     id: desc
                     clip: true
+                    // TRANSLATORS: The first argument here is the date of when the podcast was last updated followed by
+                    // the podcast description.
                     text: i18n.tr("Last Updated: %1\n%2").arg(model.releaseDate.split("T")[0]).arg(model.description)
                     height: listItem.expanded ? contentHeight : 0
                     wrapMode: Text.WordWrap

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-23 22:45+0000\n"
+"POT-Creation-Date: 2015-04-23 23:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -54,20 +54,22 @@ msgstr ""
 msgid "%1 min"
 msgstr ""
 
-#: ../app/settings/About.qml:25 ../app/ui/SettingsPage.qml:124
+#. TRANSLATORS: About as in information about the app
+#: ../app/settings/About.qml:25 ../app/ui/SettingsPage.qml:127
 msgid "About"
 msgstr ""
 
-#: ../app/settings/About.qml:52
+#. TRANSLATORS: Podbird version number e.g Version 0.6
+#: ../app/settings/About.qml:53
 #, qt-format
 msgid "Version %1"
 msgstr ""
 
-#: ../app/settings/About.qml:73
+#: ../app/settings/About.qml:74
 msgid "Released under the terms of the GNU GPL v3"
 msgstr ""
 
-#: ../app/settings/About.qml:83
+#: ../app/settings/About.qml:84
 #, qt-format
 msgid "Source code available on %1"
 msgstr ""
@@ -102,7 +104,7 @@ msgid_plural "%1 years"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../app/settings/Credits.qml:26 ../app/ui/SettingsPage.qml:131
+#: ../app/settings/Credits.qml:26 ../app/ui/SettingsPage.qml:135
 msgid "Credits"
 msgstr ""
 
@@ -110,11 +112,17 @@ msgstr ""
 msgid "Developers"
 msgstr ""
 
-#: ../app/settings/Credits.qml:47
+#. TRANSLATORS: The first argument is the name of creator of Podbird (Michael Sheldon)
+#: ../app/settings/Credits.qml:39
+#, qt-format
+msgid "%1 (Creator)"
+msgstr ""
+
+#: ../app/settings/Credits.qml:48
 msgid "Designer"
 msgstr ""
 
-#: ../app/settings/Credits.qml:56
+#: ../app/settings/Credits.qml:57
 msgid "Translators"
 msgstr ""
 
@@ -136,11 +144,13 @@ msgstr[1] ""
 msgid "Theme"
 msgstr ""
 
-#: ../app/settings/ThemeSetting.qml:33 ../app/ui/SettingsPage.qml:50
+#. TRANSLATORS: Light Theme
+#: ../app/settings/ThemeSetting.qml:34 ../app/ui/SettingsPage.qml:50
 msgid "Light"
 msgstr ""
 
-#: ../app/settings/ThemeSetting.qml:34 ../app/ui/SettingsPage.qml:50
+#. TRANSLATORS: Dark Theme
+#: ../app/settings/ThemeSetting.qml:36 ../app/ui/SettingsPage.qml:50
 msgid "Dark"
 msgstr ""
 
@@ -148,8 +158,7 @@ msgstr ""
 msgid "Podcast"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:90 ../app/ui/SearchPage.qml:57
-#: ../app/ui/WhatsNewTab.qml:33
+#: ../app/ui/EpisodesPage.qml:90 ../app/ui/WhatsNewTab.qml:33
 msgid "Search Episode"
 msgstr ""
 
@@ -233,19 +242,24 @@ msgstr ""
 msgid "Now Playing"
 msgstr ""
 
-#: ../app/ui/NowPlayingPage.qml:151
-msgid "-15s"
+#. TRANSLATORS: The string shown in the UI is -15s to denote the number of seconds that the podcast playback will skip backward.
+#: ../app/ui/NowPlayingPage.qml:153
+#, no-c-format, qt-format
+msgid "-%1s"
 msgstr ""
 
-#: ../app/ui/NowPlayingPage.qml:210
-msgid "+15s"
+#. TRANSLATORS: The string shown in the UI is +15s to denote the number of seconds that the podcast playback will skip forward.
+#: ../app/ui/NowPlayingPage.qml:214
+#, no-c-format, qt-format
+msgid "+%1s"
 msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:33
 msgid "Podcasts"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:71
+#: ../app/ui/PodcastsTab.qml:71 ../app/ui/SearchPage.qml:57
+#: ../app/ui/SearchPage.qml:91
 msgid "Search Podcast"
 msgstr ""
 
@@ -290,10 +304,6 @@ msgstr[1] ""
 msgid "Add Podcast"
 msgstr ""
 
-#: ../app/ui/SearchPage.qml:91
-msgid "Search..."
-msgstr ""
-
 #: ../app/ui/SearchPage.qml:121
 msgid "Save Podcast"
 msgstr ""
@@ -331,14 +341,16 @@ msgstr ""
 msgid "Subscribe"
 msgstr ""
 
-#: ../app/ui/SearchPage.qml:299
+#. TRANSLATORS: The first argument here is the date of when the podcast was last updated followed by
+#. the podcast description.
+#: ../app/ui/SearchPage.qml:301
 #, qt-format
 msgid ""
 "Last Updated: %1\n"
 "%2"
 msgstr ""
 
-#: ../app/ui/SearchPage.qml:354
+#: ../app/ui/SearchPage.qml:356
 msgid "Not Available"
 msgstr ""
 
@@ -371,11 +383,13 @@ msgstr ""
 msgid "Default number of new episodes to download for each podcast"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:118
+#. TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
+#. that doesn't fit into any other category.
+#: ../app/ui/SettingsPage.qml:120
 msgid "Misc."
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:138
+#: ../app/ui/SettingsPage.qml:142
 msgid "Report Bug"
 msgstr ""
 
