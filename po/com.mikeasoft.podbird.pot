@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-22 23:06+0000\n"
+"POT-Creation-Date: 2015-04-22 23:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,19 +23,19 @@ msgid "Skip"
 msgstr ""
 
 #. TRANSLATORS: this refers to a number of songs greater than one. The actual number will be prepended to the string automatically (plural forms are not yet fully supported in usermetrics, the library that displays that string)
-#: ../app/podbird.qml:165
+#: ../app/podbird.qml:166
 msgid "podcasts listened to today"
 msgstr ""
 
-#: ../app/podbird.qml:166
+#: ../app/podbird.qml:167
 msgid "No podcasts listened to today"
 msgstr ""
 
-#: ../app/podbird.qml:228
+#: ../app/podbird.qml:229
 msgid "Add New Podcasts"
 msgstr ""
 
-#: ../app/podbird.qml:242
+#: ../app/podbird.qml:243
 msgid "Settings"
 msgstr ""
 
@@ -58,16 +58,16 @@ msgstr ""
 msgid "About"
 msgstr ""
 
-#: ../app/settings/About.qml:52
+#: ../app/settings/About.qml:61
 #, qt-format
 msgid "Version %1"
 msgstr ""
 
-#: ../app/settings/About.qml:73
+#: ../app/settings/About.qml:82
 msgid "Released under the terms of the GNU GPL v3"
 msgstr ""
 
-#: ../app/settings/About.qml:83
+#: ../app/settings/About.qml:92
 #, qt-format
 msgid "Source code available on %1"
 msgstr ""
@@ -497,6 +497,6 @@ msgstr ""
 msgid "Finish"
 msgstr ""
 
-#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-10-rearrange-project-structure-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_15_04_vivid-Default/po/Podbird.desktop.in.h:1
+#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-11-enable-rotation-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_15_04_vivid-Default/po/Podbird.desktop.in.h:1
 msgid "Podbird"
 msgstr ""

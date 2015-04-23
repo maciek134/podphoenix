@@ -36,6 +36,7 @@ MainView {
     applicationName: "com.mikeasoft.podbird"
     useDeprecatedToolbar: false
     anchorToKeyboard: true
+    automaticOrientation: true
 
     width: units.gu(50)
     height: units.gu(75)
