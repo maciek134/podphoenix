@@ -1,6 +1,6 @@
 [Desktop Entry]
-_Name=Podbird
-Comment=Podcast manager
+Name=Podbird
+_Comment=The chirpiest podcast manager for Ubuntu
 Exec=@EXEC@
 Icon=@ICON@
 Terminal=false
