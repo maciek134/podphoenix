@@ -306,7 +306,7 @@ Page {
                         Label {
                             id: listenText
                             color: UbuntuColors.darkGrey
-                            text: popover.listened ? "Mark episode unlistened" : "Mark episode listened"
+                            text: popover.listened ? i18n.tr("Mark episode unlistened") : i18n.tr("Mark episode listened")
                         }
                     }
 
