@@ -29,6 +29,57 @@ Page {
     title: i18n.tr("Now Playing")
 
     property bool isNowPlayingPage: true
+    property bool isLandscapeMode: width > height
+
+    // Landscape rule
+    states: [
+        State {
+            name: "landscape"
+            when: isLandscapeMode
+
+            PropertyChanges {
+                target: blurredBackground
+                width: parent.width/2.2
+                height: parent.height
+            }
+
+            AnchorChanges {
+                target: blurredBackground
+                anchors {
+                    top: parent.top
+                    left: parent.left
+                    right: undefined
+                }
+            }
+
+            AnchorChanges {
+                target: title
+                anchors {
+                    top: parent.top
+                    left: blurredBackground.right
+                    right: parent.right
+                }
+            }
+
+            AnchorChanges {
+                target: scrubber
+                anchors {
+                    left: blurredBackground.right
+                    right: parent.right
+                    bottom: rowContainer.top
+                }
+            }
+
+            AnchorChanges {
+                target: rowContainer
+                anchors {
+                    left: blurredBackground.right
+                    right: parent.right
+                    bottom: parent.bottom
+                }
+            }
+        }
+    ]
 
     BlurredBackground {
         id: blurredBackground
@@ -83,8 +134,8 @@ Page {
             left: parent.left
             right: parent.right
             margins: units.gu(2)
-            bottom: controls.top
-            bottomMargin: units.gu(2)
+            bottom: rowContainer.top
+            bottomMargin: units.gu(4)
         }
 
         live: true
@@ -125,96 +176,106 @@ Page {
         text: Podcasts.formatTime(player.duration / 1000)
     }
 
-    Row {
-        id: controls
+    Item {
+        id: rowContainer
+
+        height: units.gu(6)
+        anchors.left: parent.left
+        anchors.right: parent.right
         anchors.bottom: parent.bottom
-        anchors.horizontalCenter: parent.horizontalCenter
-        spacing: units.gu(2)
+        anchors.margins: units.gu(4)
 
-        AbstractButton {
-            id: skipBackwardButton
-            width: units.gu(6)
-            height: width
-            anchors.verticalCenter: parent.verticalCenter
-            opacity: player.position === 0 ? 0.4 : 1.0
-            onClicked: {
-                if (player.position > 0) {
-                    player.seek(player.position - 15 * 1000);
-                }
-            }
+        Row {
+            id: controls
 
-            Row {
-                spacing: units.gu(1)
-                anchors.centerIn: parent
+            anchors.centerIn: parent
+            spacing: units.gu(2)
 
-                Label {
-                    // TRANSLATORS: The string shown in the UI is -15s to denote the number of seconds that the podcast playback will skip backward.
-                    // xgettext: no-c-format
-                    text: i18n.tr("-%1s").arg("15")
-                    fontSize: "xx-small"
-                    color: podbird.appTheme.baseText
-                    anchors.verticalCenter: skipBackwardIcon.verticalCenter
-                }
-
-                Icon {
-                    id: skipBackwardIcon
-                    width: units.gu(3)
-                    height: width
-                    name: "media-seek-backward"
-                    color: podbird.appTheme.baseIcon
-                }
-            }
-        }
-
-        AbstractButton {
-            id: playButton
-            width: units.gu(10)
-            height: width
-            opacity: playButton.pressed ? 0.4 : 1.0
-            onClicked: player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
-
-            Icon {
-                id: playIcon
+            AbstractButton {
+                id: skipBackwardButton
                 width: units.gu(6)
                 height: width
-                anchors.centerIn: parent
-                color: podbird.appTheme.baseIcon
-                name: player.playbackState === MediaPlayer.PlayingState ? "media-playback-pause"
-                                                                        : "media-playback-start"
-            }
-        }
+                anchors.verticalCenter: parent.verticalCenter
+                opacity: player.position === 0 ? 0.4 : 1.0
+                onClicked: {
+                    if (player.position > 0) {
+                        player.seek(player.position - 15 * 1000);
+                    }
+                }
 
-        AbstractButton {
-            id: skipForwardButton
-            width: units.gu(6)
-            height: width
-            anchors.verticalCenter: parent.verticalCenter
-            opacity: player.position === 0 ? 0.4 : 1.0
-            onClicked: {
-                if (player.position > 0) {
-                    player.seek(player.position + 15 * 1000);
+                Row {
+                    spacing: units.gu(1)
+                    anchors.centerIn: parent
+
+                    Label {
+                        // TRANSLATORS: The string shown in the UI is -15s to denote the number of seconds that the podcast playback will skip backward.
+                        // xgettext: no-c-format
+                        text: i18n.tr("-%1s").arg("15")
+                        fontSize: "xx-small"
+                        color: podbird.appTheme.baseText
+                        anchors.verticalCenter: skipBackwardIcon.verticalCenter
+                    }
+
+                    Icon {
+                        id: skipBackwardIcon
+                        width: units.gu(3)
+                        height: width
+                        name: "media-seek-backward"
+                        color: podbird.appTheme.baseIcon
+                    }
                 }
             }
 
-            Row {
-                spacing: units.gu(1)
-                anchors.centerIn: parent
+            AbstractButton {
+                id: playButton
+                width: units.gu(10)
+                height: width
+                opacity: playButton.pressed ? 0.4 : 1.0
+                onClicked: player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
 
                 Icon {
-                    id: skipForwardIcon
-                    width: units.gu(3)
+                    id: playIcon
+                    width: units.gu(6)
                     height: width
-                    name: "media-seek-forward"
+                    anchors.centerIn: parent
                     color: podbird.appTheme.baseIcon
+                    name: player.playbackState === MediaPlayer.PlayingState ? "media-playback-pause"
+                                                                            : "media-playback-start"
+                }
+            }
+
+            AbstractButton {
+                id: skipForwardButton
+                width: units.gu(6)
+                height: width
+                anchors.verticalCenter: parent.verticalCenter
+                opacity: player.position === 0 ? 0.4 : 1.0
+                onClicked: {
+                    if (player.position > 0) {
+                        player.seek(player.position + 15 * 1000);
+                    }
                 }
 
-                Label {
-                    // TRANSLATORS: The string shown in the UI is +15s to denote the number of seconds that the podcast playback will skip forward.
-                    // xgettext: no-c-format
-                    text: i18n.tr("+%1s").arg("15")
-                    fontSize: "xx-small"
-                    color: podbird.appTheme.baseText
-                    anchors.verticalCenter: skipForwardIcon.verticalCenter
+                Row {
+                    spacing: units.gu(1)
+                    anchors.centerIn: parent
+
+                    Icon {
+                        id: skipForwardIcon
+                        width: units.gu(3)
+                        height: width
+                        name: "media-seek-forward"
+                        color: podbird.appTheme.baseIcon
+                    }
+
+                    Label {
+                        // TRANSLATORS: The string shown in the UI is +15s to denote the number of seconds that the podcast playback will skip forward.
+                        // xgettext: no-c-format
+                        text: i18n.tr("+%1s").arg("15")
+                        fontSize: "xx-small"
+                        color: podbird.appTheme.baseText
+                        anchors.verticalCenter: skipForwardIcon.verticalCenter
+                    }
                 }
             }
         }
