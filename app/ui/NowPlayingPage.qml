@@ -183,7 +183,7 @@ Page {
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: parent.bottom
-        anchors.margins: units.gu(4)
+        anchors.bottomMargin: units.gu(4)
 
         Row {
             id: controls
