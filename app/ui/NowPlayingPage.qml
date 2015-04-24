@@ -53,26 +53,9 @@ Page {
             }
 
             AnchorChanges {
-                target: title
+                target: dataContainer
                 anchors {
                     top: parent.top
-                    left: blurredBackground.right
-                    right: parent.right
-                }
-            }
-
-            AnchorChanges {
-                target: scrubber
-                anchors {
-                    left: blurredBackground.right
-                    right: parent.right
-                    bottom: rowContainer.top
-                }
-            }
-
-            AnchorChanges {
-                target: rowContainer
-                anchors {
                     left: blurredBackground.right
                     right: parent.right
                     bottom: parent.bottom
@@ -101,94 +84,96 @@ Page {
         }
     }
 
-    Label {
-        id: title
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.top: blurredBackground.bottom
-        anchors.margins: units.gu(2)
-        text: currentName
-        elide: Text.ElideRight
-        fontSize: "large"
-        maximumLineCount: 2
-        wrapMode: Text.WordWrap
-        color: podbird.appTheme.baseText
-    }
-
-    Label {
-        id: artist
-        anchors.left: title.left
-        anchors.right: title.right
-        anchors.top: title.bottom
-        anchors.topMargin: units.gu(1)
-        text: currentArtist
-        elide: Text.ElideRight
-        fontSize: "small"
-        color: podbird.appTheme.baseSubText
-    }
-
-    Slider {
-        id: scrubber
+    Item {
+        id: dataContainer
 
         anchors {
+            top: blurredBackground.bottom
             left: parent.left
             right: parent.right
+            bottom: parent.bottom
             margins: units.gu(2)
-            bottom: rowContainer.top
-            bottomMargin: units.gu(4)
+            bottomMargin: isLandscapeMode ? units.gu(4) : units.gu(2)
         }
 
-        live: true
-        minimumValue: 0
-        maximumValue: player.duration
-        value: player.position
-        height: units.gu(2)
+        Label {
+            id: title
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.top: parent.top
+            text: currentName
+            elide: Text.ElideRight
+            fontSize: "large"
+            maximumLineCount: 2
+            wrapMode: Text.WordWrap
+            color: podbird.appTheme.baseText
+        }
 
-        onValueChanged: {
-            if (pressed) {
-                player.seek(value);
+        Label {
+            id: artist
+            anchors.left: title.left
+            anchors.right: title.right
+            anchors.top: title.bottom
+            anchors.topMargin: units.gu(1)
+            text: currentArtist
+            elide: Text.ElideRight
+            fontSize: "small"
+            color: podbird.appTheme.baseSubText
+        }
+
+        Slider {
+            id: scrubber
+
+            anchors {
+                left: parent.left
+                right: parent.right
+                bottom: controls.top
+                bottomMargin: isLandscapeMode ? units.gu(4) : units.gu(2)
             }
+
+            live: true
+            minimumValue: 0
+            maximumValue: player.duration
+            value: player.position
+            height: units.gu(2)
+
+            onValueChanged: {
+                if (pressed) {
+                    player.seek(value);
+                }
+            }
+
+            function formatValue(v) { return Podcasts.formatTime(v/1000); }
         }
 
-        function formatValue(v) { return Podcasts.formatTime(v/1000); }
-    }
+        Connections {
+            target: player
+            onPositionChanged: scrubber.value = player.position
+        }
 
-    Connections {
-        target: player
-        onPositionChanged: scrubber.value = player.position
-    }
+        Label {
+            id: startTime
+            fontSize: "small"
+            anchors.left: scrubber.left
+            anchors.top: scrubber.bottom
+            color: podbird.appTheme.baseText
+            text: Podcasts.formatTime(player.position / 1000)
+        }
 
-    Label {
-        id: startTime
-        fontSize: "small"
-        anchors.left: scrubber.left
-        anchors.top: scrubber.bottom
-        color: podbird.appTheme.baseText
-        text: Podcasts.formatTime(player.position / 1000)
-    }
-
-    Label {
-        id: endTime
-        fontSize: "small"
-        anchors.right: scrubber.right
-        anchors.top: scrubber.bottom
-        color: podbird.appTheme.baseText
-        text: Podcasts.formatTime(player.duration / 1000)
-    }
-
-    Item {
-        id: rowContainer
-
-        height: units.gu(6)
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: units.gu(4)
+        Label {
+            id: endTime
+            fontSize: "small"
+            anchors.right: scrubber.right
+            anchors.top: scrubber.bottom
+            color: podbird.appTheme.baseText
+            text: Podcasts.formatTime(player.duration / 1000)
+        }
 
         Row {
             id: controls
 
-            anchors.centerIn: parent
+            anchors.bottom: parent.bottom
+            anchors.horizontalCenter: parent.horizontalCenter
             spacing: units.gu(2)
 
             AbstractButton {

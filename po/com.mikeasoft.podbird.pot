@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-24 18:46+0000\n"
+"POT-Creation-Date: 2015-04-24 20:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: ../app/components/Walkthrough.qml:90
+#: ../app/components/Walkthrough.qml:91
 msgid "Skip"
 msgstr ""
 
@@ -243,13 +243,13 @@ msgid "Now Playing"
 msgstr ""
 
 #. TRANSLATORS: The string shown in the UI is -15s to denote the number of seconds that the podcast playback will skip backward.
-#: ../app/ui/NowPlayingPage.qml:213
+#: ../app/ui/NowPlayingPage.qml:198
 #, no-c-format, qt-format
 msgid "-%1s"
 msgstr ""
 
 #. TRANSLATORS: The string shown in the UI is +15s to denote the number of seconds that the podcast playback will skip forward.
-#: ../app/ui/NowPlayingPage.qml:274
+#: ../app/ui/NowPlayingPage.qml:259
 #, no-c-format, qt-format
 msgid "+%1s"
 msgstr ""
