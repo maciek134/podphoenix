@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-04-22 09:52+0000\n"
+"POT-Creation-Date: 2015-04-23 09:57+0000\n"
 "PO-Revision-Date: 2015-04-21 14:45+0000\n"
 "Last-Translator: Andi Chandler <Unknown>\n"
 "Language-Team: English (United Kingdom) <en_GB@li.org>\n"
@@ -15,23 +15,23 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2015-04-23 06:54+0000\n"
+"X-Launchpad-Export-Date: 2015-04-24 05:42+0000\n"
 "X-Generator: Launchpad (build 17430)\n"
 
 #. TRANSLATORS: this refers to a number of songs greater than one. The actual number will be prepended to the string automatically (plural forms are not yet fully supported in usermetrics, the library that displays that string)
-#: ../app/podbird.qml:162
+#: ../app/podbird.qml:165
 msgid "podcasts listened to today"
 msgstr "podcasts listened to today"
 
-#: ../app/podbird.qml:163
+#: ../app/podbird.qml:166
 msgid "No podcasts listened to today"
 msgstr "No podcasts listened to today"
 
-#: ../app/podbird.qml:225
+#: ../app/podbird.qml:228
 msgid "Add New Podcasts"
 msgstr "Add New Podcasts"
 
-#: ../app/podbird.qml:239
+#: ../app/podbird.qml:242
 msgid "Settings"
 msgstr "Settings"
 
@@ -191,6 +191,14 @@ msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:260 ../app/ui/WhatsNewTab.qml:214
 msgid "Download episode"
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:309
+msgid "Mark episode unlistened"
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:309 ../app/ui/WhatsNewTab.qml:262
+msgid "Mark episode listened"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:335
@@ -395,10 +403,6 @@ msgstr ""
 msgid "No Episodes found matching the search term."
 msgstr ""
 
-#: ../app/ui/WhatsNewTab.qml:262
-msgid "Mark episode listened"
-msgstr ""
-
 #: ../app/ui/WhatsNewTab.qml:302
 msgid "Pause Episode"
 msgstr ""
@@ -491,8 +495,4 @@ msgstr ""
 
 #: ../app/welcomewizard/Slide6.qml:76
 msgid "Finish"
-msgstr ""
-
-#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-fix-vivid-crash-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_15_04_vivid-Default/po/Podbird.desktop.in.h:1
-msgid "Podbird"
 msgstr ""

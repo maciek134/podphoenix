@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Launchpad-Export-Date: 2015-04-23 17:00+0000\n"
+"X-Launchpad-Export-Date: 2015-04-24 05:42+0000\n"
 "X-Generator: Launchpad (build 17430)\n"
 
 #. TRANSLATORS: this refers to a number of songs greater than one. The actual number will be prepended to the string automatically (plural forms are not yet fully supported in usermetrics, the library that displays that string)
@@ -519,6 +519,3 @@ msgstr "Надеемся, вам понравится Podbird!"
 #: ../app/welcomewizard/Slide6.qml:76
 msgid "Finish"
 msgstr "Конец"
-
-#~ msgid "Podbird"
-#~ msgstr "Podbird"
