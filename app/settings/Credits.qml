@@ -25,41 +25,50 @@ Page {
 
     title: i18n.tr("Credits")
 
-    Column {
+    Flickable {
+        id: flickable
+
         anchors.topMargin: units.gu(1)
         anchors.fill: parent
+        contentHeight: dataColumn.height + units.gu(8)
 
-        ListItem.Header {
-            text: i18n.tr("Developers")
-        }
+        Column {
+            id: dataColumn
 
-        ListItem.Standard {
-            showDivider: false
-            // TRANSLATORS: The first argument is the name of creator of Podbird (Michael Sheldon)
-            text: i18n.tr("%1 (Creator)").arg("Michael Sheldon")
-        }
+            anchors { top: parent.top; left: parent.left; right: parent.right }
 
-        ListItem.Standard {
-            showDivider: false
-            text: "Nekhelesh Ramananthan"
-        }
+            ListItem.Header {
+                text: i18n.tr("Developers")
+            }
 
-        ListItem.Header {
-            text: i18n.tr("Designer")
-        }
+            ListItem.Standard {
+                showDivider: false
+                // TRANSLATORS: The first argument is the name of creator of Podbird (Michael Sheldon)
+                text: i18n.tr("%1 (Creator)").arg("Michael Sheldon")
+            }
 
-        ListItem.Standard {
-            showDivider: false
-            text: "Kevin Feyder"
-        }
+            ListItem.Standard {
+                showDivider: false
+                text: "Nekhelesh Ramananthan"
+            }
 
-        ListItem.Header {
-            text: i18n.tr("Translators")
-        }
+            ListItem.Header {
+                text: i18n.tr("Designer")
+            }
 
-        ListItem.Standard {
-            showDivider: false
-            text: "Ubuntu Translators Team"
+            ListItem.Standard {
+                showDivider: false
+                text: "Kevin Feyder"
+            }
+
+            ListItem.Header {
+                text: i18n.tr("Translators")
+            }
+
+            ListItem.Standard {
+                showDivider: false
+                text: "Ubuntu Translators Team"
+            }
         }
     }
 }

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-24 00:01+0000\n"
+"POT-Creation-Date: 2015-04-24 00:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -108,21 +108,21 @@ msgstr[1] ""
 msgid "Credits"
 msgstr ""
 
-#: ../app/settings/Credits.qml:33
+#: ../app/settings/Credits.qml:41
 msgid "Developers"
 msgstr ""
 
 #. TRANSLATORS: The first argument is the name of creator of Podbird (Michael Sheldon)
-#: ../app/settings/Credits.qml:39
+#: ../app/settings/Credits.qml:47
 #, qt-format
 msgid "%1 (Creator)"
 msgstr ""
 
-#: ../app/settings/Credits.qml:48
+#: ../app/settings/Credits.qml:56
 msgid "Designer"
 msgstr ""
 
-#: ../app/settings/Credits.qml:57
+#: ../app/settings/Credits.qml:65
 msgid "Translators"
 msgstr ""
 
