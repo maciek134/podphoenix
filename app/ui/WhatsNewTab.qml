@@ -384,135 +384,55 @@ Tab {
                 height: units.gu(8)
             }
 
-            delegate: ListItem.Empty {
+            delegate: ListDelegate {
                 id: listItem
 
-                property bool expanded
+                coverArt: model.image
 
-                height: dataColumn.height + units.gu(2)
-                highlightWhenPressed: false
-                showDivider: false
+                title: model.name.trim()
+                titleColor: expanded || currentGuid === model.guid || downloader.downloadingGuid === model.guid ? podbird.appTheme.focusText
+                                                                                                                : podbird.appTheme.baseText
 
-                onClicked: {
-                    expanded = !expanded;
+                subtitle: model.duration === 0 || model.duration === undefined ? model.artist
+                                                                               : Podcasts.formatEpisodeTime(model.duration) + " | " + model.artist
+
+                description: model.description
+
+                isDownloaded: model.downloadedfile ? true : false
+
+                showProgressBar: downloader.downloadingGuid === model.guid
+                isInDeterminateDownload: downloader.progress < 0 || downloader.progress > 100 && downloader.downloadingGuid === model.guid
+                progress: downloader.progress
+
+                actionButton.sourceComponent: contextualMenuComponent
+
+                Component {
+                    id: contextualMenuComponent
+                    ActionButton {
+                        id: contextualMenu
+
+                        width: units.gu(5)
+                        height: units.gu(4)
+
+                        iconName: "contextual-menu"
+                        color: showProgressBar || listItem.expanded ? podbird.appTheme.focusText
+                                                                        : podbird.appTheme.baseIcon
+                        onClicked: {
+                            var popover = PopupUtils.open(popoverComponent, contextualMenu)
+                            popover.queued = Qt.binding(function() { return whatsNewModel.get(index).queued })
+                            popover.guid = Qt.binding(function() { return model.guid })
+                            popover.audiourl = Qt.binding(function() { return model.audiourl })
+                            popover.downloadedfile = Qt.binding(function() { return whatsNewModel.get(index).downloadedfile })
+                            popover.index = Qt.binding(function() { return index })
+                            popover.name = Qt.binding(function() { return model.name })
+                            popover.artist = Qt.binding(function() { return model.artist })
+                            popover.image = Qt.binding(function() { return model.image })
+                        }
+                    }
                 }
 
-                Column {
-                    id: dataColumn
-
-                    spacing: units.gu(1)
-                    anchors.left: parent.left
-                    anchors.right: parent.right
-                    anchors.margins: units.gu(2)
-                    anchors.top: parent.top
-                    anchors.topMargin: units.gu(0.5)
-
-                    RowLayout {
-                        id: rowlayout
-
-                        width: parent.width
-                        height: imgFrame.height
-
-                        Image {
-                            id: imgFrame
-                            width: units.gu(6)
-                            height: width
-                            sourceSize.height: width
-                            sourceSize.width: width
-                            source: model.image
-                        }
-
-                        Item {
-                            width: units.gu(2)
-                            height: imgFrame.height
-                        }
-
-                        Column {
-                            id: titleColumn
-                            anchors.verticalCenter: imgFrame.verticalCenter
-                            Layout.fillWidth: true
-
-                            Label {
-                                text: model.name.trim()
-                                width: parent.width
-                                maximumLineCount: 2
-                                wrapMode: Text.WordWrap
-                                elide: Text.ElideRight
-                                color: listItem.expanded || currentGuid === model.guid || downloader.downloadingGuid === model.guid ? podbird.appTheme.focusText
-                                                                                                                                    : podbird.appTheme.baseText
-                            }
-
-                            Row {
-                                height:episodePublishDate.height
-                                width:parent.width
-                                spacing:units.gu(1)
-
-                                Icon{
-                                    height:episodePublishDate.height
-                                    width:height
-                                    name:"attachment"
-                                    visible: model.downloadedfile ? true : false
-                                }
-
-                                Label {
-                                    id: episodePublishDate
-                                    width: parent.width
-                                    text: model.duration === 0 || model.duration === undefined ? model.artist : Podcasts.formatEpisodeTime(model.duration) + " | " + model.artist
-                                    fontSize: "x-small"
-                                    elide: Text.ElideRight
-                                    color: podbird.appTheme.baseSubText
-                                }
-                            }
-                        }
-
-                        ActionButton {
-                            id: contextualMenu
-
-                            width: units.gu(5)
-                            height: units.gu(4)
-
-                            iconName: "contextual-menu"
-                            color: progressBar.visible || listItem.expanded ? podbird.appTheme.focusText
-                                                                            : podbird.appTheme.baseIcon
-                            onClicked: {
-                                var popover = PopupUtils.open(popoverComponent, contextualMenu)
-                                popover.queued = Qt.binding(function() { return model.queued })
-                                popover.guid = Qt.binding(function() { return model.guid })
-                                popover.audiourl = Qt.binding(function() { return model.audiourl })
-                                popover.downloadedfile = Qt.binding(function() { return whatsNewModel.get(index).downloadedfile })
-                                popover.index = Qt.binding(function() { return index })
-                                popover.name = Qt.binding(function() { return model.name })
-                                popover.artist = Qt.binding(function() { return model.artist })
-                                popover.image = Qt.binding(function() { return model.image })
-                            }
-                        }
-                    }
-
-                    CustomProgressBar {
-                        id: progressBar
-                        width: parent.width
-                        visible: downloader.downloadingGuid === model.guid
-                        indeterminateProgress: downloader.progress < 0 || downloader.progress > 100 && downloader.downloadingGuid === model.guid
-                        progress: downloader.progress
-                    }
-
-                    Label {
-                        id: desc
-                        text: model.description
-                        clip: true
-                        height: listItem.expanded ? contentHeight : 0
-                        wrapMode: Text.WordWrap
-                        width: parent.width
-                        fontSize: "small"
-                        color: podbird.appTheme.baseSubText
-                        linkColor: podbird.appTheme.linkText
-                        onLinkActivated: Qt.openUrlExternally(link)
-                        Behavior on height {
-                            UbuntuNumberAnimation {
-                                duration: UbuntuAnimation.BriskDuration
-                            }
-                        }
-                    }
+                onClicked: {
+                    expanded = !expanded
                 }
             }
 

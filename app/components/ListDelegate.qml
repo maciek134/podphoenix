@@ -26,9 +26,22 @@ ListItem.Empty {
 
     // Public APIs
     property bool expanded: false
+
     property string coverArt: ""
+
     property alias title: _title.text
+    property alias titleColor: _title.color
     property alias subtitle: _subtitle.text
+
+    property string description: ""
+
+    property bool isDownloaded: false
+
+    property bool showProgressBar: false
+    property bool isInDeterminateDownload: false
+    property real progress: 0
+
+    property alias actionButton: actionButtonsLoader
 
     highlightWhenPressed: false
     showDivider: false
@@ -38,18 +51,22 @@ ListItem.Empty {
         id: mainColumn
 
         anchors { left: parent.left; right: parent.right; margins: units.gu(2); verticalCenter: parent.verticalCenter }
-        spacing: units.gu(1)
 
         RowLayout {
             id: mainRow
 
             width: parent.width
-            spacing: units.gu(2)
 
             Loader {
                 id: imgFrameLoader
-                visible: sourceComponent !== undefined
+                visible: coverArt !== ""
                 sourceComponent: coverArt !== "" ? imgFrame : undefined
+            }
+
+            Item {
+                id: gapFiller1
+                height: width
+                width: coverArt !== "" ? units.gu(2) : 0
             }
 
             Column {
@@ -68,13 +85,53 @@ ListItem.Empty {
                     color: podbird.appTheme.baseText
                 }
 
-                Label {
-                    id: _subtitle
+                Row {
+                    height: _subtitle.height
                     width: parent.width
-                    fontSize: "x-small"
-                    color: podbird.appTheme.baseSubText
+                    spacing: units.gu(1)
+
+                    Loader {
+                        id: downloadIconLoader
+                        height: _subtitle.height
+                        width: height
+                        visible: isDownloaded
+                        sourceComponent: downloadIcon
+                    }
+
+                    Label {
+                        id: _subtitle
+                        width: parent.width
+                        fontSize: "x-small"
+                        color: podbird.appTheme.baseSubText
+                    }
                 }
             }
+
+            Loader {
+                id: actionButtonsLoader
+            }
+        }
+
+        Item {
+            id: gapFiller2
+            height: showProgressBar || expanded ? units.gu(1) : 0
+            width: height
+        }
+
+        Loader {
+            id: progressBarLoader
+            width: parent.width
+            height: showProgressBar ? units.dp(5) : 0
+            visible: sourceComponent !== undefined
+            sourceComponent: showProgressBar ? progressBar : undefined
+        }
+
+        Loader {
+            id: descriptionLoader
+            width: parent.width
+            height: expanded && loaded ? item.contentHeight : 0
+            visible: sourceComponent !== undefined
+            sourceComponent: expanded ? _description : undefined
         }
     }
 
@@ -85,6 +142,33 @@ ListItem.Empty {
             width: units.gu(6)
             source: coverArt
             sourceSize { width: width; height: height }
+        }
+    }
+
+    Component {
+        id: progressBar
+        CustomProgressBar {
+            indeterminateProgress: isInDeterminateDownload
+            progress: listDelegate.progress
+        }
+    }
+
+    Component {
+        id: downloadIcon
+        Icon {
+            name: "attachment"
+        }
+    }
+
+    Component {
+        id: _description
+        Label {
+            text: description
+            wrapMode: Text.WordWrap
+            fontSize: "small"
+            color: podbird.appTheme.baseSubText
+            linkColor: podbird.appTheme.linkText
+            onLinkActivated: Qt.openUrlExternally(link)
         }
     }
 }

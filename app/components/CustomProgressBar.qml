@@ -26,7 +26,6 @@ Rectangle {
     property bool indeterminateProgress: false
 
     radius: width/3
-    height: units.dp(5)
     color: Theme.palette.normal.base
 
     Rectangle {
