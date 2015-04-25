@@ -24,8 +24,6 @@ import "../podcasts.js" as Podcasts
 Rectangle {
     id: controlRect
 
-    height: units.gu(7)
-    width: parent.width
     color: podbird.appTheme.bottomBarBackground
 
     MouseArea {
