@@ -253,28 +253,32 @@ MainView {
         }
     }
 
+//    Loader {
+//        id: playerControlLoader
+//    }
+
     PlayerControls {
         id: playerControl
 
         visible: !Qt.inputMethod.visible
         anchors.bottom: parent.bottom
 
-        state: "hidden"
+        state: "shown"
         states: [
             State {
                 name: "shown"
                 when: player.source != "" && !mainStack.currentPage.isNowPlayingPage
-                PropertyChanges { target: playerControl; height: units.gu(7) }
+                PropertyChanges { target: playerControl; anchors.bottomMargin: 0 }
             },
 
             State {
                 name: "hidden"
-                when: player.source == ""
-                PropertyChanges { target: playerControl; height: 0 }
+                when: player.source == "" || mainStack.currentPage.isNowPlayingPage || !playerControl.visible
+                PropertyChanges { target: playerControl; anchors.bottomMargin: -units.gu(7) }
             }
         ]
 
-        Behavior on height {
+        Behavior on anchors.bottomMargin {
             UbuntuNumberAnimation {
                 duration: UbuntuAnimation.SlowDuration
             }
