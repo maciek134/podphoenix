@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-25 02:32+0000\n"
+"POT-Creation-Date: 2015-04-28 23:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,7 +24,8 @@ msgstr ""
 
 #. TRANSLATORS: this refers to a number of songs greater than one. The actual number will be prepended to the string automatically (plural forms are not yet fully supported in usermetrics, the library that displays that string)
 #: ../app/podbird.qml:166
-msgid "podcasts listened to today"
+#, qt-format
+msgid "Podcasts listened to today: <b>%1</b>"
 msgstr ""
 
 #: ../app/podbird.qml:167
@@ -108,21 +109,21 @@ msgstr[1] ""
 msgid "Credits"
 msgstr ""
 
-#: ../app/settings/Credits.qml:41
-msgid "Developers"
-msgstr ""
-
 #. TRANSLATORS: The first argument is the name of creator of Podbird (Michael Sheldon)
-#: ../app/settings/Credits.qml:47
+#: ../app/settings/Credits.qml:33
 #, qt-format
 msgid "%1 (Creator)"
 msgstr ""
 
-#: ../app/settings/Credits.qml:56
+#: ../app/settings/Credits.qml:33 ../app/settings/Credits.qml:34
+msgid "Developers"
+msgstr ""
+
+#: ../app/settings/Credits.qml:35
 msgid "Designer"
 msgstr ""
 
-#: ../app/settings/Credits.qml:65
+#: ../app/settings/Credits.qml:36
 msgid "Translators"
 msgstr ""
 
