@@ -25,50 +25,40 @@ Page {
 
     title: i18n.tr("Credits")
 
-    Flickable {
-        id: flickable
+    ListModel {
+        id: creditsModel
+        Component.onCompleted: initialize()
+        function initialize() {
+            // TRANSLATORS: The first argument is the name of creator of Podbird (Michael Sheldon)
+            creditsModel.append({ name: i18n.tr("%1 (Creator)").arg("Michael Sheldon"), title: i18n.tr("Developers") })
+            creditsModel.append({ name: "Nekhelesh Ramananthan", title: i18n.tr("Developers") })
+            creditsModel.append({ name: "Kevin Feyder", title: i18n.tr("Designer") })
+            creditsModel.append({ name: "Ubuntu Translators Community", title: i18n.tr("Translators") })
+        }
+    }
 
-        anchors.topMargin: units.gu(1)
+    UbuntuListView {
+        id: credits
+
+        model: creditsModel
         anchors.fill: parent
-        contentHeight: dataColumn.height + units.gu(8)
 
-        Column {
-            id: dataColumn
+        section.property: "title"
+        section.labelPositioning: ViewSection.InlineLabels
+        section.delegate: ListItem.Header {
+            text: section
+        }
 
-            anchors { top: parent.top; left: parent.left; right: parent.right }
+        // Required to accomodate the now playing bar being shown in landscape mode which
+        // can hide a setting if not for this footer.
+        footer: Item {
+            width: parent.width
+            height: units.gu(8)
+        }
 
-            ListItem.Header {
-                text: i18n.tr("Developers")
-            }
-
-            ListItem.Standard {
-                showDivider: false
-                // TRANSLATORS: The first argument is the name of creator of Podbird (Michael Sheldon)
-                text: i18n.tr("%1 (Creator)").arg("Michael Sheldon")
-            }
-
-            ListItem.Standard {
-                showDivider: false
-                text: "Nekhelesh Ramananthan"
-            }
-
-            ListItem.Header {
-                text: i18n.tr("Designer")
-            }
-
-            ListItem.Standard {
-                showDivider: false
-                text: "Kevin Feyder"
-            }
-
-            ListItem.Header {
-                text: i18n.tr("Translators")
-            }
-
-            ListItem.Standard {
-                showDivider: false
-                text: "Ubuntu Translators Team"
-            }
+        delegate: ListItem.Standard {
+            text: model.name
+            showDivider: false
         }
     }
 }
