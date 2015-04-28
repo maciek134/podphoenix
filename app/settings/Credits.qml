@@ -45,17 +45,7 @@ Page {
 
         section.property: "title"
         section.labelPositioning: ViewSection.InlineLabels
-
-        section.delegate: Label {
-            id: header
-            anchors {
-                left: parent.left
-                right: parent.right
-                margins: units.gu(2)
-            }
-            height: implicitHeight + units.gu(2)
-            verticalAlignment: Text.AlignVCenter
-            fontSize: "x-large"
+        section.delegate: ListItem.Header {
             text: section
         }
 
@@ -67,7 +57,7 @@ Page {
         }
 
         delegate: ListItem.Standard {
-            text: name
+            text: model.name
             showDivider: false
         }
     }
