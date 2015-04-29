@@ -133,6 +133,11 @@ ListItem.Empty {
             height: expanded && loaded ? item.contentHeight : 0
             visible: sourceComponent !== undefined
             sourceComponent: expanded ? _description : undefined
+            Behavior on height {
+                UbuntuNumberAnimation {
+                    duration: UbuntuAnimation.BriskDuration
+                }
+            }
         }
     }
 
@@ -164,6 +169,7 @@ ListItem.Empty {
     Component {
         id: _description
         Label {
+            clip: true
             text: description
             wrapMode: Text.WordWrap
             fontSize: "small"
