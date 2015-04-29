@@ -347,7 +347,6 @@ Tab {
             anchors.fill: parent
             model: sortedEpisodeModel
 
-            clip: true
             section.property: "diff"
             section.labelPositioning: ViewSection.InlineLabels
 

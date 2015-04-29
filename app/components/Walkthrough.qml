@@ -68,7 +68,6 @@ Page {
         delegate: Item {
             width: listView.width
             height: listView.height
-            clip: true
 
             Loader {
                 anchors {
