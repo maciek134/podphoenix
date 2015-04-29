@@ -102,6 +102,7 @@ ListItem.Empty {
                         id: _subtitle
                         width: parent.width
                         fontSize: "x-small"
+                        elide: Text.ElideRight
                         color: podbird.appTheme.baseSubText
                     }
                 }
