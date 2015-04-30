@@ -466,7 +466,7 @@ Page {
         delegate: ListDelegate {
             id: listItem
 
-            title: model.name.trim()
+            title: model.name !== undefined ? model.name.trim() : "Undefined"
             titleColor: listItem.expanded || currentGuid === model.guid || downloader.downloadingGuid === model.guid ? podbird.appTheme.focusText
                                                                                                                      : podbird.appTheme.baseText
 

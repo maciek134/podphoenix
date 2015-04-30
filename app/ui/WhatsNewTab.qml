@@ -404,9 +404,9 @@ Tab {
             delegate: ListDelegate {
                 id: listItem
 
-                coverArt: model.image
+                coverArt: model.image !== undefined ? model.image : Qt.resolvedUrl("../graphics/podbird.png")
 
-                title: model.name.trim()
+                title: model.name !== undefined ? model.name.trim() : "Undefined"
                 titleColor: expanded || currentGuid === model.guid || downloader.downloadingGuid === model.guid ? podbird.appTheme.focusText
                                                                                                                 : podbird.appTheme.baseText
 

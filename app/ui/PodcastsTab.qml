@@ -169,8 +169,8 @@ Page {
             model: sortedPodcastModel
             delegate: Card {
                 id: albumCard
-                coverArt: model.image
-                primaryText: model.name.trim()
+                coverArt: model.image !== undefined ? model.image : Qt.resolvedUrl("../graphics/podbird.png")
+                primaryText: model.name !== undefined ? model.name.trim() : "Undefined"
                 secondaryText: i18n.tr("%1 unheard episode", "%1 unheard episodes", model.episodeCount).arg(model.episodeCount)
                 onClicked: {
                     if(podcastPage.state === "search") {
@@ -212,9 +212,9 @@ Page {
                 height: units.gu(8)
                 removable: true
                 confirmRemoval: true
-                title: model.name.trim()
+                title: model.name !== undefined ? model.name.trim() : "Undefined"
                 subtitle: i18n.tr("%1 unheard episode", "%1 unheard episodes", model.episodeCount).arg(model.episodeCount)
-                coverArt: model.image
+                coverArt: model.image !== undefined ? model.image : Qt.resolvedUrl("../graphics/podbird.png")
 
                 onItemRemoved: {
                     var db = Podcasts.init();
