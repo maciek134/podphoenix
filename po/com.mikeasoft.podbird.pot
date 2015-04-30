@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-30 12:01+0000\n"
+"POT-Creation-Date: 2015-04-30 12:22+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,11 +32,15 @@ msgstr ""
 msgid "No podcasts listened to today"
 msgstr ""
 
-#: ../app/podbird.qml:244
+#: ../app/podbird.qml:245
+msgid "Podcasts"
+msgstr ""
+
+#: ../app/podbird.qml:259
 msgid "Add New Podcasts"
 msgstr ""
 
-#: ../app/podbird.qml:258
+#: ../app/podbird.qml:273
 msgid "Settings"
 msgstr ""
 
@@ -172,7 +176,7 @@ msgstr ""
 msgid "Unsubscribe"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:125 ../app/ui/PodcastsTab.qml:93
+#: ../app/ui/EpisodesPage.qml:125 ../app/ui/PodcastsTab.qml:88
 #: ../app/ui/SearchPage.qml:80 ../app/ui/SearchPage.qml:110
 #: ../app/ui/WhatsNewTab.qml:78
 msgid "Back"
@@ -255,46 +259,42 @@ msgstr ""
 msgid "+%1s"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:33
-msgid "Podcasts"
-msgstr ""
-
-#: ../app/ui/PodcastsTab.qml:71 ../app/ui/SearchPage.qml:57
+#: ../app/ui/PodcastsTab.qml:66 ../app/ui/SearchPage.qml:57
 #: ../app/ui/SearchPage.qml:91
 msgid "Search Podcast"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:80
+#: ../app/ui/PodcastsTab.qml:75
 msgid "Grid View"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:80
+#: ../app/ui/PodcastsTab.qml:75
 msgid "List View"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:104
+#: ../app/ui/PodcastsTab.qml:99
 msgid "Search podcast"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:126
+#: ../app/ui/PodcastsTab.qml:121
 msgid "No Podcast Subscriptions"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:127
+#: ../app/ui/PodcastsTab.qml:122
 msgid "No Podcasts Found"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:128
+#: ../app/ui/PodcastsTab.qml:123
 msgid ""
 "You haven't subscribed to any podcasts yet, visit the 'Find New Podcasts' "
 "page to add some."
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:129 ../app/ui/SearchPage.qml:167
+#: ../app/ui/PodcastsTab.qml:124 ../app/ui/SearchPage.qml:167
 msgid "No podcasts found matching the search term."
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:160 ../app/ui/PodcastsTab.qml:203
+#: ../app/ui/PodcastsTab.qml:155 ../app/ui/PodcastsTab.qml:198
 #, qt-format
 msgid "%1 unheard episode"
 msgid_plural "%1 unheard episodes"

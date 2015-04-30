@@ -58,7 +58,7 @@ MainView {
         if (tabs.selectedTabIndex === 0) {
             whatsNewTab.refreshModel()
         } else if (tabs.selectedTabIndex === 1) {
-            podcastTab.refreshModel()
+            podcastPage.item.refreshModel()
         }
     }
 
@@ -228,14 +228,29 @@ MainView {
             // and brought by the system.
             StateSaver.properties: "selectedTabIndex"
 
+            onSelectedTabChanged: {
+                if (selectedTab === podcastTab) {
+                    podcastPage.source = Qt.resolvedUrl("ui/PodcastsTab.qml")
+                }
+            }
+
             WhatsNewTab {
                 id: whatsNewTab
                 objectName: "whatsNewTab"
             }
 
-            PodcastsTab {
+            Tab {
                 id: podcastTab
-                objectName: "podcastsTab"
+
+                title: i18n.tr("Podcasts")
+
+                page: Loader {
+                    id: podcastPage
+                    parent: podcastTab
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.bottom: parent.bottom
+                }
             }
 
             Tab {
