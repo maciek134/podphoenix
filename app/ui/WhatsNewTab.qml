@@ -122,8 +122,8 @@ Tab {
             id: sortedEpisodeModel
             model: whatsNewModel
             filter.property: "name"
-            filter.pattern: whatsNewPage.state === "search" ? RegExp(searchField.item.text, "gi")
-                                                            : RegExp("", "gi")
+            filter.pattern: whatsNewPage.state === "search" && searchField.status == Loader.Ready ? RegExp(searchField.item.text, "gi")
+                                                                                                  : RegExp("", "gi")
         }
 
         onVisibleChanged: {

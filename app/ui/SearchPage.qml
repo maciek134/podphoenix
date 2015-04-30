@@ -174,7 +174,7 @@ Page {
         anchors.verticalCenterOffset: Qt.inputMethod.visible ? units.gu(4) : 0
         iconHeight: units.gu(12)
         iconWidth: iconHeight + units.gu(10)
-        visible: searchPage.state !== "search" && searchPage.state !== "add" ? true : searchResults.count === 0 && searchField.item.text.length > 2
+        visible: searchPage.state === "default" ? true : searchResults.count === 0 && searchField.item.text.length > 2
         iconSource: searchPage.state !== "search" ? Qt.resolvedUrl("../graphics/owlSearch.svg") : Qt.resolvedUrl("../graphics/notFound.svg")
         title: searchPage.state !== "search" ? i18n.tr("Looking to add a new Podcast?") : i18n.tr("No Podcasts found")
         subTitle: searchPage.state !== "search" ? i18n.tr("Click the 'magnifier' at the top to search or the 'plus' button to add by URL") : i18n.tr("No podcasts found matching the search term.")

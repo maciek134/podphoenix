@@ -138,8 +138,8 @@ Page {
         id: sortedPodcastModel
         model: podcastModel
         filter.property: "name"
-        filter.pattern: podcastPage.state === "search" ? RegExp(searchField.item.text, "gi")
-                                                        : RegExp("", "gi")
+        filter.pattern: podcastPage.state === "search" && searchField.status == Loader.Ready ? RegExp(searchField.item.text, "gi")
+                                                                                             : RegExp("", "gi")
     }
 
     Loader {

@@ -351,8 +351,8 @@ Page {
         id: sortedEpisodeModel
         model: episodeModel
         filter.property: "name"
-        filter.pattern: episodesPage.state === "search" ? RegExp(searchField.item.text, "gi")
-                                                        : RegExp("", "gi")
+        filter.pattern: episodesPage.state === "search" && searchField.status == Loader.Ready ? RegExp(searchField.item.text, "gi")
+                                                                                              : RegExp("", "gi")
     }
 
     UbuntuListView {
