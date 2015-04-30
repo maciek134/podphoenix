@@ -52,7 +52,7 @@ Rectangle {
             anchors.top: cover.bottom
             color: podbird.appTheme.focusText
             height: units.gu(0.25)
-            width: player.duration > 0 ? (player.position / player.duration) * parent.width : 0
+            width: playerLoader.item.duration > 0 ? (playerLoader.item.position / playerLoader.item.duration) * parent.width : 0
         }
 
         Column {
@@ -100,16 +100,16 @@ Rectangle {
                 visible: playButton.pressed
             }
 
-            onClicked: player.playbackState === MediaPlayer.PlayingState ? player.pause()
-                                                                         : player.play()
+            onClicked: playerLoader.item.playbackState === MediaPlayer.PlayingState ? playerLoader.item.pause()
+                                                                                    : playerLoader.item.play()
 
             Icon {
                 color: "white"
                 width: units.gu(3)
                 height: width
                 anchors.centerIn: playButtonBackground
-                name: player.playbackState === MediaPlayer.PlayingState ? "media-playback-pause"
-                                                                        : "media-playback-start"
+                name: playerLoader.item.playbackState === MediaPlayer.PlayingState ? "media-playback-pause"
+                                                                                   : "media-playback-start"
                 opacity: playButton.pressed ? 0.4 : 1.0
             }
         }

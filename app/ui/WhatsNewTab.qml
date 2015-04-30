@@ -293,33 +293,33 @@ Tab {
                                 id: playIcon
                                 width: height
                                 height: listenText.height
-                                name: player.playbackState === MediaPlayer.PlayingState && currentGuid === popover.guid ? "media-playback-pause"
-                                                                                                                        : "media-playback-start"
+                                name: currentUrl != "" && playerLoader.item.playbackState === MediaPlayer.PlayingState && currentGuid === popover.guid ? "media-playback-pause"
+                                                                                                                                                       : "media-playback-start"
                             }
 
                             Label {
                                 id: playText
                                 color: UbuntuColors.darkGrey
-                                text: player.playbackState === MediaPlayer.PlayingState && currentGuid === popover.guid ? i18n.tr("Pause Episode")
-                                                                                                                        : i18n.tr("Play Episode")
+                                text: currentUrl != "" && playerLoader.item.playbackState === MediaPlayer.PlayingState && currentGuid === popover.guid ? i18n.tr("Pause Episode")
+                                                                                                                                                       : i18n.tr("Play Episode")
                             }
                         }
 
                         onClicked: {
                             var db = Podcasts.init();
                             db.transaction(function (tx) {
-                                if (currentGuid === popover.guid) {
-                                    if (player.playbackState === MediaPlayer.PlayingState) {
-                                        player.pause()
+                                if (currentGuid === popover.guid && currentUrl != "") {
+                                    if (playerLoader.item.playbackState === MediaPlayer.PlayingState) {
+                                        playerLoader.item.pause()
                                     } else {
-                                        player.play()
+                                        playerLoader.item.play()
                                     }
                                 } else {
                                     currentGuid = "";
-                                    player.source = popover.downloadedfile ? popover.downloadedfile : popover.audiourl;
+                                    currentUrl = popover.downloadedfile ? popover.downloadedfile : popover.audiourl;
                                     var rs = tx.executeSql("SELECT position FROM Episode WHERE guid=?", [popover.guid]);
-                                    player.play();
-                                    player.seek(rs.rows.item(0).position);
+                                    playerLoader.item.play();
+                                    playerLoader.item.seek(rs.rows.item(0).position);
                                     currentName = popover.name;
                                     currentArtist = popover.artist;
                                     currentImage = popover.image;

@@ -490,26 +490,26 @@ Page {
                         width: units.gu(4)
                         height: units.gu(4)
 
-                        iconName: player.playbackState === MediaPlayer.PlayingState && currentGuid === model.guid ? "media-playback-pause"
-                                                                                                                  : "media-playback-start"
-                        color: player.playbackState === MediaPlayer.PlayingState && currentGuid === model.guid ? podbird.appTheme.focusText
-                                                                                                               : podbird.appTheme.baseIcon
+                        iconName: currentUrl != "" && playerLoader.item.playbackState === MediaPlayer.PlayingState && currentGuid === model.guid ? "media-playback-pause"
+                                                                                                                                                 : "media-playback-start"
+                        color: currentUrl != "" && playerLoader.item.playbackState === MediaPlayer.PlayingState && currentGuid === model.guid ? podbird.appTheme.focusText
+                                                                                                                                              : podbird.appTheme.baseIcon
 
                         onClicked: {
                             var db = Podcasts.init();
                             db.transaction(function (tx) {
-                                if (currentGuid === model.guid) {
-                                    if (player.playbackState === MediaPlayer.PlayingState) {
-                                        player.pause()
+                                if (currentGuid === model.guid && currentUrl != "") {
+                                    if (playerLoader.item.playbackState === MediaPlayer.PlayingState) {
+                                        playerLoader.item.pause()
                                     } else {
-                                        player.play()
+                                        playerLoader.item.play()
                                     }
                                 } else {
                                     currentGuid = "";
-                                    player.source = model.downloadedfile ? model.downloadedfile : model.audiourl;
+                                    currentUrl = model.downloadedfile ? model.downloadedfile : model.audiourl;
                                     var rs = tx.executeSql("SELECT position FROM Episode WHERE guid=?", [model.guid]);
-                                    player.play();
-                                    player.seek(rs.rows.item(0).position);
+                                    playerLoader.item.play();
+                                    playerLoader.item.seek(rs.rows.item(0).position);
                                     currentName = model.name;
                                     currentArtist = model.artist;
                                     currentImage = model.image;

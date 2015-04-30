@@ -90,6 +90,7 @@ MainView {
     property string currentArtist
     property string currentImage
     property string currentGuid
+    property url currentUrl: ""
 
     Themes.ThemeManager {
         id: themeManager
@@ -168,33 +169,43 @@ MainView {
         domain: "com.mikeasoft.podbird"
     }
 
-    MediaPlayer {
-        id: player
+    Loader {
+        id: playerLoader
+        sourceComponent: currentUrl != "" ? playerComponent : undefined
+    }
 
-        property bool podcastCounted: false
+    Component {
+        id: playerComponent
+        MediaPlayer {
+            id: player
 
-        onSourceChanged: {
-            podcastCounted = false
-        }
+            property bool podcastCounted: false
 
-        onPositionChanged: {
-            if (currentGuid == "" || duration <= 0) {
-                return;
+            source: currentUrl
+
+            onSourceChanged: {
+                podcastCounted = false
             }
 
-            if (position > 10000 && !podcastCounted) {
-                podcastCounted = true
-                podcastsMetric.increment()
-                console.log("[LOG]: Podcast User metric incremented")
-            }
-
-            var db = Podcasts.init();
-            db.transaction(function (tx) {
-                tx.executeSql("UPDATE Episode SET position=? WHERE guid=?", [position >= duration ? 120 : position, currentGuid]);
-                if (position >= duration - 120) {
-                    tx.executeSql("UPDATE Episode SET listened = 1 WHERE guid=?", [currentGuid]);
+            onPositionChanged: {
+                if (currentGuid == "" || duration <= 0) {
+                    return;
                 }
-            });
+
+                if (position > 10000 && !podcastCounted) {
+                    podcastCounted = true
+                    podcastsMetric.increment()
+                    console.log("[LOG]: Podcast User metric incremented")
+                }
+
+                var db = Podcasts.init();
+                db.transaction(function (tx) {
+                    tx.executeSql("UPDATE Episode SET position=? WHERE guid=?", [position >= duration ? 120 : position, currentGuid]);
+                    if (position >= duration - 120) {
+                        tx.executeSql("UPDATE Episode SET listened = 1 WHERE guid=?", [currentGuid]);
+                    }
+                });
+            }
         }
     }
 
@@ -269,13 +280,13 @@ MainView {
         states: [
             State {
                 name: "shown"
-                when: player.source != "" && !mainStack.currentPage.isNowPlayingPage
+                when: currentUrl != "" && !mainStack.currentPage.isNowPlayingPage
                 PropertyChanges { target: playerControlLoader; anchors.bottomMargin: 0 }
             },
 
             State {
                 name: "hidden"
-                when: player.source == "" || mainStack.currentPage.isNowPlayingPage || !playerControl.visible
+                when: currentUrl == "" || mainStack.currentPage.isNowPlayingPage || !playerControl.visible
                 PropertyChanges { target: playerControlLoader; anchors.bottomMargin: -units.gu(7) }
             }
         ]
