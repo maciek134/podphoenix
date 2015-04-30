@@ -169,6 +169,8 @@ MainView {
         domain: "com.mikeasoft.podbird"
     }
 
+    // Load the media player only when the user starts to play some media. This
+    // should improve app-startup slightly.
     Loader {
         id: playerLoader
         sourceComponent: currentUrl != "" ? playerComponent : undefined
@@ -229,6 +231,8 @@ MainView {
             StateSaver.properties: "selectedTabIndex"
 
             onSelectedTabChanged: {
+                // Load the Podcast page only when the user navigates to it. However
+                // do not unload it when the user switches to another tab.
                 if (selectedTab === podcastTab) {
                     podcastPage.source = Qt.resolvedUrl("ui/PodcastsTab.qml")
                 }
@@ -258,6 +262,7 @@ MainView {
 
                 title: i18n.tr("Add New Podcasts")
 
+                // Dynamically load/unload the search tab as required
                 page: Loader {
                     parent: searchTab
                     anchors.left: parent.left
@@ -272,6 +277,7 @@ MainView {
 
                 title: i18n.tr("Settings")
 
+                // Dynamically load/unload the settings tab as required
                 page: Loader {
                     parent: settingsTab
                     anchors.left: parent.left
