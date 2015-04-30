@@ -33,7 +33,7 @@ Tab {
                         text: i18n.tr("Search Episode")
                         onTriggered: {
                             whatsNewPage.state = "search"
-                            searchField.forceActiveFocus()
+                            searchField.item.forceActiveFocus()
                         }
                     },
 
@@ -78,21 +78,27 @@ Tab {
                     text: i18n.tr("Back")
                     onTriggered: {
                         episodeList.forceActiveFocus()
-                        searchField.text = ""
                         whatsNewPage.state = "default"
                     }
                 }
 
-                contents: TextField {
+                contents: Loader {
                     id: searchField
-                    inputMethodHints: Qt.ImhNoPredictiveText
-                    placeholderText: i18n.tr("Search episode")
+                    sourceComponent: whatsNewPage.state === "search" ? searchFieldComponent : undefined
                     anchors.left: parent ? parent.left : undefined
                     anchors.right: parent ? parent.right : undefined
                     anchors.rightMargin: units.gu(2)
                 }
             }
         ]
+
+        Component {
+            id: searchFieldComponent
+            TextField {
+                inputMethodHints: Qt.ImhNoPredictiveText
+                placeholderText: i18n.tr("Search episode")
+            }
+        }
 
         EmptyState {
             anchors.verticalCenter: parent.verticalCenter
@@ -116,7 +122,8 @@ Tab {
             id: sortedEpisodeModel
             model: whatsNewModel
             filter.property: "name"
-            filter.pattern: RegExp(searchField.text, "gi")
+            filter.pattern: whatsNewPage.state === "search" ? RegExp(searchField.item.text, "gi")
+                                                            : RegExp("", "gi")
         }
 
         onVisibleChanged: {

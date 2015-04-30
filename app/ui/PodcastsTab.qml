@@ -66,7 +66,7 @@ Page {
                     text: i18n.tr("Search Podcast")
                     onTriggered: {
                         podcastPage.state = "search"
-                        searchField.forceActiveFocus()
+                        searchField.item.forceActiveFocus()
                     }
                 },
 
@@ -88,21 +88,27 @@ Page {
                 text: i18n.tr("Back")
                 onTriggered: {
                     viewLoader.item.forceActiveFocus()
-                    searchField.text = ""
                     podcastPage.state = "default"
                 }
             }
 
-            contents: TextField {
+            contents: Loader {
                 id: searchField
-                inputMethodHints: Qt.ImhNoPredictiveText
-                placeholderText: i18n.tr("Search podcast")
+                sourceComponent: podcastPage.state === "search" ? searchFieldComponent : undefined
                 anchors.left: parent ? parent.left : undefined
                 anchors.right: parent ? parent.right : undefined
                 anchors.rightMargin: units.gu(2)
             }
         }
     ]
+
+    Component {
+        id: searchFieldComponent
+        TextField {
+            inputMethodHints: Qt.ImhNoPredictiveText
+            placeholderText: i18n.tr("Search podcast")
+        }
+    }
 
     onVisibleChanged: {
         if(visible) {
@@ -132,7 +138,8 @@ Page {
         id: sortedPodcastModel
         model: podcastModel
         filter.property: "name"
-        filter.pattern: RegExp(searchField.text, "gi")
+        filter.pattern: podcastPage.state === "search" ? RegExp(searchField.item.text, "gi")
+                                                        : RegExp("", "gi")
     }
 
     Loader {
@@ -156,7 +163,6 @@ Page {
                 onClicked: {
                     if(podcastPage.state === "search") {
                         cardView.forceActiveFocus()
-                        searchField.text = ""
                         podcastPage.state = "default"
                     }
                     mainStack.push(Qt.resolvedUrl("EpisodesPage.qml"), {"episodeName": model.name, "episodeId": model.id, "episodeArtist": model.artist, "episodeImage": model.image})
@@ -221,7 +227,6 @@ Page {
                 onClicked: {
                     if(podcastPage.state === "search") {
                         listView.forceActiveFocus()
-                        searchField.text = ""
                         podcastPage.state = "default"
                     }
                     mainStack.push(Qt.resolvedUrl("EpisodesPage.qml"), {"episodeName": model.name, "episodeId": model.id, "episodeArtist": model.artist, "episodeImage": model.image})
