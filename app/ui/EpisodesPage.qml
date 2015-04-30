@@ -333,14 +333,30 @@ Page {
         }
     }
 
-    EmptyState {
-        anchors.verticalCenter: parent.verticalCenter
-        visible: (episodesPage.state === "search" && sortedEpisodeModel.count === 0) || (episodeModel.count === 0 && podbird.settings.hideListened)
-        iconHeight: units.gu(12)
-        iconWidth: iconHeight + units.gu(10)
-        iconSource: Qt.resolvedUrl("../graphics/notFound.svg")
-        title: podbird.settings.hideListened ? i18n.tr("No more episodes") : i18n.tr("No episodes found")
-        subTitle: podbird.settings.hideListened ? i18n.tr("All episodes have been listened to.") : i18n.tr("No episodes found matching the search term.")
+    Loader {
+        id: emptyState
+
+        anchors {
+            left: parent.left
+            right: parent.right
+            margins: units.gu(2)
+            verticalCenter: parent.verticalCenter
+            verticalCenterOffset: Qt.inputMethod.visible ? units.gu(4) : 0
+        }
+
+        sourceComponent: (episodesPage.state === "search" && sortedEpisodeModel.count === 0) || (episodeModel.count === 0 && podbird.settings.hideListened) ? emptyStateComponent
+                                                                                                                                                            : undefined
+    }
+
+    Component {
+        id: emptyStateComponent
+        EmptyState {
+            iconHeight: units.gu(12)
+            iconWidth: units.gu(22)
+            iconSource: Qt.resolvedUrl("../graphics/notFound.svg")
+            title: podbird.settings.hideListened ? i18n.tr("No more episodes") : i18n.tr("No episodes found")
+            subTitle: podbird.settings.hideListened ? i18n.tr("All episodes have been listened to.") : i18n.tr("No episodes found matching the search term.")
+        }
     }
 
     ListModel {

@@ -116,18 +116,30 @@ Page {
         }
     }
 
-    EmptyState {
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.verticalCenterOffset: Qt.inputMethod.visible ? units.gu(4) : 0
-        iconHeight: units.gu(12)
-        iconWidth: iconHeight + units.gu(10)
-        iconSource: podcastModel.count === 0 ? Qt.resolvedUrl("../graphics/owlSearch.svg")
-                                             : Qt.resolvedUrl("../graphics/notFound.svg")
-        visible: podcastModel.count === 0 || sortedPodcastModel.count === 0
-        title: podcastModel.count === 0 ? i18n.tr("No Podcast Subscriptions")
-                                        : i18n.tr("No Podcasts Found")
-        subTitle: podcastModel.count === 0 ? i18n.tr("You haven't subscribed to any podcasts yet, visit the 'Find New Podcasts' page to add some.")
-                                           : i18n.tr("No podcasts found matching the search term.")
+    Loader {
+        id: emptyState
+
+        anchors {
+            left: parent.left
+            right: parent.right
+            margins: units.gu(2)
+            verticalCenter: parent.verticalCenter
+            verticalCenterOffset: Qt.inputMethod.visible ? units.gu(4) : 0
+        }
+
+        sourceComponent: podcastModel.count === 0 || sortedPodcastModel.count === 0 ? emptyStateComponent : undefined
+    }
+
+    Component {
+        id: emptyStateComponent
+        EmptyState {
+            iconHeight: units.gu(12)
+            iconWidth: units.gu(22)
+            iconSource: podcastModel.count === 0 ? Qt.resolvedUrl("../graphics/owlSearch.svg") : Qt.resolvedUrl("../graphics/notFound.svg")
+            title: podcastModel.count === 0 ? i18n.tr("No Podcast Subscriptions") : i18n.tr("No Podcasts Found")
+            subTitle: podcastModel.count === 0 ? i18n.tr("You haven't subscribed to any podcasts yet, visit the 'Find New Podcasts' page to add some.")
+                                               : i18n.tr("No podcasts found matching the search term.")
+        }
     }
 
     ListModel {

@@ -37,9 +37,6 @@ Item {
     property real iconWidth: units.gu(10)
 
     height: childrenRect.height
-    anchors.left: parent.left
-    anchors.right: parent.right
-    anchors.margins: units.gu(2)
 
     Icon {
         id: emptyIcon

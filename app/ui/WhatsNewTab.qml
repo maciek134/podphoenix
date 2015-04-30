@@ -100,18 +100,29 @@ Tab {
             }
         }
 
-        EmptyState {
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.verticalCenterOffset: Qt.inputMethod.visible ? units.gu(4) : 0
-            iconHeight: units.gu(12)
-            iconWidth: iconHeight + units.gu(10)
-            visible: whatsNewModel.count === 0 || sortedEpisodeModel.count === 0
-            iconSource: whatsNewModel.count === 0 ? Qt.resolvedUrl("../graphics/owlSearch.svg")
-                                                  : Qt.resolvedUrl("../graphics/notFound.svg")
-            title: whatsNewModel.count === 0 ? i18n.tr("No New Episodes")
-                                             : i18n.tr("No Episodes Found")
-            subTitle: whatsNewModel.count === 0 ? i18n.tr("No more episodes to listen to!")
-                                                : i18n.tr("No Episodes found matching the search term.")
+        Loader {
+            id: emptyState
+
+            anchors {
+                left: parent.left
+                right: parent.right
+                margins: units.gu(2)
+                verticalCenter: parent.verticalCenter
+                verticalCenterOffset: Qt.inputMethod.visible ? units.gu(4) : 0
+            }
+
+            sourceComponent: whatsNewModel.count === 0 || sortedEpisodeModel.count === 0 ? emptyStateComponent : undefined
+        }
+
+        Component {
+            id: emptyStateComponent
+            EmptyState {
+                iconHeight: units.gu(12)
+                iconWidth: units.gu(22)
+                iconSource: whatsNewModel.count === 0 ? Qt.resolvedUrl("../graphics/owlSearch.svg") : Qt.resolvedUrl("../graphics/notFound.svg")
+                title: whatsNewModel.count === 0 ? i18n.tr("No New Episodes") : i18n.tr("No Episodes Found")
+                subTitle: whatsNewModel.count === 0 ? i18n.tr("No more episodes to listen to!") : i18n.tr("No Episodes found matching the search term.")
+            }
         }
 
         ListModel {
