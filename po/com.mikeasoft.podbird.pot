@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-30 16:03+0000\n"
+"POT-Creation-Date: 2015-04-30 16:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -172,12 +172,12 @@ msgid "Mark all listened"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:110 ../app/ui/EpisodesPage.qml:194
-#: ../app/ui/SearchPage.qml:224
+#: ../app/ui/SearchPage.qml:237
 msgid "Unsubscribe"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:125 ../app/ui/PodcastsTab.qml:88
-#: ../app/ui/SearchPage.qml:80 ../app/ui/SearchPage.qml:110
+#: ../app/ui/SearchPage.qml:80 ../app/ui/SearchPage.qml:102
 #: ../app/ui/WhatsNewTab.qml:78
 msgid "Back"
 msgstr ""
@@ -260,7 +260,7 @@ msgid "+%1s"
 msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:66 ../app/ui/SearchPage.qml:57
-#: ../app/ui/SearchPage.qml:91
+#: ../app/ui/SearchPage.qml:145
 msgid "Search Podcast"
 msgstr ""
 
@@ -290,7 +290,7 @@ msgid ""
 "page to add some."
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:130 ../app/ui/SearchPage.qml:167
+#: ../app/ui/PodcastsTab.qml:130 ../app/ui/SearchPage.qml:180
 msgid "No podcasts found matching the search term."
 msgstr ""
 
@@ -305,53 +305,53 @@ msgstr[1] ""
 msgid "Add Podcast"
 msgstr ""
 
-#: ../app/ui/SearchPage.qml:121
+#: ../app/ui/SearchPage.qml:112
 msgid "Save Podcast"
 msgstr ""
 
-#: ../app/ui/SearchPage.qml:132
+#: ../app/ui/SearchPage.qml:133
 msgid "Feed URL"
 msgstr ""
 
-#: ../app/ui/SearchPage.qml:147
+#: ../app/ui/SearchPage.qml:160
 msgid "Unable to subscribe"
 msgstr ""
 
-#: ../app/ui/SearchPage.qml:148
+#: ../app/ui/SearchPage.qml:161
 msgid "Please check the URL and try again"
 msgstr ""
 
-#: ../app/ui/SearchPage.qml:150
+#: ../app/ui/SearchPage.qml:163
 msgid "Close"
 msgstr ""
 
-#: ../app/ui/SearchPage.qml:166
+#: ../app/ui/SearchPage.qml:179
 msgid "Looking to add a new Podcast?"
 msgstr ""
 
-#: ../app/ui/SearchPage.qml:166
+#: ../app/ui/SearchPage.qml:179
 msgid "No Podcasts found"
 msgstr ""
 
-#: ../app/ui/SearchPage.qml:167
+#: ../app/ui/SearchPage.qml:180
 msgid ""
 "Click the 'magnifier' at the top to search or the 'plus' button to add by URL"
 msgstr ""
 
 #. TRANSLATORS: The first argument here is the date of when the podcast was last updated followed by
 #. the podcast description.
-#: ../app/ui/SearchPage.qml:201
+#: ../app/ui/SearchPage.qml:214
 #, qt-format
 msgid ""
 "Last Updated: %1\n"
 "%2"
 msgstr ""
 
-#: ../app/ui/SearchPage.qml:224
+#: ../app/ui/SearchPage.qml:237
 msgid "Subscribe"
 msgstr ""
 
-#: ../app/ui/SearchPage.qml:291
+#: ../app/ui/SearchPage.qml:303
 msgid "Not Available"
 msgstr ""
 

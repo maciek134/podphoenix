@@ -57,7 +57,7 @@ Page {
                     text: i18n.tr("Search Podcast")
                     onTriggered: {
                         searchPage.state = "search"
-                        searchField.forceActiveFocus()
+                        searchField.item.forceActiveFocus()
                     }
                 },
 
@@ -66,7 +66,7 @@ Page {
                     iconName: "add"
                     onTriggered: {
                         searchPage.state = "add"
-                        feedUrlField.forceActiveFocus()
+                        feedUrlField.item.forceActiveFocus()
                     }
                 }
             ]
@@ -80,25 +80,17 @@ Page {
                 text: i18n.tr("Back")
                 onTriggered: {
                     resultsView.forceActiveFocus()
-                    searchField.text = ""
+                    searchResults.clear()
                     searchPage.state = "default"
                 }
             }
 
-            contents: TextField {
+            contents: Loader {
                 id: searchField
-                inputMethodHints: Qt.ImhNoPredictiveText
-                placeholderText: i18n.tr("Search Podcast")
+                sourceComponent: searchPage.state === "search" ? searchFieldComponent : undefined
                 anchors.left: parent ? parent.left : undefined
                 anchors.right: parent ? parent.right : undefined
                 anchors.rightMargin: units.gu(2)
-                onTextChanged: {
-                    if (text.length > 2) {
-                        search(text)
-                    } else {
-                        searchResults.clear();
-                    }
-                }
             }
         },
 
@@ -110,7 +102,6 @@ Page {
                 text: i18n.tr("Back")
                 onTriggered: {
                     resultsView.forceActiveFocus()
-                    feedUrlField.text = ""
                     searchPage.state = "default"
                 }
             }
@@ -121,24 +112,46 @@ Page {
                     text: i18n.tr("Save Podcast")
                     onTriggered: {
                         resultsView.forceActiveFocus()
-                        subscribeFromFeed(feedUrlField.text);
+                        subscribeFromFeed(feedUrlField.item.text);
                     }
                 }
             ]
 
-            contents: TextField {
+            contents: Loader {
                 id: feedUrlField
-                inputMethodHints: Qt.ImhUrlCharactersOnly
-                placeholderText: i18n.tr("Feed URL")
+                sourceComponent: searchPage.state === "add" ? feedUrlComponent : undefined
                 anchors.left: parent ? parent.left : undefined
                 anchors.right: parent ? parent.right : undefined
-                onAccepted: {
-                    resultsView.forceActiveFocus()
-                    subscribeFromFeed(feedUrlField.text);
-                }
             }
         }
     ]
+
+    Component {
+        id: feedUrlComponent
+        TextField {
+            inputMethodHints: Qt.ImhUrlCharactersOnly
+            placeholderText: i18n.tr("Feed URL")
+            onAccepted: {
+                resultsView.forceActiveFocus()
+                subscribeFromFeed(feedUrlField.text);
+            }
+        }
+    }
+
+    Component {
+        id: searchFieldComponent
+        TextField {
+            inputMethodHints: Qt.ImhNoPredictiveText
+            placeholderText: i18n.tr("Search Podcast")
+            onTextChanged: {
+                if (text.length > 2) {
+                    search(text)
+                } else {
+                    searchResults.clear();
+                }
+            }
+        }
+    }
 
     Component {
         id: subscribeFailedDialog
@@ -161,7 +174,7 @@ Page {
         anchors.verticalCenterOffset: Qt.inputMethod.visible ? units.gu(4) : 0
         iconHeight: units.gu(12)
         iconWidth: iconHeight + units.gu(10)
-        visible: searchPage.state !== "search" && searchPage.state !== "add" ? true : searchResults.count === 0 && searchField.text.length > 2
+        visible: searchPage.state !== "search" && searchPage.state !== "add" ? true : searchResults.count === 0 && searchField.item.text.length > 2
         iconSource: searchPage.state !== "search" ? Qt.resolvedUrl("../graphics/owlSearch.svg") : Qt.resolvedUrl("../graphics/notFound.svg")
         title: searchPage.state !== "search" ? i18n.tr("Looking to add a new Podcast?") : i18n.tr("No Podcasts found")
         subTitle: searchPage.state !== "search" ? i18n.tr("Click the 'magnifier' at the top to search or the 'plus' button to add by URL") : i18n.tr("No podcasts found matching the search term.")
@@ -244,7 +257,6 @@ Page {
                             });
                         }
                         tabs.selectedTabIndex = 1;
-                        searchField.text = ""
                     }
                 }
             }
@@ -335,8 +347,8 @@ Page {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status < 200 || xhr.status > 299 || xhr.responseXML === null) {
                     PopupUtils.open(subscribeFailedDialog);
-                    feedUrlField.text = feed
                     searchPage.state = "add"
+                    feedUrlField.item.text = feed
                     return;
                 }
 
@@ -365,8 +377,8 @@ Page {
                     tabs.selectedTabIndex = 1;
                 } else {
                     PopupUtils.open(subscribeFailedDialog);
-                    feedUrlField.text = feed
                     searchPage.state = "add"
+                    feedUrlField.item.text = feed
                     return;
                 }
             }
