@@ -73,7 +73,7 @@ MainView {
         var today = new Date()
         // Only perform cleanup of old episodes once a day
         if (Math.floor((today - settings.lastCheck)/86400000) >= 1 && settings.retentionDays !== -1) {
-            cleanUp(today, settings.retentionDays)
+            Podcasts.cleanUp(today, settings.retentionDays)
             settings.lastCheck = today
         }
 
@@ -82,7 +82,7 @@ MainView {
             console.log("[LOG]: Online connectivity: " + NetworkingStatus.online)
             console.log("[LOG]: User settings (maxEpisodeDownload): " + settings.maxEpisodeDownload)
         } else {
-            autoDownloadEpisodes(settings.maxEpisodeDownload)
+            Podcasts.autoDownloadEpisodes(settings.maxEpisodeDownload)
         }
     }
 
@@ -329,44 +329,5 @@ MainView {
                 }
             }
         ]
-    }
-
-    function cleanUp(today, retentionDays) {
-        console.log("[LOG]: Cleaning up old episodes")
-        var dayToMs = 86400000; //1 * 24 * 60 * 60 * 1000
-        var db = Podcasts.init()
-        db.transaction(function (tx) {
-            var rs = tx.executeSql("SELECT rowid, * FROM Podcast ORDER BY name ASC");
-            for(var i = 0; i < rs.rows.length; i++) {
-                var podcast = rs.rows.item(i);
-                var rs2 = tx.executeSql("SELECT rowid, * FROM Episode WHERE podcast=?", [rs.rows.item(i).rowid]);
-                for (var j=0; j< rs2.rows.length; j++) {
-                    var diff = Math.floor((today - rs2.rows.item(j).published)/dayToMs)
-                    if (rs2.rows.item(j).downloadedfile && diff > retentionDays) {
-                        fileManager.deleteFile(rs2.rows.item(j).downloadedfile)
-                        tx.executeSql("UPDATE Episode SET downloadedfile = NULL WHERE guid = ?", [rs2.rows.item(j).guid]);
-                    }
-                }
-            }
-        });
-    }
-
-    function autoDownloadEpisodes(maxEpisodeDownload) {
-        console.log("[LOG]: Auto-downloading new episodes")
-        var db = Podcasts.init()
-        db.transaction(function (tx) {
-            var rs = tx.executeSql("SELECT rowid, * FROM Podcast ORDER BY name ASC");
-            for (var i=0; i < rs.rows.length; i++) {
-                var podcast = rs.rows.item(i);
-                var rs2 = tx.executeSql("SELECT rowid, * FROM Episode WHERE podcast=? ORDER BY published DESC", [rs.rows.item(i).rowid]);
-                var loopCount = maxEpisodeDownload > rs2.rows.length ? rs2.rows.length : maxEpisodeDownload
-                for (var j=0; j < loopCount; j++) {
-                    if (!rs2.rows.item(j).downloadedfile && !rs2.rows.item(j).listened) {
-                        downloader.addDownload(rs2.rows.item(j).guid, rs2.rows.item(j).audiourl)
-                        tx.executeSql("UPDATE Episode SET queued=1 WHERE guid = ?", [rs2.rows.item(j).guid]);
-                    }
-                }
-            }
-        });
     }
 }
