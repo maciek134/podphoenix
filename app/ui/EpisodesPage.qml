@@ -90,7 +90,7 @@ Page {
                     text: i18n.tr("Search Episode")
                     onTriggered: {
                         episodesPage.state = "search"
-                        searchField.forceActiveFocus()
+                        searchField.item.forceActiveFocus()
                     }
                 },
 
@@ -125,22 +125,28 @@ Page {
                 text: i18n.tr("Back")
                 onTriggered: {
                     episodeList.forceActiveFocus()
-                    searchField.text = ""
                     episodesPage.state = "default"
                     episodeList.positionViewAtBeginning()
                 }
             }
 
-            contents: TextField {
+            contents: Loader {
                 id: searchField
-                inputMethodHints: Qt.ImhNoPredictiveText
-                placeholderText: i18n.tr("Search episode")
+                sourceComponent: episodesPage.state === "search" ? searchFieldComponent : undefined
                 anchors.left: parent ? parent.left : undefined
                 anchors.right: parent ? parent.right : undefined
                 anchors.rightMargin: units.gu(2)
             }
         }
     ]
+
+    Component {
+        id: searchFieldComponent
+        TextField {
+            inputMethodHints: Qt.ImhNoPredictiveText
+            placeholderText: i18n.tr("Search episode")
+        }
+    }
 
     Connections {
         target: downloader
@@ -345,7 +351,8 @@ Page {
         id: sortedEpisodeModel
         model: episodeModel
         filter.property: "name"
-        filter.pattern: RegExp(searchField.text, "gi")
+        filter.pattern: episodesPage.state === "search" ? RegExp(searchField.item.text, "gi")
+                                                        : RegExp("", "gi")
     }
 
     UbuntuListView {
