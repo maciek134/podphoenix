@@ -80,6 +80,7 @@ Page {
             sourceSize.height: width
             sourceSize.width: width
             source: currentImage
+            asynchronous: true
             anchors.centerIn: parent
         }
     }

@@ -422,6 +422,7 @@ Page {
                 sourceSize.height: width
                 sourceSize.width: width
                 source: episodeImage
+                asynchronous: true
                 anchors {
                     left: parent.left
                     top: parent.top

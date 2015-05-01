@@ -44,6 +44,7 @@ Rectangle {
             source: currentImage
             width: parent.height - units.gu(0.25)
             height: width
+            asynchronous: true
         }
 
         Rectangle {
