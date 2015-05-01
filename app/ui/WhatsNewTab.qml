@@ -428,7 +428,7 @@ Tab {
                     ActionButton {
                         id: contextualMenu
 
-                        width: units.gu(5)
+                        width: units.gu(4)
                         height: units.gu(4)
 
                         iconName: "contextual-menu"

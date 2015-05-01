@@ -216,7 +216,7 @@ Page {
                 width: units.gu(10)
                 height: width
                 opacity: playButton.pressed ? 0.4 : 1.0
-                onClicked: currentUrl != "" && playerLoader.item.playbackState === MediaPlayer.PlayingState ? playerLoader.item.pause() : playerLoader.item.play()
+                onClicked: playerLoader.item.playbackState === MediaPlayer.PlayingState ? playerLoader.item.pause() : playerLoader.item.play()
 
                 Icon {
                     id: playIcon

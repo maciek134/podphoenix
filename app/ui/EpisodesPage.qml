@@ -492,12 +492,12 @@ Page {
                     ActionButton {
                         id: contextualMenu
 
-                        width: units.gu(5)
+                        width: units.gu(4)
                         height: units.gu(4)
 
                         iconName: "contextual-menu"
                         color: showProgressBar || expanded ? podbird.appTheme.focusText
-                                                                        : podbird.appTheme.baseIcon
+                                                           : podbird.appTheme.baseIcon
                         onClicked: {
                             var popover = PopupUtils.open(popoverComponent, contextualMenu)
                             popover.queued = Qt.binding(function() { return model.queued })
@@ -513,10 +513,10 @@ Page {
                         width: units.gu(4)
                         height: units.gu(4)
 
-                        iconName: currentUrl != "" && playerLoader.item.playbackState === MediaPlayer.PlayingState && currentGuid === model.guid ? "media-playback-pause"
-                                                                                                                                                 : "media-playback-start"
-                        color: currentUrl != "" && playerLoader.item.playbackState === MediaPlayer.PlayingState && currentGuid === model.guid ? podbird.appTheme.focusText
-                                                                                                                                              : podbird.appTheme.baseIcon
+                        property bool isPlaying: currentUrl != "" && playerLoader.item.playbackState === MediaPlayer.PlayingState && currentGuid === model.guid
+
+                        iconName: isPlaying ? "media-playback-pause" : "media-playback-start"
+                        color: isPlaying ? podbird.appTheme.focusText : podbird.appTheme.baseIcon
 
                         onClicked: {
                             var db = Podcasts.init();
