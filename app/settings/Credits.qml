@@ -35,7 +35,8 @@ Page {
 
         ListItem.Standard {
             showDivider: false
-            text: "Michael Sheldon (Creator)"
+            // TRANSLATORS: The first argument is the name of creator of Podbird (Michael Sheldon)
+            text: i18n.tr("%1 (Creator)").arg("Michael Sheldon")
         }
 
         ListItem.Standard {

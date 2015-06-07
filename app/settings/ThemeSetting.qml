@@ -30,7 +30,9 @@ Page {
         id: themeModel
         Component.onCompleted: initialize()
         function initialize() {
+            // TRANSLATORS: Light Theme
             themeModel.append({ name: i18n.tr("Light"), file: "Light.qml" })
+            // TRANSLATORS: Dark Theme
             themeModel.append({ name: i18n.tr("Dark"), file: "Dark.qml" })
         }
     }

@@ -25,6 +25,7 @@ import Ubuntu.DownloadManager 0.1
 import Ubuntu.Components.Popups 1.0
 import Ubuntu.Components.ListItems 1.0 as ListItem
 import "../podcasts.js" as Podcasts
+import "../components"
 
 Page {
     id: episodesPage

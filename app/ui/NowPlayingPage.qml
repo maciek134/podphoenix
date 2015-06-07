@@ -20,6 +20,7 @@ import QtQuick 2.3
 import QtMultimedia 5.0
 import Ubuntu.Components 1.1
 import "../podcasts.js" as Podcasts
+import "../components"
 
 Page {
     id: nowPlayingPage
@@ -147,7 +148,9 @@ Page {
                 anchors.centerIn: parent
 
                 Label {
-                    text: i18n.tr("-15s")
+                    // TRANSLATORS: The string shown in the UI is -15s to denote the number of seconds that the podcast playback will skip backward.
+                    // xgettext: no-c-format
+                    text: i18n.tr("-%1s").arg("15")
                     fontSize: "xx-small"
                     color: podbird.appTheme.baseText
                     anchors.verticalCenter: skipBackwardIcon.verticalCenter
@@ -206,7 +209,9 @@ Page {
                 }
 
                 Label {
-                    text: i18n.tr("+15s")
+                    // TRANSLATORS: The string shown in the UI is +15s to denote the number of seconds that the podcast playback will skip forward.
+                    // xgettext: no-c-format
+                    text: i18n.tr("+%1s").arg("15")
                     fontSize: "xx-small"
                     color: podbird.appTheme.baseText
                     anchors.verticalCenter: skipForwardIcon.verticalCenter
