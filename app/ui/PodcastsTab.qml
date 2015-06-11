@@ -210,30 +210,30 @@ Page {
                 id: listItem
 
                 height: units.gu(8)
-                removable: true
-                confirmRemoval: true
+                highlightColor: index % 2 === 0 ? "Transparent" : podbird.appTheme.hightlightListView
+                color: index % 2 === 0 ? podbird.appTheme.hightlightListView : "Transparent"
                 title: model.name !== undefined ? model.name.trim() : "Undefined"
                 subtitle: i18n.tr("%1 unheard episode", "%1 unheard episodes", model.episodeCount).arg(model.episodeCount)
                 coverArt: model.image !== undefined ? model.image : Qt.resolvedUrl("../graphics/podbird.png")
 
-                onItemRemoved: {
-                    var db = Podcasts.init();
-                    db.transaction(function (tx) {
-                        var rs = tx.executeSql("SELECT downloadedfile FROM Episode WHERE downloadedfile NOT NULL AND podcast=?", [model.id]);
-                        for(var i = 0; i < rs.rows.length; i++) {
-                            fileManager.deleteFile(rs.rows.item(i).downloadedfile);
+                leadingActions: ListItemActions {
+                    actions: [
+                        Action {
+                            iconName: "delete"
+                            onTriggered: {
+                                var db = Podcasts.init();
+                                db.transaction(function (tx) {
+                                    var rs = tx.executeSql("SELECT downloadedfile FROM Episode WHERE downloadedfile NOT NULL AND podcast=?", [model.id]);
+                                    for(var i = 0; i < rs.rows.length; i++) {
+                                        fileManager.deleteFile(rs.rows.item(i).downloadedfile);
+                                    }
+                                    tx.executeSql("DELETE FROM Episode WHERE podcast=?", [model.id]);
+                                    tx.executeSql("DELETE FROM Podcast WHERE rowid=?", [model.id]);
+                                    podcastModel.remove(index, 1)
+                                });
+                            }
                         }
-                        tx.executeSql("DELETE FROM Episode WHERE podcast=?", [model.id]);
-                        tx.executeSql("DELETE FROM Podcast WHERE rowid=?", [model.id]);
-                        podcastModel.remove(index, 1)
-                    });
-                }
-
-                Rectangle {
-                    anchors.fill: parent
-                    opacity: 0.3
-                    z: -1
-                    color: index % 2 === 0 ? podbird.appTheme.hightlightListView : "Transparent"
+                    ]
                 }
 
                 onClicked: {

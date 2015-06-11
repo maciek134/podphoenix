@@ -41,5 +41,5 @@ QtObject {
     property color bottomBarBackground: "#15141A"
 
     // Highlight Color
-    property color hightlightListView: "#333533"
+    property color hightlightListView: "#2D2D2C"
 }
