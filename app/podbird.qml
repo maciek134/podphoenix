@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick 2.3
+import QtQuick 2.4
 import Podbird 1.0
 import UserMetrics 0.1
 import QtMultimedia 5.0
