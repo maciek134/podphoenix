@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-11 14:09+0000\n"
+"POT-Creation-Date: 2015-06-11 14:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -60,7 +60,7 @@ msgid "%1 min"
 msgstr ""
 
 #. TRANSLATORS: About as in information about the app
-#: ../app/settings/About.qml:25 ../app/ui/SettingsPage.qml:107
+#: ../app/settings/About.qml:25 ../app/ui/SettingsPage.qml:105
 msgid "About"
 msgstr ""
 
@@ -109,7 +109,7 @@ msgid_plural "%1 years"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../app/settings/Credits.qml:26 ../app/ui/SettingsPage.qml:113
+#: ../app/settings/Credits.qml:26 ../app/ui/SettingsPage.qml:111
 msgid "Credits"
 msgstr ""
 
@@ -145,7 +145,7 @@ msgid_plural "%1 episodes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../app/settings/ThemeSetting.qml:28 ../app/ui/SettingsPage.qml:52
+#: ../app/settings/ThemeSetting.qml:28 ../app/ui/SettingsPage.qml:50
 msgid "Theme"
 msgstr ""
 
@@ -167,12 +167,12 @@ msgid "Exit App"
 msgstr ""
 
 #. TRANSLATORS: Light Theme
-#: ../app/settings/ThemeSetting.qml:57 ../app/ui/SettingsPage.qml:53
+#: ../app/settings/ThemeSetting.qml:57 ../app/ui/SettingsPage.qml:51
 msgid "Light"
 msgstr ""
 
 #. TRANSLATORS: Dark Theme
-#: ../app/settings/ThemeSetting.qml:59 ../app/ui/SettingsPage.qml:53
+#: ../app/settings/ThemeSetting.qml:59 ../app/ui/SettingsPage.qml:51
 msgid "Dark"
 msgstr ""
 
@@ -354,42 +354,42 @@ msgstr ""
 
 #. TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
 #. that doesn't fit into any other category.
-#: ../app/ui/SettingsPage.qml:46
+#: ../app/ui/SettingsPage.qml:45
 msgid "General Settings"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:58
+#: ../app/ui/SettingsPage.qml:56
 msgid "Podcast Episode Settings"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:72
+#: ../app/ui/SettingsPage.qml:70
 msgid "Hide listened episodes"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:88
+#: ../app/ui/SettingsPage.qml:86
 msgid "Automatically delete old episodes"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:89
+#: ../app/ui/SettingsPage.qml:87
 msgid ""
 "Delete episodes that are older than a given number of days for each podcast"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:94
+#: ../app/ui/SettingsPage.qml:92
 msgid "Automatically download new episodes"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:95
+#: ../app/ui/SettingsPage.qml:93
 msgid "Default number of new episodes to download for each podcast"
 msgstr ""
 
 #. TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
 #. that doesn't fit into any other category.
-#: ../app/ui/SettingsPage.qml:102
+#: ../app/ui/SettingsPage.qml:100
 msgid "Misc."
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:118
+#: ../app/ui/SettingsPage.qml:116
 msgid "Report Bug"
 msgstr ""
 

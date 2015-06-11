@@ -18,7 +18,6 @@
 
 import QtQuick 2.4
 import Ubuntu.Components 1.2
-import Ubuntu.Components.ListItems 1.0 as ListItems
 import "../components"
 
 Page {
@@ -46,9 +45,8 @@ Page {
                 title: i18n.tr("General Settings")
             }
 
-            ListItems.SingleValue {
-                progression: true
-                showDivider: false
+            SingleValueListItem {
+                divider.visible: false
                 text: i18n.tr("Theme")
                 value: podbird.settings.themeName.split(".qml")[0] === "Light" ? i18n.tr("Light") : i18n.tr("Dark")
                 onClicked: mainStack.push(Qt.resolvedUrl("../settings/ThemeSetting.qml"))
