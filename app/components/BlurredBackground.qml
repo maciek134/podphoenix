@@ -18,7 +18,7 @@
  */
 
 import QtQuick 2.4
-import Ubuntu.Components 1.1
+import Ubuntu.Components 1.2
 import QtGraphicalEffects 1.0
 
 // Blurred background

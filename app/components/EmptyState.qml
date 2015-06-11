@@ -17,7 +17,7 @@
  */
 
 import QtQuick 2.4
-import Ubuntu.Components 1.1
+import Ubuntu.Components 1.2
 
 /*
  Component which displays an empty state (approved by design). It offers an
