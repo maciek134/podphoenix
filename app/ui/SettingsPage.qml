@@ -18,7 +18,8 @@
 
 import QtQuick 2.4
 import Ubuntu.Components 1.2
-import Ubuntu.Components.ListItems 1.0 as ListItem
+import Ubuntu.Components.ListItems 1.0 as ListItems
+import "../components"
 
 Page {
     id: settingsPage
@@ -39,11 +40,13 @@ Page {
                 right: parent.right
             }
 
-            ListItem.Header {
-                text: i18n.tr("General Settings")
+            HeaderListItem {
+                // TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
+                // that doesn't fit into any other category.
+                title: i18n.tr("General Settings")
             }
 
-            ListItem.SingleValue {
+            ListItems.SingleValue {
                 progression: true
                 showDivider: false
                 text: i18n.tr("Theme")
@@ -51,95 +54,68 @@ Page {
                 onClicked: mainStack.push(Qt.resolvedUrl("../settings/ThemeSetting.qml"))
             }
 
-            ListItem.Header {
-                text: i18n.tr("Podcast Episode Settings")
+            HeaderListItem {
+                title: i18n.tr("Podcast Episode Settings")
             }
 
-            ListItem.Standard {
-                showDivider: false
-                text: i18n.tr("Hide listened episodes")
-                control: Switch {
+            ListItem {
+                height: control.implicitHeight + units.gu(2)
+                divider.visible: false
+
+                Label {
+                    id: contentLabel
+                    anchors.left: parent.left
+                    anchors.leftMargin: units.gu(2)
+                    anchors.right: control.left
+                    anchors.rightMargin: units.gu(1)
+                    anchors.verticalCenter: parent.verticalCenter
+                    text: i18n.tr("Hide listened episodes")
+                }
+
+                Switch {
+                    id: control
+                    anchors.right: parent.right
+                    anchors.rightMargin: units.gu(2)
+                    anchors.verticalCenter: parent.verticalCenter
                     checked: podbird.settings.hideListened
                     onClicked: podbird.settings.hideListened = checked
                 }
+
+                onClicked: podbird.settings.hideListened = !podbird.settings.hideListened
             }
 
-            ListItem.Base {
-                height: units.gu(10)
-                progression: true
-                showDivider: false
+            SubtitledListItem {
+                title: i18n.tr("Automatically delete old episodes")
+                subtitle: i18n.tr("Delete episodes that are older than a given number of days for each podcast")
                 onClicked: mainStack.push(Qt.resolvedUrl("../settings/CleanSetting.qml"))
-                Column {
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.right: parent.right
-                    anchors.left: parent.left
-                    Label {
-                        width: parent.width
-                        wrapMode: Text.WordWrap
-                        text: i18n.tr("Automatically delete old episodes")
-                    }
-
-                    Label {
-                        fontSize: "small"
-                        color: podbird.appTheme.baseSubText
-                        width: parent.width
-                        wrapMode: Text.WordWrap
-                        text: i18n.tr("Delete episodes that are older than a given number of days for each podcast")
-                    }
-                }
             }
 
-            ListItem.Base {
-                height: units.gu(10)
-                progression: true
-                showDivider: false
+            SubtitledListItem {
+                title: i18n.tr("Automatically download new episodes")
+                subtitle: i18n.tr("Default number of new episodes to download for each podcast")
                 onClicked: mainStack.push(Qt.resolvedUrl("../settings/DownloadSetting.qml"))
-                Column {
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.right: parent.right
-                    anchors.left: parent.left
-                    Label {
-                        width: parent.width
-                        wrapMode: Text.WordWrap
-                        text: i18n.tr("Automatically download new episodes")
-                    }
-
-                    Label {
-                        fontSize: "small"
-                        color: podbird.appTheme.baseSubText
-                        width: parent.width
-                        wrapMode: Text.WordWrap
-                        text: i18n.tr("Default number of new episodes to download for each podcast")
-                    }
-                }
             }
 
-            ListItem.Header {
+            HeaderListItem {
                 // TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
                 // that doesn't fit into any other category.
-                text: i18n.tr("Misc.")
+                title: i18n.tr("Misc.")
             }
 
-            ListItem.Standard {
-                progression: true
-                showDivider: false
+            SubtitledListItem {
                 // TRANSLATORS: About as in information about the app
-                text: i18n.tr("About")
+                title: i18n.tr("About")
                 onClicked: mainStack.push(Qt.resolvedUrl("../settings/About.qml"))
             }
 
-            ListItem.Standard {
-                progression: true
-                showDivider: false
+            SubtitledListItem {
                 // TRANSTORS: Credits as in the code and design contributors to the app
-                text: i18n.tr("Credits")
+                title: i18n.tr("Credits")
                 onClicked: mainStack.push(Qt.resolvedUrl("../settings/Credits.qml"))
             }
 
-            ListItem.Standard {
-                progression: true
-                showDivider: false
-                text: i18n.tr("Report Bug")
+            SubtitledListItem {
+                title: i18n.tr("Report Bug")
                 onClicked: Qt.openUrlExternally("https://bugs.launchpad.net/podbird/+filebug")
             }
         }

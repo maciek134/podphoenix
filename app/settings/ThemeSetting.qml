@@ -19,7 +19,7 @@
 import QtQuick 2.4
 import Ubuntu.Components 1.2
 import Ubuntu.Components.Popups 1.0
-import Ubuntu.Components.ListItems 1.0 as ListItem
+import "../components"
 
 Page {
     id: themeSettingPage
@@ -73,8 +73,11 @@ This is necessary to avoid any strange behaviour in the app. We apologize for th
             height: units.gu(8)
         }
 
-        delegate: ListItem.Standard {
-            text: model.name
+        delegate: SubtitledListItem {
+            title: model.name
+            progression: false
+            divider.visible: true
+
             onClicked: {
                 podbird.settings.themeName = model.file
                 PopupUtils.open(rebootAppDialog, themeSettingPage);

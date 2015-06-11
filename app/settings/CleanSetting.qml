@@ -18,7 +18,7 @@
 
 import QtQuick 2.4
 import Ubuntu.Components 1.2
-import Ubuntu.Components.ListItems 1.0 as ListItem
+import "../components"
 
 Page {
     id: cleanSettingPage
@@ -52,8 +52,11 @@ Page {
             height: units.gu(8)
         }
 
-        delegate: ListItem.Standard {
-            text: model.name
+        delegate: SubtitledListItem {
+            title: model.name
+            progression: false
+            divider.visible: true
+
             onClicked: {
                 podbird.settings.retentionDays = model.value
             }
