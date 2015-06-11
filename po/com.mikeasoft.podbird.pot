@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-11 14:18+0000\n"
+"POT-Creation-Date: 2015-06-11 14:39+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,24 +23,24 @@ msgid "Skip"
 msgstr ""
 
 #. TRANSLATORS: this refers to a number of songs greater than one. The actual number will be prepended to the string automatically (plural forms are not yet fully supported in usermetrics, the library that displays that string)
-#: ../app/podbird.qml:166
+#: ../app/podbird.qml:168
 #, qt-format
 msgid "Podcasts listened to today: <b>%1</b>"
 msgstr ""
 
-#: ../app/podbird.qml:167
+#: ../app/podbird.qml:169
 msgid "No podcasts listened to today"
 msgstr ""
 
-#: ../app/podbird.qml:248
+#: ../app/podbird.qml:250
 msgid "Podcasts"
 msgstr ""
 
-#: ../app/podbird.qml:262
+#: ../app/podbird.qml:264
 msgid "Add New Podcasts"
 msgstr ""
 
-#: ../app/podbird.qml:277
+#: ../app/podbird.qml:279
 msgid "Settings"
 msgstr ""
 
@@ -60,7 +60,7 @@ msgid "%1 min"
 msgstr ""
 
 #. TRANSLATORS: About as in information about the app
-#: ../app/settings/About.qml:25 ../app/ui/SettingsPage.qml:105
+#: ../app/settings/About.qml:25 ../app/ui/SettingsPage.qml:192
 msgid "About"
 msgstr ""
 
@@ -109,7 +109,7 @@ msgid_plural "%1 years"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../app/settings/Credits.qml:26 ../app/ui/SettingsPage.qml:111
+#: ../app/settings/Credits.qml:26 ../app/ui/SettingsPage.qml:198
 msgid "Credits"
 msgstr ""
 
@@ -145,7 +145,7 @@ msgid_plural "%1 episodes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../app/settings/ThemeSetting.qml:28 ../app/ui/SettingsPage.qml:50
+#: ../app/settings/ThemeSetting.qml:28 ../app/ui/SettingsPage.qml:119
 msgid "Theme"
 msgstr ""
 
@@ -167,12 +167,12 @@ msgid "Exit App"
 msgstr ""
 
 #. TRANSLATORS: Light Theme
-#: ../app/settings/ThemeSetting.qml:57 ../app/ui/SettingsPage.qml:51
+#: ../app/settings/ThemeSetting.qml:57 ../app/ui/SettingsPage.qml:120
 msgid "Light"
 msgstr ""
 
 #. TRANSLATORS: Dark Theme
-#: ../app/settings/ThemeSetting.qml:59 ../app/ui/SettingsPage.qml:51
+#: ../app/settings/ThemeSetting.qml:59 ../app/ui/SettingsPage.qml:120
 msgid "Dark"
 msgstr ""
 
@@ -212,7 +212,8 @@ msgstr ""
 msgid "Are you sure you want to unsubscribe from <b>%1</b>?"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:211
+#: ../app/ui/EpisodesPage.qml:211 ../app/ui/SettingsPage.qml:59
+#: ../app/ui/SettingsPage.qml:93
 msgid "Cancel"
 msgstr ""
 
@@ -352,44 +353,70 @@ msgstr ""
 msgid "Not Available"
 msgstr ""
 
+#. TRANSLATORS: This strings refers to the seeking of the episode playback. Users can set how far they
+#. want to seek forward when pressing on this button.
+#: ../app/ui/SettingsPage.qml:40 ../app/ui/SettingsPage.qml:130
+msgid "Skip Forward"
+msgstr ""
+
+#: ../app/ui/SettingsPage.qml:47 ../app/ui/SettingsPage.qml:81
+#: ../app/ui/SettingsPage.qml:131 ../app/ui/SettingsPage.qml:138
+#, qt-format
+msgid "%1 seconds"
+msgstr ""
+
+#: ../app/ui/SettingsPage.qml:51 ../app/ui/SettingsPage.qml:85
+msgid "Ok"
+msgstr ""
+
+#. TRANSLATORS: This strings refers to the seeking of the episode playback. Users can set how far they
+#. want to seek backward when pressing on this button.
+#: ../app/ui/SettingsPage.qml:74 ../app/ui/SettingsPage.qml:137
+msgid "Skip Back"
+msgstr ""
+
 #. TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
 #. that doesn't fit into any other category.
-#: ../app/ui/SettingsPage.qml:45
+#: ../app/ui/SettingsPage.qml:114
 msgid "General Settings"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:56
+#: ../app/ui/SettingsPage.qml:125
+msgid "Playback Settings"
+msgstr ""
+
+#: ../app/ui/SettingsPage.qml:143
 msgid "Podcast Episode Settings"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:70
+#: ../app/ui/SettingsPage.qml:157
 msgid "Hide listened episodes"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:86
+#: ../app/ui/SettingsPage.qml:173
 msgid "Automatically delete old episodes"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:87
+#: ../app/ui/SettingsPage.qml:174
 msgid ""
 "Delete episodes that are older than a given number of days for each podcast"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:92
+#: ../app/ui/SettingsPage.qml:179
 msgid "Automatically download new episodes"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:93
+#: ../app/ui/SettingsPage.qml:180
 msgid "Default number of new episodes to download for each podcast"
 msgstr ""
 
 #. TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
 #. that doesn't fit into any other category.
-#: ../app/ui/SettingsPage.qml:100
+#: ../app/ui/SettingsPage.qml:187
 msgid "Misc."
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:116
+#: ../app/ui/SettingsPage.qml:203
 msgid "Report Bug"
 msgstr ""
 
@@ -503,6 +530,6 @@ msgstr ""
 msgid "Finish"
 msgstr ""
 
-#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-17.5-migrate-settingpage-listitems-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_15_04_vivid-Default/po/Podbird.desktop.in.h:1
+#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-18-custom-skip-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_15_04_vivid-Default/po/Podbird.desktop.in.h:1
 msgid "The chirpiest podcast manager for Ubuntu"
 msgstr ""
