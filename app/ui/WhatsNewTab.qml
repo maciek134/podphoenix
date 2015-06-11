@@ -265,7 +265,7 @@ Tab {
                                     whatsNewModel.setProperty(model.index, "downloadedfile", "")
                                 } else {
                                     db.transaction(function (tx) {
-                                        tx.executeSql("UPDATE Episode SET queued=1 WHERE guid = ?", [popover.guid]);
+                                        tx.executeSql("UPDATE Episode SET queued=1 WHERE guid = ?", [model.guid]);
                                     });
                                     whatsNewModel.setProperty(model.index, "queued", 1)
                                     downloader.addDownload(model.guid, model.audiourl);
