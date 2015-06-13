@@ -36,7 +36,13 @@ MainView {
     applicationName: "com.mikeasoft.podbird"
     useDeprecatedToolbar: false
     anchorToKeyboard: true
-    automaticOrientation: true
+
+    /*
+     FIXME: Opening tabs in landscape mode causes apps to crash in the current vivid images.
+     As such this is disabled until upstream bug https://pad.lv/1448017 is fixed and released
+     to the production phones.
+    */
+    automaticOrientation: false
 
     width: units.gu(50)
     height: units.gu(75)
