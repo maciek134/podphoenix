@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-04-22 09:52+0000\n"
+"POT-Creation-Date: 2015-04-28 12:08+0000\n"
 "PO-Revision-Date: 2015-04-20 13:17+0000\n"
 "Last-Translator: Åka Sikrom <Unknown>\n"
 "Language-Team: Norwegian Bokmal <nb@li.org>\n"
@@ -15,23 +15,28 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2015-04-23 06:54+0000\n"
-"X-Generator: Launchpad (build 17430)\n"
+"X-Launchpad-Export-Date: 2015-06-08 05:50+0000\n"
+"X-Generator: Launchpad (build 17540)\n"
+
+#: ../app/components/Walkthrough.qml:87
+msgid "Skip"
+msgstr "Hopp over"
 
 #. TRANSLATORS: this refers to a number of songs greater than one. The actual number will be prepended to the string automatically (plural forms are not yet fully supported in usermetrics, the library that displays that string)
-#: ../app/podbird.qml:162
-msgid "podcasts listened to today"
-msgstr "podkaster spilt av i dag"
+#: ../app/podbird.qml:165
+#, qt-format
+msgid "Podcasts listened to today: <b>%1</b>"
+msgstr ""
 
-#: ../app/podbird.qml:163
+#: ../app/podbird.qml:166
 msgid "No podcasts listened to today"
 msgstr "Ingen podkaster er spilt av i dag"
 
-#: ../app/podbird.qml:225
+#: ../app/podbird.qml:228
 msgid "Add New Podcasts"
 msgstr "Legg til nye podkaster"
 
-#: ../app/podbird.qml:239
+#: ../app/podbird.qml:242
 msgid "Settings"
 msgstr "Innstillinger"
 
@@ -50,20 +55,22 @@ msgstr "%1 t"
 msgid "%1 min"
 msgstr "%1 min"
 
-#: ../app/settings/About.qml:25 ../app/ui/SettingsPage.qml:124
+#. TRANSLATORS: About as in information about the app
+#: ../app/settings/About.qml:25 ../app/ui/SettingsPage.qml:127
 msgid "About"
 msgstr "Om"
 
-#: ../app/settings/About.qml:52
+#. TRANSLATORS: Podbird version number e.g Version 0.6
+#: ../app/settings/About.qml:53
 #, qt-format
 msgid "Version %1"
 msgstr "Versjon %1"
 
-#: ../app/settings/About.qml:73
+#: ../app/settings/About.qml:74
 msgid "Released under the terms of the GNU GPL v3"
 msgstr "Utgitt med lisensen GNU GPL v3"
 
-#: ../app/settings/About.qml:83
+#: ../app/settings/About.qml:84
 #, qt-format
 msgid "Source code available on %1"
 msgstr "Kildekode tilgjengelig på %1"
@@ -98,7 +105,7 @@ msgid_plural "%1 years"
 msgstr[0] "%1 år"
 msgstr[1] "%1 år"
 
-#: ../app/settings/Credits.qml:26 ../app/ui/SettingsPage.qml:131
+#: ../app/settings/Credits.qml:26 ../app/ui/SettingsPage.qml:135
 msgid "Credits"
 msgstr "Bidragsytere"
 
@@ -106,11 +113,17 @@ msgstr "Bidragsytere"
 msgid "Developers"
 msgstr "Utviklere"
 
-#: ../app/settings/Credits.qml:47
+#. TRANSLATORS: The first argument is the name of creator of Podbird (Michael Sheldon)
+#: ../app/settings/Credits.qml:39
+#, qt-format
+msgid "%1 (Creator)"
+msgstr ""
+
+#: ../app/settings/Credits.qml:48
 msgid "Designer"
 msgstr "Visuell utformer"
 
-#: ../app/settings/Credits.qml:56
+#: ../app/settings/Credits.qml:57
 msgid "Translators"
 msgstr "Oversettere"
 
@@ -121,7 +134,7 @@ msgstr "Last ned maks"
 #: ../app/settings/DownloadSetting.qml:34
 #: ../app/settings/DownloadSetting.qml:35
 #: ../app/settings/DownloadSetting.qml:36
-#: ../app/settings/DownloadSetting.qml:37 ../app/ui/EpisodesPage.qml:428
+#: ../app/settings/DownloadSetting.qml:37 ../app/ui/EpisodesPage.qml:429
 #, qt-format
 msgid "%1 episode"
 msgid_plural "%1 episodes"
@@ -132,132 +145,146 @@ msgstr[1] "%1 episoder"
 msgid "Theme"
 msgstr "Tema"
 
-#: ../app/settings/ThemeSetting.qml:33 ../app/ui/SettingsPage.qml:50
+#. TRANSLATORS: Light Theme
+#: ../app/settings/ThemeSetting.qml:34 ../app/ui/SettingsPage.qml:50
 msgid "Light"
 msgstr "Lyst"
 
-#: ../app/settings/ThemeSetting.qml:34 ../app/ui/SettingsPage.qml:50
+#. TRANSLATORS: Dark Theme
+#: ../app/settings/ThemeSetting.qml:36 ../app/ui/SettingsPage.qml:50
 msgid "Dark"
 msgstr "Mørkt"
 
-#: ../app/ui/EpisodesPage.qml:33
+#: ../app/ui/EpisodesPage.qml:34
 msgid "Podcast"
 msgstr "Podkast"
 
-#: ../app/ui/EpisodesPage.qml:89 ../app/ui/SearchPage.qml:56
-#: ../app/ui/WhatsNewTab.qml:32
+#: ../app/ui/EpisodesPage.qml:90 ../app/ui/WhatsNewTab.qml:33
 msgid "Search Episode"
 msgstr "Søk etter episode"
 
-#: ../app/ui/EpisodesPage.qml:98 ../app/ui/WhatsNewTab.qml:41
+#: ../app/ui/EpisodesPage.qml:99 ../app/ui/WhatsNewTab.qml:42
 msgid "Mark all listened"
 msgstr "Merk alle som spilt av"
 
-#: ../app/ui/EpisodesPage.qml:109 ../app/ui/EpisodesPage.qml:187
-#: ../app/ui/SearchPage.qml:267
+#: ../app/ui/EpisodesPage.qml:110 ../app/ui/EpisodesPage.qml:188
+#: ../app/ui/SearchPage.qml:268
 msgid "Unsubscribe"
 msgstr "Stopp abonnement"
 
-#: ../app/ui/EpisodesPage.qml:124 ../app/ui/PodcastsTab.qml:92
-#: ../app/ui/SearchPage.qml:79 ../app/ui/SearchPage.qml:109
-#: ../app/ui/WhatsNewTab.qml:77
+#: ../app/ui/EpisodesPage.qml:125 ../app/ui/PodcastsTab.qml:93
+#: ../app/ui/SearchPage.qml:80 ../app/ui/SearchPage.qml:110
+#: ../app/ui/WhatsNewTab.qml:78
 msgid "Back"
 msgstr "Tilbake"
 
-#: ../app/ui/EpisodesPage.qml:136 ../app/ui/WhatsNewTab.qml:88
+#: ../app/ui/EpisodesPage.qml:137 ../app/ui/WhatsNewTab.qml:89
 msgid "Search episode"
 msgstr "Søk etter episode"
 
-#: ../app/ui/EpisodesPage.qml:184
+#: ../app/ui/EpisodesPage.qml:185
 msgid "Unsubscribe Confirmation"
 msgstr "Bekreftelse på abonnement-stopp"
 
-#: ../app/ui/EpisodesPage.qml:185
+#: ../app/ui/EpisodesPage.qml:186
 #, qt-format
 msgid "Are you sure you want to unsubscribe from <b>%1</b>?"
 msgstr "Er du sikker på at du vil stoppe abonnementet på <b>%1</b>?"
 
-#: ../app/ui/EpisodesPage.qml:204
+#: ../app/ui/EpisodesPage.qml:205
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: ../app/ui/EpisodesPage.qml:258 ../app/ui/WhatsNewTab.qml:212
+#: ../app/ui/EpisodesPage.qml:259 ../app/ui/WhatsNewTab.qml:213
 msgid "Delete local file"
 msgstr "Slett lokal fil"
 
-#: ../app/ui/EpisodesPage.qml:259 ../app/ui/WhatsNewTab.qml:213
+#: ../app/ui/EpisodesPage.qml:260 ../app/ui/WhatsNewTab.qml:214
 msgid "Episode queued for download"
 msgstr "Episode lagt i nedlastingskø"
 
-#: ../app/ui/EpisodesPage.qml:260 ../app/ui/WhatsNewTab.qml:214
+#: ../app/ui/EpisodesPage.qml:261 ../app/ui/WhatsNewTab.qml:215
 msgid "Download episode"
 msgstr "Last ned episode"
 
-#: ../app/ui/EpisodesPage.qml:335
+#: ../app/ui/EpisodesPage.qml:310
+msgid "Mark episode unlistened"
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:310 ../app/ui/WhatsNewTab.qml:263
+msgid "Mark episode listened"
+msgstr "Merk episode som spilt av"
+
+#: ../app/ui/EpisodesPage.qml:336
 msgid "No more episodes"
 msgstr "Ingen flere episoder"
 
-#: ../app/ui/EpisodesPage.qml:335
+#: ../app/ui/EpisodesPage.qml:336
 msgid "No episodes found"
 msgstr "Fant ingen episoder"
 
-#: ../app/ui/EpisodesPage.qml:336
+#: ../app/ui/EpisodesPage.qml:337
 msgid "All episodes have been listened to."
 msgstr "Alle episoder er spilt av."
 
-#: ../app/ui/EpisodesPage.qml:336
+#: ../app/ui/EpisodesPage.qml:337
 msgid "No episodes found matching the search term."
 msgstr "Søket ga ingen treff på episoder."
 
-#: ../app/ui/EpisodesPage.qml:381
+#: ../app/ui/EpisodesPage.qml:382
 msgid "Unheard"
 msgstr "Ikke spilt av"
 
-#: ../app/ui/EpisodesPage.qml:381
+#: ../app/ui/EpisodesPage.qml:382
 msgid "Listened"
 msgstr "Spilt av"
 
-#: ../app/ui/NowPlayingPage.qml:28
+#: ../app/ui/NowPlayingPage.qml:29
 msgid "Now Playing"
 msgstr "Spilles nå"
 
-#: ../app/ui/NowPlayingPage.qml:150
-msgid "-15s"
-msgstr "-15s"
+#. TRANSLATORS: The string shown in the UI is -15s to denote the number of seconds that the podcast playback will skip backward.
+#: ../app/ui/NowPlayingPage.qml:153
+#, no-c-format, qt-format
+msgid "-%1s"
+msgstr ""
 
-#: ../app/ui/NowPlayingPage.qml:209
-msgid "+15s"
-msgstr "+15s"
+#. TRANSLATORS: The string shown in the UI is +15s to denote the number of seconds that the podcast playback will skip forward.
+#: ../app/ui/NowPlayingPage.qml:214
+#, no-c-format, qt-format
+msgid "+%1s"
+msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:32
+#: ../app/ui/PodcastsTab.qml:33
 msgid "Podcasts"
 msgstr "Podkaster"
 
-#: ../app/ui/PodcastsTab.qml:70
+#: ../app/ui/PodcastsTab.qml:71 ../app/ui/SearchPage.qml:57
+#: ../app/ui/SearchPage.qml:91
 msgid "Search Podcast"
 msgstr "Søk etter podkast"
 
-#: ../app/ui/PodcastsTab.qml:79
+#: ../app/ui/PodcastsTab.qml:80
 msgid "Grid View"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:79
+#: ../app/ui/PodcastsTab.qml:80
 msgid "List View"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:103
+#: ../app/ui/PodcastsTab.qml:104
 msgid "Search podcast"
 msgstr "Søk etter podkast"
 
-#: ../app/ui/PodcastsTab.qml:125
+#: ../app/ui/PodcastsTab.qml:126
 msgid "No Podcast Subscriptions"
 msgstr "Ingen podkast-abonnementer"
 
-#: ../app/ui/PodcastsTab.qml:126
+#: ../app/ui/PodcastsTab.qml:127
 msgid "No Podcasts Found"
 msgstr "Fant ingen podkaster"
 
-#: ../app/ui/PodcastsTab.qml:127
+#: ../app/ui/PodcastsTab.qml:128
 msgid ""
 "You haven't subscribed to any podcasts yet, visit the 'Find New Podcasts' "
 "page to add some."
@@ -265,65 +292,63 @@ msgstr ""
 "Du har ikke abonnert på noen podkaster ennå. Besøk «Finn nye podkaster»-"
 "siden for å legge til noen."
 
-#: ../app/ui/PodcastsTab.qml:128 ../app/ui/SearchPage.qml:166
+#: ../app/ui/PodcastsTab.qml:129 ../app/ui/SearchPage.qml:167
 msgid "No podcasts found matching the search term."
 msgstr "Søket ga ingen treff på podkaster."
 
-#: ../app/ui/PodcastsTab.qml:159 ../app/ui/PodcastsTab.qml:280
+#: ../app/ui/PodcastsTab.qml:160 ../app/ui/PodcastsTab.qml:281
 #, qt-format
 msgid "%1 unheard episode"
 msgid_plural "%1 unheard episodes"
 msgstr[0] "%1 ny episode"
 msgstr[1] "%1 nye episoder"
 
-#: ../app/ui/SearchPage.qml:64
+#: ../app/ui/SearchPage.qml:65
 msgid "Add Podcast"
 msgstr "Legg til podkast"
 
-#: ../app/ui/SearchPage.qml:90
-msgid "Search..."
-msgstr "Søk …"
-
-#: ../app/ui/SearchPage.qml:120
+#: ../app/ui/SearchPage.qml:121
 msgid "Save Podcast"
 msgstr "Lagre podkast"
 
-#: ../app/ui/SearchPage.qml:131
+#: ../app/ui/SearchPage.qml:132
 msgid "Feed URL"
 msgstr "Kildeadresse"
 
-#: ../app/ui/SearchPage.qml:146
+#: ../app/ui/SearchPage.qml:147
 msgid "Unable to subscribe"
 msgstr "Klarte ikke å abonnere"
 
-#: ../app/ui/SearchPage.qml:147
+#: ../app/ui/SearchPage.qml:148
 msgid "Please check the URL and try again"
 msgstr "Kontroller nettadressen og prøv igjen"
 
-#: ../app/ui/SearchPage.qml:149
+#: ../app/ui/SearchPage.qml:150
 msgid "Close"
 msgstr "Lukk"
 
-#: ../app/ui/SearchPage.qml:165
+#: ../app/ui/SearchPage.qml:166
 msgid "Looking to add a new Podcast?"
 msgstr "Vil du legge til en ny podkast?"
 
-#: ../app/ui/SearchPage.qml:165
+#: ../app/ui/SearchPage.qml:166
 msgid "No Podcasts found"
 msgstr "Fant ingen podkaster"
 
-#: ../app/ui/SearchPage.qml:166
+#: ../app/ui/SearchPage.qml:167
 msgid ""
 "Click the 'magnifier' at the top to search or the 'plus' button to add by URL"
 msgstr ""
 "Trykk på forstørrelsesglasset øverst for å søke, eller pluss-knappen for å "
 "legge til en nettadresse"
 
-#: ../app/ui/SearchPage.qml:267
+#: ../app/ui/SearchPage.qml:268
 msgid "Subscribe"
 msgstr "Abonner"
 
-#: ../app/ui/SearchPage.qml:298
+#. TRANSLATORS: The first argument here is the date of when the podcast was last updated followed by
+#. the podcast description.
+#: ../app/ui/SearchPage.qml:301
 #, qt-format
 msgid ""
 "Last Updated: %1\n"
@@ -332,7 +357,7 @@ msgstr ""
 "Sist oppdatert: %1\n"
 "%2"
 
-#: ../app/ui/SearchPage.qml:353
+#: ../app/ui/SearchPage.qml:356
 msgid "Not Available"
 msgstr "Ikke tilgjengelig"
 
@@ -365,63 +390,57 @@ msgstr "Last ned nye episoder automatisk"
 msgid "Default number of new episodes to download for each podcast"
 msgstr "Standard antall nye episoder som skal lastes ned per podkast"
 
-#: ../app/ui/SettingsPage.qml:118
+#. TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
+#. that doesn't fit into any other category.
+#: ../app/ui/SettingsPage.qml:120
 msgid "Misc."
 msgstr "Diverse"
 
-#: ../app/ui/SettingsPage.qml:138
+#: ../app/ui/SettingsPage.qml:142
 msgid "Report Bug"
 msgstr "Rapporter programfeil"
 
-#: ../app/ui/Walkthrough.qml:87
-msgid "Skip"
-msgstr "Hopp over"
-
-#: ../app/ui/WhatsNewTab.qml:14
+#: ../app/ui/WhatsNewTab.qml:15
 msgid "What's New"
 msgstr "Nyheter"
 
-#: ../app/ui/WhatsNewTab.qml:55
+#: ../app/ui/WhatsNewTab.qml:56
 msgid "Download all"
 msgstr "Last ned alle"
 
-#: ../app/ui/WhatsNewTab.qml:104
+#: ../app/ui/WhatsNewTab.qml:105
 msgid "No New Episodes"
 msgstr "Ingen nye episoder"
 
-#: ../app/ui/WhatsNewTab.qml:105
+#: ../app/ui/WhatsNewTab.qml:106
 msgid "No Episodes Found"
 msgstr "Fant ingen episoder"
 
-#: ../app/ui/WhatsNewTab.qml:106
+#: ../app/ui/WhatsNewTab.qml:107
 msgid "No more episodes to listen to!"
 msgstr "Ingen flere episoder å spille av."
 
-#: ../app/ui/WhatsNewTab.qml:107
+#: ../app/ui/WhatsNewTab.qml:108
 msgid "No Episodes found matching the search term."
 msgstr "Søket ga ingen treff på episoder."
 
-#: ../app/ui/WhatsNewTab.qml:262
-msgid "Mark episode listened"
-msgstr "Merk episode som spilt av"
-
-#: ../app/ui/WhatsNewTab.qml:302
+#: ../app/ui/WhatsNewTab.qml:303
 msgid "Pause Episode"
 msgstr "Sett episode på pause"
 
-#: ../app/ui/WhatsNewTab.qml:303
+#: ../app/ui/WhatsNewTab.qml:304
 msgid "Play Episode"
 msgstr "Spill av episode"
 
-#: ../app/ui/WhatsNewTab.qml:368
+#: ../app/ui/WhatsNewTab.qml:369
 msgid "Today"
 msgstr "I dag"
 
-#: ../app/ui/WhatsNewTab.qml:372
+#: ../app/ui/WhatsNewTab.qml:373
 msgid "Yesterday"
 msgstr "I går"
 
-#: ../app/ui/WhatsNewTab.qml:376
+#: ../app/ui/WhatsNewTab.qml:377
 msgid "Older"
 msgstr "Eldre"
 
@@ -510,6 +529,6 @@ msgstr "Vi håper du får glede av å bruke Podbird."
 msgid "Finish"
 msgstr "Fullfør"
 
-#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-fix-vivid-crash-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_15_04_vivid-Default/po/Podbird.desktop.in.h:1
-msgid "Podbird"
-msgstr "Podbird"
+#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-10-rearrange-project-structure-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_15_04_vivid-Default/po/Podbird.desktop.in.h:1
+msgid "The chirpiest podcast manager for Ubuntu"
+msgstr ""
