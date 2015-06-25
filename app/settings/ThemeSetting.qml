@@ -36,7 +36,9 @@ Page {
         id: rebootAppDialog
         Dialog {
             id: dialogInternal
+            // TRANSLATORS: The argument here is the name of the application (Podbird)
             title: i18n.tr("Restart %1").arg("Podbird")
+            // TRANSLATORS: The argument here is the name of the application (Podbird)
             text: i18n.tr("You will need to restart %1 to change the application theme. \
 This is necessary to avoid any strange behaviour in the app. We apologize for the inconvenience").arg("Podbird")
             Button {

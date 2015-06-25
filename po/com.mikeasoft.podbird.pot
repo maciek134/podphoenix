@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-25 19:20+0000\n"
+"POT-Creation-Date: 2015-06-25 19:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,24 +23,24 @@ msgid "Skip"
 msgstr ""
 
 #. TRANSLATORS: this refers to a number of songs greater than one. The actual number will be prepended to the string automatically (plural forms are not yet fully supported in usermetrics, the library that displays that string)
-#: ../app/podbird.qml:166
+#: ../app/podbird.qml:172
 #, qt-format
 msgid "Podcasts listened to today: <b>%1</b>"
 msgstr ""
 
-#: ../app/podbird.qml:167
+#: ../app/podbird.qml:173
 msgid "No podcasts listened to today"
 msgstr ""
 
-#: ../app/podbird.qml:248
+#: ../app/podbird.qml:254
 msgid "Podcasts"
 msgstr ""
 
-#: ../app/podbird.qml:262
+#: ../app/podbird.qml:268
 msgid "Add New Podcasts"
 msgstr ""
 
-#: ../app/podbird.qml:277
+#: ../app/podbird.qml:283
 msgid "Settings"
 msgstr ""
 
@@ -149,12 +149,14 @@ msgstr[1] ""
 msgid "Theme"
 msgstr ""
 
-#: ../app/settings/ThemeSetting.qml:39
+#. TRANSLATORS: The argument here is the name of the application (Podbird)
+#: ../app/settings/ThemeSetting.qml:40
 #, qt-format
 msgid "Restart %1"
 msgstr ""
 
-#: ../app/settings/ThemeSetting.qml:40
+#. TRANSLATORS: The argument here is the name of the application (Podbird)
+#: ../app/settings/ThemeSetting.qml:42
 #, qt-format
 msgid ""
 "You will need to restart %1 to change the application theme. This is "
@@ -162,17 +164,17 @@ msgid ""
 "inconvenience"
 msgstr ""
 
-#: ../app/settings/ThemeSetting.qml:43
+#: ../app/settings/ThemeSetting.qml:45
 msgid "Exit App"
 msgstr ""
 
 #. TRANSLATORS: Light Theme
-#: ../app/settings/ThemeSetting.qml:57 ../app/ui/SettingsPage.qml:50
+#: ../app/settings/ThemeSetting.qml:59 ../app/ui/SettingsPage.qml:50
 msgid "Light"
 msgstr ""
 
 #. TRANSLATORS: Dark Theme
-#: ../app/settings/ThemeSetting.qml:59 ../app/ui/SettingsPage.qml:50
+#: ../app/settings/ThemeSetting.qml:61 ../app/ui/SettingsPage.qml:50
 msgid "Dark"
 msgstr ""
 
