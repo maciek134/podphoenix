@@ -129,7 +129,7 @@ Page {
                 left: parent.left
                 right: parent.right
                 bottom: controls.top
-                bottomMargin: isLandscapeMode ? units.gu(4) : units.gu(2)
+                bottomMargin: isLandscapeMode && title.lineCount < 2 ? units.gu(4) : units.gu(2)
             }
 
             live: true

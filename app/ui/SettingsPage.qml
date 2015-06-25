@@ -114,6 +114,32 @@ Page {
                 title: i18n.tr("General Settings")
             }
 
+            ListItem {
+                height: control2.implicitHeight + units.gu(2)
+                divider.visible: false
+
+                Label {
+                    id: contentLabel2
+                    anchors.left: parent.left
+                    anchors.leftMargin: units.gu(2)
+                    anchors.right: control2.left
+                    anchors.rightMargin: units.gu(1)
+                    anchors.verticalCenter: parent.verticalCenter
+                    text: i18n.tr("Displays podcasts in a list view")
+                }
+
+                Switch {
+                    id: control2
+                    anchors.right: parent.right
+                    anchors.rightMargin: units.gu(2)
+                    anchors.verticalCenter: parent.verticalCenter
+                    checked: podbird.settings.showListView
+                    onClicked: podbird.settings.showListView = checked
+                }
+
+                onClicked: podbird.settings.showListView = !podbird.settings.showListView
+            }
+
             SingleValueListItem {
                 divider.visible: false
                 text: i18n.tr("Theme")

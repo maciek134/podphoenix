@@ -30,22 +30,6 @@ Page {
 
     property var xhr: new XMLHttpRequest;
 
-    /*
-         #FIXME: The following lines of code is necessary due to a upstream bug
-         in the SDK http://pad.lv/1400297. This bug is still present in the rtm.
-         Once it is fixed, this following property and connection can be remvoed.
-        */
-    property Item __oldContents: null
-    Connections {
-        target: searchPage.head
-        onContentsChanged: {
-            if (searchPage.__oldContents) {
-                searchPage.__oldContents.parent = null;
-            }
-            searchPage.__oldContents = searchPage.head.contents;
-        }
-    }
-
     state: "default"
     states: [
         PageHeadState {
