@@ -219,6 +219,10 @@ MainView {
         Tabs {
             id: tabs
 
+            // Ensure that the last used tab is restored when the app gets killed
+            // and brought by the system.
+            StateSaver.properties: "selectedTabIndex"
+
             WhatsNewTab {
                 id: whatsNewTab
                 objectName: "whatsNewTab"
