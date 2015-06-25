@@ -39,22 +39,6 @@ Page {
 
     property bool episodesUpdating: false;
 
-    /*
-     #FIXME: The following lines of code is necessary due to a upstream bug
-     in the SDK http://pad.lv/1400297. This bug is still present in the rtm.
-     Once it is fixed, this following property and connection can be remvoed.
-    */
-    property Item __oldContents: null
-    Connections {
-        target: podcastPage.head
-        onContentsChanged: {
-            if (podcastPage.__oldContents) {
-                podcastPage.__oldContents.parent = null;
-            }
-            podcastPage.__oldContents = podcastPage.head.contents;
-        }
-    }
-
     state: "default"
     states: [
         PageHeadState {

@@ -48,22 +48,6 @@ Page {
             tempGuid = downloader.downloadingGuid
     }
 
-    /*
-     #FIXME: The following lines of code is necessary due to a upstream bug
-     in the SDK http://pad.lv/1400297. This bug is still present in the rtm.
-     Once it is fixed, this following property and connection can be remvoed.
-    */
-    property Item __oldContents: null
-    Connections {
-        target: episodesPage.head
-        onContentsChanged: {
-            if (episodesPage.__oldContents) {
-                episodesPage.__oldContents.parent = null;
-            }
-            episodesPage.__oldContents = episodesPage.head.contents;
-        }
-    }
-
     head.contents: Label {
         text: title
         anchors.fill: parent
