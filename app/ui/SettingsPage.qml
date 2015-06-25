@@ -37,7 +37,7 @@ Page {
                 id: dialogInternal
                 // TRANSLATORS: This strings refers to the seeking of the episode playback. Users can set how far they
                 // want to seek forward when pressing on this button.
-                title: i18n.tr("Skip Forward")
+                title: i18n.tr("Skip forward")
                 Slider {
                     id: slider
                     width: parent.width
@@ -71,7 +71,7 @@ Page {
                 id: dialogInternal
                 // TRANSLATORS: This strings refers to the seeking of the episode playback. Users can set how far they
                 // want to seek backward when pressing on this button.
-                title: i18n.tr("Skip Back")
+                title: i18n.tr("Skip back")
                 Slider {
                     id: slider
                     width: parent.width
@@ -153,14 +153,14 @@ Page {
 
             SingleValueListItem {
                 divider.visible: false
-                text: i18n.tr("Skip Forward")
+                text: i18n.tr("Skip forward")
                 value: i18n.tr("%1 seconds").arg(podbird.settings.skipForward)
                 onClicked: PopupUtils.open(skipForwardDialog, settingsPage);
             }
 
             SingleValueListItem {
                 divider.visible: false
-                text: i18n.tr("Skip Back")
+                text: i18n.tr("Skip back")
                 value: i18n.tr("%1 seconds").arg(podbird.settings.skipBack)
                 onClicked: PopupUtils.open(skipBackDialog, settingsPage);
             }
