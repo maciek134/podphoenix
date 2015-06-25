@@ -24,8 +24,6 @@ import "../podcasts.js" as Podcasts
 Rectangle {
     id: controlRect
 
-    height: 0
-    width: parent.width
     color: podbird.appTheme.bottomBarBackground
 
     MouseArea {
@@ -38,7 +36,6 @@ Rectangle {
 
     Item {
         anchors.fill: parent
-        visible: controlRect.height > 0
 
         Image {
             id: cover
@@ -94,8 +91,6 @@ Rectangle {
             height: cover.height
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: parent.right
-            enabled: controlRect.height > 0
-            visible: enabled
 
             Rectangle {
                 id: playButtonBackground

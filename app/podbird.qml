@@ -259,32 +259,46 @@ MainView {
         }
     }
 
-    PlayerControls {
-        id: playerControl
+    Loader {
+        id: playerControlLoader
 
-        visible: !Qt.inputMethod.visible
         anchors.bottom: parent.bottom
+        height: units.gu(7)
+        width: parent.width
+        visible: !Qt.inputMethod.visible
 
-        state: "hidden"
+        state: "shown"
         states: [
             State {
                 name: "shown"
                 when: player.source != "" && !mainStack.currentPage.isNowPlayingPage
-                PropertyChanges { target: playerControl; height: units.gu(7) }
+                PropertyChanges { target: playerControlLoader; anchors.bottomMargin: 0 }
             },
 
             State {
                 name: "hidden"
-                when: player.source == ""
-                PropertyChanges { target: playerControl; height: 0 }
+                when: player.source == "" || mainStack.currentPage.isNowPlayingPage || !playerControl.visible
+                PropertyChanges { target: playerControlLoader; anchors.bottomMargin: -units.gu(7) }
             }
         ]
 
-        Behavior on height {
-            UbuntuNumberAnimation {
-                duration: UbuntuAnimation.SlowDuration
+        transitions: [
+            Transition {
+                from: "hidden"; to: "shown"
+                SequentialAnimation {
+                    ScriptAction { script: playerControlLoader.source = Qt.resolvedUrl("ui/PlayerControls.qml") }
+                    UbuntuNumberAnimation { target: playerControlLoader; property: "anchors.bottomMargin"; duration: UbuntuAnimation.SlowDuration }
+                }
+            },
+
+            Transition {
+                from: "shown"; to: "hidden"
+                SequentialAnimation {
+                    UbuntuNumberAnimation { target: playerControlLoader; property: "anchors.bottomMargin"; duration: UbuntuAnimation.SlowDuration }
+                    ScriptAction { script: playerControlLoader.source = "" }
+                }
             }
-        }
+        ]
     }
 
     function cleanUp(today, retentionDays) {
