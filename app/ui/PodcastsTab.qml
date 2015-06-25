@@ -52,14 +52,6 @@ Page {
                         podcastPage.state = "search"
                         searchField.item.forceActiveFocus()
                     }
-                },
-
-                Action {
-                    iconName: podbird.settings.showListView ? "view-grid-symbolic" : "view-list-symbolic"
-                    text: podbird.settings.showListView ? i18n.tr("Grid View") : i18n.tr("List View")
-                    onTriggered: {
-                        podbird.settings.showListView = !podbird.settings.showListView
-                    }
                 }
             ]
         },

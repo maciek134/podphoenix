@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-25 19:37+0000\n"
+"POT-Creation-Date: 2015-06-25 19:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -60,7 +60,7 @@ msgid "%1 min"
 msgstr ""
 
 #. TRANSLATORS: About as in information about the app
-#: ../app/settings/About.qml:25 ../app/ui/SettingsPage.qml:105
+#: ../app/settings/About.qml:25 ../app/ui/SettingsPage.qml:131
 msgid "About"
 msgstr ""
 
@@ -109,7 +109,7 @@ msgid_plural "%1 years"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../app/settings/Credits.qml:26 ../app/ui/SettingsPage.qml:111
+#: ../app/settings/Credits.qml:26 ../app/ui/SettingsPage.qml:137
 msgid "Credits"
 msgstr ""
 
@@ -145,7 +145,7 @@ msgid_plural "%1 episodes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../app/settings/ThemeSetting.qml:28 ../app/ui/SettingsPage.qml:50
+#: ../app/settings/ThemeSetting.qml:28 ../app/ui/SettingsPage.qml:76
 msgid "Theme"
 msgstr ""
 
@@ -169,12 +169,12 @@ msgid "Exit App"
 msgstr ""
 
 #. TRANSLATORS: Light Theme
-#: ../app/settings/ThemeSetting.qml:59 ../app/ui/SettingsPage.qml:51
+#: ../app/settings/ThemeSetting.qml:59 ../app/ui/SettingsPage.qml:77
 msgid "Light"
 msgstr ""
 
 #. TRANSLATORS: Dark Theme
-#: ../app/settings/ThemeSetting.qml:61 ../app/ui/SettingsPage.qml:51
+#: ../app/settings/ThemeSetting.qml:61 ../app/ui/SettingsPage.qml:77
 msgid "Dark"
 msgstr ""
 
@@ -195,7 +195,7 @@ msgstr ""
 msgid "Unsubscribe"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:109 ../app/ui/PodcastsTab.qml:72
+#: ../app/ui/EpisodesPage.qml:109 ../app/ui/PodcastsTab.qml:64
 #: ../app/ui/SearchPage.qml:64 ../app/ui/SearchPage.qml:86
 #: ../app/ui/WhatsNewTab.qml:78
 msgid "Back"
@@ -272,37 +272,29 @@ msgstr ""
 msgid "Search Podcast"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:59
-msgid "Grid View"
-msgstr ""
-
-#: ../app/ui/PodcastsTab.qml:59
-msgid "List View"
-msgstr ""
-
-#: ../app/ui/PodcastsTab.qml:93
+#: ../app/ui/PodcastsTab.qml:85
 msgid "Search podcast"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:123
+#: ../app/ui/PodcastsTab.qml:115
 msgid "No Podcast Subscriptions"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:123
+#: ../app/ui/PodcastsTab.qml:115
 msgid "No Podcasts Found"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:124
+#: ../app/ui/PodcastsTab.qml:116
 msgid ""
 "You haven't subscribed to any podcasts yet, visit the 'Find New Podcasts' "
 "page to add some."
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:125 ../app/ui/SearchPage.qml:179
+#: ../app/ui/PodcastsTab.qml:117 ../app/ui/SearchPage.qml:179
 msgid "No podcasts found matching the search term."
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:158 ../app/ui/PodcastsTab.qml:200
+#: ../app/ui/PodcastsTab.qml:150 ../app/ui/PodcastsTab.qml:192
 #, qt-format
 msgid "%1 unheard episode"
 msgid_plural "%1 unheard episodes"
@@ -365,38 +357,42 @@ msgstr ""
 msgid "General Settings"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:56
+#: ../app/ui/SettingsPage.qml:59
+msgid "Displays podcasts in a list view"
+msgstr ""
+
+#: ../app/ui/SettingsPage.qml:82
 msgid "Podcast Episode Settings"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:70
+#: ../app/ui/SettingsPage.qml:96
 msgid "Hide listened episodes"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:86
+#: ../app/ui/SettingsPage.qml:112
 msgid "Automatically delete old episodes"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:87
+#: ../app/ui/SettingsPage.qml:113
 msgid ""
 "Delete episodes that are older than a given number of days for each podcast"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:92
+#: ../app/ui/SettingsPage.qml:118
 msgid "Automatically download new episodes"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:93
+#: ../app/ui/SettingsPage.qml:119
 msgid "Default number of new episodes to download for each podcast"
 msgstr ""
 
 #. TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
 #. that doesn't fit into any other category.
-#: ../app/ui/SettingsPage.qml:100
+#: ../app/ui/SettingsPage.qml:126
 msgid "Misc."
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:116
+#: ../app/ui/SettingsPage.qml:142
 msgid "Report Bug"
 msgstr ""
 
