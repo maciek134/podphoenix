@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-04-28 12:08+0000\n"
-"PO-Revision-Date: 2015-04-21 07:41+0000\n"
+"PO-Revision-Date: 2015-06-24 21:50+0000\n"
 "Last-Translator: Bartosz Kosiorek <Unknown>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -16,8 +16,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Launchpad-Export-Date: 2015-06-08 05:51+0000\n"
-"X-Generator: Launchpad (build 17540)\n"
+"X-Launchpad-Export-Date: 2015-06-25 05:40+0000\n"
+"X-Generator: Launchpad (build 17578)\n"
 
 #: ../app/components/Walkthrough.qml:87
 msgid "Skip"
@@ -27,7 +27,7 @@ msgstr "Pomiń"
 #: ../app/podbird.qml:165
 #, qt-format
 msgid "Podcasts listened to today: <b>%1</b>"
-msgstr ""
+msgstr "Do dnia dzisiejszego odsłuchano <b>%1</b> podcastów"
 
 #: ../app/podbird.qml:166
 msgid "No podcasts listened to today"
@@ -115,13 +115,13 @@ msgstr "Twórcy"
 
 #: ../app/settings/Credits.qml:33
 msgid "Developers"
-msgstr "Deweloperzy"
+msgstr "Autorzy"
 
 #. TRANSLATORS: The first argument is the name of creator of Podbird (Michael Sheldon)
 #: ../app/settings/Credits.qml:39
 #, qt-format
 msgid "%1 (Creator)"
-msgstr ""
+msgstr "%1 (Twórca)"
 
 #: ../app/settings/Credits.qml:48
 msgid "Designer"
@@ -214,7 +214,7 @@ msgstr "Ściągnij odcinek"
 
 #: ../app/ui/EpisodesPage.qml:310
 msgid "Mark episode unlistened"
-msgstr ""
+msgstr "Zaznacz odcinek jako nieodsłuchany"
 
 #: ../app/ui/EpisodesPage.qml:310 ../app/ui/WhatsNewTab.qml:263
 msgid "Mark episode listened"
@@ -252,13 +252,13 @@ msgstr "Teraz odtwarzany"
 #: ../app/ui/NowPlayingPage.qml:153
 #, no-c-format, qt-format
 msgid "-%1s"
-msgstr ""
+msgstr "-%1 s"
 
 #. TRANSLATORS: The string shown in the UI is +15s to denote the number of seconds that the podcast playback will skip forward.
 #: ../app/ui/NowPlayingPage.qml:214
 #, no-c-format, qt-format
 msgid "+%1s"
-msgstr ""
+msgstr "+%1 s"
 
 #: ../app/ui/PodcastsTab.qml:33
 msgid "Podcasts"
@@ -335,7 +335,7 @@ msgstr "Zamknij"
 
 #: ../app/ui/SearchPage.qml:166
 msgid "Looking to add a new Podcast?"
-msgstr "Szukasz, aby dodać nowy podcast?"
+msgstr "Chciałbyś dodać nowy podcast?"
 
 #: ../app/ui/SearchPage.qml:166
 msgid "No Podcasts found"
@@ -451,7 +451,7 @@ msgstr "Starsze"
 
 #: ../app/welcomewizard/Slide1.qml:42
 msgid "Welcome to Podbird"
-msgstr "WItaj w Podbird"
+msgstr "Witaj w Podbird"
 
 #: ../app/welcomewizard/Slide1.qml:50
 msgid ""
@@ -460,8 +460,8 @@ msgid ""
 "\n"
 "Chirp Chirp..."
 msgstr ""
-"CIesz się ulubionymi audycjami z Podbirdem, najbardziej rozćwierkanym "
-"menadżerze podcastów dla Ubuntu\n"
+"Ciesz się ulubionymi audycjami z Podbirdem, najbardziej rozćwierkanym "
+"menadżerze podcastów dla Ubuntu.\n"
 "\n"
 "Ćwir, Ćwir..."
 
@@ -490,8 +490,8 @@ msgid ""
 "Podbird can optionally download new episodes and clean up old episodes "
 "automatically, this can be enabled from the settings page."
 msgstr ""
-"Podbird może opcjonalnie ściągać nowe odcinki i automatycznie usuwać stare; "
-"możesz włączyć tą opcję w ustawieniach."
+"Podbird może ściągać nowe odcinki i automatycznie usuwać stare. Opcję tą "
+"możesz włączyć w ustawieniach."
 
 #. TRANSLATORS: This text should be in a language different from the language set by the user.
 #. For instance, if the app was in english, then it is appropriate to set this string as
@@ -537,4 +537,4 @@ msgstr "Koniec"
 
 #: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-10-rearrange-project-structure-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_15_04_vivid-Default/po/Podbird.desktop.in.h:1
 msgid "The chirpiest podcast manager for Ubuntu"
-msgstr ""
+msgstr "Rozćwierkany menadżer podcastów na Ubuntu"

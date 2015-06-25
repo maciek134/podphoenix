@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-04-28 12:08+0000\n"
-"PO-Revision-Date: 2015-05-05 03:25+0000\n"
+"PO-Revision-Date: 2015-06-15 04:05+0000\n"
 "Last-Translator: Adolfo Jayme <fitoschido@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2015-06-08 05:51+0000\n"
-"X-Generator: Launchpad (build 17540)\n"
+"X-Launchpad-Export-Date: 2015-06-16 11:33+0000\n"
+"X-Generator: Launchpad (build 17557)\n"
 
 #: ../app/components/Walkthrough.qml:87
 msgid "Skip"
@@ -26,7 +26,7 @@ msgstr "Omitir"
 #: ../app/podbird.qml:165
 #, qt-format
 msgid "Podcasts listened to today: <b>%1</b>"
-msgstr ""
+msgstr "<b>%1</b> podcasts escuchados hoy"
 
 #: ../app/podbird.qml:166
 msgid "No podcasts listened to today"
@@ -117,7 +117,7 @@ msgstr "Desarrolladores"
 #: ../app/settings/Credits.qml:39
 #, qt-format
 msgid "%1 (Creator)"
-msgstr ""
+msgstr "%1 (creador)"
 
 #: ../app/settings/Credits.qml:48
 msgid "Designer"
@@ -253,7 +253,7 @@ msgstr ""
 #: ../app/ui/NowPlayingPage.qml:214
 #, no-c-format, qt-format
 msgid "+%1s"
-msgstr ""
+msgstr "+%1s"
 
 #: ../app/ui/PodcastsTab.qml:33
 msgid "Podcasts"
