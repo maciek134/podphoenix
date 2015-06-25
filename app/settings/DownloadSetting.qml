@@ -44,6 +44,13 @@ Page {
         model: episodeDownloadNumber
         anchors.fill: parent
 
+        // Required to accomodate the now playing bar being shown in landscape mode which
+        // can hide a setting if not for this footer.
+        footer: Item {
+            width: parent.width
+            height: units.gu(8)
+        }
+
         delegate: ListItem.Standard {
             text: model.name
             onClicked: {

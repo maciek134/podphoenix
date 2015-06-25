@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-28 12:08+0000\n"
+"POT-Creation-Date: 2015-04-28 14:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,25 +18,25 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: ../app/components/Walkthrough.qml:87
+#: ../app/components/Walkthrough.qml:91
 msgid "Skip"
 msgstr ""
 
 #. TRANSLATORS: this refers to a number of songs greater than one. The actual number will be prepended to the string automatically (plural forms are not yet fully supported in usermetrics, the library that displays that string)
-#: ../app/podbird.qml:165
+#: ../app/podbird.qml:166
 #, qt-format
 msgid "Podcasts listened to today: <b>%1</b>"
 msgstr ""
 
-#: ../app/podbird.qml:166
+#: ../app/podbird.qml:167
 msgid "No podcasts listened to today"
 msgstr ""
 
-#: ../app/podbird.qml:228
+#: ../app/podbird.qml:229
 msgid "Add New Podcasts"
 msgstr ""
 
-#: ../app/podbird.qml:242
+#: ../app/podbird.qml:243
 msgid "Settings"
 msgstr ""
 
@@ -61,16 +61,16 @@ msgid "About"
 msgstr ""
 
 #. TRANSLATORS: Podbird version number e.g Version 0.6
-#: ../app/settings/About.qml:53
+#: ../app/settings/About.qml:61
 #, qt-format
 msgid "Version %1"
 msgstr ""
 
-#: ../app/settings/About.qml:74
+#: ../app/settings/About.qml:82
 msgid "Released under the terms of the GNU GPL v3"
 msgstr ""
 
-#: ../app/settings/About.qml:84
+#: ../app/settings/About.qml:92
 #, qt-format
 msgid "Source code available on %1"
 msgstr ""
@@ -109,21 +109,21 @@ msgstr[1] ""
 msgid "Credits"
 msgstr ""
 
-#: ../app/settings/Credits.qml:33
-msgid "Developers"
-msgstr ""
-
 #. TRANSLATORS: The first argument is the name of creator of Podbird (Michael Sheldon)
-#: ../app/settings/Credits.qml:39
+#: ../app/settings/Credits.qml:33
 #, qt-format
 msgid "%1 (Creator)"
 msgstr ""
 
-#: ../app/settings/Credits.qml:48
+#: ../app/settings/Credits.qml:33 ../app/settings/Credits.qml:34
+msgid "Developers"
+msgstr ""
+
+#: ../app/settings/Credits.qml:35
 msgid "Designer"
 msgstr ""
 
-#: ../app/settings/Credits.qml:57
+#: ../app/settings/Credits.qml:36
 msgid "Translators"
 msgstr ""
 
@@ -244,13 +244,13 @@ msgid "Now Playing"
 msgstr ""
 
 #. TRANSLATORS: The string shown in the UI is -15s to denote the number of seconds that the podcast playback will skip backward.
-#: ../app/ui/NowPlayingPage.qml:153
+#: ../app/ui/NowPlayingPage.qml:198
 #, no-c-format, qt-format
 msgid "-%1s"
 msgstr ""
 
 #. TRANSLATORS: The string shown in the UI is +15s to denote the number of seconds that the podcast playback will skip forward.
-#: ../app/ui/NowPlayingPage.qml:214
+#: ../app/ui/NowPlayingPage.qml:259
 #, no-c-format, qt-format
 msgid "+%1s"
 msgstr ""
@@ -512,6 +512,6 @@ msgstr ""
 msgid "Finish"
 msgstr ""
 
-#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-10-rearrange-project-structure-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_15_04_vivid-Default/po/Podbird.desktop.in.h:1
+#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-11-enable-rotation-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_15_04_vivid-Default/po/Podbird.desktop.in.h:1
 msgid "The chirpiest podcast manager for Ubuntu"
 msgstr ""

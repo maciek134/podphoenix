@@ -44,6 +44,10 @@ Page {
     // Property to signal walkthrough completion
     signal finished
 
+    // Disable automatic orientation during welcome wizard since it is not landscape friendly yet.
+    // Component.onCompleted: podbird.automaticOrientation = false
+    // Component.onDestruction: podbird.automaticOrientation = true
+
     // ListView to show the slides
     ListView {
         id: listView
