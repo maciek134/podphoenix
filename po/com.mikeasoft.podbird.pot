@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-11 13:53+0000\n"
+"POT-Creation-Date: 2015-06-25 19:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -318,7 +318,7 @@ msgstr ""
 msgid "Please check the URL and try again"
 msgstr ""
 
-#: ../app/ui/SearchPage.qml:163
+#: ../app/ui/SearchPage.qml:163 ../app/ui/WhatsNewTab.qml:209
 msgid "Close"
 msgstr ""
 
@@ -415,15 +415,19 @@ msgstr ""
 msgid "No Episodes found matching the search term."
 msgstr ""
 
-#: ../app/ui/WhatsNewTab.qml:216
+#: ../app/ui/WhatsNewTab.qml:197
+msgid "Episode Description"
+msgstr ""
+
+#: ../app/ui/WhatsNewTab.qml:250
 msgid "Today"
 msgstr ""
 
-#: ../app/ui/WhatsNewTab.qml:220
+#: ../app/ui/WhatsNewTab.qml:254
 msgid "Yesterday"
 msgstr ""
 
-#: ../app/ui/WhatsNewTab.qml:224
+#: ../app/ui/WhatsNewTab.qml:258
 msgid "Older"
 msgstr ""
 
