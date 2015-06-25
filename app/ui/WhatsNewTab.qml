@@ -181,6 +181,40 @@ Tab {
             }
         }
 
+        /*
+         Note (nik90): After the upgrade to Ubuntu.Components 1.2, it seems the new listitems don't have their trailing
+         action width clamped. As a result when the list item expands and the user swipes left, it leads to a rather huge
+         trailing edge action. This has been reported upstream at http://pad.lv/1465582. Until this is fixed, the
+         episode description is shown in a dialog.
+        */
+        Component {
+            id: episodeDescriptionDialog
+            Dialog {
+                id: dialogInternal
+
+                property string description
+
+                title: "<b>%1</b>".arg(i18n.tr("Episode Description"))
+
+                Label {
+                    width: parent.width
+                    wrapMode: Text.WordWrap
+                    color: UbuntuColors.darkGrey
+                    linkColor: "Blue"
+                    text: dialogInternal.description
+                    onLinkActivated: Qt.openUrlExternally(link)
+                }
+
+                Button {
+                    text: i18n.tr("Close")
+                    color: podbird.appTheme.positiveActionButton
+                    onClicked: {
+                        PopupUtils.close(dialogInternal)
+                    }
+                }
+            }
+        }
+
         UbuntuListView {
             id: episodeList
 
@@ -243,8 +277,6 @@ Tab {
                 subtitle: model.duration === 0 || model.duration === undefined ? model.artist
                                                                                : Podcasts.formatEpisodeTime(model.duration) + " | " + model.artist
 
-                description: model.description
-
                 isDownloaded: model.downloadedfile ? true : false
 
                 showProgressBar: downloader.downloadingGuid === model.guid
@@ -285,36 +317,31 @@ Tab {
                         },
 
                         Action {
-                            iconName: currentUrl != "" && playerLoader.item.playbackState === MediaPlayer.PlayingState && currentGuid === model.guid ? "media-playback-pause"
-                                                                                                                                                     : "media-playback-start"
+                            iconName: "info"
                             onTriggered: {
-                                var db = Podcasts.init();
-                                db.transaction(function (tx) {
-                                    if (currentGuid === model.guid && currentUrl != "") {
-                                        if (playerLoader.item.playbackState === MediaPlayer.PlayingState) {
-                                            playerLoader.item.pause()
-                                        } else {
-                                            playerLoader.item.play()
-                                        }
-                                    } else {
-                                        currentGuid = "";
-                                        currentUrl = model.downloadedfile ? model.downloadedfile : model.audiourl;
-                                        var rs = tx.executeSql("SELECT position FROM Episode WHERE guid=?", [model.guid]);
-                                        playerLoader.item.play();
-                                        playerLoader.item.seek(rs.rows.item(0).position);
-                                        currentName = model.name;
-                                        currentArtist = model.artist;
-                                        currentImage = model.image;
-                                        currentGuid = model.guid;
-                                    }
-                                });
+                                var popup = PopupUtils.open(episodeDescriptionDialog, whatsNewTab);
+                                popup.description = model.description
                             }
                         }
                     ]
                 }
 
                 onClicked: {
-                    expanded = !expanded
+                    Haptics.play()
+                    var db = Podcasts.init();
+                    db.transaction(function (tx) {
+                        if (currentGuid !== model.guid) {
+                            currentGuid = "";
+                            currentUrl = model.downloadedfile ? model.downloadedfile : model.audiourl;
+                            var rs = tx.executeSql("SELECT position FROM Episode WHERE guid=?", [model.guid]);
+                            playerLoader.item.play();
+                            playerLoader.item.seek(rs.rows.item(0).position);
+                            currentName = model.name;
+                            currentArtist = model.artist;
+                            currentImage = model.image;
+                            currentGuid = model.guid;
+                        }
+                    });
                 }
             }
 
