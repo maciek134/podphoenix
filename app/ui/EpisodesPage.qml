@@ -90,7 +90,7 @@ Page {
                     text: i18n.tr("Search Episode")
                     onTriggered: {
                         episodesPage.state = "search"
-                        searchField.forceActiveFocus()
+                        searchField.item.forceActiveFocus()
                     }
                 },
 
@@ -125,22 +125,28 @@ Page {
                 text: i18n.tr("Back")
                 onTriggered: {
                     episodeList.forceActiveFocus()
-                    searchField.text = ""
                     episodesPage.state = "default"
                     episodeList.positionViewAtBeginning()
                 }
             }
 
-            contents: TextField {
+            contents: Loader {
                 id: searchField
-                inputMethodHints: Qt.ImhNoPredictiveText
-                placeholderText: i18n.tr("Search episode")
+                sourceComponent: episodesPage.state === "search" ? searchFieldComponent : undefined
                 anchors.left: parent ? parent.left : undefined
                 anchors.right: parent ? parent.right : undefined
                 anchors.rightMargin: units.gu(2)
             }
         }
     ]
+
+    Component {
+        id: searchFieldComponent
+        TextField {
+            inputMethodHints: Qt.ImhNoPredictiveText
+            placeholderText: i18n.tr("Search episode")
+        }
+    }
 
     Connections {
         target: downloader
@@ -327,14 +333,30 @@ Page {
         }
     }
 
-    EmptyState {
-        anchors.verticalCenter: parent.verticalCenter
-        visible: (episodesPage.state === "search" && sortedEpisodeModel.count === 0) || (episodeModel.count === 0 && podbird.settings.hideListened)
-        iconHeight: units.gu(12)
-        iconWidth: iconHeight + units.gu(10)
-        iconSource: Qt.resolvedUrl("../graphics/notFound.svg")
-        title: podbird.settings.hideListened ? i18n.tr("No more episodes") : i18n.tr("No episodes found")
-        subTitle: podbird.settings.hideListened ? i18n.tr("All episodes have been listened to.") : i18n.tr("No episodes found matching the search term.")
+    Loader {
+        id: emptyState
+
+        anchors {
+            left: parent.left
+            right: parent.right
+            margins: units.gu(2)
+            verticalCenter: parent.verticalCenter
+            verticalCenterOffset: Qt.inputMethod.visible ? units.gu(4) : 0
+        }
+
+        sourceComponent: (episodesPage.state === "search" && sortedEpisodeModel.count === 0) || (episodeModel.count === 0 && podbird.settings.hideListened) ? emptyStateComponent
+                                                                                                                                                            : undefined
+    }
+
+    Component {
+        id: emptyStateComponent
+        EmptyState {
+            iconHeight: units.gu(12)
+            iconWidth: units.gu(22)
+            iconSource: Qt.resolvedUrl("../graphics/notFound.svg")
+            title: podbird.settings.hideListened ? i18n.tr("No more episodes") : i18n.tr("No episodes found")
+            subTitle: podbird.settings.hideListened ? i18n.tr("All episodes have been listened to.") : i18n.tr("No episodes found matching the search term.")
+        }
     }
 
     ListModel {
@@ -345,7 +367,8 @@ Page {
         id: sortedEpisodeModel
         model: episodeModel
         filter.property: "name"
-        filter.pattern: RegExp(searchField.text, "gi")
+        filter.pattern: episodesPage.state === "search" && searchField.status == Loader.Ready ? RegExp(searchField.item.text, "gi")
+                                                                                              : RegExp("", "gi")
     }
 
     UbuntuListView {
@@ -399,6 +422,7 @@ Page {
                 sourceSize.height: width
                 sourceSize.width: width
                 source: episodeImage
+                asynchronous: true
                 anchors {
                     left: parent.left
                     top: parent.top
@@ -443,7 +467,7 @@ Page {
         delegate: ListDelegate {
             id: listItem
 
-            title: model.name.trim()
+            title: model.name !== undefined ? model.name.trim() : "Undefined"
             titleColor: listItem.expanded || currentGuid === model.guid || downloader.downloadingGuid === model.guid ? podbird.appTheme.focusText
                                                                                                                      : podbird.appTheme.baseText
 
@@ -469,12 +493,12 @@ Page {
                     ActionButton {
                         id: contextualMenu
 
-                        width: units.gu(5)
+                        width: units.gu(4)
                         height: units.gu(4)
 
                         iconName: "contextual-menu"
                         color: showProgressBar || expanded ? podbird.appTheme.focusText
-                                                                        : podbird.appTheme.baseIcon
+                                                           : podbird.appTheme.baseIcon
                         onClicked: {
                             var popover = PopupUtils.open(popoverComponent, contextualMenu)
                             popover.queued = Qt.binding(function() { return model.queued })
@@ -490,26 +514,26 @@ Page {
                         width: units.gu(4)
                         height: units.gu(4)
 
-                        iconName: player.playbackState === MediaPlayer.PlayingState && currentGuid === model.guid ? "media-playback-pause"
-                                                                                                                  : "media-playback-start"
-                        color: player.playbackState === MediaPlayer.PlayingState && currentGuid === model.guid ? podbird.appTheme.focusText
-                                                                                                               : podbird.appTheme.baseIcon
+                        property bool isPlaying: currentUrl != "" && playerLoader.item.playbackState === MediaPlayer.PlayingState && currentGuid === model.guid
+
+                        iconName: isPlaying ? "media-playback-pause" : "media-playback-start"
+                        color: isPlaying ? podbird.appTheme.focusText : podbird.appTheme.baseIcon
 
                         onClicked: {
                             var db = Podcasts.init();
                             db.transaction(function (tx) {
-                                if (currentGuid === model.guid) {
-                                    if (player.playbackState === MediaPlayer.PlayingState) {
-                                        player.pause()
+                                if (currentGuid === model.guid && currentUrl != "") {
+                                    if (playerLoader.item.playbackState === MediaPlayer.PlayingState) {
+                                        playerLoader.item.pause()
                                     } else {
-                                        player.play()
+                                        playerLoader.item.play()
                                     }
                                 } else {
                                     currentGuid = "";
-                                    player.source = model.downloadedfile ? model.downloadedfile : model.audiourl;
+                                    currentUrl = model.downloadedfile ? model.downloadedfile : model.audiourl;
                                     var rs = tx.executeSql("SELECT position FROM Episode WHERE guid=?", [model.guid]);
-                                    player.play();
-                                    player.seek(rs.rows.item(0).position);
+                                    playerLoader.item.play();
+                                    playerLoader.item.seek(rs.rows.item(0).position);
                                     currentName = model.name;
                                     currentArtist = model.artist;
                                     currentImage = model.image;

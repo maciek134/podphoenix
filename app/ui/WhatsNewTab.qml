@@ -33,7 +33,7 @@ Tab {
                         text: i18n.tr("Search Episode")
                         onTriggered: {
                             whatsNewPage.state = "search"
-                            searchField.forceActiveFocus()
+                            searchField.item.forceActiveFocus()
                         }
                     },
 
@@ -78,15 +78,13 @@ Tab {
                     text: i18n.tr("Back")
                     onTriggered: {
                         episodeList.forceActiveFocus()
-                        searchField.text = ""
                         whatsNewPage.state = "default"
                     }
                 }
 
-                contents: TextField {
+                contents: Loader {
                     id: searchField
-                    inputMethodHints: Qt.ImhNoPredictiveText
-                    placeholderText: i18n.tr("Search episode")
+                    sourceComponent: whatsNewPage.state === "search" ? searchFieldComponent : undefined
                     anchors.left: parent ? parent.left : undefined
                     anchors.right: parent ? parent.right : undefined
                     anchors.rightMargin: units.gu(2)
@@ -94,18 +92,37 @@ Tab {
             }
         ]
 
-        EmptyState {
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.verticalCenterOffset: Qt.inputMethod.visible ? units.gu(4) : 0
-            iconHeight: units.gu(12)
-            iconWidth: iconHeight + units.gu(10)
-            visible: whatsNewModel.count === 0 || sortedEpisodeModel.count === 0
-            iconSource: whatsNewModel.count === 0 ? Qt.resolvedUrl("../graphics/owlSearch.svg")
-                                                  : Qt.resolvedUrl("../graphics/notFound.svg")
-            title: whatsNewModel.count === 0 ? i18n.tr("No New Episodes")
-                                             : i18n.tr("No Episodes Found")
-            subTitle: whatsNewModel.count === 0 ? i18n.tr("No more episodes to listen to!")
-                                                : i18n.tr("No Episodes found matching the search term.")
+        Component {
+            id: searchFieldComponent
+            TextField {
+                inputMethodHints: Qt.ImhNoPredictiveText
+                placeholderText: i18n.tr("Search episode")
+            }
+        }
+
+        Loader {
+            id: emptyState
+
+            anchors {
+                left: parent.left
+                right: parent.right
+                margins: units.gu(2)
+                verticalCenter: parent.verticalCenter
+                verticalCenterOffset: Qt.inputMethod.visible ? units.gu(4) : 0
+            }
+
+            sourceComponent: whatsNewModel.count === 0 || sortedEpisodeModel.count === 0 ? emptyStateComponent : undefined
+        }
+
+        Component {
+            id: emptyStateComponent
+            EmptyState {
+                iconHeight: units.gu(12)
+                iconWidth: units.gu(22)
+                iconSource: whatsNewModel.count === 0 ? Qt.resolvedUrl("../graphics/owlSearch.svg") : Qt.resolvedUrl("../graphics/notFound.svg")
+                title: whatsNewModel.count === 0 ? i18n.tr("No New Episodes") : i18n.tr("No Episodes Found")
+                subTitle: whatsNewModel.count === 0 ? i18n.tr("No more episodes to listen to!") : i18n.tr("No Episodes found matching the search term.")
+            }
         }
 
         ListModel {
@@ -116,7 +133,8 @@ Tab {
             id: sortedEpisodeModel
             model: whatsNewModel
             filter.property: "name"
-            filter.pattern: RegExp(searchField.text, "gi")
+            filter.pattern: whatsNewPage.state === "search" && searchField.status == Loader.Ready ? RegExp(searchField.item.text, "gi")
+                                                                                                  : RegExp("", "gi")
         }
 
         onVisibleChanged: {
@@ -293,33 +311,33 @@ Tab {
                                 id: playIcon
                                 width: height
                                 height: listenText.height
-                                name: player.playbackState === MediaPlayer.PlayingState && currentGuid === popover.guid ? "media-playback-pause"
-                                                                                                                        : "media-playback-start"
+                                name: currentUrl != "" && playerLoader.item.playbackState === MediaPlayer.PlayingState && currentGuid === popover.guid ? "media-playback-pause"
+                                                                                                                                                       : "media-playback-start"
                             }
 
                             Label {
                                 id: playText
                                 color: UbuntuColors.darkGrey
-                                text: player.playbackState === MediaPlayer.PlayingState && currentGuid === popover.guid ? i18n.tr("Pause Episode")
-                                                                                                                        : i18n.tr("Play Episode")
+                                text: currentUrl != "" && playerLoader.item.playbackState === MediaPlayer.PlayingState && currentGuid === popover.guid ? i18n.tr("Pause Episode")
+                                                                                                                                                       : i18n.tr("Play Episode")
                             }
                         }
 
                         onClicked: {
                             var db = Podcasts.init();
                             db.transaction(function (tx) {
-                                if (currentGuid === popover.guid) {
-                                    if (player.playbackState === MediaPlayer.PlayingState) {
-                                        player.pause()
+                                if (currentGuid === popover.guid && currentUrl != "") {
+                                    if (playerLoader.item.playbackState === MediaPlayer.PlayingState) {
+                                        playerLoader.item.pause()
                                     } else {
-                                        player.play()
+                                        playerLoader.item.play()
                                     }
                                 } else {
                                     currentGuid = "";
-                                    player.source = popover.downloadedfile ? popover.downloadedfile : popover.audiourl;
+                                    currentUrl = popover.downloadedfile ? popover.downloadedfile : popover.audiourl;
                                     var rs = tx.executeSql("SELECT position FROM Episode WHERE guid=?", [popover.guid]);
-                                    player.play();
-                                    player.seek(rs.rows.item(0).position);
+                                    playerLoader.item.play();
+                                    playerLoader.item.seek(rs.rows.item(0).position);
                                     currentName = popover.name;
                                     currentArtist = popover.artist;
                                     currentImage = popover.image;
@@ -386,9 +404,9 @@ Tab {
             delegate: ListDelegate {
                 id: listItem
 
-                coverArt: model.image
+                coverArt: model.image !== undefined ? model.image : Qt.resolvedUrl("../graphics/podbird.png")
 
-                title: model.name.trim()
+                title: model.name !== undefined ? model.name.trim() : "Undefined"
                 titleColor: expanded || currentGuid === model.guid || downloader.downloadingGuid === model.guid ? podbird.appTheme.focusText
                                                                                                                 : podbird.appTheme.baseText
 
@@ -410,7 +428,7 @@ Tab {
                     ActionButton {
                         id: contextualMenu
 
-                        width: units.gu(5)
+                        width: units.gu(4)
                         height: units.gu(4)
 
                         iconName: "contextual-menu"

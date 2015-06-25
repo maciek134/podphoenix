@@ -80,6 +80,7 @@ Page {
             sourceSize.height: width
             sourceSize.width: width
             source: currentImage
+            asynchronous: true
             anchors.centerIn: parent
         }
     }
@@ -133,13 +134,13 @@ Page {
 
             live: true
             minimumValue: 0
-            maximumValue: player.duration
-            value: player.position
+            maximumValue: playerLoader.item.duration
+            value: playerLoader.item.position
             height: units.gu(2)
 
             onValueChanged: {
                 if (pressed) {
-                    player.seek(value);
+                    playerLoader.item.seek(value);
                 }
             }
 
@@ -147,8 +148,8 @@ Page {
         }
 
         Connections {
-            target: player
-            onPositionChanged: scrubber.value = player.position
+            target: playerLoader.item
+            onPositionChanged: scrubber.value = playerLoader.item.position
         }
 
         Label {
@@ -157,7 +158,7 @@ Page {
             anchors.left: scrubber.left
             anchors.top: scrubber.bottom
             color: podbird.appTheme.baseText
-            text: Podcasts.formatTime(player.position / 1000)
+            text: Podcasts.formatTime(playerLoader.item.position / 1000)
         }
 
         Label {
@@ -166,7 +167,7 @@ Page {
             anchors.right: scrubber.right
             anchors.top: scrubber.bottom
             color: podbird.appTheme.baseText
-            text: Podcasts.formatTime(player.duration / 1000)
+            text: Podcasts.formatTime(playerLoader.item.duration / 1000)
         }
 
         Row {
@@ -181,10 +182,10 @@ Page {
                 width: units.gu(6)
                 height: width
                 anchors.verticalCenter: parent.verticalCenter
-                opacity: player.position === 0 ? 0.4 : 1.0
+                opacity: playerLoader.item.position === 0 ? 0.4 : 1.0
                 onClicked: {
-                    if (player.position > 0) {
-                        player.seek(player.position - 15 * 1000);
+                    if (playerLoader.item.position > 0) {
+                        playerLoader.item.seek(playerLoader.item.position - 15 * 1000);
                     }
                 }
 
@@ -216,7 +217,7 @@ Page {
                 width: units.gu(10)
                 height: width
                 opacity: playButton.pressed ? 0.4 : 1.0
-                onClicked: player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
+                onClicked: playerLoader.item.playbackState === MediaPlayer.PlayingState ? playerLoader.item.pause() : playerLoader.item.play()
 
                 Icon {
                     id: playIcon
@@ -224,8 +225,8 @@ Page {
                     height: width
                     anchors.centerIn: parent
                     color: podbird.appTheme.baseIcon
-                    name: player.playbackState === MediaPlayer.PlayingState ? "media-playback-pause"
-                                                                            : "media-playback-start"
+                    name: playerLoader.item.playbackState === MediaPlayer.PlayingState ? "media-playback-pause"
+                                                                                       : "media-playback-start"
                 }
             }
 
@@ -234,10 +235,10 @@ Page {
                 width: units.gu(6)
                 height: width
                 anchors.verticalCenter: parent.verticalCenter
-                opacity: player.position === 0 ? 0.4 : 1.0
+                opacity: playerLoader.item.position === 0 ? 0.4 : 1.0
                 onClicked: {
-                    if (player.position > 0) {
-                        player.seek(player.position + 15 * 1000);
+                    if (playerLoader.item.position > 0) {
+                        playerLoader.item.seek(playerLoader.item.position + 15 * 1000);
                     }
                 }
 

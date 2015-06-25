@@ -64,7 +64,7 @@ MainView {
         if (tabs.selectedTabIndex === 0) {
             whatsNewTab.refreshModel()
         } else if (tabs.selectedTabIndex === 1) {
-            podcastTab.refreshModel()
+            podcastPage.item.refreshModel()
         }
     }
 
@@ -79,7 +79,7 @@ MainView {
         var today = new Date()
         // Only perform cleanup of old episodes once a day
         if (Math.floor((today - settings.lastCheck)/86400000) >= 1 && settings.retentionDays !== -1) {
-            cleanUp(today, settings.retentionDays)
+            Podcasts.cleanUp(today, settings.retentionDays)
             settings.lastCheck = today
         }
 
@@ -88,7 +88,7 @@ MainView {
             console.log("[LOG]: Online connectivity: " + NetworkingStatus.online)
             console.log("[LOG]: User settings (maxEpisodeDownload): " + settings.maxEpisodeDownload)
         } else {
-            autoDownloadEpisodes(settings.maxEpisodeDownload)
+            Podcasts.autoDownloadEpisodes(settings.maxEpisodeDownload)
         }
     }
 
@@ -96,6 +96,7 @@ MainView {
     property string currentArtist
     property string currentImage
     property string currentGuid
+    property url currentUrl: ""
 
     Themes.ThemeManager {
         id: themeManager
@@ -174,33 +175,45 @@ MainView {
         domain: "com.mikeasoft.podbird"
     }
 
-    MediaPlayer {
-        id: player
+    // Load the media player only when the user starts to play some media. This
+    // should improve app-startup slightly.
+    Loader {
+        id: playerLoader
+        sourceComponent: currentUrl != "" ? playerComponent : undefined
+    }
 
-        property bool podcastCounted: false
+    Component {
+        id: playerComponent
+        MediaPlayer {
+            id: player
 
-        onSourceChanged: {
-            podcastCounted = false
-        }
+            property bool podcastCounted: false
 
-        onPositionChanged: {
-            if (currentGuid == "" || duration <= 0) {
-                return;
+            source: currentUrl
+
+            onSourceChanged: {
+                podcastCounted = false
             }
 
-            if (position > 10000 && !podcastCounted) {
-                podcastCounted = true
-                podcastsMetric.increment()
-                console.log("[LOG]: Podcast User metric incremented")
-            }
-
-            var db = Podcasts.init();
-            db.transaction(function (tx) {
-                tx.executeSql("UPDATE Episode SET position=? WHERE guid=?", [position >= duration ? 120 : position, currentGuid]);
-                if (position >= duration - 120) {
-                    tx.executeSql("UPDATE Episode SET listened = 1 WHERE guid=?", [currentGuid]);
+            onPositionChanged: {
+                if (currentGuid == "" || duration <= 0) {
+                    return;
                 }
-            });
+
+                if (position > 10000 && !podcastCounted) {
+                    podcastCounted = true
+                    podcastsMetric.increment()
+                    console.log("[LOG]: Podcast User metric incremented")
+                }
+
+                var db = Podcasts.init();
+                db.transaction(function (tx) {
+                    tx.executeSql("UPDATE Episode SET position=? WHERE guid=?", [position >= duration ? 120 : position, currentGuid]);
+                    if (position >= duration - 120) {
+                        tx.executeSql("UPDATE Episode SET listened = 1 WHERE guid=?", [currentGuid]);
+                    }
+                });
+            }
         }
     }
 
@@ -223,14 +236,31 @@ MainView {
             // and brought by the system.
             StateSaver.properties: "selectedTabIndex"
 
+            onSelectedTabChanged: {
+                // Load the Podcast page only when the user navigates to it. However
+                // do not unload it when the user switches to another tab.
+                if (selectedTab === podcastTab) {
+                    podcastPage.source = Qt.resolvedUrl("ui/PodcastsTab.qml")
+                }
+            }
+
             WhatsNewTab {
                 id: whatsNewTab
                 objectName: "whatsNewTab"
             }
 
-            PodcastsTab {
+            Tab {
                 id: podcastTab
-                objectName: "podcastsTab"
+
+                title: i18n.tr("Podcasts")
+
+                page: Loader {
+                    id: podcastPage
+                    parent: podcastTab
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.bottom: parent.bottom
+                }
             }
 
             Tab {
@@ -238,6 +268,7 @@ MainView {
 
                 title: i18n.tr("Add New Podcasts")
 
+                // Dynamically load/unload the search tab as required
                 page: Loader {
                     parent: searchTab
                     anchors.left: parent.left
@@ -252,6 +283,7 @@ MainView {
 
                 title: i18n.tr("Settings")
 
+                // Dynamically load/unload the settings tab as required
                 page: Loader {
                     parent: settingsTab
                     anchors.left: parent.left
@@ -275,13 +307,13 @@ MainView {
         states: [
             State {
                 name: "shown"
-                when: player.source != "" && !mainStack.currentPage.isNowPlayingPage
+                when: currentUrl != "" && !mainStack.currentPage.isNowPlayingPage
                 PropertyChanges { target: playerControlLoader; anchors.bottomMargin: 0 }
             },
 
             State {
                 name: "hidden"
-                when: player.source == "" || mainStack.currentPage.isNowPlayingPage || !playerControl.visible
+                when: currentUrl == "" || mainStack.currentPage.isNowPlayingPage || !playerControl.visible
                 PropertyChanges { target: playerControlLoader; anchors.bottomMargin: -units.gu(7) }
             }
         ]
@@ -303,44 +335,5 @@ MainView {
                 }
             }
         ]
-    }
-
-    function cleanUp(today, retentionDays) {
-        console.log("[LOG]: Cleaning up old episodes")
-        var dayToMs = 86400000; //1 * 24 * 60 * 60 * 1000
-        var db = Podcasts.init()
-        db.transaction(function (tx) {
-            var rs = tx.executeSql("SELECT rowid, * FROM Podcast ORDER BY name ASC");
-            for(var i = 0; i < rs.rows.length; i++) {
-                var podcast = rs.rows.item(i);
-                var rs2 = tx.executeSql("SELECT rowid, * FROM Episode WHERE podcast=?", [rs.rows.item(i).rowid]);
-                for (var j=0; j< rs2.rows.length; j++) {
-                    var diff = Math.floor((today - rs2.rows.item(j).published)/dayToMs)
-                    if (rs2.rows.item(j).downloadedfile && diff > retentionDays) {
-                        fileManager.deleteFile(rs2.rows.item(j).downloadedfile)
-                        tx.executeSql("UPDATE Episode SET downloadedfile = NULL WHERE guid = ?", [rs2.rows.item(j).guid]);
-                    }
-                }
-            }
-        });
-    }
-
-    function autoDownloadEpisodes(maxEpisodeDownload) {
-        console.log("[LOG]: Auto-downloading new episodes")
-        var db = Podcasts.init()
-        db.transaction(function (tx) {
-            var rs = tx.executeSql("SELECT rowid, * FROM Podcast ORDER BY name ASC");
-            for (var i=0; i < rs.rows.length; i++) {
-                var podcast = rs.rows.item(i);
-                var rs2 = tx.executeSql("SELECT rowid, * FROM Episode WHERE podcast=? ORDER BY published DESC", [rs.rows.item(i).rowid]);
-                var loopCount = maxEpisodeDownload > rs2.rows.length ? rs2.rows.length : maxEpisodeDownload
-                for (var j=0; j < loopCount; j++) {
-                    if (!rs2.rows.item(j).downloadedfile && !rs2.rows.item(j).listened) {
-                        downloader.addDownload(rs2.rows.item(j).guid, rs2.rows.item(j).audiourl)
-                        tx.executeSql("UPDATE Episode SET queued=1 WHERE guid = ?", [rs2.rows.item(j).guid]);
-                    }
-                }
-            }
-        });
     }
 }
