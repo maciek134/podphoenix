@@ -187,129 +187,64 @@ Page {
             height: units.gu(7)
         }
 
-        delegate: ListItem.Empty {
+        delegate: ListDelegate {
             id: listItem
 
-            property bool expanded: false
             property bool fetchedDescription: false
 
-            height: dataColumn.height + units.gu(2)
-            showDivider: false
-            highlightWhenPressed: false
+            title: model.name
+            subtitle: model.artist
+            coverArt: model.image
+
+            // TRANSLATORS: The first argument here is the date of when the podcast was last updated followed by
+            // the podcast description.
+            description: i18n.tr("Last Updated: %1\n%2").arg(model.releaseDate.split("T")[0]).arg(model.description)
+
+            actionButton.sourceComponent: actionButtonComponent
+
+            Rectangle {
+                z: -1
+                anchors.fill: parent
+                opacity: 0.3
+                color: index % 2 === 0 ? podbird.appTheme.hightlightListView : "Transparent"
+            }
 
             onClicked: {
-                expanded = !expanded;
+                expanded = !expanded
                 if (expanded && !fetchedDescription) {
                     getPodcastDescription(model.feed, index)
                     fetchedDescription = true
                 }
             }
 
-            Rectangle {
-                anchors.fill: parent
-                opacity: 0.3
-                color: index % 2 === 0 ? podbird.appTheme.hightlightListView : "Transparent"
-            }
-
-            Column {
-                id: dataColumn
-
-                spacing: units.gu(1)
-                anchors.left: parent.left
-                anchors.right: parent.right
-                anchors.margins: units.gu(2)
-                anchors.top: parent.top
-                anchors.topMargin: units.gu(1)
-
-                RowLayout {
-                    id: titleRow
-
-                    width: parent.width
-                    height: imgFrame.height
-
-                    spacing: units.gu(2)
-
-                    Image {
-                        id: imgFrame
-                        width: units.gu(6)
-                        height: width
-                        sourceSize.height: width
-                        sourceSize.width: width
-                        source: model.image
-                    }
-
-                    Column {
-                        id: detailColumn
-
-                        anchors.verticalCenter: imgFrame.verticalCenter
-                        Layout.fillWidth: true
-
-                        Label {
-                            id: podcastTitle
-                            textFormat: Text.PlainText
-                            text: model.name
-                            width: parent.width
-                            fontSize: "medium"
-                            elide: Text.ElideRight
-                        }
-
-                        Label {
-                            id: episodeCount
-                            width: parent.width
-                            color: "#999999"
-                            text: model.artist
-                            fontSize: "x-small"
-                            elide: Text.ElideRight
-                        }
-                    }
-
-                    Button {
-                        anchors.right: parent.right
-                        text: !model.subscribed ? i18n.tr("Subscribe") : i18n.tr("Unsubscribe")
-                        color: !model.subscribed ? UbuntuColors.green : UbuntuColors.red
-                        onClicked: {
-                            if (!model.subscribed) {
-                                Podcasts.subscribe(model.artist, model.name, model.feed, model.image);
-                                imageDownloader.feed = model.feed;
-                                imageDownloader.download(model.image);
-                            } else {
-                                var db = Podcasts.init();
-                                db.transaction(function (tx) {
-                                    var rs = tx.executeSql("SELECT rowid FROM Podcast WHERE feed = ?", model.feed);
-                                    if (rs.rows.length !== 0) {
-                                        var podcast = rs.rows.item(0)
-                                        var rs2 = tx.executeSql("SELECT downloadedfile FROM Episode WHERE downloadedfile NOT NULL AND podcast=?", [podcast.rowid]);
-                                        for(var i = 0; i < rs2.rows.length; i++) {
-                                            fileManager.deleteFile(rs2.rows.item(i).downloadedfile);
-                                        }
-                                        tx.executeSql("DELETE FROM Episode WHERE podcast=?", [podcast.rowid]);
-                                        tx.executeSql("DELETE FROM Podcast WHERE rowid=?", [podcast.rowid]);
+            Component {
+                id: actionButtonComponent
+                Button {
+                    //anchors.right: parent.right
+                    text: !model.subscribed ? i18n.tr("Subscribe") : i18n.tr("Unsubscribe")
+                    color: !model.subscribed ? UbuntuColors.green : UbuntuColors.red
+                    onClicked: {
+                        if (!model.subscribed) {
+                            Podcasts.subscribe(model.artist, model.name, model.feed, model.image);
+                            imageDownloader.feed = model.feed;
+                            imageDownloader.download(model.image);
+                        } else {
+                            var db = Podcasts.init();
+                            db.transaction(function (tx) {
+                                var rs = tx.executeSql("SELECT rowid FROM Podcast WHERE feed = ?", model.feed);
+                                if (rs.rows.length !== 0) {
+                                    var podcast = rs.rows.item(0)
+                                    var rs2 = tx.executeSql("SELECT downloadedfile FROM Episode WHERE downloadedfile NOT NULL AND podcast=?", [podcast.rowid]);
+                                    for(var i = 0; i < rs2.rows.length; i++) {
+                                        fileManager.deleteFile(rs2.rows.item(i).downloadedfile);
                                     }
-                                });
-                            }
-                            tabs.selectedTabIndex = 1;
-                            searchField.text = ""
+                                    tx.executeSql("DELETE FROM Episode WHERE podcast=?", [podcast.rowid]);
+                                    tx.executeSql("DELETE FROM Podcast WHERE rowid=?", [podcast.rowid]);
+                                }
+                            });
                         }
-                    }
-                }
-
-                Label {
-                    id: desc
-                    clip: true
-                    // TRANSLATORS: The first argument here is the date of when the podcast was last updated followed by
-                    // the podcast description.
-                    text: i18n.tr("Last Updated: %1\n%2").arg(model.releaseDate.split("T")[0]).arg(model.description)
-                    height: listItem.expanded ? contentHeight : 0
-                    wrapMode: Text.WordWrap
-                    width: parent.width
-                    fontSize: "small"
-                    color: podbird.appTheme.baseSubText
-                    linkColor: podbird.appTheme.linkText
-                    onLinkActivated: Qt.openUrlExternally(link)
-                    Behavior on height {
-                        UbuntuNumberAnimation {
-                            duration: UbuntuAnimation.BriskDuration
-                        }
+                        tabs.selectedTabIndex = 1;
+                        searchField.text = ""
                     }
                 }
             }
@@ -375,7 +310,6 @@ Page {
                             if (c.childNodes[j].nodeName === "description") {
                                 description = c.childNodes[j].childNodes[0].nodeValue
                                 if (description != undefined) {
-                                    console.log(description)
                                     searchResults.setProperty(index, "description", description)
                                     return
                                 }

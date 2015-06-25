@@ -193,16 +193,15 @@ Tab {
                     height: units.gu(8)
                 }
 
-                delegate: ListItem.Empty {
+                delegate: ListDelegate {
                     id: listItem
-
-                    property bool expanded: false
 
                     height: units.gu(8)
                     removable: true
                     confirmRemoval: true
-                    showDivider: false
-                    highlightWhenPressed: false
+                    title: model.name.trim()
+                    subtitle: i18n.tr("%1 unheard episode", "%1 unheard episodes", model.episodeCount).arg(model.episodeCount)
+                    coverArt: model.image
 
                     onItemRemoved: {
                         var db = Podcasts.init();
@@ -220,6 +219,7 @@ Tab {
                     Rectangle {
                         anchors.fill: parent
                         opacity: 0.3
+                        z: -1
                         color: index % 2 === 0 ? podbird.appTheme.hightlightListView : "Transparent"
                     }
 
@@ -230,58 +230,6 @@ Tab {
                             podcastPage.state = "default"
                         }
                         mainStack.push(Qt.resolvedUrl("EpisodesPage.qml"), {"episodeName": model.name, "episodeId": model.id, "episodeArtist": model.artist, "episodeImage": model.image})
-                    }
-
-                    Column {
-                        id: mainColumn
-
-                        anchors.left: parent.left
-                        anchors.right: parent.right
-                        anchors.margins: units.gu(2)
-                        anchors.verticalCenter: parent.verticalCenter
-                        spacing: units.gu(1)
-
-                        RowLayout {
-                            id: titleRow
-
-                            width: parent.width
-                            spacing: units.gu(2)
-
-                            Image {
-                                id: imgFrame
-                                width: units.gu(6)
-                                height: width
-                                sourceSize.height: width
-                                sourceSize.width: width
-                                source: model.image
-                            }
-
-                            Column {
-                                id: detailColumn
-
-                                anchors.verticalCenter: imgFrame.verticalCenter
-                                Layout.fillWidth: true
-
-                                Label {
-                                    id: podcastTitle
-                                    textFormat: Text.PlainText
-                                    text: model.name.trim()
-                                    width: parent.width
-                                    fontSize: "small"
-                                    elide: Text.ElideRight
-                                    color: podbird.appTheme.baseText
-                                }
-
-                                Label {
-                                    id: episodeCount
-                                    width: parent.width
-                                    fontSize: "x-small"
-                                    color: podbird.appTheme.baseSubText
-                                    visible: model.episodeCount > 0
-                                    text: i18n.tr("%1 unheard episode", "%1 unheard episodes", model.episodeCount).arg(model.episodeCount)
-                                }
-                            }
-                        }
                     }
                 }
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-28 23:26+0000\n"
+"POT-Creation-Date: 2015-04-29 01:02+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -168,7 +168,7 @@ msgid "Mark all listened"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:110 ../app/ui/EpisodesPage.qml:188
-#: ../app/ui/SearchPage.qml:268
+#: ../app/ui/SearchPage.qml:224
 msgid "Unsubscribe"
 msgstr ""
 
@@ -294,7 +294,7 @@ msgstr ""
 msgid "No podcasts found matching the search term."
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:160 ../app/ui/PodcastsTab.qml:281
+#: ../app/ui/PodcastsTab.qml:160 ../app/ui/PodcastsTab.qml:203
 #, qt-format
 msgid "%1 unheard episode"
 msgid_plural "%1 unheard episodes"
@@ -338,20 +338,20 @@ msgid ""
 "Click the 'magnifier' at the top to search or the 'plus' button to add by URL"
 msgstr ""
 
-#: ../app/ui/SearchPage.qml:268
-msgid "Subscribe"
-msgstr ""
-
 #. TRANSLATORS: The first argument here is the date of when the podcast was last updated followed by
 #. the podcast description.
-#: ../app/ui/SearchPage.qml:301
+#: ../app/ui/SearchPage.qml:201
 #, qt-format
 msgid ""
 "Last Updated: %1\n"
 "%2"
 msgstr ""
 
-#: ../app/ui/SearchPage.qml:356
+#: ../app/ui/SearchPage.qml:224
+msgid "Subscribe"
+msgstr ""
+
+#: ../app/ui/SearchPage.qml:291
 msgid "Not Available"
 msgstr ""
 
@@ -426,15 +426,15 @@ msgstr ""
 msgid "Play Episode"
 msgstr ""
 
-#: ../app/ui/WhatsNewTab.qml:369
+#: ../app/ui/WhatsNewTab.qml:368
 msgid "Today"
 msgstr ""
 
-#: ../app/ui/WhatsNewTab.qml:373
+#: ../app/ui/WhatsNewTab.qml:372
 msgid "Yesterday"
 msgstr ""
 
-#: ../app/ui/WhatsNewTab.qml:377
+#: ../app/ui/WhatsNewTab.qml:376
 msgid "Older"
 msgstr ""
 
@@ -512,6 +512,7 @@ msgstr ""
 msgid "Finish"
 msgstr ""
 
-#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-13-statesaver-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_15_04_vivid-Default/po/Podbird.desktop.in.h:1
+#: ../builddir/po/Podbird.desktop.in.h:1
+#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-14-generic-listitem-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_15_04_vivid-Default/po/Podbird.desktop.in.h:1
 msgid "The chirpiest podcast manager for Ubuntu"
 msgstr ""

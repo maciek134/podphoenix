@@ -440,79 +440,32 @@ Page {
             height: units.gu(8)
         }
 
-        delegate: ListItem.Empty {
+        delegate: ListDelegate {
             id: listItem
 
-            property bool expanded
+            title: model.name.trim()
+            titleColor: listItem.expanded || currentGuid === model.guid || downloader.downloadingGuid === model.guid ? podbird.appTheme.focusText
+                                                                                                                     : podbird.appTheme.baseText
 
-            height: dataColumn.height + units.gu(2)
-            highlightWhenPressed: false
-            showDivider: false
+            subtitle: model.duration === 0 || model.duration === undefined ? Qt.formatDate(new Date(model.published), "MMM d, yyyy") : Podcasts.formatEpisodeTime(model.duration) + " | " + Qt.formatDate(new Date(model.published), "MMM d, yyyy")
+
+            isDownloaded: model.downloadedfile ? true : false
+
+            showProgressBar: downloader.downloadingGuid === model.guid
+            isInDeterminateDownload: downloader.progress < 0 || downloader.progress > 100 && downloader.downloadingGuid === model.guid
+            progress: downloader.progress
+
+            description: model.description
+
+            actionButton.sourceComponent: actionButtonComponent
 
             onClicked: {
                 expanded = !expanded;
             }
 
-            Rectangle {
-                visible: !model.listened
-                width: parent.width
-                height: dataColumn.height + units.gu(2)
-                color: podbird.appTheme.hightlightListView
-            }
-
-            Column {
-                id: dataColumn
-
-                spacing: units.gu(1)
-                anchors.left: parent.left
-                anchors.right: parent.right
-                anchors.margins: units.gu(2)
-                anchors.top: parent.top
-                anchors.topMargin: units.gu(0.5)
-
-                RowLayout {
-                    id: rowlayout
-
-                    width: parent.width
-                    height: titleColumn.height
-
-                    Column {
-                        id: titleColumn
-                        Layout.fillWidth: true
-
-                        Label {
-                            text: model.name.trim()
-                            width: parent.width
-                            maximumLineCount: 2
-                            wrapMode: Text.WordWrap
-                            elide: Text.ElideRight
-                            color: listItem.expanded || currentGuid === model.guid || downloader.downloadingGuid === model.guid ? podbird.appTheme.focusText
-                                                                                                                                : podbird.appTheme.baseText
-                        }
-
-                        Row {
-                            height:episodePublishDate.height
-                            width:parent.width
-                            spacing:units.gu(1)
-
-                            Icon{
-                                height:episodePublishDate.height
-                                width:height
-                                name:"attachment"
-                                visible: model.downloadedfile ? true : false
-                            }
-
-                            Label {
-                                id: episodePublishDate
-                                width: parent.width
-                                text: model.duration === 0 || model.duration === undefined ? Qt.formatDate(new Date(model.published), "MMM d, yyyy") : Podcasts.formatEpisodeTime(model.duration) + " | " + Qt.formatDate(new Date(model.published), "MMM d, yyyy")
-                                fontSize: "x-small"
-                                elide: Text.ElideRight
-                                color: podbird.appTheme.baseSubText
-                            }
-                        }
-                    }
-
+            Component {
+                id: actionButtonComponent
+                Row {
                     ActionButton {
                         id: contextualMenu
 
@@ -520,7 +473,7 @@ Page {
                         height: units.gu(4)
 
                         iconName: "contextual-menu"
-                        color: progressBar.visible || listItem.expanded ? podbird.appTheme.focusText
+                        color: showProgressBar || expanded ? podbird.appTheme.focusText
                                                                         : podbird.appTheme.baseIcon
                         onClicked: {
                             var popover = PopupUtils.open(popoverComponent, contextualMenu)
@@ -566,32 +519,13 @@ Page {
                         }
                     }
                 }
+            }
 
-                CustomProgressBar {
-                    id: progressBar
-                    width: parent.width
-                    visible: downloader.downloadingGuid === model.guid
-                    indeterminateProgress: downloader.progress < 0 || downloader.progress > 100 && downloader.downloadingGuid === model.guid
-                    progress: downloader.progress
-                }
-
-                Label {
-                    id: desc
-                    text: model.description
-                    clip: true
-                    height: listItem.expanded ? contentHeight : 0
-                    wrapMode: Text.WordWrap
-                    width: parent.width
-                    fontSize: "small"
-                    linkColor: podbird.appTheme.linkText
-                    color: podbird.appTheme.baseSubText
-                    onLinkActivated: Qt.openUrlExternally(link)
-                    Behavior on height {
-                        UbuntuNumberAnimation {
-                            duration: UbuntuAnimation.BriskDuration
-                        }
-                    }
-                }
+            Rectangle {
+                visible: !model.listened
+                anchors.fill: parent
+                color: podbird.appTheme.hightlightListView
+                z: -1
             }
         }
 
