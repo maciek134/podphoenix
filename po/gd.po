@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-04-28 12:08+0000\n"
+"POT-Creation-Date: 2015-06-25 17:48+0100\n"
 "PO-Revision-Date: 2015-04-20 04:59+0000\n"
 "Last-Translator: GunChleoc <Unknown>\n"
 "Language-Team: Fòram na Gàidhlig\n"
@@ -16,29 +16,33 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 || n==11) ? 0 : (n==2 || n==12) ? 1 : "
 "(n > 2 && n < 20) ? 2 : 3;\n"
-"X-Launchpad-Export-Date: 2015-06-08 05:50+0000\n"
-"X-Generator: Launchpad (build 17540)\n"
+"X-Launchpad-Export-Date: 2015-06-26 05:06+0000\n"
+"X-Generator: Launchpad (build 17578)\n"
 "Language: gd\n"
 
-#: ../app/components/Walkthrough.qml:87
+#: ../app/components/Walkthrough.qml:90
 msgid "Skip"
 msgstr "Gearr leum thairis air"
 
 #. TRANSLATORS: this refers to a number of songs greater than one. The actual number will be prepended to the string automatically (plural forms are not yet fully supported in usermetrics, the library that displays that string)
-#: ../app/podbird.qml:165
+#: ../app/podbird.qml:172
 #, qt-format
 msgid "Podcasts listened to today: <b>%1</b>"
 msgstr ""
 
-#: ../app/podbird.qml:166
+#: ../app/podbird.qml:173
 msgid "No podcasts listened to today"
 msgstr "Cha deach èisteachd ri pod-chraoladh an-diugh"
 
-#: ../app/podbird.qml:228
+#: ../app/podbird.qml:254
+msgid "Podcasts"
+msgstr "Pod-chraolaidhean"
+
+#: ../app/podbird.qml:268
 msgid "Add New Podcasts"
 msgstr "Cuir pod-chraolaidhean ùra ris"
 
-#: ../app/podbird.qml:242
+#: ../app/podbird.qml:283
 msgid "Settings"
 msgstr "Roghainnean"
 
@@ -63,16 +67,16 @@ msgid "About"
 msgstr "Mu dhèidhinn"
 
 #. TRANSLATORS: Podbird version number e.g Version 0.6
-#: ../app/settings/About.qml:53
+#: ../app/settings/About.qml:61
 #, qt-format
 msgid "Version %1"
 msgstr "Tionndadh %1"
 
-#: ../app/settings/About.qml:74
+#: ../app/settings/About.qml:82
 msgid "Released under the terms of the GNU GPL v3"
 msgstr "'Ga sgaoileadh fo theirmichean a' cheadachais GNU GPL v3"
 
-#: ../app/settings/About.qml:84
+#: ../app/settings/About.qml:92
 #, qt-format
 msgid "Source code available on %1"
 msgstr "Tha am bun-tùs ri fhaighinn air %1"
@@ -117,21 +121,21 @@ msgstr[3] "%1 bliadhna"
 msgid "Credits"
 msgstr "Urram"
 
-#: ../app/settings/Credits.qml:33
-msgid "Developers"
-msgstr "Luchd-leasachaidh"
-
 #. TRANSLATORS: The first argument is the name of creator of Podbird (Michael Sheldon)
-#: ../app/settings/Credits.qml:39
+#: ../app/settings/Credits.qml:33
 #, qt-format
 msgid "%1 (Creator)"
 msgstr ""
 
-#: ../app/settings/Credits.qml:48
+#: ../app/settings/Credits.qml:33 ../app/settings/Credits.qml:34
+msgid "Developers"
+msgstr "Luchd-leasachaidh"
+
+#: ../app/settings/Credits.qml:35
 msgid "Designer"
 msgstr "Dealbhaiche"
 
-#: ../app/settings/Credits.qml:57
+#: ../app/settings/Credits.qml:36
 msgid "Translators"
 msgstr "Eadar-theangadairean"
 
@@ -142,7 +146,7 @@ msgstr "Luchdaich a-nuas air a char as motha"
 #: ../app/settings/DownloadSetting.qml:34
 #: ../app/settings/DownloadSetting.qml:35
 #: ../app/settings/DownloadSetting.qml:36
-#: ../app/settings/DownloadSetting.qml:37 ../app/ui/EpisodesPage.qml:429
+#: ../app/settings/DownloadSetting.qml:37 ../app/ui/EpisodesPage.qml:453
 #, qt-format
 msgid "%1 episode"
 msgid_plural "%1 episodes"
@@ -151,17 +155,36 @@ msgstr[1] "%1 eapasod"
 msgstr[2] "%1 eapasodan"
 msgstr[3] "%1 eapasod"
 
-#: ../app/settings/ThemeSetting.qml:27 ../app/ui/SettingsPage.qml:49
+#: ../app/settings/ThemeSetting.qml:28 ../app/ui/SettingsPage.qml:49
 msgid "Theme"
 msgstr "Ùrlar"
 
+#. TRANSLATORS: The argument here is the name of the application (Podbird)
+#: ../app/settings/ThemeSetting.qml:40
+#, qt-format
+msgid "Restart %1"
+msgstr ""
+
+#. TRANSLATORS: The argument here is the name of the application (Podbird)
+#: ../app/settings/ThemeSetting.qml:42
+#, qt-format
+msgid ""
+"You will need to restart %1 to change the application theme. This is "
+"necessary to avoid any strange behaviour in the app. We apologize for the "
+"inconvenience"
+msgstr ""
+
+#: ../app/settings/ThemeSetting.qml:45
+msgid "Exit App"
+msgstr ""
+
 #. TRANSLATORS: Light Theme
-#: ../app/settings/ThemeSetting.qml:34 ../app/ui/SettingsPage.qml:50
+#: ../app/settings/ThemeSetting.qml:59 ../app/ui/SettingsPage.qml:50
 msgid "Light"
 msgstr "Soilleir"
 
 #. TRANSLATORS: Dark Theme
-#: ../app/settings/ThemeSetting.qml:36 ../app/ui/SettingsPage.qml:50
+#: ../app/settings/ThemeSetting.qml:61 ../app/ui/SettingsPage.qml:50
 msgid "Dark"
 msgstr "Dorcha"
 
@@ -177,77 +200,77 @@ msgstr "Lorg airson eapasod"
 msgid "Mark all listened"
 msgstr "Cuir comharra gun deach èisteachd ris na h-uile"
 
-#: ../app/ui/EpisodesPage.qml:110 ../app/ui/EpisodesPage.qml:188
-#: ../app/ui/SearchPage.qml:268
+#: ../app/ui/EpisodesPage.qml:110 ../app/ui/EpisodesPage.qml:194
+#: ../app/ui/SearchPage.qml:253
 msgid "Unsubscribe"
 msgstr "Cuir crìoch air an fh-sgrìobhadh"
 
-#: ../app/ui/EpisodesPage.qml:125 ../app/ui/PodcastsTab.qml:93
-#: ../app/ui/SearchPage.qml:80 ../app/ui/SearchPage.qml:110
+#: ../app/ui/EpisodesPage.qml:125 ../app/ui/PodcastsTab.qml:88
+#: ../app/ui/SearchPage.qml:80 ../app/ui/SearchPage.qml:102
 #: ../app/ui/WhatsNewTab.qml:78
 msgid "Back"
 msgstr "Air ais"
 
-#: ../app/ui/EpisodesPage.qml:137 ../app/ui/WhatsNewTab.qml:89
+#: ../app/ui/EpisodesPage.qml:147 ../app/ui/WhatsNewTab.qml:99
 msgid "Search episode"
 msgstr "Lorg airson eapasod"
 
-#: ../app/ui/EpisodesPage.qml:185
+#: ../app/ui/EpisodesPage.qml:191
 msgid "Unsubscribe Confirmation"
 msgstr "Dearbhadh air crìoch an fho-sgrìobhaidh"
 
-#: ../app/ui/EpisodesPage.qml:186
+#: ../app/ui/EpisodesPage.qml:192
 #, qt-format
 msgid "Are you sure you want to unsubscribe from <b>%1</b>?"
 msgstr ""
 "A bheil thu cinnteach gu cheil thu airson crìoch a chur air an fho-"
 "sgrìobhadh gu <b>%1</b>?"
 
-#: ../app/ui/EpisodesPage.qml:205
+#: ../app/ui/EpisodesPage.qml:211
 msgid "Cancel"
 msgstr "Sguir dheth"
 
-#: ../app/ui/EpisodesPage.qml:259 ../app/ui/WhatsNewTab.qml:213
+#: ../app/ui/EpisodesPage.qml:265 ../app/ui/WhatsNewTab.qml:231
 msgid "Delete local file"
 msgstr "Sguab às am faidhle ionadail"
 
-#: ../app/ui/EpisodesPage.qml:260 ../app/ui/WhatsNewTab.qml:214
+#: ../app/ui/EpisodesPage.qml:266 ../app/ui/WhatsNewTab.qml:232
 msgid "Episode queued for download"
 msgstr "Chaidh an t-eapasod a chur air a' chiutha airson a luchdadh a-nuas"
 
-#: ../app/ui/EpisodesPage.qml:261 ../app/ui/WhatsNewTab.qml:215
+#: ../app/ui/EpisodesPage.qml:267 ../app/ui/WhatsNewTab.qml:233
 msgid "Download episode"
 msgstr "Luchdaich a-nuas an t-eapasod"
 
-#: ../app/ui/EpisodesPage.qml:310
+#: ../app/ui/EpisodesPage.qml:316
 msgid "Mark episode unlistened"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:310 ../app/ui/WhatsNewTab.qml:263
+#: ../app/ui/EpisodesPage.qml:316 ../app/ui/WhatsNewTab.qml:281
 msgid "Mark episode listened"
 msgstr "Cuir comharra gun deach an t-eapasod èisteachd ris."
 
-#: ../app/ui/EpisodesPage.qml:336
+#: ../app/ui/EpisodesPage.qml:357
 msgid "No more episodes"
 msgstr "Chan eil barrachd eapasodan ann"
 
-#: ../app/ui/EpisodesPage.qml:336
+#: ../app/ui/EpisodesPage.qml:357
 msgid "No episodes found"
 msgstr "Cha deach eapasod a lorg"
 
-#: ../app/ui/EpisodesPage.qml:337
+#: ../app/ui/EpisodesPage.qml:358
 msgid "All episodes have been listened to."
 msgstr "Chaidh èisteachd ris a h-uile eapasod."
 
-#: ../app/ui/EpisodesPage.qml:337
+#: ../app/ui/EpisodesPage.qml:358
 msgid "No episodes found matching the search term."
 msgstr "Cha deach eapasod a lorg a fhreagras ris an fhacal-luirg."
 
-#: ../app/ui/EpisodesPage.qml:382
+#: ../app/ui/EpisodesPage.qml:405
 msgid "Unheard"
 msgstr "Gun èisteachd ris"
 
-#: ../app/ui/EpisodesPage.qml:382
+#: ../app/ui/EpisodesPage.qml:405
 msgid "Listened"
 msgstr "Air èisteachd ris"
 
@@ -256,47 +279,43 @@ msgid "Now Playing"
 msgstr "'Ga chluich an-dràsta"
 
 #. TRANSLATORS: The string shown in the UI is -15s to denote the number of seconds that the podcast playback will skip backward.
-#: ../app/ui/NowPlayingPage.qml:153
+#: ../app/ui/NowPlayingPage.qml:199
 #, no-c-format, qt-format
 msgid "-%1s"
 msgstr ""
 
 #. TRANSLATORS: The string shown in the UI is +15s to denote the number of seconds that the podcast playback will skip forward.
-#: ../app/ui/NowPlayingPage.qml:214
+#: ../app/ui/NowPlayingPage.qml:260
 #, no-c-format, qt-format
 msgid "+%1s"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:33
-msgid "Podcasts"
-msgstr "Pod-chraolaidhean"
-
-#: ../app/ui/PodcastsTab.qml:71 ../app/ui/SearchPage.qml:57
-#: ../app/ui/SearchPage.qml:91
+#: ../app/ui/PodcastsTab.qml:66 ../app/ui/SearchPage.qml:57
+#: ../app/ui/SearchPage.qml:145
 msgid "Search Podcast"
 msgstr "Lorg airson pod-chraoladh"
 
-#: ../app/ui/PodcastsTab.qml:80
+#: ../app/ui/PodcastsTab.qml:75
 msgid "Grid View"
 msgstr "Sealladh griod"
 
-#: ../app/ui/PodcastsTab.qml:80
+#: ../app/ui/PodcastsTab.qml:75
 msgid "List View"
 msgstr "Sealladh liosta"
 
-#: ../app/ui/PodcastsTab.qml:104
+#: ../app/ui/PodcastsTab.qml:109
 msgid "Search podcast"
 msgstr "Lorg airson pod-chraoladh"
 
-#: ../app/ui/PodcastsTab.qml:126
+#: ../app/ui/PodcastsTab.qml:139
 msgid "No Podcast Subscriptions"
 msgstr "Chan eil fo-sgrìobhadh pod-chraolaidh ann"
 
-#: ../app/ui/PodcastsTab.qml:127
+#: ../app/ui/PodcastsTab.qml:139
 msgid "No Podcasts Found"
 msgstr "Cha deach pod-chraoladh a lorg"
 
-#: ../app/ui/PodcastsTab.qml:128
+#: ../app/ui/PodcastsTab.qml:140
 msgid ""
 "You haven't subscribed to any podcasts yet, visit the 'Find New Podcasts' "
 "page to add some."
@@ -304,11 +323,11 @@ msgstr ""
 "Cha do rinn thu fo-sgrìobhadh gu pod-chraoladh fhathast, tadhail air an "
 "duilleag \"Lorg pod-chraolaidhean ùra\" gus fear no dhà a chur ris."
 
-#: ../app/ui/PodcastsTab.qml:129 ../app/ui/SearchPage.qml:167
+#: ../app/ui/PodcastsTab.qml:141 ../app/ui/SearchPage.qml:195
 msgid "No podcasts found matching the search term."
 msgstr "Cha deach pod-chraoladh a lorg a fhreagras ris an fhacal-luirg."
 
-#: ../app/ui/PodcastsTab.qml:160 ../app/ui/PodcastsTab.qml:281
+#: ../app/ui/PodcastsTab.qml:174 ../app/ui/PodcastsTab.qml:216
 #, qt-format
 msgid "%1 unheard episode"
 msgid_plural "%1 unheard episodes"
@@ -321,48 +340,44 @@ msgstr[3] "%1 eapasod nach do dh'èist thu riutha"
 msgid "Add Podcast"
 msgstr "Cuir pod-chraoladh ris"
 
-#: ../app/ui/SearchPage.qml:121
+#: ../app/ui/SearchPage.qml:112
 msgid "Save Podcast"
 msgstr "Sàbhail am pod-chraoladh"
 
-#: ../app/ui/SearchPage.qml:132
+#: ../app/ui/SearchPage.qml:133
 msgid "Feed URL"
 msgstr "URL an inbhir"
 
-#: ../app/ui/SearchPage.qml:147
+#: ../app/ui/SearchPage.qml:160
 msgid "Unable to subscribe"
 msgstr "Cha ghabh crìoch a chur air an fho-sgrìobhadh"
 
-#: ../app/ui/SearchPage.qml:148
+#: ../app/ui/SearchPage.qml:161
 msgid "Please check the URL and try again"
 msgstr "Thoir sùil air an URL is feuch ris a-rithist"
 
-#: ../app/ui/SearchPage.qml:150
+#: ../app/ui/SearchPage.qml:163
 msgid "Close"
 msgstr "Dùin"
 
-#: ../app/ui/SearchPage.qml:166
+#: ../app/ui/SearchPage.qml:193
 msgid "Looking to add a new Podcast?"
 msgstr "Am bu toil leat pod-chraoladh ùr a chur ris?"
 
-#: ../app/ui/SearchPage.qml:166
+#: ../app/ui/SearchPage.qml:193
 msgid "No Podcasts found"
 msgstr "Cha deach pod-chraoladh a lorg"
 
-#: ../app/ui/SearchPage.qml:167
+#: ../app/ui/SearchPage.qml:194
 msgid ""
 "Click the 'magnifier' at the top to search or the 'plus' button to add by URL"
 msgstr ""
 "Briog air a' \"mheudaichear\" aig a' bharr airson lorg no air a' phutan "
 "\"plus\" gus URL a chur ris"
 
-#: ../app/ui/SearchPage.qml:268
-msgid "Subscribe"
-msgstr "Fo-sgrìobh"
-
 #. TRANSLATORS: The first argument here is the date of when the podcast was last updated followed by
 #. the podcast description.
-#: ../app/ui/SearchPage.qml:301
+#: ../app/ui/SearchPage.qml:230
 #, qt-format
 msgid ""
 "Last Updated: %1\n"
@@ -371,7 +386,11 @@ msgstr ""
 "An t-ùrachadh mu dheireadh: %1\n"
 "%2"
 
-#: ../app/ui/SearchPage.qml:356
+#: ../app/ui/SearchPage.qml:253
+msgid "Subscribe"
+msgstr "Fo-sgrìobh"
+
+#: ../app/ui/SearchPage.qml:319
 msgid "Not Available"
 msgstr "Chan eil seo ri fhaighinn"
 
@@ -426,39 +445,39 @@ msgstr "Na tha às ùr"
 msgid "Download all"
 msgstr "Luchdaich a-nuas na h-uile"
 
-#: ../app/ui/WhatsNewTab.qml:105
+#: ../app/ui/WhatsNewTab.qml:123
 msgid "No New Episodes"
 msgstr "Chan eil eapasod ùr ann"
 
-#: ../app/ui/WhatsNewTab.qml:106
+#: ../app/ui/WhatsNewTab.qml:123
 msgid "No Episodes Found"
 msgstr "Cha deach eapasod a lorg"
 
-#: ../app/ui/WhatsNewTab.qml:107
+#: ../app/ui/WhatsNewTab.qml:124
 msgid "No more episodes to listen to!"
 msgstr "Chan eil barrachd eapasodan ri an èisteachd riutha ann!"
 
-#: ../app/ui/WhatsNewTab.qml:108
+#: ../app/ui/WhatsNewTab.qml:124
 msgid "No Episodes found matching the search term."
 msgstr "Cha deach eapasod a lorg a fhreagras ris an fhacal-luirg."
 
-#: ../app/ui/WhatsNewTab.qml:303
+#: ../app/ui/WhatsNewTab.qml:321
 msgid "Pause Episode"
 msgstr "Cuir an t-eapasod 'na stad"
 
-#: ../app/ui/WhatsNewTab.qml:304
+#: ../app/ui/WhatsNewTab.qml:322
 msgid "Play Episode"
 msgstr "Cluich an t-eapasod"
 
-#: ../app/ui/WhatsNewTab.qml:369
+#: ../app/ui/WhatsNewTab.qml:386
 msgid "Today"
 msgstr "An-diugh"
 
-#: ../app/ui/WhatsNewTab.qml:373
+#: ../app/ui/WhatsNewTab.qml:390
 msgid "Yesterday"
 msgstr "An-dè"
 
-#: ../app/ui/WhatsNewTab.qml:377
+#: ../app/ui/WhatsNewTab.qml:394
 msgid "Older"
 msgstr "Nas sine"
 
@@ -550,6 +569,6 @@ msgstr "Tha sinn an dòchas gun gabh thu tlachd le Podbird!"
 msgid "Finish"
 msgstr "Crìochnaich"
 
-#: /home/krnekhelesh/Documents/Ubuntu-Projects/MP-Reviews/builddir/build-10-rearrange-project-structure-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_15_04_vivid-Default/po/Podbird.desktop.in.h:1
+#: /home/mike/src/podbird/build-podbird-Ubuntu_Device2_GCC_armhf_ubuntu_sdk_15_04_vivid-Default/po/Podbird.desktop.in.h:1
 msgid "The chirpiest podcast manager for Ubuntu"
 msgstr ""
