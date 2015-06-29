@@ -16,9 +16,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick 2.3
+import QtQuick 2.4
 import QtMultimedia 5.0
-import Ubuntu.Components 1.1
+import Ubuntu.Components 1.2
 import QtQuick.Layouts 1.1
 import QtQuick.LocalStorage 2.0
 import Ubuntu.DownloadManager 0.1
@@ -90,7 +90,7 @@ Page {
                     text: i18n.tr("Search Episode")
                     onTriggered: {
                         episodesPage.state = "search"
-                        searchField.forceActiveFocus()
+                        searchField.item.forceActiveFocus()
                     }
                 },
 
@@ -125,22 +125,28 @@ Page {
                 text: i18n.tr("Back")
                 onTriggered: {
                     episodeList.forceActiveFocus()
-                    searchField.text = ""
                     episodesPage.state = "default"
                     episodeList.positionViewAtBeginning()
                 }
             }
 
-            contents: TextField {
+            contents: Loader {
                 id: searchField
-                inputMethodHints: Qt.ImhNoPredictiveText
-                placeholderText: i18n.tr("Search episode")
+                sourceComponent: episodesPage.state === "search" ? searchFieldComponent : undefined
                 anchors.left: parent ? parent.left : undefined
                 anchors.right: parent ? parent.right : undefined
                 anchors.rightMargin: units.gu(2)
             }
         }
     ]
+
+    Component {
+        id: searchFieldComponent
+        TextField {
+            inputMethodHints: Qt.ImhNoPredictiveText
+            placeholderText: i18n.tr("Search episode")
+        }
+    }
 
     Connections {
         target: downloader
@@ -327,14 +333,30 @@ Page {
         }
     }
 
-    EmptyState {
-        anchors.verticalCenter: parent.verticalCenter
-        visible: (episodesPage.state === "search" && sortedEpisodeModel.count === 0) || (episodeModel.count === 0 && podbird.settings.hideListened)
-        iconHeight: units.gu(12)
-        iconWidth: iconHeight + units.gu(10)
-        iconSource: Qt.resolvedUrl("../graphics/notFound.svg")
-        title: podbird.settings.hideListened ? i18n.tr("No more episodes") : i18n.tr("No episodes found")
-        subTitle: podbird.settings.hideListened ? i18n.tr("All episodes have been listened to.") : i18n.tr("No episodes found matching the search term.")
+    Loader {
+        id: emptyState
+
+        anchors {
+            left: parent.left
+            right: parent.right
+            margins: units.gu(2)
+            verticalCenter: parent.verticalCenter
+            verticalCenterOffset: Qt.inputMethod.visible ? units.gu(4) : 0
+        }
+
+        sourceComponent: (episodesPage.state === "search" && sortedEpisodeModel.count === 0) || (episodeModel.count === 0 && podbird.settings.hideListened) ? emptyStateComponent
+                                                                                                                                                            : undefined
+    }
+
+    Component {
+        id: emptyStateComponent
+        EmptyState {
+            iconHeight: units.gu(12)
+            iconWidth: units.gu(22)
+            iconSource: Qt.resolvedUrl("../graphics/notFound.svg")
+            title: podbird.settings.hideListened ? i18n.tr("No more episodes") : i18n.tr("No episodes found")
+            subTitle: podbird.settings.hideListened ? i18n.tr("All episodes have been listened to.") : i18n.tr("No episodes found matching the search term.")
+        }
     }
 
     ListModel {
@@ -345,7 +367,8 @@ Page {
         id: sortedEpisodeModel
         model: episodeModel
         filter.property: "name"
-        filter.pattern: RegExp(searchField.text, "gi")
+        filter.pattern: episodesPage.state === "search" && searchField.status == Loader.Ready ? RegExp(searchField.item.text, "gi")
+                                                                                              : RegExp("", "gi")
     }
 
     UbuntuListView {
@@ -399,6 +422,7 @@ Page {
                 sourceSize.height: width
                 sourceSize.width: width
                 source: episodeImage
+                asynchronous: true
                 anchors {
                     left: parent.left
                     top: parent.top
@@ -440,88 +464,41 @@ Page {
             height: units.gu(8)
         }
 
-        delegate: ListItem.Empty {
+        delegate: ListDelegate {
             id: listItem
 
-            property bool expanded
+            title: model.name !== undefined ? model.name.trim() : "Undefined"
+            titleColor: listItem.expanded || currentGuid === model.guid || downloader.downloadingGuid === model.guid ? podbird.appTheme.focusText
+                                                                                                                     : podbird.appTheme.baseText
 
-            height: dataColumn.height + units.gu(2)
-            highlightWhenPressed: false
-            showDivider: false
+            subtitle: model.duration === 0 || model.duration === undefined ? Qt.formatDate(new Date(model.published), "MMM d, yyyy") : Podcasts.formatEpisodeTime(model.duration) + " | " + Qt.formatDate(new Date(model.published), "MMM d, yyyy")
+
+            isDownloaded: model.downloadedfile ? true : false
+
+            showProgressBar: downloader.downloadingGuid === model.guid
+            isInDeterminateDownload: downloader.progress < 0 || downloader.progress > 100 && downloader.downloadingGuid === model.guid
+            progress: downloader.progress
+
+            description: model.description
+
+            actionButton.sourceComponent: actionButtonComponent
 
             onClicked: {
                 expanded = !expanded;
             }
 
-            Rectangle {
-                visible: !model.listened
-                width: parent.width
-                height: dataColumn.height + units.gu(2)
-                color: podbird.appTheme.hightlightListView
-            }
-
-            Column {
-                id: dataColumn
-
-                spacing: units.gu(1)
-                anchors.left: parent.left
-                anchors.right: parent.right
-                anchors.margins: units.gu(2)
-                anchors.top: parent.top
-                anchors.topMargin: units.gu(0.5)
-
-                RowLayout {
-                    id: rowlayout
-
-                    width: parent.width
-                    height: titleColumn.height
-
-                    Column {
-                        id: titleColumn
-                        Layout.fillWidth: true
-
-                        Label {
-                            text: model.name.trim()
-                            width: parent.width
-                            maximumLineCount: 2
-                            wrapMode: Text.WordWrap
-                            elide: Text.ElideRight
-                            color: listItem.expanded || currentGuid === model.guid || downloader.downloadingGuid === model.guid ? podbird.appTheme.focusText
-                                                                                                                                : podbird.appTheme.baseText
-                        }
-
-                        Row {
-                            height:episodePublishDate.height
-                            width:parent.width
-                            spacing:units.gu(1)
-
-                            Icon{
-                                height:episodePublishDate.height
-                                width:height
-                                name:"attachment"
-                                visible: model.downloadedfile ? true : false
-                            }
-
-                            Label {
-                                id: episodePublishDate
-                                width: parent.width
-                                text: model.duration === 0 || model.duration === undefined ? Qt.formatDate(new Date(model.published), "MMM d, yyyy") : Podcasts.formatEpisodeTime(model.duration) + " | " + Qt.formatDate(new Date(model.published), "MMM d, yyyy")
-                                fontSize: "x-small"
-                                elide: Text.ElideRight
-                                color: podbird.appTheme.baseSubText
-                            }
-                        }
-                    }
-
+            Component {
+                id: actionButtonComponent
+                Row {
                     ActionButton {
                         id: contextualMenu
 
-                        width: units.gu(5)
+                        width: units.gu(4)
                         height: units.gu(4)
 
                         iconName: "contextual-menu"
-                        color: progressBar.visible || listItem.expanded ? podbird.appTheme.focusText
-                                                                        : podbird.appTheme.baseIcon
+                        color: showProgressBar || expanded ? podbird.appTheme.focusText
+                                                           : podbird.appTheme.baseIcon
                         onClicked: {
                             var popover = PopupUtils.open(popoverComponent, contextualMenu)
                             popover.queued = Qt.binding(function() { return model.queued })
@@ -537,26 +514,26 @@ Page {
                         width: units.gu(4)
                         height: units.gu(4)
 
-                        iconName: player.playbackState === MediaPlayer.PlayingState && currentGuid === model.guid ? "media-playback-pause"
-                                                                                                                  : "media-playback-start"
-                        color: player.playbackState === MediaPlayer.PlayingState && currentGuid === model.guid ? podbird.appTheme.focusText
-                                                                                                               : podbird.appTheme.baseIcon
+                        property bool isPlaying: currentUrl != "" && playerLoader.item.playbackState === MediaPlayer.PlayingState && currentGuid === model.guid
+
+                        iconName: isPlaying ? "media-playback-pause" : "media-playback-start"
+                        color: isPlaying ? podbird.appTheme.focusText : podbird.appTheme.baseIcon
 
                         onClicked: {
                             var db = Podcasts.init();
                             db.transaction(function (tx) {
-                                if (currentGuid === model.guid) {
-                                    if (player.playbackState === MediaPlayer.PlayingState) {
-                                        player.pause()
+                                if (currentGuid === model.guid && currentUrl != "") {
+                                    if (playerLoader.item.playbackState === MediaPlayer.PlayingState) {
+                                        playerLoader.item.pause()
                                     } else {
-                                        player.play()
+                                        playerLoader.item.play()
                                     }
                                 } else {
                                     currentGuid = "";
-                                    player.source = model.downloadedfile ? model.downloadedfile : model.audiourl;
+                                    currentUrl = model.downloadedfile ? model.downloadedfile : model.audiourl;
                                     var rs = tx.executeSql("SELECT position FROM Episode WHERE guid=?", [model.guid]);
-                                    player.play();
-                                    player.seek(rs.rows.item(0).position);
+                                    playerLoader.item.play();
+                                    playerLoader.item.seek(rs.rows.item(0).position);
                                     currentName = model.name;
                                     currentArtist = model.artist;
                                     currentImage = model.image;
@@ -566,32 +543,13 @@ Page {
                         }
                     }
                 }
+            }
 
-                CustomProgressBar {
-                    id: progressBar
-                    width: parent.width
-                    visible: downloader.downloadingGuid === model.guid
-                    indeterminateProgress: downloader.progress < 0 || downloader.progress > 100 && downloader.downloadingGuid === model.guid
-                    progress: downloader.progress
-                }
-
-                Label {
-                    id: desc
-                    text: model.description
-                    clip: true
-                    height: listItem.expanded ? contentHeight : 0
-                    wrapMode: Text.WordWrap
-                    width: parent.width
-                    fontSize: "small"
-                    linkColor: podbird.appTheme.linkText
-                    color: podbird.appTheme.baseSubText
-                    onLinkActivated: Qt.openUrlExternally(link)
-                    Behavior on height {
-                        UbuntuNumberAnimation {
-                            duration: UbuntuAnimation.BriskDuration
-                        }
-                    }
-                }
+            Rectangle {
+                visible: !model.listened
+                anchors.fill: parent
+                color: podbird.appTheme.hightlightListView
+                z: -1
             }
         }
 

@@ -16,8 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick 2.3
-import Ubuntu.Components 1.1
+import QtQuick 2.4
+import Ubuntu.Components 1.2
 
 /*
  Component which displays an empty state (approved by design). It offers an
@@ -37,9 +37,6 @@ Item {
     property real iconWidth: units.gu(10)
 
     height: childrenRect.height
-    anchors.left: parent.left
-    anchors.right: parent.right
-    anchors.margins: units.gu(2)
 
     Icon {
         id: emptyIcon

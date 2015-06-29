@@ -17,8 +17,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick 2.3
-import Ubuntu.Components 1.1
+import QtQuick 2.4
+import Ubuntu.Components 1.2
 import QtGraphicalEffects 1.0
 
 // Blurred background
@@ -35,10 +35,9 @@ Item {
         anchors.verticalCenter: parent.verticalCenter
         asynchronous: true
         fillMode: Image.PreserveAspectCrop
-        height: parent.height
+        anchors.fill: parent
         source: art // this has to be fixed for the default cover art to work - cant find in this dir
         visible: false
-        width: Math.max(parent.height, parent.width)
     }
 
     // the blur

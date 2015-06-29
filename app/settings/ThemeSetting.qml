@@ -16,8 +16,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick 2.3
-import Ubuntu.Components 1.1
+import QtQuick 2.4
+import Ubuntu.Components 1.2
+import Ubuntu.Components.Popups 1.0
 import Ubuntu.Components.ListItems 1.0 as ListItem
 
 Page {
@@ -25,6 +26,30 @@ Page {
 
     visible: false
     title: i18n.tr("Theme")
+
+    /*
+     Note (nik90): After the upgrade to Ubuntu.Components 1.2, dynamic application theme switching is broken. This
+     has been reported upstream at http://pad.lv/1462690. Until this is fixed, users will have to restart the app
+     when switching application theme. This dialog explains that to the user.
+    */
+    Component {
+        id: rebootAppDialog
+        Dialog {
+            id: dialogInternal
+            // TRANSLATORS: The argument here is the name of the application (Podbird)
+            title: i18n.tr("Restart %1").arg("Podbird")
+            // TRANSLATORS: The argument here is the name of the application (Podbird)
+            text: i18n.tr("You will need to restart %1 to change the application theme. \
+This is necessary to avoid any strange behaviour in the app. We apologize for the inconvenience").arg("Podbird")
+            Button {
+                text: i18n.tr("Exit App")
+                color: podbird.appTheme.positiveActionButton
+                onClicked: {
+                    Qt.quit()
+                }
+            }
+        }
+    }
 
     ListModel {
         id: themeModel
@@ -43,12 +68,18 @@ Page {
         model: themeModel
         anchors.fill: parent
 
+        // Required to accomodate the now playing bar being shown in landscape mode which
+        // can hide a setting if not for this footer.
+        footer: Item {
+            width: parent.width
+            height: units.gu(8)
+        }
+
         delegate: ListItem.Standard {
             text: model.name
             onClicked: {
-                var themeElement = model.file
-                podbird.settings.themeName = themeElement
-                podbird.appThemeManager.source = themeElement
+                podbird.settings.themeName = model.file
+                PopupUtils.open(rebootAppDialog, themeSettingPage);
             }
 
             Icon {

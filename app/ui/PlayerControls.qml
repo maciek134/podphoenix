@@ -16,16 +16,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick 2.3
+import QtQuick 2.4
 import QtMultimedia 5.0
-import Ubuntu.Components 1.1
+import Ubuntu.Components 1.2
 import "../podcasts.js" as Podcasts
 
 Rectangle {
     id: controlRect
 
-    height: 0
-    width: parent.width
     color: podbird.appTheme.bottomBarBackground
 
     MouseArea {
@@ -38,7 +36,6 @@ Rectangle {
 
     Item {
         anchors.fill: parent
-        visible: controlRect.height > 0
 
         Image {
             id: cover
@@ -47,6 +44,7 @@ Rectangle {
             source: currentImage
             width: parent.height - units.gu(0.25)
             height: width
+            asynchronous: true
         }
 
         Rectangle {
@@ -55,7 +53,7 @@ Rectangle {
             anchors.top: cover.bottom
             color: podbird.appTheme.focusText
             height: units.gu(0.25)
-            width: player.duration > 0 ? (player.position / player.duration) * parent.width : 0
+            width: playerLoader.item.duration > 0 ? (playerLoader.item.position / playerLoader.item.duration) * parent.width : 0
         }
 
         Column {
@@ -94,8 +92,6 @@ Rectangle {
             height: cover.height
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: parent.right
-            enabled: controlRect.height > 0
-            visible: enabled
 
             Rectangle {
                 id: playButtonBackground
@@ -105,16 +101,16 @@ Rectangle {
                 visible: playButton.pressed
             }
 
-            onClicked: player.playbackState === MediaPlayer.PlayingState ? player.pause()
-                                                                         : player.play()
+            onClicked: playerLoader.item.playbackState === MediaPlayer.PlayingState ? playerLoader.item.pause()
+                                                                                    : playerLoader.item.play()
 
             Icon {
                 color: "white"
                 width: units.gu(3)
                 height: width
                 anchors.centerIn: playButtonBackground
-                name: player.playbackState === MediaPlayer.PlayingState ? "media-playback-pause"
-                                                                        : "media-playback-start"
+                name: playerLoader.item.playbackState === MediaPlayer.PlayingState ? "media-playback-pause"
+                                                                                   : "media-playback-start"
                 opacity: playButton.pressed ? 0.4 : 1.0
             }
         }

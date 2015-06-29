@@ -16,13 +16,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick 2.3
+import QtQuick 2.4
 import Podbird 1.0
 import UserMetrics 0.1
 import QtMultimedia 5.0
 import Ubuntu.Connectivity 1.0
 import Qt.labs.settings 1.0
-import Ubuntu.Components 1.1
+import Ubuntu.Components 1.2
 import QtQuick.LocalStorage 2.0
 import Ubuntu.DownloadManager 0.1
 import "ui"
@@ -34,8 +34,14 @@ MainView {
 
     objectName: "mainView"
     applicationName: "com.mikeasoft.podbird"
-    useDeprecatedToolbar: false
     anchorToKeyboard: true
+
+    /*
+     FIXME: Opening tabs in landscape mode causes apps to crash in the current vivid images.
+     As such this is disabled until upstream bug https://pad.lv/1448017 is fixed and released
+     to the production phones.
+    */
+    automaticOrientation: false
 
     width: units.gu(50)
     height: units.gu(75)
@@ -57,7 +63,7 @@ MainView {
         if (tabs.selectedTabIndex === 0) {
             whatsNewTab.refreshModel()
         } else if (tabs.selectedTabIndex === 1) {
-            podcastTab.refreshModel()
+            podcastPage.item.refreshModel()
         }
     }
 
@@ -72,7 +78,7 @@ MainView {
         var today = new Date()
         // Only perform cleanup of old episodes once a day
         if (Math.floor((today - settings.lastCheck)/86400000) >= 1 && settings.retentionDays !== -1) {
-            cleanUp(today, settings.retentionDays)
+            Podcasts.cleanUp(today, settings.retentionDays)
             settings.lastCheck = today
         }
 
@@ -81,7 +87,7 @@ MainView {
             console.log("[LOG]: Online connectivity: " + NetworkingStatus.online)
             console.log("[LOG]: User settings (maxEpisodeDownload): " + settings.maxEpisodeDownload)
         } else {
-            autoDownloadEpisodes(settings.maxEpisodeDownload)
+            Podcasts.autoDownloadEpisodes(settings.maxEpisodeDownload)
         }
     }
 
@@ -89,6 +95,7 @@ MainView {
     property string currentArtist
     property string currentImage
     property string currentGuid
+    property url currentUrl: ""
 
     Themes.ThemeManager {
         id: themeManager
@@ -167,33 +174,45 @@ MainView {
         domain: "com.mikeasoft.podbird"
     }
 
-    MediaPlayer {
-        id: player
+    // Load the media player only when the user starts to play some media. This
+    // should improve app-startup slightly.
+    Loader {
+        id: playerLoader
+        sourceComponent: currentUrl != "" ? playerComponent : undefined
+    }
 
-        property bool podcastCounted: false
+    Component {
+        id: playerComponent
+        MediaPlayer {
+            id: player
 
-        onSourceChanged: {
-            podcastCounted = false
-        }
+            property bool podcastCounted: false
 
-        onPositionChanged: {
-            if (currentGuid == "" || duration <= 0) {
-                return;
+            source: currentUrl
+
+            onSourceChanged: {
+                podcastCounted = false
             }
 
-            if (position > 10000 && !podcastCounted) {
-                podcastCounted = true
-                podcastsMetric.increment()
-                console.log("[LOG]: Podcast User metric incremented")
-            }
-
-            var db = Podcasts.init();
-            db.transaction(function (tx) {
-                tx.executeSql("UPDATE Episode SET position=? WHERE guid=?", [position >= duration ? 120 : position, currentGuid]);
-                if (position >= duration - 120) {
-                    tx.executeSql("UPDATE Episode SET listened = 1 WHERE guid=?", [currentGuid]);
+            onPositionChanged: {
+                if (currentGuid == "" || duration <= 0) {
+                    return;
                 }
-            });
+
+                if (position > 10000 && !podcastCounted) {
+                    podcastCounted = true
+                    podcastsMetric.increment()
+                    console.log("[LOG]: Podcast User metric incremented")
+                }
+
+                var db = Podcasts.init();
+                db.transaction(function (tx) {
+                    tx.executeSql("UPDATE Episode SET position=? WHERE guid=?", [position >= duration ? 120 : position, currentGuid]);
+                    if (position >= duration - 120) {
+                        tx.executeSql("UPDATE Episode SET listened = 1 WHERE guid=?", [currentGuid]);
+                    }
+                });
+            }
         }
     }
 
@@ -212,14 +231,35 @@ MainView {
         Tabs {
             id: tabs
 
+            // Ensure that the last used tab is restored when the app gets killed
+            // and brought by the system.
+            StateSaver.properties: "selectedTabIndex"
+
+            onSelectedTabChanged: {
+                // Load the Podcast page only when the user navigates to it. However
+                // do not unload it when the user switches to another tab.
+                if (selectedTab === podcastTab) {
+                    podcastPage.source = Qt.resolvedUrl("ui/PodcastsTab.qml")
+                }
+            }
+
             WhatsNewTab {
                 id: whatsNewTab
                 objectName: "whatsNewTab"
             }
 
-            PodcastsTab {
+            Tab {
                 id: podcastTab
-                objectName: "podcastsTab"
+
+                title: i18n.tr("Podcasts")
+
+                page: Loader {
+                    id: podcastPage
+                    parent: podcastTab
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.bottom: parent.bottom
+                }
             }
 
             Tab {
@@ -227,6 +267,7 @@ MainView {
 
                 title: i18n.tr("Add New Podcasts")
 
+                // Dynamically load/unload the search tab as required
                 page: Loader {
                     parent: searchTab
                     anchors.left: parent.left
@@ -241,6 +282,7 @@ MainView {
 
                 title: i18n.tr("Settings")
 
+                // Dynamically load/unload the settings tab as required
                 page: Loader {
                     parent: settingsTab
                     anchors.left: parent.left
@@ -252,70 +294,45 @@ MainView {
         }
     }
 
-    PlayerControls {
-        id: playerControl
+    Loader {
+        id: playerControlLoader
 
-        visible: !Qt.inputMethod.visible
         anchors.bottom: parent.bottom
+        height: units.gu(7)
+        width: parent.width
+        visible: !Qt.inputMethod.visible
 
-        state: "hidden"
+        state: "shown"
         states: [
             State {
                 name: "shown"
-                when: player.source != "" && !mainStack.currentPage.isNowPlayingPage
-                PropertyChanges { target: playerControl; height: units.gu(7) }
+                when: currentUrl != "" && !mainStack.currentPage.isNowPlayingPage
+                PropertyChanges { target: playerControlLoader; anchors.bottomMargin: 0 }
             },
 
             State {
                 name: "hidden"
-                when: player.source == ""
-                PropertyChanges { target: playerControl; height: 0 }
+                when: currentUrl == "" || mainStack.currentPage.isNowPlayingPage || !playerControl.visible
+                PropertyChanges { target: playerControlLoader; anchors.bottomMargin: -units.gu(7) }
             }
         ]
 
-        Behavior on height {
-            UbuntuNumberAnimation {
-                duration: UbuntuAnimation.SlowDuration
-            }
-        }
-    }
+        transitions: [
+            Transition {
+                from: "hidden"; to: "shown"
+                SequentialAnimation {
+                    ScriptAction { script: playerControlLoader.source = Qt.resolvedUrl("ui/PlayerControls.qml") }
+                    UbuntuNumberAnimation { target: playerControlLoader; property: "anchors.bottomMargin"; duration: UbuntuAnimation.SlowDuration }
+                }
+            },
 
-    function cleanUp(today, retentionDays) {
-        console.log("[LOG]: Cleaning up old episodes")
-        var dayToMs = 86400000; //1 * 24 * 60 * 60 * 1000
-        var db = Podcasts.init()
-        db.transaction(function (tx) {
-            var rs = tx.executeSql("SELECT rowid, * FROM Podcast ORDER BY name ASC");
-            for(var i = 0; i < rs.rows.length; i++) {
-                var podcast = rs.rows.item(i);
-                var rs2 = tx.executeSql("SELECT rowid, * FROM Episode WHERE podcast=?", [rs.rows.item(i).rowid]);
-                for (var j=0; j< rs2.rows.length; j++) {
-                    var diff = Math.floor((today - rs2.rows.item(j).published)/dayToMs)
-                    if (rs2.rows.item(j).downloadedfile && diff > retentionDays) {
-                        fileManager.deleteFile(rs2.rows.item(j).downloadedfile)
-                        tx.executeSql("UPDATE Episode SET downloadedfile = NULL WHERE guid = ?", [rs2.rows.item(j).guid]);
-                    }
+            Transition {
+                from: "shown"; to: "hidden"
+                SequentialAnimation {
+                    UbuntuNumberAnimation { target: playerControlLoader; property: "anchors.bottomMargin"; duration: UbuntuAnimation.SlowDuration }
+                    ScriptAction { script: playerControlLoader.source = "" }
                 }
             }
-        });
-    }
-
-    function autoDownloadEpisodes(maxEpisodeDownload) {
-        console.log("[LOG]: Auto-downloading new episodes")
-        var db = Podcasts.init()
-        db.transaction(function (tx) {
-            var rs = tx.executeSql("SELECT rowid, * FROM Podcast ORDER BY name ASC");
-            for (var i=0; i < rs.rows.length; i++) {
-                var podcast = rs.rows.item(i);
-                var rs2 = tx.executeSql("SELECT rowid, * FROM Episode WHERE podcast=? ORDER BY published DESC", [rs.rows.item(i).rowid]);
-                var loopCount = maxEpisodeDownload > rs2.rows.length ? rs2.rows.length : maxEpisodeDownload
-                for (var j=0; j < loopCount; j++) {
-                    if (!rs2.rows.item(j).downloadedfile && !rs2.rows.item(j).listened) {
-                        downloader.addDownload(rs2.rows.item(j).guid, rs2.rows.item(j).audiourl)
-                        tx.executeSql("UPDATE Episode SET queued=1 WHERE guid = ?", [rs2.rows.item(j).guid]);
-                    }
-                }
-            }
-        });
+        ]
     }
 }

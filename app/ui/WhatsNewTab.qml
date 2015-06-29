@@ -1,6 +1,6 @@
-import QtQuick 2.3
+import QtQuick 2.4
 import QtMultimedia 5.0
-import Ubuntu.Components 1.1
+import Ubuntu.Components 1.2
 import QtQuick.Layouts 1.1
 import QtQuick.LocalStorage 2.0
 import Ubuntu.DownloadManager 0.1
@@ -33,7 +33,7 @@ Tab {
                         text: i18n.tr("Search Episode")
                         onTriggered: {
                             whatsNewPage.state = "search"
-                            searchField.forceActiveFocus()
+                            searchField.item.forceActiveFocus()
                         }
                     },
 
@@ -78,15 +78,13 @@ Tab {
                     text: i18n.tr("Back")
                     onTriggered: {
                         episodeList.forceActiveFocus()
-                        searchField.text = ""
                         whatsNewPage.state = "default"
                     }
                 }
 
-                contents: TextField {
+                contents: Loader {
                     id: searchField
-                    inputMethodHints: Qt.ImhNoPredictiveText
-                    placeholderText: i18n.tr("Search episode")
+                    sourceComponent: whatsNewPage.state === "search" ? searchFieldComponent : undefined
                     anchors.left: parent ? parent.left : undefined
                     anchors.right: parent ? parent.right : undefined
                     anchors.rightMargin: units.gu(2)
@@ -94,18 +92,37 @@ Tab {
             }
         ]
 
-        EmptyState {
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.verticalCenterOffset: Qt.inputMethod.visible ? units.gu(4) : 0
-            iconHeight: units.gu(12)
-            iconWidth: iconHeight + units.gu(10)
-            visible: whatsNewModel.count === 0 || sortedEpisodeModel.count === 0
-            iconSource: whatsNewModel.count === 0 ? Qt.resolvedUrl("../graphics/owlSearch.svg")
-                                                  : Qt.resolvedUrl("../graphics/notFound.svg")
-            title: whatsNewModel.count === 0 ? i18n.tr("No New Episodes")
-                                             : i18n.tr("No Episodes Found")
-            subTitle: whatsNewModel.count === 0 ? i18n.tr("No more episodes to listen to!")
-                                                : i18n.tr("No Episodes found matching the search term.")
+        Component {
+            id: searchFieldComponent
+            TextField {
+                inputMethodHints: Qt.ImhNoPredictiveText
+                placeholderText: i18n.tr("Search episode")
+            }
+        }
+
+        Loader {
+            id: emptyState
+
+            anchors {
+                left: parent.left
+                right: parent.right
+                margins: units.gu(2)
+                verticalCenter: parent.verticalCenter
+                verticalCenterOffset: Qt.inputMethod.visible ? units.gu(4) : 0
+            }
+
+            sourceComponent: whatsNewModel.count === 0 || sortedEpisodeModel.count === 0 ? emptyStateComponent : undefined
+        }
+
+        Component {
+            id: emptyStateComponent
+            EmptyState {
+                iconHeight: units.gu(12)
+                iconWidth: units.gu(22)
+                iconSource: whatsNewModel.count === 0 ? Qt.resolvedUrl("../graphics/owlSearch.svg") : Qt.resolvedUrl("../graphics/notFound.svg")
+                title: whatsNewModel.count === 0 ? i18n.tr("No New Episodes") : i18n.tr("No Episodes Found")
+                subTitle: whatsNewModel.count === 0 ? i18n.tr("No more episodes to listen to!") : i18n.tr("No Episodes found matching the search term.")
+            }
         }
 
         ListModel {
@@ -116,7 +133,8 @@ Tab {
             id: sortedEpisodeModel
             model: whatsNewModel
             filter.property: "name"
-            filter.pattern: RegExp(searchField.text, "gi")
+            filter.pattern: whatsNewPage.state === "search" && searchField.status == Loader.Ready ? RegExp(searchField.item.text, "gi")
+                                                                                                  : RegExp("", "gi")
         }
 
         onVisibleChanged: {
@@ -293,33 +311,33 @@ Tab {
                                 id: playIcon
                                 width: height
                                 height: listenText.height
-                                name: player.playbackState === MediaPlayer.PlayingState && currentGuid === popover.guid ? "media-playback-pause"
-                                                                                                                        : "media-playback-start"
+                                name: currentUrl != "" && playerLoader.item.playbackState === MediaPlayer.PlayingState && currentGuid === popover.guid ? "media-playback-pause"
+                                                                                                                                                       : "media-playback-start"
                             }
 
                             Label {
                                 id: playText
                                 color: UbuntuColors.darkGrey
-                                text: player.playbackState === MediaPlayer.PlayingState && currentGuid === popover.guid ? i18n.tr("Pause Episode")
-                                                                                                                        : i18n.tr("Play Episode")
+                                text: currentUrl != "" && playerLoader.item.playbackState === MediaPlayer.PlayingState && currentGuid === popover.guid ? i18n.tr("Pause Episode")
+                                                                                                                                                       : i18n.tr("Play Episode")
                             }
                         }
 
                         onClicked: {
                             var db = Podcasts.init();
                             db.transaction(function (tx) {
-                                if (currentGuid === popover.guid) {
-                                    if (player.playbackState === MediaPlayer.PlayingState) {
-                                        player.pause()
+                                if (currentGuid === popover.guid && currentUrl != "") {
+                                    if (playerLoader.item.playbackState === MediaPlayer.PlayingState) {
+                                        playerLoader.item.pause()
                                     } else {
-                                        player.play()
+                                        playerLoader.item.play()
                                     }
                                 } else {
                                     currentGuid = "";
-                                    player.source = popover.downloadedfile ? popover.downloadedfile : popover.audiourl;
+                                    currentUrl = popover.downloadedfile ? popover.downloadedfile : popover.audiourl;
                                     var rs = tx.executeSql("SELECT position FROM Episode WHERE guid=?", [popover.guid]);
-                                    player.play();
-                                    player.seek(rs.rows.item(0).position);
+                                    playerLoader.item.play();
+                                    playerLoader.item.seek(rs.rows.item(0).position);
                                     currentName = popover.name;
                                     currentArtist = popover.artist;
                                     currentImage = popover.image;
@@ -347,7 +365,6 @@ Tab {
             anchors.fill: parent
             model: sortedEpisodeModel
 
-            clip: true
             section.property: "diff"
             section.labelPositioning: ViewSection.InlineLabels
 
@@ -384,135 +401,55 @@ Tab {
                 height: units.gu(8)
             }
 
-            delegate: ListItem.Empty {
+            delegate: ListDelegate {
                 id: listItem
 
-                property bool expanded
+                coverArt: model.image !== undefined ? model.image : Qt.resolvedUrl("../graphics/podbird.png")
 
-                height: dataColumn.height + units.gu(2)
-                highlightWhenPressed: false
-                showDivider: false
+                title: model.name !== undefined ? model.name.trim() : "Undefined"
+                titleColor: expanded || currentGuid === model.guid || downloader.downloadingGuid === model.guid ? podbird.appTheme.focusText
+                                                                                                                : podbird.appTheme.baseText
 
-                onClicked: {
-                    expanded = !expanded;
+                subtitle: model.duration === 0 || model.duration === undefined ? model.artist
+                                                                               : Podcasts.formatEpisodeTime(model.duration) + " | " + model.artist
+
+                description: model.description
+
+                isDownloaded: model.downloadedfile ? true : false
+
+                showProgressBar: downloader.downloadingGuid === model.guid
+                isInDeterminateDownload: downloader.progress < 0 || downloader.progress > 100 && downloader.downloadingGuid === model.guid
+                progress: downloader.progress
+
+                actionButton.sourceComponent: contextualMenuComponent
+
+                Component {
+                    id: contextualMenuComponent
+                    ActionButton {
+                        id: contextualMenu
+
+                        width: units.gu(4)
+                        height: units.gu(4)
+
+                        iconName: "contextual-menu"
+                        color: showProgressBar || listItem.expanded ? podbird.appTheme.focusText
+                                                                        : podbird.appTheme.baseIcon
+                        onClicked: {
+                            var popover = PopupUtils.open(popoverComponent, contextualMenu)
+                            popover.queued = Qt.binding(function() { return whatsNewModel.get(index).queued })
+                            popover.guid = Qt.binding(function() { return model.guid })
+                            popover.audiourl = Qt.binding(function() { return model.audiourl })
+                            popover.downloadedfile = Qt.binding(function() { return whatsNewModel.get(index).downloadedfile })
+                            popover.index = Qt.binding(function() { return index })
+                            popover.name = Qt.binding(function() { return model.name })
+                            popover.artist = Qt.binding(function() { return model.artist })
+                            popover.image = Qt.binding(function() { return model.image })
+                        }
+                    }
                 }
 
-                Column {
-                    id: dataColumn
-
-                    spacing: units.gu(1)
-                    anchors.left: parent.left
-                    anchors.right: parent.right
-                    anchors.margins: units.gu(2)
-                    anchors.top: parent.top
-                    anchors.topMargin: units.gu(0.5)
-
-                    RowLayout {
-                        id: rowlayout
-
-                        width: parent.width
-                        height: imgFrame.height
-
-                        Image {
-                            id: imgFrame
-                            width: units.gu(6)
-                            height: width
-                            sourceSize.height: width
-                            sourceSize.width: width
-                            source: model.image
-                        }
-
-                        Item {
-                            width: units.gu(2)
-                            height: imgFrame.height
-                        }
-
-                        Column {
-                            id: titleColumn
-                            anchors.verticalCenter: imgFrame.verticalCenter
-                            Layout.fillWidth: true
-
-                            Label {
-                                text: model.name.trim()
-                                width: parent.width
-                                maximumLineCount: 2
-                                wrapMode: Text.WordWrap
-                                elide: Text.ElideRight
-                                color: listItem.expanded || currentGuid === model.guid || downloader.downloadingGuid === model.guid ? podbird.appTheme.focusText
-                                                                                                                                    : podbird.appTheme.baseText
-                            }
-
-                            Row {
-                                height:episodePublishDate.height
-                                width:parent.width
-                                spacing:units.gu(1)
-
-                                Icon{
-                                    height:episodePublishDate.height
-                                    width:height
-                                    name:"attachment"
-                                    visible: model.downloadedfile ? true : false
-                                }
-
-                                Label {
-                                    id: episodePublishDate
-                                    width: parent.width
-                                    text: model.duration === 0 || model.duration === undefined ? model.artist : Podcasts.formatEpisodeTime(model.duration) + " | " + model.artist
-                                    fontSize: "x-small"
-                                    elide: Text.ElideRight
-                                    color: podbird.appTheme.baseSubText
-                                }
-                            }
-                        }
-
-                        ActionButton {
-                            id: contextualMenu
-
-                            width: units.gu(5)
-                            height: units.gu(4)
-
-                            iconName: "contextual-menu"
-                            color: progressBar.visible || listItem.expanded ? podbird.appTheme.focusText
-                                                                            : podbird.appTheme.baseIcon
-                            onClicked: {
-                                var popover = PopupUtils.open(popoverComponent, contextualMenu)
-                                popover.queued = Qt.binding(function() { return model.queued })
-                                popover.guid = Qt.binding(function() { return model.guid })
-                                popover.audiourl = Qt.binding(function() { return model.audiourl })
-                                popover.downloadedfile = Qt.binding(function() { return whatsNewModel.get(index).downloadedfile })
-                                popover.index = Qt.binding(function() { return index })
-                                popover.name = Qt.binding(function() { return model.name })
-                                popover.artist = Qt.binding(function() { return model.artist })
-                                popover.image = Qt.binding(function() { return model.image })
-                            }
-                        }
-                    }
-
-                    CustomProgressBar {
-                        id: progressBar
-                        width: parent.width
-                        visible: downloader.downloadingGuid === model.guid
-                        indeterminateProgress: downloader.progress < 0 || downloader.progress > 100 && downloader.downloadingGuid === model.guid
-                        progress: downloader.progress
-                    }
-
-                    Label {
-                        id: desc
-                        text: model.description
-                        clip: true
-                        height: listItem.expanded ? contentHeight : 0
-                        wrapMode: Text.WordWrap
-                        width: parent.width
-                        fontSize: "small"
-                        color: podbird.appTheme.baseSubText
-                        linkColor: podbird.appTheme.linkText
-                        onLinkActivated: Qt.openUrlExternally(link)
-                        Behavior on height {
-                            UbuntuNumberAnimation {
-                                duration: UbuntuAnimation.BriskDuration
-                            }
-                        }
-                    }
+                onClicked: {
+                    expanded = !expanded
                 }
             }
 

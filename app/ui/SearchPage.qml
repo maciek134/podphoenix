@@ -16,9 +16,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick 2.3
+import QtQuick 2.4
 import QtQuick.Layouts 1.1
-import Ubuntu.Components 1.1
+import Ubuntu.Components 1.2
 import QtQuick.LocalStorage 2.0
 import Ubuntu.Components.Popups 1.0
 import Ubuntu.Components.ListItems 1.0 as ListItem
@@ -57,7 +57,7 @@ Page {
                     text: i18n.tr("Search Podcast")
                     onTriggered: {
                         searchPage.state = "search"
-                        searchField.forceActiveFocus()
+                        searchField.item.forceActiveFocus()
                     }
                 },
 
@@ -66,7 +66,7 @@ Page {
                     iconName: "add"
                     onTriggered: {
                         searchPage.state = "add"
-                        feedUrlField.forceActiveFocus()
+                        feedUrlField.item.forceActiveFocus()
                     }
                 }
             ]
@@ -80,25 +80,17 @@ Page {
                 text: i18n.tr("Back")
                 onTriggered: {
                     resultsView.forceActiveFocus()
-                    searchField.text = ""
+                    searchResults.clear()
                     searchPage.state = "default"
                 }
             }
 
-            contents: TextField {
+            contents: Loader {
                 id: searchField
-                inputMethodHints: Qt.ImhNoPredictiveText
-                placeholderText: i18n.tr("Search Podcast")
+                sourceComponent: searchPage.state === "search" ? searchFieldComponent : undefined
                 anchors.left: parent ? parent.left : undefined
                 anchors.right: parent ? parent.right : undefined
                 anchors.rightMargin: units.gu(2)
-                onTextChanged: {
-                    if (text.length > 2) {
-                        search(text)
-                    } else {
-                        searchResults.clear();
-                    }
-                }
             }
         },
 
@@ -110,7 +102,6 @@ Page {
                 text: i18n.tr("Back")
                 onTriggered: {
                     resultsView.forceActiveFocus()
-                    feedUrlField.text = ""
                     searchPage.state = "default"
                 }
             }
@@ -121,24 +112,46 @@ Page {
                     text: i18n.tr("Save Podcast")
                     onTriggered: {
                         resultsView.forceActiveFocus()
-                        subscribeFromFeed(feedUrlField.text);
+                        subscribeFromFeed(feedUrlField.item.text);
                     }
                 }
             ]
 
-            contents: TextField {
+            contents: Loader {
                 id: feedUrlField
-                inputMethodHints: Qt.ImhUrlCharactersOnly
-                placeholderText: i18n.tr("Feed URL")
+                sourceComponent: searchPage.state === "add" ? feedUrlComponent : undefined
                 anchors.left: parent ? parent.left : undefined
                 anchors.right: parent ? parent.right : undefined
-                onAccepted: {
-                    resultsView.forceActiveFocus()
-                    subscribeFromFeed(feedUrlField.text);
-                }
             }
         }
     ]
+
+    Component {
+        id: feedUrlComponent
+        TextField {
+            inputMethodHints: Qt.ImhUrlCharactersOnly
+            placeholderText: i18n.tr("Feed URL")
+            onAccepted: {
+                resultsView.forceActiveFocus()
+                subscribeFromFeed(feedUrlField.text);
+            }
+        }
+    }
+
+    Component {
+        id: searchFieldComponent
+        TextField {
+            inputMethodHints: Qt.ImhNoPredictiveText
+            placeholderText: i18n.tr("Search Podcast")
+            onTextChanged: {
+                if (text.length > 2) {
+                    search(text)
+                } else {
+                    searchResults.clear();
+                }
+            }
+        }
+    }
 
     Component {
         id: subscribeFailedDialog
@@ -156,15 +169,31 @@ Page {
         }
     }
 
-    EmptyState {
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.verticalCenterOffset: Qt.inputMethod.visible ? units.gu(4) : 0
-        iconHeight: units.gu(12)
-        iconWidth: iconHeight + units.gu(10)
-        visible: searchPage.state !== "search" && searchPage.state !== "add" ? true : searchResults.count === 0 && searchField.text.length > 2
-        iconSource: searchPage.state !== "search" ? Qt.resolvedUrl("../graphics/owlSearch.svg") : Qt.resolvedUrl("../graphics/notFound.svg")
-        title: searchPage.state !== "search" ? i18n.tr("Looking to add a new Podcast?") : i18n.tr("No Podcasts found")
-        subTitle: searchPage.state !== "search" ? i18n.tr("Click the 'magnifier' at the top to search or the 'plus' button to add by URL") : i18n.tr("No podcasts found matching the search term.")
+    Loader {
+        id: emptyState
+
+        anchors {
+            left: parent.left
+            right: parent.right
+            margins: units.gu(2)
+            verticalCenter: parent.verticalCenter
+            verticalCenterOffset: Qt.inputMethod.visible ? units.gu(4) : 0
+        }
+
+        sourceComponent: searchPage.state === "default" ? emptyStateComponent : searchResults.count === 0 && searchPage.state === "search" ? emptyStateComponent
+                                                                                                                                           : undefined
+    }
+
+    Component {
+        id: emptyStateComponent
+        EmptyState {
+            iconHeight: units.gu(12)
+            iconWidth: units.gu(22)
+            iconSource: searchPage.state !== "search" ? Qt.resolvedUrl("../graphics/owlSearch.svg") : Qt.resolvedUrl("../graphics/notFound.svg")
+            title: searchPage.state !== "search" ? i18n.tr("Looking to add a new Podcast?") : i18n.tr("No Podcasts found")
+            subTitle: searchPage.state !== "search" ? i18n.tr("Click the 'magnifier' at the top to search or the 'plus' button to add by URL")
+                                                      : i18n.tr("No podcasts found matching the search term.")
+        }
     }
 
     ListView {
@@ -187,129 +216,63 @@ Page {
             height: units.gu(7)
         }
 
-        delegate: ListItem.Empty {
+        delegate: ListDelegate {
             id: listItem
 
-            property bool expanded: false
             property bool fetchedDescription: false
 
-            height: dataColumn.height + units.gu(2)
-            showDivider: false
-            highlightWhenPressed: false
+            title: model.name
+            subtitle: model.artist
+            coverArt: model.image
+
+            // TRANSLATORS: The first argument here is the date of when the podcast was last updated followed by
+            // the podcast description.
+            description: i18n.tr("Last Updated: %1\n%2").arg(model.releaseDate.split("T")[0]).arg(model.description)
+
+            actionButton.sourceComponent: actionButtonComponent
+
+            Rectangle {
+                z: -1
+                anchors.fill: parent
+                opacity: 0.3
+                color: index % 2 === 0 ? podbird.appTheme.hightlightListView : "Transparent"
+            }
 
             onClicked: {
-                expanded = !expanded;
+                expanded = !expanded
                 if (expanded && !fetchedDescription) {
                     getPodcastDescription(model.feed, index)
                     fetchedDescription = true
                 }
             }
 
-            Rectangle {
-                anchors.fill: parent
-                opacity: 0.3
-                color: index % 2 === 0 ? podbird.appTheme.hightlightListView : "Transparent"
-            }
-
-            Column {
-                id: dataColumn
-
-                spacing: units.gu(1)
-                anchors.left: parent.left
-                anchors.right: parent.right
-                anchors.margins: units.gu(2)
-                anchors.top: parent.top
-                anchors.topMargin: units.gu(1)
-
-                RowLayout {
-                    id: titleRow
-
-                    width: parent.width
-                    height: imgFrame.height
-
-                    spacing: units.gu(2)
-
-                    Image {
-                        id: imgFrame
-                        width: units.gu(6)
-                        height: width
-                        sourceSize.height: width
-                        sourceSize.width: width
-                        source: model.image
-                    }
-
-                    Column {
-                        id: detailColumn
-
-                        anchors.verticalCenter: imgFrame.verticalCenter
-                        Layout.fillWidth: true
-
-                        Label {
-                            id: podcastTitle
-                            textFormat: Text.PlainText
-                            text: model.name
-                            width: parent.width
-                            fontSize: "medium"
-                            elide: Text.ElideRight
-                        }
-
-                        Label {
-                            id: episodeCount
-                            width: parent.width
-                            color: "#999999"
-                            text: model.artist
-                            fontSize: "x-small"
-                            elide: Text.ElideRight
-                        }
-                    }
-
-                    Button {
-                        anchors.right: parent.right
-                        text: !model.subscribed ? i18n.tr("Subscribe") : i18n.tr("Unsubscribe")
-                        color: !model.subscribed ? UbuntuColors.green : UbuntuColors.red
-                        onClicked: {
-                            if (!model.subscribed) {
-                                Podcasts.subscribe(model.artist, model.name, model.feed, model.image);
-                                imageDownloader.feed = model.feed;
-                                imageDownloader.download(model.image);
-                            } else {
-                                var db = Podcasts.init();
-                                db.transaction(function (tx) {
-                                    var rs = tx.executeSql("SELECT rowid FROM Podcast WHERE feed = ?", model.feed);
-                                    if (rs.rows.length !== 0) {
-                                        var podcast = rs.rows.item(0)
-                                        var rs2 = tx.executeSql("SELECT downloadedfile FROM Episode WHERE downloadedfile NOT NULL AND podcast=?", [podcast.rowid]);
-                                        for(var i = 0; i < rs2.rows.length; i++) {
-                                            fileManager.deleteFile(rs2.rows.item(i).downloadedfile);
-                                        }
-                                        tx.executeSql("DELETE FROM Episode WHERE podcast=?", [podcast.rowid]);
-                                        tx.executeSql("DELETE FROM Podcast WHERE rowid=?", [podcast.rowid]);
+            Component {
+                id: actionButtonComponent
+                Button {
+                    //anchors.right: parent.right
+                    text: !model.subscribed ? i18n.tr("Subscribe") : i18n.tr("Unsubscribe")
+                    color: !model.subscribed ? UbuntuColors.green : UbuntuColors.red
+                    onClicked: {
+                        if (!model.subscribed) {
+                            Podcasts.subscribe(model.artist, model.name, model.feed, model.image);
+                            imageDownloader.feed = model.feed;
+                            imageDownloader.download(model.image);
+                        } else {
+                            var db = Podcasts.init();
+                            db.transaction(function (tx) {
+                                var rs = tx.executeSql("SELECT rowid FROM Podcast WHERE feed = ?", model.feed);
+                                if (rs.rows.length !== 0) {
+                                    var podcast = rs.rows.item(0)
+                                    var rs2 = tx.executeSql("SELECT downloadedfile FROM Episode WHERE downloadedfile NOT NULL AND podcast=?", [podcast.rowid]);
+                                    for(var i = 0; i < rs2.rows.length; i++) {
+                                        fileManager.deleteFile(rs2.rows.item(i).downloadedfile);
                                     }
-                                });
-                            }
-                            tabs.selectedTabIndex = 1;
-                            searchField.text = ""
+                                    tx.executeSql("DELETE FROM Episode WHERE podcast=?", [podcast.rowid]);
+                                    tx.executeSql("DELETE FROM Podcast WHERE rowid=?", [podcast.rowid]);
+                                }
+                            });
                         }
-                    }
-                }
-
-                Label {
-                    id: desc
-                    clip: true
-                    // TRANSLATORS: The first argument here is the date of when the podcast was last updated followed by
-                    // the podcast description.
-                    text: i18n.tr("Last Updated: %1\n%2").arg(model.releaseDate.split("T")[0]).arg(model.description)
-                    height: listItem.expanded ? contentHeight : 0
-                    wrapMode: Text.WordWrap
-                    width: parent.width
-                    fontSize: "small"
-                    color: podbird.appTheme.baseSubText
-                    linkColor: podbird.appTheme.linkText
-                    onLinkActivated: Qt.openUrlExternally(link)
-                    Behavior on height {
-                        UbuntuNumberAnimation {
-                            duration: UbuntuAnimation.BriskDuration
-                        }
+                        tabs.selectedTabIndex = 1;
                     }
                 }
             }
@@ -375,7 +338,6 @@ Page {
                             if (c.childNodes[j].nodeName === "description") {
                                 description = c.childNodes[j].childNodes[0].nodeValue
                                 if (description != undefined) {
-                                    console.log(description)
                                     searchResults.setProperty(index, "description", description)
                                     return
                                 }
@@ -401,8 +363,8 @@ Page {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status < 200 || xhr.status > 299 || xhr.responseXML === null) {
                     PopupUtils.open(subscribeFailedDialog);
-                    feedUrlField.text = feed
                     searchPage.state = "add"
+                    feedUrlField.item.text = feed
                     return;
                 }
 
@@ -431,8 +393,8 @@ Page {
                     tabs.selectedTabIndex = 1;
                 } else {
                     PopupUtils.open(subscribeFailedDialog);
-                    feedUrlField.text = feed
                     searchPage.state = "add"
+                    feedUrlField.item.text = feed
                     return;
                 }
             }
