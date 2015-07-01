@@ -1,139 +1,144 @@
-# German translation for podbird
+# Latvian translation for podbird
 # Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
 # This file is distributed under the same license as the podbird package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
+# Rudolfs Mazurs <rudolfs.mazurs@gmail.com>, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-06-25 17:48+0100\n"
-"PO-Revision-Date: 2015-06-30 13:10+0000\n"
-"Last-Translator: Tobias Bannert <Unknown>\n"
-"Language-Team: German <de@li.org>\n"
+"PO-Revision-Date: 2015-06-30 19:39+0000\n"
+"Last-Translator: Rūdolfs Mazurs <Unknown>\n"
+"Language-Team: Latviešu <>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2;\n"
 "X-Launchpad-Export-Date: 2015-07-01 05:56+0000\n"
 "X-Generator: Launchpad (build 17578)\n"
+"Language: lv\n"
 
 #: ../app/components/Walkthrough.qml:90
 msgid "Skip"
-msgstr "Überspringen"
+msgstr "Izlaist"
 
 #. TRANSLATORS: this refers to a number of songs greater than one. The actual number will be prepended to the string automatically (plural forms are not yet fully supported in usermetrics, the library that displays that string)
 #: ../app/podbird.qml:172
 #, qt-format
 msgid "Podcasts listened to today: <b>%1</b>"
-msgstr "Heute gehörte Podcasts: <b>%1</b>"
+msgstr "Šodien dzirdētās podraides: <b>%1</b>"
 
 #: ../app/podbird.qml:173
 msgid "No podcasts listened to today"
-msgstr "Heute keine Podcasts gehört"
+msgstr "Šodien nav dzirdētu podraižu"
 
 #: ../app/podbird.qml:254
 msgid "Podcasts"
-msgstr "Podcasts"
+msgstr "Podraides"
 
 #: ../app/podbird.qml:268
 msgid "Add New Podcasts"
-msgstr "Neue Podcasts hinzufügen"
+msgstr "Pievienot jaunas podraides"
 
 #: ../app/podbird.qml:283
 msgid "Settings"
-msgstr "Einstellungen"
+msgstr "Iestatījumi"
 
 #: ../app/podcasts.js:179
 #, no-c-format, qt-format
 msgid "%1 hr %2 min"
-msgstr "%1 h %2 min"
+msgstr "%1 st %2 min"
 
 #: ../app/podcasts.js:188
 #, no-c-format, qt-format
 msgid "%1 hr"
-msgstr "%1 h"
+msgstr "%1 st"
 
 #: ../app/podcasts.js:196
 #, no-c-format, qt-format
 msgid "%1 min"
-msgstr "%1 Minute"
+msgstr "%1 min"
 
 #. TRANSLATORS: About as in information about the app
 #: ../app/settings/About.qml:25 ../app/ui/SettingsPage.qml:127
 msgid "About"
-msgstr "Über"
+msgstr "Par"
 
 #. TRANSLATORS: Podbird version number e.g Version 0.6
 #: ../app/settings/About.qml:61
 #, qt-format
 msgid "Version %1"
-msgstr "Version %1"
+msgstr "Versija %1"
 
 #: ../app/settings/About.qml:82
 msgid "Released under the terms of the GNU GPL v3"
-msgstr "Veröffentlicht unter den Bedingungen der »GNU GPL v3«"
+msgstr "Izlaists zem GNU GPL v3 licences"
 
 #: ../app/settings/About.qml:92
 #, qt-format
 msgid "Source code available on %1"
-msgstr "Quelltext verfügbar auf %1"
+msgstr "Pirmkods pieejams šeit: %1"
 
 #: ../app/settings/CleanSetting.qml:27
 msgid "Delete older than"
-msgstr "Älter als löschen"
+msgstr "Dzēst vecākas par"
 
 #: ../app/settings/CleanSetting.qml:33 ../app/settings/DownloadSetting.qml:33
 msgid "Never"
-msgstr "Nie"
+msgstr "Nekad"
 
 #: ../app/settings/CleanSetting.qml:34
 #, qt-format
 msgid "%1 day"
 msgid_plural "%1 days"
-msgstr[0] "%1 Tag"
-msgstr[1] "%1 Tage"
+msgstr[0] "%1 dienu"
+msgstr[1] "%1 dienām"
+msgstr[2] "%1 dienām"
 
 #: ../app/settings/CleanSetting.qml:35 ../app/settings/CleanSetting.qml:36
 #: ../app/settings/CleanSetting.qml:37
 #, qt-format
 msgid "%1 month"
 msgid_plural "%1 months"
-msgstr[0] "%1 Monat"
-msgstr[1] "%1 Monate"
+msgstr[0] "%1 mēnesi"
+msgstr[1] "%1 mēnešiem"
+msgstr[2] "%1 mēnešiem"
 
 #: ../app/settings/CleanSetting.qml:38
 #, qt-format
 msgid "%1 year"
 msgid_plural "%1 years"
-msgstr[0] "%1 Jahr"
-msgstr[1] "%1 Jahre"
+msgstr[0] "%1 gadu"
+msgstr[1] "%1 gadiem"
+msgstr[2] "%1 gadiem"
 
 #: ../app/settings/Credits.qml:26 ../app/ui/SettingsPage.qml:135
 msgid "Credits"
-msgstr "Mitwirkende"
+msgstr "Veidotāji"
 
 #. TRANSLATORS: The first argument is the name of creator of Podbird (Michael Sheldon)
 #: ../app/settings/Credits.qml:33
 #, qt-format
 msgid "%1 (Creator)"
-msgstr "%1 (Urheber)"
+msgstr "%1 (veidotājs)"
 
 #: ../app/settings/Credits.qml:33 ../app/settings/Credits.qml:34
 msgid "Developers"
-msgstr "Entwickler"
+msgstr "Izstrādātāji"
 
 #: ../app/settings/Credits.qml:35
 msgid "Designer"
-msgstr "Designer"
+msgstr "Dizaineris"
 
 #: ../app/settings/Credits.qml:36
 msgid "Translators"
-msgstr "Übersetzer"
+msgstr "Tulkotāji"
 
 #: ../app/settings/DownloadSetting.qml:27
 msgid "Download at most"
-msgstr "Maximal herunterladen"
+msgstr "Lejupielādēt ne vairāk kā"
 
 #: ../app/settings/DownloadSetting.qml:34
 #: ../app/settings/DownloadSetting.qml:35
@@ -142,18 +147,19 @@ msgstr "Maximal herunterladen"
 #, qt-format
 msgid "%1 episode"
 msgid_plural "%1 episodes"
-msgstr[0] "%1 Episode"
-msgstr[1] "%1 Episoden"
+msgstr[0] "%1 epizodi"
+msgstr[1] "%1 epizodes"
+msgstr[2] "%1 epizožu"
 
 #: ../app/settings/ThemeSetting.qml:28 ../app/ui/SettingsPage.qml:49
 msgid "Theme"
-msgstr "Stil"
+msgstr "Motīvs"
 
 #. TRANSLATORS: The argument here is the name of the application (Podbird)
 #: ../app/settings/ThemeSetting.qml:40
 #, qt-format
 msgid "Restart %1"
-msgstr "%1 neu starten"
+msgstr "Pārstartēt %1"
 
 #. TRANSLATORS: The argument here is the name of the application (Podbird)
 #: ../app/settings/ThemeSetting.qml:42
@@ -163,108 +169,111 @@ msgid ""
 "necessary to avoid any strange behaviour in the app. We apologize for the "
 "inconvenience"
 msgstr ""
+"Lai mainītu lietotnes motīvu, jāpārstartē %1. Tas ir vajadzīgs, lai lietotnē "
+"izvairītos no dīvainas uzvedības. Mēs atvainojamies par sagādātajām "
+"neērtībām."
 
 #: ../app/settings/ThemeSetting.qml:45
 msgid "Exit App"
-msgstr "App beenden"
+msgstr "Iziet no lietotnes"
 
 #. TRANSLATORS: Light Theme
 #: ../app/settings/ThemeSetting.qml:59 ../app/ui/SettingsPage.qml:50
 msgid "Light"
-msgstr "Hell"
+msgstr "Gaišs"
 
 #. TRANSLATORS: Dark Theme
 #: ../app/settings/ThemeSetting.qml:61 ../app/ui/SettingsPage.qml:50
 msgid "Dark"
-msgstr "Dunkel"
+msgstr "Tumšs"
 
 #: ../app/ui/EpisodesPage.qml:34
 msgid "Podcast"
-msgstr "Podcast"
+msgstr "Podraide"
 
 #: ../app/ui/EpisodesPage.qml:90 ../app/ui/WhatsNewTab.qml:33
 msgid "Search Episode"
-msgstr "Episode suchen"
+msgstr "Meklēt epizodi"
 
 #: ../app/ui/EpisodesPage.qml:99 ../app/ui/WhatsNewTab.qml:42
 msgid "Mark all listened"
-msgstr "Alle als gehört markieren"
+msgstr "Atzīmēt visas kā dzirdētas"
 
 #: ../app/ui/EpisodesPage.qml:110 ../app/ui/EpisodesPage.qml:194
 #: ../app/ui/SearchPage.qml:253
 msgid "Unsubscribe"
-msgstr "Abbestellen"
+msgstr "Atrakstīties"
 
 #: ../app/ui/EpisodesPage.qml:125 ../app/ui/PodcastsTab.qml:88
 #: ../app/ui/SearchPage.qml:80 ../app/ui/SearchPage.qml:102
 #: ../app/ui/WhatsNewTab.qml:78
 msgid "Back"
-msgstr "Zurück"
+msgstr "Atpakaļ"
 
 #: ../app/ui/EpisodesPage.qml:147 ../app/ui/WhatsNewTab.qml:99
 msgid "Search episode"
-msgstr "Episode suchen"
+msgstr "Meklēt epizodi"
 
 #: ../app/ui/EpisodesPage.qml:191
 msgid "Unsubscribe Confirmation"
-msgstr "Abbestellen bestätigen"
+msgstr "Atrakstīšanās apstiprinājums"
 
 #: ../app/ui/EpisodesPage.qml:192
 #, qt-format
 msgid "Are you sure you want to unsubscribe from <b>%1</b>?"
-msgstr "Sind Sie sicher, dass Sie <b>%1</b> abbestellen möchten?"
+msgstr "Vai tiešām vēlaties atrakstīties no <b>%1</b>?"
 
 #: ../app/ui/EpisodesPage.qml:211
 msgid "Cancel"
-msgstr "Abbrechen"
+msgstr "Atcelt"
 
 #: ../app/ui/EpisodesPage.qml:265 ../app/ui/WhatsNewTab.qml:231
 msgid "Delete local file"
-msgstr "Lokale Dateien löschen"
+msgstr "Dzēst lokālo datni"
 
 #: ../app/ui/EpisodesPage.qml:266 ../app/ui/WhatsNewTab.qml:232
 msgid "Episode queued for download"
-msgstr "Episoden die zum Herunterladen anstehen"
+msgstr "Epizode ievietota rindā uz lejupielādēšanu"
 
 #: ../app/ui/EpisodesPage.qml:267 ../app/ui/WhatsNewTab.qml:233
 msgid "Download episode"
-msgstr "Episode herunterladen"
+msgstr "Lejupielādēt epizodi"
 
 #: ../app/ui/EpisodesPage.qml:316
 msgid "Mark episode unlistened"
-msgstr "Episode als ungehört markieren"
+msgstr "Atzīmēt epizodi kā nedzirdētu"
 
 #: ../app/ui/EpisodesPage.qml:316 ../app/ui/WhatsNewTab.qml:281
 msgid "Mark episode listened"
-msgstr "Episode als gehört markieren"
+msgstr "Atzīmēt epizodi kā dzirdētu"
 
 #: ../app/ui/EpisodesPage.qml:357
 msgid "No more episodes"
-msgstr "Keine weiteren Episoden"
+msgstr "Vairs nav epizožu"
 
 #: ../app/ui/EpisodesPage.qml:357
 msgid "No episodes found"
-msgstr "Keine Episoden gefunden"
+msgstr "Nav atrastu epizožu"
 
 #: ../app/ui/EpisodesPage.qml:358
 msgid "All episodes have been listened to."
-msgstr "Alle Episoden gehört."
+msgstr "Visas epizodes ir dzirdētas."
 
 #: ../app/ui/EpisodesPage.qml:358
 msgid "No episodes found matching the search term."
-msgstr "Keine Episode gefunden die dem Suchkriterium entsprechen."
+msgstr "Neviena epizode neatbilst meklētajam tekstam."
 
 #: ../app/ui/EpisodesPage.qml:405
 msgid "Unheard"
-msgstr "Nicht gehört"
+msgstr "Nav dzirdēta"
 
 #: ../app/ui/EpisodesPage.qml:405
 msgid "Listened"
-msgstr "Gehört"
+msgstr "Dzirdēta"
 
 #: ../app/ui/NowPlayingPage.qml:29
 msgid "Now Playing"
-msgstr "Aktueller Titel"
+msgstr "Pašlaik atskaņo"
 
 #. TRANSLATORS: The string shown in the UI is -15s to denote the number of seconds that the podcast playback will skip backward.
 #: ../app/ui/NowPlayingPage.qml:199
@@ -281,85 +290,86 @@ msgstr "+%1s"
 #: ../app/ui/PodcastsTab.qml:66 ../app/ui/SearchPage.qml:57
 #: ../app/ui/SearchPage.qml:145
 msgid "Search Podcast"
-msgstr "Podcast suchen"
+msgstr "Meklēt podraides"
 
 #: ../app/ui/PodcastsTab.qml:75
 msgid "Grid View"
-msgstr "Gitteransicht"
+msgstr "Režģa skats"
 
 #: ../app/ui/PodcastsTab.qml:75
 msgid "List View"
-msgstr "Listenansicht"
+msgstr "Saraksta skats"
 
 #: ../app/ui/PodcastsTab.qml:109
 msgid "Search podcast"
-msgstr "Podcast suchen"
+msgstr "Meklēt podraidi"
 
 #: ../app/ui/PodcastsTab.qml:139
 msgid "No Podcast Subscriptions"
-msgstr "Keine Podcast-Abonnements"
+msgstr "Nav podraižu abonementu"
 
 #: ../app/ui/PodcastsTab.qml:139
 msgid "No Podcasts Found"
-msgstr "Keine Podcasts gefunden"
+msgstr "Nav atrastu podraižu"
 
 #: ../app/ui/PodcastsTab.qml:140
 msgid ""
 "You haven't subscribed to any podcasts yet, visit the 'Find New Podcasts' "
 "page to add some."
 msgstr ""
-"Sie haben noch keine Podcasts abonniert, zum hinzuzufügen bitte die Seite "
-"»Neue Podcasts finden« öffnen."
+"Jūs vēl neesat abonējis nevienu podraidi, apmeklējiet “Atrast jaunas "
+"podraides” lapu, lai kādu pievienotu."
 
 #: ../app/ui/PodcastsTab.qml:141 ../app/ui/SearchPage.qml:195
 msgid "No podcasts found matching the search term."
-msgstr "Keine  Podcasts gefunden die den Suchkriterien entsprechen."
+msgstr "Neviena podraide neatbilst meklētajam tekstam."
 
 #: ../app/ui/PodcastsTab.qml:174 ../app/ui/PodcastsTab.qml:216
 #, qt-format
 msgid "%1 unheard episode"
 msgid_plural "%1 unheard episodes"
-msgstr[0] "%1 ungehörte Episode"
-msgstr[1] "%1 ungehörte Episoden"
+msgstr[0] "%1 nedzirdēta epizode"
+msgstr[1] "%1 nedzirdētas epizodes"
+msgstr[2] "%1 nedzirdētas epizodes"
 
 #: ../app/ui/SearchPage.qml:65
 msgid "Add Podcast"
-msgstr "Podcast hinzufügen"
+msgstr "Pievienot podraidi"
 
 #: ../app/ui/SearchPage.qml:112
 msgid "Save Podcast"
-msgstr "Podcast speichern"
+msgstr "Saglabāt podraidi"
 
 #: ../app/ui/SearchPage.qml:133
 msgid "Feed URL"
-msgstr "Feed-URL"
+msgstr "Plūsmas URL"
 
 #: ../app/ui/SearchPage.qml:160
 msgid "Unable to subscribe"
-msgstr "Abonnieren fehlgeschlagen"
+msgstr "Nevarēja abonēt"
 
 #: ../app/ui/SearchPage.qml:161
 msgid "Please check the URL and try again"
-msgstr "Bitte die Adresse überprüfen und es erneut versuchen"
+msgstr "Pārbaudiet URL un mēģiniet vēlreiz"
 
 #: ../app/ui/SearchPage.qml:163
 msgid "Close"
-msgstr "Schließen"
+msgstr "Aizvērt"
 
 #: ../app/ui/SearchPage.qml:193
 msgid "Looking to add a new Podcast?"
-msgstr "Wollen Sie neue Podcasts hinzufügen?"
+msgstr "Meklē jaunu podraidi?"
 
 #: ../app/ui/SearchPage.qml:193
 msgid "No Podcasts found"
-msgstr "Keine Podcasts gefunden"
+msgstr "Nav atrastu podraižu"
 
 #: ../app/ui/SearchPage.qml:194
 msgid ""
 "Click the 'magnifier' at the top to search or the 'plus' button to add by URL"
 msgstr ""
-"Klicken Sie auf die »Lupe« am oberen Rand, um zu Suchen oder auf den »Plus«-"
-"Knopf, um eine Adresse einzugeben"
+"Spiediet uz “lupas” meklēšanas augšpusē vai uz “plus” pogas un pievienojiet "
+"ar URL"
 
 #. TRANSLATORS: The first argument here is the date of when the podcast was last updated followed by
 #. the podcast description.
@@ -369,103 +379,104 @@ msgid ""
 "Last Updated: %1\n"
 "%2"
 msgstr ""
-"Letzte Aktualisierung:%1\n"
+"Pēdējo reizi atjaunināts: %1\n"
 "%2"
 
 #: ../app/ui/SearchPage.qml:253
 msgid "Subscribe"
-msgstr "Abonnieren"
+msgstr "Abonēt"
 
 #: ../app/ui/SearchPage.qml:319
 msgid "Not Available"
-msgstr "Nicht verfügbar"
+msgstr "Nav pieejams"
 
 #: ../app/ui/SettingsPage.qml:43
 msgid "General Settings"
-msgstr "Allgemeine Einstellungen"
+msgstr "Vispārīgi iestatījumi"
 
 #: ../app/ui/SettingsPage.qml:55
 msgid "Podcast Episode Settings"
-msgstr "Podcast-Episoden-Einstellungen"
+msgstr "Podraides epizodes iestatījumi"
 
 #: ../app/ui/SettingsPage.qml:60
 msgid "Hide listened episodes"
-msgstr "Gehörte Episoden verstecken"
+msgstr "Slēpt dzirdētās epizodes"
 
 #: ../app/ui/SettingsPage.qml:79
 msgid "Automatically delete old episodes"
-msgstr "Automatisch alte Episoden löschen"
+msgstr "Automātiski dzēst vecas epizodes"
 
 #: ../app/ui/SettingsPage.qml:87
 msgid ""
 "Delete episodes that are older than a given number of days for each podcast"
-msgstr "Episoden die älter sind als eine gewisse Anzahl von Tagen löschen"
+msgstr ""
+"Katrai podraidei dzēst epizodes, kas ir vecākas nekā norādītais dienu skaits"
 
 #: ../app/ui/SettingsPage.qml:104
 msgid "Automatically download new episodes"
-msgstr "Automatische neue Episoden herunterladen"
+msgstr "Automātiski lejupielādēt jaunas epizodes"
 
 #: ../app/ui/SettingsPage.qml:112
 msgid "Default number of new episodes to download for each podcast"
-msgstr "Vorgabewert von neuen Episoden die heruntergeladen werden"
+msgstr "Jauno epizožu noklusējuma skaits, ko lejupielādēt katrai podraidei"
 
 #. TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
 #. that doesn't fit into any other category.
 #: ../app/ui/SettingsPage.qml:120
 msgid "Misc."
-msgstr "Sonstiges"
+msgstr "Dažādi"
 
 #: ../app/ui/SettingsPage.qml:142
 msgid "Report Bug"
-msgstr "Fehler melden"
+msgstr "Ziņot par kļūdu"
 
 #: ../app/ui/WhatsNewTab.qml:15
 msgid "What's New"
-msgstr "Was ist neu?"
+msgstr "Kas jauns"
 
 #: ../app/ui/WhatsNewTab.qml:56
 msgid "Download all"
-msgstr "Alle Herunterladen"
+msgstr "Lejupielādēt visu"
 
 #: ../app/ui/WhatsNewTab.qml:123
 msgid "No New Episodes"
-msgstr "Keine neuen Episoden"
+msgstr "Nav jaunu epizožu"
 
 #: ../app/ui/WhatsNewTab.qml:123
 msgid "No Episodes Found"
-msgstr "Keine Episoden gefunden"
+msgstr "Nav atrastu epizožu"
 
 #: ../app/ui/WhatsNewTab.qml:124
 msgid "No more episodes to listen to!"
-msgstr "Keine weiteren Episoden gefunden!"
+msgstr "Vairs nav epizožu, ko klausīties!"
 
 #: ../app/ui/WhatsNewTab.qml:124
 msgid "No Episodes found matching the search term."
-msgstr "Keine Episoden gefunden, die den Suchkriterien entsprechen."
+msgstr "Neviena epizode neatbilst meklētajam tekstam."
 
 #: ../app/ui/WhatsNewTab.qml:321
 msgid "Pause Episode"
-msgstr "Episode pausieren"
+msgstr "Pauzēt epizodi"
 
 #: ../app/ui/WhatsNewTab.qml:322
 msgid "Play Episode"
-msgstr "Folge abspielen"
+msgstr "Atskaņot epizodi"
 
 #: ../app/ui/WhatsNewTab.qml:386
 msgid "Today"
-msgstr "Heute"
+msgstr "Šodien"
 
 #: ../app/ui/WhatsNewTab.qml:390
 msgid "Yesterday"
-msgstr "Gestern"
+msgstr "Vakar"
 
 #: ../app/ui/WhatsNewTab.qml:394
 msgid "Older"
-msgstr "Älter"
+msgstr "Vecāka"
 
 #: ../app/welcomewizard/Slide1.qml:42
 msgid "Welcome to Podbird"
-msgstr "Wilkommen bei Podbird"
+msgstr "Laipni lūdzam Podbird"
 
 #: ../app/welcomewizard/Slide1.qml:50
 msgid ""
@@ -474,45 +485,45 @@ msgid ""
 "\n"
 "Chirp Chirp..."
 msgstr ""
-"Genießen Sie ihre Podcasts mit Podbird, der Podcast-Verwaltung für Ubuntu.\n"
+"Izbaudiet savus mīļākos šovus ar Podbird, dzīvīgākais Ubuntu podraižu "
+"pārvaldnieks.\n"
 "\n"
-"Zwitscher zwitscher …"
+"Čiep čiep..."
 
 #: ../app/welcomewizard/Slide1.qml:72
 msgid "Swipe to move between pages"
-msgstr "Wischen um zwischen Seiten zu wechseln"
+msgstr "Velciet, lai pārvietotos starp lapām"
 
 #: ../app/welcomewizard/Slide2.qml:45
 msgid "Discover New Podcasts"
-msgstr "Neue Podcasts finden"
+msgstr "Atklājiet jaunas podraides"
 
 #: ../app/welcomewizard/Slide2.qml:62
 msgid ""
 "Podbird uses the iTunes® database to provide access to a huge collection of "
 "podcasts. You can also add podcasts by their URL."
 msgstr ""
-"Podbird benutzt die iTunes®-Datenbank, um Ihnen Zugriff auf eine riesige "
-"Sammlung von Podcasts zu geben. Sie können Podcasts auch über eine Adresse "
-"hinzufügen."
+"Podbird izmanto iTunes® datubāzi, lai sniegtu pieeju milzīgai podraižu "
+"kolekcijai. Jūs varat arī pievienot podraides ar URL."
 
 #: ../app/welcomewizard/Slide3.qml:45
 msgid "Smart Settings"
-msgstr "Intelligente Einstellungen"
+msgstr "Gudrie iestatījumi"
 
 #: ../app/welcomewizard/Slide3.qml:62
 msgid ""
 "Podbird can optionally download new episodes and clean up old episodes "
 "automatically, this can be enabled from the settings page."
 msgstr ""
-"Podbird kann optional neue Episoden herunterladen und alte automatisch "
-"bereinigen. Dieses können Sie in den Einstellungen aktivieren."
+"Podbird var arī automātiski lejupielādēt jaunās epizodes un izdzēst vecās. "
+"To var ieslēgt iestatījumu lapā."
 
 #. TRANSLATORS: This text should be in a language different from the language set by the user.
 #. For instance, if the app was in english, then it is appropriate to set this string as
 #. Hallo or Bonjour etc to symbolize the internationalization feature in podbird.
 #: ../app/welcomewizard/Slide4.qml:48
 msgid "Hallo! Bonjour!"
-msgstr "Hello! Bonjour!"
+msgstr "Hallo! Bonjour!"
 
 #: ../app/welcomewizard/Slide4.qml:67
 #, qt-format
@@ -520,12 +531,11 @@ msgid ""
 "Podbird is available in over 15 languages and is translated by the %1 "
 "community"
 msgstr ""
-"Podbird ist in über 15 Sprachen verfügbar und wird von der %1-Gemeinschaft "
-"übersetzt"
+"Podbird ir pieejams vairāk kā 15 valodās un to ir iztulkojusi %1 kopiena"
 
 #: ../app/welcomewizard/Slide5.qml:45
 msgid "Support"
-msgstr "Unterstützung"
+msgstr "Atbalsts"
 
 #. TRANSLATORS: The %1 points to a url defined in html format <a href=\link\>Link</a>.
 #: ../app/welcomewizard/Slide5.qml:65
@@ -534,21 +544,21 @@ msgid ""
 "If you find any bugs or have any feature requests, let us know on our "
 "project page at %1"
 msgstr ""
-"Wenn Sie einen Fehler gefunden haben oder neue Funktionen hinzugefügt haben "
-"möchten, teilen Sie es uns auf unsere Projektseite %1 mit"
+"Ja atrodat kādas kļūdas vai vēlaties pieprasīt jaunu funkcionalitāti, dodiet "
+"mums ziņu projekta lapā %1"
 
 #: ../app/welcomewizard/Slide6.qml:45
 msgid "Enjoy"
-msgstr "viel Spaß"
+msgstr "Izbaudiet"
 
 #: ../app/welcomewizard/Slide6.qml:62
 msgid "We hope you enjoy using Podbird!"
-msgstr "Wir hoffen Sie genießen Podbird!"
+msgstr "Mēs ceram, ka jums patiks Podbird!"
 
 #: ../app/welcomewizard/Slide6.qml:76
 msgid "Finish"
-msgstr "Fertig stellen"
+msgstr "Pabeigt"
 
 #: /home/mike/src/podbird/build-podbird-Ubuntu_Device2_GCC_armhf_ubuntu_sdk_15_04_vivid-Default/po/Podbird.desktop.in.h:1
 msgid "The chirpiest podcast manager for Ubuntu"
-msgstr "Die zwitschernde Podcast-Verwaltung für Ubuntu"
+msgstr "Dzīvīgākais Ubuntu podraižu pārvaldnieks."
