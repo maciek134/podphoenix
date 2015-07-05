@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-06-25 17:48+0100\n"
-"PO-Revision-Date: 2015-06-24 21:50+0000\n"
-"Last-Translator: Bartosz Kosiorek <Unknown>\n"
+"PO-Revision-Date: 2015-07-04 10:54+0000\n"
+"Last-Translator: Krzysztof Tataradziński <Unknown>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Launchpad-Export-Date: 2015-06-26 05:06+0000\n"
-"X-Generator: Launchpad (build 17578)\n"
+"X-Launchpad-Export-Date: 2015-07-05 05:57+0000\n"
+"X-Generator: Launchpad (build 17597)\n"
 
 #: ../app/components/Walkthrough.qml:90
 msgid "Skip"
@@ -39,7 +39,7 @@ msgstr "Podcasty"
 
 #: ../app/podbird.qml:268
 msgid "Add New Podcasts"
-msgstr "Dodaj Nowy Podcast"
+msgstr "Dodaj nowy podcast"
 
 #: ../app/podbird.qml:283
 msgid "Settings"
@@ -48,17 +48,17 @@ msgstr "Ustawienia"
 #: ../app/podcasts.js:179
 #, no-c-format, qt-format
 msgid "%1 hr %2 min"
-msgstr "%1 h %2 min"
+msgstr "%1 godz. %2 min."
 
 #: ../app/podcasts.js:188
 #, no-c-format, qt-format
 msgid "%1 hr"
-msgstr "%1 h"
+msgstr "%1 godz."
 
 #: ../app/podcasts.js:196
 #, no-c-format, qt-format
 msgid "%1 min"
-msgstr "%1 min"
+msgstr "%1 min."
 
 #. TRANSLATORS: About as in information about the app
 #: ../app/settings/About.qml:25 ../app/ui/SettingsPage.qml:127
@@ -193,7 +193,7 @@ msgstr "Wyszukaj epizod"
 
 #: ../app/ui/EpisodesPage.qml:99 ../app/ui/WhatsNewTab.qml:42
 msgid "Mark all listened"
-msgstr "Zaznacz jako odsłuchany"
+msgstr "Zaznacz wszystkie jako odsłuchane"
 
 #: ../app/ui/EpisodesPage.qml:110 ../app/ui/EpisodesPage.qml:194
 #: ../app/ui/SearchPage.qml:253
@@ -212,7 +212,7 @@ msgstr "Znajdź odcinek"
 
 #: ../app/ui/EpisodesPage.qml:191
 msgid "Unsubscribe Confirmation"
-msgstr "Anuluj potwierdzenie"
+msgstr "Potwierdzenie rezygnacji"
 
 #: ../app/ui/EpisodesPage.qml:192
 #, qt-format
@@ -229,7 +229,7 @@ msgstr "Usuń plik lokalny"
 
 #: ../app/ui/EpisodesPage.qml:266 ../app/ui/WhatsNewTab.qml:232
 msgid "Episode queued for download"
-msgstr "Odcinków w kolejce do pobrania"
+msgstr "Odcinek w kolejce do pobrania"
 
 #: ../app/ui/EpisodesPage.qml:267 ../app/ui/WhatsNewTab.qml:233
 msgid "Download episode"
@@ -241,7 +241,7 @@ msgstr "Zaznacz odcinek jako nieodsłuchany"
 
 #: ../app/ui/EpisodesPage.qml:316 ../app/ui/WhatsNewTab.qml:281
 msgid "Mark episode listened"
-msgstr "Zaznacz odsłuchane odcinki"
+msgstr "Zaznacz odcinek jako odsłuchany"
 
 #: ../app/ui/EpisodesPage.qml:357
 msgid "No more episodes"
@@ -334,11 +334,11 @@ msgstr "Dodaj Podcast"
 
 #: ../app/ui/SearchPage.qml:112
 msgid "Save Podcast"
-msgstr "Zapisz Podcast"
+msgstr "Zapisz podcast"
 
 #: ../app/ui/SearchPage.qml:133
 msgid "Feed URL"
-msgstr "Kanał URL"
+msgstr "Adres URL RSS"
 
 #: ../app/ui/SearchPage.qml:160
 msgid "Unable to subscribe"

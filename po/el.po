@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-06-25 17:48+0100\n"
-"PO-Revision-Date: 2015-06-25 11:23+0000\n"
-"Last-Translator: Constantinos Koniaris <kostas291@yahoo.com>\n"
+"PO-Revision-Date: 2015-07-04 14:00+0000\n"
+"Last-Translator: Aggelos Arnaoutis <angelosarn@hotmail.com>\n"
 "Language-Team: Greek <el@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2015-06-26 05:06+0000\n"
-"X-Generator: Launchpad (build 17578)\n"
+"X-Launchpad-Export-Date: 2015-07-05 05:57+0000\n"
+"X-Generator: Launchpad (build 17597)\n"
 
 #: ../app/components/Walkthrough.qml:90
 msgid "Skip"
@@ -133,7 +133,7 @@ msgstr "Μεταφραστές"
 
 #: ../app/settings/DownloadSetting.qml:27
 msgid "Download at most"
-msgstr ""
+msgstr "Λήψη το πολύ μέχρι"
 
 #: ../app/settings/DownloadSetting.qml:34
 #: ../app/settings/DownloadSetting.qml:35
@@ -153,7 +153,7 @@ msgstr "Θέμα"
 #: ../app/settings/ThemeSetting.qml:40
 #, qt-format
 msgid "Restart %1"
-msgstr ""
+msgstr "Επανεκκίνηση %1"
 
 #. TRANSLATORS: The argument here is the name of the application (Podbird)
 #: ../app/settings/ThemeSetting.qml:42
@@ -163,10 +163,13 @@ msgid ""
 "necessary to avoid any strange behaviour in the app. We apologize for the "
 "inconvenience"
 msgstr ""
+"Απαιτείται επανεκκίνηση %1 για αλλαγή του θέματος εφαρμογής. Αυτό είναι "
+"απαραίτητο, για να αποφευχθεί τυχόν παράξενη συμπεριφορά στην εφαρμογή. "
+"Απολογούμαστε για την ενόχληση."
 
 #: ../app/settings/ThemeSetting.qml:45
 msgid "Exit App"
-msgstr ""
+msgstr "Έξοδος εφαρμογής"
 
 #. TRANSLATORS: Light Theme
 #: ../app/settings/ThemeSetting.qml:59 ../app/ui/SettingsPage.qml:50
@@ -253,7 +256,7 @@ msgstr "Όλα τα επεισόδια έχουν ακουστεί ήδη."
 
 #: ../app/ui/EpisodesPage.qml:358
 msgid "No episodes found matching the search term."
-msgstr "Δε βρέθηκαν επεισόδια που να αντιστοιχούν στον όρο αναζήτησης."
+msgstr "Δεν βρέθηκαν επεισόδια που να αντιστοιχούν στον όρο αναζήτησης."
 
 #: ../app/ui/EpisodesPage.qml:405
 msgid "Unheard"
@@ -298,7 +301,7 @@ msgstr "Αναζήτηση φορητής εκπομπής"
 
 #: ../app/ui/PodcastsTab.qml:139
 msgid "No Podcast Subscriptions"
-msgstr "Δε υπάρχουν συνδρομές σε φορητές εκπομπές"
+msgstr "Δεv υπάρχουν συνδρομές σε φορητές εκπομπές"
 
 #: ../app/ui/PodcastsTab.qml:139
 msgid "No Podcasts Found"
@@ -350,16 +353,18 @@ msgstr "Κλείσιμο"
 
 #: ../app/ui/SearchPage.qml:193
 msgid "Looking to add a new Podcast?"
-msgstr ""
+msgstr "Επιθυμείτε να προσθέσετε νέα φορητή εκπομπή;"
 
 #: ../app/ui/SearchPage.qml:193
 msgid "No Podcasts found"
-msgstr ""
+msgstr "Δεν βρέθηκαν φορητές εκπομπές"
 
 #: ../app/ui/SearchPage.qml:194
 msgid ""
 "Click the 'magnifier' at the top to search or the 'plus' button to add by URL"
 msgstr ""
+"Επιλέγξετε τον 'μεγενθυτικό φακό' που είναι πάνω για να κάνετε αναζήτηση ή "
+"το 'συν' κουμπί για να προσθέσετε από διεύθυνση URL"
 
 #. TRANSLATORS: The first argument here is the date of when the podcast was last updated followed by
 #. the podcast description.
@@ -386,11 +391,11 @@ msgstr "Γενικές ρυθμίσεις"
 
 #: ../app/ui/SettingsPage.qml:55
 msgid "Podcast Episode Settings"
-msgstr ""
+msgstr "Ρυθμίσεις επεισοδίων φορητής εκπομπής"
 
 #: ../app/ui/SettingsPage.qml:60
 msgid "Hide listened episodes"
-msgstr ""
+msgstr "Απόκρυψη ακουσμένων επεισοδίων"
 
 #: ../app/ui/SettingsPage.qml:79
 msgid "Automatically delete old episodes"
@@ -407,7 +412,7 @@ msgstr "Αυτόματη λήψη νέων επεισοδίων"
 
 #: ../app/ui/SettingsPage.qml:112
 msgid "Default number of new episodes to download for each podcast"
-msgstr ""
+msgstr "Αρχικός αριθμός νέων επεισοδίων προς λήψη για κάθε φορητή εκπομπή"
 
 #. TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
 #. that doesn't fit into any other category.
@@ -437,11 +442,12 @@ msgstr "Δε βρέθηκαν επεισόδια"
 
 #: ../app/ui/WhatsNewTab.qml:124
 msgid "No more episodes to listen to!"
-msgstr ""
+msgstr "Δε υπάρχουν άλλα επεισόδια για ακρόαση!"
 
 #: ../app/ui/WhatsNewTab.qml:124
 msgid "No Episodes found matching the search term."
 msgstr ""
+"Δε βρέθηκαν επεισόδια που να αντιστοιχούν σε αυτόν τον όρο αναζήτησης."
 
 #: ../app/ui/WhatsNewTab.qml:321
 msgid "Pause Episode"
@@ -457,15 +463,15 @@ msgstr "Σήμερα"
 
 #: ../app/ui/WhatsNewTab.qml:390
 msgid "Yesterday"
-msgstr "Χθες"
+msgstr "Εχθές"
 
 #: ../app/ui/WhatsNewTab.qml:394
 msgid "Older"
-msgstr ""
+msgstr "Παλαιότερο"
 
 #: ../app/welcomewizard/Slide1.qml:42
 msgid "Welcome to Podbird"
-msgstr ""
+msgstr "Καλώς ήλθατε στο Podbird"
 
 #: ../app/welcomewizard/Slide1.qml:50
 msgid ""
@@ -477,17 +483,20 @@ msgstr ""
 
 #: ../app/welcomewizard/Slide1.qml:72
 msgid "Swipe to move between pages"
-msgstr ""
+msgstr "Σύρετε για να αλλάξετε σελίδα"
 
 #: ../app/welcomewizard/Slide2.qml:45
 msgid "Discover New Podcasts"
-msgstr ""
+msgstr "Ανακαλύψτε νέες φορητές εκπομπές"
 
 #: ../app/welcomewizard/Slide2.qml:62
 msgid ""
 "Podbird uses the iTunes® database to provide access to a huge collection of "
 "podcasts. You can also add podcasts by their URL."
 msgstr ""
+"Το Podbird χρησιμοποιεί τη βάση δεδομένων του iTunes® για να προσφέρει "
+"πρόσβαση σε μια τεράστια συλλογή φορητών εκπομπών. Είναι επίσης δυνατή η "
+"προσθήκη φορητών εκπομπών από την διεύθυνση URL τους."
 
 #: ../app/welcomewizard/Slide3.qml:45
 msgid "Smart Settings"
@@ -498,6 +507,9 @@ msgid ""
 "Podbird can optionally download new episodes and clean up old episodes "
 "automatically, this can be enabled from the settings page."
 msgstr ""
+"Το Podbird μπορεί προαιρετικά να λαμβάνει νέα επεισόδια και να εκκαθαρίζει "
+"τα παλιά αυτόματα, το παραπάνω μπορεί να ενεργοποιηθεί από τη σελίδα "
+"ρυθμίσεων."
 
 #. TRANSLATORS: This text should be in a language different from the language set by the user.
 #. For instance, if the app was in english, then it is appropriate to set this string as
@@ -535,7 +547,7 @@ msgstr "Απολαύστε"
 
 #: ../app/welcomewizard/Slide6.qml:62
 msgid "We hope you enjoy using Podbird!"
-msgstr ""
+msgstr "Ελπίζουμε ότι απολαμβάνετε την χρήση του Podbird!"
 
 #: ../app/welcomewizard/Slide6.qml:76
 msgid "Finish"
