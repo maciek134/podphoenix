@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-06-25 17:48+0100\n"
-"PO-Revision-Date: 2015-07-04 10:54+0000\n"
+"PO-Revision-Date: 2015-08-22 22:26+0000\n"
 "Last-Translator: Krzysztof Tataradziński <Unknown>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -16,8 +16,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Launchpad-Export-Date: 2015-07-05 05:57+0000\n"
-"X-Generator: Launchpad (build 17597)\n"
+"X-Launchpad-Export-Date: 2015-08-23 06:42+0000\n"
+"X-Generator: Launchpad (build 17690)\n"
 
 #: ../app/components/Walkthrough.qml:90
 msgid "Skip"
@@ -158,7 +158,7 @@ msgstr "Motyw"
 #: ../app/settings/ThemeSetting.qml:40
 #, qt-format
 msgid "Restart %1"
-msgstr ""
+msgstr "Uruchom ponownie %1"
 
 #. TRANSLATORS: The argument here is the name of the application (Podbird)
 #: ../app/settings/ThemeSetting.qml:42
@@ -168,10 +168,13 @@ msgid ""
 "necessary to avoid any strange behaviour in the app. We apologize for the "
 "inconvenience"
 msgstr ""
+"Aby zatwierdzić zmiany wyglądu, uruchom ponownie %1. Jest to niezbędne do "
+"uniknięcia nieprawidłowego działania aplikacji. Przepraszamy za "
+"niedogodności."
 
 #: ../app/settings/ThemeSetting.qml:45
 msgid "Exit App"
-msgstr ""
+msgstr "Wyłącz aplikację"
 
 #. TRANSLATORS: Light Theme
 #: ../app/settings/ThemeSetting.qml:59 ../app/ui/SettingsPage.qml:50
