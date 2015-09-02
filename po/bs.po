@@ -1,4 +1,4 @@
-# Greek translation for podbird
+# Bosnian translation for podbird
 # Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
 # This file is distributed under the same license as the podbird package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
@@ -8,132 +8,136 @@ msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-06-25 17:48+0100\n"
-"PO-Revision-Date: 2015-09-01 09:24+0000\n"
-"Last-Translator: Constantinos Koniaris <kostas291@yahoo.com>\n"
-"Language-Team: Greek <el@li.org>\n"
+"PO-Revision-Date: 2015-09-01 16:29+0000\n"
+"Last-Translator: Kenan Gutić <Unknown>\n"
+"Language-Team: Bosnian <bs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Launchpad-Export-Date: 2015-09-02 05:54+0000\n"
 "X-Generator: Launchpad (build 17706)\n"
 
 #: ../app/components/Walkthrough.qml:90
 msgid "Skip"
-msgstr "Παράβλεψη"
+msgstr "Preskoči"
 
 #. TRANSLATORS: this refers to a number of songs greater than one. The actual number will be prepended to the string automatically (plural forms are not yet fully supported in usermetrics, the library that displays that string)
 #: ../app/podbird.qml:172
 #, qt-format
 msgid "Podcasts listened to today: <b>%1</b>"
-msgstr "Φορητές εκπομπές που ακούστηκαν σήμερα: <b>%1</b>"
+msgstr "Podcastova slušanih do danas: <b>%1</b>"
 
 #: ../app/podbird.qml:173
 msgid "No podcasts listened to today"
-msgstr "Δεν ακούστηκαν φορητές εκπομπές σήμερα"
+msgstr "Niste slušali nijedan podcast do danas"
 
 #: ../app/podbird.qml:254
 msgid "Podcasts"
-msgstr "Φορητές εκπομπές"
+msgstr "Podcastovi"
 
 #: ../app/podbird.qml:268
 msgid "Add New Podcasts"
-msgstr "Προσθήκη νέων φορητών εκπομπών"
+msgstr "Dodaj novi podcast"
 
 #: ../app/podbird.qml:283
 msgid "Settings"
-msgstr "Ρυθμίσεις"
+msgstr "Postavke"
 
 #: ../app/podcasts.js:179
 #, no-c-format, qt-format
 msgid "%1 hr %2 min"
-msgstr "%1 ώρες %2 λεπτά"
+msgstr "%1 h %2 min"
 
 #: ../app/podcasts.js:188
 #, no-c-format, qt-format
 msgid "%1 hr"
-msgstr "%1 ώρες"
+msgstr "%1 h"
 
 #: ../app/podcasts.js:196
 #, no-c-format, qt-format
 msgid "%1 min"
-msgstr "%1 λεπτά"
+msgstr "%1 min"
 
 #. TRANSLATORS: About as in information about the app
 #: ../app/settings/About.qml:25 ../app/ui/SettingsPage.qml:127
 msgid "About"
-msgstr "Περί"
+msgstr "O aplikaciji"
 
 #. TRANSLATORS: Podbird version number e.g Version 0.6
 #: ../app/settings/About.qml:61
 #, qt-format
 msgid "Version %1"
-msgstr "Έκδοση %1"
+msgstr "Verzija %1"
 
 #: ../app/settings/About.qml:82
 msgid "Released under the terms of the GNU GPL v3"
-msgstr "Διατίθεται σύμφωνα με τους όρους της GNU GLP v3"
+msgstr "Objavljeno pod uslovima GNU GLP v3 licence"
 
 #: ../app/settings/About.qml:92
 #, qt-format
 msgid "Source code available on %1"
-msgstr "Ο πηγαίος κώδικας είναι διαθέσιμος στο %1"
+msgstr "Izvorni kod je dostupan na %1"
 
 #: ../app/settings/CleanSetting.qml:27
 msgid "Delete older than"
-msgstr "Διαγραφή παλαιότερων από"
+msgstr "Obriši starije od"
 
 #: ../app/settings/CleanSetting.qml:33 ../app/settings/DownloadSetting.qml:33
 msgid "Never"
-msgstr "Ποτέ"
+msgstr "Nikad"
 
 #: ../app/settings/CleanSetting.qml:34
 #, qt-format
 msgid "%1 day"
 msgid_plural "%1 days"
-msgstr[0] "%1 ημέρα"
-msgstr[1] "%1 ημέρες"
+msgstr[0] "%1 dan"
+msgstr[1] "%1 dana"
+msgstr[2] "%1 dana"
 
 #: ../app/settings/CleanSetting.qml:35 ../app/settings/CleanSetting.qml:36
 #: ../app/settings/CleanSetting.qml:37
 #, qt-format
 msgid "%1 month"
 msgid_plural "%1 months"
-msgstr[0] "%1 μήνας"
-msgstr[1] "%1 μήνες"
+msgstr[0] "%1 mjesec"
+msgstr[1] "%1 mjeseca"
+msgstr[2] "%1 mjeseci"
 
 #: ../app/settings/CleanSetting.qml:38
 #, qt-format
 msgid "%1 year"
 msgid_plural "%1 years"
-msgstr[0] "%1 έτος"
-msgstr[1] "%1 έτη"
+msgstr[0] "%1 godina"
+msgstr[1] "%1 godine"
+msgstr[2] "%1 godina"
 
 #: ../app/settings/Credits.qml:26 ../app/ui/SettingsPage.qml:135
 msgid "Credits"
-msgstr "Μνεία"
+msgstr "Zasluge"
 
 #. TRANSLATORS: The first argument is the name of creator of Podbird (Michael Sheldon)
 #: ../app/settings/Credits.qml:33
 #, qt-format
 msgid "%1 (Creator)"
-msgstr "%1 (Δημιουργός)"
+msgstr "%1 (Kreator)"
 
 #: ../app/settings/Credits.qml:33 ../app/settings/Credits.qml:34
 msgid "Developers"
-msgstr "Προγραμματιστές"
+msgstr "Programeri"
 
 #: ../app/settings/Credits.qml:35
 msgid "Designer"
-msgstr "Σχεδιαστής"
+msgstr "Dizajner"
 
 #: ../app/settings/Credits.qml:36
 msgid "Translators"
-msgstr "Μεταφραστές"
+msgstr "Prevodioci"
 
 #: ../app/settings/DownloadSetting.qml:27
 msgid "Download at most"
-msgstr "Λήψη το πολύ μέχρι"
+msgstr "Preuzmi najviše"
 
 #: ../app/settings/DownloadSetting.qml:34
 #: ../app/settings/DownloadSetting.qml:35
@@ -142,18 +146,19 @@ msgstr "Λήψη το πολύ μέχρι"
 #, qt-format
 msgid "%1 episode"
 msgid_plural "%1 episodes"
-msgstr[0] "%1 επεισόδιο"
-msgstr[1] "%1 επεισόδια"
+msgstr[0] "%1 epizoda"
+msgstr[1] "%1 epizode"
+msgstr[2] "%1 epizoda"
 
 #: ../app/settings/ThemeSetting.qml:28 ../app/ui/SettingsPage.qml:49
 msgid "Theme"
-msgstr "Θέμα"
+msgstr "Tema"
 
 #. TRANSLATORS: The argument here is the name of the application (Podbird)
 #: ../app/settings/ThemeSetting.qml:40
 #, qt-format
 msgid "Restart %1"
-msgstr "Επανεκκίνηση %1"
+msgstr "Ponovo pokreni %1"
 
 #. TRANSLATORS: The argument here is the name of the application (Podbird)
 #: ../app/settings/ThemeSetting.qml:42
@@ -163,208 +168,206 @@ msgid ""
 "necessary to avoid any strange behaviour in the app. We apologize for the "
 "inconvenience"
 msgstr ""
-"Απαιτείται επανεκκίνηση %1 για αλλαγή του θέματος εφαρμογής. Αυτό είναι "
-"απαραίτητο, για να αποφευχθεί τυχόν παράξενη συμπεριφορά στην εφαρμογή. "
-"Απολογούμαστε για την ενόχληση."
+"Morate ponovo pokrenuti %1 za promjenu teme. Ovo je neophodno kako bi se "
+"izbjeglo nepredviđeno ponašanje aplikacije. Izvinjavamo se na neugdnostima"
 
 #: ../app/settings/ThemeSetting.qml:45
 msgid "Exit App"
-msgstr "Έξοδος εφαρμογής"
+msgstr "Napusti aplikaciju"
 
 #. TRANSLATORS: Light Theme
 #: ../app/settings/ThemeSetting.qml:59 ../app/ui/SettingsPage.qml:50
 msgid "Light"
-msgstr "Φωτεινό"
+msgstr "Svijetla"
 
 #. TRANSLATORS: Dark Theme
 #: ../app/settings/ThemeSetting.qml:61 ../app/ui/SettingsPage.qml:50
 msgid "Dark"
-msgstr "Σκοτεινό"
+msgstr "Tamna"
 
 #: ../app/ui/EpisodesPage.qml:34
 msgid "Podcast"
-msgstr "Φορητή εκπομπή"
+msgstr "Podcast"
 
 #: ../app/ui/EpisodesPage.qml:90 ../app/ui/WhatsNewTab.qml:33
 msgid "Search Episode"
-msgstr "Αναζήτηση επεισοδίου"
+msgstr "Traži epizode"
 
 #: ../app/ui/EpisodesPage.qml:99 ../app/ui/WhatsNewTab.qml:42
 msgid "Mark all listened"
-msgstr "Σημείωση όλων ως ακουσμένα"
+msgstr "Označi najslušanije"
 
 #: ../app/ui/EpisodesPage.qml:110 ../app/ui/EpisodesPage.qml:194
 #: ../app/ui/SearchPage.qml:253
 msgid "Unsubscribe"
-msgstr "Κατάργηση συνδρομής"
+msgstr "Otkaži pretplatu"
 
 #: ../app/ui/EpisodesPage.qml:125 ../app/ui/PodcastsTab.qml:88
 #: ../app/ui/SearchPage.qml:80 ../app/ui/SearchPage.qml:102
 #: ../app/ui/WhatsNewTab.qml:78
 msgid "Back"
-msgstr "Πίσω"
+msgstr "Nazad"
 
 #: ../app/ui/EpisodesPage.qml:147 ../app/ui/WhatsNewTab.qml:99
 msgid "Search episode"
-msgstr "Αναζήτηση επεισοδίου"
+msgstr "Traži epizodu"
 
 #: ../app/ui/EpisodesPage.qml:191
 msgid "Unsubscribe Confirmation"
-msgstr "Επιβεβαίωση κατάργησης συνδρομής"
+msgstr "Potvrda otkazivanja pretplate"
 
 #: ../app/ui/EpisodesPage.qml:192
 #, qt-format
 msgid "Are you sure you want to unsubscribe from <b>%1</b>?"
-msgstr ""
-"Είστε σίγουρος ότι θέλετε να καταργήσετε τη συνδρομή σας στο <b>%1</b>;"
+msgstr "Jeste li sigurni da želite otkazati pretplatu za <b>%1</b>?"
 
 #: ../app/ui/EpisodesPage.qml:211
 msgid "Cancel"
-msgstr "Ακύρωση"
+msgstr "Odustani"
 
 #: ../app/ui/EpisodesPage.qml:265 ../app/ui/WhatsNewTab.qml:231
 msgid "Delete local file"
-msgstr "Διαγραφή τοπικού αρχείου"
+msgstr "Obriši lokalnu datoteku"
 
 #: ../app/ui/EpisodesPage.qml:266 ../app/ui/WhatsNewTab.qml:232
 msgid "Episode queued for download"
-msgstr "Το επεισόδιο προστέθηκε στην ουρά προς λήψη"
+msgstr "Epizoda je postavljena za preuzimanje"
 
 #: ../app/ui/EpisodesPage.qml:267 ../app/ui/WhatsNewTab.qml:233
 msgid "Download episode"
-msgstr "Λήψη επεισοδίου"
+msgstr "Preuzmi epizodu"
 
 #: ../app/ui/EpisodesPage.qml:316
 msgid "Mark episode unlistened"
-msgstr "Σημείωση του επεισοδίου ως μη ακουσμένο"
+msgstr "Označi epizodu kao nepreslušanu"
 
 #: ../app/ui/EpisodesPage.qml:316 ../app/ui/WhatsNewTab.qml:281
 msgid "Mark episode listened"
-msgstr "Σημείωση του επεισοδίου ως ακουσμένο"
+msgstr "Označi epizodu kao preslušanu"
 
 #: ../app/ui/EpisodesPage.qml:357
 msgid "No more episodes"
-msgstr "Δεν υπάρχουν άλλα επεισόδια"
+msgstr "Nema više epizoda"
 
 #: ../app/ui/EpisodesPage.qml:357
 msgid "No episodes found"
-msgstr "Δε βρέθηκαν επεισόδια"
+msgstr "Nema pronađenih epizoda"
 
 #: ../app/ui/EpisodesPage.qml:358
 msgid "All episodes have been listened to."
-msgstr "Όλα τα επεισόδια έχουν ακουστεί ήδη."
+msgstr "Sve preslušane epizode."
 
 #: ../app/ui/EpisodesPage.qml:358
 msgid "No episodes found matching the search term."
-msgstr "Δεν βρέθηκαν επεισόδια που να αντιστοιχούν στον όρο αναζήτησης."
+msgstr "Nema pronađenih epizoda koje se poklapaju sa traženim pojmom."
 
 #: ../app/ui/EpisodesPage.qml:405
 msgid "Unheard"
-msgstr "Μη Ακουσμένα"
+msgstr "Nepreslušano"
 
 #: ../app/ui/EpisodesPage.qml:405
 msgid "Listened"
-msgstr "Ακουσμένα"
+msgstr "Preslušano"
 
 #: ../app/ui/NowPlayingPage.qml:29
 msgid "Now Playing"
-msgstr "Αναπαράγεται τώρα"
+msgstr "Sada svira"
 
 #. TRANSLATORS: The string shown in the UI is -15s to denote the number of seconds that the podcast playback will skip backward.
 #: ../app/ui/NowPlayingPage.qml:199
 #, no-c-format, qt-format
 msgid "-%1s"
-msgstr "-%1δ"
+msgstr "-%1s"
 
 #. TRANSLATORS: The string shown in the UI is +15s to denote the number of seconds that the podcast playback will skip forward.
 #: ../app/ui/NowPlayingPage.qml:260
 #, no-c-format, qt-format
 msgid "+%1s"
-msgstr "+%1δ"
+msgstr "+%1s"
 
 #: ../app/ui/PodcastsTab.qml:66 ../app/ui/SearchPage.qml:57
 #: ../app/ui/SearchPage.qml:145
 msgid "Search Podcast"
-msgstr "Αναζήτηση φορητής εκπομπής"
+msgstr "Pretraži podcast"
 
 #: ../app/ui/PodcastsTab.qml:75
 msgid "Grid View"
-msgstr "Προβολή πλέγματος"
+msgstr "Mrežni pregled"
 
 #: ../app/ui/PodcastsTab.qml:75
 msgid "List View"
-msgstr "Προβολή λίστας"
+msgstr "Pregled u spisku"
 
 #: ../app/ui/PodcastsTab.qml:109
 msgid "Search podcast"
-msgstr "Αναζήτηση φορητής εκπομπής"
+msgstr "Pretraži podcast"
 
 #: ../app/ui/PodcastsTab.qml:139
 msgid "No Podcast Subscriptions"
-msgstr "Δεv υπάρχουν συνδρομές σε φορητές εκπομπές"
+msgstr "Nema podcast pretplata"
 
 #: ../app/ui/PodcastsTab.qml:139
 msgid "No Podcasts Found"
-msgstr "Δεν βρέθηκαν φορητές εκπομπές"
+msgstr "Nije pronađen nijedan podcast"
 
 #: ../app/ui/PodcastsTab.qml:140
 msgid ""
 "You haven't subscribed to any podcasts yet, visit the 'Find New Podcasts' "
 "page to add some."
 msgstr ""
-"Δεν έχετε καμία συνδρομή σε φορητές εκπομπές ακόμα, επισκεφτείτε τη σελίδα "
-"'Αναζήτηση νέων φορητών εκπομπών' για να προσθέσετε κάποιες."
+"Niste se pretplatili ni na jedan podcast do sada, posjetite \"Nađi novi "
+"podcast\" stranicu kako bi ste dodali neki."
 
 #: ../app/ui/PodcastsTab.qml:141 ../app/ui/SearchPage.qml:195
 msgid "No podcasts found matching the search term."
-msgstr ""
-"Δεν βρέθηκαν φορητές εκπομπές που να αντιστοιχούν στον όρο αναζήτησης."
+msgstr "Nema pronađenih podcasta koji se poklapaju sa traženim pojmom."
 
 #: ../app/ui/PodcastsTab.qml:174 ../app/ui/PodcastsTab.qml:216
 #, qt-format
 msgid "%1 unheard episode"
 msgid_plural "%1 unheard episodes"
-msgstr[0] "%1 μη ακουσμένο επεισόδιο"
-msgstr[1] "%1 μη ακουσμένα επεισόδια"
+msgstr[0] "%1 nepreslušana epizoda"
+msgstr[1] "%1 nepreslušane epizode"
+msgstr[2] "%1 nepreslušanih epizoda"
 
 #: ../app/ui/SearchPage.qml:65
 msgid "Add Podcast"
-msgstr "Προσθήκη φορητής εκπομπής"
+msgstr "Dodaj podcast"
 
 #: ../app/ui/SearchPage.qml:112
 msgid "Save Podcast"
-msgstr "Αποθήκευση φορητής εκπομπής"
+msgstr "Sačuvaj podcast"
 
 #: ../app/ui/SearchPage.qml:133
 msgid "Feed URL"
-msgstr "Διεύθυνση ροής"
+msgstr "Adresa"
 
 #: ../app/ui/SearchPage.qml:160
 msgid "Unable to subscribe"
-msgstr "Αδυναμία εγγραφής"
+msgstr "Pretplata se ne može izvršiti"
 
 #: ../app/ui/SearchPage.qml:161
 msgid "Please check the URL and try again"
-msgstr "Παρακαλώ ελέγξετε τη διεύθυνση URL και προσπαθήστε ξανά"
+msgstr "Provjerite adresu i pokušajte ponovo"
 
 #: ../app/ui/SearchPage.qml:163
 msgid "Close"
-msgstr "Κλείσιμο"
+msgstr "Zatvori"
 
 #: ../app/ui/SearchPage.qml:193
 msgid "Looking to add a new Podcast?"
-msgstr "Επιθυμείτε να προσθέσετε νέα φορητή εκπομπή;"
+msgstr "Želite dodati novi podacast?"
 
 #: ../app/ui/SearchPage.qml:193
 msgid "No Podcasts found"
-msgstr "Δεν βρέθηκαν φορητές εκπομπές"
+msgstr "Nema pronađenih podcasta"
 
 #: ../app/ui/SearchPage.qml:194
 msgid ""
 "Click the 'magnifier' at the top to search or the 'plus' button to add by URL"
 msgstr ""
-"Επιλέγξετε τον 'μεγενθυτικό φακό' που είναι πάνω για να κάνετε αναζήτηση ή "
-"το 'συν' κουμπί για να προσθέσετε από διεύθυνση URL"
+"Kliknite na \"povećalo\" na vrhu za pretragu ili \"plus\" tipku za dodavanje "
+"adrese"
 
 #. TRANSLATORS: The first argument here is the date of when the podcast was last updated followed by
 #. the podcast description.
@@ -374,106 +377,104 @@ msgid ""
 "Last Updated: %1\n"
 "%2"
 msgstr ""
-"Τελευταία Ανανέωση: %1\n"
+"Zadnje ažuriranje: %1\n"
 "%2"
 
 #: ../app/ui/SearchPage.qml:253
 msgid "Subscribe"
-msgstr "Εγγραφή"
+msgstr "Pretplati se"
 
 #: ../app/ui/SearchPage.qml:319
 msgid "Not Available"
-msgstr "Μη Διαθέσιμο"
+msgstr "Nije dostupno"
 
 #: ../app/ui/SettingsPage.qml:43
 msgid "General Settings"
-msgstr "Γενικές ρυθμίσεις"
+msgstr "Opšte postavke"
 
 #: ../app/ui/SettingsPage.qml:55
 msgid "Podcast Episode Settings"
-msgstr "Ρυθμίσεις επεισοδίων φορητής εκπομπής"
+msgstr "Postavke epizode podcasta"
 
 #: ../app/ui/SettingsPage.qml:60
 msgid "Hide listened episodes"
-msgstr "Απόκρυψη ακουσμένων επεισοδίων"
+msgstr "Sakrij preslušane epizode"
 
 #: ../app/ui/SettingsPage.qml:79
 msgid "Automatically delete old episodes"
-msgstr "Αυτόματη διαγραφή παλαιών επεισοδίων"
+msgstr "Automatski obriši stare epizode"
 
 #: ../app/ui/SettingsPage.qml:87
 msgid ""
 "Delete episodes that are older than a given number of days for each podcast"
 msgstr ""
-"Διαγραφή επεισοδίων που είναι παλαιότερα ενός συγκεκριμένου αριθμού ημερών "
-"για κάθε φορητή εκπομπή"
+"Obriši epizode koje su starije od određenog broja dana za svaki podcast"
 
 #: ../app/ui/SettingsPage.qml:104
 msgid "Automatically download new episodes"
-msgstr "Αυτόματη λήψη νέων επεισοδίων"
+msgstr "Automatski preuzmi nove epizode"
 
 #: ../app/ui/SettingsPage.qml:112
 msgid "Default number of new episodes to download for each podcast"
-msgstr "Αρχικός αριθμός νέων επεισοδίων προς λήψη για κάθε φορητή εκπομπή"
+msgstr "Početni broj novih epizoda za preuzimanje za svaki podcast"
 
 #. TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
 #. that doesn't fit into any other category.
 #: ../app/ui/SettingsPage.qml:120
 msgid "Misc."
-msgstr "Διάφορα"
+msgstr "Razno."
 
 #: ../app/ui/SettingsPage.qml:142
 msgid "Report Bug"
-msgstr "Αναφορά σφάλματος"
+msgstr "Prijavi grešku"
 
 #: ../app/ui/WhatsNewTab.qml:15
 msgid "What's New"
-msgstr "Τι νέο υπάρχει"
+msgstr "Šta je novo"
 
 #: ../app/ui/WhatsNewTab.qml:56
 msgid "Download all"
-msgstr "Λήψη όλων"
+msgstr "Preuzmi sve"
 
 #: ../app/ui/WhatsNewTab.qml:123
 msgid "No New Episodes"
-msgstr "Δεν υπάρχουν νέα επεισόδια"
+msgstr "Nema novih epizoda"
 
 #: ../app/ui/WhatsNewTab.qml:123
 msgid "No Episodes Found"
-msgstr "Δε βρέθηκαν επεισόδια"
+msgstr "Nema novih epizoda"
 
 #: ../app/ui/WhatsNewTab.qml:124
 msgid "No more episodes to listen to!"
-msgstr "Δε υπάρχουν άλλα επεισόδια για ακρόαση!"
+msgstr "Nema više epizoda za slušanje"
 
 #: ../app/ui/WhatsNewTab.qml:124
 msgid "No Episodes found matching the search term."
-msgstr ""
-"Δε βρέθηκαν επεισόδια που να αντιστοιχούν σε αυτόν τον όρο αναζήτησης."
+msgstr "Nema pronađenih epizoda koje se poklapaju sa traženim pojmom."
 
 #: ../app/ui/WhatsNewTab.qml:321
 msgid "Pause Episode"
-msgstr "Παύση επεισοδίου"
+msgstr "Pauziraju epizodu"
 
 #: ../app/ui/WhatsNewTab.qml:322
 msgid "Play Episode"
-msgstr "Αναπαραγωγή επεισοδίου"
+msgstr "Pusti epizodu"
 
 #: ../app/ui/WhatsNewTab.qml:386
 msgid "Today"
-msgstr "Σήμερα"
+msgstr "Danas"
 
 #: ../app/ui/WhatsNewTab.qml:390
 msgid "Yesterday"
-msgstr "Εχθές"
+msgstr "Jučer"
 
 #: ../app/ui/WhatsNewTab.qml:394
 msgid "Older"
-msgstr "Παλαιότερο"
+msgstr "Starije"
 
 #: ../app/welcomewizard/Slide1.qml:42
 msgid "Welcome to Podbird"
-msgstr "Καλώς ήλθατε στο Podbird"
+msgstr "Dobrodošli u Podbird"
 
 #: ../app/welcomewizard/Slide1.qml:50
 msgid ""
@@ -482,47 +483,45 @@ msgid ""
 "\n"
 "Chirp Chirp..."
 msgstr ""
-"Απολαύστε τα αγαπημένα σας προγράμματα με το Podbird, την πιο κελαηδιστή "
-"εφαρμογή διαχείρισης φορητών εκπομπών για το Ubuntu.\n"
+"Uživajte u vašim omiljenim emisijama uz Podbird, najpričljiviji podcast "
+"menadžer za Ubuntu.\n"
 "\n"
-"Τσιρπ Τσιρπ..."
+"Da da, najpričljiviji..."
 
 #: ../app/welcomewizard/Slide1.qml:72
 msgid "Swipe to move between pages"
-msgstr "Σύρετε για να αλλάξετε σελίδα"
+msgstr "Prevucite za navigaciju između stranicu"
 
 #: ../app/welcomewizard/Slide2.qml:45
 msgid "Discover New Podcasts"
-msgstr "Ανακαλύψτε νέες φορητές εκπομπές"
+msgstr "Istraži nove podcaste"
 
 #: ../app/welcomewizard/Slide2.qml:62
 msgid ""
 "Podbird uses the iTunes® database to provide access to a huge collection of "
 "podcasts. You can also add podcasts by their URL."
 msgstr ""
-"Το Podbird χρησιμοποιεί τη βάση δεδομένων του iTunes® για να προσφέρει "
-"πρόσβαση σε μια τεράστια συλλογή φορητών εκπομπών. Είναι επίσης δυνατή η "
-"προσθήκη φορητών εκπομπών από την διεύθυνση URL τους."
+"Podbird koristi iTunes® bazu podataka i stoga ima pristup ogromnoj kolekciji "
+"podcasta. Podcast također možete dodati i putem njegove URL adrese."
 
 #: ../app/welcomewizard/Slide3.qml:45
 msgid "Smart Settings"
-msgstr "Έξυπνες ρυθμίσεις"
+msgstr "Pametne postavke"
 
 #: ../app/welcomewizard/Slide3.qml:62
 msgid ""
 "Podbird can optionally download new episodes and clean up old episodes "
 "automatically, this can be enabled from the settings page."
 msgstr ""
-"Το Podbird μπορεί προαιρετικά να λαμβάνει νέα επεισόδια και να εκκαθαρίζει "
-"τα παλιά αυτόματα, το παραπάνω μπορεί να ενεργοποιηθεί από τη σελίδα "
-"ρυθμίσεων."
+"Podbird opcionalno može preuzimati nove epizode i čistiti stare automatski, "
+"ovo može biti uključeno iz stranice za Postavke."
 
 #. TRANSLATORS: This text should be in a language different from the language set by the user.
 #. For instance, if the app was in english, then it is appropriate to set this string as
 #. Hallo or Bonjour etc to symbolize the internationalization feature in podbird.
 #: ../app/welcomewizard/Slide4.qml:48
 msgid "Hallo! Bonjour!"
-msgstr "Hallo! Bonjour!"
+msgstr "Zdravo! Ćao!"
 
 #: ../app/welcomewizard/Slide4.qml:67
 #, qt-format
@@ -530,12 +529,12 @@ msgid ""
 "Podbird is available in over 15 languages and is translated by the %1 "
 "community"
 msgstr ""
-"Το Podbird είναι διαθέσιμο σε περισσότερες από 15 γλώσσες και μεταφράζεται "
-"από την κοινότητα %1"
+"Podbird je sada dostupan u preko 15 jezika i prevođen je od strane %1 "
+"zajednice"
 
 #: ../app/welcomewizard/Slide5.qml:45
 msgid "Support"
-msgstr "Υποστήριξη"
+msgstr "Podrška"
 
 #. TRANSLATORS: The %1 points to a url defined in html format <a href=\link\>Link</a>.
 #: ../app/welcomewizard/Slide5.qml:65
@@ -544,21 +543,21 @@ msgid ""
 "If you find any bugs or have any feature requests, let us know on our "
 "project page at %1"
 msgstr ""
-"Αν βρείτε τυχόν σφάλματα ή αν θέλετε να προτείνετε νέες λειτουργίες, "
-"ενημερώστε μας στο ιστολόγιο της εφαρμογής στο %1"
+"Ako pronađete bilo kakve greške ili želite zahtjevati neku opciju, javite "
+"nam se putem stranice projekta na %1"
 
 #: ../app/welcomewizard/Slide6.qml:45
 msgid "Enjoy"
-msgstr "Απολαύστε"
+msgstr "Uživajte"
 
 #: ../app/welcomewizard/Slide6.qml:62
 msgid "We hope you enjoy using Podbird!"
-msgstr "Ελπίζουμε ότι απολαμβάνετε την χρήση του Podbird!"
+msgstr "Nadamo se da ste uživali koristeći Podbird!"
 
 #: ../app/welcomewizard/Slide6.qml:76
 msgid "Finish"
-msgstr "Τέλος"
+msgstr "Završi"
 
 #: /home/mike/src/podbird/build-podbird-Ubuntu_Device2_GCC_armhf_ubuntu_sdk_15_04_vivid-Default/po/Podbird.desktop.in.h:1
 msgid "The chirpiest podcast manager for Ubuntu"
-msgstr "Η πιο κελαηδιστή εφαρμογή διαχείρισης φορητών εκπομπών για το Ubuntu"
+msgstr "Najpričljiviji podcastmenadžer za Ubuntu"
