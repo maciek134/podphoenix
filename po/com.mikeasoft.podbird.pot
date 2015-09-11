@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-11 22:13+0100\n"
+"POT-Creation-Date: 2015-09-11 22:36+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -295,7 +295,7 @@ msgstr ""
 msgid "No podcasts found matching the search term."
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:150 ../app/ui/PodcastsTab.qml:192
+#: ../app/ui/PodcastsTab.qml:150 ../app/ui/PodcastsTab.qml:193
 #, qt-format
 msgid "%1 unheard episode"
 msgid_plural "%1 unheard episodes"

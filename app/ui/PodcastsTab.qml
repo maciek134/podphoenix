@@ -147,7 +147,8 @@ Page {
                 id: albumCard
                 coverArt: model.image !== undefined ? model.image : Qt.resolvedUrl("../graphics/podbird.png")
                 primaryText: model.name !== undefined ? model.name.trim() : "Undefined"
-                secondaryText: i18n.tr("%1 unheard episode", "%1 unheard episodes", model.episodeCount).arg(model.episodeCount)
+                secondaryText: model.episodeCount > 0 ? i18n.tr("%1 unheard episode", "%1 unheard episodes", model.episodeCount).arg(model.episodeCount)
+                                                      : null
                 onClicked: {
                     if(podcastPage.state === "search") {
                         cardView.forceActiveFocus()
@@ -189,7 +190,8 @@ Page {
                 highlightColor: index % 2 === 0 ? "Transparent" : podbird.appTheme.hightlightListView
                 color: index % 2 === 0 ? podbird.appTheme.hightlightListView : "Transparent"
                 title: model.name !== undefined ? model.name.trim() : "Undefined"
-                subtitle: i18n.tr("%1 unheard episode", "%1 unheard episodes", model.episodeCount).arg(model.episodeCount)
+                subtitle: model.episodeCount > 0 ? i18n.tr("%1 unheard episode", "%1 unheard episodes", model.episodeCount).arg(model.episodeCount)
+                                                 : null
                 coverArt: model.image !== undefined ? model.image : Qt.resolvedUrl("../graphics/podbird.png")
 
                 leadingActions: ListItemActions {
