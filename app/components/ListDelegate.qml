@@ -79,6 +79,7 @@ ListItem {
 
                 Row {
                     height: _subtitle.height
+                    visible: _subtitle.text
                     width: parent.width
                     spacing: units.gu(1)
 
