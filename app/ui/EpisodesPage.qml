@@ -48,22 +48,6 @@ Page {
             tempGuid = downloader.downloadingGuid
     }
 
-    /*
-     #FIXME: The following lines of code is necessary due to a upstream bug
-     in the SDK http://pad.lv/1400297. This bug is still present in the rtm.
-     Once it is fixed, this following property and connection can be remvoed.
-    */
-    property Item __oldContents: null
-    Connections {
-        target: episodesPage.head
-        onContentsChanged: {
-            if (episodesPage.__oldContents) {
-                episodesPage.__oldContents.parent = null;
-            }
-            episodesPage.__oldContents = episodesPage.head.contents;
-        }
-    }
-
     head.contents: Label {
         text: title
         anchors.fill: parent
@@ -217,117 +201,35 @@ Page {
         }
     }
 
+    /*
+     Note (nik90): After the upgrade to Ubuntu.Components 1.2, it seems the new listitems don't have their trailing
+     action width clamped. As a result when the list item expands and the user swipes left, it leads to a rather huge
+     trailing edge action. This has been reported upstream at http://pad.lv/1465582. Until this is fixed, the
+     episode description is shown in a dialog.
+    */
     Component {
-        id: popoverComponent
+        id: episodeDescriptionDialog
+        Dialog {
+            id: dialogInternal
 
-        Popover {
-            id: popover
+            property string description
 
-            property bool queued: false
-            property bool listened: false
-            property string downloadedfile: ""
-            property string guid: ""
-            property string audiourl: ""
-            property int index: -1
+            title: "<b>%1</b>".arg(i18n.tr("Episode Description"))
 
-            contentWidth: mainColumn.width
+            Label {
+                width: parent.width
+                wrapMode: Text.WordWrap
+                color: UbuntuColors.darkGrey
+                linkColor: "Blue"
+                text: dialogInternal.description
+                onLinkActivated: Qt.openUrlExternally(link)
+            }
 
-            Column {
-                id: mainColumn
-
-                width: Math.max(download.width, listen.width)
-                anchors.top: parent.top
-
-                ListItem.Empty {
-                    id: download
-
-                    width: Math.max(row.width, row2.width)
-
-                    Row {
-                        id: row
-
-                        spacing: units.gu(3)
-                        anchors.left: parent.left
-                        anchors.leftMargin: units.gu(2)
-                        anchors.verticalCenter: parent.verticalCenter
-                        width: downloadIcon.width + downloadText.implicitWidth + row.spacing + units.gu(4)
-
-                        Icon {
-                            id: downloadIcon
-                            width: height
-                            height: downloadText.height
-                            name: popover.downloadedfile ? "delete" : (popover.queued && downloader.downloadingGuid !== popover.guid ? "history" : "save")
-                        }
-
-                        Label {
-                            id: downloadText
-                            color: UbuntuColors.darkGrey
-                            text: popover.downloadedfile ? i18n.tr("Delete local file")
-                                                         : (popover.queued && downloader.downloadingGuid !== popover.guid ? i18n.tr("Episode queued for download")
-                                                                                                                          : i18n.tr("Download episode"))
-                        }
-                    }
-
-                    enabled: downloader.downloadingGuid !== popover.guid
-                    onClicked: {
-                        var db = Podcasts.init();
-                        if (popover.downloadedfile) {
-                            fileManager.deleteFile(popover.downloadedfile);
-                            db.transaction(function (tx) {
-                                tx.executeSql("UPDATE Episode SET downloadedfile = NULL WHERE guid = ?", [popover.guid]);
-                            });
-                            episodeModel.setProperty(popover.index, "downloadedfile", "")
-                        } else {
-                            db.transaction(function (tx) {
-                                tx.executeSql("UPDATE Episode SET queued=1 WHERE guid = ?", [popover.guid]);
-                            });
-                            episodeModel.setProperty(popover.index, "queued", 1)
-                            downloader.addDownload(popover.guid, popover.audiourl);
-                        }
-                        PopupUtils.close(popover)
-                    }
-                }
-
-                ListItem.Empty {
-                    id: listen
-
-                    showDivider: false
-                    width: Math.max(row.width, row2.width)
-
-                    Row {
-                        id: row2
-
-                        spacing: units.gu(3)
-                        anchors.left: parent.left
-                        anchors.leftMargin: units.gu(2)
-                        anchors.verticalCenter: parent.verticalCenter
-                        width: listenIcon.width + listenText.implicitWidth + row2.spacing + units.gu(4)
-
-                        Icon {
-                            id: listenIcon
-                            width: height
-                            height: listenText.height
-                            name: popover.listened ? "view-collapse" : "select"
-                        }
-
-                        Label {
-                            id: listenText
-                            color: UbuntuColors.darkGrey
-                            text: popover.listened ? i18n.tr("Mark episode unlistened") : i18n.tr("Mark episode listened")
-                        }
-                    }
-
-                    onClicked: {
-                        var db = Podcasts.init();
-                        db.transaction(function (tx) {
-                            if (popover.listened)
-                                tx.executeSql("UPDATE Episode SET listened=0 WHERE guid=?", [popover.guid])
-                            else
-                                tx.executeSql("UPDATE Episode SET listened=1 WHERE guid=?", [popover.guid])
-                            refreshModel();
-                        });
-                        PopupUtils.close(popover)
-                    }
+            Button {
+                text: i18n.tr("Close")
+                color: podbird.appTheme.positiveActionButton
+                onClicked: {
+                    PopupUtils.close(dialogInternal)
                 }
             }
         }
@@ -474,82 +376,74 @@ Page {
             subtitle: model.duration === 0 || model.duration === undefined ? Qt.formatDate(new Date(model.published), "MMM d, yyyy") : Podcasts.formatEpisodeTime(model.duration) + " | " + Qt.formatDate(new Date(model.published), "MMM d, yyyy")
 
             isDownloaded: model.downloadedfile ? true : false
-
+            color: !model.listened ? podbird.appTheme.hightlightListView : "Transparent"
             showProgressBar: downloader.downloadingGuid === model.guid
             isInDeterminateDownload: downloader.progress < 0 || downloader.progress > 100 && downloader.downloadingGuid === model.guid
             progress: downloader.progress
 
-            description: model.description
-
-            actionButton.sourceComponent: actionButtonComponent
-
-            onClicked: {
-                expanded = !expanded;
-            }
-
-            Component {
-                id: actionButtonComponent
-                Row {
-                    ActionButton {
-                        id: contextualMenu
-
-                        width: units.gu(4)
-                        height: units.gu(4)
-
-                        iconName: "contextual-menu"
-                        color: showProgressBar || expanded ? podbird.appTheme.focusText
-                                                           : podbird.appTheme.baseIcon
-                        onClicked: {
-                            var popover = PopupUtils.open(popoverComponent, contextualMenu)
-                            popover.queued = Qt.binding(function() { return model.queued })
-                            popover.listened = Qt.binding(function() { return model.listened })
-                            popover.guid = Qt.binding(function() { return model.guid })
-                            popover.audiourl = Qt.binding(function() { return model.audiourl })
-                            popover.downloadedfile = Qt.binding(function() { return episodeModel.get(index).downloadedfile })
-                            popover.index = Qt.binding(function() { return index })
-                        }
-                    }
-
-                    ActionButton {
-                        width: units.gu(4)
-                        height: units.gu(4)
-
-                        property bool isPlaying: currentUrl != "" && playerLoader.item.playbackState === MediaPlayer.PlayingState && currentGuid === model.guid
-
-                        iconName: isPlaying ? "media-playback-pause" : "media-playback-start"
-                        color: isPlaying ? podbird.appTheme.focusText : podbird.appTheme.baseIcon
-
-                        onClicked: {
+            trailingActions: ListItemActions {
+                actions: [
+                    Action {
+                        iconName: model.listened ? "view-collapse" : "select"
+                        onTriggered: {
                             var db = Podcasts.init();
                             db.transaction(function (tx) {
-                                if (currentGuid === model.guid && currentUrl != "") {
-                                    if (playerLoader.item.playbackState === MediaPlayer.PlayingState) {
-                                        playerLoader.item.pause()
-                                    } else {
-                                        playerLoader.item.play()
-                                    }
-                                } else {
-                                    currentGuid = "";
-                                    currentUrl = model.downloadedfile ? model.downloadedfile : model.audiourl;
-                                    var rs = tx.executeSql("SELECT position FROM Episode WHERE guid=?", [model.guid]);
-                                    playerLoader.item.play();
-                                    playerLoader.item.seek(rs.rows.item(0).position);
-                                    currentName = model.name;
-                                    currentArtist = model.artist;
-                                    currentImage = model.image;
-                                    currentGuid = model.guid;
-                                }
+                                if (model.listened)
+                                    tx.executeSql("UPDATE Episode SET listened=0 WHERE guid=?", [model.guid])
+                                else
+                                    tx.executeSql("UPDATE Episode SET listened=1 WHERE guid=?", [model.guid])
+                                refreshModel();
                             });
                         }
+                    },
+
+                    Action {
+                        enabled: downloader.downloadingGuid !== model.guid
+                        iconName: model.downloadedfile ? "delete" : (model.queued && downloader.downloadingGuid !== model.guid ? "history" : "save")
+                        onTriggered: {
+                            var db = Podcasts.init();
+                            if (model.downloadedfile) {
+                                fileManager.deleteFile(model.downloadedfile);
+                                db.transaction(function (tx) {
+                                    tx.executeSql("UPDATE Episode SET downloadedfile = NULL WHERE guid = ?", [model.guid]);
+                                });
+                                episodeModel.setProperty(model.index, "downloadedfile", "")
+                            } else {
+                                db.transaction(function (tx) {
+                                    tx.executeSql("UPDATE Episode SET queued=1 WHERE guid = ?", [model.guid]);
+                                });
+                                episodeModel.setProperty(model.index, "queued", 1)
+                                downloader.addDownload(model.guid, model.audiourl);
+                            }
+                        }
+                    },
+
+                    Action {
+                        iconName: "info"
+                        onTriggered: {
+                            var popup = PopupUtils.open(episodeDescriptionDialog, episodesPage);
+                            popup.description = model.description
+                        }
                     }
-                }
+                ]
             }
 
-            Rectangle {
-                visible: !model.listened
-                anchors.fill: parent
-                color: podbird.appTheme.hightlightListView
-                z: -1
+            onClicked: {
+                Haptics.play()
+                var db = Podcasts.init();
+                db.transaction(function (tx) {
+                    if (currentGuid !== model.guid) {
+                        currentGuid = "";
+                        currentUrl = model.downloadedfile ? model.downloadedfile : model.audiourl;
+                        var rs = tx.executeSql("SELECT position FROM Episode WHERE guid=?", [model.guid]);
+                        playerLoader.item.play();
+                        playerLoader.item.seek(rs.rows.item(0).position);
+                        currentName = model.name;
+                        currentArtist = model.artist;
+                        currentImage = model.image;
+                        currentGuid = model.guid;
+                    }
+                });
             }
         }
 

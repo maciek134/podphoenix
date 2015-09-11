@@ -39,22 +39,6 @@ Page {
 
     property bool episodesUpdating: false;
 
-    /*
-     #FIXME: The following lines of code is necessary due to a upstream bug
-     in the SDK http://pad.lv/1400297. This bug is still present in the rtm.
-     Once it is fixed, this following property and connection can be remvoed.
-    */
-    property Item __oldContents: null
-    Connections {
-        target: podcastPage.head
-        onContentsChanged: {
-            if (podcastPage.__oldContents) {
-                podcastPage.__oldContents.parent = null;
-            }
-            podcastPage.__oldContents = podcastPage.head.contents;
-        }
-    }
-
     state: "default"
     states: [
         PageHeadState {
@@ -67,14 +51,6 @@ Page {
                     onTriggered: {
                         podcastPage.state = "search"
                         searchField.item.forceActiveFocus()
-                    }
-                },
-
-                Action {
-                    iconName: podbird.settings.showListView ? "view-grid-symbolic" : "view-list-symbolic"
-                    text: podbird.settings.showListView ? i18n.tr("Grid View") : i18n.tr("List View")
-                    onTriggered: {
-                        podbird.settings.showListView = !podbird.settings.showListView
                     }
                 }
             ]
@@ -210,30 +186,30 @@ Page {
                 id: listItem
 
                 height: units.gu(8)
-                removable: true
-                confirmRemoval: true
+                highlightColor: index % 2 === 0 ? "Transparent" : podbird.appTheme.hightlightListView
+                color: index % 2 === 0 ? podbird.appTheme.hightlightListView : "Transparent"
                 title: model.name !== undefined ? model.name.trim() : "Undefined"
                 subtitle: i18n.tr("%1 unheard episode", "%1 unheard episodes", model.episodeCount).arg(model.episodeCount)
                 coverArt: model.image !== undefined ? model.image : Qt.resolvedUrl("../graphics/podbird.png")
 
-                onItemRemoved: {
-                    var db = Podcasts.init();
-                    db.transaction(function (tx) {
-                        var rs = tx.executeSql("SELECT downloadedfile FROM Episode WHERE downloadedfile NOT NULL AND podcast=?", [model.id]);
-                        for(var i = 0; i < rs.rows.length; i++) {
-                            fileManager.deleteFile(rs.rows.item(i).downloadedfile);
+                leadingActions: ListItemActions {
+                    actions: [
+                        Action {
+                            iconName: "delete"
+                            onTriggered: {
+                                var db = Podcasts.init();
+                                db.transaction(function (tx) {
+                                    var rs = tx.executeSql("SELECT downloadedfile FROM Episode WHERE downloadedfile NOT NULL AND podcast=?", [model.id]);
+                                    for(var i = 0; i < rs.rows.length; i++) {
+                                        fileManager.deleteFile(rs.rows.item(i).downloadedfile);
+                                    }
+                                    tx.executeSql("DELETE FROM Episode WHERE podcast=?", [model.id]);
+                                    tx.executeSql("DELETE FROM Podcast WHERE rowid=?", [model.id]);
+                                    podcastModel.remove(index, 1)
+                                });
+                            }
                         }
-                        tx.executeSql("DELETE FROM Episode WHERE podcast=?", [model.id]);
-                        tx.executeSql("DELETE FROM Podcast WHERE rowid=?", [model.id]);
-                        podcastModel.remove(index, 1)
-                    });
-                }
-
-                Rectangle {
-                    anchors.fill: parent
-                    opacity: 0.3
-                    z: -1
-                    color: index % 2 === 0 ? podbird.appTheme.hightlightListView : "Transparent"
+                    ]
                 }
 
                 onClicked: {

@@ -19,27 +19,16 @@
 import QtQuick 2.4
 import Ubuntu.Components 1.2
 
-QtObject {
-    // MainView
-    property color background: "#242423"
+ListItem {
+    id: headerListItem
 
-    // Main Text Colors
-    property color baseText: "White"
-    property color baseSubText: "#999999"
-    property color focusText: "#35AF44"
-    property color linkText: "Cyan"
+    property alias title: headerText.text
 
-    // Icon Colors
-    property color baseIcon: "White"
+    height: headerText.implicitHeight + units.gu(1)
 
-    // Button Colors
-    property color positiveActionButton: UbuntuColors.green
-    property color negativeActionButton: UbuntuColors.red
-    property color neutralActionButton: UbuntuColors.coolGrey
-
-    // Bottom Player Bar Colors
-    property color bottomBarBackground: "#15141A"
-
-    // Highlight Color
-    property color hightlightListView: "#2D2D2C"
+    Label {
+        id: headerText
+        anchors { left: parent.left; leftMargin: units.gu(2); verticalCenter: parent.verticalCenter }
+        font.weight: Font.DemiBold
+    }
 }

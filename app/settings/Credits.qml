@@ -18,7 +18,7 @@
 
 import QtQuick 2.4
 import Ubuntu.Components 1.2
-import Ubuntu.Components.ListItems 1.0 as ListItem
+import "../components"
 
 Page {
     id: creditsPage
@@ -37,7 +37,7 @@ Page {
         }
     }
 
-    UbuntuListView {
+    ListView {
         id: credits
 
         model: creditsModel
@@ -45,8 +45,8 @@ Page {
 
         section.property: "title"
         section.labelPositioning: ViewSection.InlineLabels
-        section.delegate: ListItem.Header {
-            text: section
+        section.delegate: HeaderListItem {
+            title: section
         }
 
         // Required to accomodate the now playing bar being shown in landscape mode which
@@ -56,9 +56,9 @@ Page {
             height: units.gu(8)
         }
 
-        delegate: ListItem.Standard {
-            text: model.name
-            showDivider: false
+        delegate: SubtitledListItem {
+            title: model.name
+            progression: false
         }
     }
 }

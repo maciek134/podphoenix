@@ -19,9 +19,8 @@
 import QtQuick 2.4
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.2
-import Ubuntu.Components.ListItems 1.0 as ListItem
 
-ListItem.Empty {
+ListItem {
     id: listDelegate
 
     // Public APIs
@@ -41,10 +40,8 @@ ListItem.Empty {
     property bool isInDeterminateDownload: false
     property real progress: 0
 
-    property alias actionButton: actionButtonsLoader
-
-    highlightWhenPressed: false
-    showDivider: false
+    highlightColor: "Transparent"
+    divider.visible: false
     height: mainColumn.height + units.gu(2)
 
     Column {
@@ -56,17 +53,12 @@ ListItem.Empty {
             id: mainRow
 
             width: parent.width
+            spacing: units.gu(2)
 
             Loader {
                 id: imgFrameLoader
                 visible: coverArt !== ""
                 sourceComponent: coverArt !== "" ? imgFrame : undefined
-            }
-
-            Item {
-                id: gapFiller1
-                height: width
-                width: coverArt !== "" ? units.gu(2) : 0
             }
 
             Column {
@@ -106,10 +98,6 @@ ListItem.Empty {
                         color: podbird.appTheme.baseSubText
                     }
                 }
-            }
-
-            Loader {
-                id: actionButtonsLoader
             }
         }
 
