@@ -117,6 +117,8 @@ MainView {
         property int maxEpisodeDownload: -1
         property bool hideListened: false
         property bool showListView: true
+        property int skipForward: 30
+        property int skipBack: 10
     }
 
     FileManager {

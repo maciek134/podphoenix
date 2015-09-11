@@ -18,6 +18,7 @@
 
 import QtQuick 2.4
 import Ubuntu.Components 1.2
+import Ubuntu.Components.Popups 1.0
 import "../components"
 
 Page {
@@ -29,6 +30,74 @@ Page {
         anchors.fill: parent
         contentHeight: settingsColumn.height + units.gu(8)
         contentWidth: parent.width
+
+        Component {
+            id: skipForwardDialog
+            Dialog {
+                id: dialogInternal
+                // TRANSLATORS: This strings refers to the seeking of the episode playback. Users can set how far they
+                // want to seek forward when pressing on this button.
+                title: i18n.tr("Skip forward")
+                Slider {
+                    id: slider
+                    width: parent.width
+                    minimumValue: 0
+                    maximumValue: 60
+                    value: podbird.settings.skipForward
+                    function formatValue(v) { return i18n.tr("%1 seconds").arg(Math.round(v)) }
+                }
+
+                Button {
+                    text: i18n.tr("Ok")
+                    color: podbird.appTheme.positiveActionButton
+                    onClicked: {
+                        podbird.settings.skipForward = Math.round(slider.value)
+                        PopupUtils.close(dialogInternal)
+                    }
+                }
+                Button {
+                    text: i18n.tr("Cancel")
+                    color: podbird.appTheme.neutralActionButton
+                    onClicked: {
+                        PopupUtils.close(dialogInternal)
+                    }
+                }
+            }
+        }
+
+        Component {
+            id: skipBackDialog
+            Dialog {
+                id: dialogInternal
+                // TRANSLATORS: This strings refers to the seeking of the episode playback. Users can set how far they
+                // want to seek backward when pressing on this button.
+                title: i18n.tr("Skip back")
+                Slider {
+                    id: slider
+                    width: parent.width
+                    minimumValue: 0
+                    maximumValue: 60
+                    value: podbird.settings.skipBack
+                    function formatValue(v) { return i18n.tr("%1 seconds").arg(Math.round(v)) }
+                }
+
+                Button {
+                    text: i18n.tr("Ok")
+                    color: podbird.appTheme.positiveActionButton
+                    onClicked: {
+                        podbird.settings.skipBack = Math.round(slider.value)
+                        PopupUtils.close(dialogInternal)
+                    }
+                }
+                Button {
+                    text: i18n.tr("Cancel")
+                    color: podbird.appTheme.neutralActionButton
+                    onClicked: {
+                        PopupUtils.close(dialogInternal)
+                    }
+                }
+            }
+        }
 
         Column {
             id: settingsColumn
@@ -76,6 +145,24 @@ Page {
                 text: i18n.tr("Theme")
                 value: podbird.settings.themeName.split(".qml")[0] === "Light" ? i18n.tr("Light") : i18n.tr("Dark")
                 onClicked: mainStack.push(Qt.resolvedUrl("../settings/ThemeSetting.qml"))
+            }
+
+            HeaderListItem {
+                title: i18n.tr("Playback Settings")
+            }
+
+            SingleValueListItem {
+                divider.visible: false
+                text: i18n.tr("Skip forward")
+                value: i18n.tr("%1 seconds").arg(podbird.settings.skipForward)
+                onClicked: PopupUtils.open(skipForwardDialog, settingsPage);
+            }
+
+            SingleValueListItem {
+                divider.visible: false
+                text: i18n.tr("Skip back")
+                value: i18n.tr("%1 seconds").arg(podbird.settings.skipBack)
+                onClicked: PopupUtils.open(skipBackDialog, settingsPage);
             }
 
             HeaderListItem {

@@ -185,7 +185,7 @@ Page {
                 opacity: playerLoader.item.position === 0 ? 0.4 : 1.0
                 onClicked: {
                     if (playerLoader.item.position > 0) {
-                        playerLoader.item.seek(playerLoader.item.position - 15 * 1000);
+                        playerLoader.item.seek(playerLoader.item.position - podbird.settings.skipBack * 1000);
                     }
                 }
 
@@ -196,7 +196,7 @@ Page {
                     Label {
                         // TRANSLATORS: The string shown in the UI is -15s to denote the number of seconds that the podcast playback will skip backward.
                         // xgettext: no-c-format
-                        text: i18n.tr("-%1s").arg("15")
+                        text: i18n.tr("-%1s").arg(podbird.settings.skipBack)
                         fontSize: "xx-small"
                         color: podbird.appTheme.baseText
                         anchors.verticalCenter: skipBackwardIcon.verticalCenter
@@ -238,7 +238,7 @@ Page {
                 opacity: playerLoader.item.position === 0 ? 0.4 : 1.0
                 onClicked: {
                     if (playerLoader.item.position > 0) {
-                        playerLoader.item.seek(playerLoader.item.position + 15 * 1000);
+                        playerLoader.item.seek(playerLoader.item.position + podbird.settings.skipForward * 1000);
                     }
                 }
 
@@ -257,7 +257,7 @@ Page {
                     Label {
                         // TRANSLATORS: The string shown in the UI is +15s to denote the number of seconds that the podcast playback will skip forward.
                         // xgettext: no-c-format
-                        text: i18n.tr("+%1s").arg("15")
+                        text: i18n.tr("+%1s").arg(podbird.settings.skipForward)
                         fontSize: "xx-small"
                         color: podbird.appTheme.baseText
                         anchors.verticalCenter: skipForwardIcon.verticalCenter
