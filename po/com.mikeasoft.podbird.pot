@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-16 00:36+0200\n"
+"POT-Creation-Date: 2015-09-11 22:13+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -64,7 +64,7 @@ msgstr ""
 msgid "About"
 msgstr ""
 
-#. TRANSLATORS: Podbird version number e.g Version 0.6
+#. TRANSLATORS: Podbird version number e.g Version 0.7
 #: ../app/settings/About.qml:61
 #, qt-format
 msgid "Version %1"
@@ -533,10 +533,10 @@ msgstr ""
 msgid "Finish"
 msgstr ""
 
-#: /home/krnekhelesh/Podbird/builddir/build-add-keywords-Desktop-Default/po/Podbird.desktop.in.h:1
+#: /home/mike/src/podbird/build-podbird-Ubuntu_Device4_GCC_armhf_ubuntu_sdk_15_04_vivid-Default/po/Podbird.desktop.in.h:1
 msgid "The chirpiest podcast manager for Ubuntu"
 msgstr ""
 
-#: /home/krnekhelesh/Podbird/builddir/build-add-keywords-Desktop-Default/po/Podbird.desktop.in.h:2
+#: /home/mike/src/podbird/build-podbird-Ubuntu_Device4_GCC_armhf_ubuntu_sdk_15_04_vivid-Default/po/Podbird.desktop.in.h:2
 msgid "podcast;audio;itunes;broadcast;digital;stream;podcatcher;video;vodcast;"
 msgstr ""

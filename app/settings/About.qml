@@ -57,8 +57,8 @@ Page {
                 Label {
                     width: parent.width
                     horizontalAlignment: Text.AlignHCenter
-                    // TRANSLATORS: Podbird version number e.g Version 0.6
-                    text: i18n.tr("Version %1").arg("0.6")
+                    // TRANSLATORS: Podbird version number e.g Version 0.7
+                    text: i18n.tr("Version %1").arg("0.7")
                 }
             }
 
