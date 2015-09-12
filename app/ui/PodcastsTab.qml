@@ -171,7 +171,7 @@ Page {
                         cardView.forceActiveFocus()
                         podcastPage.state = "default"
                     }
-                    mainStack.push(Qt.resolvedUrl("EpisodesPage.qml"), {"episodeName": model.name, "episodeId": model.id, "episodeArtist": model.artist, "episodeImage": model.image})
+                    mainStack.push(Qt.resolvedUrl("EpisodesPage.qml"), {"episodeName": model.name, "episodeId": model.id, "episodeArtist": model.artist, "episodeImage": model.image, "mode": (model.episodeCount > 0 ? "unheard" : "listened")})
                 }
             }
         }
@@ -236,7 +236,7 @@ Page {
                         listView.forceActiveFocus()
                         podcastPage.state = "default"
                     }
-                    mainStack.push(Qt.resolvedUrl("EpisodesPage.qml"), {"episodeName": model.name, "episodeId": model.id, "episodeArtist": model.artist, "episodeImage": model.image})
+                    mainStack.push(Qt.resolvedUrl("EpisodesPage.qml"), {"episodeName": model.name, "episodeId": model.id, "episodeArtist": model.artist, "episodeImage": model.image, "mode": (model.episodeCount > 0 ? "unheard" : "listened")})
                 }
             }
 

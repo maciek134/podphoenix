@@ -39,6 +39,7 @@ Page {
     property string episodeArtist
     property string episodeImage
     property string tempGuid: "NULL"
+    property string mode: "listened"
 
     property bool episodesUpdating: false;
 
@@ -287,78 +288,145 @@ Page {
         anchors.fill: parent
         model: sortedEpisodeModel
 
-        clip: true
-        section.property: "listened"
-        section.labelPositioning: ViewSection.InlineLabels
+        clip: true        
 
-        section.delegate: Rectangle {
-            width: parent.width
-            color: section === "0" ? podbird.appTheme.hightlightListView : "Transparent"
-            height: header.implicitHeight + units.gu(2)
-            Label {
-                id: header
-                anchors {
-                    left: parent.left
-                    right: parent.right
-                    margins: units.gu(2)
-                    verticalCenter: parent.verticalCenter
+        header: Column {
+            height: blurredBackground.height + modeTabs.height + units.gu(2)
+            spacing: units.gu(2)
+            BlurredBackground {
+                id: blurredBackground
+
+                art: episodeImage
+                width: parent.width
+                visible: episodesPage.state !== "search" && sortedEpisodeModel.count !== 0
+                height: episodesPage.state !== "search" && sortedEpisodeModel.count !== 0 ? cover.height + units.gu(4) : 0
+                backgroundStrength: podbird.settings.themeName === "Light.qml" ? 0.3 : 0.6
+
+                Image {
+                    id:cover
+                    width: units.gu(12)
+                    height: width
+                    sourceSize.height: width
+                    sourceSize.width: width
+                    source: episodeImage
+                    asynchronous: true
+                    anchors {
+                        left: parent.left
+                        top: parent.top
+                        margins: units.gu(2)
+                    }
                 }
-                fontSize: "x-large"
-                text: section === "0" ? i18n.tr("Unheard") : i18n.tr("Listened")
-            }
-        }
 
-        header: BlurredBackground {
-            id: blurredBackground
+                Column {
+                    id: podcastTitle
 
-            art: episodeImage
-            width: parent.width
-            visible: episodesPage.state !== "search" && sortedEpisodeModel.count !== 0
-            height: episodesPage.state !== "search" && sortedEpisodeModel.count !== 0 ? cover.height + units.gu(4) : 0
-            backgroundStrength: podbird.settings.themeName === "Light.qml" ? 0.3 : 0.6
+                    anchors {
+                        left: cover.right
+                        right: parent.right
+                        bottom: parent.bottom
+                        margins: units.gu(2)
+                    }
 
-            Image {
-                id:cover
-                width: units.gu(12)
-                height: width
-                sourceSize.height: width
-                sourceSize.width: width
-                source: episodeImage
-                asynchronous: true
-                anchors {
-                    left: parent.left
-                    top: parent.top
-                    margins: units.gu(2)
+                    Label {
+                        text: episodeName
+                        width: parent.width
+                        wrapMode: Text.WordWrap
+                        maximumLineCount: 2
+                        elide: Text.ElideRight
+                        color: podbird.appTheme.baseText
+                    }
+
+                    Label {
+                        text: i18n.tr("%1 episode", "%1 episodes", episodeList.count).arg(episodeList.count)
+                        width: parent.width
+                        elide: Text.ElideRight
+                        fontSize: "x-small"
+                        color: podbird.appTheme.baseText
+                    }
                 }
             }
 
-            Column {
-                id: podcastTitle
+            Item {
+                id: modeTabs
+                height: unheardTab.implicitHeight + units.gu(2)
+                width: episodesPage.width
 
-                anchors {
-                    left: cover.right
-                    right: parent.right
-                    bottom: parent.bottom
-                    margins: units.gu(2)
+                Label {
+                    id: unheardTab
+                    fontSize: "large"
+                    text: i18n.tr("Unheard")
+                    anchors.left: parent.left
+                    anchors.leftMargin: units.gu(2)
+                    color: episodesPage.mode == "unheard" ? podbird.appTheme.focusText : podbird.appTheme.baseText
+
+                    AbstractButton {
+                        anchors.fill: parent
+                        onClicked: episodesPage.mode = "unheard"
+                    }
+                }
+
+                Rectangle {
+                    anchors.top: unheardTab.bottom
+                    anchors.topMargin: units.gu(1)
+                    anchors.horizontalCenter: unheardTab.horizontalCenter
+                    height: units.gu(0.25)
+                    width: unheardTab.width
+                    radius: width/3
+                    color: podbird.appTheme.focusText
+                    visible: episodesPage.mode == "unheard"
                 }
 
                 Label {
-                    text: episodeName
-                    width: parent.width
-                    wrapMode: Text.WordWrap
-                    maximumLineCount: 2
-                    elide: Text.ElideRight
-                    color: podbird.appTheme.baseText
+                    id: listenedTab
+                    anchors.left: unheardTab.right
+                    anchors.leftMargin: (parent.width - unheardTab.width - listenedTab.width - downloadedTab.width - unheardTab.anchors.leftMargin - downloadedTab.anchors.rightMargin) / 2.0
+                    fontSize: "large"
+                    text: i18n.tr("Listened")
+                    color: episodesPage.mode == "listened" ? podbird.appTheme.focusText : podbird.appTheme.baseText
+
+                    AbstractButton {
+                        anchors.fill: parent
+                        onClicked: episodesPage.mode = "listened"
+                    }
+                }
+
+                Rectangle {
+                    anchors.top: listenedTab.bottom
+                    anchors.topMargin: units.gu(1)
+                    anchors.horizontalCenter: listenedTab.horizontalCenter
+                    height: units.gu(0.25)
+                    width: listenedTab.width
+                    radius: width/3
+                    color: podbird.appTheme.focusText
+                    visible: episodesPage.mode == "listened"
                 }
 
                 Label {
-                    text: i18n.tr("%1 episode", "%1 episodes", episodeList.count).arg(episodeList.count)
-                    width: parent.width
-                    elide: Text.ElideRight
-                    fontSize: "x-small"
-                    color: podbird.appTheme.baseText
+                    id: downloadedTab
+                    anchors.right: parent.right
+                    anchors.rightMargin: units.gu(2)
+                    fontSize: "large"
+                    text: i18n.tr("Downloaded")
+                    color: episodesPage.mode == "downloaded" ? podbird.appTheme.focusText : podbird.appTheme.baseText
+
+                    AbstractButton {
+                        anchors.fill: parent
+                        onClicked: episodesPage.mode = "downloaded"
+                    }
+                }
+
+                Rectangle {
+                    anchors.top: downloadedTab.bottom
+                    anchors.topMargin: units.gu(1)
+                    anchors.horizontalCenter: downloadedTab.horizontalCenter
+                    height: units.gu(0.25)
+                    width: downloadedTab.width
+                    radius: width/3
+                    color: podbird.appTheme.focusText
+                    visible: episodesPage.mode == "downloaded"
                 }
             }
+
         }
 
         footer: Item {
@@ -376,10 +444,13 @@ Page {
             subtitle: model.duration === 0 || model.duration === undefined ? Qt.formatDate(new Date(model.published), "MMM d, yyyy") : Podcasts.formatEpisodeTime(model.duration) + " | " + Qt.formatDate(new Date(model.published), "MMM d, yyyy")
 
             isDownloaded: model.downloadedfile ? true : false
-            color: !model.listened ? podbird.appTheme.hightlightListView : "Transparent"
             showProgressBar: downloader.downloadingGuid === model.guid
             isInDeterminateDownload: downloader.progress < 0 || downloader.progress > 100 && downloader.downloadingGuid === model.guid
             progress: downloader.progress
+            visible: episodesPage.mode == "listened" ? model.listened
+                                                     : (episodesPage.mode == "unheard" ? !model.listened
+                                                                                       : isDownloaded)
+            height: visible ? undefined : 0
 
             trailingActions: ListItemActions {
                 actions: [
