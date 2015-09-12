@@ -73,9 +73,11 @@ MainView {
             tx.executeSql('UPDATE Episode SET queued=0 WHERE queued=1');
         })
 
-        Podcasts.updateEpisodes(refreshModels)
-
         var today = new Date()
+        // Only automatically check for podcasts on launch once every 12 hours
+        if (Math.floor((today - settings.lastUpdate)/86400000) >= 0.5) {
+            Podcasts.updateEpisodes(refreshModels)
+        }
         // Only perform cleanup of old episodes once a day
         if (Math.floor((today - settings.lastCheck)/86400000) >= 1 && settings.retentionDays !== -1) {
             Podcasts.cleanUp(today, settings.retentionDays)
@@ -113,6 +115,7 @@ MainView {
         property string themeName: "Light.qml"
         property int retentionDays: -1
         property var lastCheck: new Date()
+        property var lastUpdate: new Date(0)
         property bool firstRun: true
         property int maxEpisodeDownload: -1
         property bool hideListened: false

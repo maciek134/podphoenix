@@ -138,6 +138,7 @@ function updateEpisodes(refreshModel) {
                     }
                     if(allComplete) {
                         console.log("[LOG]: Finished checking for new episodes..")
+                        podbird.settings.lastUpdate = new Date();
                         refreshModel();
                     }
                 }
