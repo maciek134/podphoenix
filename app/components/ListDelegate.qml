@@ -40,6 +40,8 @@ ListItem {
     property bool isInDeterminateDownload: false
     property real progress: 0
 
+    style: ListItemStylePatched { }
+
     highlightColor: "Transparent"
     divider.visible: false
     height: mainColumn.height + units.gu(2)
