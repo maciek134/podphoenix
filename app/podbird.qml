@@ -78,6 +78,7 @@ MainView {
         if (Math.floor((today - settings.lastUpdate)/86400000) >= 0.5) {
             Podcasts.updateEpisodes(refreshModels)
         }
+        loadingIndicator.opacity = 0
         // Only perform cleanup of old episodes once a day
         if (Math.floor((today - settings.lastCheck)/86400000) >= 1 && settings.retentionDays !== -1) {
             Podcasts.cleanUp(today, settings.retentionDays)
@@ -340,4 +341,21 @@ MainView {
             }
         ]
     }
+
+    Rectangle {
+        id: loadingIndicator
+        color: podbird.appTheme.background
+        anchors.fill: parent
+
+        ActivityIndicator {
+            anchors.centerIn: parent
+            running: true
+        }
+
+        Behavior on opacity {
+            UbuntuNumberAnimation {
+            }
+        }
+    }
+
 }
