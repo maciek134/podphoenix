@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-12 16:03+0100\n"
+"POT-Creation-Date: 2015-09-12 16:44+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -138,7 +138,7 @@ msgstr ""
 #: ../app/settings/DownloadSetting.qml:34
 #: ../app/settings/DownloadSetting.qml:35
 #: ../app/settings/DownloadSetting.qml:36
-#: ../app/settings/DownloadSetting.qml:37 ../app/ui/EpisodesPage.qml:340
+#: ../app/settings/DownloadSetting.qml:37 ../app/ui/EpisodesPage.qml:349
 #, qt-format
 msgid "%1 episode"
 msgid_plural "%1 episodes"
@@ -190,69 +190,65 @@ msgstr ""
 msgid "Mark all listened"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:95 ../app/ui/EpisodesPage.qml:179
-#: ../app/ui/SearchPage.qml:232
+#: ../app/ui/EpisodesPage.qml:95 ../app/ui/EpisodesPage.qml:188
+#: ../app/ui/SearchPage.qml:240
 msgid "Unsubscribe"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:110 ../app/ui/PodcastsTab.qml:81
-#: ../app/ui/SearchPage.qml:64 ../app/ui/SearchPage.qml:86
-#: ../app/ui/WhatsNewTab.qml:78
-msgid "Back"
+#: ../app/ui/EpisodesPage.qml:112 ../app/ui/EpisodesPage.qml:205
+#: ../app/ui/PodcastsTab.qml:72 ../app/ui/SearchPage.qml:65
+#: ../app/ui/SearchPage.qml:98 ../app/ui/SettingsPage.qml:59
+#: ../app/ui/SettingsPage.qml:93 ../app/ui/WhatsNewTab.qml:79
+msgid "Cancel"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:132 ../app/ui/WhatsNewTab.qml:99
+#: ../app/ui/EpisodesPage.qml:141 ../app/ui/WhatsNewTab.qml:101
 msgid "Search episode"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:176
+#: ../app/ui/EpisodesPage.qml:185
 msgid "Unsubscribe Confirmation"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:177
+#: ../app/ui/EpisodesPage.qml:186
 #, qt-format
 msgid "Are you sure you want to unsubscribe from <b>%1</b>?"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:196 ../app/ui/SettingsPage.qml:59
-#: ../app/ui/SettingsPage.qml:93
-msgid "Cancel"
-msgstr ""
-
-#: ../app/ui/EpisodesPage.qml:218 ../app/ui/WhatsNewTab.qml:197
+#: ../app/ui/EpisodesPage.qml:227 ../app/ui/WhatsNewTab.qml:201
 msgid "Episode Description"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:230 ../app/ui/SearchPage.qml:147
-#: ../app/ui/WhatsNewTab.qml:209
+#: ../app/ui/EpisodesPage.qml:239 ../app/ui/SearchPage.qml:155
+#: ../app/ui/WhatsNewTab.qml:213
 msgid "Close"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:260
+#: ../app/ui/EpisodesPage.qml:269
 msgid "No more episodes"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:260
+#: ../app/ui/EpisodesPage.qml:269
 msgid "No episodes found"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:261
+#: ../app/ui/EpisodesPage.qml:270
 msgid "All episodes have been listened to."
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:261
+#: ../app/ui/EpisodesPage.qml:270
 msgid "No episodes found matching the search term."
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:357
+#: ../app/ui/EpisodesPage.qml:366
 msgid "Unheard"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:384
+#: ../app/ui/EpisodesPage.qml:393
 msgid "Listened"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:409
+#: ../app/ui/EpisodesPage.qml:418
 msgid "Downloaded"
 msgstr ""
 
@@ -273,41 +269,41 @@ msgid "+%1s"
 msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:50 ../app/ui/SearchPage.qml:41
-#: ../app/ui/SearchPage.qml:129
+#: ../app/ui/SearchPage.qml:137
 msgid "Search Podcast"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:58 ../app/ui/PodcastsTab.qml:72
+#: ../app/ui/PodcastsTab.qml:58 ../app/ui/PodcastsTab.qml:80
 msgid "Grid View"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:58 ../app/ui/PodcastsTab.qml:72
+#: ../app/ui/PodcastsTab.qml:58 ../app/ui/PodcastsTab.qml:80
 msgid "List View"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:102
+#: ../app/ui/PodcastsTab.qml:101
 msgid "Search podcast"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:132
+#: ../app/ui/PodcastsTab.qml:133
 msgid "No Podcast Subscriptions"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:132
+#: ../app/ui/PodcastsTab.qml:133
 msgid "No Podcasts Found"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:133
+#: ../app/ui/PodcastsTab.qml:134
 msgid ""
 "You haven't subscribed to any podcasts yet, visit the 'Find New Podcasts' "
 "page to add some."
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:134 ../app/ui/SearchPage.qml:179
+#: ../app/ui/PodcastsTab.qml:135 ../app/ui/SearchPage.qml:187
 msgid "No podcasts found matching the search term."
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:167 ../app/ui/PodcastsTab.qml:210
+#: ../app/ui/PodcastsTab.qml:168 ../app/ui/PodcastsTab.qml:211
 #, qt-format
 msgid "%1 unheard episode"
 msgid_plural "%1 unheard episodes"
@@ -318,49 +314,49 @@ msgstr[1] ""
 msgid "Add Podcast"
 msgstr ""
 
-#: ../app/ui/SearchPage.qml:96
+#: ../app/ui/SearchPage.qml:90
 msgid "Save Podcast"
 msgstr ""
 
-#: ../app/ui/SearchPage.qml:117
+#: ../app/ui/SearchPage.qml:125
 msgid "Feed URL"
 msgstr ""
 
-#: ../app/ui/SearchPage.qml:144
+#: ../app/ui/SearchPage.qml:152
 msgid "Unable to subscribe"
 msgstr ""
 
-#: ../app/ui/SearchPage.qml:145
+#: ../app/ui/SearchPage.qml:153
 msgid "Please check the URL and try again"
 msgstr ""
 
-#: ../app/ui/SearchPage.qml:177
+#: ../app/ui/SearchPage.qml:185
 msgid "Looking to add a new Podcast?"
 msgstr ""
 
-#: ../app/ui/SearchPage.qml:177
+#: ../app/ui/SearchPage.qml:185
 msgid "No Podcasts found"
 msgstr ""
 
-#: ../app/ui/SearchPage.qml:178
+#: ../app/ui/SearchPage.qml:186
 msgid ""
 "Click the 'magnifier' at the top to search or the 'plus' button to add by URL"
 msgstr ""
 
 #. TRANSLATORS: The first argument here is the date of when the podcast was last updated followed by
 #. the podcast description.
-#: ../app/ui/SearchPage.qml:214
+#: ../app/ui/SearchPage.qml:222
 #, qt-format
 msgid ""
 "Last Updated: %1\n"
 "%2"
 msgstr ""
 
-#: ../app/ui/SearchPage.qml:232
+#: ../app/ui/SearchPage.qml:240
 msgid "Subscribe"
 msgstr ""
 
-#: ../app/ui/SearchPage.qml:306
+#: ../app/ui/SearchPage.qml:314
 msgid "Not Available"
 msgstr ""
 
@@ -443,31 +439,31 @@ msgstr ""
 msgid "Download all"
 msgstr ""
 
-#: ../app/ui/WhatsNewTab.qml:123
+#: ../app/ui/WhatsNewTab.qml:125
 msgid "No New Episodes"
 msgstr ""
 
-#: ../app/ui/WhatsNewTab.qml:123
+#: ../app/ui/WhatsNewTab.qml:125
 msgid "No Episodes Found"
 msgstr ""
 
-#: ../app/ui/WhatsNewTab.qml:124
+#: ../app/ui/WhatsNewTab.qml:126
 msgid "No more episodes to listen to!"
 msgstr ""
 
-#: ../app/ui/WhatsNewTab.qml:124
+#: ../app/ui/WhatsNewTab.qml:126
 msgid "No Episodes found matching the search term."
 msgstr ""
 
-#: ../app/ui/WhatsNewTab.qml:250
+#: ../app/ui/WhatsNewTab.qml:254
 msgid "Today"
 msgstr ""
 
-#: ../app/ui/WhatsNewTab.qml:254
+#: ../app/ui/WhatsNewTab.qml:258
 msgid "Yesterday"
 msgstr ""
 
-#: ../app/ui/WhatsNewTab.qml:258
+#: ../app/ui/WhatsNewTab.qml:262
 msgid "Older"
 msgstr ""
 

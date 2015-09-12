@@ -59,15 +59,17 @@ Page {
         PageHeadState {
             name: "search"
             head: searchPage.head
-            backAction: Action {
-                iconName: "back"
-                text: i18n.tr("Back")
-                onTriggered: {
-                    resultsView.forceActiveFocus()
-                    searchResults.clear()
-                    searchPage.state = "default"
+            actions: [
+                Action {
+                    iconName: "edit-clear"
+                    text: i18n.tr("Cancel")
+                    onTriggered: {
+                        resultsView.forceActiveFocus()
+                        searchResults.clear()
+                        searchPage.state = "default"
+                    }
                 }
-            }
+            ]
 
             contents: Loader {
                 id: searchField
@@ -81,14 +83,6 @@ Page {
         PageHeadState {
             name: "add"
             head: searchPage.head
-            backAction: Action {
-                iconName: "back"
-                text: i18n.tr("Back")
-                onTriggered: {
-                    resultsView.forceActiveFocus()
-                    searchPage.state = "default"
-                }
-            }
 
             actions: [
                 Action {
@@ -97,6 +91,14 @@ Page {
                     onTriggered: {
                         resultsView.forceActiveFocus()
                         subscribeFromFeed(feedUrlField.item.text);
+                    }
+                },
+                Action {
+                    iconName: "edit-clear"
+                    text: i18n.tr("Cancel")
+                    onTriggered: {
+                        resultsView.forceActiveFocus()
+                        searchPage.state = "default"
                     }
                 }
             ]
@@ -109,6 +111,12 @@ Page {
             }
         }
     ]
+
+    onVisibleChanged: {
+        if(!visible) {
+            state = "default";
+        }
+    }
 
     Component {
         id: feedUrlComponent

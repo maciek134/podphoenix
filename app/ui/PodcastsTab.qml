@@ -68,6 +68,14 @@ Page {
             head: podcastPage.head
             actions: [
                 Action {
+                    iconName: "edit-clear"
+                    text: i18n.tr("Cancel")
+                    onTriggered: {
+                        viewLoader.item.forceActiveFocus()
+                        podcastPage.state = "default"
+                    }
+                },
+                Action {
                     iconName: podbird.settings.showListView ? "view-grid-symbolic" : "view-list-symbolic"
                     text: podbird.settings.showListView ? i18n.tr("Grid View") : i18n.tr("List View")
                     onTriggered: {
@@ -75,15 +83,6 @@ Page {
                     }
                 }
             ]
-
-            backAction: Action {
-                iconName: "back"
-                text: i18n.tr("Back")
-                onTriggered: {
-                    viewLoader.item.forceActiveFocus()
-                    podcastPage.state = "default"
-                }
-            }
 
             contents: Loader {
                 id: searchField
@@ -106,6 +105,8 @@ Page {
     onVisibleChanged: {
         if(visible) {
             refreshModel();
+        } else {
+            state = "default";
         }
     }
 

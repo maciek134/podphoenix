@@ -73,14 +73,16 @@ Tab {
             PageHeadState {
                 name: "search"
                 head: whatsNewPage.head
-                backAction: Action {
-                    iconName: "back"
-                    text: i18n.tr("Back")
-                    onTriggered: {
-                        episodeList.forceActiveFocus()
-                        whatsNewPage.state = "default"
+                actions: [
+                    Action {
+                        iconName: "edit-clear"
+                        text: i18n.tr("Cancel")
+                        onTriggered: {
+                            episodeList.forceActiveFocus()
+                            whatsNewPage.state = "default"
+                        }
                     }
-                }
+                ]
 
                 contents: Loader {
                     id: searchField
@@ -142,6 +144,8 @@ Tab {
                 refreshModel()
                 if (downloader.downloadingGuid != "")
                     tempGuid = downloader.downloadingGuid
+            } else {
+                state = "default";
             }
         }
 

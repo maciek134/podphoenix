@@ -105,15 +105,18 @@ Page {
         PageHeadState {
             name: "search"
             head: episodesPage.head
-            backAction: Action {
-                iconName: "back"
-                text: i18n.tr("Back")
-                onTriggered: {
-                    episodeList.forceActiveFocus()
-                    episodesPage.state = "default"
-                    episodeList.positionViewAtBeginning()
+
+            actions: [
+                Action {
+                    iconName: "edit-clear"
+                    text: i18n.tr("Cancel")
+                    onTriggered: {
+                        episodeList.forceActiveFocus()
+                        episodesPage.state = "default"
+                        episodeList.positionViewAtBeginning()
+                    }
                 }
-            }
+            ]
 
             contents: Loader {
                 id: searchField
@@ -124,6 +127,12 @@ Page {
             }
         }
     ]
+
+    onVisibleChanged: {
+        if (!visible) {
+            state = "default";
+        }
+    }
 
     Component {
         id: searchFieldComponent
