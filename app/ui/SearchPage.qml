@@ -222,46 +222,29 @@ Page {
             description: i18n.tr("Last Updated: %1\n%2").arg(model.releaseDate.split("T")[0]).arg(model.description)
             highlightColor: index % 2 === 0 ? "Transparent" : podbird.appTheme.hightlightListView
 
-            trailingActions: ListItemActions {
-                delegate: Rectangle {
-                    width: actionLabel.implicitWidth + units.gu(2)
-                    color: !model.subscribed ? UbuntuColors.green : UbuntuColors.red
-                    Label {
-                        id: actionLabel
-                        text: action.text
-                        anchors.fill: parent
-                        anchors.leftMargin: units.gu(1)
-                        verticalAlignment: Text.AlignVCenter
-                    }
-                }
-
-                actions: [
-                    Action {
-                        text: !model.subscribed ? i18n.tr("Subscribe") : i18n.tr("Unsubscribe")
-                        onTriggered: {
-                            if (!model.subscribed) {
-                                Podcasts.subscribe(model.artist, model.name, model.feed, model.image);
-                                imageDownloader.feed = model.feed;
-                                imageDownloader.download(model.image);
-                            } else {
-                                var db = Podcasts.init();
-                                db.transaction(function (tx) {
-                                    var rs = tx.executeSql("SELECT rowid FROM Podcast WHERE feed = ?", model.feed);
-                                    if (rs.rows.length !== 0) {
-                                        var podcast = rs.rows.item(0)
-                                        var rs2 = tx.executeSql("SELECT downloadedfile FROM Episode WHERE downloadedfile NOT NULL AND podcast=?", [podcast.rowid]);
-                                        for(var i = 0; i < rs2.rows.length; i++) {
-                                            fileManager.deleteFile(rs2.rows.item(i).downloadedfile);
-                                        }
-                                        tx.executeSql("DELETE FROM Episode WHERE podcast=?", [podcast.rowid]);
-                                        tx.executeSql("DELETE FROM Podcast WHERE rowid=?", [podcast.rowid]);
-                                    }
-                                });
+            buttonColor: !model.subscribed ? UbuntuColors.green : UbuntuColors.red
+            buttonText: !model.subscribed ? i18n.tr("Subscribe") : i18n.tr("Unsubscribe")
+            onButtonClicked: {
+                if (!model.subscribed) {
+                    Podcasts.subscribe(model.artist, model.name, model.feed, model.image);
+                    imageDownloader.feed = model.feed;
+                    imageDownloader.download(model.image);
+                } else {
+                    var db = Podcasts.init();
+                    db.transaction(function (tx) {
+                        var rs = tx.executeSql("SELECT rowid FROM Podcast WHERE feed = ?", model.feed);
+                        if (rs.rows.length !== 0) {
+                            var podcast = rs.rows.item(0)
+                            var rs2 = tx.executeSql("SELECT downloadedfile FROM Episode WHERE downloadedfile NOT NULL AND podcast=?", [podcast.rowid]);
+                            for(var i = 0; i < rs2.rows.length; i++) {
+                                fileManager.deleteFile(rs2.rows.item(i).downloadedfile);
                             }
-                            tabs.selectedTabIndex = 1;
+                            tx.executeSql("DELETE FROM Episode WHERE podcast=?", [podcast.rowid]);
+                            tx.executeSql("DELETE FROM Podcast WHERE rowid=?", [podcast.rowid]);
                         }
-                    }
-                ]
+                    });
+                }
+                tabs.selectedTabIndex = 1;
             }
 
             onClicked: {

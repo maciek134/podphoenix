@@ -32,6 +32,9 @@ ListItem {
     property alias titleColor: _title.color
     property alias subtitle: _subtitle.text
 
+    property alias buttonText: _button.text
+    property alias buttonColor: _button.color
+
     property string description: ""
 
     property bool isDownloaded: false
@@ -39,6 +42,8 @@ ListItem {
     property bool showProgressBar: false
     property bool isInDeterminateDownload: false
     property real progress: 0
+
+    signal buttonClicked()
 
     style: ListItemStylePatched { }
 
@@ -100,6 +105,14 @@ ListItem {
                         elide: Text.ElideRight
                         color: podbird.appTheme.baseSubText
                     }
+                }
+            }
+
+            Button {
+                id: _button
+                visible: text.length > 0
+                onClicked: {
+                    listDelegate.buttonClicked();
                 }
             }
         }
