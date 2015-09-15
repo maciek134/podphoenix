@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-09-12 17:35+0100\n"
-"PO-Revision-Date: 2015-04-19 15:37+0000\n"
+"PO-Revision-Date: 2015-09-14 11:13+0000\n"
 "Last-Translator: Yuri Chornoivan <yurchor@gmail.com>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -16,8 +16,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Launchpad-Export-Date: 2015-09-14 06:04+0000\n"
-"X-Generator: Launchpad (build 17720)\n"
+"X-Launchpad-Export-Date: 2015-09-15 05:49+0000\n"
+"X-Generator: Launchpad (build 17737)\n"
 
 #: ../app/components/Walkthrough.qml:90
 msgid "Skip"
@@ -27,7 +27,7 @@ msgstr "Пропустити"
 #: ../app/podbird.qml:178
 #, qt-format
 msgid "Podcasts listened to today: <b>%1</b>"
-msgstr ""
+msgstr "На сьогодні прослухано трансляцій: <b>%1</b>"
 
 #: ../app/podbird.qml:179
 msgid "No podcasts listened to today"
@@ -121,7 +121,7 @@ msgstr "Подяки"
 #: ../app/settings/Credits.qml:33
 #, qt-format
 msgid "%1 (Creator)"
-msgstr ""
+msgstr "%1 (Автор)"
 
 #: ../app/settings/Credits.qml:33 ../app/settings/Credits.qml:34
 msgid "Developers"
@@ -158,7 +158,7 @@ msgstr "Тема"
 #: ../app/settings/ThemeSetting.qml:40
 #, qt-format
 msgid "Restart %1"
-msgstr ""
+msgstr "Перезапустити %1"
 
 #. TRANSLATORS: The argument here is the name of the application (Podbird)
 #: ../app/settings/ThemeSetting.qml:42
@@ -168,10 +168,12 @@ msgid ""
 "necessary to avoid any strange behaviour in the app. We apologize for the "
 "inconvenience"
 msgstr ""
+"Для зміни оформлення вікна програми вам слід перезапустити %1. Це потрібно "
+"для того, щоб уникнути помилкової поведінки програми. Вибачте за незручності"
 
 #: ../app/settings/ThemeSetting.qml:45
 msgid "Exit App"
-msgstr ""
+msgstr "Вийти з програми"
 
 #. TRANSLATORS: Light Theme
 #: ../app/settings/ThemeSetting.qml:59 ../app/ui/SettingsPage.qml:120
@@ -222,7 +224,7 @@ msgstr "Ви справді хочете скасувати підписку н�
 
 #: ../app/ui/EpisodesPage.qml:227 ../app/ui/WhatsNewTab.qml:201
 msgid "Episode Description"
-msgstr ""
+msgstr "Опис епізоду"
 
 #: ../app/ui/EpisodesPage.qml:239 ../app/ui/SearchPage.qml:155
 #: ../app/ui/WhatsNewTab.qml:213
@@ -247,7 +249,7 @@ msgstr "Прослухані"
 
 #: ../app/ui/EpisodesPage.qml:418
 msgid "Downloaded"
-msgstr ""
+msgstr "Отримано"
 
 #: ../app/ui/NowPlayingPage.qml:29
 msgid "Now Playing"
@@ -257,13 +259,13 @@ msgstr "Зараз відтворюєтья"
 #: ../app/ui/NowPlayingPage.qml:199
 #, no-c-format, qt-format
 msgid "-%1s"
-msgstr ""
+msgstr "-%1с"
 
 #. TRANSLATORS: The string shown in the UI is +15s to denote the number of seconds that the podcast playback will skip forward.
 #: ../app/ui/NowPlayingPage.qml:260
 #, no-c-format, qt-format
 msgid "+%1s"
-msgstr ""
+msgstr "+%1с"
 
 #: ../app/ui/PodcastsTab.qml:50 ../app/ui/SearchPage.qml:41
 #: ../app/ui/SearchPage.qml:137
@@ -368,23 +370,23 @@ msgstr "Недоступне"
 #. want to seek forward when pressing on this button.
 #: ../app/ui/SettingsPage.qml:40 ../app/ui/SettingsPage.qml:130
 msgid "Skip forward"
-msgstr ""
+msgstr "Гортати вперед"
 
 #: ../app/ui/SettingsPage.qml:47 ../app/ui/SettingsPage.qml:81
 #: ../app/ui/SettingsPage.qml:131 ../app/ui/SettingsPage.qml:138
 #, qt-format
 msgid "%1 seconds"
-msgstr ""
+msgstr "%1 сек."
 
 #: ../app/ui/SettingsPage.qml:51 ../app/ui/SettingsPage.qml:85
 msgid "Ok"
-msgstr ""
+msgstr "Гаразд"
 
 #. TRANSLATORS: This strings refers to the seeking of the episode playback. Users can set how far they
 #. want to seek backward when pressing on this button.
 #: ../app/ui/SettingsPage.qml:74 ../app/ui/SettingsPage.qml:137
 msgid "Skip back"
-msgstr ""
+msgstr "Гортати назад"
 
 #. TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
 #. that doesn't fit into any other category.
@@ -394,7 +396,7 @@ msgstr "Загальні параметри"
 
 #: ../app/ui/SettingsPage.qml:125
 msgid "Playback Settings"
-msgstr ""
+msgstr "Параметри відтворення"
 
 #: ../app/ui/SettingsPage.qml:143
 msgid "Podcast Episode Settings"
@@ -551,9 +553,11 @@ msgstr "Завершити"
 
 #: /home/mike/src/podbird/build-podbird-Ubuntu_Device4_GCC_armhf_ubuntu_sdk_15_04_vivid-Default/po/Podbird.desktop.in.h:1
 msgid "The chirpiest podcast manager for Ubuntu"
-msgstr ""
+msgstr "Найвеселіший засіб керування трансляціями для Ubuntu"
 
 #: /home/mike/src/podbird/build-podbird-Ubuntu_Device4_GCC_armhf_ubuntu_sdk_15_04_vivid-Default/po/Podbird.desktop.in.h:2
 msgid ""
 "podcast;audio;itunes;broadcast;digital;stream;podcatcher;video;vodcast;"
 msgstr ""
+"podcast;audio;itunes;broadcast;digital;stream;podcatcher;video;vodcast;подкас"
+"т;трансляція;аудіо;звук;айтюнс;цифровий;потік;відео;водкаст;"

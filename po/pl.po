@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-09-12 17:35+0100\n"
-"PO-Revision-Date: 2015-08-22 22:26+0000\n"
-"Last-Translator: Krzysztof Tataradziński <Unknown>\n"
+"PO-Revision-Date: 2015-09-14 11:21+0000\n"
+"Last-Translator: Bartosz Kosiorek <Unknown>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Launchpad-Export-Date: 2015-09-14 06:04+0000\n"
-"X-Generator: Launchpad (build 17720)\n"
+"X-Launchpad-Export-Date: 2015-09-15 05:49+0000\n"
+"X-Generator: Launchpad (build 17737)\n"
 
 #: ../app/components/Walkthrough.qml:90
 msgid "Skip"
@@ -225,7 +225,7 @@ msgstr "Czy na pewno zrezygnować z subskrybcji <b>%1</b>?"
 
 #: ../app/ui/EpisodesPage.qml:227 ../app/ui/WhatsNewTab.qml:201
 msgid "Episode Description"
-msgstr ""
+msgstr "Opis odcinka"
 
 #: ../app/ui/EpisodesPage.qml:239 ../app/ui/SearchPage.qml:155
 #: ../app/ui/WhatsNewTab.qml:213
@@ -250,7 +250,7 @@ msgstr "Przesłuchane"
 
 #: ../app/ui/EpisodesPage.qml:418
 msgid "Downloaded"
-msgstr ""
+msgstr "Pobrano"
 
 #: ../app/ui/NowPlayingPage.qml:29
 msgid "Now Playing"
@@ -376,11 +376,11 @@ msgstr ""
 #: ../app/ui/SettingsPage.qml:131 ../app/ui/SettingsPage.qml:138
 #, qt-format
 msgid "%1 seconds"
-msgstr ""
+msgstr "%1 sekund"
 
 #: ../app/ui/SettingsPage.qml:51 ../app/ui/SettingsPage.qml:85
 msgid "Ok"
-msgstr ""
+msgstr "Ok"
 
 #. TRANSLATORS: This strings refers to the seeking of the episode playback. Users can set how far they
 #. want to seek backward when pressing on this button.
@@ -396,7 +396,7 @@ msgstr "Ustawienia ogólne"
 
 #: ../app/ui/SettingsPage.qml:125
 msgid "Playback Settings"
-msgstr ""
+msgstr "Ustawienia odtwarzania"
 
 #: ../app/ui/SettingsPage.qml:143
 msgid "Podcast Episode Settings"
