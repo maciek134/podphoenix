@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-09-12 17:35+0100\n"
-"PO-Revision-Date: 2015-04-27 07:30+0000\n"
-"Last-Translator: Enrico <enricobe@hotmail.com>\n"
+"PO-Revision-Date: 2015-09-15 14:35+0000\n"
+"Last-Translator: Milo Casagrande <milo.casagrande@gmail.com>\n"
 "Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2015-09-14 06:04+0000\n"
-"X-Generator: Launchpad (build 17720)\n"
+"X-Launchpad-Export-Date: 2015-09-16 05:53+0000\n"
+"X-Generator: Launchpad (build 17737)\n"
 
 #: ../app/components/Walkthrough.qml:90
 msgid "Skip"
@@ -26,7 +26,7 @@ msgstr "Salta"
 #: ../app/podbird.qml:178
 #, qt-format
 msgid "Podcasts listened to today: <b>%1</b>"
-msgstr ""
+msgstr "Podcast ascoltati oggi: <b>%1</b>"
 
 #: ../app/podbird.qml:179
 msgid "No podcasts listened to today"
@@ -117,7 +117,7 @@ msgstr "Riconoscimenti"
 #: ../app/settings/Credits.qml:33
 #, qt-format
 msgid "%1 (Creator)"
-msgstr ""
+msgstr "%1 (autore)"
 
 #: ../app/settings/Credits.qml:33 ../app/settings/Credits.qml:34
 msgid "Developers"
@@ -153,7 +153,7 @@ msgstr "Tema"
 #: ../app/settings/ThemeSetting.qml:40
 #, qt-format
 msgid "Restart %1"
-msgstr ""
+msgstr "Riavvia %1"
 
 #. TRANSLATORS: The argument here is the name of the application (Podbird)
 #: ../app/settings/ThemeSetting.qml:42
@@ -163,10 +163,12 @@ msgid ""
 "necessary to avoid any strange behaviour in the app. We apologize for the "
 "inconvenience"
 msgstr ""
+"È necessario riavviare %1 per modificarne il tema. Ciò è necessario per "
+"evitare funzionamenti anomali dell'app."
 
 #: ../app/settings/ThemeSetting.qml:45
 msgid "Exit App"
-msgstr ""
+msgstr "Chiudi app"
 
 #. TRANSLATORS: Light Theme
 #: ../app/settings/ThemeSetting.qml:59 ../app/ui/SettingsPage.qml:120
@@ -217,7 +219,7 @@ msgstr "Rimuovere veramente l'iscrizione a <b>%1</b>?"
 
 #: ../app/ui/EpisodesPage.qml:227 ../app/ui/WhatsNewTab.qml:201
 msgid "Episode Description"
-msgstr ""
+msgstr "Descrizione episodio"
 
 #: ../app/ui/EpisodesPage.qml:239 ../app/ui/SearchPage.qml:155
 #: ../app/ui/WhatsNewTab.qml:213
@@ -242,7 +244,7 @@ msgstr "Ascoltati"
 
 #: ../app/ui/EpisodesPage.qml:418
 msgid "Downloaded"
-msgstr ""
+msgstr "Scaricati"
 
 #: ../app/ui/NowPlayingPage.qml:29
 msgid "Now Playing"
@@ -252,13 +254,13 @@ msgstr "In riproduzione"
 #: ../app/ui/NowPlayingPage.qml:199
 #, no-c-format, qt-format
 msgid "-%1s"
-msgstr ""
+msgstr "-%1s"
 
 #. TRANSLATORS: The string shown in the UI is +15s to denote the number of seconds that the podcast playback will skip forward.
 #: ../app/ui/NowPlayingPage.qml:260
 #, no-c-format, qt-format
 msgid "+%1s"
-msgstr ""
+msgstr "+%1s"
 
 #: ../app/ui/PodcastsTab.qml:50 ../app/ui/SearchPage.qml:41
 #: ../app/ui/SearchPage.qml:137
@@ -362,23 +364,23 @@ msgstr "Non disponibile"
 #. want to seek forward when pressing on this button.
 #: ../app/ui/SettingsPage.qml:40 ../app/ui/SettingsPage.qml:130
 msgid "Skip forward"
-msgstr ""
+msgstr "Salta avanti"
 
 #: ../app/ui/SettingsPage.qml:47 ../app/ui/SettingsPage.qml:81
 #: ../app/ui/SettingsPage.qml:131 ../app/ui/SettingsPage.qml:138
 #, qt-format
 msgid "%1 seconds"
-msgstr ""
+msgstr "%1 secondi"
 
 #: ../app/ui/SettingsPage.qml:51 ../app/ui/SettingsPage.qml:85
 msgid "Ok"
-msgstr ""
+msgstr "Ok"
 
 #. TRANSLATORS: This strings refers to the seeking of the episode playback. Users can set how far they
 #. want to seek backward when pressing on this button.
 #: ../app/ui/SettingsPage.qml:74 ../app/ui/SettingsPage.qml:137
 msgid "Skip back"
-msgstr ""
+msgstr "Salta indietro"
 
 #. TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
 #. that doesn't fit into any other category.
@@ -388,7 +390,7 @@ msgstr "Impostazioni generali"
 
 #: ../app/ui/SettingsPage.qml:125
 msgid "Playback Settings"
-msgstr ""
+msgstr "Opzioni di riproduzione"
 
 #: ../app/ui/SettingsPage.qml:143
 msgid "Podcast Episode Settings"
@@ -439,7 +441,7 @@ msgstr "Nessun episodio trovato"
 
 #: ../app/ui/WhatsNewTab.qml:126
 msgid "No more episodes to listen to!"
-msgstr "Nessun altro episodio da ascoltare!"
+msgstr "Nessun altro episodio da ascoltare."
 
 #: ../app/ui/WhatsNewTab.qml:126
 msgid "No Episodes found matching the search term."
@@ -544,9 +546,11 @@ msgstr "Fine"
 
 #: /home/mike/src/podbird/build-podbird-Ubuntu_Device4_GCC_armhf_ubuntu_sdk_15_04_vivid-Default/po/Podbird.desktop.in.h:1
 msgid "The chirpiest podcast manager for Ubuntu"
-msgstr ""
+msgstr "Il gestore di podcast più cinguettoso per Ubuntu"
 
 #: /home/mike/src/podbird/build-podbird-Ubuntu_Device4_GCC_armhf_ubuntu_sdk_15_04_vivid-Default/po/Podbird.desktop.in.h:2
 msgid ""
 "podcast;audio;itunes;broadcast;digital;stream;podcatcher;video;vodcast;"
 msgstr ""
+"podcast;audio;itunes;broadcast;trasmissioni;digitale;stream;podcatcher;video;"
+"vodcast;"
