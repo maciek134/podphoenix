@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-09-12 17:35+0100\n"
-"PO-Revision-Date: 2015-07-01 23:05+0000\n"
-"Last-Translator: Andi Chandler <Unknown>\n"
+"PO-Revision-Date: 2015-09-16 13:13+0000\n"
+"Last-Translator: Michael Sheldon <michael.sheldon@canonical.com>\n"
 "Language-Team: English (United Kingdom) <en_GB@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2015-09-14 06:04+0000\n"
-"X-Generator: Launchpad (build 17720)\n"
+"X-Launchpad-Export-Date: 2015-09-17 05:49+0000\n"
+"X-Generator: Launchpad (build 17737)\n"
 
 #: ../app/components/Walkthrough.qml:90
 msgid "Skip"
@@ -220,7 +220,7 @@ msgstr "Are you sure you want to unsubscribe from <b>%1</b>?"
 
 #: ../app/ui/EpisodesPage.qml:227 ../app/ui/WhatsNewTab.qml:201
 msgid "Episode Description"
-msgstr ""
+msgstr "Episode Description"
 
 #: ../app/ui/EpisodesPage.qml:239 ../app/ui/SearchPage.qml:155
 #: ../app/ui/WhatsNewTab.qml:213
@@ -245,7 +245,7 @@ msgstr "Listened"
 
 #: ../app/ui/EpisodesPage.qml:418
 msgid "Downloaded"
-msgstr ""
+msgstr "Downloaded"
 
 #: ../app/ui/NowPlayingPage.qml:29
 msgid "Now Playing"
@@ -364,23 +364,23 @@ msgstr "Not Available"
 #. want to seek forward when pressing on this button.
 #: ../app/ui/SettingsPage.qml:40 ../app/ui/SettingsPage.qml:130
 msgid "Skip forward"
-msgstr ""
+msgstr "Skip forward"
 
 #: ../app/ui/SettingsPage.qml:47 ../app/ui/SettingsPage.qml:81
 #: ../app/ui/SettingsPage.qml:131 ../app/ui/SettingsPage.qml:138
 #, qt-format
 msgid "%1 seconds"
-msgstr ""
+msgstr "%1 seconds"
 
 #: ../app/ui/SettingsPage.qml:51 ../app/ui/SettingsPage.qml:85
 msgid "Ok"
-msgstr ""
+msgstr "Ok"
 
 #. TRANSLATORS: This strings refers to the seeking of the episode playback. Users can set how far they
 #. want to seek backward when pressing on this button.
 #: ../app/ui/SettingsPage.qml:74 ../app/ui/SettingsPage.qml:137
 msgid "Skip back"
-msgstr ""
+msgstr "Skip back"
 
 #. TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
 #. that doesn't fit into any other category.
@@ -390,7 +390,7 @@ msgstr "General Settings"
 
 #: ../app/ui/SettingsPage.qml:125
 msgid "Playback Settings"
-msgstr ""
+msgstr "Playback Settings"
 
 #: ../app/ui/SettingsPage.qml:143
 msgid "Podcast Episode Settings"
@@ -554,3 +554,4 @@ msgstr "The chirpiest podcast manager for Ubuntu"
 msgid ""
 "podcast;audio;itunes;broadcast;digital;stream;podcatcher;video;vodcast;"
 msgstr ""
+"podcast;audio;itunes;broadcast;digital;stream;podcatcher;video;vodcast;"
