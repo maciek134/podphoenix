@@ -1,3 +1,9 @@
+podbird (0.7) vivid; urgency=low
+
+  * Update to version 0.7
+
+ -- Michael Sheldon <michael.sheldon@canonical.com>  Tue, 27 Oct 2015 01:11:43 +0000
+
 podbird (0.6-vivid2) vivid; urgency=low
 
   * Fix missing dependencies on qml-module-qtquick-localstorage, qml-module-qt-labs-settings, qml-module-ubuntu-connectivity and qtdeclarative5-usermetrics0.1
