@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-09-12 17:35+0100\n"
-"PO-Revision-Date: 2015-09-14 11:21+0000\n"
-"Last-Translator: Bartosz Kosiorek <Unknown>\n"
+"PO-Revision-Date: 2015-10-22 11:47+0000\n"
+"Last-Translator: Krzysztof Tataradziński <Unknown>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Launchpad-Export-Date: 2015-09-15 05:49+0000\n"
-"X-Generator: Launchpad (build 17737)\n"
+"X-Launchpad-Export-Date: 2015-10-23 05:51+0000\n"
+"X-Generator: Launchpad (build 17812)\n"
 
 #: ../app/components/Walkthrough.qml:90
 msgid "Skip"
@@ -370,7 +370,7 @@ msgstr "Niedostępne"
 #. want to seek forward when pressing on this button.
 #: ../app/ui/SettingsPage.qml:40 ../app/ui/SettingsPage.qml:130
 msgid "Skip forward"
-msgstr ""
+msgstr "Przewiń w przód"
 
 #: ../app/ui/SettingsPage.qml:47 ../app/ui/SettingsPage.qml:81
 #: ../app/ui/SettingsPage.qml:131 ../app/ui/SettingsPage.qml:138
@@ -386,7 +386,7 @@ msgstr "Ok"
 #. want to seek backward when pressing on this button.
 #: ../app/ui/SettingsPage.qml:74 ../app/ui/SettingsPage.qml:137
 msgid "Skip back"
-msgstr ""
+msgstr "Przewiń w tył"
 
 #. TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
 #. that doesn't fit into any other category.
@@ -559,3 +559,5 @@ msgstr "Rozćwierkany menadżer podcastów na Ubuntu"
 msgid ""
 "podcast;audio;itunes;broadcast;digital;stream;podcatcher;video;vodcast;"
 msgstr ""
+"podcast;dźwięk;itunes;nadawanie;cyfrowe;strumieniowanie;podcatcher;wideo;vodc"
+"ast;"

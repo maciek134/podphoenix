@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-09-12 17:35+0100\n"
-"PO-Revision-Date: 2015-09-14 14:02+0000\n"
+"PO-Revision-Date: 2015-09-21 16:03+0000\n"
 "Last-Translator: Tiago Carrondo <tiago@carrondo.pt>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2015-09-15 05:49+0000\n"
-"X-Generator: Launchpad (build 17737)\n"
+"X-Launchpad-Export-Date: 2015-09-22 06:08+0000\n"
+"X-Generator: Launchpad (build 17749)\n"
 
 #: ../app/components/Walkthrough.qml:90
 msgid "Skip"
@@ -548,7 +548,7 @@ msgstr "Concluir"
 
 #: /home/mike/src/podbird/build-podbird-Ubuntu_Device4_GCC_armhf_ubuntu_sdk_15_04_vivid-Default/po/Podbird.desktop.in.h:1
 msgid "The chirpiest podcast manager for Ubuntu"
-msgstr "O gestor de podcasts mais alegre do Ubuntu"
+msgstr "O gestor de podcasts mais vibrante do Ubuntu"
 
 #: /home/mike/src/podbird/build-podbird-Ubuntu_Device4_GCC_armhf_ubuntu_sdk_15_04_vivid-Default/po/Podbird.desktop.in.h:2
 msgid ""
