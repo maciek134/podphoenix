@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-09-12 18:02+0100\n"
-"PO-Revision-Date: 2015-04-20 04:59+0000\n"
+"PO-Revision-Date: 2015-11-20 05:04+0000\n"
 "Last-Translator: GunChleoc <Unknown>\n"
 "Language-Team: Fòram na Gàidhlig\n"
 "MIME-Version: 1.0\n"
@@ -16,8 +16,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 || n==11) ? 0 : (n==2 || n==12) ? 1 : "
 "(n > 2 && n < 20) ? 2 : 3;\n"
-"X-Launchpad-Export-Date: 2015-10-28 05:57+0000\n"
-"X-Generator: Launchpad (build 17833)\n"
+"X-Launchpad-Export-Date: 2015-11-20 05:33+0000\n"
+"X-Generator: Launchpad (build 17850)\n"
 "Language: gd\n"
 
 #: ../app/components/Walkthrough.qml:90
@@ -28,7 +28,7 @@ msgstr "Gearr leum thairis air"
 #: ../app/podbird.qml:178
 #, qt-format
 msgid "Podcasts listened to today: <b>%1</b>"
-msgstr ""
+msgstr "Na pod-chraolaidhean ris an do dh'èist thu an-diugh: <b>%1</b>"
 
 #: ../app/podbird.qml:179
 msgid "No podcasts listened to today"
@@ -125,7 +125,7 @@ msgstr "Urram"
 #: ../app/settings/Credits.qml:33
 #, qt-format
 msgid "%1 (Creator)"
-msgstr ""
+msgstr "%1 (cruthadair)"
 
 #: ../app/settings/Credits.qml:33 ../app/settings/Credits.qml:34
 msgid "Developers"
@@ -163,7 +163,7 @@ msgstr "Ùrlar"
 #: ../app/settings/ThemeSetting.qml:40
 #, qt-format
 msgid "Restart %1"
-msgstr ""
+msgstr "Ath-thòisich %1"
 
 #. TRANSLATORS: The argument here is the name of the application (Podbird)
 #: ../app/settings/ThemeSetting.qml:42
@@ -173,10 +173,13 @@ msgid ""
 "necessary to avoid any strange behaviour in the app. We apologize for the "
 "inconvenience"
 msgstr ""
+"Feumaidh tu %1 ath-thòiseachadh gus ùrlar na h-aplacaid atharrachadh. Tha "
+"feum air seo ach nach bi giùlan neònach aig an aplacaid. Tha sinn duilich "
+"mun thrioblaid"
 
 #: ../app/settings/ThemeSetting.qml:45
 msgid "Exit App"
-msgstr ""
+msgstr "Fàg an aplacaid"
 
 #. TRANSLATORS: Light Theme
 #: ../app/settings/ThemeSetting.qml:59 ../app/ui/SettingsPage.qml:120
@@ -229,7 +232,7 @@ msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:227 ../app/ui/WhatsNewTab.qml:201
 msgid "Episode Description"
-msgstr ""
+msgstr "Tuairisgeul an eapasoid"
 
 #: ../app/ui/EpisodesPage.qml:239 ../app/ui/SearchPage.qml:155
 #: ../app/ui/WhatsNewTab.qml:213
@@ -254,7 +257,7 @@ msgstr "Air èisteachd ris"
 
 #: ../app/ui/EpisodesPage.qml:418
 msgid "Downloaded"
-msgstr ""
+msgstr "Air a luchdadh a-nuas"
 
 #: ../app/ui/NowPlayingPage.qml:29
 msgid "Now Playing"
@@ -264,13 +267,13 @@ msgstr "'Ga chluich an-dràsta"
 #: ../app/ui/NowPlayingPage.qml:199
 #, no-c-format, qt-format
 msgid "-%1s"
-msgstr ""
+msgstr "-%1s"
 
 #. TRANSLATORS: The string shown in the UI is +15s to denote the number of seconds that the podcast playback will skip forward.
 #: ../app/ui/NowPlayingPage.qml:260
 #, no-c-format, qt-format
 msgid "+%1s"
-msgstr ""
+msgstr "+%1s"
 
 #: ../app/ui/PodcastsTab.qml:50 ../app/ui/SearchPage.qml:41
 #: ../app/ui/SearchPage.qml:137
@@ -376,23 +379,23 @@ msgstr "Chan eil seo ri fhaighinn"
 #. want to seek forward when pressing on this button.
 #: ../app/ui/SettingsPage.qml:40 ../app/ui/SettingsPage.qml:130
 msgid "Skip forward"
-msgstr ""
+msgstr "Leum air adhart"
 
 #: ../app/ui/SettingsPage.qml:47 ../app/ui/SettingsPage.qml:81
 #: ../app/ui/SettingsPage.qml:131 ../app/ui/SettingsPage.qml:138
 #, qt-format
 msgid "%1 seconds"
-msgstr ""
+msgstr "%1 diog(an)"
 
 #: ../app/ui/SettingsPage.qml:51 ../app/ui/SettingsPage.qml:85
 msgid "Ok"
-msgstr ""
+msgstr "Ceart ma-thà"
 
 #. TRANSLATORS: This strings refers to the seeking of the episode playback. Users can set how far they
 #. want to seek backward when pressing on this button.
 #: ../app/ui/SettingsPage.qml:74 ../app/ui/SettingsPage.qml:137
 msgid "Skip back"
-msgstr ""
+msgstr "Leum air ais"
 
 #. TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
 #. that doesn't fit into any other category.
@@ -402,7 +405,7 @@ msgstr "Roghainnean coitcheann"
 
 #: ../app/ui/SettingsPage.qml:125
 msgid "Playback Settings"
-msgstr ""
+msgstr "Roghainnean na cluiche"
 
 #: ../app/ui/SettingsPage.qml:143
 msgid "Podcast Episode Settings"
@@ -565,9 +568,11 @@ msgstr "Crìochnaich"
 
 #: /home/mike/src/podbird/build-podbird-Ubuntu_Device4_GCC_armhf_ubuntu_sdk_15_04_vivid-Default/po/Podbird.desktop.in.h:1
 msgid "The chirpiest podcast manager for Ubuntu"
-msgstr ""
+msgstr "Manaidsear phod-chraolaidhean airson Ubuntu"
 
 #: /home/mike/src/podbird/build-podbird-Ubuntu_Device4_GCC_armhf_ubuntu_sdk_15_04_vivid-Default/po/Podbird.desktop.in.h:2
 msgid ""
 "podcast;audio;itunes;broadcast;digital;stream;podcatcher;video;vodcast;"
 msgstr ""
+"podcast;audio;itunes;broadcast;digital;stream;podcatcher;video;vodcast;pod-"
+"chraoladh;pod-chraolaidhean;fuaim;craoladh;digiteac;sruth;"
