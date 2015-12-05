@@ -165,6 +165,7 @@ Tab {
                             if (whatsNewModel.get(i).guid == tempGuid) {
                                 console.log("[LOG]: Setting episode download URL to " + rs2.rows.item(0).downloadedfile)
                                 whatsNewModel.setProperty(i, "downloadedfile", rs2.rows.item(0).downloadedfile)
+                                whatsNewModel.setProperty(i, "queued", 0)
                                 break
                             }
                         }
@@ -182,6 +183,7 @@ Tab {
                         tempGuid = downloader.downloadingGuid
                     }
                 });
+                refreshModel();
             }
         }
 

@@ -175,6 +175,7 @@ Page {
                     tempGuid = downloader.downloadingGuid
                 }
             });
+            refreshModel();
         }
     }
 
