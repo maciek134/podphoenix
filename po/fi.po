@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-09-12 18:02+0100\n"
+"POT-Creation-Date: 2015-12-05 20:40+0000\n"
 "PO-Revision-Date: 2015-09-14 11:06+0000\n"
 "Last-Translator: Jiri Grönroos <Unknown>\n"
 "Language-Team: Finnish <fi@li.org>\n"
@@ -15,8 +15,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2015-10-28 05:57+0000\n"
-"X-Generator: Launchpad (build 17833)\n"
+"X-Launchpad-Export-Date: 2015-12-06 06:38+0000\n"
+"X-Generator: Launchpad (build 17862)\n"
 
 #: ../app/components/Walkthrough.qml:90
 msgid "Skip"
@@ -138,7 +138,7 @@ msgstr "Lataa enintään"
 #: ../app/settings/DownloadSetting.qml:34
 #: ../app/settings/DownloadSetting.qml:35
 #: ../app/settings/DownloadSetting.qml:36
-#: ../app/settings/DownloadSetting.qml:37 ../app/ui/EpisodesPage.qml:349
+#: ../app/settings/DownloadSetting.qml:37 ../app/ui/EpisodesPage.qml:357
 #, qt-format
 msgid "%1 episode"
 msgid_plural "%1 episodes"
@@ -192,12 +192,12 @@ msgstr "Etsi jaksoa"
 msgid "Mark all listened"
 msgstr "Merkitse kaikki kuunnelluiksi"
 
-#: ../app/ui/EpisodesPage.qml:95 ../app/ui/EpisodesPage.qml:188
+#: ../app/ui/EpisodesPage.qml:95 ../app/ui/EpisodesPage.qml:196
 #: ../app/ui/SearchPage.qml:226
 msgid "Unsubscribe"
 msgstr "Peru tilaus"
 
-#: ../app/ui/EpisodesPage.qml:112 ../app/ui/EpisodesPage.qml:205
+#: ../app/ui/EpisodesPage.qml:112 ../app/ui/EpisodesPage.qml:213
 #: ../app/ui/PodcastsTab.qml:72 ../app/ui/SearchPage.qml:65
 #: ../app/ui/SearchPage.qml:98 ../app/ui/SettingsPage.qml:59
 #: ../app/ui/SettingsPage.qml:93 ../app/ui/WhatsNewTab.qml:79
@@ -208,41 +208,41 @@ msgstr "Peru"
 msgid "Search episode"
 msgstr "Etsi jaksoa"
 
-#: ../app/ui/EpisodesPage.qml:185
+#: ../app/ui/EpisodesPage.qml:193
 msgid "Unsubscribe Confirmation"
 msgstr "Tilauksen perumisen vahvistus"
 
-#: ../app/ui/EpisodesPage.qml:186
+#: ../app/ui/EpisodesPage.qml:194
 #, qt-format
 msgid "Are you sure you want to unsubscribe from <b>%1</b>?"
 msgstr "Haluatko varmasti poistaa tilauksen <b>%1</b>?"
 
-#: ../app/ui/EpisodesPage.qml:227 ../app/ui/WhatsNewTab.qml:201
+#: ../app/ui/EpisodesPage.qml:235 ../app/ui/WhatsNewTab.qml:203
 msgid "Episode Description"
 msgstr "Jakson kuvaus"
 
-#: ../app/ui/EpisodesPage.qml:239 ../app/ui/SearchPage.qml:155
-#: ../app/ui/WhatsNewTab.qml:213
+#: ../app/ui/EpisodesPage.qml:247 ../app/ui/SearchPage.qml:155
+#: ../app/ui/WhatsNewTab.qml:215
 msgid "Close"
 msgstr "Sulje"
 
-#: ../app/ui/EpisodesPage.qml:269
+#: ../app/ui/EpisodesPage.qml:277
 msgid "No episodes found"
 msgstr "Jaksoja ei löytynyt."
 
-#: ../app/ui/EpisodesPage.qml:270
+#: ../app/ui/EpisodesPage.qml:278
 msgid "No episodes found matching the search term."
 msgstr "Hakuehtojasi vastaavia jaksoja ei löytynyt."
 
-#: ../app/ui/EpisodesPage.qml:366
+#: ../app/ui/EpisodesPage.qml:374
 msgid "Unheard"
 msgstr "Kuuntelemattomat"
 
-#: ../app/ui/EpisodesPage.qml:393
+#: ../app/ui/EpisodesPage.qml:401
 msgid "Listened"
 msgstr "Kuunnellut"
 
-#: ../app/ui/EpisodesPage.qml:418
+#: ../app/ui/EpisodesPage.qml:426
 msgid "Downloaded"
 msgstr "Ladattu"
 
@@ -448,15 +448,15 @@ msgstr "Ei enempää kuunneltavia jaksoja!"
 msgid "No Episodes found matching the search term."
 msgstr "Hakuehtojasi vastaavia jaksoja ei löytynyt."
 
-#: ../app/ui/WhatsNewTab.qml:254
+#: ../app/ui/WhatsNewTab.qml:256
 msgid "Today"
 msgstr "Tänään"
 
-#: ../app/ui/WhatsNewTab.qml:258
+#: ../app/ui/WhatsNewTab.qml:260
 msgid "Yesterday"
 msgstr "Eilen"
 
-#: ../app/ui/WhatsNewTab.qml:262
+#: ../app/ui/WhatsNewTab.qml:264
 msgid "Older"
 msgstr "Vanhempi"
 
@@ -543,11 +543,11 @@ msgstr "Toivottavasti pidät Podbirdin käyttämisestä!"
 msgid "Finish"
 msgstr "Valmis"
 
-#: /home/mike/src/podbird/build-podbird-Ubuntu_Device4_GCC_armhf_ubuntu_sdk_15_04_vivid-Default/po/Podbird.desktop.in.h:1
+#: /home/mike/src/podbird/build-podbird-Ubuntu_Device3_GCC_armhf_ubuntu_sdk_15_04_vivid-Default/po/Podbird.desktop.in.h:1
 msgid "The chirpiest podcast manager for Ubuntu"
 msgstr "Ubuntun terävin podcast-sovellus"
 
-#: /home/mike/src/podbird/build-podbird-Ubuntu_Device4_GCC_armhf_ubuntu_sdk_15_04_vivid-Default/po/Podbird.desktop.in.h:2
+#: /home/mike/src/podbird/build-podbird-Ubuntu_Device3_GCC_armhf_ubuntu_sdk_15_04_vivid-Default/po/Podbird.desktop.in.h:2
 msgid ""
 "podcast;audio;itunes;broadcast;digital;stream;podcatcher;video;vodcast;"
 msgstr ""

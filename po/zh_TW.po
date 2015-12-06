@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-09-12 18:02+0100\n"
+"POT-Creation-Date: 2015-12-05 20:40+0000\n"
 "PO-Revision-Date: 2015-04-21 14:09+0000\n"
 "Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <zh_TW@li.org>\n"
@@ -15,8 +15,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Launchpad-Export-Date: 2015-10-28 05:57+0000\n"
-"X-Generator: Launchpad (build 17833)\n"
+"X-Launchpad-Export-Date: 2015-12-06 06:39+0000\n"
+"X-Generator: Launchpad (build 17862)\n"
 
 #: ../app/components/Walkthrough.qml:90
 msgid "Skip"
@@ -135,7 +135,7 @@ msgstr ""
 #: ../app/settings/DownloadSetting.qml:34
 #: ../app/settings/DownloadSetting.qml:35
 #: ../app/settings/DownloadSetting.qml:36
-#: ../app/settings/DownloadSetting.qml:37 ../app/ui/EpisodesPage.qml:349
+#: ../app/settings/DownloadSetting.qml:37 ../app/ui/EpisodesPage.qml:357
 #, qt-format
 msgid "%1 episode"
 msgid_plural "%1 episodes"
@@ -186,12 +186,12 @@ msgstr "搜尋節目"
 msgid "Mark all listened"
 msgstr "將全部標記為聽過"
 
-#: ../app/ui/EpisodesPage.qml:95 ../app/ui/EpisodesPage.qml:188
+#: ../app/ui/EpisodesPage.qml:95 ../app/ui/EpisodesPage.qml:196
 #: ../app/ui/SearchPage.qml:226
 msgid "Unsubscribe"
 msgstr "取消訂閱"
 
-#: ../app/ui/EpisodesPage.qml:112 ../app/ui/EpisodesPage.qml:205
+#: ../app/ui/EpisodesPage.qml:112 ../app/ui/EpisodesPage.qml:213
 #: ../app/ui/PodcastsTab.qml:72 ../app/ui/SearchPage.qml:65
 #: ../app/ui/SearchPage.qml:98 ../app/ui/SettingsPage.qml:59
 #: ../app/ui/SettingsPage.qml:93 ../app/ui/WhatsNewTab.qml:79
@@ -202,41 +202,41 @@ msgstr "取消"
 msgid "Search episode"
 msgstr "搜尋節目"
 
-#: ../app/ui/EpisodesPage.qml:185
+#: ../app/ui/EpisodesPage.qml:193
 msgid "Unsubscribe Confirmation"
 msgstr "確認取消訂閱"
 
-#: ../app/ui/EpisodesPage.qml:186
+#: ../app/ui/EpisodesPage.qml:194
 #, qt-format
 msgid "Are you sure you want to unsubscribe from <b>%1</b>?"
 msgstr "您確定要取消訂閱 <b>%1</b>？"
 
-#: ../app/ui/EpisodesPage.qml:227 ../app/ui/WhatsNewTab.qml:201
+#: ../app/ui/EpisodesPage.qml:235 ../app/ui/WhatsNewTab.qml:203
 msgid "Episode Description"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:239 ../app/ui/SearchPage.qml:155
-#: ../app/ui/WhatsNewTab.qml:213
+#: ../app/ui/EpisodesPage.qml:247 ../app/ui/SearchPage.qml:155
+#: ../app/ui/WhatsNewTab.qml:215
 msgid "Close"
 msgstr "關閉"
 
-#: ../app/ui/EpisodesPage.qml:269
+#: ../app/ui/EpisodesPage.qml:277
 msgid "No episodes found"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:270
+#: ../app/ui/EpisodesPage.qml:278
 msgid "No episodes found matching the search term."
 msgstr "找不到符合搜尋字詞的節目。"
 
-#: ../app/ui/EpisodesPage.qml:366
+#: ../app/ui/EpisodesPage.qml:374
 msgid "Unheard"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:393
+#: ../app/ui/EpisodesPage.qml:401
 msgid "Listened"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:418
+#: ../app/ui/EpisodesPage.qml:426
 msgid "Downloaded"
 msgstr ""
 
@@ -434,15 +434,15 @@ msgstr ""
 msgid "No Episodes found matching the search term."
 msgstr ""
 
-#: ../app/ui/WhatsNewTab.qml:254
+#: ../app/ui/WhatsNewTab.qml:256
 msgid "Today"
 msgstr ""
 
-#: ../app/ui/WhatsNewTab.qml:258
+#: ../app/ui/WhatsNewTab.qml:260
 msgid "Yesterday"
 msgstr ""
 
-#: ../app/ui/WhatsNewTab.qml:262
+#: ../app/ui/WhatsNewTab.qml:264
 msgid "Older"
 msgstr ""
 
@@ -520,11 +520,11 @@ msgstr ""
 msgid "Finish"
 msgstr ""
 
-#: /home/mike/src/podbird/build-podbird-Ubuntu_Device4_GCC_armhf_ubuntu_sdk_15_04_vivid-Default/po/Podbird.desktop.in.h:1
+#: /home/mike/src/podbird/build-podbird-Ubuntu_Device3_GCC_armhf_ubuntu_sdk_15_04_vivid-Default/po/Podbird.desktop.in.h:1
 msgid "The chirpiest podcast manager for Ubuntu"
 msgstr ""
 
-#: /home/mike/src/podbird/build-podbird-Ubuntu_Device4_GCC_armhf_ubuntu_sdk_15_04_vivid-Default/po/Podbird.desktop.in.h:2
+#: /home/mike/src/podbird/build-podbird-Ubuntu_Device3_GCC_armhf_ubuntu_sdk_15_04_vivid-Default/po/Podbird.desktop.in.h:2
 msgid ""
 "podcast;audio;itunes;broadcast;digital;stream;podcatcher;video;vodcast;"
 msgstr ""
