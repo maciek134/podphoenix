@@ -9,14 +9,14 @@ msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-12-05 20:40+0000\n"
-"PO-Revision-Date: 2015-12-07 11:03+0000\n"
+"PO-Revision-Date: 2015-12-08 06:36+0000\n"
 "Last-Translator: Rūdolfs Mazurs <Unknown>\n"
 "Language-Team: Latviešu <>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2;\n"
-"X-Launchpad-Export-Date: 2015-12-08 05:51+0000\n"
+"X-Launchpad-Export-Date: 2015-12-09 05:52+0000\n"
 "X-Generator: Launchpad (build 17862)\n"
 "Language: lv\n"
 
@@ -466,7 +466,7 @@ msgstr "Vakar"
 
 #: ../app/ui/WhatsNewTab.qml:264
 msgid "Older"
-msgstr "Vecāka"
+msgstr "Vecākas"
 
 #: ../app/welcomewizard/Slide1.qml:42
 msgid "Welcome to Podbird"

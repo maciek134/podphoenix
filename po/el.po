@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-12-05 20:40+0000\n"
-"PO-Revision-Date: 2015-09-01 09:24+0000\n"
+"PO-Revision-Date: 2015-12-08 17:30+0000\n"
 "Last-Translator: Constantinos Koniaris <kostas291@yahoo.com>\n"
 "Language-Team: Greek <el@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2015-12-06 06:38+0000\n"
+"X-Launchpad-Export-Date: 2015-12-09 05:52+0000\n"
 "X-Generator: Launchpad (build 17862)\n"
 
 #: ../app/components/Walkthrough.qml:90
@@ -221,7 +221,7 @@ msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:235 ../app/ui/WhatsNewTab.qml:203
 msgid "Episode Description"
-msgstr ""
+msgstr "Περιγραφή επεισοδίου"
 
 #: ../app/ui/EpisodesPage.qml:247 ../app/ui/SearchPage.qml:155
 #: ../app/ui/WhatsNewTab.qml:215
@@ -246,7 +246,7 @@ msgstr "Ακουσμένα"
 
 #: ../app/ui/EpisodesPage.qml:426
 msgid "Downloaded"
-msgstr ""
+msgstr "Ληφθέντα"
 
 #: ../app/ui/NowPlayingPage.qml:29
 msgid "Now Playing"
@@ -367,23 +367,23 @@ msgstr "Μη Διαθέσιμο"
 #. want to seek forward when pressing on this button.
 #: ../app/ui/SettingsPage.qml:40 ../app/ui/SettingsPage.qml:130
 msgid "Skip forward"
-msgstr ""
+msgstr "Μετάβαση προς τα εμπρός"
 
 #: ../app/ui/SettingsPage.qml:47 ../app/ui/SettingsPage.qml:81
 #: ../app/ui/SettingsPage.qml:131 ../app/ui/SettingsPage.qml:138
 #, qt-format
 msgid "%1 seconds"
-msgstr ""
+msgstr "%1 δευτερόλεπτα"
 
 #: ../app/ui/SettingsPage.qml:51 ../app/ui/SettingsPage.qml:85
 msgid "Ok"
-msgstr ""
+msgstr "Εντάξει"
 
 #. TRANSLATORS: This strings refers to the seeking of the episode playback. Users can set how far they
 #. want to seek backward when pressing on this button.
 #: ../app/ui/SettingsPage.qml:74 ../app/ui/SettingsPage.qml:137
 msgid "Skip back"
-msgstr ""
+msgstr "Μετάβαση προς τα πίσω"
 
 #. TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
 #. that doesn't fit into any other category.
@@ -393,7 +393,7 @@ msgstr "Γενικές ρυθμίσεις"
 
 #: ../app/ui/SettingsPage.qml:125
 msgid "Playback Settings"
-msgstr ""
+msgstr "Ρυθμίσεις αναπαραγωγής"
 
 #: ../app/ui/SettingsPage.qml:143
 msgid "Podcast Episode Settings"
@@ -561,3 +561,4 @@ msgstr "Η πιο κελαηδιστή εφαρμογή διαχείρισης �
 msgid ""
 "podcast;audio;itunes;broadcast;digital;stream;podcatcher;video;vodcast;"
 msgstr ""
+"podcast;vodcast;podcatcher;itunes;ήχος;φορητή;εκπομπή;ψηφιακή;ροή;βίντεο;"
