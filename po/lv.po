@@ -9,15 +9,15 @@ msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-12-05 20:40+0000\n"
-"PO-Revision-Date: 2015-12-08 06:36+0000\n"
+"PO-Revision-Date: 2015-12-09 07:36+0000\n"
 "Last-Translator: Rūdolfs Mazurs <Unknown>\n"
 "Language-Team: Latviešu <>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2;\n"
-"X-Launchpad-Export-Date: 2015-12-09 05:52+0000\n"
-"X-Generator: Launchpad (build 17862)\n"
+"X-Launchpad-Export-Date: 2015-12-11 06:32+0000\n"
+"X-Generator: Launchpad (build 17865)\n"
 "Language: lv\n"
 
 #: ../app/components/Walkthrough.qml:90
@@ -243,15 +243,15 @@ msgstr "Neviena epizode neatbilst meklētajam tekstam."
 
 #: ../app/ui/EpisodesPage.qml:374
 msgid "Unheard"
-msgstr "Nav dzirdēta"
+msgstr "Nav dzirdētas"
 
 #: ../app/ui/EpisodesPage.qml:401
 msgid "Listened"
-msgstr "Dzirdēta"
+msgstr "Dzirdētas"
 
 #: ../app/ui/EpisodesPage.qml:426
 msgid "Downloaded"
-msgstr "Lejupielādēti"
+msgstr "Lejupielādētas"
 
 #: ../app/ui/NowPlayingPage.qml:29
 msgid "Now Playing"
