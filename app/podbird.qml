@@ -22,7 +22,7 @@ import UserMetrics 0.1
 import QtMultimedia 5.0
 import Ubuntu.Connectivity 1.0
 import Qt.labs.settings 1.0
-import Ubuntu.Components 1.2
+import Ubuntu.Components 1.3
 import QtQuick.LocalStorage 2.0
 import Ubuntu.DownloadManager 0.1
 import "ui"

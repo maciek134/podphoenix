@@ -17,7 +17,7 @@
  */
 
 import QtQuick 2.4
-import Ubuntu.Components 1.2
+import Ubuntu.Components 1.3
 import Ubuntu.Components.ListItems 1.0 as ListItem
 
 Page {
@@ -43,6 +43,10 @@ Page {
 
     // Property to signal walkthrough completion
     signal finished
+
+    header: PageHeader {
+        visible: false
+    }
 
     // Disable automatic orientation during welcome wizard since it is not landscape friendly yet.
     // Component.onCompleted: podbird.automaticOrientation = false
