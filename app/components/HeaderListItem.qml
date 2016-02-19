@@ -28,6 +28,7 @@ ListItem {
 
     Label {
         id: headerText
+        color: podbird.appTheme.baseText
         anchors { left: parent.left; leftMargin: units.gu(2); verticalCenter: parent.verticalCenter }
         font.weight: Font.DemiBold
     }

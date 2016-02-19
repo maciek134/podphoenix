@@ -18,7 +18,7 @@
 
 import QtQuick 2.4
 import Ubuntu.Components 1.3
-import Ubuntu.Components.Popups 1.0
+import Ubuntu.Components.Popups 1.3
 import "../components"
 
 Page {
@@ -116,7 +116,7 @@ Page {
 
             SingleValueListItem {
                 divider.visible: false
-                text: i18n.tr("Theme")
+                title.text: i18n.tr("Theme")
                 value: podbird.settings.themeName.split(".qml")[0] === "Light" ? i18n.tr("Light") : i18n.tr("Dark")
                 onClicked: mainStack.push(Qt.resolvedUrl("../settings/ThemeSetting.qml"))
             }
@@ -127,14 +127,14 @@ Page {
 
             SingleValueListItem {
                 divider.visible: false
-                text: i18n.tr("Skip forward")
+                title.text: i18n.tr("Skip forward")
                 value: i18n.tr("%1 seconds").arg(podbird.settings.skipForward)
                 onClicked: PopupUtils.open(skipForwardDialog, settingsPage);
             }
 
             SingleValueListItem {
                 divider.visible: false
-                text: i18n.tr("Skip back")
+                title.text: i18n.tr("Skip back")
                 value: i18n.tr("%1 seconds").arg(podbird.settings.skipBack)
                 onClicked: PopupUtils.open(skipBackDialog, settingsPage);
             }
