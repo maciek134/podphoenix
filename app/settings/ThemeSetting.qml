@@ -18,7 +18,6 @@
 
 import QtQuick 2.4
 import Ubuntu.Components 1.3
-import Ubuntu.Components.Popups 1.0
 import "../components"
 
 Page {
@@ -26,30 +25,6 @@ Page {
 
     visible: false
     title: i18n.tr("Theme")
-
-    /*
-     Note (nik90): After the upgrade to Ubuntu.Components 1.2, dynamic application theme switching is broken. This
-     has been reported upstream at http://pad.lv/1462690. Until this is fixed, users will have to restart the app
-     when switching application theme. This dialog explains that to the user.
-    */
-    Component {
-        id: rebootAppDialog
-        Dialog {
-            id: dialogInternal
-            // TRANSLATORS: The argument here is the name of the application (Podbird)
-            title: i18n.tr("Restart %1").arg("Podbird")
-            // TRANSLATORS: The argument here is the name of the application (Podbird)
-            text: i18n.tr("You will need to restart %1 to change the application theme. \
-This is necessary to avoid any strange behaviour in the app. We apologize for the inconvenience").arg("Podbird")
-            Button {
-                text: i18n.tr("Exit App")
-                color: podbird.appTheme.positiveActionButton
-                onClicked: {
-                    Qt.quit()
-                }
-            }
-        }
-    }
 
     ListModel {
         id: themeModel
@@ -75,24 +50,27 @@ This is necessary to avoid any strange behaviour in the app. We apologize for th
             height: units.gu(8)
         }
 
-        delegate: SubtitledListItem {
-            title: model.name
-            progression: false
-            divider.visible: true
+        delegate: ListItem {
+            height: themeLayout.height + divider.height
+            ListItemLayout {
+                id: themeLayout
+
+                title.text: model.name
+                title.color: podbird.appTheme.baseText
+                title.font.weight: Font.DemiBold
+
+                Icon {
+                    width: units.gu(2)
+                    height: width
+                    name: "ok"
+                    color: podbird.appTheme.baseText
+                    visible: podbird.settings.themeName === model.file
+                    SlotsLayout.position: SlotsLayout.Trailing
+                }
+            }
 
             onClicked: {
                 podbird.settings.themeName = model.file
-                PopupUtils.open(rebootAppDialog, themeSettingPage);
-            }
-
-            Icon {
-                width: units.gu(2)
-                height: width
-                name: "ok"
-                visible: podbird.settings.themeName === model.file
-                anchors.right: parent.right
-                anchors.rightMargin: units.gu(3)
-                anchors.verticalCenter: parent.verticalCenter
             }
         }
     }
