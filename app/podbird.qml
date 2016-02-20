@@ -47,6 +47,8 @@ MainView {
     height: units.gu(75)
 
     backgroundColor: appTheme.background
+    theme.name: settings.themeName == "Dark.qml" ? "Ubuntu.Components.Themes.SuruDark"
+                                                 : "Ubuntu.Components.Themes.Ambiance"
 
     Component.onDestruction: {
         console.log("[LOG]: Download cancelled");
@@ -104,7 +106,9 @@ MainView {
         id: themeManager
         source: settings.themeName
         onSourceChanged: {
-            Theme.palette.normal.backgroundText = UbuntuColors.lightGrey
+            theme.palette.normal.backgroundText = UbuntuColors.lightGrey
+            theme.name = settings.themeName == "Dark.qml" ? "Ubuntu.Components.Themes.SuruDark"
+                                                          : "Ubuntu.Components.Themes.Ambiance"
         }
     }
 
