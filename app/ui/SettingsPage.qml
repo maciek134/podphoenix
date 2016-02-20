@@ -111,7 +111,7 @@ Page {
             HeaderListItem {
                 // TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
                 // that doesn't fit into any other category.
-                title: i18n.tr("General Settings")
+                title.text: i18n.tr("General Settings")
             }
 
             SingleValueListItem {
@@ -122,7 +122,7 @@ Page {
             }
 
             HeaderListItem {
-                title: i18n.tr("Playback Settings")
+                title.text: i18n.tr("Playback Settings")
             }
 
             SingleValueListItem {
@@ -140,12 +140,19 @@ Page {
             }
 
             HeaderListItem {
-                title: i18n.tr("Podcast Episode Settings")
+                title.text: i18n.tr("Podcast Episode Settings")
             }
 
-            SubtitledListItem {
-                title: i18n.tr("Automatically delete old episodes")
-                subtitle: i18n.tr("Delete episodes that are older than a given number of days for each podcast")
+            ListItem {
+                height: deleteEpisodeLayout.height + divider.height
+                ListItemLayout {
+                    id: deleteEpisodeLayout
+                    title.text: i18n.tr("Automatically delete old episodes")
+                    title.color: podbird.appTheme.baseText
+                    summary.text: i18n.tr("Delete episodes that are older than a given number of days for each podcast")
+                    summary.color: podbird.appTheme.baseSubText
+                    ProgressionSlot {}
+                }
                 onClicked: mainStack.push(Qt.resolvedUrl("../settings/CleanSetting.qml"))
             }
 
@@ -158,7 +165,7 @@ Page {
             HeaderListItem {
                 // TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
                 // that doesn't fit into any other category.
-                title: i18n.tr("Misc.")
+                title.text: i18n.tr("Misc.")
             }
 
             SubtitledListItem {

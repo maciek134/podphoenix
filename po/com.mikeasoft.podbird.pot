@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-20 02:26+0530\n"
+"POT-Creation-Date: 2016-02-20 16:28+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,24 +23,24 @@ msgid "Skip"
 msgstr ""
 
 #. TRANSLATORS: this refers to a number of songs greater than one. The actual number will be prepended to the string automatically (plural forms are not yet fully supported in usermetrics, the library that displays that string)
-#: ../app/podbird.qml:178
+#: ../app/podbird.qml:182
 #, qt-format
 msgid "Podcasts listened to today: <b>%1</b>"
 msgstr ""
 
-#: ../app/podbird.qml:179
+#: ../app/podbird.qml:183
 msgid "No podcasts listened to today"
 msgstr ""
 
-#: ../app/podbird.qml:260
+#: ../app/podbird.qml:264
 msgid "Podcasts"
 msgstr ""
 
-#: ../app/podbird.qml:274
+#: ../app/podbird.qml:278
 msgid "Add New Podcasts"
 msgstr ""
 
-#: ../app/podbird.qml:289
+#: ../app/podbird.qml:293
 msgid "Settings"
 msgstr ""
 
@@ -60,7 +60,7 @@ msgid "%1 min"
 msgstr ""
 
 #. TRANSLATORS: About as in information about the app
-#: ../app/settings/About.qml:25 ../app/ui/SettingsPage.qml:166
+#: ../app/settings/About.qml:25 ../app/ui/SettingsPage.qml:173
 msgid "About"
 msgstr ""
 
@@ -109,7 +109,7 @@ msgid_plural "%1 years"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../app/settings/Credits.qml:26 ../app/ui/SettingsPage.qml:172
+#: ../app/settings/Credits.qml:26 ../app/ui/SettingsPage.qml:179
 msgid "Credits"
 msgstr ""
 
@@ -145,36 +145,17 @@ msgid_plural "%1 episodes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../app/settings/ThemeSetting.qml:28 ../app/ui/SettingsPage.qml:119
+#: ../app/settings/ThemeSetting.qml:27 ../app/ui/SettingsPage.qml:119
 msgid "Theme"
 msgstr ""
 
-#. TRANSLATORS: The argument here is the name of the application (Podbird)
-#: ../app/settings/ThemeSetting.qml:40
-#, qt-format
-msgid "Restart %1"
-msgstr ""
-
-#. TRANSLATORS: The argument here is the name of the application (Podbird)
-#: ../app/settings/ThemeSetting.qml:42
-#, qt-format
-msgid ""
-"You will need to restart %1 to change the application theme. This is "
-"necessary to avoid any strange behaviour in the app. We apologize for the "
-"inconvenience"
-msgstr ""
-
-#: ../app/settings/ThemeSetting.qml:45
-msgid "Exit App"
-msgstr ""
-
 #. TRANSLATORS: Light Theme
-#: ../app/settings/ThemeSetting.qml:59 ../app/ui/SettingsPage.qml:120
+#: ../app/settings/ThemeSetting.qml:34 ../app/ui/SettingsPage.qml:120
 msgid "Light"
 msgstr ""
 
 #. TRANSLATORS: Dark Theme
-#: ../app/settings/ThemeSetting.qml:61 ../app/ui/SettingsPage.qml:120
+#: ../app/settings/ThemeSetting.qml:36 ../app/ui/SettingsPage.qml:120
 msgid "Dark"
 msgstr ""
 
@@ -388,30 +369,30 @@ msgstr ""
 msgid "Podcast Episode Settings"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:147
+#: ../app/ui/SettingsPage.qml:150
 msgid "Automatically delete old episodes"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:148
+#: ../app/ui/SettingsPage.qml:152
 msgid ""
 "Delete episodes that are older than a given number of days for each podcast"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:153
+#: ../app/ui/SettingsPage.qml:160
 msgid "Automatically download new episodes"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:154
+#: ../app/ui/SettingsPage.qml:161
 msgid "Default number of new episodes to download for each podcast"
 msgstr ""
 
 #. TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
 #. that doesn't fit into any other category.
-#: ../app/ui/SettingsPage.qml:161
+#: ../app/ui/SettingsPage.qml:168
 msgid "Misc."
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:177
+#: ../app/ui/SettingsPage.qml:184
 msgid "Report Bug"
 msgstr ""
 
