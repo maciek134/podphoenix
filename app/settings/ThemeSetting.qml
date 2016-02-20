@@ -57,7 +57,6 @@ Page {
 
                 title.text: model.name
                 title.color: podbird.appTheme.baseText
-                title.font.weight: Font.DemiBold
 
                 Icon {
                     width: units.gu(2)

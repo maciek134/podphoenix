@@ -33,7 +33,7 @@ ListItem {
 
         Label {
             id: _value
-            color: podbird.appTheme.baseSubText
+            color: podbird.appTheme.baseText
             SlotsLayout.position: SlotsLayout.Trailing;
         }
 

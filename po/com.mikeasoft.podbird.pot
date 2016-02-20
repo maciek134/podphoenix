@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-20 16:28+0530\n"
+"POT-Creation-Date: 2016-02-20 17:05+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -60,7 +60,7 @@ msgid "%1 min"
 msgstr ""
 
 #. TRANSLATORS: About as in information about the app
-#: ../app/settings/About.qml:25 ../app/ui/SettingsPage.qml:173
+#: ../app/settings/About.qml:25 ../app/ui/SettingsPage.qml:183
 msgid "About"
 msgstr ""
 
@@ -109,7 +109,7 @@ msgid_plural "%1 years"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../app/settings/Credits.qml:26 ../app/ui/SettingsPage.qml:179
+#: ../app/settings/Credits.qml:26 ../app/ui/SettingsPage.qml:194
 msgid "Credits"
 msgstr ""
 
@@ -369,30 +369,30 @@ msgstr ""
 msgid "Podcast Episode Settings"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:150
+#: ../app/ui/SettingsPage.qml:149
 msgid "Automatically delete old episodes"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:152
+#: ../app/ui/SettingsPage.qml:151
 msgid ""
 "Delete episodes that are older than a given number of days for each podcast"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:160
+#: ../app/ui/SettingsPage.qml:163
 msgid "Automatically download new episodes"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:161
+#: ../app/ui/SettingsPage.qml:165
 msgid "Default number of new episodes to download for each podcast"
 msgstr ""
 
 #. TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
 #. that doesn't fit into any other category.
-#: ../app/ui/SettingsPage.qml:168
+#: ../app/ui/SettingsPage.qml:177
 msgid "Misc."
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:184
+#: ../app/ui/SettingsPage.qml:204
 msgid "Report Bug"
 msgstr ""
 

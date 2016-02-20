@@ -46,7 +46,7 @@ Page {
         section.property: "title"
         section.labelPositioning: ViewSection.InlineLabels
         section.delegate: HeaderListItem {
-            title: section
+            title.text: section
         }
 
         // Required to accomodate the now playing bar being shown in landscape mode which
@@ -56,9 +56,11 @@ Page {
             height: units.gu(8)
         }
 
-        delegate: SubtitledListItem {
-            title: model.name
-            progression: false
+        delegate: ListItem {
+            ListItemLayout {
+                title.text: model.name
+            }
+            divider.visible: false
         }
     }
 }

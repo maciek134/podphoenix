@@ -144,21 +144,30 @@ Page {
             }
 
             ListItem {
-                height: deleteEpisodeLayout.height + divider.height
                 ListItemLayout {
-                    id: deleteEpisodeLayout
+                    id: deleteLayout
                     title.text: i18n.tr("Automatically delete old episodes")
                     title.color: podbird.appTheme.baseText
                     summary.text: i18n.tr("Delete episodes that are older than a given number of days for each podcast")
                     summary.color: podbird.appTheme.baseSubText
                     ProgressionSlot {}
                 }
+                divider.visible: false
+                height: deleteLayout.height
                 onClicked: mainStack.push(Qt.resolvedUrl("../settings/CleanSetting.qml"))
             }
 
-            SubtitledListItem {
-                title: i18n.tr("Automatically download new episodes")
-                subtitle: i18n.tr("Default number of new episodes to download for each podcast")
+            ListItem {
+                ListItemLayout {
+                    id: downloadLayout
+                    title.text: i18n.tr("Automatically download new episodes")
+                    title.color: podbird.appTheme.baseText
+                    summary.text: i18n.tr("Default number of new episodes to download for each podcast")
+                    summary.color: podbird.appTheme.baseSubText
+                    ProgressionSlot{}
+                }
+                divider.visible: false
+                height: downloadLayout.height
                 onClicked: mainStack.push(Qt.resolvedUrl("../settings/DownloadSetting.qml"))
             }
 
@@ -168,20 +177,35 @@ Page {
                 title.text: i18n.tr("Misc.")
             }
 
-            SubtitledListItem {
-                // TRANSLATORS: About as in information about the app
-                title: i18n.tr("About")
+            ListItem {
+                ListItemLayout {
+                    // TRANSLATORS: About as in information about the app
+                    title.text: i18n.tr("About")
+                    title.color: podbird.appTheme.baseText
+                    ProgressionSlot {}
+                }
+                divider.visible: false
                 onClicked: mainStack.push(Qt.resolvedUrl("../settings/About.qml"))
             }
 
-            SubtitledListItem {
-                // TRANSTORS: Credits as in the code and design contributors to the app
-                title: i18n.tr("Credits")
+            ListItem {
+                ListItemLayout {
+                    // TRANSTORS: Credits as in the code and design contributors to the app
+                    title.text: i18n.tr("Credits")
+                    title.color: podbird.appTheme.baseText
+                    ProgressionSlot {}
+                }
+                divider.visible: false
                 onClicked: mainStack.push(Qt.resolvedUrl("../settings/Credits.qml"))
             }
 
-            SubtitledListItem {
-                title: i18n.tr("Report Bug")
+            ListItem {
+                ListItemLayout {
+                    title.text: i18n.tr("Report Bug")
+                    title.color: podbird.appTheme.baseText
+                    ProgressionSlot {}
+                }
+                divider.visible: false
                 onClicked: Qt.openUrlExternally("https://bugs.launchpad.net/podbird/+filebug")
             }
         }

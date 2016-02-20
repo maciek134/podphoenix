@@ -51,23 +51,23 @@ Page {
             height: units.gu(8)
         }
 
-        delegate: SubtitledListItem {
-            title: model.name
-            progression: false
-            divider.visible: true
+        delegate: ListItem {
+
+            ListItemLayout {
+                title.text: model.name
+                title.color: podbird.appTheme.baseText
+
+                Icon {
+                    width: units.gu(2)
+                    height: width
+                    name: "ok"
+                    visible: podbird.settings.maxEpisodeDownload === model.value
+                    SlotsLayout.position: SlotsLayout.Trailing
+                }
+            }
 
             onClicked: {
                 podbird.settings.maxEpisodeDownload = model.value
-            }
-
-            Icon {
-                width: units.gu(2)
-                height: width
-                name: "ok"
-                visible: podbird.settings.maxEpisodeDownload === model.value
-                anchors.right: parent.right
-                anchors.rightMargin: units.gu(3)
-                anchors.verticalCenter: parent.verticalCenter
             }
         }
     }
