@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-22 23:27+0530\n"
+"POT-Creation-Date: 2016-02-22 23:45+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,29 +18,29 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: ../app/components/Walkthrough.qml:94
+#: ../app/components/Walkthrough.qml:90
 msgid "Skip"
 msgstr ""
 
 #. TRANSLATORS: this refers to a number of songs greater than one. The actual number will be prepended to the string automatically (plural forms are not yet fully supported in usermetrics, the library that displays that string)
-#: ../app/podbird.qml:182
+#: ../app/podbird.qml:175
 #, qt-format
 msgid "Podcasts listened to today: <b>%1</b>"
 msgstr ""
 
-#: ../app/podbird.qml:183
+#: ../app/podbird.qml:176
 msgid "No podcasts listened to today"
 msgstr ""
 
-#: ../app/podbird.qml:264
+#: ../app/podbird.qml:257
 msgid "Podcasts"
 msgstr ""
 
-#: ../app/podbird.qml:278
+#: ../app/podbird.qml:271
 msgid "Add New Podcasts"
 msgstr ""
 
-#: ../app/podbird.qml:293
+#: ../app/podbird.qml:286
 msgid "Settings"
 msgstr ""
 
