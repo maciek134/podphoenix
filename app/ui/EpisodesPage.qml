@@ -462,6 +462,8 @@ Page {
                                                                                        : isDownloaded)
             height: visible ? undefined : 0
 
+            color: index % 2 === 0 ? podbird.appTheme.hightlightListView : "Transparent"
+
             trailingActions: ListItemActions {
                 actions: [
                     Action {

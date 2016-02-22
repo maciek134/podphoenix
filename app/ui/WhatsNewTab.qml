@@ -289,6 +289,8 @@ Tab {
                 isInDeterminateDownload: downloader.progress < 0 || downloader.progress > 100 && downloader.downloadingGuid === model.guid
                 progress: downloader.progress
 
+                color: index % 2 === 0 ? podbird.appTheme.hightlightListView : "Transparent"
+
                 trailingActions: ListItemActions {
                     actions: [
                         Action {
