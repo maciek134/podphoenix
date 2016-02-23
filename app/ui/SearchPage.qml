@@ -21,7 +21,6 @@ import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import QtQuick.LocalStorage 2.0
 import Ubuntu.Components.Popups 1.0
-import Ubuntu.Components.ListItems 1.0 as ListItem
 import "../podcasts.js" as Podcasts
 import "../components"
 
@@ -30,91 +29,118 @@ Page {
 
     property var xhr: new XMLHttpRequest;
 
-    state: "default"
-    states: [
-        PageHeadState {
-            name: "default"
-            head: searchPage.head
-            actions: [
-                Action {
-                    iconName: "search"
-                    text: i18n.tr("Search Podcast")
-                    onTriggered: {
-                        searchPage.state = "search"
-                        searchField.item.forceActiveFocus()
-                    }
-                },
+    TabsList {
+        id: tabsList
+    }
 
-                Action {
-                    text: i18n.tr("Add Podcast")
-                    iconName: "add"
-                    onTriggered: {
-                        searchPage.state = "add"
-                        feedUrlField.item.forceActiveFocus()
-                    }
-                }
-            ]
-        },
+    header: standardHeader
 
-        PageHeadState {
-            name: "search"
-            head: searchPage.head
-            actions: [
-                Action {
-                    iconName: "edit-clear"
-                    text: i18n.tr("Cancel")
-                    onTriggered: {
-                        resultsView.forceActiveFocus()
-                        searchResults.clear()
-                        searchPage.state = "default"
-                    }
-                }
-            ]
+    PageHeader {
+        id: standardHeader
 
-            contents: Loader {
-                id: searchField
-                sourceComponent: searchPage.state === "search" ? searchFieldComponent : undefined
-                anchors.left: parent ? parent.left : undefined
-                anchors.right: parent ? parent.right : undefined
-                anchors.rightMargin: units.gu(2)
-            }
-        },
+        visible: searchPage.header === standardHeader
+        title: i18n.tr("Add New Podcasts")
 
-        PageHeadState {
-            name: "add"
-            head: searchPage.head
-
-            actions: [
-                Action {
-                    iconName: "ok"
-                    text: i18n.tr("Save Podcast")
-                    onTriggered: {
-                        resultsView.forceActiveFocus()
-                        subscribeFromFeed(feedUrlField.item.text);
-                    }
-                },
-                Action {
-                    iconName: "edit-clear"
-                    text: i18n.tr("Cancel")
-                    onTriggered: {
-                        resultsView.forceActiveFocus()
-                        searchPage.state = "default"
-                    }
-                }
-            ]
-
-            contents: Loader {
-                id: feedUrlField
-                sourceComponent: searchPage.state === "add" ? feedUrlComponent : undefined
-                anchors.left: parent ? parent.left : undefined
-                anchors.right: parent ? parent.right : undefined
-            }
+        StyleHints {
+            backgroundColor: podbird.appTheme.background
         }
-    ]
+
+        leadingActionBar {
+            numberOfSlots: 0
+            actions: tabsList.actions
+        }
+
+        trailingActionBar.actions: [
+            Action {
+                iconName: "search"
+                text: i18n.tr("Search Podcast")
+                onTriggered: {
+                    searchPage.header = searchHeader
+                    searchField.item.forceActiveFocus()
+                }
+            },
+
+            Action {
+                text: i18n.tr("Add Podcast")
+                iconName: "add"
+                onTriggered: {
+                    searchPage.header = addHeader
+                    feedUrlField.item.forceActiveFocus()
+                }
+            }
+        ]
+    }
+
+    PageHeader {
+        id: searchHeader
+
+        visible: searchPage.header === searchHeader
+
+        StyleHints {
+            backgroundColor: podbird.appTheme.background
+        }
+
+        contents: Loader {
+            id: searchField
+            sourceComponent: searchPage.header === searchHeader ? searchFieldComponent : undefined
+            anchors.left: parent ? parent.left : undefined
+            anchors.right: parent ? parent.right : undefined
+            anchors.verticalCenter: parent.verticalCenter
+        }
+
+        trailingActionBar.actions: [
+            Action {
+                iconName: "edit-clear"
+                text: i18n.tr("Cancel")
+                onTriggered: {
+                    resultsView.forceActiveFocus()
+                    searchResults.clear()
+                    searchPage.header = standardHeader
+                }
+            }
+        ]
+    }
+
+    PageHeader {
+        id: addHeader
+
+        visible: searchPage.header === addHeader
+
+        StyleHints {
+            backgroundColor: podbird.appTheme.background
+        }
+
+        contents: Loader {
+            id: feedUrlField
+            sourceComponent: searchPage.header === addHeader ? feedUrlComponent : undefined
+            anchors.left: parent ? parent.left : undefined
+            anchors.right: parent ? parent.right : undefined
+            anchors.verticalCenter: parent.verticalCenter
+        }
+
+        trailingActionBar.actions: [
+            Action {
+                iconName: "ok"
+                text: i18n.tr("Save Podcast")
+                onTriggered: {
+                    resultsView.forceActiveFocus()
+                    subscribeFromFeed(feedUrlField.item.text);
+                }
+            },
+            Action {
+                iconName: "edit-clear"
+                text: i18n.tr("Cancel")
+                onTriggered: {
+                    resultsView.forceActiveFocus()
+                    searchPage.header = standardHeader
+                }
+            }
+        ]
+    }
 
     onVisibleChanged: {
         if(!visible) {
-            state = "default";
+            searchPage.header = standardHeader;
         }
     }
 
@@ -172,8 +198,8 @@ Page {
             verticalCenterOffset: Qt.inputMethod.visible ? units.gu(4) : 0
         }
 
-        sourceComponent: searchPage.state === "default" ? emptyStateComponent : searchResults.count === 0 && searchPage.state === "search" ? emptyStateComponent
-                                                                                                                                           : undefined
+        sourceComponent: searchPage.header === standardHeader ? emptyStateComponent : searchResults.count === 0 && searchPage.header === searchHeader ? emptyStateComponent
+                                                                                                                                                      : undefined
     }
 
     Component {
@@ -181,10 +207,10 @@ Page {
         EmptyState {
             iconHeight: units.gu(12)
             iconWidth: units.gu(22)
-            iconSource: searchPage.state !== "search" ? Qt.resolvedUrl("../graphics/owlSearch.svg") : Qt.resolvedUrl("../graphics/notFound.svg")
-            title: searchPage.state !== "search" ? i18n.tr("Looking to add a new Podcast?") : i18n.tr("No Podcasts found")
-            subTitle: searchPage.state !== "search" ? i18n.tr("Click the 'magnifier' at the top to search or the 'plus' button to add by URL")
-                                                      : i18n.tr("No podcasts found matching the search term.")
+            iconSource: searchPage.header !== searchHeader ? Qt.resolvedUrl("../graphics/owlSearch.svg") : Qt.resolvedUrl("../graphics/notFound.svg")
+            title: searchPage.header !== searchHeader ? i18n.tr("Looking to add a new Podcast?") : i18n.tr("No Podcasts found")
+            subTitle: searchPage.header !== searchHeader ? i18n.tr("Click the 'magnifier' at the top to search or the 'plus' button to add by URL")
+                                                   : i18n.tr("No podcasts found matching the search term.")
         }
     }
 
@@ -200,8 +226,16 @@ Page {
         }
 
         model: searchResults
-        anchors.fill: parent
-        visible: searchPage.state !== "add"
+
+        anchors {
+            top: searchPage.header.bottom
+            left: parent.left
+            right: parent.right
+            bottom: parent.bottom
+        }
+
+        clip: true
+        visible: searchPage.header !== addHeader
 
         footer: Item {
             width: parent.width
@@ -341,7 +375,7 @@ Page {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status < 200 || xhr.status > 299 || xhr.responseXML === null) {
                     PopupUtils.open(subscribeFailedDialog);
-                    searchPage.state = "add"
+                    searchPage.header = addHeader
                     feedUrlField.item.text = feed
                     return;
                 }
@@ -371,7 +405,7 @@ Page {
                     tabs.selectedTabIndex = 1;
                 } else {
                     PopupUtils.open(subscribeFailedDialog);
-                    searchPage.state = "add"
+                    searchPage.header = addHeader
                     feedUrlField.item.text = feed
                     return;
                 }

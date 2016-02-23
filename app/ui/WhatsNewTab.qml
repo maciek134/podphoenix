@@ -12,87 +12,104 @@ import "../components"
 Tab {
     id: whatsNewTab
 
-    title: i18n.tr("What's New")
-
     property var today: new Date()
     property int dayToMs: 86400000
     property string tempGuid: "NULL"
     property bool episodesUpdating: false
 
+    TabsList {
+        id: tabsList
+    }
+
     page: Page {
         id: whatsNewPage
 
-        state: "default"
-        states: [
-            PageHeadState {
-                name: "default"
-                head: whatsNewPage.head
-                actions: [
-                    Action {
-                        iconName: "search"
-                        text: i18n.tr("Search Episode")
-                        onTriggered: {
-                            whatsNewPage.state = "search"
-                            searchField.item.forceActiveFocus()
-                        }
-                    },
+        header: standardHeader
 
-                    Action {
-                        iconName: "select"
-                        text: i18n.tr("Mark all listened")
-                        onTriggered: {
-                            var db = Podcasts.init();
-                            db.transaction(function (tx) {
-                                for (var i=0; i<whatsNewModel.count; i++) {
-                                    tx.executeSql("UPDATE Episode SET listened=1 WHERE guid=?", [whatsNewModel.get(i).guid]);
-                                }
-                                whatsNewModel.clear()
-                            });
-                        }
-                    },
+        PageHeader {
+            id: standardHeader
+            visible: whatsNewPage.header === standardHeader
+            title: i18n.tr("What's New")
 
-                    Action {
-                        iconName: "save"
-                        text: i18n.tr("Download all")
-                        onTriggered: {
-                            var db = Podcasts.init();
-                            db.transaction(function (tx) {
-                                for (var i=0; i<whatsNewModel.count; i++) {
-                                    if (!whatsNewModel.get(i).downloadedfile) {
-                                        whatsNewModel.setProperty(i, "queued", 1)
-                                        tx.executeSql("UPDATE Episode SET queued=1 WHERE guid = ?", [whatsNewModel.get(i).guid]);
-                                        downloader.addDownload(whatsNewModel.get(i).guid, whatsNewModel.get(i).audiourl);
-                                    }
-                                }
-                            });
-                        }
-                    }
-                ]
-            },
-
-            PageHeadState {
-                name: "search"
-                head: whatsNewPage.head
-                actions: [
-                    Action {
-                        iconName: "edit-clear"
-                        text: i18n.tr("Cancel")
-                        onTriggered: {
-                            episodeList.forceActiveFocus()
-                            whatsNewPage.state = "default"
-                        }
-                    }
-                ]
-
-                contents: Loader {
-                    id: searchField
-                    sourceComponent: whatsNewPage.state === "search" ? searchFieldComponent : undefined
-                    anchors.left: parent ? parent.left : undefined
-                    anchors.right: parent ? parent.right : undefined
-                    anchors.rightMargin: units.gu(2)
-                }
+            StyleHints {
+                backgroundColor: podbird.appTheme.background
             }
-        ]
+
+            leadingActionBar {
+                numberOfSlots: 0
+                actions: tabsList.actions
+            }
+
+            trailingActionBar.actions: [
+                Action {
+                    iconName: "search"
+                    text: i18n.tr("Search Episode")
+                    onTriggered: {
+                        whatsNewPage.header = searchHeader
+                        searchField.item.forceActiveFocus()
+                    }
+                },
+
+                Action {
+                    iconName: "select"
+                    text: i18n.tr("Mark all listened")
+                    onTriggered: {
+                        var db = Podcasts.init();
+                        db.transaction(function (tx) {
+                            for (var i=0; i<whatsNewModel.count; i++) {
+                                tx.executeSql("UPDATE Episode SET listened=1 WHERE guid=?", [whatsNewModel.get(i).guid]);
+                            }
+                            whatsNewModel.clear()
+                        });
+                    }
+                },
+
+                Action {
+                    iconName: "save"
+                    text: i18n.tr("Download all")
+                    onTriggered: {
+                        var db = Podcasts.init();
+                        db.transaction(function (tx) {
+                            for (var i=0; i<whatsNewModel.count; i++) {
+                                if (!whatsNewModel.get(i).downloadedfile) {
+                                    whatsNewModel.setProperty(i, "queued", 1)
+                                    tx.executeSql("UPDATE Episode SET queued=1 WHERE guid = ?", [whatsNewModel.get(i).guid]);
+                                    downloader.addDownload(whatsNewModel.get(i).guid, whatsNewModel.get(i).audiourl);
+                                }
+                            }
+                        });
+                    }
+                }
+            ]
+        }
+
+        PageHeader {
+            id: searchHeader
+            visible: whatsNewPage.header === searchHeader
+
+            StyleHints {
+                backgroundColor: podbird.appTheme.background
+            }
+
+            contents: Loader {
+                id: searchField
+                sourceComponent: whatsNewPage.header === searchHeader ? searchFieldComponent : undefined
+                anchors.left: parent ? parent.left : undefined
+                anchors.right: parent ? parent.right : undefined
+                anchors.verticalCenter: parent ? parent.verticalCenter : undefined
+            }
+
+            trailingActionBar.actions: [
+                Action {
+                    iconName: "edit-clear"
+                    text: i18n.tr("Cancel")
+                    onTriggered: {
+                        episodeList.forceActiveFocus()
+                        whatsNewPage.header = standardHeader
+                    }
+                }
+            ]
+        }
 
         Component {
             id: searchFieldComponent
@@ -145,7 +162,7 @@ Tab {
                 if (downloader.downloadingGuid != "")
                     tempGuid = downloader.downloadingGuid
             } else {
-                state = "default";
+                whatsNewPage.header = standardHeader
             }
         }
 
@@ -232,9 +249,17 @@ Tab {
                 flickDeceleration = flickDeceleration * scaleFactor;
             }
 
-            anchors.fill: parent
-            model: sortedEpisodeModel
+            anchors {
+                top: whatsNewPage.header.bottom
+                left: parent.left
+                right: parent.right
+                bottom: parent.bottom
+            }
 
+            clip: true
+
+            model: sortedEpisodeModel
+            currentIndex: -1
             section.property: "diff"
             section.labelPositioning: ViewSection.InlineLabels
 

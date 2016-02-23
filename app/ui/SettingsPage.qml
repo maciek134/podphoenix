@@ -24,10 +24,33 @@ import "../components"
 Page {
     id: settingsPage
 
+    TabsList {
+        id: tabsList
+    }
+
+    header: PageHeader {
+        title: i18n.tr("Settings")
+
+        StyleHints {
+            backgroundColor: podbird.appTheme.background
+        }
+
+        leadingActionBar {
+            numberOfSlots: 0
+            actions: tabsList.actions
+        }
+    }
+
     Flickable {
         id: flickable
 
-        anchors.fill: parent
+        anchors {
+            top: settingsPage.header.bottom
+            left: parent.left
+            right: parent.right
+            bottom: parent.bottom
+        }
+
         contentHeight: settingsColumn.height + units.gu(8)
         contentWidth: parent.width
 

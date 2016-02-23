@@ -254,8 +254,6 @@ MainView {
             Tab {
                 id: podcastTab
 
-                title: i18n.tr("Podcasts")
-
                 page: Loader {
                     id: podcastPage
                     parent: podcastTab
@@ -267,8 +265,6 @@ MainView {
 
             Tab {
                 id: searchTab
-
-                title: i18n.tr("Add New Podcasts")
 
                 // Dynamically load/unload the search tab as required
                 page: Loader {
@@ -282,8 +278,6 @@ MainView {
 
             Tab {
                 id: settingsTab
-
-                title: i18n.tr("Settings")
 
                 // Dynamically load/unload the settings tab as required
                 page: Loader {
