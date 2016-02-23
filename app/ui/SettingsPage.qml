@@ -213,17 +213,6 @@ Page {
 
             ListItem {
                 ListItemLayout {
-                    // TRANSTORS: Credits as in the code and design contributors to the app
-                    title.text: i18n.tr("Credits")
-                    title.color: podbird.appTheme.baseText
-                    ProgressionSlot {}
-                }
-                divider.visible: false
-                onClicked: mainStack.push(Qt.resolvedUrl("../settings/Credits.qml"))
-            }
-
-            ListItem {
-                ListItemLayout {
                     title.text: i18n.tr("Report Bug")
                     title.color: podbird.appTheme.baseText
                     ProgressionSlot {}

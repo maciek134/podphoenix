@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-24 01:24+0530\n"
+"POT-Creation-Date: 2016-02-24 03:58+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -64,21 +64,26 @@ msgid "%1 min"
 msgstr ""
 
 #. TRANSLATORS: About as in information about the app
-#: ../app/settings/About.qml:25 ../app/ui/SettingsPage.qml:206
+#: ../app/settings/About.qml:28 ../app/settings/About.qml:43
+#: ../app/ui/SettingsPage.qml:206
 msgid "About"
 msgstr ""
 
+#: ../app/settings/About.qml:43
+msgid "Credits"
+msgstr ""
+
 #. TRANSLATORS: Podbird version number e.g Version 0.7
-#: ../app/settings/About.qml:61
+#: ../app/settings/About.qml:89
 #, qt-format
 msgid "Version %1"
 msgstr ""
 
-#: ../app/settings/About.qml:82
+#: ../app/settings/About.qml:110
 msgid "Released under the terms of the GNU GPL v3"
 msgstr ""
 
-#: ../app/settings/About.qml:92
+#: ../app/settings/About.qml:120
 #, qt-format
 msgid "Source code available on %1"
 msgstr ""
@@ -113,25 +118,21 @@ msgid_plural "%1 years"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../app/settings/Credits.qml:26 ../app/ui/SettingsPage.qml:217
-msgid "Credits"
-msgstr ""
-
 #. TRANSLATORS: The first argument is the name of creator of Podbird (Michael Sheldon)
-#: ../app/settings/Credits.qml:33
+#: ../app/settings/Credits.qml:31
 #, qt-format
 msgid "%1 (Creator)"
 msgstr ""
 
-#: ../app/settings/Credits.qml:33 ../app/settings/Credits.qml:34
+#: ../app/settings/Credits.qml:31 ../app/settings/Credits.qml:32
 msgid "Developers"
 msgstr ""
 
-#: ../app/settings/Credits.qml:35
+#: ../app/settings/Credits.qml:33
 msgid "Designer"
 msgstr ""
 
-#: ../app/settings/Credits.qml:36
+#: ../app/settings/Credits.qml:34
 msgid "Translators"
 msgstr ""
 
@@ -176,7 +177,7 @@ msgid "Mark all listened"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:95 ../app/ui/EpisodesPage.qml:189
-#: ../app/ui/SearchPage.qml:260
+#: ../app/ui/SearchPage.qml:261
 msgid "Unsubscribe"
 msgstr ""
 
@@ -280,7 +281,7 @@ msgstr ""
 msgid "No podcasts found matching the search term."
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:186 ../app/ui/PodcastsTab.qml:229
+#: ../app/ui/PodcastsTab.qml:186 ../app/ui/PodcastsTab.qml:230
 #, qt-format
 msgid "%1 unheard episode"
 msgid_plural "%1 unheard episodes"
@@ -326,18 +327,18 @@ msgstr ""
 
 #. TRANSLATORS: The first argument here is the date of when the podcast was last updated followed by
 #. the podcast description.
-#: ../app/ui/SearchPage.qml:256
+#: ../app/ui/SearchPage.qml:257
 #, qt-format
 msgid ""
 "Last Updated: %1\n"
 "%2"
 msgstr ""
 
-#: ../app/ui/SearchPage.qml:260
+#: ../app/ui/SearchPage.qml:261
 msgid "Subscribe"
 msgstr ""
 
-#: ../app/ui/SearchPage.qml:331
+#: ../app/ui/SearchPage.qml:332
 msgid "Not Available"
 msgstr ""
 
@@ -400,7 +401,7 @@ msgstr ""
 msgid "Misc."
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:227
+#: ../app/ui/SettingsPage.qml:216
 msgid "Report Bug"
 msgstr ""
 
