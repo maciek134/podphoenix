@@ -62,6 +62,7 @@ Page {
                     width: units.gu(2)
                     height: width
                     name: "ok"
+                    color: podbird.appTheme.baseText
                     visible: podbird.settings.maxEpisodeDownload === model.value
                     SlotsLayout.position: SlotsLayout.Trailing
                 }
