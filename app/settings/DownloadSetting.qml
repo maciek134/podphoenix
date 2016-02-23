@@ -38,9 +38,10 @@ Page {
         }
     }
 
-    ListView {
+    UbuntuListView {
         id: download
 
+        currentIndex: -1
         model: episodeDownloadNumber
         anchors.fill: parent
 

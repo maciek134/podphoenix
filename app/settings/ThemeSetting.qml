@@ -40,6 +40,7 @@ Page {
     UbuntuListView {
         id: themes
 
+        currentIndex: -1
         model: themeModel
         anchors.fill: parent
 

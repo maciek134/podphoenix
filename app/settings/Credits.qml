@@ -37,9 +37,10 @@ Page {
         }
     }
 
-    ListView {
+    UbuntuListView {
         id: credits
 
+        currentIndex: -1
         model: creditsModel
         anchors.fill: parent
 

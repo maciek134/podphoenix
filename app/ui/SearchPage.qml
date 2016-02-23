@@ -214,7 +214,7 @@ Page {
         }
     }
 
-    ListView {
+    UbuntuListView {
         id: resultsView
 
         Component.onCompleted: {
@@ -226,6 +226,7 @@ Page {
         }
 
         model: searchResults
+        currentIndex: -1
 
         anchors {
             top: searchPage.header.bottom

@@ -199,7 +199,7 @@ Page {
     Component {
         id: listviewComponent
 
-        ListView {
+        UbuntuListView {
             id: listView
 
             Component.onCompleted: {
@@ -211,6 +211,7 @@ Page {
             }
 
             clip: true
+            currentIndex: -1
             model: sortedPodcastModel
             anchors.fill: parent
 

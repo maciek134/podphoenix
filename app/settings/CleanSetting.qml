@@ -42,6 +42,7 @@ Page {
     UbuntuListView {
         id: cleanup
 
+        currentIndex: -1
         model: cleanupModel
         anchors.fill: parent
 
