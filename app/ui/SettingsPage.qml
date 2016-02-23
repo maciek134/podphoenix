@@ -68,6 +68,7 @@ Page {
                     maximumValue: 60
                     value: podbird.settings.skipForward
                     function formatValue(v) { return i18n.tr("%1 seconds").arg(Math.round(v)) }
+                    StyleHints { foregroundColor: podbird.appTheme.focusText }
                 }
 
                 Button {
@@ -102,6 +103,7 @@ Page {
                     maximumValue: 60
                     value: podbird.settings.skipBack
                     function formatValue(v) { return i18n.tr("%1 seconds").arg(Math.round(v)) }
+                    StyleHints { foregroundColor: podbird.appTheme.focusText }
                 }
 
                 Button {
