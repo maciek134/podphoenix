@@ -45,8 +45,6 @@ ListItem {
 
     signal buttonClicked()
 
-    style: ListItemStylePatched { }
-
     highlightColor: "Transparent"
     divider.visible: false
     height: mainColumn.height + units.gu(2)
