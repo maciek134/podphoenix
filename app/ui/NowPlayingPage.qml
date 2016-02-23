@@ -145,6 +145,7 @@ Page {
             }
 
             function formatValue(v) { return Podcasts.formatTime(v/1000); }
+            StyleHints { foregroundColor: podbird.appTheme.focusText }
         }
 
         Connections {

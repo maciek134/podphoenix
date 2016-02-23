@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-24 04:11+0530\n"
+"POT-Creation-Date: 2016-02-24 04:13+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -65,7 +65,7 @@ msgstr ""
 
 #. TRANSLATORS: About as in information about the app
 #: ../app/settings/About.qml:28 ../app/settings/About.qml:47
-#: ../app/ui/SettingsPage.qml:207
+#: ../app/ui/SettingsPage.qml:208
 msgid "About"
 msgstr ""
 
@@ -150,17 +150,17 @@ msgid_plural "%1 episodes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../app/settings/ThemeSetting.qml:27 ../app/ui/SettingsPage.qml:143
+#: ../app/settings/ThemeSetting.qml:27 ../app/ui/SettingsPage.qml:144
 msgid "Theme"
 msgstr ""
 
 #. TRANSLATORS: Light Theme
-#: ../app/settings/ThemeSetting.qml:34 ../app/ui/SettingsPage.qml:144
+#: ../app/settings/ThemeSetting.qml:34 ../app/ui/SettingsPage.qml:145
 msgid "Light"
 msgstr ""
 
 #. TRANSLATORS: Dark Theme
-#: ../app/settings/ThemeSetting.qml:36 ../app/ui/SettingsPage.qml:144
+#: ../app/settings/ThemeSetting.qml:36 ../app/ui/SettingsPage.qml:145
 msgid "Dark"
 msgstr ""
 
@@ -183,8 +183,8 @@ msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:112 ../app/ui/EpisodesPage.qml:206
 #: ../app/ui/PodcastsTab.qml:94 ../app/ui/SearchPage.qml:94
-#: ../app/ui/SearchPage.qml:132 ../app/ui/SettingsPage.qml:82
-#: ../app/ui/SettingsPage.qml:117 ../app/ui/WhatsNewTab.qml:105
+#: ../app/ui/SearchPage.qml:132 ../app/ui/SettingsPage.qml:83
+#: ../app/ui/SettingsPage.qml:118 ../app/ui/WhatsNewTab.qml:105
 msgid "Cancel"
 msgstr ""
 
@@ -235,13 +235,13 @@ msgid "Now Playing"
 msgstr ""
 
 #. TRANSLATORS: The string shown in the UI is -15s to denote the number of seconds that the podcast playback will skip backward.
-#: ../app/ui/NowPlayingPage.qml:199
+#: ../app/ui/NowPlayingPage.qml:200
 #, no-c-format, qt-format
 msgid "-%1s"
 msgstr ""
 
 #. TRANSLATORS: The string shown in the UI is +15s to denote the number of seconds that the podcast playback will skip forward.
-#: ../app/ui/NowPlayingPage.qml:260
+#: ../app/ui/NowPlayingPage.qml:261
 #, no-c-format, qt-format
 msgid "+%1s"
 msgstr ""
@@ -344,64 +344,64 @@ msgstr ""
 
 #. TRANSLATORS: This strings refers to the seeking of the episode playback. Users can set how far they
 #. want to seek forward when pressing on this button.
-#: ../app/ui/SettingsPage.qml:63 ../app/ui/SettingsPage.qml:154
+#: ../app/ui/SettingsPage.qml:63 ../app/ui/SettingsPage.qml:155
 msgid "Skip forward"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:70 ../app/ui/SettingsPage.qml:104
-#: ../app/ui/SettingsPage.qml:155 ../app/ui/SettingsPage.qml:162
+#: ../app/ui/SettingsPage.qml:70 ../app/ui/SettingsPage.qml:105
+#: ../app/ui/SettingsPage.qml:156 ../app/ui/SettingsPage.qml:163
 #, qt-format
 msgid "%1 seconds"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:74 ../app/ui/SettingsPage.qml:109
+#: ../app/ui/SettingsPage.qml:75 ../app/ui/SettingsPage.qml:110
 msgid "Ok"
 msgstr ""
 
 #. TRANSLATORS: This strings refers to the seeking of the episode playback. Users can set how far they
 #. want to seek backward when pressing on this button.
-#: ../app/ui/SettingsPage.qml:97 ../app/ui/SettingsPage.qml:161
+#: ../app/ui/SettingsPage.qml:98 ../app/ui/SettingsPage.qml:162
 msgid "Skip back"
 msgstr ""
 
 #. TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
 #. that doesn't fit into any other category.
-#: ../app/ui/SettingsPage.qml:138
+#: ../app/ui/SettingsPage.qml:139
 msgid "General Settings"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:149
+#: ../app/ui/SettingsPage.qml:150
 msgid "Playback Settings"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:167
+#: ../app/ui/SettingsPage.qml:168
 msgid "Podcast Episode Settings"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:173
+#: ../app/ui/SettingsPage.qml:174
 msgid "Automatically delete old episodes"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:175
+#: ../app/ui/SettingsPage.qml:176
 msgid ""
 "Delete episodes that are older than a given number of days for each podcast"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:187
+#: ../app/ui/SettingsPage.qml:188
 msgid "Automatically download new episodes"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:189
+#: ../app/ui/SettingsPage.qml:190
 msgid "Default number of new episodes to download for each podcast"
 msgstr ""
 
 #. TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
 #. that doesn't fit into any other category.
-#: ../app/ui/SettingsPage.qml:201
+#: ../app/ui/SettingsPage.qml:202
 msgid "Misc."
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:217
+#: ../app/ui/SettingsPage.qml:218
 msgid "Report Bug"
 msgstr ""
 
