@@ -20,7 +20,7 @@ import QtQuick 2.4
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import QtQuick.LocalStorage 2.0
-import Ubuntu.Components.Popups 1.0
+import Ubuntu.Components.Popups 1.3
 import "../podcasts.js" as Podcasts
 import "../components"
 
@@ -243,43 +243,91 @@ Page {
             height: units.gu(7)
         }
 
-        delegate: ListDelegate {
+        delegate: ListItem {
             id: listItem
 
             property bool fetchedDescription: false
+            property bool expanded: false
 
-            title: model.name
-            subtitle: model.artist
-            coverArt: model.image
+            divider.visible: false
+            highlightColor: "Transparent"
+            height: expanded ? listItemLayout.height +  descriptionLoader.height + units.gu(1) : listItemLayout.height + units.gu(0.5)
+            color: index % 2 === 0 ? podbird.appTheme.hightlightListView : "Transparent"
 
-            // TRANSLATORS: The first argument here is the date of when the podcast was last updated followed by
-            // the podcast description.
-            description: i18n.tr("Last Updated: %1\n%2").arg(model.releaseDate.split("T")[0]).arg(model.description)
-            highlightColor: index % 2 === 0 ? "Transparent" : podbird.appTheme.hightlightListView
+            ListItemLayout {
+                id: listItemLayout
 
-            buttonColor: !model.subscribed ? UbuntuColors.green : UbuntuColors.red
-            buttonText: !model.subscribed ? i18n.tr("Subscribe") : i18n.tr("Unsubscribe")
-            onButtonClicked: {
-                if (!model.subscribed) {
-                    Podcasts.subscribe(model.artist, model.name, model.feed, model.image);
-                    imageDownloader.feed = model.feed;
-                    imageDownloader.download(model.image);
-                } else {
-                    var db = Podcasts.init();
-                    db.transaction(function (tx) {
-                        var rs = tx.executeSql("SELECT rowid FROM Podcast WHERE feed = ?", model.feed);
-                        if (rs.rows.length !== 0) {
-                            var podcast = rs.rows.item(0)
-                            var rs2 = tx.executeSql("SELECT downloadedfile FROM Episode WHERE downloadedfile NOT NULL AND podcast=?", [podcast.rowid]);
-                            for(var i = 0; i < rs2.rows.length; i++) {
-                                fileManager.deleteFile(rs2.rows.item(i).downloadedfile);
-                            }
-                            tx.executeSql("DELETE FROM Episode WHERE podcast=?", [podcast.rowid]);
-                            tx.executeSql("DELETE FROM Podcast WHERE rowid=?", [podcast.rowid]);
-                        }
-                    });
+                title.text: model.name
+
+                subtitle.text: model.artist
+                subtitle.color: podbird.appTheme.baseSubText
+
+                padding.top: units.gu(1)
+                padding.bottom: units.gu(0.5)
+
+                Image {
+                    height: width
+                    width: units.gu(6)
+                    source: model.image
+                    SlotsLayout.position: SlotsLayout.Leading
+                    sourceSize { width: width; height: height }
                 }
-                tabs.selectedTabIndex = 1;
+
+                Button {
+                    SlotsLayout.position: SlotsLayout.Trailing
+                    color: !model.subscribed ? UbuntuColors.green : UbuntuColors.red
+                    text: !model.subscribed ? i18n.tr("Subscribe") : i18n.tr("Unsubscribe")
+                    onClicked: {
+                        if (!model.subscribed) {
+                            Podcasts.subscribe(model.artist, model.name, model.feed, model.image);
+                            imageDownloader.feed = model.feed;
+                            imageDownloader.download(model.image);
+                        } else {
+                            var db = Podcasts.init();
+                            db.transaction(function (tx) {
+                                var rs = tx.executeSql("SELECT rowid FROM Podcast WHERE feed = ?", model.feed);
+                                if (rs.rows.length !== 0) {
+                                    var podcast = rs.rows.item(0)
+                                    var rs2 = tx.executeSql("SELECT downloadedfile FROM Episode WHERE downloadedfile NOT NULL AND podcast=?", [podcast.rowid]);
+                                    for(var i = 0; i < rs2.rows.length; i++) {
+                                        fileManager.deleteFile(rs2.rows.item(i).downloadedfile);
+                                    }
+                                    tx.executeSql("DELETE FROM Episode WHERE podcast=?", [podcast.rowid]);
+                                    tx.executeSql("DELETE FROM Podcast WHERE rowid=?", [podcast.rowid]);
+                                }
+                            });
+                        }
+                        tabs.selectedTabIndex = 1;
+                    }
+                }
+            }
+
+            Loader {
+                id: descriptionLoader
+                anchors { top: listItemLayout.bottom; left: parent.left; right: parent.right; leftMargin: units.gu(2); rightMargin: units.gu(2) }
+                visible: sourceComponent !== undefined
+                sourceComponent: expanded ? _description : undefined
+            }
+
+            Component {
+                id: _description
+                Label {
+                    clip: true
+                    // TRANSLATORS: The first argument here is the date of when the podcast was last updated followed by
+                    // the podcast description.
+                    text: i18n.tr("Last Updated: %1\n%2").arg(model.releaseDate.split("T")[0]).arg(model.description)
+                    wrapMode: Text.WordWrap
+                    fontSize: "small"
+                    color: podbird.appTheme.baseSubText
+                    linkColor: podbird.appTheme.linkText
+                    height: expanded ? contentHeight : 0
+                    onLinkActivated: Qt.openUrlExternally(link)
+                    Behavior on height {
+                        UbuntuNumberAnimation {
+                            duration: UbuntuAnimation.BriskDuration
+                        }
+                    }
+                }
             }
 
             onClicked: {
@@ -290,12 +338,6 @@ Page {
                 }
             }
         }
-
-        // #FIXME: Use SDK Scrollbar when it is themeable
-        CustomScrollBar {
-            listview: resultsView
-        }
-    }
 
     ListModel {
         id: searchResults
