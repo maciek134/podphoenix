@@ -135,9 +135,7 @@ Tab {
         Component {
             id: emptyStateComponent
             EmptyState {
-                iconHeight: units.gu(12)
-                iconWidth: units.gu(22)
-                iconSource: whatsNewModel.count === 0 ? Qt.resolvedUrl("../graphics/owlSearch.svg") : Qt.resolvedUrl("../graphics/notFound.svg")
+                icon.source: whatsNewModel.count === 0 ? Qt.resolvedUrl("../graphics/owlSearch.svg") : Qt.resolvedUrl("../graphics/notFound.svg")
                 title: whatsNewModel.count === 0 ? i18n.tr("No New Episodes") : i18n.tr("No Episodes Found")
                 subTitle: whatsNewModel.count === 0 ? i18n.tr("No more episodes to listen to!") : i18n.tr("No Episodes found matching the search term.")
             }

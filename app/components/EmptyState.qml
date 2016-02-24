@@ -28,20 +28,16 @@ Item {
     id: emptyState
 
     // Public APIs
-    property alias iconName: emptyIcon.name
+    property alias icon: emptyIcon
     property alias title: emptyLabel.text
     property alias subTitle: emptySublabel.text
-    property alias iconSource: emptyIcon.source
-
-    property real iconHeight: units.gu(10)
-    property real iconWidth: units.gu(10)
 
     height: childrenRect.height
 
     Icon {
         id: emptyIcon
-        width: parent.iconWidth
-        height: parent.iconHeight
+        width: units.gu(22)
+        height: units.gu(12)
         color: podbird.appTheme.baseIcon
         anchors.horizontalCenter: parent.horizontalCenter
     }

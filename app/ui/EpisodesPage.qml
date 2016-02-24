@@ -263,9 +263,7 @@ Page {
     Component {
         id: emptyStateComponent
         EmptyState {
-            iconHeight: units.gu(12)
-            iconWidth: units.gu(22)
-            iconSource: Qt.resolvedUrl("../graphics/notFound.svg")
+            icon.source: Qt.resolvedUrl("../graphics/notFound.svg")
             title: i18n.tr("No episodes found")
             subTitle: i18n.tr("No episodes found matching the search term.")
         }
