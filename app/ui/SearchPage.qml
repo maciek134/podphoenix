@@ -210,7 +210,7 @@ Page {
             iconSource: searchPage.header !== searchHeader ? Qt.resolvedUrl("../graphics/owlSearch.svg") : Qt.resolvedUrl("../graphics/notFound.svg")
             title: searchPage.header !== searchHeader ? i18n.tr("Looking to add a new Podcast?") : i18n.tr("No Podcasts found")
             subTitle: searchPage.header !== searchHeader ? i18n.tr("Click the 'magnifier' at the top to search or the 'plus' button to add by URL")
-                                                   : i18n.tr("No podcasts found matching the search term.")
+                                                         : i18n.tr("No podcasts found matching the search term.")
         }
     }
 
@@ -338,6 +338,7 @@ Page {
                 }
             }
         }
+    }
 
     ListModel {
         id: searchResults
@@ -457,4 +458,3 @@ Page {
         xhr.send();
     }
 }
-

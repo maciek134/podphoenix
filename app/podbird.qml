@@ -19,7 +19,7 @@
 import QtQuick 2.4
 import Podbird 1.0
 import UserMetrics 0.1
-import QtMultimedia 5.0
+import QtMultimedia 5.4
 import Ubuntu.Connectivity 1.0
 import Qt.labs.settings 1.0
 import Ubuntu.Components 1.3
