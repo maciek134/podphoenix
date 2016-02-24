@@ -270,9 +270,10 @@ Page {
                 }
             }
 
-            // #FIXME: Use SDK Scrollbar when it is themeable
-            CustomScrollBar {
-                listview: listView
+            Scrollbar {
+                flickableItem: listView
+                align: Qt.AlignTrailing
+                StyleHints { sliderColor: podbird.appTheme.focusText }
             }
 
             PullToRefresh {

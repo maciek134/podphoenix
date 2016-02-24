@@ -559,9 +559,10 @@ Page {
             onRefresh: updateEpisodesDatabase();
         }
 
-        // #FIXME: Use SDK Scrollbar when it is themeable
-        CustomScrollBar {
-            listview: episodeList
+        Scrollbar {
+            flickableItem: episodeList
+            align: Qt.AlignTrailing
+            StyleHints { sliderColor: podbird.appTheme.focusText }
         }
     }
 
