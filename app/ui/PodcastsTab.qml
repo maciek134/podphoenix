@@ -22,7 +22,6 @@ import QtQuick.Layouts 1.1
 import QtQuick.LocalStorage 2.0
 import Ubuntu.Components 1.3
 import Ubuntu.DownloadManager 0.1
-import Ubuntu.Components.ListItems 1.0 as ListItem
 import Ubuntu.Components.Popups 1.0
 import "../podcasts.js" as Podcasts
 import "../components"
@@ -220,16 +219,29 @@ Page {
                 height: units.gu(8)
             }
 
-            delegate: ListDelegate {
+            delegate: ListItem {
                 id: listItem
 
-                height: units.gu(8)
-                highlightColor: index % 2 === 0 ? "Transparent" : podbird.appTheme.hightlightListView
+                height: listItemLayout.height
+                divider.visible: false
                 color: index % 2 === 0 ? podbird.appTheme.hightlightListView : "Transparent"
-                title: model.name !== undefined ? model.name.trim() : "Undefined"
-                subtitle: model.episodeCount > 0 ? i18n.tr("%1 unheard episode", "%1 unheard episodes", model.episodeCount).arg(model.episodeCount)
-                                                 : ""
-                coverArt: model.image !== undefined ? model.image : Qt.resolvedUrl("../graphics/podbird.png")
+                highlightColor: index % 2 === 0 ? "Transparent" : podbird.appTheme.hightlightListView
+
+                ListItemLayout {
+                    id: listItemLayout
+                    title.text: model.name !== undefined ? model.name.trim() : "Undefined"
+                    summary.text: model.episodeCount > 0 ? i18n.tr("%1 unheard episode", "%1 unheard episodes", model.episodeCount).arg(model.episodeCount)
+                                                          : ""
+                    summary.color: podbird.appTheme.baseSubText
+
+                    Image {
+                        height: width
+                        width: units.gu(6)
+                        source: model.image !== undefined ? model.image : Qt.resolvedUrl("../graphics/podbird.png")
+                        SlotsLayout.position: SlotsLayout.Leading
+                        sourceSize { width: width; height: height }
+                    }
+                }
 
                 leadingActions: ListItemActions {
                     actions: [
