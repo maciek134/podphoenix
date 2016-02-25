@@ -42,7 +42,7 @@ ActionList {
         },
 
         Action {
-            text: i18n.tr("Add new podcasts")
+            text: i18n.tr("Add New Podcasts")
             visible: currentTab !== 2
             onTriggered: {
                 tabs.selectedTabIndex = 2
