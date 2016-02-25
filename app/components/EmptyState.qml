@@ -47,7 +47,7 @@ Item {
         anchors.top: emptyIcon.bottom
         anchors.topMargin: units.gu(5)
         width: parent.width
-        fontSize: "large"
+        textSize: Label.Large
         color: podbird.appTheme.baseText
         horizontalAlignment: Text.AlignHCenter
         wrapMode: Text.WrapAtWordBoundaryOrAnywhere

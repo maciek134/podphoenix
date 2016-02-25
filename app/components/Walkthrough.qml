@@ -18,7 +18,6 @@
 
 import QtQuick 2.4
 import Ubuntu.Components 1.3
-import Ubuntu.Components.ListItems 1.0 as ListItem
 
 Page {
     id: walkthrough
@@ -85,7 +84,7 @@ Page {
         id: skipLabel
 
         color: skipTextColor
-        fontSize: "small"
+        textSize: Label.Small
         wrapMode: Text.WordWrap
         text: i18n.tr("Skip")
         horizontalAlignment: Text.AlignRight

@@ -72,7 +72,7 @@ Item {
             }
             color: podbird.appTheme.baseText
             elide: Text.ElideRight
-            fontSize: "small"
+            textSize: Label.Small
             opacity: 1.0
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignHCenter
@@ -88,7 +88,7 @@ Item {
             }
             color: podbird.appTheme.baseSubText
             elide: Text.ElideRight
-            fontSize: "small"
+            textSize: Label.Small
             opacity: 1.0
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignHCenter

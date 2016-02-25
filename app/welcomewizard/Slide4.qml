@@ -40,7 +40,7 @@ Component {
             id: introductionText
             anchors.centerIn: parent
             elide: Text.ElideRight
-            fontSize: "x-large"
+            textSize: Label.XLarge
             maximumLineCount: 2
             // TRANSLATORS: This text should be in a language different from the language set by the user.
             // For instance, if the app was in english, then it is appropriate to set this string as

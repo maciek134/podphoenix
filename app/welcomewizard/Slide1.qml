@@ -40,7 +40,7 @@ Component {
         Label {
             id: introductionText
             text: i18n.tr("Welcome to Podbird")
-            fontSize: "x-large"
+            textSize: Label.XLarge
             height: contentHeight
             anchors.centerIn: parent
         }
@@ -66,7 +66,7 @@ manager for Ubuntu.\n\nChirp Chirp...")
             anchors.margins: units.gu(1)
             anchors.bottom: parent.bottom
             color: "grey"
-            fontSize: "small"
+            textSize: Label.Small
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignHCenter
             text: i18n.tr("Swipe to move between pages")

@@ -81,7 +81,7 @@ Page {
                         width: parent.width
                         Label {
                             width: parent.width
-                            fontSize: "x-large"
+                            textSize: Label.XLarge
                             font.weight: Font.DemiBold
                             horizontalAlignment: Text.AlignHCenter
                             text: "Podbird"
@@ -107,7 +107,7 @@ Page {
                             text: "(C) 2015 Podbird Team"
                         }
                         Label {
-                            fontSize: "small"
+                            textSize: Label.Small
                             width: parent.width
                             wrapMode: Text.WordWrap
                             horizontalAlignment: Text.AlignHCenter
@@ -118,7 +118,7 @@ Page {
                     Label {
                         width: parent.width
                         wrapMode: Text.WordWrap
-                        fontSize: "small"
+                        textSize: Label.Small
                         horizontalAlignment: Text.AlignHCenter
                         linkColor: podbird.appTheme.linkText
                         text: i18n.tr("Source code available on %1").arg("<a href=\"https://launchpad.net/podbird\">launchpad.net</a>")

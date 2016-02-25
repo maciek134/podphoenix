@@ -54,7 +54,7 @@ Page {
         anchors.margins: units.gu(0.5)
         verticalAlignment: Text.AlignVCenter
 
-        fontSize: "x-large"
+        textSize: Label.XLarge
         fontSizeMode: Text.Fit
 
         maximumLineCount: 3
@@ -347,7 +347,7 @@ Page {
                         text: i18n.tr("%1 episode", "%1 episodes", episodeList.count).arg(episodeList.count)
                         width: parent.width
                         elide: Text.ElideRight
-                        fontSize: "x-small"
+                        textSize: Label.XSmall
                         color: podbird.appTheme.baseText
                     }
                 }
@@ -360,7 +360,7 @@ Page {
 
                 Label {
                     id: unheardTab
-                    fontSize: "large"
+                    textSize: Label.Large
                     text: i18n.tr("Unheard")
                     anchors.left: parent.left
                     anchors.leftMargin: units.gu(2)
@@ -387,7 +387,7 @@ Page {
                     id: listenedTab
                     anchors.left: unheardTab.right
                     anchors.leftMargin: (parent.width - unheardTab.width - listenedTab.width - downloadedTab.width - unheardTab.anchors.leftMargin - downloadedTab.anchors.rightMargin) / 2.0
-                    fontSize: "large"
+                    textSize: Label.Large
                     text: i18n.tr("Listened")
                     color: episodesPage.mode == "listened" ? podbird.appTheme.focusText : podbird.appTheme.baseText
 
@@ -412,7 +412,7 @@ Page {
                     id: downloadedTab
                     anchors.right: parent.right
                     anchors.rightMargin: units.gu(2)
-                    fontSize: "large"
+                    textSize: Label.Large
                     text: i18n.tr("Downloaded")
                     color: episodesPage.mode == "downloaded" ? podbird.appTheme.focusText : podbird.appTheme.baseText
 

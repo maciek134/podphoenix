@@ -272,7 +272,7 @@ Tab {
                         margins: units.gu(2)
                         verticalCenter: parent.verticalCenter
                     }
-                    fontSize: "x-large"
+                    textSize: Label.XLarge
                     text:  {
                         if (section === "Today") {
                             return i18n.tr("Today")

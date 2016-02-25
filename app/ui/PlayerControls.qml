@@ -60,7 +60,7 @@ Rectangle {
         anchors.leftMargin: units.gu(2)
 
         Label {
-            fontSize: "small"
+            textSize: Label.Small
             font.weight: Font.Bold
             anchors.left: parent.left
             anchors.right: parent.right
@@ -72,7 +72,7 @@ Rectangle {
         }
 
         Label {
-            fontSize: "small"
+            textSize: Label.Small
             color: "#999999"
             text: currentArtist
             elide: Text.ElideRight

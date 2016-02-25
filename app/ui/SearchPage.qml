@@ -315,7 +315,7 @@ Page {
                     // the podcast description.
                     text: i18n.tr("Last Updated: %1\n%2").arg(model.releaseDate.split("T")[0]).arg(model.description)
                     wrapMode: Text.WordWrap
-                    fontSize: "small"
+                    textSize: Label.Small
                     color: podbird.appTheme.baseSubText
                     linkColor: podbird.appTheme.linkText
                     height: expanded ? contentHeight : 0

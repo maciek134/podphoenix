@@ -40,7 +40,7 @@ Component {
             id: introductionText
             anchors.centerIn: parent
             elide: Text.ElideRight
-            fontSize: "x-large"
+            textSize: Label.XLarge
             maximumLineCount: 2
             text: i18n.tr("Smart Settings")
             horizontalAlignment: Text.AlignHCenter
