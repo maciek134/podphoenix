@@ -34,85 +34,81 @@ Rectangle {
         }
     }
 
-    Item {
-        anchors.fill: parent
+    Image {
+        id: cover
+        anchors.top: parent.top
+        anchors.left: parent.left
+        source: currentImage
+        width: parent.height - units.gu(0.25)
+        height: width
+        asynchronous: true
+    }
 
-        Image {
-            id: cover
-            anchors.top: parent.top
+    Rectangle {
+        id: progressBarHint
+        anchors.left: parent.left
+        anchors.top: cover.bottom
+        color: podbird.appTheme.focusText
+        height: units.gu(0.25)
+        width: playerLoader.item.duration > 0 ? (playerLoader.item.position / playerLoader.item.duration) * parent.width : 0
+    }
+
+    Column {
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.right: playButton.left
+        anchors.left: cover.right
+        anchors.leftMargin: units.gu(2)
+
+        Label {
+            fontSize: "small"
+            font.weight: Font.Bold
             anchors.left: parent.left
-            source: currentImage
-            width: parent.height - units.gu(0.25)
-            height: width
-            asynchronous: true
+            anchors.right: parent.right
+            color: "white"
+            elide: Text.ElideRight
+            maximumLineCount: 2
+            wrapMode: Text.WordWrap
+            text: currentName
         }
+
+        Label {
+            fontSize: "small"
+            color: "#999999"
+            text: currentArtist
+            elide: Text.ElideRight
+            font.weight: Font.Light
+            anchors.left: parent.left
+            anchors.right: parent.right
+        }
+    }
+
+    AbstractButton {
+        id: playButton
+
+        width: units.gu(7)
+        height: cover.height
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.right: parent.right
 
         Rectangle {
-            id: progressBarHint
-            anchors.left: parent.left
-            anchors.top: cover.bottom
-            color: podbird.appTheme.focusText
-            height: units.gu(0.25)
-            width: playerLoader.item.duration > 0 ? (playerLoader.item.position / playerLoader.item.duration) * parent.width : 0
+            id: playButtonBackground
+            anchors.fill: parent
+            color: "#FFF"
+            opacity: 0.1
+            visible: playButton.pressed
         }
 
-        Column {
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.right: playButton.left
-            anchors.left: cover.right
-            anchors.leftMargin: units.gu(2)
+        onClicked: playerLoader.item.playbackState === MediaPlayer.PlayingState ? playerLoader.item.pause()
+                                                                                : playerLoader.item.play()
 
-            Label {
-                fontSize: "small"
-                font.weight: Font.Bold
-                anchors.left: parent.left
-                anchors.right: parent.right
-                color: "white"
-                elide: Text.ElideRight
-                maximumLineCount: 2
-                wrapMode: Text.WordWrap
-                text: currentName
-            }
-
-            Label {
-                fontSize: "small"
-                color: "#999999"
-                text: currentArtist
-                elide: Text.ElideRight
-                font.weight: Font.Light
-                anchors.left: parent.left
-                anchors.right: parent.right
-            }
-        }
-
-        AbstractButton {
-            id: playButton
-
-            width: units.gu(7)
-            height: cover.height
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.right: parent.right
-
-            Rectangle {
-                id: playButtonBackground
-                anchors.fill: parent
-                color: "#FFF"
-                opacity: 0.1
-                visible: playButton.pressed
-            }
-
-            onClicked: playerLoader.item.playbackState === MediaPlayer.PlayingState ? playerLoader.item.pause()
-                                                                                    : playerLoader.item.play()
-
-            Icon {
-                color: "white"
-                width: units.gu(3)
-                height: width
-                anchors.centerIn: playButtonBackground
-                name: playerLoader.item.playbackState === MediaPlayer.PlayingState ? "media-playback-pause"
-                                                                                   : "media-playback-start"
-                opacity: playButton.pressed ? 0.4 : 1.0
-            }
+        Icon {
+            color: "white"
+            width: units.gu(3)
+            height: width
+            anchors.centerIn: playButtonBackground
+            name: playerLoader.item.playbackState === MediaPlayer.PlayingState ? "media-playback-pause"
+                                                                               : "media-playback-start"
+            opacity: playButton.pressed ? 0.4 : 1.0
         }
     }
 }
