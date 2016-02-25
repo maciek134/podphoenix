@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014
+ * Copyright (C) 2014-2016
  *      Andrew Hayzen <ahayzen@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify

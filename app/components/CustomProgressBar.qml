@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Podbird Team
+ * Copyright 2015-2016 Podbird Team
  *
  * This file is part of Podbird.
  *

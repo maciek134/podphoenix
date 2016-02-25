@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Michael Sheldon <mike@mikeasoft.com>
+ * Copyright 2015-2016 Michael Sheldon <mike@mikeasoft.com>
  *
  * This file is part of Podbird.
  *
