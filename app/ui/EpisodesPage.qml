@@ -451,7 +451,7 @@ Page {
 
             visible: episodesPage.mode == "listened" ? model.listened
                                                      : (episodesPage.mode == "unheard" ? !model.listened
-                                                                                       : model.downloadedfile)
+                                                                                       : model.downloadedfile ? true : false)
 
             ListItemLayout {
                 id: listItemLayout
