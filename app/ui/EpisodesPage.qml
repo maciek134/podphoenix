@@ -17,7 +17,7 @@
  */
 
 import QtQuick 2.4
-import QtMultimedia 5.4
+import QtMultimedia 5.6
 import Ubuntu.Components 1.3
 import QtQuick.LocalStorage 2.0
 import Ubuntu.DownloadManager 0.1
@@ -442,8 +442,8 @@ Page {
                 id: listItemLayout
 
                 title.text: model.name !== undefined ? model.name.trim() : "Undefined"
-                title.color: currentGuid === model.guid || downloader.downloadingGuid === model.guid ? podbird.appTheme.focusText
-                                                                                                     : podbird.appTheme.baseText
+                title.color: downloader.downloadingGuid === model.guid ? podbird.appTheme.focusText
+                                                                       : podbird.appTheme.baseText
                 // #FIXME: Change this 2 to prevent title eliding when UITK is updated to rev > 1800
                 title.maximumLineCount: 1
 
@@ -511,6 +511,14 @@ Page {
                     },
 
                     Action {
+                        iconName: "add-to-playlist"
+                        onTriggered: {
+                            var url = model.downloadedfile ? model.downloadedfile : model.audiourl
+                            player.addEpisodeToQueue(model.guid, model.image, model.name, model.artist, url)
+                        }
+                    },
+
+                    Action {
                         iconName: model.favourited ? "unlike" : "like"
                         onTriggered: {
                             var db = Podcasts.init();
@@ -536,20 +544,10 @@ Page {
 
             onClicked: {
                 Haptics.play()
-                var db = Podcasts.init();
-                db.transaction(function (tx) {
-                    if (currentGuid !== model.guid) {
-                        currentGuid = "";
-                        currentUrl = model.downloadedfile ? model.downloadedfile : model.audiourl;
-                        var rs = tx.executeSql("SELECT position FROM Episode WHERE guid=?", [model.guid]);
-                        playerLoader.item.play();
-                        playerLoader.item.seek(rs.rows.item(0).position);
-                        currentName = model.name;
-                        currentArtist = model.artist;
-                        currentImage = model.image;
-                        currentGuid = model.guid;
-                    }
-                });
+                if (currentGuid !== model.guid) {
+                    currentUrl = model.downloadedfile ? model.downloadedfile : model.audiourl;
+                    player.playEpisode(model.guid, model.image, model.name, model.artist, currentUrl)
+                }
             }
         }
 

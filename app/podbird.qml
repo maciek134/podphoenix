@@ -19,7 +19,7 @@
 import QtQuick 2.4
 import Podbird 1.0
 import UserMetrics 0.1
-import QtMultimedia 5.4
+import QtMultimedia 5.6
 import Ubuntu.Connectivity 1.0
 import Qt.labs.settings 1.0
 import Ubuntu.Components 1.3
@@ -50,6 +50,7 @@ MainView {
         db.transaction(function (tx) {
             tx.executeSql('UPDATE Episode SET queued=0 WHERE queued=1');
         })
+        Podcasts.clearQueue()
     }
 
     // RefreshModel function to call refreshModel() function of the tab currently
@@ -167,55 +168,121 @@ MainView {
         }
     }
 
-    // UserMetrics to show Podbird stats on welcome screen
-    Metric {
-        id: podcastsMetric
-        name: "podcast-metrics"
-        // TRANSLATORS: this refers to a number of songs greater than one. The actual number will be prepended to the string automatically (plural forms are not yet fully supported in usermetrics, the library that displays that string)
-        format: i18n.tr("Podcasts listened to today: <b>%1</b>")
-        emptyFormat: i18n.tr("No podcasts listened to today")
-        domain: "com.mikeasoft.podbird"
-    }
+    MediaPlayer {
+        id: player
 
-    // Load the media player only when the user starts to play some media. This
-    // should improve app-startup slightly.
-    Loader {
-        id: playerLoader
-        sourceComponent: currentUrl != "" ? playerComponent : undefined
-    }
-
-    Component {
-        id: playerComponent
-        MediaPlayer {
-            id: player
-
-            property bool podcastCounted: false
-
-            source: currentUrl
-
-            onSourceChanged: {
-                podcastCounted = false
+        // Wrapper function around decodeURIComponent() to prevent exceptions
+        // from bubbling up to the app.
+        function decodeFileURI(filename)
+        {
+            var newFilename = "";
+            try {
+                newFilename = decodeURIComponent(filename);
+            } catch (e) {
+                newFilename = filename;
+                console.log("Unicode decoding error:", filename, e.message)
             }
 
-            onPositionChanged: {
-                if (currentGuid == "" || duration <= 0) {
-                    return;
-                }
+            return newFilename;
+        }
 
-                if (position > 10000 && !podcastCounted) {
-                    podcastCounted = true
-                    podcastsMetric.increment()
-                    console.log("[LOG]: Podcast User metric incremented")
-                }
-
-                var db = Podcasts.init();
-                db.transaction(function (tx) {
-                    tx.executeSql("UPDATE Episode SET position=? WHERE guid=?", [position >= duration ? 120 : position, currentGuid]);
-                    if (position >= duration - 120) {
-                        tx.executeSql("UPDATE Episode SET listened = 1 WHERE guid=?", [currentGuid]);
-                    }
-                });
+        function metaForSource(source) {
+            var blankMeta = {
+                name: "",
+                artist: "",
+                image: "",
+                guid: "",
             }
+
+            source = source.toString()
+
+            if (source.indexOf("file://") === 0) {
+                source = source.substring(7);
+            }
+
+            return Podcasts.lookup(decodeFileURI(source)) || blankMeta;
+        }
+
+        function toggle() {
+            if (playbackState === MediaPlayer.PlayingState) {
+                pause()
+            } else {
+                play()
+            }
+        }
+
+        function playEpisode(guid, image, name, artist, url) {
+            // Clear current queue
+            player.playlist.clear()
+            Podcasts.clearQueue()
+
+            // Add episode to queue
+            player.playlist.addItem(Qt.resolvedUrl(url))
+            Podcasts.addItemToQueue(guid, image, name, artist, url)
+
+            // Play episode
+            player.play()
+        }
+
+        function addEpisodeToQueue(guid, image, name, artist, url) {
+            player.playlist.addItem(Qt.resolvedUrl(url))
+            Podcasts.addItemToQueue(guid, image, name, artist, url)
+
+            // If added episode is the first one in the queue, then set the current metadata
+            // so that the bottom player controls will be shown, allowing the user to play
+            // the episode if he chooses to.
+            if (player.playlist.itemCount === 0) {
+                currentGuid = guid
+                currentName = name
+                currentArtist = artist
+                currentImage = image
+                currentUrl = url
+            }
+        }
+
+        property bool endOfMedia: false
+        property double progress: 0
+
+        playlist: Playlist {
+            playbackMode: Playlist.Sequential
+
+            readonly property bool canGoPrevious: currentIndex !== 0
+            readonly property bool canGoNext: currentIndex !== itemCount - 1
+
+            onCurrentItemSourceChanged: {
+                var meta = player.metaForSource(currentItemSource)
+                currentGuid = "";
+                currentName = meta.name
+                currentArtist = meta.artist
+                currentImage = meta.image
+                currentGuid = meta.guid
+            }
+        }
+
+        onStatusChanged: {
+            if (status === MediaPlayer.EndOfMedia) {
+                console.log("[LOG]: End of Media. Stopping.")
+                endOfMedia = true
+                stop()
+            }
+        }
+
+        onStopped: {
+            if (playlist.itemCount > 0) {
+                if (endOfMedia) {
+                    // We just ended media, so jump to start of playlist
+                    playlist.currentIndex  = 0;
+
+                    // Play then pause otherwise when we come from EndOfMedia
+                    // it calls next() until EndOfMedia again.
+                    play()
+                }
+
+                pause()
+            }
+
+            // Always reset endOfMedia
+            endOfMedia = false
         }
     }
 
@@ -290,13 +357,13 @@ MainView {
         states: [
             State {
                 name: "shown"
-                when: currentUrl != "" && !mainStack.currentPage.isNowPlayingPage
+                when: player.playlist.itemCount !== 0 && !mainStack.currentPage.isNowPlayingPage
                 PropertyChanges { target: playerControlLoader; anchors.bottomMargin: 0 }
             },
 
             State {
                 name: "hidden"
-                when: currentUrl == "" || mainStack.currentPage.isNowPlayingPage || !playerControl.visible
+                when: player.playlist.itemCount === 0 || mainStack.currentPage.isNowPlayingPage || !playerControl.visible
                 PropertyChanges { target: playerControlLoader; anchors.bottomMargin: -units.gu(7) }
             }
         ]
