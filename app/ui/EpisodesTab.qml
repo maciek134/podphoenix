@@ -20,7 +20,7 @@ import QtQuick 2.4
 import QtMultimedia 5.6
 import Ubuntu.Components 1.3
 import QtQuick.LocalStorage 2.0
-import Ubuntu.DownloadManager 0.1
+import Ubuntu.DownloadManager 1.2
 import Ubuntu.Components.Popups 1.3
 import "../podcasts.js" as Podcasts
 import "../components"
@@ -83,7 +83,7 @@ Tab {
 
                 Action {
                     iconName: "save"
-                    visible: episodesPageHeaderSections.selectedIndex === 0
+                    visible: episodesPageHeaderSections.selectedIndex !== 1
                     text: i18n.tr("Download all")
                     onTriggered: {
                         var db = Podcasts.init();
@@ -92,7 +92,11 @@ Tab {
                                 if (!episodesModel.get(i).downloadedfile) {
                                     episodesModel.setProperty(i, "queued", 1)
                                     tx.executeSql("UPDATE Episode SET queued=1 WHERE guid = ?", [episodesModel.get(i).guid]);
-                                    downloader.addDownload(episodesModel.get(i).guid, episodesModel.get(i).audiourl);
+                                    if (episodesModel.get(i).audiourl) {
+                                        podbird.downloadEpisode(episodesModel.get(i).image, episodesModel.get(i).name, episodesModel.get(i).guid, episodesModel.get(i).audiourl)
+                                    } else {
+                                        console.log("[ERROR]: Invalid download url: " + episodesModel.get(i).audiourl)
+                                    }
                                 }
                             }
                         });
@@ -131,7 +135,7 @@ Tab {
                     selectedSectionColor: podbird.appTheme.focusText
                 }
 
-                model: [i18n.tr("Recent"), i18n.tr("Downloaded"), i18n.tr("Favourites")]
+                model: [i18n.tr("Recent"), i18n.tr("Downloads"), i18n.tr("Favourites")]
                 onSelectedIndexChanged: {
                     refreshModel();
                 }
@@ -184,7 +188,7 @@ Tab {
                 verticalCenterOffset: Qt.inputMethod.visible ? units.gu(4) : 0
             }
 
-            sourceComponent: episodesModel.count === 0 || sortedEpisodeModel.count === 0 ? emptyStateComponent : undefined
+            sourceComponent: (episodesModel.count === 0 || sortedEpisodeModel.count === 0) && downloader.downloads.length === 0 ? emptyStateComponent : undefined
         }
 
         Component {
@@ -331,9 +335,60 @@ Tab {
 
             clip: true
             model: sortedEpisodeModel
+
+            header: Column {
+                width: episodeList.width
+                visible: height !== 0
+                height: downloader.downloads.length > 0 && episodesPageHeaderSections.selectedIndex === 1 ? childrenRect.height : 0
+
+                HeaderListItem {
+                    title.text: i18n.tr("Downloads in progress")
+                }
+
+                Repeater {
+                    model: downloader.downloads
+                    delegate: ListItem {
+                        divider.visible: false
+                        height: inProgressLayout.height
+                        SlotsLayout {
+                            id: inProgressLayout
+
+                            Image {
+                                height: width
+                                width: units.gu(6)
+                                source: modelData.image !== undefined ? modelData.image : Qt.resolvedUrl("../graphics/podbird.png")
+                                SlotsLayout.position: SlotsLayout.Leading
+                                sourceSize { width: width; height: height }
+                            }
+
+                            mainSlot: Column {
+                                spacing: units.gu(0.5)
+
+                                Label {
+                                    text: modelData.title
+                                    width: parent.width
+                                    elide: Text.ElideRight
+                                }
+
+                                CustomProgressBar {
+                                    width: parent.width
+                                    height: modelData.progress > 0 ? units.dp(5) : 0
+                                    progress: modelData.progress
+                                    indeterminateProgress: modelData.progress < 0 || modelData.progress > 100
+                                }
+                            }
+                        }
+                    }
+                }
+
+                HeaderListItem {
+                    title.text: i18n.tr("Downloaded episodes")
+                    visible: sortedEpisodeModel.count !== 0 || episodesModel.count !== 0
+                }
+            }
+
             section.property: "diff"
             section.labelPositioning: ViewSection.InlineLabels
-
             section.delegate: ListItem {
                 height: headerText.title.text !== "" ? headerText.height + divider.height : units.gu(0)
                 divider.anchors.leftMargin: units.gu(2)
@@ -438,7 +493,11 @@ Tab {
                                         tx.executeSql("UPDATE Episode SET queued=1 WHERE guid = ?", [model.guid]);
                                     });
                                     episodesModel.setProperty(model.index, "queued", 1)
-                                    downloader.addDownload(model.guid, model.audiourl);
+                                    if (model.audiourl) {
+                                        podbird.downloadEpisode(model.image, model.name, model.guid, model.audiourl)
+                                    } else {
+                                        console.log("[ERROR]: Invalid download url: " + model.audiourl)
+                                    }
                                 }
                             }
                         },

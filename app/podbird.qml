@@ -18,13 +18,12 @@
 
 import QtQuick 2.4
 import Podbird 1.0
-import UserMetrics 0.1
 import QtMultimedia 5.6
 import Ubuntu.Connectivity 1.0
 import Qt.labs.settings 1.0
 import Ubuntu.Components 1.3
 import QtQuick.LocalStorage 2.0
-import Ubuntu.DownloadManager 0.1
+import Ubuntu.DownloadManager 1.2
 import "ui"
 import "themes" as Themes
 import "podcasts.js" as Podcasts
@@ -45,7 +44,6 @@ MainView {
 
     Component.onDestruction: {
         console.log("[LOG]: Download cancelled");
-        downloader.cancel();
         var db = Podcasts.init()
         db.transaction(function (tx) {
             tx.executeSql('UPDATE Episode SET queued=0 WHERE queued=1');
@@ -139,32 +137,42 @@ MainView {
         }
     }
 
-    SingleDownload {
-        id: downloader
-        property var queue: []
-        property string downloadingGuid
+    Component {
+        id: singleDownloadComponent
+        SingleDownload {
+            id: singleDownloadObject
+            property string image
+            property string title
+            property string guid
+            metadata: Metadata {
+                showInIndicator: true
+                title: singleDownloadObject.title
+            }
+        }
+    }
 
-        onFinished: {
+    function downloadEpisode(image, title, guid, url) {
+        var singleDownload = singleDownloadComponent.createObject(podbird, {"image": image, "title": title, "guid": guid})
+        singleDownload.download(url)
+    }
+
+    DownloadManager {
+        id: downloader
+
+        property string downloadingGuid: downloads.length > 0 ? downloads[0].guid : "NULL"
+        property int progress: downloads.length > 0 ? downloads[0].progress : 0
+
+        cleanDownloads: true
+        onDownloadFinished: {
             var db = Podcasts.init();
             var finalLocation = fileManager.saveDownload(path);
             db.transaction(function (tx) {
-                tx.executeSql("UPDATE Episode SET downloadedfile=?, queued=0 WHERE guid=?", [finalLocation, downloadingGuid]);
-                queue.shift();
-                if (queue.length > 0) {
-                    downloadingGuid = queue[0][0];
-                    download(queue[0][1]);
-                } else {
-                    downloadingGuid = "";
-                }
+                tx.executeSql("UPDATE Episode SET downloadedfile=?, queued=0 WHERE guid=?", [finalLocation, download.guid]);
             });
         }
 
-        function addDownload(guid, url) {
-            queue.push([guid, url]);
-            if (queue.length == 1) {
-                downloadingGuid = guid;
-                download(url);
-            }
+        onErrorFound: {
+            console.log("[ERROR]: " + download.errorMessage)
         }
     }
 

@@ -20,7 +20,7 @@ import QtQuick 2.4
 import QtMultimedia 5.6
 import Ubuntu.Components 1.3
 import QtQuick.LocalStorage 2.0
-import Ubuntu.DownloadManager 0.1
+import Ubuntu.DownloadManager 1.2
 import Ubuntu.Components.Popups 1.3
 import "../podcasts.js" as Podcasts
 import "../components"
@@ -505,7 +505,11 @@ Page {
                                     tx.executeSql("UPDATE Episode SET queued=1 WHERE guid = ?", [model.guid]);
                                 });
                                 episodeModel.setProperty(model.index, "queued", 1)
-                                downloader.addDownload(model.guid, model.audiourl);
+                                if (model.audiourl) {
+                                    podbird.downloadEpisode(model.image, model.name, model.guid, model.audiourl)
+                                } else {
+                                    console.log("[ERROR]: Invalid download url: " + model.audiourl)
+                                }
                             }
                         }
                     },
