@@ -196,10 +196,6 @@ MainView {
 
             source = source.toString()
 
-            if (source.indexOf("file://") === 0) {
-                source = source.substring(7);
-            }
-
             return Podcasts.lookup(decodeFileURI(source)) || blankMeta;
         }
 
