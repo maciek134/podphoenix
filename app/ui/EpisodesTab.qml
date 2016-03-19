@@ -132,7 +132,7 @@ Tab {
                     selectedSectionColor: podbird.appTheme.focusText
                 }
 
-                model: [i18n.tr("New"), i18n.tr("Downloaded"), i18n.tr("Favourites")]
+                model: [i18n.tr("Recent"), i18n.tr("Downloaded"), i18n.tr("Favourites")]
                 onSelectedIndexChanged: {
                     refreshModel();
                 }
@@ -373,9 +373,8 @@ Tab {
                 id: listItem
 
                 divider.visible: false
-                highlightColor: "Transparent"
+                highlightColor: podbird.appTheme.hightlightListView
                 height: downloader.downloadingGuid === model.guid ? listItemLayout.height + progressBarLoader.height + units.gu(1) : listItemLayout.height + units.gu(0.5)
-                color: index % 2 === 0 ? podbird.appTheme.hightlightListView : "Transparent"
 
                 ListItemLayout {
                     id: listItemLayout

@@ -213,8 +213,7 @@ Page {
 
                 height: listItemLayout.height
                 divider.visible: false
-                color: index % 2 === 0 ? podbird.appTheme.hightlightListView : "Transparent"
-                highlightColor: index % 2 === 0 ? "Transparent" : podbird.appTheme.hightlightListView
+                highlightColor: podbird.appTheme.hightlightListView
 
                 ListItemLayout {
                     id: listItemLayout

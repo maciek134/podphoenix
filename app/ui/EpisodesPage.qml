@@ -431,9 +431,8 @@ Page {
             id: listItem
 
             divider.visible: false
-            highlightColor: "Transparent"
+            highlightColor: podbird.appTheme.hightlightListView
             height: visible ? listItemLayout.height + progressBarLoader.height + units.gu(1) : 0
-            color: index % 2 === 0 ? podbird.appTheme.hightlightListView : "Transparent"
 
             visible: episodesPage.mode == "listened" ? model.listened
                                                      : (episodesPage.mode == "unheard" ? !model.listened
