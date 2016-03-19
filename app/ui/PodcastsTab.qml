@@ -59,13 +59,6 @@ Page {
                     podcastPage.header = searchHeader
                     searchField.item.forceActiveFocus()
                 }
-            },
-            Action {
-                iconName: "add"
-                text: i18n.tr("Add New Podcasts")
-                onTriggered: {
-                    mainStack.push(Qt.resolvedUrl("SearchPage.qml"))
-                }
             }
         ]
     }
@@ -235,7 +228,7 @@ Page {
                 leadingActions: ListItemActions {
                     actions: [
                         Action {
-                            iconName: "delete"
+                            iconName: "system-log-out"
                             onTriggered: {
                                 var db = Podcasts.init();
                                 db.transaction(function (tx) {

@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Podbird Team
+ * Copyright 2016 Podbird Team
  *
  * This file is part of Podbird.
  *
@@ -33,7 +33,7 @@ Component {
                 horizontalCenter: parent.horizontalCenter
             }
             fillMode: Image.PreserveAspectFit
-            source: Qt.resolvedUrl("../graphics/support.png")
+            source: Qt.resolvedUrl("../graphics/listitemactions.png")
         }
 
         Label {
@@ -42,7 +42,7 @@ Component {
             elide: Text.ElideRight
             textSize: Label.XLarge
             maximumLineCount: 2
-            text: i18n.tr("Support")
+            text: i18n.tr("Touch Gestures")
             horizontalAlignment: Text.AlignHCenter
             width: parent.width
             wrapMode: Text.WordWrap
@@ -61,8 +61,7 @@ Component {
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignHCenter
             linkColor: podbird.appTheme.linkText
-            // TRANSLATORS: The %1 points to a url defined in html format <a href=\link\>Link</a>.
-            text: i18n.tr("If you find any bugs or have any feature requests, let us know on our project page at %1").arg("<a href=\"https://launchpad.net/podbird\">launchpad.net</a>")
+            text: i18n.tr("Episodes can be swiped left to reveal more actions. You can also multi-select them by long-pressing on an episode.")
             onLinkActivated: Qt.openUrlExternally(link)
         }
     }

@@ -24,7 +24,14 @@ Page {
     id: downloadSetting
 
     visible: false
-    title: i18n.tr("Download at most")
+
+    header: PageHeader {
+        title: i18n.tr("Download at most")
+        flickable: download
+        StyleHints {
+            backgroundColor: podbird.appTheme.background
+        }
+    }
 
     ListModel {
         id: episodeDownloadNumber
@@ -38,7 +45,7 @@ Page {
         }
     }
 
-    UbuntuListView {
+    ListView {
         id: download
 
         currentIndex: -1

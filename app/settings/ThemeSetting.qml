@@ -24,7 +24,14 @@ Page {
     id: themeSettingPage
 
     visible: false
-    title: i18n.tr("Theme")
+
+    header: PageHeader {
+        title: i18n.tr("Theme")
+        flickable: themes
+        StyleHints {
+            backgroundColor: podbird.appTheme.background
+        }
+    }
 
     ListModel {
         id: themeModel
@@ -37,7 +44,7 @@ Page {
         }
     }
 
-    UbuntuListView {
+    ListView {
         id: themes
 
         currentIndex: -1

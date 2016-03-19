@@ -28,6 +28,10 @@ Page {
 
     property var xhr: new XMLHttpRequest;
 
+    TabsList {
+        id: tabsList
+    }
+
     header: standardHeader
 
     PageHeader {
@@ -38,6 +42,11 @@ Page {
 
         StyleHints {
             backgroundColor: podbird.appTheme.background
+        }
+
+        leadingActionBar {
+            numberOfSlots: 0
+            actions: tabsList.actions
         }
 
         trailingActionBar.actions: [
@@ -284,7 +293,7 @@ Page {
                                 }
                             });
                         }
-                        mainStack.pop();
+                        tabs.selectedTabIndex = 2;
                     }
                 }
             }
@@ -433,7 +442,7 @@ Page {
                     Podcasts.subscribe(artist, name, feed, image);
                     imageDownloader.feed = feed;
                     imageDownloader.download(image);
-                    mainStack.pop();
+                    tabs.selectedTabIndex = 2;
                 } else {
                     PopupUtils.open(subscribeFailedDialog);
                     searchPage.header = addHeader

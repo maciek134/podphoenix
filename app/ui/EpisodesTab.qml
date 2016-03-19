@@ -124,6 +124,8 @@ Tab {
         PageHeader {
             id: selectionHeader
             visible: episodeList.ViewItems.selectMode
+            // TRANSLATORS: This is the page title. Keep it short. Otherwise it will just be elided.
+            title: i18n.tr("%1 item selected", "%1 items selected", episodeList.ViewItems.selectedIndices.length).arg(episodeList.ViewItems.selectedIndices.length)
 
             onVisibleChanged: {
                 if (visible) {
