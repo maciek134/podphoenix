@@ -21,17 +21,18 @@ function init() {
 
     db.transaction(function(tx) {
         tx.executeSql('CREATE TABLE IF NOT EXISTS Podcast(artist TEXT, name TEXT, description TEXT, feed TEXT, image TEXT, lastupdate TIMESTAMP)');
-        tx.executeSql('CREATE TABLE IF NOT EXISTS Episode(guid TEXT, podcast INTEGER, name TEXT, subtitle TEXT, description TEXT, duration INTEGER, audiourl TEXT, downloadedfile TEXT, published TIMESTAMP, queued BOOLEAN, listened BOOLEAN, position INTEGER, FOREIGN KEY(podcast) REFERENCES Podcast(rowid))');
+        tx.executeSql('CREATE TABLE IF NOT EXISTS Episode(guid TEXT, podcast INTEGER, name TEXT, subtitle TEXT, description TEXT, duration INTEGER, audiourl TEXT, downloadedfile TEXT, published TIMESTAMP, queued BOOLEAN, listened BOOLEAN, favourited BOOLEAN, position INTEGER, FOREIGN KEY(podcast) REFERENCES Podcast(rowid))');
     });
 
     /*
-     Schema Upgrade to v1.1 which adds a new queued boolean variable which is needed to track the queued status
-     of a episode properly.
+     Schema Upgrade to v1.2 which adds a new favourited boolean variable which is needed to track the favourite status
+     of an episode.
     */
-    if (db.version == "1.0") {
-        db.changeVersion("1.0", "1.1", function(tx) {
-            tx.executeSql('ALTER TABLE Episode ADD queued BOOLEAN');
-            tx.executeSql('UPDATE Episode SET queued=0');
+    if (db.version != "1.2") {
+        console.log("Upgrading database from %1 -> v1.2".arg(db.version))
+        db.changeVersion(db.version, "1.2", function(tx) {
+            tx.executeSql('ALTER TABLE Episode ADD favourited BOOLEAN');
+            tx.executeSql('UPDATE Episode SET favourited=?', [false]);
         });
     }
 
@@ -110,11 +111,12 @@ function updateEpisodes(refreshModel) {
                                             db.transaction(function(tx2) {
                                                 var ers = tx2.executeSql("SELECT rowid FROM Episode WHERE guid=?", [track.guid]);
                                                 if (ers.rows.length === 0) {
-                                                    tx2.executeSql("INSERT INTO Episode(podcast, name, description, audiourl, guid, listened, queued, duration, published) VALUES(?, ?, ? , ?, ?, ?, ?, ?, ?)", [pid,
+                                                    tx2.executeSql("INSERT INTO Episode(podcast, name, description, audiourl, guid, listened, queued, favourited, duration, published) VALUES(?, ?, ? , ?, ?, ?, ?, ?, ?, ?)", [pid,
                                                                                                                                                                                                                  track.name,
                                                                                                                                                                                                                  track.description,
                                                                                                                                                                                                                  track.audiourl,
                                                                                                                                                                                                                  track.guid,
+                                                                                                                                                                                                                 false,
                                                                                                                                                                                                                  false,
                                                                                                                                                                                                                  false,
                                                                                                                                                                                                                  track.duration,

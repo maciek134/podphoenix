@@ -523,6 +523,20 @@ Page {
                     },
 
                     Action {
+                        iconName: model.favourited ? "unlike" : "like"
+                        onTriggered: {
+                            var db = Podcasts.init();
+                            db.transaction(function (tx) {
+                                if (model.favourited)
+                                    tx.executeSql("UPDATE Episode SET favourited=0 WHERE guid=?", [model.guid])
+                                else
+                                    tx.executeSql("UPDATE Episode SET favourited=1 WHERE guid=?", [model.guid])
+                                refreshModel();
+                            });
+                        }
+                    },
+
+                    Action {
                         iconName: "info"
                         onTriggered: {
                             var popup = PopupUtils.open(episodeDescriptionDialog, episodesPage);
@@ -581,10 +595,10 @@ Page {
             for(i = 0; i < rs.rows.length; i++) {
                 episode = rs.rows.item(i);
                 if (!episode.listened) {
-                    episodeModel.insert(newCount, {"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : img, "artist" : artist, "audiourl" : episode.audiourl, "queued": episode.queued});
+                    episodeModel.insert(newCount, {"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : img, "artist" : artist, "audiourl" : episode.audiourl, "queued": episode.queued, "favourited": episode.favourited});
                     newCount++;
                 } else {
-                    episodeModel.insert(i,{"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : img, "artist" : artist, "audiourl" : episode.audiourl, "queued": episode.queued});
+                    episodeModel.insert(i,{"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : img, "artist" : artist, "audiourl" : episode.audiourl, "queued": episode.queued, "favourited": episode.favourited});
                 }
             }
         });

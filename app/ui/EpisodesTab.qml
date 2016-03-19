@@ -132,7 +132,7 @@ Tab {
                     selectedSectionColor: podbird.appTheme.focusText
                 }
 
-                model: [i18n.tr("What's New"), i18n.tr("Downloaded")]
+                model: [i18n.tr("What's New"), i18n.tr("Downloaded"), i18n.tr("Favourites")]
                 onSelectedIndexChanged: {
                     refreshModel();
                 }
@@ -192,8 +192,30 @@ Tab {
             id: emptyStateComponent
             EmptyState {
                 icon.source: episodesModel.count === 0 ? Qt.resolvedUrl("../graphics/owlSearch.svg") : Qt.resolvedUrl("../graphics/notFound.svg")
-                title: episodesModel.count === 0 ? i18n.tr("No New Episodes") : i18n.tr("No Episodes Found")
-                subTitle: episodesModel.count === 0 ? i18n.tr("No more episodes to listen to!") : i18n.tr("No Episodes found matching the search term.")
+                title: {
+                    if (episodesModel.count === 0 && episodesPage.header === standardHeader) {
+                        if (episodesPageHeaderSections.selectedIndex === 0)
+                            return i18n.tr("No New Episodes")
+                        else if (episodesPageHeaderSections.selectedIndex === 1)
+                            return i18n.tr("No Downloaded Episodes")
+                        else if (episodesPageHeaderSections.selectedIndex === 2)
+                            return i18n.tr("No Favourited Episodes")
+                    } else {
+                        return i18n.tr("No Episodes Found")
+                    }
+                }
+                subTitle: {
+                    if (episodesModel.count === 0 && episodesPage.header === standardHeader) {
+                        if (episodesPageHeaderSections.selectedIndex === 0)
+                            return i18n.tr("No more episodes to listen to!")
+                        else if (episodesPageHeaderSections.selectedIndex === 1)
+                            return i18n.tr("No episodes have been downloaded for offline listening")
+                        else if (episodesPageHeaderSections.selectedIndex === 2)
+                            return i18n.tr("No episodes have been favourited.")
+                    } else {
+                        return i18n.tr("No Episodes found matching the search term.")
+                    }
+                }
             }
         }
 
@@ -440,9 +462,29 @@ Tab {
                                     else {
                                         tx.executeSql("UPDATE Episode SET listened=1 WHERE guid=?", [model.guid])
                                         episodesModel.setProperty(model.index, "listened", 1)
-                                        if (episodesPage.head.sections.selectedIndex === 0) {
+                                        if (episodesPageHeaderSections.selectedIndex === 0) {
                                             episodesModel.remove(model.index, 1)
                                         }
+                                    }
+                                });
+                            }
+                        },
+
+                        Action {
+                            iconName: model.favourited ? "unlike" : "like"
+                            onTriggered: {
+                                var db = Podcasts.init();
+                                db.transaction(function (tx) {
+                                    if (model.favourited) {
+                                        tx.executeSql("UPDATE Episode SET favourited=0 WHERE guid=?", [model.guid])
+                                        episodesModel.setProperty(model.index, "favourited", 0)
+                                        if (episodesPageHeaderSections.selectedIndex === 2) {
+                                            episodesModel.remove(model.index, 1)
+                                        }
+                                    }
+                                    else {
+                                        tx.executeSql("UPDATE Episode SET favourited=1 WHERE guid=?", [model.guid])
+                                        episodesModel.setProperty(model.index, "favourited", 1)
                                     }
                                 });
                             }
@@ -515,13 +557,13 @@ Tab {
                         diff = Math.floor((today - episode.published)/dayToMs)
                         if (diff < 7 && !episode.listened) {
                             if (diff < 1) {
-                                episodesModel.insert(todayCount, {"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : podcast.image, "artist" : podcast.artist, "audiourl" : episode.audiourl, "queued": episode.queued, "diff": "Today"})
+                                episodesModel.insert(todayCount, {"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : podcast.image, "artist" : podcast.artist, "audiourl" : episode.audiourl, "queued": episode.queued, "favourited": episode.favourited, "diff": "Today"})
                                 todayCount++;
                             } else if (diff < 2) {
-                                episodesModel.insert(todayCount + yesterdayCount, {"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : podcast.image, "artist" : podcast.artist, "audiourl" : episode.audiourl, "queued": episode.queued, "diff": "Yesterday"})
+                                episodesModel.insert(todayCount + yesterdayCount, {"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : podcast.image, "artist" : podcast.artist, "audiourl" : episode.audiourl, "queued": episode.queued, "favourited": episode.favourited, "diff": "Yesterday"})
                                 yesterdayCount++;
                             } else {
-                                episodesModel.append({"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : podcast.image, "artist" : podcast.artist, "audiourl" : episode.audiourl, "queued": episode.queued, "diff": "Older"})
+                                episodesModel.append({"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : podcast.image, "artist" : podcast.artist, "audiourl" : episode.audiourl, "queued": episode.queued, "favourited": episode.favourited, "diff": "Older"})
                             }
                         } else if (diff >= 7){
                             break
@@ -545,7 +587,28 @@ Tab {
                     for (j=0; j < rs2.rows.length; j++) {
                         episode = rs2.rows.item(j)
                         if (episode.downloadedfile) {
-                            episodesModel.append({"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : podcast.image, "artist" : podcast.artist, "audiourl" : episode.audiourl, "queued": episode.queued, "diff": "Null"})
+                            episodesModel.append({"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : podcast.image, "artist" : podcast.artist, "audiourl" : episode.audiourl, "queued": episode.queued, "favourited": episode.favourited, "diff": "Null"})
+                        }
+                    }
+
+                    if (podcast.lastupdate === null && !episodesUpdating) {
+                        updateEpisodesDatabase();
+                    }
+                }
+            });
+        }
+
+        // Episode Model for the favourites view
+        else if (episodesPageHeaderSections.selectedIndex === 2) {
+            db.transaction(function (tx) {
+                var rs = tx.executeSql("SELECT rowid, * FROM Podcast ORDER BY name ASC");
+                for (i=0; i < rs.rows.length; i++) {
+                    var podcast = rs.rows.item(i);
+                    var rs2 = tx.executeSql("SELECT rowid, * FROM Episode WHERE podcast=? ORDER BY published DESC", [rs.rows.item(i).rowid]);
+                    for (j=0; j < rs2.rows.length; j++) {
+                        episode = rs2.rows.item(j)
+                        if (episode.favourited) {
+                            episodesModel.append({"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : podcast.image, "artist" : podcast.artist, "audiourl" : episode.audiourl, "queued": episode.queued, "favourited": episode.favourited, "diff": "Null"})
                         }
                     }
 
