@@ -132,7 +132,7 @@ Tab {
                     selectedSectionColor: podbird.appTheme.focusText
                 }
 
-                model: [i18n.tr("What's New"), i18n.tr("Downloaded"), i18n.tr("Favourites")]
+                model: [i18n.tr("New"), i18n.tr("Downloaded"), i18n.tr("Favourites")]
                 onSelectedIndexChanged: {
                     refreshModel();
                 }
@@ -297,7 +297,6 @@ Tab {
                 Label {
                     width: parent.width
                     wrapMode: Text.WordWrap
-                    color: podbird.appTheme.baseText
                     linkColor: "Blue"
                     text: dialogInternal.description
                     onLinkActivated: Qt.openUrlExternally(link)
@@ -336,20 +335,14 @@ Tab {
             section.property: "diff"
             section.labelPositioning: ViewSection.InlineLabels
 
-            section.delegate: Rectangle {
-                width: parent.width
-                color: "Transparent"
-                height: header.text !== "" ? header.implicitHeight + units.gu(2) : units.gu(0)
-                Label {
-                    id: header
-                    anchors {
-                        left: parent.left
-                        right: parent.right
-                        margins: units.gu(2)
-                        verticalCenter: parent.verticalCenter
-                    }
-                    textSize: Label.XLarge
-                    text:  {
+            section.delegate: ListItem {
+                height: headerText.title.text !== "" ? headerText.height + divider.height : units.gu(0)
+                divider.anchors.leftMargin: units.gu(2)
+                divider.anchors.rightMargin: units.gu(2)
+
+                ListItemLayout {
+                    id: headerText
+                    title.text: {
                         if (section === "Today") {
                             return i18n.tr("Today")
                         }
@@ -366,6 +359,8 @@ Tab {
                             return ""
                         }
                     }
+                    title.color: podbird.appTheme.baseText
+                    title.font.weight: Font.DemiBold
                 }
             }
 

@@ -25,6 +25,9 @@ ListItem {
     property alias title: customItemLayout.title
     property alias value: _value.text
 
+    divider.anchors.leftMargin: units.gu(2)
+    divider.anchors.rightMargin: units.gu(2)
+
     ListItemLayout {
         id: customItemLayout
 

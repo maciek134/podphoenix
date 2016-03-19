@@ -19,7 +19,6 @@
 import QtQuick 2.4
 import QtMultimedia 5.4
 import Ubuntu.Components 1.3
-import QtQuick.Layouts 1.1
 import QtQuick.LocalStorage 2.0
 import Ubuntu.DownloadManager 0.1
 import Ubuntu.Components.Popups 1.3
@@ -226,7 +225,6 @@ Page {
             Label {
                 width: parent.width
                 wrapMode: Text.WordWrap
-                color: podbird.appTheme.baseText
                 linkColor: "Blue"
                 text: dialogInternal.description
                 onLinkActivated: Qt.openUrlExternally(link)
@@ -278,7 +276,7 @@ Page {
                                                                                               : RegExp("", "gi")
     }
 
-    UbuntuListView {
+    ListView {
         id: episodeList
 
         Component.onCompleted: {
@@ -291,76 +289,97 @@ Page {
 
         anchors.fill: parent
         model: sortedEpisodeModel
-        currentIndex: -1
         clip: true
 
         header: Column {
-            height: blurredBackground.height + modeTabs.height + units.gu(2)
-            spacing: units.gu(2)
-            BlurredBackground {
-                id: blurredBackground
+            height: coverArtContainer.height + modeTabs.height + units.gu(2)
+            Item {
+                id: coverArtContainer
 
-                art: episodeImage
-                width: parent.width
+                width: episodesPage.width
                 visible: episodesPage.state !== "search" && sortedEpisodeModel.count !== 0
-                height: episodesPage.state !== "search" && sortedEpisodeModel.count !== 0 ? cover.height + units.gu(4) : 0
-                backgroundStrength: podbird.settings.themeName === "Light.qml" ? 0.3 : 0.6
+                height: episodesPage.state !== "search" && sortedEpisodeModel.count !== 0 ? cover.height + units.gu(6) : 0
 
                 Image {
                     id:cover
-                    width: units.gu(12)
+                    width: units.gu(18)
                     height: width
                     sourceSize.height: width
                     sourceSize.width: width
                     source: episodeImage
                     asynchronous: true
                     anchors {
-                        left: parent.left
+                        horizontalCenter: parent.horizontalCenter
                         top: parent.top
                         margins: units.gu(2)
                     }
                 }
 
-                Column {
-                    id: podcastTitle
-
-                    anchors {
-                        left: cover.right
-                        right: parent.right
-                        bottom: parent.bottom
-                        margins: units.gu(2)
-                    }
-
-                    Label {
-                        text: episodeName
-                        width: parent.width
-                        wrapMode: Text.WordWrap
-                        maximumLineCount: 2
-                        elide: Text.ElideRight
-                        color: podbird.appTheme.baseText
-                    }
-
-                    Label {
-                        text: i18n.tr("%1 episode", "%1 episodes", episodeList.count).arg(episodeList.count)
-                        width: parent.width
-                        elide: Text.ElideRight
-                        textSize: Label.XSmall
-                        color: podbird.appTheme.baseText
-                    }
+                Label {
+                    text: episodeName
+                    width: parent.width
+                    wrapMode: Text.WordWrap
+                    horizontalAlignment: Text.AlignHCenter
+                    maximumLineCount: 2
+                    elide: Text.ElideRight
+                    color: podbird.appTheme.baseText
+                    anchors.top: cover.bottom
+                    anchors.topMargin: units.gu(2)
                 }
             }
 
             Item {
+                width: parent.width
+                height: units.gu(2)
+            }
+
+            Item {
                 id: modeTabs
-                height: unheardTab.implicitHeight + units.gu(2)
+                height: unheardTab.implicitHeight + units.gu(2.25)
                 width: episodesPage.width
+
+                Rectangle {
+                    id: sliderContainer
+                    anchors.top: unheardTab.bottom
+                    anchors.topMargin: units.gu(1)
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.margins: units.gu(2)
+                    height: units.gu(0.25)
+                    radius: width/3
+                    color: UbuntuColors.lightGrey
+                }
+
+                Rectangle {
+                    id: slider
+                    anchors.top: unheardTab.bottom
+                    anchors.topMargin: units.gu(1)
+                    height: units.gu(0.25)
+                    radius: width/3
+                    width: sliderContainer.width/3
+                    color: podbird.appTheme.focusText
+                    x: {
+                        if (episodesPage.mode === "unheard")
+                            return units.gu(2)
+                        else if (episodesPage.mode === "listened")
+                            return width + units.gu(2)
+                        else
+                            return 2 * width + units.gu(2)
+                    }
+
+                    Behavior on x {
+                        UbuntuNumberAnimation {}
+                    }
+                }
 
                 Label {
                     id: unheardTab
-                    textSize: Label.Large
                     text: i18n.tr("Unheard")
                     anchors.left: parent.left
                     anchors.leftMargin: units.gu(2)
+                    width: sliderContainer.width/3
+                    horizontalAlignment: Text.AlignHCenter
+                    font.weight: Font.DemiBold
                     color: episodesPage.mode == "unheard" ? podbird.appTheme.focusText : podbird.appTheme.baseText
 
                     AbstractButton {
@@ -369,23 +388,13 @@ Page {
                     }
                 }
 
-                Rectangle {
-                    anchors.top: unheardTab.bottom
-                    anchors.topMargin: units.gu(1)
-                    anchors.horizontalCenter: unheardTab.horizontalCenter
-                    height: units.gu(0.25)
-                    width: unheardTab.width
-                    radius: width/3
-                    color: podbird.appTheme.focusText
-                    visible: episodesPage.mode == "unheard"
-                }
-
                 Label {
                     id: listenedTab
                     anchors.left: unheardTab.right
-                    anchors.leftMargin: (parent.width - unheardTab.width - listenedTab.width - downloadedTab.width - unheardTab.anchors.leftMargin - downloadedTab.anchors.rightMargin) / 2.0
-                    textSize: Label.Large
                     text: i18n.tr("Listened")
+                    width: sliderContainer.width/3
+                    font.weight: Font.DemiBold
+                    horizontalAlignment: Text.AlignHCenter
                     color: episodesPage.mode == "listened" ? podbird.appTheme.focusText : podbird.appTheme.baseText
 
                     AbstractButton {
@@ -394,22 +403,13 @@ Page {
                     }
                 }
 
-                Rectangle {
-                    anchors.top: listenedTab.bottom
-                    anchors.topMargin: units.gu(1)
-                    anchors.horizontalCenter: listenedTab.horizontalCenter
-                    height: units.gu(0.25)
-                    width: listenedTab.width
-                    radius: width/3
-                    color: podbird.appTheme.focusText
-                    visible: episodesPage.mode == "listened"
-                }
-
                 Label {
                     id: downloadedTab
                     anchors.right: parent.right
                     anchors.rightMargin: units.gu(2)
-                    textSize: Label.Large
+                    width: sliderContainer.width/3
+                    font.weight: Font.DemiBold
+                    horizontalAlignment: Text.AlignHCenter
                     text: i18n.tr("Downloaded")
                     color: episodesPage.mode == "downloaded" ? podbird.appTheme.focusText : podbird.appTheme.baseText
 
@@ -417,17 +417,6 @@ Page {
                         anchors.fill: parent
                         onClicked: episodesPage.mode = "downloaded"
                     }
-                }
-
-                Rectangle {
-                    anchors.top: downloadedTab.bottom
-                    anchors.topMargin: units.gu(1)
-                    anchors.horizontalCenter: downloadedTab.horizontalCenter
-                    height: units.gu(0.25)
-                    width: downloadedTab.width
-                    radius: width/3
-                    color: podbird.appTheme.focusText
-                    visible: episodesPage.mode == "downloaded"
                 }
             }
 
