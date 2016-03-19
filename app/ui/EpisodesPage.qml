@@ -517,7 +517,7 @@ Page {
                     Action {
                         iconName: "add-to-playlist"
                         onTriggered: {
-                            var url = model.downloadedfile ? model.downloadedfile : model.audiourl
+                            var url = model.downloadedfile ? "file://" + model.downloadedfile : model.audiourl
                             player.addEpisodeToQueue(model.guid, model.image, model.name, model.artist, url)
                         }
                     },
@@ -549,7 +549,7 @@ Page {
             onClicked: {
                 Haptics.play()
                 if (currentGuid !== model.guid) {
-                    currentUrl = model.downloadedfile ? model.downloadedfile : model.audiourl;
+                    currentUrl = model.downloadedfile ? "file://" + model.downloadedfile : model.audiourl;
                     player.playEpisode(model.guid, model.image, model.name, model.artist, currentUrl)
                 }
             }

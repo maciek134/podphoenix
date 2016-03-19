@@ -221,16 +221,16 @@ MainView {
             Podcasts.clearQueue()
 
             // Add episode to queue
-            player.playlist.addItem(Qt.resolvedUrl(url))
             Podcasts.addItemToQueue(guid, image, name, artist, url)
+            player.playlist.addItem(url)
 
             // Play episode
             player.play()
         }
 
         function addEpisodeToQueue(guid, image, name, artist, url) {
-            player.playlist.addItem(Qt.resolvedUrl(url))
             Podcasts.addItemToQueue(guid, image, name, artist, url)
+            player.playlist.addItem(url)
 
             // If added episode is the first one in the queue, then set the current metadata
             // so that the bottom player controls will be shown, allowing the user to play

@@ -49,6 +49,7 @@ function addItemToQueue(guid, image, name, artist, url) {
         var rs = tx.executeSql("INSERT OR REPLACE INTO Queue (ind, guid, image, name, artist, url) VALUES (?, ?, ?, ?, ?, ?)", [ind, guid, image, name, artist, url]);
         if (rs.rowsAffected > 0) {
             console.log("[LOG]: QUEUE add OK")
+            console.log("[LOG]: URL Added to queue: " + url)
         } else {
             console.log("[LOG]: QUEUE add FAIL")
         }

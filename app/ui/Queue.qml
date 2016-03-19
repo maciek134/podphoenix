@@ -69,13 +69,7 @@ Item {
                         onTriggered: {
                             player.playlist.removeItem(index)
                             var source = model.source
-
                             source = source.toString()
-
-                            if (source.indexOf("file://") === 0) {
-                                source = source.substring(7);
-                            }
-
                             Podcasts.removeItemFromQueue(source)
                         }
                     }

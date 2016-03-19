@@ -64,62 +64,6 @@ Tab {
                         episodesPage.header = searchHeader
                         searchField.item.forceActiveFocus()
                     }
-                },
-
-                Action {
-                    iconName: "select"
-                    visible: episodesPageHeaderSections.selectedIndex === 0
-                    text: i18n.tr("Mark all listened")
-                    onTriggered: {
-                        var db = Podcasts.init();
-                        db.transaction(function (tx) {
-                            for (var i=0; i<episodesModel.count; i++) {
-                                tx.executeSql("UPDATE Episode SET listened=1 WHERE guid=?", [episodesModel.get(i).guid]);
-                            }
-                            episodesModel.clear()
-                        });
-                    }
-                },
-
-                Action {
-                    iconName: "save"
-                    visible: episodesPageHeaderSections.selectedIndex !== 1
-                    text: i18n.tr("Download all")
-                    onTriggered: {
-                        var db = Podcasts.init();
-                        db.transaction(function (tx) {
-                            for (var i=0; i<episodesModel.count; i++) {
-                                if (!episodesModel.get(i).downloadedfile) {
-                                    episodesModel.setProperty(i, "queued", 1)
-                                    tx.executeSql("UPDATE Episode SET queued=1 WHERE guid = ?", [episodesModel.get(i).guid]);
-                                    if (episodesModel.get(i).audiourl) {
-                                        podbird.downloadEpisode(episodesModel.get(i).image, episodesModel.get(i).name, episodesModel.get(i).guid, episodesModel.get(i).audiourl)
-                                    } else {
-                                        console.log("[ERROR]: Invalid download url: " + episodesModel.get(i).audiourl)
-                                    }
-                                }
-                            }
-                        });
-                    }
-                },
-
-                Action {
-                    iconName: "delete"
-                    text: i18n.tr("Delete all")
-                    visible: episodesPageHeaderSections.selectedIndex === 1
-                    onTriggered: {
-                        var db = Podcasts.init();
-                        db.transaction(function (tx) {
-                            for (var i=0; i<episodesModel.count; i++) {
-                                if (episodesModel.get(i).downloadedfile) {
-                                    fileManager.deleteFile(episodesModel.get(i).downloadedfile);
-                                    tx.executeSql("UPDATE Episode SET downloadedfile = NULL WHERE guid = ?", [episodesModel.get(i).guid]);
-                                    episodesModel.setProperty(i, "downloadedfile", "")
-                                }
-                            }
-                        });
-                        refreshModel();
-                    }
                 }
             ]
 
@@ -174,6 +118,169 @@ Tab {
             TextField {
                 inputMethodHints: Qt.ImhNoPredictiveText
                 placeholderText: i18n.tr("Search episode")
+            }
+        }
+
+        PageHeader {
+            id: selectionHeader
+            visible: episodeList.ViewItems.selectMode
+
+            onVisibleChanged: {
+                if (visible) {
+                    episodesPage.header = selectionHeader
+                }
+            }
+
+            StyleHints {
+                backgroundColor: podbird.appTheme.background
+            }
+
+            leadingActionBar.actions: [
+                Action {
+                    iconName: "back"
+                    text: i18n.tr("Back")
+                    onTriggered: {
+                        episodeList.closeSelection()
+                    }
+                }
+            ]
+
+            trailingActionBar {
+                numberOfSlots: 6
+                actions: [
+                    Action {
+                        iconName: "select"
+                        text: i18n.tr("Mark Listened")
+                        enabled: episodeList.ViewItems.selectedIndices.length !== 0
+                        onTriggered: {
+                            var db = Podcasts.init();
+                            db.transaction(function (tx) {
+                                for (var i=0; i<episodeList.ViewItems.selectedIndices.length; i++) {
+                                    var index = episodeList.ViewItems.selectedIndices[i]
+                                    tx.executeSql("UPDATE Episode SET listened=1 WHERE guid=?", [episodesModel.get(index).guid]);
+                                }
+                            });
+
+                            refreshModel();
+                            episodeList.closeSelection()
+                        }
+                    },
+
+                    Action {
+                        iconName: "save"
+                        text: i18n.tr("Download episode(s)")
+                        enabled: episodeList.ViewItems.selectedIndices.length !== 0
+                        visible: episodesPageHeaderSections.selectedIndex !== 1
+
+                        onTriggered: {
+                            var db = Podcasts.init();
+                            db.transaction(function (tx) {
+                                for (var i=0; i<episodeList.ViewItems.selectedIndices.length; i++) {
+                                    var index = episodeList.ViewItems.selectedIndices[i]
+                                    if (!episodesModel.get(index).downloadedfile) {
+                                        episodesModel.setProperty(index, "queued", 1)
+                                        tx.executeSql("UPDATE Episode SET queued=1 WHERE guid = ?", [episodesModel.get(index).guid]);
+                                        if (episodesModel.get(index).audiourl) {
+                                            podbird.downloadEpisode(episodesModel.get(index).image, episodesModel.get(index).name, episodesModel.get(index).guid, episodesModel.get(index).audiourl)
+                                        } else {
+                                            console.log("[ERROR]: Invalid download url: " + episodesModel.get(index).audiourl)
+                                        }
+                                    }
+                                }
+                            });
+
+                            refreshModel();
+                            episodeList.closeSelection()
+                        }
+                    },
+
+                    Action {
+                        iconName: "delete"
+                        text: i18n.tr("Delete episode(s)")
+                        enabled: episodeList.ViewItems.selectedIndices.length !== 0
+
+                        onTriggered: {
+                            var db = Podcasts.init();
+                            db.transaction(function (tx) {
+                                for (var i=0; i<episodeList.ViewItems.selectedIndices.length; i++) {
+                                    var index = episodeList.ViewItems.selectedIndices[i]
+                                    if (episodesModel.get(index).downloadedfile) {
+                                        fileManager.deleteFile(episodesModel.get(index).downloadedfile);
+                                        tx.executeSql("UPDATE Episode SET downloadedfile = NULL WHERE guid = ?", [episodesModel.get(index).guid]);
+                                        episodesModel.setProperty(index, "downloadedfile", "")
+                                    }
+                                }
+                            });
+
+                            refreshModel();
+                            episodeList.closeSelection()
+                        }
+                    },
+
+                    Action {
+                        iconName: "like"
+                        text: i18n.tr("Favourite episode(s)")
+                        visible: episodesPageHeaderSections.selectedIndex !== 2
+                        enabled: episodeList.ViewItems.selectedIndices.length !== 0
+
+                        onTriggered: {
+                            var db = Podcasts.init();
+                            db.transaction(function (tx) {
+                                for (var i=0; i<episodeList.ViewItems.selectedIndices.length; i++) {
+                                    var index = episodeList.ViewItems.selectedIndices[i]
+                                    if (!episodesModel.get(index).favourited) {
+                                        tx.executeSql("UPDATE Episode SET favourited=1 WHERE guid=?", [episodesModel.get(index).guid])
+                                        episodesModel.setProperty(index, "favourited", 1)
+                                    }
+                                }
+                            });
+
+                            refreshModel();
+                            episodeList.closeSelection()
+                        }
+                    },
+
+                    Action {
+                        iconName: "unlike"
+                        text: i18n.tr("Unfavourite episode(s)")
+                        visible: episodesPageHeaderSections.selectedIndex === 2
+                        enabled: episodeList.ViewItems.selectedIndices.length !== 0
+
+                        onTriggered: {
+                            var db = Podcasts.init();
+                            db.transaction(function (tx) {
+                                for (var i=0; i<episodeList.ViewItems.selectedIndices.length; i++) {
+                                    var index = episodeList.ViewItems.selectedIndices[i]
+                                    if (episodesModel.get(index).favourited) {
+                                        tx.executeSql("UPDATE Episode SET favourited=0 WHERE guid=?", [episodesModel.get(index).guid])
+                                        episodesModel.setProperty(index, "favourited", 0)
+                                    }
+                                }
+                            });
+
+                            refreshModel();
+                            episodeList.closeSelection()
+                        }
+                    },
+
+                    Action {
+                        iconName: "add-to-playlist"
+                        text: i18n.tr("Add to queue")
+                        enabled: episodeList.ViewItems.selectedIndices.length !== 0
+
+                        onTriggered: {
+                            for (var i=0; i<episodeList.ViewItems.selectedIndices.length; i++) {
+                                var index = episodeList.ViewItems.selectedIndices[i]
+                                if (episodesModel.get(index).audiourl) {
+                                    var url = episodesModel.get(index).downloadedfile ? "file://" + episodesModel.get(index).downloadedfile : episodesModel.get(index).audiourl
+                                    player.addEpisodeToQueue(episodesModel.get(index).guid, episodesModel.get(index).image, episodesModel.get(index).name, episodesModel.get(index).artist, url)
+                                }
+                            }
+
+                            episodeList.closeSelection()
+                        }
+                    }
+                ]
             }
         }
 
@@ -318,6 +425,9 @@ Tab {
         ListView {
             id: episodeList
 
+            signal clearSelection()
+            signal closeSelection()
+
             Component.onCompleted: {
                 // FIXME: workaround for qtubuntu not returning values depending on the grid unit definition
                 // for Flickable.maximumFlickVelocity and Flickable.flickDeceleration
@@ -341,8 +451,8 @@ Tab {
                 visible: height !== 0
                 height: downloader.downloads.length > 0 && episodesPageHeaderSections.selectedIndex === 1 ? childrenRect.height : 0
 
-                HeaderListItem {
-                    title.text: i18n.tr("Downloads in progress")
+                CustomSectionHeader {
+                    title: i18n.tr("Downloads in progress")
                 }
 
                 Repeater {
@@ -381,40 +491,31 @@ Tab {
                     }
                 }
 
-                HeaderListItem {
-                    title.text: i18n.tr("Downloaded episodes")
+                CustomSectionHeader {
+                    title: i18n.tr("Downloaded episodes")
                     visible: sortedEpisodeModel.count !== 0 || episodesModel.count !== 0
                 }
             }
 
             section.property: "diff"
             section.labelPositioning: ViewSection.InlineLabels
-            section.delegate: ListItem {
-                height: headerText.title.text !== "" ? headerText.height + divider.height : units.gu(0)
-                divider.anchors.leftMargin: units.gu(2)
-                divider.anchors.rightMargin: units.gu(2)
-
-                ListItemLayout {
-                    id: headerText
-                    title.text: {
-                        if (section === "Today") {
-                            return i18n.tr("Today")
-                        }
-
-                        else if (section === "Yesterday") {
-                            return i18n.tr("Yesterday")
-                        }
-
-                        else if (section === "Older") {
-                            return i18n.tr("Older")
-                        }
-
-                        else {
-                            return ""
-                        }
+            section.delegate: CustomSectionHeader {
+                title: {
+                    if (section === "Today") {
+                        return i18n.tr("Today")
                     }
-                    title.color: podbird.appTheme.baseText
-                    title.font.weight: Font.DemiBold
+
+                    else if (section === "Yesterday") {
+                        return i18n.tr("Yesterday")
+                    }
+
+                    else if (section === "Older") {
+                        return i18n.tr("Older")
+                    }
+
+                    else {
+                        return ""
+                    }
                 }
             }
 
@@ -525,7 +626,7 @@ Tab {
                         Action {
                             iconName: "add-to-playlist"
                             onTriggered: {
-                                var url = model.downloadedfile ? model.downloadedfile : model.audiourl
+                                var url = model.downloadedfile ? "file://" + model.downloadedfile : model.audiourl
                                 player.addEpisodeToQueue(model.guid, model.image, model.name, model.artist, url)
                             }
                         },
@@ -562,11 +663,29 @@ Tab {
 
                 onClicked: {
                     Haptics.play()
-                    if (currentGuid !== model.guid) {
-                        currentUrl = model.downloadedfile ? model.downloadedfile : model.audiourl;
-                        player.playEpisode(model.guid, model.image, model.name, model.artist, currentUrl)
+                    if (selectMode) {
+                        selected = !selected
+                    } else {
+                        if (currentGuid !== model.guid) {
+                            currentUrl = model.downloadedfile ? "file://" + model.downloadedfile : model.audiourl;
+                            player.playEpisode(model.guid, model.image, model.name, model.artist, currentUrl)
+                        }
                     }
                 }
+
+                onPressAndHold: {
+                    ListView.view.ViewItems.selectMode = !ListView.view.ViewItems.selectMode
+                }
+            }
+
+            onClearSelection: {
+                ViewItems.selectedIndices = []
+            }
+
+            onCloseSelection: {
+                clearSelection()
+                ViewItems.selectMode = false
+                episodesPage.header = standardHeader
             }
 
             Scrollbar {
