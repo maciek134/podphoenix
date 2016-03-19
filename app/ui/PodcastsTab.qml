@@ -166,12 +166,13 @@ Page {
         CardView {
             id: cardView
             clip: true
+            heightOffset: units.gu(4)
             model: sortedPodcastModel
             delegate: Card {
                 id: albumCard
                 coverArt: model.image !== undefined ? model.image : Qt.resolvedUrl("../graphics/podbird.png")
                 primaryText: model.name !== undefined ? model.name.trim() : "Undefined"
-                secondaryText: model.episodeCount > 0 ? i18n.tr("%1 unheard episode", "%1 unheard episodes", model.episodeCount).arg(model.episodeCount)
+                secondaryText: model.episodeCount > 0 ? model.episodeCount
                                                       : ""
                 onClicked: {
                     if(podcastPage.header === searchHeader) {
