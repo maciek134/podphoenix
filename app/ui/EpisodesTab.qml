@@ -275,7 +275,7 @@ Tab {
                 Label {
                     width: parent.width
                     wrapMode: Text.WordWrap
-                    color: UbuntuColors.darkGrey
+                    color: podbird.appTheme.baseText
                     linkColor: "Blue"
                     text: dialogInternal.description
                     onLinkActivated: Qt.openUrlExternally(link)
