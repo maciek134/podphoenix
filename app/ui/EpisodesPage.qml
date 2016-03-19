@@ -105,17 +105,14 @@ Page {
             name: "search"
             head: episodesPage.head
 
-            actions: [
-                Action {
-                    iconName: "edit-clear"
-                    text: i18n.tr("Cancel")
-                    onTriggered: {
-                        episodeList.forceActiveFocus()
-                        episodesPage.state = "default"
-                        episodeList.positionViewAtBeginning()
-                    }
+            backAction: Action {
+                iconName: "back"
+                onTriggered: {
+                    episodeList.forceActiveFocus()
+                    episodesPage.state = "default"
+                    episodeList.positionViewAtBeginning()
                 }
-            ]
+            }
 
             contents: Loader {
                 id: searchField
