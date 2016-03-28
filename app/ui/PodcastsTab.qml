@@ -59,13 +59,6 @@ Page {
                     podcastPage.header = searchHeader
                     searchField.item.forceActiveFocus()
                 }
-            },
-            Action {
-                iconName: "add"
-                text: i18n.tr("Add New Podcasts")
-                onTriggered: {
-                    mainStack.push(Qt.resolvedUrl("SearchPage.qml"))
-                }
             }
         ]
     }

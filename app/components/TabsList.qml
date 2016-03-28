@@ -22,30 +22,36 @@ import Ubuntu.Components 1.3
 ActionList {
     id: tabsList
 
-    property int currentTab: tabs.selectedTabIndex
-
     children: [
         Action {
             text: i18n.tr("Episodes")
-            visible: currentTab !== 0
+            visible: tabs.selectedTab !== episodesTab
             onTriggered: {
                 tabs.selectedTabIndex = 0
             }
         },
 
         Action {
-            text: i18n.tr("Podcasts")
-            visible: currentTab !== 1
+            text: i18n.tr("Add New Podcasts")
+            visible: tabs.selectedTab !== searchTab
             onTriggered: {
                 tabs.selectedTabIndex = 1
             }
         },
 
         Action {
-            text: i18n.tr("Settings")
-            visible: currentTab !== 2
+            text: i18n.tr("Podcasts")
+            visible: tabs.selectedTab !== podcastTab
             onTriggered: {
                 tabs.selectedTabIndex = 2
+            }
+        },
+
+        Action {
+            text: i18n.tr("Settings")
+            visible: tabs.selectedTab !== settingsTab
+            onTriggered: {
+                tabs.selectedTabIndex = 3
             }
         }
     ]

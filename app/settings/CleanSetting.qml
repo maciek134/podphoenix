@@ -24,7 +24,14 @@ Page {
     id: cleanSettingPage
 
     visible: false
-    title: i18n.tr("Delete older than")
+
+    header: PageHeader {
+        title: i18n.tr("Delete older than")
+        flickable: cleanup
+        StyleHints {
+            backgroundColor: podbird.appTheme.background
+        }
+    }
 
     ListModel {
         id: cleanupModel
@@ -39,7 +46,7 @@ Page {
         }
     }
 
-    UbuntuListView {
+    ListView {
         id: cleanup
 
         currentIndex: -1

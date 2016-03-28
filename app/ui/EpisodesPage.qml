@@ -29,8 +29,6 @@ Page {
     id: episodesPage
 
     visible: false
-    title: i18n.tr("Podcast")
-    flickable: null
 
     property string episodeName
     property string episodeId
@@ -47,81 +45,205 @@ Page {
             tempGuid = downloader.downloadingGuid
     }
 
-    head.contents: Label {
-        text: title
-        anchors.fill: parent
-        anchors.margins: units.gu(0.5)
-        verticalAlignment: Text.AlignVCenter
+    header: standardHeader
 
-        textSize: Label.XLarge
-        fontSizeMode: Text.Fit
+    PageHeader {
+        id: standardHeader
+        title: i18n.tr("Podcast")
+        flickable: null
 
-        maximumLineCount: 3
-        minimumPointSize: 8
-        elide: Text.Right
-        wrapMode: Text.WordWrap
+        StyleHints {
+            backgroundColor: podbird.appTheme.background
+        }
+
+        trailingActionBar.actions: [
+            Action {
+                iconName: "search"
+                text: i18n.tr("Search Episode")
+                onTriggered: {
+                    episodesPage.header = searchHeader
+                    searchField.item.forceActiveFocus()
+                }
+            },
+
+            Action {
+                text: i18n.tr("Unsubscribe")
+                iconName: "delete"
+                onTriggered: {
+                    PopupUtils.open(confirmDeleteDialog, episodesPage);
+                }
+            }
+        ]
     }
 
-    state: "default"
-    states: [
-        PageHeadState {
-            name: "default"
-            head: episodesPage.head
+    PageHeader {
+        id: searchHeader
+        visible: episodesPage.header === searchHeader
+        flickable: null
+
+        leadingActionBar.actions: Action {
+            iconName: "back"
+            onTriggered: {
+                episodeList.forceActiveFocus()
+                episodesPage.header = standardHeader
+                episodeList.positionViewAtBeginning()
+            }
+        }
+
+        StyleHints {
+            backgroundColor: podbird.appTheme.background
+        }
+
+        contents: Loader {
+            id: searchField
+            sourceComponent: episodesPage.header === searchHeader ? searchFieldComponent : undefined
+            anchors.left: parent ? parent.left : undefined
+            anchors.right: parent ? parent.right : undefined
+            anchors.verticalCenter: parent ? parent.verticalCenter : undefined
+        }
+    }
+
+    PageHeader {
+        id: selectionHeader
+        visible: episodeList.ViewItems.selectMode
+        // TRANSLATORS: This is the page title. Keep it short. Otherwise it will just be elided.
+        title: i18n.tr("%1 item selected", "%1 items selected", episodeList.ViewItems.selectedIndices.length).arg(episodeList.ViewItems.selectedIndices.length)
+
+        onVisibleChanged: {
+            if (visible) {
+                episodesPage.header = selectionHeader
+            }
+        }
+
+        StyleHints {
+            backgroundColor: podbird.appTheme.background
+        }
+
+        leadingActionBar.actions: [
+            Action {
+                iconName: "back"
+                text: i18n.tr("Back")
+                onTriggered: {
+                    episodeList.closeSelection()
+                }
+            }
+        ]
+
+        trailingActionBar {
+            numberOfSlots: 6
             actions: [
                 Action {
-                    iconName: "search"
-                    text: i18n.tr("Search Episode")
-                    onTriggered: {
-                        episodesPage.state = "search"
-                        searchField.item.forceActiveFocus()
-                    }
-                },
-
-                Action {
                     iconName: "select"
-                    text: i18n.tr("Mark all listened")
+                    text: i18n.tr("Mark Listened")
+                    enabled: episodeList.ViewItems.selectedIndices.length !== 0
+                    visible: episodesPage.mode !== "listened"
                     onTriggered: {
                         var db = Podcasts.init();
                         db.transaction(function (tx) {
-                            tx.executeSql("UPDATE Episode SET listened=1 WHERE podcast=?", [episodeId]);
-                            refreshModel();
+                            for (var i=0; i<episodeList.ViewItems.selectedIndices.length; i++) {
+                                var index = episodeList.ViewItems.selectedIndices[i]
+                                tx.executeSql("UPDATE Episode SET listened=1 WHERE guid=?", [episodeModel.get(index).guid]);
+                            }
                         });
+
+                        refreshModel();
+                        episodeList.closeSelection()
                     }
                 },
 
                 Action {
-                    text: i18n.tr("Unsubscribe")
-                    iconName: "delete"
+                    iconName: "save"
+                    text: i18n.tr("Download episode(s)")
+                    enabled: episodeList.ViewItems.selectedIndices.length !== 0
+                    visible: episodesPage.mode !== "downloaded"
+
                     onTriggered: {
-                        PopupUtils.open(confirmDeleteDialog, episodesPage);
+                        var db = Podcasts.init();
+                        db.transaction(function (tx) {
+                            for (var i=0; i<episodeList.ViewItems.selectedIndices.length; i++) {
+                                var index = episodeList.ViewItems.selectedIndices[i]
+                                if (!episodeModel.get(index).downloadedfile) {
+                                    episodeModel.setProperty(index, "queued", 1)
+                                    tx.executeSql("UPDATE Episode SET queued=1 WHERE guid = ?", [episodeModel.get(index).guid]);
+                                    if (episodeModel.get(index).audiourl) {
+                                        podbird.downloadEpisode(episodeModel.get(index).image, episodeModel.get(index).name, episodeModel.get(index).guid, episodeModel.get(index).audiourl)
+                                    } else {
+                                        console.log("[ERROR]: Invalid download url: " + episodeModel.get(index).audiourl)
+                                    }
+                                }
+                            }
+                        });
+
+                        refreshModel();
+                        episodeList.closeSelection()
+                    }
+                },
+
+                Action {
+                    iconName: "delete"
+                    text: i18n.tr("Delete episode(s)")
+                    enabled: episodeList.ViewItems.selectedIndices.length !== 0
+
+                    onTriggered: {
+                        var db = Podcasts.init();
+                        db.transaction(function (tx) {
+                            for (var i=0; i<episodeList.ViewItems.selectedIndices.length; i++) {
+                                var index = episodeList.ViewItems.selectedIndices[i]
+                                if (episodeModel.get(index).downloadedfile) {
+                                    fileManager.deleteFile(episodeModel.get(index).downloadedfile);
+                                    tx.executeSql("UPDATE Episode SET downloadedfile = NULL WHERE guid = ?", [episodeModel.get(index).guid]);
+                                    episodeModel.setProperty(index, "downloadedfile", "")
+                                }
+                            }
+                        });
+
+                        refreshModel();
+                        episodeList.closeSelection()
+                    }
+                },
+
+                Action {
+                    iconName: "like"
+                    text: i18n.tr("Favourite episode(s)")
+                    enabled: episodeList.ViewItems.selectedIndices.length !== 0
+
+                    onTriggered: {
+                        var db = Podcasts.init();
+                        db.transaction(function (tx) {
+                            for (var i=0; i<episodeList.ViewItems.selectedIndices.length; i++) {
+                                var index = episodeList.ViewItems.selectedIndices[i]
+                                if (!episodeModel.get(index).favourited) {
+                                    tx.executeSql("UPDATE Episode SET favourited=1 WHERE guid=?", [episodeModel.get(index).guid])
+                                    episodeModel.setProperty(index, "favourited", 1)
+                                }
+                            }
+                        });
+
+                        refreshModel();
+                        episodeList.closeSelection()
+                    }
+                },
+
+                Action {
+                    iconName: "add-to-playlist"
+                    text: i18n.tr("Add to queue")
+                    enabled: episodeList.ViewItems.selectedIndices.length !== 0
+
+                    onTriggered: {
+                        for (var i=0; i<episodeList.ViewItems.selectedIndices.length; i++) {
+                            var index = episodeList.ViewItems.selectedIndices[i]
+                            if (episodeModel.get(index).audiourl) {
+                                var url = episodeModel.get(index).downloadedfile ? "file://" + episodeModel.get(index).downloadedfile : episodeModel.get(index).audiourl
+                                player.addEpisodeToQueue(episodeModel.get(index).guid, episodeModel.get(index).image, episodeModel.get(index).name, episodeModel.get(index).artist, url)
+                            }
+                        }
+
+                        episodeList.closeSelection()
                     }
                 }
-
             ]
-        },
-
-        PageHeadState {
-            name: "search"
-            head: episodesPage.head
-
-            backAction: Action {
-                iconName: "back"
-                onTriggered: {
-                    episodeList.forceActiveFocus()
-                    episodesPage.state = "default"
-                    episodeList.positionViewAtBeginning()
-                }
-            }
-
-            contents: Loader {
-                id: searchField
-                sourceComponent: episodesPage.state === "search" ? searchFieldComponent : undefined
-                anchors.left: parent ? parent.left : undefined
-                anchors.right: parent ? parent.right : undefined
-                anchors.rightMargin: units.gu(2)
-            }
         }
-    ]
+    }
 
     onVisibleChanged: {
         if (!visible) {
@@ -251,8 +373,8 @@ Page {
             verticalCenterOffset: Qt.inputMethod.visible ? units.gu(4) : 0
         }
 
-        sourceComponent: (episodesPage.state === "search" && sortedEpisodeModel.count === 0) ? emptyStateComponent
-                                                                                             : undefined
+        sourceComponent: (episodesPage.header === searchHeader && sortedEpisodeModel.count === 0) ? emptyStateComponent
+                                                                                                  : undefined
     }
 
     Component {
@@ -272,12 +394,15 @@ Page {
         id: sortedEpisodeModel
         model: episodeModel
         filter.property: "name"
-        filter.pattern: episodesPage.state === "search" && searchField.status == Loader.Ready ? RegExp(searchField.item.text, "gi")
-                                                                                              : RegExp("", "gi")
+        filter.pattern: episodesPage.header === searchHeader && searchField.status == Loader.Ready ? RegExp(searchField.item.text, "gi")
+                                                                                                   : RegExp("", "gi")
     }
 
     ListView {
         id: episodeList
+
+        signal clearSelection()
+        signal closeSelection()
 
         Component.onCompleted: {
             // FIXME: workaround for qtubuntu not returning values depending on the grid unit definition
@@ -287,7 +412,7 @@ Page {
             flickDeceleration = flickDeceleration * scaleFactor;
         }
 
-        anchors.fill: parent
+        anchors { fill: parent; topMargin: episodesPage.header.height }
         model: sortedEpisodeModel
         clip: true
 
@@ -297,8 +422,8 @@ Page {
                 id: coverArtContainer
 
                 width: episodesPage.width
-                visible: episodesPage.state !== "search" && sortedEpisodeModel.count !== 0
-                height: episodesPage.state !== "search" && sortedEpisodeModel.count !== 0 ? cover.height + units.gu(6) : 0
+                visible: episodesPage.header !== searchHeader && sortedEpisodeModel.count !== 0
+                height: episodesPage.header !== searchHeader && sortedEpisodeModel.count !== 0 ? cover.height + units.gu(6) : 0
 
                 Image {
                     id:cover
@@ -548,11 +673,29 @@ Page {
 
             onClicked: {
                 Haptics.play()
-                if (currentGuid !== model.guid) {
-                    currentUrl = model.downloadedfile ? "file://" + model.downloadedfile : model.audiourl;
-                    player.playEpisode(model.guid, model.image, model.name, model.artist, currentUrl)
+                if (selectMode) {
+                    selected = !selected
+                } else {
+                    if (currentGuid !== model.guid) {
+                        currentUrl = model.downloadedfile ? "file://" + model.downloadedfile : model.audiourl;
+                        player.playEpisode(model.guid, model.image, model.name, model.artist, currentUrl)
+                    }
                 }
             }
+
+            onPressAndHold: {
+                ListView.view.ViewItems.selectMode = !ListView.view.ViewItems.selectMode
+            }
+        }
+
+        onClearSelection: {
+            ViewItems.selectedIndices = []
+        }
+
+        onCloseSelection: {
+            clearSelection()
+            ViewItems.selectMode = false
+            episodesPage.header = standardHeader
         }
 
         PullToRefresh {

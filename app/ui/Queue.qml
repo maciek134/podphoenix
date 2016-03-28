@@ -19,70 +19,85 @@
 import QtQuick 2.4
 import Ubuntu.Components 1.3
 import "../podcasts.js" as Podcasts
-import "../components"
 
-Item {
-    id: queuePage
+ListView {
+    id: queueList
 
-    ListView {
-        id: queueList
+    Component.onCompleted: {
+        // FIXME: workaround for qtubuntu not returning values depending on the grid unit definition
+        // for Flickable.maximumFlickVelocity and Flickable.flickDeceleration
+        var scaleFactor = units.gridUnit / 8;
+        maximumFlickVelocity = maximumFlickVelocity * scaleFactor;
+        flickDeceleration = flickDeceleration * scaleFactor;
+    }
 
-        anchors.fill: parent
-        model: player.playlist
+    model: player.playlist
 
-        delegate: ListItem {
-            id: listItem
+    delegate: ListItem {
+        id: listItem
 
-            height: layout.height
-            divider.visible: false
+        height: layout.height
+        divider.visible: false
 
-            ListItemLayout {
-                id: layout
+        ListItemLayout {
+            id: layout
 
-                // Grab the metaData for the current index using its unique source url
-                property var metaModel: player.metaForSource(model.source)
+            // Grab the metaData for the current index using its unique source url
+            property var metaModel: player.metaForSource(model.source)
 
-                Image {
-                    id: imgFrame
-                    width: units.gu(6)
-                    height: width
-                    source: Qt.resolvedUrl(layout.metaModel.image)
-                    sourceSize.height: width
-                    sourceSize.width: width
-                    SlotsLayout.position: SlotsLayout.First
-                }
-
-                title.text: layout.metaModel.name
-                // #FIXME: Change this 2 to prevent title eliding when UITK is updated to rev > 1800
-                title.maximumLineCount: 1
-                title.color: player.playlist.currentIndex === index ? podbird.appTheme.focusText
-                                                                    : podbird.appTheme.baseText
-
-                subtitle.text: layout.metaModel.artist
-                subtitle.color: podbird.appTheme.baseSubText
+            Image {
+                id: imgFrame
+                width: units.gu(6)
+                height: width
+                source: Qt.resolvedUrl(layout.metaModel.image)
+                sourceSize.height: width
+                sourceSize.width: width
+                SlotsLayout.position: SlotsLayout.First
             }
 
-            leadingActions: ListItemActions {
-                actions: [
-                    Action {
-                        iconName: "delete"
-                        onTriggered: {
-                            player.playlist.removeItem(index)
-                            var source = model.source
-                            source = source.toString()
-                            Podcasts.removeItemFromQueue(source)
-                        }
+            title.text: layout.metaModel.name
+            // #FIXME: Change this 2 to prevent title eliding when UITK is updated to rev > 1800
+            title.maximumLineCount: 1
+            title.color: player.playlist.currentIndex === index ? podbird.appTheme.focusText
+                                                                : podbird.appTheme.baseText
+
+            subtitle.text: layout.metaModel.artist
+            subtitle.color: podbird.appTheme.baseSubText
+        }
+
+        leadingActions: ListItemActions {
+            actions: [
+                Action {
+                    iconName: "delete"
+                    onTriggered: {
+                        player.playlist.removeItem(index)
+                        var source = model.source
+                        source = source.toString()
+                        Podcasts.removeItemFromQueue(source)
                     }
-                ]
-            }
-
-            onClicked: {
-                if (player.playlist.currentIndex === index) {
-                    player.toggle()
-                } else {
-                    player.playlist.currentIndex = index
                 }
+            ]
+        }
+
+        onClicked: {
+            if (player.playlist.currentIndex === index) {
+                player.toggle()
+            } else {
+                player.playlist.currentIndex = index
             }
+        }
+
+        onPressAndHold: {
+            ListView.view.ViewItems.dragMode = !ListView.view.ViewItems.dragMode
+        }
+    }
+
+    ViewItems.onDragUpdated: {
+        // Only update the model when the listitem is dropped, not 'live'
+        if (event.status === ListItemDrag.Moving) {
+            event.accept = false
+        } else if (event.status === ListItemDrag.Dropped) {
+            player.playlist.moveItem(event.from, event.to)
         }
     }
 }

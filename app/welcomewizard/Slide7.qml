@@ -19,9 +19,9 @@
 import QtQuick 2.4
 import Ubuntu.Components 1.3
 
-// Slide 6
+// Slide 5
 Component {
-    id: slide6
+    id: slide5
     Item {
         id: slide1Container
 
@@ -33,7 +33,7 @@ Component {
                 horizontalCenter: parent.horizontalCenter
             }
             fillMode: Image.PreserveAspectFit
-            source: Qt.resolvedUrl("../graphics/gift.png")
+            source: Qt.resolvedUrl("../graphics/support.png")
         }
 
         Label {
@@ -42,7 +42,7 @@ Component {
             elide: Text.ElideRight
             textSize: Label.XLarge
             maximumLineCount: 2
-            text: i18n.tr("Enjoy")
+            text: i18n.tr("Support")
             horizontalAlignment: Text.AlignHCenter
             width: parent.width
             wrapMode: Text.WordWrap
@@ -52,29 +52,18 @@ Component {
             id: finalMessage
             anchors {
                 top: introductionText.bottom
-                bottom: continueButton.top
+                bottom: parent.bottom
                 left: parent.left
                 right: parent.right
                 margins: units.gu(1)
                 topMargin: units.gu(4)
             }
-            horizontalAlignment: Text.AlignHCenter
-            text: i18n.tr("We hope you enjoy using Podbird!")
             wrapMode: Text.WordWrap
-        }
-
-        Button {
-            id: continueButton
-            anchors {
-                bottom: parent.bottom
-                bottomMargin: units.gu(3)
-                horizontalCenter: parent.horizontalCenter
-            }
-            height: units.gu(6)
-            width: parent.width/1.3
-            color: UbuntuColors.green
-            text: i18n.tr("Finish")
-            onClicked: finished()
+            horizontalAlignment: Text.AlignHCenter
+            linkColor: podbird.appTheme.linkText
+            // TRANSLATORS: The %1 points to a url defined in html format <a href=\link\>Link</a>.
+            text: i18n.tr("If you find any bugs or have any feature requests, let us know on our project page at %1").arg("<a href=\"https://launchpad.net/podbird\">launchpad.net</a>")
+            onLinkActivated: Qt.openUrlExternally(link)
         }
     }
 }
