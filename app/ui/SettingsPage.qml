@@ -146,6 +146,20 @@ Page {
                 onClicked: mainStack.push(Qt.resolvedUrl("../settings/ThemeSetting.qml"))
             }
 
+            ListItem {
+                ListItemLayout {
+                    id: gridViewLayout
+                    title.text: i18n.tr("Displays podcasts in a list view")
+                    Switch {
+                        SlotsLayout.position: SlotsLayout.Last
+                        checked: podbird.settings.showListView
+                        onClicked: podbird.settings.showListView = checked
+                    }
+                }
+                divider.visible: false
+                height: gridViewLayout.height
+            }
+
             HeaderListItem {
                 title.text: i18n.tr("Playback Settings")
             }

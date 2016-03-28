@@ -26,7 +26,7 @@ ActionList {
 
     children: [
         Action {
-            text: i18n.tr("What's New")
+            text: i18n.tr("Episodes")
             visible: currentTab !== 0
             onTriggered: {
                 tabs.selectedTabIndex = 0
@@ -42,18 +42,10 @@ ActionList {
         },
 
         Action {
-            text: i18n.tr("Add New Podcasts")
+            text: i18n.tr("Settings")
             visible: currentTab !== 2
             onTriggered: {
                 tabs.selectedTabIndex = 2
-            }
-        },
-
-        Action {
-            text: i18n.tr("Settings")
-            visible: currentTab !== 3
-            onTriggered: {
-                tabs.selectedTabIndex = 3
             }
         }
     ]

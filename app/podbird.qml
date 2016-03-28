@@ -56,7 +56,7 @@ MainView {
     // visible on application start.
     function refreshModels() {
         if (tabs.selectedTabIndex === 0) {
-            whatsNewTab.refreshModel()
+            episodesTab.refreshModel()
         } else if (tabs.selectedTabIndex === 1) {
             podcastPage.item.refreshModel()
         }
@@ -246,9 +246,9 @@ MainView {
                 }
             }
 
-            WhatsNewTab {
-                id: whatsNewTab
-                objectName: "whatsNewTab"
+            EpisodesTab {
+                id: episodesTab
+                objectName: "episodesTab"
             }
 
             Tab {
@@ -260,19 +260,6 @@ MainView {
                     anchors.left: parent.left
                     anchors.right: parent.right
                     anchors.bottom: parent.bottom
-                }
-            }
-
-            Tab {
-                id: searchTab
-
-                // Dynamically load/unload the search tab as required
-                page: Loader {
-                    parent: searchTab
-                    anchors.left: parent.left
-                    anchors.right: parent.right
-                    anchors.bottom: parent.bottom
-                    source: (tabs.selectedTab === searchTab) ? Qt.resolvedUrl("ui/SearchPage.qml") : ""
                 }
             }
 

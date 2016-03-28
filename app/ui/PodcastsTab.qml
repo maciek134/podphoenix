@@ -61,10 +61,10 @@ Page {
                 }
             },
             Action {
-                iconName: podbird.settings.showListView ? "view-grid-symbolic" : "view-list-symbolic"
-                text: podbird.settings.showListView ? i18n.tr("Grid View") : i18n.tr("List View")
+                iconName: "add"
+                text: i18n.tr("Add New Podcasts")
                 onTriggered: {
-                    podbird.settings.showListView = !podbird.settings.showListView
+                    mainStack.push(Qt.resolvedUrl("SearchPage.qml"))
                 }
             }
         ]
@@ -86,20 +86,12 @@ Page {
             anchors.verticalCenter: parent.verticalCenter
         }
 
-        trailingActionBar.actions: [
+        leadingActionBar.actions: [
             Action {
-                iconName: "edit-clear"
-                text: i18n.tr("Cancel")
+                iconName: "back"
                 onTriggered: {
                     viewLoader.item.forceActiveFocus()
                     podcastPage.header = standardHeader
-                }
-            },
-            Action {
-                iconName: podbird.settings.showListView ? "view-grid-symbolic" : "view-list-symbolic"
-                text: podbird.settings.showListView ? i18n.tr("Grid View") : i18n.tr("List View")
-                onTriggered: {
-                    podbird.settings.showListView = !podbird.settings.showListView
                 }
             }
         ]
@@ -221,8 +213,7 @@ Page {
 
                 height: listItemLayout.height
                 divider.visible: false
-                color: index % 2 === 0 ? podbird.appTheme.hightlightListView : "Transparent"
-                highlightColor: index % 2 === 0 ? "Transparent" : podbird.appTheme.hightlightListView
+                highlightColor: podbird.appTheme.hightlightListView
 
                 ListItemLayout {
                     id: listItemLayout

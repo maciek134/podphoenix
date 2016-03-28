@@ -25,6 +25,8 @@ ListItem {
     property alias title: headerText.title
 
     height: headerText.height + divider.height
+    divider.anchors.leftMargin: units.gu(2)
+    divider.anchors.rightMargin: units.gu(2)
 
     ListItemLayout {
         id: headerText
