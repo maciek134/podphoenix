@@ -68,7 +68,7 @@ Page {
 
             Action {
                 text: i18n.tr("Unsubscribe")
-                iconName: "system-log-out"
+                iconName: "delete"
                 onTriggered: {
                     PopupUtils.open(confirmDeleteDialog, episodesPage);
                 }

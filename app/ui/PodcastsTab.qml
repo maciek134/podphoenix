@@ -228,7 +228,7 @@ Page {
                 leadingActions: ListItemActions {
                     actions: [
                         Action {
-                            iconName: "system-log-out"
+                            iconName: "delete"
                             onTriggered: {
                                 var db = Podcasts.init();
                                 db.transaction(function (tx) {
