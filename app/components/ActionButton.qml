@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Podbird Team
+ * Copyright 2015-2016 Podbird Team
  *
  * This file is part of Podbird.
  *
@@ -17,7 +17,7 @@
  */
 
 import QtQuick 2.4
-import Ubuntu.Components 1.2
+import Ubuntu.Components 1.3
 
 AbstractButton {
     id: abstractButton

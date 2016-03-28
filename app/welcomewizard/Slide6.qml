@@ -17,7 +17,7 @@
  */
 
 import QtQuick 2.4
-import Ubuntu.Components 1.2
+import Ubuntu.Components 1.3
 
 // Slide 6
 Component {
@@ -40,7 +40,7 @@ Component {
             id: introductionText
             anchors.centerIn: parent
             elide: Text.ElideRight
-            fontSize: "x-large"
+            textSize: Label.XLarge
             maximumLineCount: 2
             text: i18n.tr("Enjoy")
             horizontalAlignment: Text.AlignHCenter

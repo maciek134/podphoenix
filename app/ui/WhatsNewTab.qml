@@ -1,98 +1,131 @@
+/*
+ * Copyright 2015-2016 Michael Sheldon <mike@mikeasoft.com>
+ *
+ * This file is part of Podbird.
+ *
+ * Podbird is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; version 3.
+ *
+ * Podbird is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 import QtQuick 2.4
-import QtMultimedia 5.0
-import Ubuntu.Components 1.2
-import QtQuick.Layouts 1.1
+import QtMultimedia 5.4
+import Ubuntu.Components 1.3
 import QtQuick.LocalStorage 2.0
 import Ubuntu.DownloadManager 0.1
-import Ubuntu.Components.Popups 1.0
-import Ubuntu.Components.ListItems 1.0 as ListItem
+import Ubuntu.Components.Popups 1.3
 import "../podcasts.js" as Podcasts
 import "../components"
 
 Tab {
     id: whatsNewTab
 
-    title: i18n.tr("What's New")
-
     property var today: new Date()
     property int dayToMs: 86400000
     property string tempGuid: "NULL"
     property bool episodesUpdating: false
 
+    TabsList {
+        id: tabsList
+    }
+
     page: Page {
         id: whatsNewPage
 
-        state: "default"
-        states: [
-            PageHeadState {
-                name: "default"
-                head: whatsNewPage.head
-                actions: [
-                    Action {
-                        iconName: "search"
-                        text: i18n.tr("Search Episode")
-                        onTriggered: {
-                            whatsNewPage.state = "search"
-                            searchField.item.forceActiveFocus()
-                        }
-                    },
+        header: standardHeader
 
-                    Action {
-                        iconName: "select"
-                        text: i18n.tr("Mark all listened")
-                        onTriggered: {
-                            var db = Podcasts.init();
-                            db.transaction(function (tx) {
-                                for (var i=0; i<whatsNewModel.count; i++) {
-                                    tx.executeSql("UPDATE Episode SET listened=1 WHERE guid=?", [whatsNewModel.get(i).guid]);
-                                }
-                                whatsNewModel.clear()
-                            });
-                        }
-                    },
+        PageHeader {
+            id: standardHeader
+            visible: whatsNewPage.header === standardHeader
+            title: i18n.tr("What's New")
 
-                    Action {
-                        iconName: "save"
-                        text: i18n.tr("Download all")
-                        onTriggered: {
-                            var db = Podcasts.init();
-                            db.transaction(function (tx) {
-                                for (var i=0; i<whatsNewModel.count; i++) {
-                                    if (!whatsNewModel.get(i).downloadedfile) {
-                                        whatsNewModel.setProperty(i, "queued", 1)
-                                        tx.executeSql("UPDATE Episode SET queued=1 WHERE guid = ?", [whatsNewModel.get(i).guid]);
-                                        downloader.addDownload(whatsNewModel.get(i).guid, whatsNewModel.get(i).audiourl);
-                                    }
-                                }
-                            });
-                        }
-                    }
-                ]
-            },
-
-            PageHeadState {
-                name: "search"
-                head: whatsNewPage.head
-                actions: [
-                    Action {
-                        iconName: "edit-clear"
-                        text: i18n.tr("Cancel")
-                        onTriggered: {
-                            episodeList.forceActiveFocus()
-                            whatsNewPage.state = "default"
-                        }
-                    }
-                ]
-
-                contents: Loader {
-                    id: searchField
-                    sourceComponent: whatsNewPage.state === "search" ? searchFieldComponent : undefined
-                    anchors.left: parent ? parent.left : undefined
-                    anchors.right: parent ? parent.right : undefined
-                    anchors.rightMargin: units.gu(2)
-                }
+            StyleHints {
+                backgroundColor: podbird.appTheme.background
             }
-        ]
+
+            leadingActionBar {
+                numberOfSlots: 0
+                actions: tabsList.actions
+            }
+
+            trailingActionBar.actions: [
+                Action {
+                    iconName: "search"
+                    text: i18n.tr("Search Episode")
+                    onTriggered: {
+                        whatsNewPage.header = searchHeader
+                        searchField.item.forceActiveFocus()
+                    }
+                },
+
+                Action {
+                    iconName: "select"
+                    text: i18n.tr("Mark all listened")
+                    onTriggered: {
+                        var db = Podcasts.init();
+                        db.transaction(function (tx) {
+                            for (var i=0; i<whatsNewModel.count; i++) {
+                                tx.executeSql("UPDATE Episode SET listened=1 WHERE guid=?", [whatsNewModel.get(i).guid]);
+                            }
+                            whatsNewModel.clear()
+                        });
+                    }
+                },
+
+                Action {
+                    iconName: "save"
+                    text: i18n.tr("Download all")
+                    onTriggered: {
+                        var db = Podcasts.init();
+                        db.transaction(function (tx) {
+                            for (var i=0; i<whatsNewModel.count; i++) {
+                                if (!whatsNewModel.get(i).downloadedfile) {
+                                    whatsNewModel.setProperty(i, "queued", 1)
+                                    tx.executeSql("UPDATE Episode SET queued=1 WHERE guid = ?", [whatsNewModel.get(i).guid]);
+                                    downloader.addDownload(whatsNewModel.get(i).guid, whatsNewModel.get(i).audiourl);
+                                }
+                            }
+                        });
+                    }
+                }
+            ]
+        }
+
+        PageHeader {
+            id: searchHeader
+            visible: whatsNewPage.header === searchHeader
+
+            StyleHints {
+                backgroundColor: podbird.appTheme.background
+            }
+
+            contents: Loader {
+                id: searchField
+                sourceComponent: whatsNewPage.header === searchHeader ? searchFieldComponent : undefined
+                anchors.left: parent ? parent.left : undefined
+                anchors.right: parent ? parent.right : undefined
+                anchors.verticalCenter: parent ? parent.verticalCenter : undefined
+            }
+
+            trailingActionBar.actions: [
+                Action {
+                    iconName: "edit-clear"
+                    text: i18n.tr("Cancel")
+                    onTriggered: {
+                        episodeList.forceActiveFocus()
+                        whatsNewPage.header = standardHeader
+                    }
+                }
+            ]
+        }
 
         Component {
             id: searchFieldComponent
@@ -119,9 +152,7 @@ Tab {
         Component {
             id: emptyStateComponent
             EmptyState {
-                iconHeight: units.gu(12)
-                iconWidth: units.gu(22)
-                iconSource: whatsNewModel.count === 0 ? Qt.resolvedUrl("../graphics/owlSearch.svg") : Qt.resolvedUrl("../graphics/notFound.svg")
+                icon.source: whatsNewModel.count === 0 ? Qt.resolvedUrl("../graphics/owlSearch.svg") : Qt.resolvedUrl("../graphics/notFound.svg")
                 title: whatsNewModel.count === 0 ? i18n.tr("No New Episodes") : i18n.tr("No Episodes Found")
                 subTitle: whatsNewModel.count === 0 ? i18n.tr("No more episodes to listen to!") : i18n.tr("No Episodes found matching the search term.")
             }
@@ -145,7 +176,7 @@ Tab {
                 if (downloader.downloadingGuid != "")
                     tempGuid = downloader.downloadingGuid
             } else {
-                state = "default";
+                whatsNewPage.header = standardHeader
             }
         }
 
@@ -232,9 +263,17 @@ Tab {
                 flickDeceleration = flickDeceleration * scaleFactor;
             }
 
-            anchors.fill: parent
-            model: sortedEpisodeModel
+            anchors {
+                top: whatsNewPage.header.bottom
+                left: parent.left
+                right: parent.right
+                bottom: parent.bottom
+            }
 
+            clip: true
+
+            model: sortedEpisodeModel
+            currentIndex: -1
             section.property: "diff"
             section.labelPositioning: ViewSection.InlineLabels
 
@@ -250,7 +289,7 @@ Tab {
                         margins: units.gu(2)
                         verticalCenter: parent.verticalCenter
                     }
-                    fontSize: "x-large"
+                    textSize: Label.XLarge
                     text:  {
                         if (section === "Today") {
                             return i18n.tr("Today")
@@ -271,23 +310,56 @@ Tab {
                 height: units.gu(8)
             }
 
-            delegate: ListDelegate {
+            delegate: ListItem {
                 id: listItem
 
-                coverArt: model.image !== undefined ? model.image : Qt.resolvedUrl("../graphics/podbird.png")
+                divider.visible: false
+                highlightColor: "Transparent"
+                height: downloader.downloadingGuid === model.guid ? listItemLayout.height + progressBarLoader.height + units.gu(1) : listItemLayout.height + units.gu(0.5)
+                color: index % 2 === 0 ? podbird.appTheme.hightlightListView : "Transparent"
 
-                title: model.name !== undefined ? model.name.trim() : "Undefined"
-                titleColor: expanded || currentGuid === model.guid || downloader.downloadingGuid === model.guid ? podbird.appTheme.focusText
-                                                                                                                : podbird.appTheme.baseText
+                ListItemLayout {
+                    id: listItemLayout
 
-                subtitle: model.duration === 0 || model.duration === undefined ? model.artist
-                                                                               : Podcasts.formatEpisodeTime(model.duration) + " | " + model.artist
+                    title.text: model.name !== undefined ? model.name.trim() : "Undefined"
+                    title.color: currentGuid === model.guid || downloader.downloadingGuid === model.guid ? podbird.appTheme.focusText
+                                                                                                         : podbird.appTheme.baseText
+                    // #FIXME: Change this 2 to prevent title eliding when UITK is updated to rev > 1800
+                    title.maximumLineCount: 1
 
-                isDownloaded: model.downloadedfile ? true : false
+                    subtitle.text: model.duration === 0 || model.duration === undefined ? model.downloadedfile ? "📎 " + model.artist
+                                                                                                               : model.artist
+                                                                                        : model.downloadedfile ? "📎 " + Podcasts.formatEpisodeTime(model.duration) + " | " + model.artist
+                                                                                                               : Podcasts.formatEpisodeTime(model.duration) + " | " + model.artist
+                    subtitle.color: podbird.appTheme.baseSubText
 
-                showProgressBar: downloader.downloadingGuid === model.guid
-                isInDeterminateDownload: downloader.progress < 0 || downloader.progress > 100 && downloader.downloadingGuid === model.guid
-                progress: downloader.progress
+                    Image {
+                        height: width
+                        width: units.gu(6)
+                        source: model.image !== undefined ? model.image : Qt.resolvedUrl("../graphics/podbird.png")
+                        SlotsLayout.position: SlotsLayout.Leading
+                        sourceSize { width: width; height: height }
+                    }
+
+                    padding.top: units.gu(1)
+                    padding.bottom: units.gu(0.5)
+                }
+
+                Loader {
+                    id: progressBarLoader
+                    anchors { top: listItemLayout.bottom; left: parent.left; right: parent.right; leftMargin: units.gu(2); rightMargin: units.gu(2) }
+                    height: sourceComponent !== undefined ? units.dp(5) : 0
+                    visible: sourceComponent !== undefined
+                    sourceComponent: downloader.downloadingGuid === model.guid ? progressBar : undefined
+                }
+
+                Component {
+                    id: progressBar
+                    CustomProgressBar {
+                        indeterminateProgress: downloader.progress < 0 || downloader.progress > 100 && downloader.downloadingGuid === model.guid
+                        progress: downloader.progress
+                    }
+                }
 
                 trailingActions: ListItemActions {
                     actions: [
@@ -351,9 +423,10 @@ Tab {
                 }
             }
 
-            // #FIXME: Use SDK Scrollbar when it is themeable
-            CustomScrollBar {
-                listview: episodeList
+            Scrollbar {
+                flickableItem: episodeList
+                align: Qt.AlignTrailing
+                StyleHints { sliderColor: podbird.appTheme.focusText }
             }
 
             PullToRefresh {

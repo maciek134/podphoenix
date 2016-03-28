@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Michael Sheldon <mike@mikeasoft.com>
+ * Copyright 2015-2016 Michael Sheldon <mike@mikeasoft.com>
  *
  * This file is part of Podbird.
  *
@@ -19,10 +19,10 @@
 import QtQuick 2.4
 import Podbird 1.0
 import UserMetrics 0.1
-import QtMultimedia 5.0
+import QtMultimedia 5.4
 import Ubuntu.Connectivity 1.0
 import Qt.labs.settings 1.0
-import Ubuntu.Components 1.2
+import Ubuntu.Components 1.3
 import QtQuick.LocalStorage 2.0
 import Ubuntu.DownloadManager 0.1
 import "ui"
@@ -36,17 +36,12 @@ MainView {
     applicationName: "com.mikeasoft.podbird"
     anchorToKeyboard: true
 
-    /*
-     FIXME: Opening tabs in landscape mode causes apps to crash in the current vivid images.
-     As such this is disabled until upstream bug https://pad.lv/1448017 is fixed and released
-     to the production phones.
-    */
-    automaticOrientation: false
-
     width: units.gu(50)
     height: units.gu(75)
 
     backgroundColor: appTheme.background
+    theme.name: settings.themeName == "Dark.qml" ? "Ubuntu.Components.Themes.SuruDark"
+                                                 : "Ubuntu.Components.Themes.Ambiance"
 
     Component.onDestruction: {
         console.log("[LOG]: Download cancelled");
@@ -104,7 +99,9 @@ MainView {
         id: themeManager
         source: settings.themeName
         onSourceChanged: {
-            Theme.palette.normal.backgroundText = UbuntuColors.lightGrey
+            theme.palette.normal.backgroundText = UbuntuColors.lightGrey
+            theme.name = settings.themeName == "Dark.qml" ? "Ubuntu.Components.Themes.SuruDark"
+                                                          : "Ubuntu.Components.Themes.Ambiance"
         }
     }
 
@@ -257,8 +254,6 @@ MainView {
             Tab {
                 id: podcastTab
 
-                title: i18n.tr("Podcasts")
-
                 page: Loader {
                     id: podcastPage
                     parent: podcastTab
@@ -270,8 +265,6 @@ MainView {
 
             Tab {
                 id: searchTab
-
-                title: i18n.tr("Add New Podcasts")
 
                 // Dynamically load/unload the search tab as required
                 page: Loader {
@@ -285,8 +278,6 @@ MainView {
 
             Tab {
                 id: settingsTab
-
-                title: i18n.tr("Settings")
 
                 // Dynamically load/unload the settings tab as required
                 page: Loader {

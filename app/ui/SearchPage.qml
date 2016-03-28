@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Michael Sheldon <mike@mikeasoft.com>
+ * Copyright 2015-2016 Michael Sheldon <mike@mikeasoft.com>
  *
  * This file is part of Podbird.
  *
@@ -17,11 +17,9 @@
  */
 
 import QtQuick 2.4
-import QtQuick.Layouts 1.1
-import Ubuntu.Components 1.2
+import Ubuntu.Components 1.3
 import QtQuick.LocalStorage 2.0
-import Ubuntu.Components.Popups 1.0
-import Ubuntu.Components.ListItems 1.0 as ListItem
+import Ubuntu.Components.Popups 1.3
 import "../podcasts.js" as Podcasts
 import "../components"
 
@@ -30,91 +28,118 @@ Page {
 
     property var xhr: new XMLHttpRequest;
 
-    state: "default"
-    states: [
-        PageHeadState {
-            name: "default"
-            head: searchPage.head
-            actions: [
-                Action {
-                    iconName: "search"
-                    text: i18n.tr("Search Podcast")
-                    onTriggered: {
-                        searchPage.state = "search"
-                        searchField.item.forceActiveFocus()
-                    }
-                },
+    TabsList {
+        id: tabsList
+    }
 
-                Action {
-                    text: i18n.tr("Add Podcast")
-                    iconName: "add"
-                    onTriggered: {
-                        searchPage.state = "add"
-                        feedUrlField.item.forceActiveFocus()
-                    }
-                }
-            ]
-        },
+    header: standardHeader
 
-        PageHeadState {
-            name: "search"
-            head: searchPage.head
-            actions: [
-                Action {
-                    iconName: "edit-clear"
-                    text: i18n.tr("Cancel")
-                    onTriggered: {
-                        resultsView.forceActiveFocus()
-                        searchResults.clear()
-                        searchPage.state = "default"
-                    }
-                }
-            ]
+    PageHeader {
+        id: standardHeader
 
-            contents: Loader {
-                id: searchField
-                sourceComponent: searchPage.state === "search" ? searchFieldComponent : undefined
-                anchors.left: parent ? parent.left : undefined
-                anchors.right: parent ? parent.right : undefined
-                anchors.rightMargin: units.gu(2)
-            }
-        },
+        visible: searchPage.header === standardHeader
+        title: i18n.tr("Add New Podcasts")
 
-        PageHeadState {
-            name: "add"
-            head: searchPage.head
-
-            actions: [
-                Action {
-                    iconName: "ok"
-                    text: i18n.tr("Save Podcast")
-                    onTriggered: {
-                        resultsView.forceActiveFocus()
-                        subscribeFromFeed(feedUrlField.item.text);
-                    }
-                },
-                Action {
-                    iconName: "edit-clear"
-                    text: i18n.tr("Cancel")
-                    onTriggered: {
-                        resultsView.forceActiveFocus()
-                        searchPage.state = "default"
-                    }
-                }
-            ]
-
-            contents: Loader {
-                id: feedUrlField
-                sourceComponent: searchPage.state === "add" ? feedUrlComponent : undefined
-                anchors.left: parent ? parent.left : undefined
-                anchors.right: parent ? parent.right : undefined
-            }
+        StyleHints {
+            backgroundColor: podbird.appTheme.background
         }
-    ]
+
+        leadingActionBar {
+            numberOfSlots: 0
+            actions: tabsList.actions
+        }
+
+        trailingActionBar.actions: [
+            Action {
+                iconName: "search"
+                text: i18n.tr("Search Podcast")
+                onTriggered: {
+                    searchPage.header = searchHeader
+                    searchField.item.forceActiveFocus()
+                }
+            },
+
+            Action {
+                text: i18n.tr("Add Podcast")
+                iconName: "add"
+                onTriggered: {
+                    searchPage.header = addHeader
+                    feedUrlField.item.forceActiveFocus()
+                }
+            }
+        ]
+    }
+
+    PageHeader {
+        id: searchHeader
+
+        visible: searchPage.header === searchHeader
+
+        StyleHints {
+            backgroundColor: podbird.appTheme.background
+        }
+
+        contents: Loader {
+            id: searchField
+            sourceComponent: searchPage.header === searchHeader ? searchFieldComponent : undefined
+            anchors.left: parent ? parent.left : undefined
+            anchors.right: parent ? parent.right : undefined
+            anchors.verticalCenter: parent.verticalCenter
+        }
+
+        trailingActionBar.actions: [
+            Action {
+                iconName: "edit-clear"
+                text: i18n.tr("Cancel")
+                onTriggered: {
+                    resultsView.forceActiveFocus()
+                    searchResults.clear()
+                    searchPage.header = standardHeader
+                }
+            }
+        ]
+    }
+
+    PageHeader {
+        id: addHeader
+
+        visible: searchPage.header === addHeader
+
+        StyleHints {
+            backgroundColor: podbird.appTheme.background
+        }
+
+        contents: Loader {
+            id: feedUrlField
+            sourceComponent: searchPage.header === addHeader ? feedUrlComponent : undefined
+            anchors.left: parent ? parent.left : undefined
+            anchors.right: parent ? parent.right : undefined
+            anchors.verticalCenter: parent.verticalCenter
+        }
+
+        trailingActionBar.actions: [
+            Action {
+                iconName: "ok"
+                text: i18n.tr("Save Podcast")
+                onTriggered: {
+                    resultsView.forceActiveFocus()
+                    subscribeFromFeed(feedUrlField.item.text);
+                }
+            },
+            Action {
+                iconName: "edit-clear"
+                text: i18n.tr("Cancel")
+                onTriggered: {
+                    resultsView.forceActiveFocus()
+                    searchPage.header = standardHeader
+                }
+            }
+        ]
+    }
 
     onVisibleChanged: {
         if(!visible) {
-            state = "default";
+            searchPage.header = standardHeader;
         }
     }
 
@@ -172,23 +197,21 @@ Page {
             verticalCenterOffset: Qt.inputMethod.visible ? units.gu(4) : 0
         }
 
-        sourceComponent: searchPage.state === "default" ? emptyStateComponent : searchResults.count === 0 && searchPage.state === "search" ? emptyStateComponent
-                                                                                                                                           : undefined
+        sourceComponent: searchPage.header === standardHeader ? emptyStateComponent : searchResults.count === 0 && searchPage.header === searchHeader ? emptyStateComponent
+                                                                                                                                                      : undefined
     }
 
     Component {
         id: emptyStateComponent
         EmptyState {
-            iconHeight: units.gu(12)
-            iconWidth: units.gu(22)
-            iconSource: searchPage.state !== "search" ? Qt.resolvedUrl("../graphics/owlSearch.svg") : Qt.resolvedUrl("../graphics/notFound.svg")
-            title: searchPage.state !== "search" ? i18n.tr("Looking to add a new Podcast?") : i18n.tr("No Podcasts found")
-            subTitle: searchPage.state !== "search" ? i18n.tr("Click the 'magnifier' at the top to search or the 'plus' button to add by URL")
-                                                      : i18n.tr("No podcasts found matching the search term.")
+            icon.source: searchPage.header !== searchHeader ? Qt.resolvedUrl("../graphics/owlSearch.svg") : Qt.resolvedUrl("../graphics/notFound.svg")
+            title: searchPage.header !== searchHeader ? i18n.tr("Looking to add a new Podcast?") : i18n.tr("No Podcasts found")
+            subTitle: searchPage.header !== searchHeader ? i18n.tr("Click the 'magnifier' at the top to search or the 'plus' button to add by URL")
+                                                         : i18n.tr("No podcasts found matching the search term.")
         }
     }
 
-    ListView {
+    UbuntuListView {
         id: resultsView
 
         Component.onCompleted: {
@@ -200,51 +223,108 @@ Page {
         }
 
         model: searchResults
-        anchors.fill: parent
-        visible: searchPage.state !== "add"
+        currentIndex: -1
+
+        anchors {
+            top: searchPage.header.bottom
+            left: parent.left
+            right: parent.right
+            bottom: parent.bottom
+        }
+
+        clip: true
+        visible: searchPage.header !== addHeader
 
         footer: Item {
             width: parent.width
             height: units.gu(7)
         }
 
-        delegate: ListDelegate {
+        delegate: ListItem {
             id: listItem
 
             property bool fetchedDescription: false
+            property bool expanded: false
 
-            title: model.name
-            subtitle: model.artist
-            coverArt: model.image
+            divider.visible: false
+            highlightColor: "Transparent"
+            height: expanded ? listItemLayout.height +  descriptionLoader.height + units.gu(1) : listItemLayout.height + units.gu(0.5)
+            color: index % 2 === 0 ? podbird.appTheme.hightlightListView : "Transparent"
 
-            // TRANSLATORS: The first argument here is the date of when the podcast was last updated followed by
-            // the podcast description.
-            description: i18n.tr("Last Updated: %1\n%2").arg(model.releaseDate.split("T")[0]).arg(model.description)
-            highlightColor: index % 2 === 0 ? "Transparent" : podbird.appTheme.hightlightListView
+            ListItemLayout {
+                id: listItemLayout
 
-            buttonColor: !model.subscribed ? UbuntuColors.green : UbuntuColors.red
-            buttonText: !model.subscribed ? i18n.tr("Subscribe") : i18n.tr("Unsubscribe")
-            onButtonClicked: {
-                if (!model.subscribed) {
-                    Podcasts.subscribe(model.artist, model.name, model.feed, model.image);
-                    imageDownloader.feed = model.feed;
-                    imageDownloader.download(model.image);
-                } else {
-                    var db = Podcasts.init();
-                    db.transaction(function (tx) {
-                        var rs = tx.executeSql("SELECT rowid FROM Podcast WHERE feed = ?", model.feed);
-                        if (rs.rows.length !== 0) {
-                            var podcast = rs.rows.item(0)
-                            var rs2 = tx.executeSql("SELECT downloadedfile FROM Episode WHERE downloadedfile NOT NULL AND podcast=?", [podcast.rowid]);
-                            for(var i = 0; i < rs2.rows.length; i++) {
-                                fileManager.deleteFile(rs2.rows.item(i).downloadedfile);
-                            }
-                            tx.executeSql("DELETE FROM Episode WHERE podcast=?", [podcast.rowid]);
-                            tx.executeSql("DELETE FROM Podcast WHERE rowid=?", [podcast.rowid]);
-                        }
-                    });
+                title.text: model.name
+
+                subtitle.text: model.artist
+                subtitle.color: podbird.appTheme.baseSubText
+
+                padding.top: units.gu(1)
+                padding.bottom: units.gu(0.5)
+
+                Image {
+                    height: width
+                    width: units.gu(6)
+                    source: model.image
+                    SlotsLayout.position: SlotsLayout.Leading
+                    sourceSize { width: width; height: height }
                 }
-                tabs.selectedTabIndex = 1;
+
+                Button {
+                    SlotsLayout.position: SlotsLayout.Trailing
+                    color: !model.subscribed ? UbuntuColors.green : UbuntuColors.red
+                    text: !model.subscribed ? i18n.tr("Subscribe") : i18n.tr("Unsubscribe")
+                    onClicked: {
+                        if (!model.subscribed) {
+                            Podcasts.subscribe(model.artist, model.name, model.feed, model.image);
+                            imageDownloader.feed = model.feed;
+                            imageDownloader.download(model.image);
+                        } else {
+                            var db = Podcasts.init();
+                            db.transaction(function (tx) {
+                                var rs = tx.executeSql("SELECT rowid FROM Podcast WHERE feed = ?", model.feed);
+                                if (rs.rows.length !== 0) {
+                                    var podcast = rs.rows.item(0)
+                                    var rs2 = tx.executeSql("SELECT downloadedfile FROM Episode WHERE downloadedfile NOT NULL AND podcast=?", [podcast.rowid]);
+                                    for(var i = 0; i < rs2.rows.length; i++) {
+                                        fileManager.deleteFile(rs2.rows.item(i).downloadedfile);
+                                    }
+                                    tx.executeSql("DELETE FROM Episode WHERE podcast=?", [podcast.rowid]);
+                                    tx.executeSql("DELETE FROM Podcast WHERE rowid=?", [podcast.rowid]);
+                                }
+                            });
+                        }
+                        tabs.selectedTabIndex = 1;
+                    }
+                }
+            }
+
+            Loader {
+                id: descriptionLoader
+                anchors { top: listItemLayout.bottom; left: parent.left; right: parent.right; leftMargin: units.gu(2); rightMargin: units.gu(2) }
+                visible: sourceComponent !== undefined
+                sourceComponent: expanded ? _description : undefined
+            }
+
+            Component {
+                id: _description
+                Label {
+                    clip: true
+                    // TRANSLATORS: The first argument here is the date of when the podcast was last updated followed by
+                    // the podcast description.
+                    text: i18n.tr("Last Updated: %1\n%2").arg(model.releaseDate.split("T")[0]).arg(model.description)
+                    wrapMode: Text.WordWrap
+                    textSize: Label.Small
+                    color: podbird.appTheme.baseSubText
+                    linkColor: podbird.appTheme.linkText
+                    height: expanded ? contentHeight : 0
+                    onLinkActivated: Qt.openUrlExternally(link)
+                    Behavior on height {
+                        UbuntuNumberAnimation {
+                            duration: UbuntuAnimation.BriskDuration
+                        }
+                    }
+                }
             }
 
             onClicked: {
@@ -254,11 +334,6 @@ Page {
                     fetchedDescription = true
                 }
             }
-        }
-
-        // #FIXME: Use SDK Scrollbar when it is themeable
-        CustomScrollBar {
-            listview: resultsView
         }
     }
 
@@ -341,7 +416,7 @@ Page {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status < 200 || xhr.status > 299 || xhr.responseXML === null) {
                     PopupUtils.open(subscribeFailedDialog);
-                    searchPage.state = "add"
+                    searchPage.header = addHeader
                     feedUrlField.item.text = feed
                     return;
                 }
@@ -371,7 +446,7 @@ Page {
                     tabs.selectedTabIndex = 1;
                 } else {
                     PopupUtils.open(subscribeFailedDialog);
-                    searchPage.state = "add"
+                    searchPage.header = addHeader
                     feedUrlField.item.text = feed
                     return;
                 }
@@ -380,4 +455,3 @@ Page {
         xhr.send();
     }
 }
-

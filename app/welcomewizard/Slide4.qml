@@ -17,7 +17,7 @@
  */
 
 import QtQuick 2.4
-import Ubuntu.Components 1.2
+import Ubuntu.Components 1.3
 
 // Slide 4
 Component {
@@ -40,7 +40,7 @@ Component {
             id: introductionText
             anchors.centerIn: parent
             elide: Text.ElideRight
-            fontSize: "x-large"
+            textSize: Label.XLarge
             maximumLineCount: 2
             // TRANSLATORS: This text should be in a language different from the language set by the user.
             // For instance, if the app was in english, then it is appropriate to set this string as

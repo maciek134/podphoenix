@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014
+ * Copyright (C) 2014-2016
  *      Andrew Hayzen <ahayzen@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
@@ -16,7 +16,7 @@
  */
 
 import QtQuick 2.4
-import Ubuntu.Components 1.2
+import Ubuntu.Components 1.3
 
 Item {
     id: card
@@ -72,7 +72,7 @@ Item {
             }
             color: podbird.appTheme.baseText
             elide: Text.ElideRight
-            fontSize: "small"
+            textSize: Label.Small
             opacity: 1.0
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignHCenter
@@ -88,7 +88,7 @@ Item {
             }
             color: podbird.appTheme.baseSubText
             elide: Text.ElideRight
-            fontSize: "small"
+            textSize: Label.Small
             opacity: 1.0
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignHCenter

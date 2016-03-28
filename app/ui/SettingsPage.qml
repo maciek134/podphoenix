@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Podbird Team
+ * Copyright 2015-2016 Podbird Team
  *
  * This file is part of Podbird.
  *
@@ -17,17 +17,40 @@
  */
 
 import QtQuick 2.4
-import Ubuntu.Components 1.2
-import Ubuntu.Components.Popups 1.0
+import Ubuntu.Components 1.3
+import Ubuntu.Components.Popups 1.3
 import "../components"
 
 Page {
     id: settingsPage
 
+    TabsList {
+        id: tabsList
+    }
+
+    header: PageHeader {
+        title: i18n.tr("Settings")
+
+        StyleHints {
+            backgroundColor: podbird.appTheme.background
+        }
+
+        leadingActionBar {
+            numberOfSlots: 0
+            actions: tabsList.actions
+        }
+    }
+
     Flickable {
         id: flickable
 
-        anchors.fill: parent
+        anchors {
+            top: settingsPage.header.bottom
+            left: parent.left
+            right: parent.right
+            bottom: parent.bottom
+        }
+
         contentHeight: settingsColumn.height + units.gu(8)
         contentWidth: parent.width
 
@@ -45,6 +68,7 @@ Page {
                     maximumValue: 60
                     value: podbird.settings.skipForward
                     function formatValue(v) { return i18n.tr("%1 seconds").arg(Math.round(v)) }
+                    StyleHints { foregroundColor: podbird.appTheme.focusText }
                 }
 
                 Button {
@@ -79,6 +103,7 @@ Page {
                     maximumValue: 60
                     value: podbird.settings.skipBack
                     function formatValue(v) { return i18n.tr("%1 seconds").arg(Math.round(v)) }
+                    StyleHints { foregroundColor: podbird.appTheme.focusText }
                 }
 
                 Button {
@@ -111,70 +136,90 @@ Page {
             HeaderListItem {
                 // TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
                 // that doesn't fit into any other category.
-                title: i18n.tr("General Settings")
+                title.text: i18n.tr("General Settings")
             }
 
             SingleValueListItem {
                 divider.visible: false
-                text: i18n.tr("Theme")
+                title.text: i18n.tr("Theme")
                 value: podbird.settings.themeName.split(".qml")[0] === "Light" ? i18n.tr("Light") : i18n.tr("Dark")
                 onClicked: mainStack.push(Qt.resolvedUrl("../settings/ThemeSetting.qml"))
             }
 
             HeaderListItem {
-                title: i18n.tr("Playback Settings")
+                title.text: i18n.tr("Playback Settings")
             }
 
             SingleValueListItem {
                 divider.visible: false
-                text: i18n.tr("Skip forward")
+                title.text: i18n.tr("Skip forward")
                 value: i18n.tr("%1 seconds").arg(podbird.settings.skipForward)
                 onClicked: PopupUtils.open(skipForwardDialog, settingsPage);
             }
 
             SingleValueListItem {
                 divider.visible: false
-                text: i18n.tr("Skip back")
+                title.text: i18n.tr("Skip back")
                 value: i18n.tr("%1 seconds").arg(podbird.settings.skipBack)
                 onClicked: PopupUtils.open(skipBackDialog, settingsPage);
             }
 
             HeaderListItem {
-                title: i18n.tr("Podcast Episode Settings")
+                title.text: i18n.tr("Podcast Episode Settings")
             }
 
-            SubtitledListItem {
-                title: i18n.tr("Automatically delete old episodes")
-                subtitle: i18n.tr("Delete episodes that are older than a given number of days for each podcast")
+            ListItem {
+                ListItemLayout {
+                    id: deleteLayout
+                    title.text: i18n.tr("Automatically delete old episodes")
+                    title.color: podbird.appTheme.baseText
+                    summary.text: i18n.tr("Delete episodes that are older than a given number of days for each podcast")
+                    summary.color: podbird.appTheme.baseSubText
+                    ProgressionSlot {}
+                }
+                divider.visible: false
+                height: deleteLayout.height
                 onClicked: mainStack.push(Qt.resolvedUrl("../settings/CleanSetting.qml"))
             }
 
-            SubtitledListItem {
-                title: i18n.tr("Automatically download new episodes")
-                subtitle: i18n.tr("Default number of new episodes to download for each podcast")
+            ListItem {
+                ListItemLayout {
+                    id: downloadLayout
+                    title.text: i18n.tr("Automatically download new episodes")
+                    title.color: podbird.appTheme.baseText
+                    summary.text: i18n.tr("Default number of new episodes to download for each podcast")
+                    summary.color: podbird.appTheme.baseSubText
+                    ProgressionSlot{}
+                }
+                divider.visible: false
+                height: downloadLayout.height
                 onClicked: mainStack.push(Qt.resolvedUrl("../settings/DownloadSetting.qml"))
             }
 
             HeaderListItem {
                 // TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
                 // that doesn't fit into any other category.
-                title: i18n.tr("Misc.")
+                title.text: i18n.tr("Misc.")
             }
 
-            SubtitledListItem {
-                // TRANSLATORS: About as in information about the app
-                title: i18n.tr("About")
+            ListItem {
+                ListItemLayout {
+                    // TRANSLATORS: About as in information about the app
+                    title.text: i18n.tr("About")
+                    title.color: podbird.appTheme.baseText
+                    ProgressionSlot {}
+                }
+                divider.visible: false
                 onClicked: mainStack.push(Qt.resolvedUrl("../settings/About.qml"))
             }
 
-            SubtitledListItem {
-                // TRANSTORS: Credits as in the code and design contributors to the app
-                title: i18n.tr("Credits")
-                onClicked: mainStack.push(Qt.resolvedUrl("../settings/Credits.qml"))
-            }
-
-            SubtitledListItem {
-                title: i18n.tr("Report Bug")
+            ListItem {
+                ListItemLayout {
+                    title.text: i18n.tr("Report Bug")
+                    title.color: podbird.appTheme.baseText
+                    ProgressionSlot {}
+                }
+                divider.visible: false
                 onClicked: Qt.openUrlExternally("https://bugs.launchpad.net/podbird/+filebug")
             }
         }

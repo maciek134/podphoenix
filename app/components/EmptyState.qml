@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2015 Canonical Ltd
+ * Copyright (C) 2014-2016 Canonical Ltd
  *
  * This file is part of Ubuntu Clock App
  *
@@ -17,7 +17,7 @@
  */
 
 import QtQuick 2.4
-import Ubuntu.Components 1.2
+import Ubuntu.Components 1.3
 
 /*
  Component which displays an empty state (approved by design). It offers an
@@ -28,20 +28,16 @@ Item {
     id: emptyState
 
     // Public APIs
-    property alias iconName: emptyIcon.name
+    property alias icon: emptyIcon
     property alias title: emptyLabel.text
     property alias subTitle: emptySublabel.text
-    property alias iconSource: emptyIcon.source
-
-    property real iconHeight: units.gu(10)
-    property real iconWidth: units.gu(10)
 
     height: childrenRect.height
 
     Icon {
         id: emptyIcon
-        width: parent.iconWidth
-        height: parent.iconHeight
+        width: units.gu(22)
+        height: units.gu(12)
         color: podbird.appTheme.baseIcon
         anchors.horizontalCenter: parent.horizontalCenter
     }
@@ -51,7 +47,7 @@ Item {
         anchors.top: emptyIcon.bottom
         anchors.topMargin: units.gu(5)
         width: parent.width
-        fontSize: "large"
+        textSize: Label.Large
         color: podbird.appTheme.baseText
         horizontalAlignment: Text.AlignHCenter
         wrapMode: Text.WrapAtWordBoundaryOrAnywhere

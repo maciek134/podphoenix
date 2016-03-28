@@ -17,18 +17,19 @@
  */
 
 import QtQuick 2.4
-import Ubuntu.Components 1.2
+import Ubuntu.Components 1.3
 
 ListItem {
     id: headerListItem
 
-    property alias title: headerText.text
+    property alias title: headerText.title
 
-    height: headerText.implicitHeight + units.gu(1)
+    height: headerText.height + divider.height
 
-    Label {
+    ListItemLayout {
         id: headerText
-        anchors { left: parent.left; leftMargin: units.gu(2); verticalCenter: parent.verticalCenter }
-        font.weight: Font.DemiBold
+        title.text: " "
+        title.color: podbird.appTheme.baseText
+        title.font.weight: Font.DemiBold
     }
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Podbird Team
+ * Copyright 2015-2016 Podbird Team
  *
  * This file is part of Podbird.
  *
@@ -17,13 +17,12 @@
  */
 
 import QtQuick 2.4
-import QtMultimedia 5.0
-import Ubuntu.Components 1.2
+import QtMultimedia 5.4
+import Ubuntu.Components 1.3
 import QtQuick.Layouts 1.1
 import QtQuick.LocalStorage 2.0
 import Ubuntu.DownloadManager 0.1
-import Ubuntu.Components.Popups 1.0
-import Ubuntu.Components.ListItems 1.0 as ListItem
+import Ubuntu.Components.Popups 1.3
 import "../podcasts.js" as Podcasts
 import "../components"
 
@@ -55,7 +54,7 @@ Page {
         anchors.margins: units.gu(0.5)
         verticalAlignment: Text.AlignVCenter
 
-        fontSize: "x-large"
+        textSize: Label.XLarge
         fontSizeMode: Text.Fit
 
         maximumLineCount: 3
@@ -264,9 +263,7 @@ Page {
     Component {
         id: emptyStateComponent
         EmptyState {
-            iconHeight: units.gu(12)
-            iconWidth: units.gu(22)
-            iconSource: Qt.resolvedUrl("../graphics/notFound.svg")
+            icon.source: Qt.resolvedUrl("../graphics/notFound.svg")
             title: i18n.tr("No episodes found")
             subTitle: i18n.tr("No episodes found matching the search term.")
         }
@@ -297,8 +294,8 @@ Page {
 
         anchors.fill: parent
         model: sortedEpisodeModel
-
-        clip: true        
+        currentIndex: -1
+        clip: true
 
         header: Column {
             height: blurredBackground.height + modeTabs.height + units.gu(2)
@@ -350,7 +347,7 @@ Page {
                         text: i18n.tr("%1 episode", "%1 episodes", episodeList.count).arg(episodeList.count)
                         width: parent.width
                         elide: Text.ElideRight
-                        fontSize: "x-small"
+                        textSize: Label.XSmall
                         color: podbird.appTheme.baseText
                     }
                 }
@@ -363,7 +360,7 @@ Page {
 
                 Label {
                     id: unheardTab
-                    fontSize: "large"
+                    textSize: Label.Large
                     text: i18n.tr("Unheard")
                     anchors.left: parent.left
                     anchors.leftMargin: units.gu(2)
@@ -390,7 +387,7 @@ Page {
                     id: listenedTab
                     anchors.left: unheardTab.right
                     anchors.leftMargin: (parent.width - unheardTab.width - listenedTab.width - downloadedTab.width - unheardTab.anchors.leftMargin - downloadedTab.anchors.rightMargin) / 2.0
-                    fontSize: "large"
+                    textSize: Label.Large
                     text: i18n.tr("Listened")
                     color: episodesPage.mode == "listened" ? podbird.appTheme.focusText : podbird.appTheme.baseText
 
@@ -415,7 +412,7 @@ Page {
                     id: downloadedTab
                     anchors.right: parent.right
                     anchors.rightMargin: units.gu(2)
-                    fontSize: "large"
+                    textSize: Label.Large
                     text: i18n.tr("Downloaded")
                     color: episodesPage.mode == "downloaded" ? podbird.appTheme.focusText : podbird.appTheme.baseText
 
@@ -444,23 +441,52 @@ Page {
             height: units.gu(8)
         }
 
-        delegate: ListDelegate {
+        delegate: ListItem {
             id: listItem
 
-            title: model.name !== undefined ? model.name.trim() : "Undefined"
-            titleColor: listItem.expanded || currentGuid === model.guid || downloader.downloadingGuid === model.guid ? podbird.appTheme.focusText
-                                                                                                                     : podbird.appTheme.baseText
+            divider.visible: false
+            highlightColor: "Transparent"
+            height: visible ? listItemLayout.height + progressBarLoader.height + units.gu(1) : 0
+            color: index % 2 === 0 ? podbird.appTheme.hightlightListView : "Transparent"
 
-            subtitle: model.duration === 0 || model.duration === undefined ? Qt.formatDate(new Date(model.published), "MMM d, yyyy") : Podcasts.formatEpisodeTime(model.duration) + " | " + Qt.formatDate(new Date(model.published), "MMM d, yyyy")
-
-            isDownloaded: model.downloadedfile ? true : false
-            showProgressBar: downloader.downloadingGuid === model.guid
-            isInDeterminateDownload: downloader.progress < 0 || downloader.progress > 100 && downloader.downloadingGuid === model.guid
-            progress: downloader.progress
             visible: episodesPage.mode == "listened" ? model.listened
                                                      : (episodesPage.mode == "unheard" ? !model.listened
-                                                                                       : isDownloaded)
-            height: visible ? undefined : 0
+                                                                                       : model.downloadedfile ? true : false)
+
+            ListItemLayout {
+                id: listItemLayout
+
+                title.text: model.name !== undefined ? model.name.trim() : "Undefined"
+                title.color: currentGuid === model.guid || downloader.downloadingGuid === model.guid ? podbird.appTheme.focusText
+                                                                                                     : podbird.appTheme.baseText
+                // #FIXME: Change this 2 to prevent title eliding when UITK is updated to rev > 1800
+                title.maximumLineCount: 1
+
+                subtitle.text: model.duration === 0 || model.duration === undefined ? model.downloadedfile ? "📎 " + Qt.formatDate(new Date(model.published), "MMM d, yyyy")
+                                                                                                           : Qt.formatDate(new Date(model.published), "MMM d, yyyy")
+                                                                                    : model.downloadedfile ? "📎 " + Podcasts.formatEpisodeTime(model.duration) + " | " + Qt.formatDate(new Date(model.published), "MMM d, yyyy")
+                                                                                                           : Podcasts.formatEpisodeTime(model.duration) + " | " + Qt.formatDate(new Date(model.published), "MMM d, yyyy")
+                subtitle.color: podbird.appTheme.baseSubText
+
+                padding.top: units.gu(1)
+                padding.bottom: units.gu(0.5)
+            }
+
+            Loader {
+                id: progressBarLoader
+                anchors { top: listItemLayout.bottom; left: parent.left; right: parent.right; leftMargin: units.gu(2); rightMargin: units.gu(2) }
+                height: downloader.downloadingGuid === model.guid ? units.dp(5) : 0
+                visible: sourceComponent !== undefined
+                sourceComponent: downloader.downloadingGuid === model.guid ? progressBar : undefined
+            }
+
+            Component {
+                id: progressBar
+                CustomProgressBar {
+                    indeterminateProgress: downloader.progress < 0 || downloader.progress > 100 && downloader.downloadingGuid === model.guid
+                    progress: downloader.progress
+                }
+            }
 
             trailingActions: ListItemActions {
                 actions: [
@@ -533,9 +559,10 @@ Page {
             onRefresh: updateEpisodesDatabase();
         }
 
-        // #FIXME: Use SDK Scrollbar when it is themeable
-        CustomScrollBar {
-            listview: episodeList
+        Scrollbar {
+            flickableItem: episodeList
+            align: Qt.AlignTrailing
+            StyleHints { sliderColor: podbird.appTheme.focusText }
         }
     }
 

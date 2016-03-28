@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Michael Sheldon <mike@mikeasoft.com>
+ * Copyright 2015-2016 Michael Sheldon <mike@mikeasoft.com>
  *
  * This file is part of Podbird.
  *
@@ -17,12 +17,10 @@
  */
 
 import QtQuick 2.4
-import QtMultimedia 5.0
-import QtQuick.Layouts 1.1
+import QtMultimedia 5.4
 import QtQuick.LocalStorage 2.0
-import Ubuntu.Components 1.2
+import Ubuntu.Components 1.3
 import Ubuntu.DownloadManager 0.1
-import Ubuntu.Components.ListItems 1.0 as ListItem
 import Ubuntu.Components.Popups 1.0
 import "../podcasts.js" as Podcasts
 import "../components"
@@ -30,69 +28,82 @@ import "../components"
 Page {
     id: podcastPage
 
-    /*
-     #FIXME: The page flickable is to null instead of viewLoader.item since
-     it otherwise creates bug http://pad.lv/1446162 which can confuse a
-     new user.
-    */
-    flickable: null
-
     property bool episodesUpdating: false;
 
-    state: "default"
-    states: [
-        PageHeadState {
-            name: "default"
-            head: podcastPage.head
-            actions: [
-                Action {
-                    iconName: "search"
-                    text: i18n.tr("Search Podcast")
-                    onTriggered: {
-                        podcastPage.state = "search"
-                        searchField.item.forceActiveFocus()
-                    }
-                },
-                Action {
-                    iconName: podbird.settings.showListView ? "view-grid-symbolic" : "view-list-symbolic"
-                    text: podbird.settings.showListView ? i18n.tr("Grid View") : i18n.tr("List View")
-                    onTriggered: {
-                        podbird.settings.showListView = !podbird.settings.showListView
-                    }
-                }
-            ]
-        },
+    TabsList {
+        id: tabsList
+    }
 
-        PageHeadState {
-            name: "search"
-            head: podcastPage.head
-            actions: [
-                Action {
-                    iconName: "edit-clear"
-                    text: i18n.tr("Cancel")
-                    onTriggered: {
-                        viewLoader.item.forceActiveFocus()
-                        podcastPage.state = "default"
-                    }
-                },
-                Action {
-                    iconName: podbird.settings.showListView ? "view-grid-symbolic" : "view-list-symbolic"
-                    text: podbird.settings.showListView ? i18n.tr("Grid View") : i18n.tr("List View")
-                    onTriggered: {
-                        podbird.settings.showListView = !podbird.settings.showListView
-                    }
-                }
-            ]
+    header: standardHeader
 
-            contents: Loader {
-                id: searchField
-                sourceComponent: podcastPage.state === "search" ? searchFieldComponent : undefined
-                anchors.left: parent ? parent.left : undefined
-                anchors.right: parent ? parent.right : undefined
-                anchors.rightMargin: units.gu(2)
-            }
+    PageHeader {
+        id: standardHeader
+
+        title: i18n.tr("Podcasts")
+        visible: podcastPage.header === standardHeader
+
+        StyleHints {
+            backgroundColor: podbird.appTheme.background
         }
-    ]
+
+        leadingActionBar {
+            numberOfSlots: 0
+            actions: tabsList.actions
+        }
+
+        trailingActionBar.actions: [
+            Action {
+                iconName: "search"
+                text: i18n.tr("Search Podcast")
+                onTriggered: {
+                    podcastPage.header = searchHeader
+                    searchField.item.forceActiveFocus()
+                }
+            },
+            Action {
+                iconName: podbird.settings.showListView ? "view-grid-symbolic" : "view-list-symbolic"
+                text: podbird.settings.showListView ? i18n.tr("Grid View") : i18n.tr("List View")
+                onTriggered: {
+                    podbird.settings.showListView = !podbird.settings.showListView
+                }
+            }
+        ]
+    }
+
+    PageHeader {
+        id: searchHeader
+        visible: podcastPage.header === searchHeader
+
+        StyleHints {
+            backgroundColor: podbird.appTheme.background
+        }
+
+        contents: Loader {
+            id: searchField
+            sourceComponent: podcastPage.header === searchHeader ? searchFieldComponent : undefined
+            anchors.left: parent ? parent.left : undefined
+            anchors.right: parent ? parent.right : undefined
+            anchors.verticalCenter: parent.verticalCenter
+        }
+
+        trailingActionBar.actions: [
+            Action {
+                iconName: "edit-clear"
+                text: i18n.tr("Cancel")
+                onTriggered: {
+                    viewLoader.item.forceActiveFocus()
+                    podcastPage.header = standardHeader
+                }
+            },
+            Action {
+                iconName: podbird.settings.showListView ? "view-grid-symbolic" : "view-list-symbolic"
+                text: podbird.settings.showListView ? i18n.tr("Grid View") : i18n.tr("List View")
+                onTriggered: {
+                    podbird.settings.showListView = !podbird.settings.showListView
+                }
+            }
+        ]
+    }
 
     Component {
         id: searchFieldComponent
@@ -106,7 +117,7 @@ Page {
         if(visible) {
             refreshModel();
         } else {
-            state = "default";
+            podcastPage.header = standardHeader;
         }
     }
 
@@ -127,9 +138,7 @@ Page {
     Component {
         id: emptyStateComponent
         EmptyState {
-            iconHeight: units.gu(12)
-            iconWidth: units.gu(22)
-            iconSource: podcastModel.count === 0 ? Qt.resolvedUrl("../graphics/owlSearch.svg") : Qt.resolvedUrl("../graphics/notFound.svg")
+            icon.source: podcastModel.count === 0 ? Qt.resolvedUrl("../graphics/owlSearch.svg") : Qt.resolvedUrl("../graphics/notFound.svg")
             title: podcastModel.count === 0 ? i18n.tr("No Podcast Subscriptions") : i18n.tr("No Podcasts Found")
             subTitle: podcastModel.count === 0 ? i18n.tr("You haven't subscribed to any podcasts yet, visit the 'Find New Podcasts' page to add some.")
                                                : i18n.tr("No podcasts found matching the search term.")
@@ -144,13 +153,18 @@ Page {
         id: sortedPodcastModel
         model: podcastModel
         filter.property: "name"
-        filter.pattern: podcastPage.state === "search" && searchField.status == Loader.Ready ? RegExp(searchField.item.text, "gi")
-                                                                                             : RegExp("", "gi")
+        filter.pattern: podcastPage.header === searchHeader && searchField.status == Loader.Ready ? RegExp(searchField.item.text, "gi")
+                                                                                                  : RegExp("", "gi")
     }
 
     Loader {
         id: viewLoader
-        anchors.fill: parent
+        anchors {
+            top: podcastPage.header.bottom
+            left: parent.left
+            right: parent.right
+            bottom: parent.bottom
+        }
         sourceComponent: podbird.settings.showListView ? listviewComponent : cardviewComponent
     }
 
@@ -168,9 +182,9 @@ Page {
                 secondaryText: model.episodeCount > 0 ? i18n.tr("%1 unheard episode", "%1 unheard episodes", model.episodeCount).arg(model.episodeCount)
                                                       : ""
                 onClicked: {
-                    if(podcastPage.state === "search") {
+                    if(podcastPage.header === searchHeader) {
                         cardView.forceActiveFocus()
-                        podcastPage.state = "default"
+                        podcastPage.header = standardHeader
                     }
                     mainStack.push(Qt.resolvedUrl("EpisodesPage.qml"), {"episodeName": model.name, "episodeId": model.id, "episodeArtist": model.artist, "episodeImage": model.image, "mode": (model.episodeCount > 0 ? "unheard" : "listened")})
                 }
@@ -181,7 +195,7 @@ Page {
     Component {
         id: listviewComponent
 
-        ListView {
+        UbuntuListView {
             id: listView
 
             Component.onCompleted: {
@@ -193,6 +207,7 @@ Page {
             }
 
             clip: true
+            currentIndex: -1
             model: sortedPodcastModel
             anchors.fill: parent
 
@@ -201,16 +216,29 @@ Page {
                 height: units.gu(8)
             }
 
-            delegate: ListDelegate {
+            delegate: ListItem {
                 id: listItem
 
-                height: units.gu(8)
-                highlightColor: index % 2 === 0 ? "Transparent" : podbird.appTheme.hightlightListView
+                height: listItemLayout.height
+                divider.visible: false
                 color: index % 2 === 0 ? podbird.appTheme.hightlightListView : "Transparent"
-                title: model.name !== undefined ? model.name.trim() : "Undefined"
-                subtitle: model.episodeCount > 0 ? i18n.tr("%1 unheard episode", "%1 unheard episodes", model.episodeCount).arg(model.episodeCount)
-                                                 : ""
-                coverArt: model.image !== undefined ? model.image : Qt.resolvedUrl("../graphics/podbird.png")
+                highlightColor: index % 2 === 0 ? "Transparent" : podbird.appTheme.hightlightListView
+
+                ListItemLayout {
+                    id: listItemLayout
+                    title.text: model.name !== undefined ? model.name.trim() : "Undefined"
+                    summary.text: model.episodeCount > 0 ? i18n.tr("%1 unheard episode", "%1 unheard episodes", model.episodeCount).arg(model.episodeCount)
+                                                          : ""
+                    summary.color: podbird.appTheme.baseSubText
+
+                    Image {
+                        height: width
+                        width: units.gu(6)
+                        source: model.image !== undefined ? model.image : Qt.resolvedUrl("../graphics/podbird.png")
+                        SlotsLayout.position: SlotsLayout.Leading
+                        sourceSize { width: width; height: height }
+                    }
+                }
 
                 leadingActions: ListItemActions {
                     actions: [
@@ -233,17 +261,18 @@ Page {
                 }
 
                 onClicked: {
-                    if(podcastPage.state === "search") {
+                    if(podcastPage.header === searchHeader) {
                         listView.forceActiveFocus()
-                        podcastPage.state = "default"
+                        podcastPage.header = standardHeader
                     }
                     mainStack.push(Qt.resolvedUrl("EpisodesPage.qml"), {"episodeName": model.name, "episodeId": model.id, "episodeArtist": model.artist, "episodeImage": model.image, "mode": (model.episodeCount > 0 ? "unheard" : "listened")})
                 }
             }
 
-            // #FIXME: Use SDK Scrollbar when it is themeable
-            CustomScrollBar {
-                listview: listView
+            Scrollbar {
+                flickableItem: listView
+                align: Qt.AlignTrailing
+                StyleHints { sliderColor: podbird.appTheme.focusText }
             }
 
             PullToRefresh {

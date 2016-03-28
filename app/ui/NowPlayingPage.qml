@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Podbird Team
+ * Copyright 2015-2016 Podbird Team
  *
  * This file is part of Podbird.
  *
@@ -17,8 +17,8 @@
  */
 
 import QtQuick 2.4
-import QtMultimedia 5.0
-import Ubuntu.Components 1.2
+import QtMultimedia 5.4
+import Ubuntu.Components 1.3
 import "../podcasts.js" as Podcasts
 import "../components"
 
@@ -104,7 +104,7 @@ Page {
             anchors.top: parent.top
             text: currentName
             elide: Text.ElideRight
-            fontSize: "large"
+            textSize: Label.Large
             maximumLineCount: 2
             wrapMode: Text.WordWrap
             color: podbird.appTheme.baseText
@@ -118,7 +118,7 @@ Page {
             anchors.topMargin: units.gu(1)
             text: currentArtist
             elide: Text.ElideRight
-            fontSize: "small"
+            textSize: Label.Small
             color: podbird.appTheme.baseSubText
         }
 
@@ -145,6 +145,7 @@ Page {
             }
 
             function formatValue(v) { return Podcasts.formatTime(v/1000); }
+            StyleHints { foregroundColor: podbird.appTheme.focusText }
         }
 
         Connections {
@@ -154,7 +155,7 @@ Page {
 
         Label {
             id: startTime
-            fontSize: "small"
+            textSize: Label.Small
             anchors.left: scrubber.left
             anchors.top: scrubber.bottom
             color: podbird.appTheme.baseText
@@ -163,7 +164,7 @@ Page {
 
         Label {
             id: endTime
-            fontSize: "small"
+            textSize: Label.Small
             anchors.right: scrubber.right
             anchors.top: scrubber.bottom
             color: podbird.appTheme.baseText
@@ -197,7 +198,7 @@ Page {
                         // TRANSLATORS: The string shown in the UI is -15s to denote the number of seconds that the podcast playback will skip backward.
                         // xgettext: no-c-format
                         text: i18n.tr("-%1s").arg(podbird.settings.skipBack)
-                        fontSize: "xx-small"
+                        textSize: Label.XxSmall
                         color: podbird.appTheme.baseText
                         anchors.verticalCenter: skipBackwardIcon.verticalCenter
                     }
@@ -258,7 +259,7 @@ Page {
                         // TRANSLATORS: The string shown in the UI is +15s to denote the number of seconds that the podcast playback will skip forward.
                         // xgettext: no-c-format
                         text: i18n.tr("+%1s").arg(podbird.settings.skipForward)
-                        fontSize: "xx-small"
+                        textSize: Label.XxSmall
                         color: podbird.appTheme.baseText
                         anchors.verticalCenter: skipForwardIcon.verticalCenter
                     }
