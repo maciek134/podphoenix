@@ -33,9 +33,9 @@ QtObject {
     property color baseIcon: UbuntuColors.darkGrey
 
     // Button Colors
-    property color positiveActionButton: "#3EB34F" // UbuntuColors.green
-    property color negativeActionButton: "#ED3146" // UbuntuColors.red
-    property color neutralActionButton: "#5D5D5D" // UbuntuColors.coolGrey
+    property color positiveActionButton: UbuntuColors.green
+    property color negativeActionButton: UbuntuColors.red
+    property color neutralActionButton: UbuntuColors.coolGrey
 
     // Bottom Player Bar Colors
     property color bottomBarBackground: "#323435"
