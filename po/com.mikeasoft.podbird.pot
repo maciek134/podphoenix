@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-19 07:47+0530\n"
+"POT-Creation-Date: 2016-03-19 19:13+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,52 +34,42 @@ msgstr ""
 msgid "Skip"
 msgstr ""
 
-#. TRANSLATORS: this refers to a number of songs greater than one. The actual number will be prepended to the string automatically (plural forms are not yet fully supported in usermetrics, the library that displays that string)
-#: ../app/podbird.qml:175
-#, qt-format
-msgid "Podcasts listened to today: <b>%1</b>"
-msgstr ""
-
-#: ../app/podbird.qml:176
-msgid "No podcasts listened to today"
-msgstr ""
-
-#: ../app/podcasts.js:182
+#: ../app/podcasts.js:282
 #, no-c-format, qt-format
 msgid "%1 hr %2 min"
 msgstr ""
 
-#: ../app/podcasts.js:191
+#: ../app/podcasts.js:291
 #, no-c-format, qt-format
 msgid "%1 hr"
 msgstr ""
 
-#: ../app/podcasts.js:199
+#: ../app/podcasts.js:299
 #, no-c-format, qt-format
 msgid "%1 min"
 msgstr ""
 
 #. TRANSLATORS: About as in information about the app
-#: ../app/settings/About.qml:28 ../app/settings/About.qml:47
+#: ../app/settings/About.qml:28 ../app/settings/About.qml:46
 #: ../app/ui/SettingsPage.qml:222
 msgid "About"
 msgstr ""
 
-#: ../app/settings/About.qml:47
+#: ../app/settings/About.qml:46
 msgid "Credits"
 msgstr ""
 
 #. TRANSLATORS: Podbird version number e.g Version 0.7
-#: ../app/settings/About.qml:93
+#: ../app/settings/About.qml:92
 #, qt-format
 msgid "Version %1"
 msgstr ""
 
-#: ../app/settings/About.qml:114
+#: ../app/settings/About.qml:113
 msgid "Released under the terms of the GNU GPL v3"
 msgstr ""
 
-#: ../app/settings/About.qml:124
+#: ../app/settings/About.qml:123
 #, qt-format
 msgid "Source code available on %1"
 msgstr ""
@@ -168,7 +158,7 @@ msgstr ""
 msgid "Search Episode"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:82 ../app/ui/EpisodesTab.qml:72
+#: ../app/ui/EpisodesPage.qml:82
 msgid "Mark all listened"
 msgstr ""
 
@@ -177,7 +167,7 @@ msgstr ""
 msgid "Unsubscribe"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:136 ../app/ui/EpisodesTab.qml:173
+#: ../app/ui/EpisodesPage.qml:136 ../app/ui/EpisodesTab.qml:120
 msgid "Search episode"
 msgstr ""
 
@@ -195,11 +185,11 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:223 ../app/ui/EpisodesTab.qml:295
+#: ../app/ui/EpisodesPage.qml:223 ../app/ui/EpisodesTab.qml:405
 msgid "Episode Description"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:234 ../app/ui/EpisodesTab.qml:306
+#: ../app/ui/EpisodesPage.qml:234 ../app/ui/EpisodesTab.qml:416
 #: ../app/ui/SearchPage.qml:170
 msgid "Close"
 msgstr ""
@@ -220,82 +210,122 @@ msgstr ""
 msgid "Listened"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:413 ../app/ui/EpisodesTab.qml:135
+#: ../app/ui/EpisodesPage.qml:413
 msgid "Downloaded"
 msgstr ""
 
-#: ../app/ui/EpisodesTab.qml:87
-msgid "Download all"
-msgstr ""
-
-#: ../app/ui/EpisodesTab.qml:104
-msgid "Delete all"
-msgstr ""
-
-#: ../app/ui/EpisodesTab.qml:135
+#: ../app/ui/EpisodesTab.qml:82
 msgid "Recent"
 msgstr ""
 
-#: ../app/ui/EpisodesTab.qml:135
+#: ../app/ui/EpisodesTab.qml:82
+msgid "Downloads"
+msgstr ""
+
+#: ../app/ui/EpisodesTab.qml:82
 msgid "Favourites"
 msgstr ""
 
-#: ../app/ui/EpisodesTab.qml:198
+#: ../app/ui/EpisodesTab.qml:141
+msgid "Back"
+msgstr ""
+
+#: ../app/ui/EpisodesTab.qml:153
+msgid "Mark Listened"
+msgstr ""
+
+#: ../app/ui/EpisodesTab.qml:171
+msgid "Download episode(s)"
+msgstr ""
+
+#: ../app/ui/EpisodesTab.qml:199
+msgid "Delete episode(s)"
+msgstr ""
+
+#: ../app/ui/EpisodesTab.qml:222
+msgid "Favourite episode(s)"
+msgstr ""
+
+#: ../app/ui/EpisodesTab.qml:245
+msgid "Unfavourite episode(s)"
+msgstr ""
+
+#: ../app/ui/EpisodesTab.qml:268
+msgid "Add to queue"
+msgstr ""
+
+#: ../app/ui/EpisodesTab.qml:308
 msgid "No New Episodes"
 msgstr ""
 
-#: ../app/ui/EpisodesTab.qml:200
+#: ../app/ui/EpisodesTab.qml:310
 msgid "No Downloaded Episodes"
 msgstr ""
 
-#: ../app/ui/EpisodesTab.qml:202
+#: ../app/ui/EpisodesTab.qml:312
 msgid "No Favourited Episodes"
 msgstr ""
 
-#: ../app/ui/EpisodesTab.qml:204
+#: ../app/ui/EpisodesTab.qml:314
 msgid "No Episodes Found"
 msgstr ""
 
-#: ../app/ui/EpisodesTab.qml:210
+#: ../app/ui/EpisodesTab.qml:320
 msgid "No more episodes to listen to!"
 msgstr ""
 
-#: ../app/ui/EpisodesTab.qml:212
+#: ../app/ui/EpisodesTab.qml:322
 msgid "No episodes have been downloaded for offline listening"
 msgstr ""
 
-#: ../app/ui/EpisodesTab.qml:214
+#: ../app/ui/EpisodesTab.qml:324
 msgid "No episodes have been favourited."
 msgstr ""
 
-#: ../app/ui/EpisodesTab.qml:216
+#: ../app/ui/EpisodesTab.qml:326
 msgid "No Episodes found matching the search term."
 msgstr ""
 
-#: ../app/ui/EpisodesTab.qml:347
+#: ../app/ui/EpisodesTab.qml:455
+msgid "Downloads in progress"
+msgstr ""
+
+#: ../app/ui/EpisodesTab.qml:495
+msgid "Downloaded episodes"
+msgstr ""
+
+#: ../app/ui/EpisodesTab.qml:505
 msgid "Today"
 msgstr ""
 
-#: ../app/ui/EpisodesTab.qml:351
+#: ../app/ui/EpisodesTab.qml:509
 msgid "Yesterday"
 msgstr ""
 
-#: ../app/ui/EpisodesTab.qml:355
+#: ../app/ui/EpisodesTab.qml:513
 msgid "Older"
 msgstr ""
 
-#: ../app/ui/NowPlayingPage.qml:29
+#: ../app/ui/NowPlayingPage.qml:34
 msgid "Now Playing"
 msgstr ""
 
+#: ../app/ui/NowPlayingPage.qml:61
+msgid "Full view"
+msgstr ""
+
+#: ../app/ui/NowPlayingPage.qml:61
+msgid "Queue"
+msgstr ""
+
 #. TRANSLATORS: The string shown in the UI is -15s to denote the number of seconds that the podcast playback will skip backward.
-#: ../app/ui/NowPlayingPage.qml:200
+#: ../app/ui/NowPlayingPage.qml:261
 #, no-c-format, qt-format
 msgid "-%1s"
 msgstr ""
 
 #. TRANSLATORS: The string shown in the UI is +15s to denote the number of seconds that the podcast playback will skip forward.
-#: ../app/ui/NowPlayingPage.qml:261
+#: ../app/ui/NowPlayingPage.qml:322
 #, no-c-format, qt-format
 msgid "+%1s"
 msgstr ""
@@ -331,7 +361,7 @@ msgstr ""
 msgid "No podcasts found matching the search term."
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:174 ../app/ui/PodcastsTab.qml:221
+#: ../app/ui/PodcastsTab.qml:222
 #, qt-format
 msgid "%1 unheard episode"
 msgid_plural "%1 unheard episodes"
@@ -529,10 +559,10 @@ msgstr ""
 msgid "Finish"
 msgstr ""
 
-#: /home/krnekhelesh/Development/devel-branch-sync-1-build/po/Podbird.desktop.in.h:1
+#: /home/krnekhelesh/Development/devel-branch-sync-2-build/po/Podbird.desktop.in.h:1
 msgid "The chirpiest podcast manager for Ubuntu"
 msgstr ""
 
-#: /home/krnekhelesh/Development/devel-branch-sync-1-build/po/Podbird.desktop.in.h:2
+#: /home/krnekhelesh/Development/devel-branch-sync-2-build/po/Podbird.desktop.in.h:2
 msgid "podcast;audio;itunes;broadcast;digital;stream;podcatcher;video;vodcast;"
 msgstr ""

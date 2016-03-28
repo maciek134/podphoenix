@@ -36,7 +36,6 @@ Page {
 
             anchors {
                 left: parent.left
-                leftMargin: units.gu(2)
                 bottom: parent.bottom
             }
 

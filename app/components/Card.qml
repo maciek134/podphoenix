@@ -1,12 +1,13 @@
 /*
- * Copyright (C) 2014-2016
- *      Andrew Hayzen <ahayzen@gmail.com>
+ * Copyright 2016 Podbird Team
  *
- * This program is free software; you can redistribute it and/or modify
+ * This file is part of Podbird.
+ *
+ * Podbird is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; version 3.
  *
- * This program is distributed in the hope that it will be useful,
+ * Podbird is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -18,122 +19,66 @@
 import QtQuick 2.4
 import Ubuntu.Components 1.3
 
-Item {
+AbstractButton {
     id: card
 
-    /* Required by ColumnFlow */
-    property int index
-    property var model
+    height: parent.parent.cellHeight
+    width: parent.parent.cellWidth
 
     property alias coverArt: imgFrame.source
     property alias primaryText: primaryLabel.text
-    property alias secondaryText: secondaryLabel.text
-    property alias secondaryTextVisible: secondaryLabel.visible
+    property string secondaryText: ""
 
-    signal clicked(var mouse)
-    signal pressAndHold(var mouse)
+    Image {
+        id: imgFrame
+        width: parent.width/1.2
+        height: width
+        anchors.top: parent.top
+        anchors.horizontalCenter: parent.horizontalCenter
+        sourceSize.height: width
+        sourceSize.width: width
 
-    height: cardColumn.childrenRect.height + 2 * bg.anchors.margins
-
-    /* Background for card */
-    Rectangle {
-        id: bg
-        anchors.fill: parent
-        anchors.margins: units.gu(1)
-        color: podbird.appTheme.hightlightListView
-    }
-
-    /* Column containing image and labels */
-    Column {
-        id: cardColumn
-
-        anchors.fill: bg
-        spacing: units.gu(0.5)
-
-        Image {
-            id: imgFrame
-            width: parent.width
-            height: width
-            sourceSize.height: width
-            sourceSize.width: width
+        Loader {
+            id: hintLoader
+            anchors.verticalCenter: parent.top
+            anchors.right: parent.right
+            anchors.rightMargin: units.gu(-0.5)
+            sourceComponent: secondaryText !== "" ? hintComponent : undefined
         }
 
-        Item {
-            height: units.gu(1)
-            width: units.gu(1)
-        }
-
-        Label {
-            id: primaryLabel
-            anchors {
-                left: parent.left
-                right: parent.right
-                margins: units.gu(1)
+        Component {
+            id: hintComponent
+            Rectangle {
+                color: podbird.appTheme.focusText
+                width: secondaryLabel.implicitWidth + units.gu(1)
+                height: secondaryLabel.implicitHeight + units.gu(1)
+                radius: units.gu(0.5)
+                visible: secondaryLabel.text !== ""
+                Label {
+                    id: secondaryLabel
+                    anchors.centerIn: parent
+                    text: secondaryText
+                    visible: text !== ""
+                    textSize: Label.Small
+                    color: "White"
+                }
             }
-            color: podbird.appTheme.baseText
-            elide: Text.ElideRight
-            textSize: Label.Small
-            opacity: 1.0
-            wrapMode: Text.WordWrap
-            horizontalAlignment: Text.AlignHCenter
-        }
-
-        Label {
-            id: secondaryLabel
-            anchors {
-                left: parent.left
-                leftMargin: units.gu(1)
-                right: parent.right
-                rightMargin: units.gu(1)
-            }
-            color: podbird.appTheme.baseSubText
-            elide: Text.ElideRight
-            textSize: Label.Small
-            opacity: 1.0
-            wrapMode: Text.WordWrap
-            horizontalAlignment: Text.AlignHCenter
-        }
-
-        Item {
-            height: units.gu(1.5)
-            width: units.gu(1)
         }
     }
 
-    /* Overlay for when card is pressed */
-    Rectangle {
-        id: overlay
-        anchors.fill: bg
-        color: "#000"
-        opacity: 0
-
-        Behavior on opacity {
-            UbuntuNumberAnimation {}
+    Label {
+        id: primaryLabel
+        anchors {
+            top: imgFrame.bottom
+            left: imgFrame.left
+            right: imgFrame.right
+            margins: units.gu(1)
         }
-    }
-
-    /* Capture mouse events */
-    MouseArea {
-        anchors.fill: parent
-        onClicked: card.clicked(mouse)
-        onPressAndHold: card.pressAndHold(mouse)
-        onPressedChanged: overlay.opacity = pressed ? 0.3 : 0
-    }
-
-    /* Animations */
-    Behavior on height {
-        UbuntuNumberAnimation {}
-    }
-
-    Behavior on width {
-        UbuntuNumberAnimation {}
-    }
-
-    Behavior on x {
-        UbuntuNumberAnimation {}
-    }
-
-    Behavior on y {
-        UbuntuNumberAnimation {}
+        color: podbird.appTheme.baseText
+        elide: Text.ElideRight
+        textSize: Label.Small
+        wrapMode: Text.WordWrap
+        maximumLineCount: 2
+        horizontalAlignment: Text.AlignHCenter
     }
 }

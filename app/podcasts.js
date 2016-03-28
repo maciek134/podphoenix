@@ -22,6 +22,7 @@ function init() {
     db.transaction(function(tx) {
         tx.executeSql('CREATE TABLE IF NOT EXISTS Podcast(artist TEXT, name TEXT, description TEXT, feed TEXT, image TEXT, lastupdate TIMESTAMP)');
         tx.executeSql('CREATE TABLE IF NOT EXISTS Episode(guid TEXT, podcast INTEGER, name TEXT, subtitle TEXT, description TEXT, duration INTEGER, audiourl TEXT, downloadedfile TEXT, published TIMESTAMP, queued BOOLEAN, listened BOOLEAN, favourited BOOLEAN, position INTEGER, FOREIGN KEY(podcast) REFERENCES Podcast(rowid))');
+        tx.executeSql('CREATE TABLE IF NOT EXISTS Queue(ind INTEGER NOT NULL, guid TEXT, image TEXT, name TEXT, artist TEXT, url TEXT)');
     });
 
     try {
@@ -53,6 +54,105 @@ function init() {
     }
 
     return db;
+}
+
+// Function to add item to queue
+function addItemToQueue(guid, image, name, artist, url) {
+    var db = init()
+
+    db.transaction(function(tx) {
+        var ind = getNextIndex(tx);
+        var rs = tx.executeSql("INSERT OR REPLACE INTO Queue (ind, guid, image, name, artist, url) VALUES (?, ?, ?, ?, ?, ?)", [ind, guid, image, name, artist, url]);
+        if (rs.rowsAffected > 0) {
+            console.log("[LOG]: QUEUE add OK")
+            console.log("[LOG]: URL Added to queue: " + url)
+        } else {
+            console.log("[LOG]: QUEUE add FAIL")
+        }
+    });
+}
+
+function removeItemFromQueue(source) {
+    var db = init()
+
+    db.transaction(function(tx) {
+        // Remove selected source from the queue
+        tx.executeSql("DELETE FROM Queue WHERE url = ?", source)
+
+        // Rebuild queue in order
+        var rs = tx.executeSql("SELECT ind FROM Queue ORDER BY ind ASC")
+
+        for (var i=0; i<rs.rows.length; i++) {
+            tx.executeSql("UPDATE Queue SET ind = ? WHERE ind = ?", [i, rs.rows.item(i).ind])
+        }
+    })
+}
+
+// Function to clear the queue
+function clearQueue() {
+    var db = init();
+    db.transaction(function(tx) {
+        tx.executeSql("DELETE FROM Queue");
+    });
+}
+
+function lookup(source) {
+    var db = init();
+    var meta = {
+        name: "",
+        artist: "",
+        image: "",
+        guid: "",
+    }
+
+    db.transaction(function(tx) {
+        var rs = tx.executeSql("SELECT * FROM Queue ORDER BY ind ASC");
+        for(var i = 0; i < rs.rows.length; i++) {
+            var episode = rs.rows.item(i);
+            if (source  === episode.url) {
+                meta.name = episode.name
+                meta.artist = episode.artist
+                meta.image = episode.image
+                meta.guid = episode.guid
+                break
+            }
+        }
+    });
+
+    return meta
+}
+
+// Function to get the next index for the queue
+function getNextIndex(tx) {
+    var ind;
+
+    if (tx === undefined) {
+        var db = init();
+        db.transaction(function(tx) {
+            ind = getNextIndex(tx);
+        });
+    } else {
+        var rs = tx.executeSql('SELECT MAX(ind) FROM Queue')
+        ind = isQueueEmpty(tx) ? 0 : rs.rows.item(0)["MAX(ind)"] + 1
+    }
+
+    return ind;
+}
+
+function isQueueEmpty(tx) {
+    var empty = false;
+
+    if (tx === undefined) {
+        var db = init();
+        db.transaction( function(tx) {
+            empty = isQueueEmpty(tx)
+        });
+    } else {
+        var rs = tx.executeSql("SELECT count(*) as value FROM Queue")
+        empty = rs.rows.item(0).value === 0
+    }
+
+    return empty
 }
 
 function subscribe(artist, name, feed, img) {
@@ -259,8 +359,8 @@ function autoDownloadEpisodes(maxEpisodeDownload) {
             var rs2 = tx.executeSql("SELECT rowid, * FROM Episode WHERE podcast=? ORDER BY published DESC", [rs.rows.item(i).rowid]);
             var loopCount = maxEpisodeDownload > rs2.rows.length ? rs2.rows.length : maxEpisodeDownload
             for (var j=0; j < loopCount; j++) {
-                if (!rs2.rows.item(j).downloadedfile && !rs2.rows.item(j).listened) {
-                    downloader.addDownload(rs2.rows.item(j).guid, rs2.rows.item(j).audiourl)
+                if (!rs2.rows.item(j).downloadedfile && !rs2.rows.item(j).listened && rs2.rows.item(j).audiourl) {
+                    podbird.downloadEpisode(rs.rows.item(i).image, rs2.rows.item(j).name, rs2.rows.item(j).guid, rs2.rows.item(j).audiourl)
                     tx.executeSql("UPDATE Episode SET queued=1 WHERE guid = ?", [rs2.rows.item(j).guid]);
                 }
             }

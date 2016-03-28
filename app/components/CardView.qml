@@ -18,32 +18,27 @@
 import QtQuick 2.4
 import Ubuntu.Components 1.3
 
-Flickable {
-    id: cardViewFlickable
+GridView {
+    id: gridView
+
     anchors {
         fill: parent
         margins: units.gu(1)
     }
 
-    // dont use flow.contentHeight as it is inaccurate due to height of labels
-    // changing as they load
-    contentHeight: flow.contentHeight + flow.anchors.margins * 2 + units.gu(8)
-    contentWidth: width
+    cellHeight: cellSize + heightOffset
+    cellWidth: cellSize + widthOffset
 
-    property alias count: flow.count
-    property alias delegate: flow.delegate
-    property var getter
-    property alias model: flow.model
-    property real itemWidth: units.gu(15)
-
-    onGetterChanged: flow.getter = getter  // cannot use alias to set a function (must be var)
-
-    ColumnFlow {
-        id: flow
-        anchors.fill: parent
-        columns: parseInt(cardViewFlickable.width / itemWidth) || 1  // never drop to 0
-        flickable: cardViewFlickable
+    header: Item {
+        width: parent.width
+        height: units.gu(2)
     }
+
+    readonly property int columns: parseInt(width / itemWidth) || 1  // never drop to 0
+    readonly property int cellSize: width / columns
+    property int itemWidth: units.gu(15)
+    property int heightOffset: 0
+    property int widthOffset: 0
 
     Component.onCompleted: {
         // FIXME: workaround for qtubuntu not returning values depending on the grid unit definition

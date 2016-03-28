@@ -17,7 +17,7 @@
  */
 
 import QtQuick 2.4
-import QtMultimedia 5.4
+import QtMultimedia 5.6
 import Ubuntu.Components 1.3
 
 Rectangle {
@@ -49,7 +49,7 @@ Rectangle {
         anchors.top: cover.bottom
         color: podbird.appTheme.focusText
         height: units.gu(0.25)
-        width: playerLoader.item.duration > 0 ? (playerLoader.item.position / playerLoader.item.duration) * parent.width : 0
+        width: player.duration > 0 ? (player.position / player.duration) * parent.width : 0
     }
 
     Column {
@@ -97,16 +97,16 @@ Rectangle {
             visible: playButton.pressed
         }
 
-        onClicked: playerLoader.item.playbackState === MediaPlayer.PlayingState ? playerLoader.item.pause()
-                                                                                : playerLoader.item.play()
+        onClicked: player.playbackState === MediaPlayer.PlayingState ? player.pause()
+                                                                     : player.play()
 
         Icon {
             color: "white"
             width: units.gu(3)
             height: width
             anchors.centerIn: playButtonBackground
-            name: playerLoader.item.playbackState === MediaPlayer.PlayingState ? "media-playback-pause"
-                                                                               : "media-playback-start"
+            name: player.playbackState === MediaPlayer.PlayingState ? "media-playback-pause"
+                                                                    : "media-playback-start"
             opacity: playButton.pressed ? 0.4 : 1.0
         }
     }
