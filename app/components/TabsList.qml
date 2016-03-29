@@ -25,7 +25,7 @@ ActionList {
     children: [
         Action {
             text: i18n.tr("Episodes")
-            visible: tabs.selectedTab !== episodesTab
+            enabled: tabs.selectedTab !== episodesTab
             onTriggered: {
                 tabs.selectedTabIndex = 0
             }
@@ -33,7 +33,7 @@ ActionList {
 
         Action {
             text: i18n.tr("Add New Podcasts")
-            visible: tabs.selectedTab !== searchTab
+            enabled: tabs.selectedTab !== searchTab
             onTriggered: {
                 tabs.selectedTabIndex = 1
             }
@@ -41,7 +41,7 @@ ActionList {
 
         Action {
             text: i18n.tr("Podcasts")
-            visible: tabs.selectedTab !== podcastTab
+            enabled: tabs.selectedTab !== podcastTab
             onTriggered: {
                 tabs.selectedTabIndex = 2
             }
@@ -49,7 +49,7 @@ ActionList {
 
         Action {
             text: i18n.tr("Settings")
-            visible: tabs.selectedTab !== settingsTab
+            enabled: tabs.selectedTab !== settingsTab
             onTriggered: {
                 tabs.selectedTabIndex = 3
             }
