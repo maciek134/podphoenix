@@ -98,9 +98,8 @@ MainView {
         id: themeManager
         source: settings.themeName
         onSourceChanged: {
-            theme.palette.normal.backgroundText = UbuntuColors.lightGrey
-            theme.name = settings.themeName == "Dark.qml" ? "Ubuntu.Components.Themes.SuruDark"
-                                                          : "Ubuntu.Components.Themes.Ambiance"
+            podbird.theme.name = settings.themeName == "Dark.qml" ? "Ubuntu.Components.Themes.SuruDark"
+                                                                  : "Ubuntu.Components.Themes.Ambiance"
         }
     }
 
