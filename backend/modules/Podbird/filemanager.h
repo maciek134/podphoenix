@@ -25,13 +25,24 @@ class FileManager : public QObject
 {
     Q_OBJECT
 
+    // READONLY Property to return the podcast directory path
+    Q_PROPERTY( QString podcastDirectory
+                READ podcastDirectory
+                CONSTANT)
+
 public:
     explicit FileManager(QObject *parent = 0);
     ~FileManager();
 
+    QString podcastDirectory() const;
+
 public:
     Q_INVOKABLE void deleteFile(QString path);
     Q_INVOKABLE QString saveDownload(QString path);
+    Q_INVOKABLE QStringList getDownloadedEpisodes();
+
+private:
+    QString m_podcastDir;
 };
 
 #endif // FILEMANAGER_H

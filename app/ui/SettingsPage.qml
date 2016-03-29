@@ -19,7 +19,9 @@
 import QtQuick 2.4
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
+import QtQuick.LocalStorage 2.0
 import "../components"
+import "../podcasts.js" as Podcasts
 
 Page {
     id: settingsPage
@@ -210,6 +212,103 @@ Page {
                 onClicked: mainStack.push(Qt.resolvedUrl("../settings/DownloadSetting.qml"))
             }
 
+            ListItem {
+                id: refreshArtListItem
+
+                property int numberOfPodcasts: 0
+                property int queueLength: imageDownloader.queueLength
+
+                ListItemLayout {
+                    id: refreshArt
+                    title.text: i18n.tr("Refresh podcast artwork")
+                    title.color: podbird.appTheme.baseText
+                    summary.text: i18n.tr("Update all podcasts artwork and fix missing ones (this only works with podcasts added via iTunes® search)")
+                    summary.color: podbird.appTheme.baseSubText
+                    summary.maximumLineCount: 3
+                    ProgressionSlot{}
+                }
+
+                CustomProgressBar {
+                    id: progressBar
+                    anchors { top: refreshArt.bottom; left: parent.left; right: parent.right; leftMargin: units.gu(2); rightMargin: units.gu(2) }
+                    progress: (refreshArtListItem.numberOfPodcasts - refreshArtListItem.queueLength) * (100 / refreshArtListItem.numberOfPodcasts)
+                    height: progress > 0  && progress < 100 ? units.dp(5) : 0
+                }
+
+                divider.visible: false
+                height: refreshArt.height + progressBar.height
+                onClicked: {
+                    var db = Podcasts.init()
+                    db.transaction(function (tx) {
+                        var rs = tx.executeSql("SELECT rowid, * FROM Podcast ORDER BY name ASC");
+                        refreshArtListItem.numberOfPodcasts = rs.rows.length
+                        for (var i=0; i < rs.rows.length; i++) {
+                            var podcast = rs.rows.item(i);
+                            settingsPage.getPodcastCoverArt(podcast.name, podcast.feed, podcast.image)
+                        }
+                    });
+                }
+            }
+
+            HeaderListItem {
+                title.text: i18n.tr("Storage Settings")
+            }
+
+            ListItem {
+                id: orphanListItem
+
+                property int fileCount: 0
+                property int linkCount: 0
+
+                ListItemLayout {
+                    id: orphanLayout
+                    title.text: i18n.tr("Delete orphaned files and links")
+                    title.color: podbird.appTheme.baseText
+                    summary.text: i18n.tr("Free space by removing orphaned downloaded files and links")
+                    summary.color: podbird.appTheme.baseSubText
+                    ProgressionSlot {}
+                }
+
+                CustomProgressBar {
+                    id: orphanProgressBar
+                    progress: 200
+                    anchors { top: orphanLayout.bottom; left: parent.left; right: parent.right; leftMargin: units.gu(2); rightMargin: units.gu(2) }
+                    height: indeterminateProgress ? units.dp(5) : 0
+                }
+
+                divider.visible: false
+                height: orphanLayout.height + orphanProgressBar.height
+                onClicked: {
+                    orphanProgressBar.indeterminateProgress = true
+                    settingsPage.removeOrphans()
+                    orphanProgressBar.indeterminateProgress = false
+                    var popup = PopupUtils.open(cleanUpDialog, settingsPage);
+                    popup.orphanCount = orphanListItem.fileCount + orphanListItem.linkCount
+                }
+            }
+
+            Component {
+                id: cleanUpDialog
+                Dialog {
+                    id: dialogInternal
+
+                    property int orphanCount: 0
+
+                    title: orphanCount > 0 ? i18n.tr("Removed Orphaned files and links") : i18n.tr("No Orphans found!")
+                    text: orphanCount > 0 ? i18n.tr("All orphaned files have been deleted to recover disk space. Orphaned links \
+pointing at invalid files have also been cleaned up.")
+                                          : i18n.tr("No orphaned files have been found to recover disk space. Podbird database is clean.")
+
+                    Button {
+                        text: i18n.tr("Close")
+                        color: podbird.appTheme.positiveActionButton
+                        onClicked: {
+                            PopupUtils.close(dialogInternal)
+                        }
+                    }
+                }
+            }
+
             HeaderListItem {
                 // TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
                 // that doesn't fit into any other category.
@@ -237,6 +336,96 @@ Page {
                 onClicked: Qt.openUrlExternally("https://bugs.launchpad.net/podbird/+filebug")
             }
         }
+    }
+
+    function getPodcastCoverArt(name, feedUrl, image) {
+        var coverArt
+        var url = "https://itunes.apple.com/search?term=" + name + "&media=podcast&entity=podcast"
+        var xhr = new XMLHttpRequest;
+        xhr.open("GET", url);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                var json = JSON.parse(xhr.responseText);
+                var db = Podcasts.init();
+
+                for(var i in json.results) {
+                    if (name == json.results[i].trackName) {
+                        if (feedUrl == json.results[i].feedUrl) {
+                            fileManager.deleteFile(image);
+                            coverArt = json.results[i].artworkUrl600
+                            if (coverArt) {
+                                imageDownloader.addDownload(feedUrl, coverArt)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        xhr.send();
+    }
+
+    function removeOrphans() {
+        var filelist = fileManager.getDownloadedEpisodes()
+
+        orphanListItem.fileCount = 0
+        orphanListItem.linkCount = 0
+
+        var db = Podcasts.init()
+        db.transaction(function (tx) {
+            var rs = tx.executeSql("SELECT rowid, * FROM Podcast ORDER BY name ASC");
+
+            // Go through every downloaded file and check if they are orphaned
+            for (var l = 0; l < filelist.length; l++) {
+                var isOrphanFile = true
+
+                // Go through every podcast
+                for (var i=0; i < rs.rows.length; i++) {
+                    var podcast = rs.rows.item(i);
+                    var rs2 = tx.executeSql("SELECT rowid, * FROM Episode WHERE podcast=?", [podcast.rowid]);
+
+                    // Go through every episode in the podcast
+                    for (var j=0; j < rs2.rows.length; j++) {
+                        var episode = rs2.rows.item(j);
+                        if (episode.downloadedfile) {
+                            if(fileManager.podcastDirectory + "/" + filelist[l] === episode.downloadedfile) {
+                                isOrphanFile = false
+                            }
+                        }
+                    }
+                }
+
+                if (isOrphanFile) {
+                    orphanListItem.fileCount++
+                    fileManager.deleteFile(fileManager.podcastDirectory + "/" + filelist[l])
+                    console.log("[LOG]: Removed Orphan File: " + fileManager.podcastDirectory + "/" + filelist[l])
+                }
+            }
+
+            // Go through every podcast in the db and find orphaned links
+            for (i=0; i < rs.rows.length; i++) {
+                var isOrphanLink = true
+                podcast = rs.rows.item(i);
+                rs2 = tx.executeSql("SELECT rowid, * FROM Episode WHERE podcast=?", [podcast.rowid]);
+
+                // Go through every episode in the podcast
+                for (j=0; j < rs2.rows.length; j++) {
+                    episode = rs2.rows.item(j);
+                    if (episode.downloadedfile) {
+                        for (l = 0; l < filelist.length; l++) {
+                            if(episode.downloadedfile === fileManager.podcastDirectory + "/" + filelist[l]) {
+                                isOrphanLink = false
+                            }
+                        }
+
+                        if (isOrphanLink) {
+                            orphanListItem.linkCount++
+                            tx.executeSql("UPDATE Episode SET downloadedfile = NULL WHERE guid = ?", [episode.guid]);
+                            console.log("[LOG]: Removed Orphan Link: " + episode.downloadedfile)
+                        }
+                    }
+                }
+            }
+        });
     }
 }
 

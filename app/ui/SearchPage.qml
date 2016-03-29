@@ -276,8 +276,7 @@ Page {
                     onClicked: {
                         if (!model.subscribed) {
                             Podcasts.subscribe(model.artist, model.name, model.feed, model.image);
-                            imageDownloader.feed = model.feed;
-                            imageDownloader.download(model.image);
+                            imageDownloader.addDownload(model.feed, model.image)
                         } else {
                             var db = Podcasts.init();
                             db.transaction(function (tx) {
@@ -440,8 +439,7 @@ Page {
 
                 if(name != "") {
                     Podcasts.subscribe(artist, name, feed, image);
-                    imageDownloader.feed = feed;
-                    imageDownloader.download(image);
+                    imageDownloader.addDownload(feed, image)
                     tabs.selectedTabIndex = 2;
                 } else {
                     PopupUtils.open(subscribeFailedDialog);
