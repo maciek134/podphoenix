@@ -24,6 +24,7 @@ ActionList {
 
     children: [
         Action {
+            iconName: "slideshow"
             text: i18n.tr("Episodes")
             enabled: tabs.selectedTab !== episodesTab
             onTriggered: {
@@ -32,6 +33,7 @@ ActionList {
         },
 
         Action {
+            iconName: "add"
             text: i18n.tr("Add New Podcasts")
             enabled: tabs.selectedTab !== searchTab
             onTriggered: {
@@ -40,6 +42,7 @@ ActionList {
         },
 
         Action {
+            iconSource: Qt.resolvedUrl("../graphics/podcast-symbol.png")
             text: i18n.tr("Podcasts")
             enabled: tabs.selectedTab !== podcastTab
             onTriggered: {
@@ -48,6 +51,7 @@ ActionList {
         },
 
         Action {
+            iconName: "settings"
             text: i18n.tr("Settings")
             enabled: tabs.selectedTab !== settingsTab
             onTriggered: {
