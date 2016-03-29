@@ -125,7 +125,7 @@ Page {
         EmptyState {
             icon.source: podcastModel.count === 0 ? Qt.resolvedUrl("../graphics/owlSearch.svg") : Qt.resolvedUrl("../graphics/notFound.svg")
             title: podcastModel.count === 0 ? i18n.tr("No Podcast Subscriptions") : i18n.tr("No Podcasts Found")
-            subTitle: podcastModel.count === 0 ? i18n.tr("You haven't subscribed to any podcasts yet, visit the 'Find New Podcasts' page to add some.")
+            subTitle: podcastModel.count === 0 ? i18n.tr("You haven't subscribed to any podcasts yet, visit the 'Add New Podcasts' page to add some.")
                                                : i18n.tr("No podcasts found matching the search term.")
         }
     }
