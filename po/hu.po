@@ -8,19 +8,19 @@ msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-03-19 19:22+0530\n"
-"PO-Revision-Date: 2015-12-09 20:42+0000\n"
+"PO-Revision-Date: 2016-03-29 07:40+0000\n"
 "Last-Translator: Richard Somlói <ricsipontaz@gmail.com>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2016-03-29 05:45+0000\n"
+"X-Launchpad-Export-Date: 2016-03-30 06:28+0000\n"
 "X-Generator: Launchpad (build 17967)\n"
 
 #: ../app/components/TabsList.qml:27 ../app/ui/EpisodesTab.qml:48
 msgid "Episodes"
-msgstr ""
+msgstr "Részek"
 
 #: ../app/components/TabsList.qml:35 ../app/ui/SearchPage.qml:41
 msgid "Add New Podcasts"
@@ -172,33 +172,33 @@ msgstr "Leiratkozás"
 #, qt-format
 msgid "%1 item selected"
 msgid_plural "%1 items selected"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 elem kijelölve"
+msgstr[1] "%1 elem kijelölve"
 
 #: ../app/ui/EpisodesPage.qml:125 ../app/ui/EpisodesTab.qml:143
 #: ../app/ui/NowPlayingPage.qml:42
 msgid "Back"
-msgstr ""
+msgstr "Vissza"
 
 #: ../app/ui/EpisodesPage.qml:137 ../app/ui/EpisodesTab.qml:155
 msgid "Mark Listened"
-msgstr ""
+msgstr "Hallgatottnak jelölés"
 
 #: ../app/ui/EpisodesPage.qml:156 ../app/ui/EpisodesTab.qml:173
 msgid "Download episode(s)"
-msgstr ""
+msgstr "Rész(ek) letöltése"
 
 #: ../app/ui/EpisodesPage.qml:184 ../app/ui/EpisodesTab.qml:201
 msgid "Delete episode(s)"
-msgstr ""
+msgstr "Rész(ek) törlése"
 
 #: ../app/ui/EpisodesPage.qml:207 ../app/ui/EpisodesTab.qml:224
 msgid "Favourite episode(s)"
-msgstr ""
+msgstr "Rész(ek) kedvelése"
 
 #: ../app/ui/EpisodesPage.qml:229 ../app/ui/EpisodesTab.qml:270
 msgid "Add to queue"
-msgstr ""
+msgstr "Lejátszási sorhoz"
 
 #: ../app/ui/EpisodesPage.qml:258 ../app/ui/EpisodesTab.qml:120
 msgid "Search episode"
@@ -249,19 +249,19 @@ msgstr "Letöltve"
 
 #: ../app/ui/EpisodesTab.qml:82
 msgid "Recent"
-msgstr ""
+msgstr "Legutóbbiak"
 
 #: ../app/ui/EpisodesTab.qml:82
 msgid "Downloads"
-msgstr ""
+msgstr "Letöltések"
 
 #: ../app/ui/EpisodesTab.qml:82
 msgid "Favourites"
-msgstr ""
+msgstr "Kedvencek"
 
 #: ../app/ui/EpisodesTab.qml:247
 msgid "Unfavourite episode(s)"
-msgstr ""
+msgstr "Rész(ek) törlése a kedvencektől"
 
 #: ../app/ui/EpisodesTab.qml:310
 msgid "No New Episodes"
@@ -269,11 +269,11 @@ msgstr "Nincsenek új részek"
 
 #: ../app/ui/EpisodesTab.qml:312
 msgid "No Downloaded Episodes"
-msgstr ""
+msgstr "Nincsenek letöltött részek"
 
 #: ../app/ui/EpisodesTab.qml:314
 msgid "No Favourited Episodes"
-msgstr ""
+msgstr "Nincsenek kedvenc részek"
 
 #: ../app/ui/EpisodesTab.qml:316
 msgid "No Episodes Found"
@@ -285,11 +285,11 @@ msgstr "Sajnos nincs több hallgatni való."
 
 #: ../app/ui/EpisodesTab.qml:324
 msgid "No episodes have been downloaded for offline listening"
-msgstr ""
+msgstr "Nincs rész letöltve internet nélküli hallgatáshoz"
 
 #: ../app/ui/EpisodesTab.qml:326
 msgid "No episodes have been favourited."
-msgstr ""
+msgstr "Nincs kedven rész."
 
 #: ../app/ui/EpisodesTab.qml:328
 msgid "No Episodes found matching the search term."
@@ -297,11 +297,11 @@ msgstr "Nem található olyan rész, ami megfelel a keresési feltételnek."
 
 #: ../app/ui/EpisodesTab.qml:457
 msgid "Downloads in progress"
-msgstr ""
+msgstr "Letöltések folyamatban"
 
 #: ../app/ui/EpisodesTab.qml:497
 msgid "Downloaded episodes"
-msgstr ""
+msgstr "Letöltött részek"
 
 #: ../app/ui/EpisodesTab.qml:507
 msgid "Today"
@@ -333,11 +333,11 @@ msgstr "Most játszott"
 
 #: ../app/ui/NowPlayingPage.qml:73
 msgid "Full view"
-msgstr ""
+msgstr "Teljes nézet"
 
 #: ../app/ui/NowPlayingPage.qml:73
 msgid "Queue"
-msgstr ""
+msgstr "Lejátszási sor"
 
 #: ../app/ui/PodcastsTab.qml:57 ../app/ui/SearchPage.qml:55
 #: ../app/ui/SearchPage.qml:161
@@ -459,7 +459,7 @@ msgstr "Általános beállítások"
 
 #: ../app/ui/SettingsPage.qml:152
 msgid "Displays podcasts in a list view"
-msgstr ""
+msgstr "Porcastek megjelenítés listanézetben"
 
 #: ../app/ui/SettingsPage.qml:164
 msgid "Playback Settings"
@@ -558,13 +558,15 @@ msgstr ""
 
 #: ../app/welcomewizard/Slide5.qml:45
 msgid "Touch Gestures"
-msgstr ""
+msgstr "Érintésgesztusok"
 
 #: ../app/welcomewizard/Slide5.qml:64
 msgid ""
 "Episodes can be swiped left to reveal more actions. You can also multi-"
 "select them by long-pressing on an episode."
 msgstr ""
+"A részeket balra csúsztatva érhetőek el a műveletek. A többes kijelöléshez "
+"tartsa nyomva hosszan az ujját egy részen."
 
 #: ../app/welcomewizard/Slide6.qml:45
 msgid "Support"
@@ -600,16 +602,3 @@ msgstr "A legvidámabb podcast kezelő Ubuntuhoz"
 msgid ""
 "podcast;audio;itunes;broadcast;digital;stream;podcatcher;video;vodcast;"
 msgstr "podcast;audio;itunes;broadcast;digital;stream;video;vodcast;"
-
-#~ msgid "Download all"
-#~ msgstr "Minden letöltése"
-
-#~ msgid "No podcasts listened to today"
-#~ msgstr "Nem hallgatott meg ma egy podcastet sem"
-
-#, qt-format
-#~ msgid "Podcasts listened to today: <b>%1</b>"
-#~ msgstr "Ma meghallgatott podcastek: <b>%1</b>"
-
-#~ msgid "Mark all listened"
-#~ msgstr "Hallgatottá alakít"
