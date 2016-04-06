@@ -8,19 +8,19 @@ msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-03-19 19:22+0530\n"
-"PO-Revision-Date: 2016-01-30 05:13+0000\n"
+"PO-Revision-Date: 2016-04-05 22:17+0000\n"
 "Last-Translator: Marcos Lans <Unknown>\n"
 "Language-Team: Galician <gl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2016-03-29 05:45+0000\n"
-"X-Generator: Launchpad (build 17967)\n"
+"X-Launchpad-Export-Date: 2016-04-06 05:56+0000\n"
+"X-Generator: Launchpad (build 17972)\n"
 
 #: ../app/components/TabsList.qml:27 ../app/ui/EpisodesTab.qml:48
 msgid "Episodes"
-msgstr ""
+msgstr "Episodios"
 
 #: ../app/components/TabsList.qml:35 ../app/ui/SearchPage.qml:41
 msgid "Add New Podcasts"
@@ -172,33 +172,33 @@ msgstr "Cancelar subscrición"
 #, qt-format
 msgid "%1 item selected"
 msgid_plural "%1 items selected"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Escolleu %1 elemento"
+msgstr[1] "Escolleu %1 elementos"
 
 #: ../app/ui/EpisodesPage.qml:125 ../app/ui/EpisodesTab.qml:143
 #: ../app/ui/NowPlayingPage.qml:42
 msgid "Back"
-msgstr ""
+msgstr "Volver"
 
 #: ../app/ui/EpisodesPage.qml:137 ../app/ui/EpisodesTab.qml:155
 msgid "Mark Listened"
-msgstr ""
+msgstr "Marcar como escoitado"
 
 #: ../app/ui/EpisodesPage.qml:156 ../app/ui/EpisodesTab.qml:173
 msgid "Download episode(s)"
-msgstr ""
+msgstr "Descargar episodio(s)"
 
 #: ../app/ui/EpisodesPage.qml:184 ../app/ui/EpisodesTab.qml:201
 msgid "Delete episode(s)"
-msgstr ""
+msgstr "Eliminar episodio(s)"
 
 #: ../app/ui/EpisodesPage.qml:207 ../app/ui/EpisodesTab.qml:224
 msgid "Favourite episode(s)"
-msgstr ""
+msgstr "Facer favorito episodio(s)"
 
 #: ../app/ui/EpisodesPage.qml:229 ../app/ui/EpisodesTab.qml:270
 msgid "Add to queue"
-msgstr ""
+msgstr "Engadir á cola"
 
 #: ../app/ui/EpisodesPage.qml:258 ../app/ui/EpisodesTab.qml:120
 msgid "Search episode"
@@ -249,19 +249,19 @@ msgstr "Descargado"
 
 #: ../app/ui/EpisodesTab.qml:82
 msgid "Recent"
-msgstr ""
+msgstr "Recentes"
 
 #: ../app/ui/EpisodesTab.qml:82
 msgid "Downloads"
-msgstr ""
+msgstr "Descargas"
 
 #: ../app/ui/EpisodesTab.qml:82
 msgid "Favourites"
-msgstr ""
+msgstr "Favoritos"
 
 #: ../app/ui/EpisodesTab.qml:247
 msgid "Unfavourite episode(s)"
-msgstr ""
+msgstr "Retirar de favorito episodio(s)"
 
 #: ../app/ui/EpisodesTab.qml:310
 msgid "No New Episodes"
@@ -269,11 +269,11 @@ msgstr "Non hai episodios novos"
 
 #: ../app/ui/EpisodesTab.qml:312
 msgid "No Downloaded Episodes"
-msgstr ""
+msgstr "Non hai episodios descargados"
 
 #: ../app/ui/EpisodesTab.qml:314
 msgid "No Favourited Episodes"
-msgstr ""
+msgstr "Non hai episodios favoritos"
 
 #: ../app/ui/EpisodesTab.qml:316
 msgid "No Episodes Found"
@@ -285,11 +285,11 @@ msgstr "Non hai máis episodios que escoitar"
 
 #: ../app/ui/EpisodesTab.qml:324
 msgid "No episodes have been downloaded for offline listening"
-msgstr ""
+msgstr "Non se descargaron episodios para escoitar sen conexión"
 
 #: ../app/ui/EpisodesTab.qml:326
 msgid "No episodes have been favourited."
-msgstr ""
+msgstr "Non hai episodios favoritos."
 
 #: ../app/ui/EpisodesTab.qml:328
 msgid "No Episodes found matching the search term."
@@ -297,11 +297,11 @@ msgstr "Non se atoparon episodios con ese termo"
 
 #: ../app/ui/EpisodesTab.qml:457
 msgid "Downloads in progress"
-msgstr ""
+msgstr "Descargas en proceso"
 
 #: ../app/ui/EpisodesTab.qml:497
 msgid "Downloaded episodes"
-msgstr ""
+msgstr "Episodios descargados"
 
 #: ../app/ui/EpisodesTab.qml:507
 msgid "Today"
@@ -333,11 +333,11 @@ msgstr "Soando"
 
 #: ../app/ui/NowPlayingPage.qml:73
 msgid "Full view"
-msgstr ""
+msgstr "Vista completa"
 
 #: ../app/ui/NowPlayingPage.qml:73
 msgid "Queue"
-msgstr ""
+msgstr "Cola"
 
 #: ../app/ui/PodcastsTab.qml:57 ../app/ui/SearchPage.qml:55
 #: ../app/ui/SearchPage.qml:161
@@ -458,7 +458,7 @@ msgstr "Axustes xerais"
 
 #: ../app/ui/SettingsPage.qml:152
 msgid "Displays podcasts in a list view"
-msgstr ""
+msgstr "Mostra os podcasts na vista de lista"
 
 #: ../app/ui/SettingsPage.qml:164
 msgid "Playback Settings"
@@ -557,13 +557,15 @@ msgstr ""
 
 #: ../app/welcomewizard/Slide5.qml:45
 msgid "Touch Gestures"
-msgstr ""
+msgstr "Movementos táctiles"
 
 #: ../app/welcomewizard/Slide5.qml:64
 msgid ""
 "Episodes can be swiped left to reveal more actions. You can also multi-"
 "select them by long-pressing on an episode."
 msgstr ""
+"Os episodios poden esvararse cara a esquerda para mostrar máis opcións. "
+"Tamén pode seleccionar varios premendo longo nun episodio."
 
 #: ../app/welcomewizard/Slide6.qml:45
 msgid "Support"
@@ -599,16 +601,3 @@ msgstr "O xestor de podcasts máis rechouchiante para Ubuntu"
 msgid ""
 "podcast;audio;itunes;broadcast;digital;stream;podcatcher;video;vodcast;"
 msgstr "podcast;audio;itunes;son;dixital;fluxo;stream;vídeo;vodcast;"
-
-#~ msgid "Download all"
-#~ msgstr "Descargar todo"
-
-#~ msgid "Mark all listened"
-#~ msgstr "Todo escoitado"
-
-#, qt-format
-#~ msgid "Podcasts listened to today: <b>%1</b>"
-#~ msgstr "Podcasts escoitados hoxe: <b>%1</b>"
-
-#~ msgid "No podcasts listened to today"
-#~ msgstr "Hoxe non escoitou ningún podcast"
