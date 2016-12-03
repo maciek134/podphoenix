@@ -11,5 +11,5 @@
     },
     "version": "0.7",
     "maintainer": "Michael Sheldon <mike@mikeasoft.com>",
-    "framework": "ubuntu-sdk-15.04.3"
+    "framework": "ubuntu-sdk-15.04.5"
 }
