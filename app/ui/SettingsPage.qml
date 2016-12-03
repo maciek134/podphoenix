@@ -74,7 +74,7 @@ Page {
                 }
 
                 Button {
-                    text: i18n.tr("Ok")
+                    text: i18n.tr("OK")
                     color: podbird.appTheme.positiveActionButton
                     onClicked: {
                         podbird.settings.skipForward = Math.round(slider.value)
@@ -109,7 +109,7 @@ Page {
                 }
 
                 Button {
-                    text: i18n.tr("Ok")
+                    text: i18n.tr("OK")
                     color: podbird.appTheme.positiveActionButton
                     onClicked: {
                         podbird.settings.skipBack = Math.round(slider.value)
