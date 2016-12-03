@@ -78,12 +78,21 @@ MainView {
             settings.lastCheck = today
         }
 
-        if (!NetworkingStatus.online || settings.maxEpisodeDownload === -1) {
-            console.log("[LOG]: Skipped autodownloading of new episodes...")
-            console.log("[LOG]: Online connectivity: " + NetworkingStatus.online)
-            console.log("[LOG]: User settings (maxEpisodeDownload): " + settings.maxEpisodeDownload)
-        } else {
-            Podcasts.autoDownloadEpisodes(settings.maxEpisodeDownload)
+        delayStartTimer.start();
+    }
+
+    Timer {
+        id: delayStartTimer
+        interval: 500
+        repeat: false
+        onTriggered: {
+            if (!NetworkingStatus.online || podbird.settings.maxEpisodeDownload === -1) {
+                console.log("[LOG]: Skipped autodownloading of new episodes...")
+                console.log("[LOG]: Online connectivity: " + NetworkingStatus.online)
+                console.log("[LOG]: User settings (maxEpisodeDownload): " + podbird.settings.maxEpisodeDownload)
+            } else {
+                Podcasts.autoDownloadEpisodes(podbird.settings.maxEpisodeDownload)
+            }
         }
     }
 
@@ -173,7 +182,12 @@ MainView {
     }
 
     function downloadEpisode(image, title, guid, url, disableMobileDownload) {
-        var singleDownload = singleDownloadComponent.createObject(podbird, {"image": image, "title": title, "guid": guid , allowMobileDownload : !disableMobileDownload })
+        if(downloader.isDownloadInQueue(guid)) {
+            console.log("[LOG]: Download with GUID of :"+guid+ " is already in the download queue.")
+            return false;
+        }
+
+        var singleDownload = singleDownloadComponent.createObject(podbird, {"image": image, "title": title, "guid": guid, allowMobileDownload : !disableMobileDownload })
         singleDownload.download(url)
     }
 
@@ -184,6 +198,16 @@ MainView {
         property int progress: downloads.length > 0 ? downloads[0].progress : 0
 
         cleanDownloads: true
+
+        function isDownloadInQueue ( guid ) {
+            for( var i=0; i < downloads.length; i++) {
+                if( downloads[i].metadata.custom.guid && guid === downloads[i].metadata.custom.guid) {
+                    return true ;
+                }
+            }
+            return false;
+        }
+
         onDownloadFinished: {
             var db = Podcasts.init();
             var finalLocation = fileManager.saveDownload(path);
