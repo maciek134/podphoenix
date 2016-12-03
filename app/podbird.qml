@@ -43,7 +43,6 @@ MainView {
                                                  : "Ubuntu.Components.Themes.Ambiance"
 
     Component.onDestruction: {
-        console.log("[LOG]: Download cancelled");
         var db = Podcasts.init()
         db.transaction(function (tx) {
             tx.executeSql('UPDATE Episode SET queued=0 WHERE queued=1');
@@ -167,6 +166,7 @@ MainView {
             metadata: Metadata {
                 showInIndicator: true
                 title: singleDownloadObject.title
+                custom: {"guid": singleDownloadObject.guid, "image" : singleDownloadObject.image}
             }
         }
     }
@@ -179,7 +179,7 @@ MainView {
     DownloadManager {
         id: downloader
 
-        property string downloadingGuid: downloads.length > 0 ? downloads[0].guid : "NULL"
+        property string downloadingGuid: downloads.length > 0 ? downloads[0].metadata.custom.guid : "NULL"
         property int progress: downloads.length > 0 ? downloads[0].progress : 0
 
         cleanDownloads: true
@@ -187,7 +187,7 @@ MainView {
             var db = Podcasts.init();
             var finalLocation = fileManager.saveDownload(path);
             db.transaction(function (tx) {
-                tx.executeSql("UPDATE Episode SET downloadedfile=?, queued=0 WHERE guid=?", [finalLocation, download.guid]);
+                tx.executeSql("UPDATE Episode SET downloadedfile=?, queued=0 WHERE guid=?", [finalLocation, download.metadata.custom.guid]);
             });
         }
 

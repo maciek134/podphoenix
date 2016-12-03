@@ -468,7 +468,7 @@ Tab {
                             Image {
                                 height: width
                                 width: units.gu(6)
-                                source: modelData.image !== undefined ? modelData.image : Qt.resolvedUrl("../graphics/podbird.png")
+                                source: modelData.metadata.custom.image !== undefined ? modelData.metadata.custom.image : Qt.resolvedUrl("../graphics/podbird.png")
                                 SlotsLayout.position: SlotsLayout.Leading
                                 sourceSize { width: width; height: height }
                             }
@@ -477,7 +477,7 @@ Tab {
                                 spacing: units.gu(0.5)
 
                                 Label {
-                                    text: modelData.title
+                                    text: modelData.metadata.title
                                     width: parent.width
                                     elide: Text.ElideRight
                                 }
