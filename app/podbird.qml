@@ -117,6 +117,7 @@ MainView {
         property bool showListView: true
         property int skipForward: 30
         property int skipBack: 10
+        property bool downloadOverWifiOnly: true
     }
 
     FileManager {
@@ -171,8 +172,8 @@ MainView {
         }
     }
 
-    function downloadEpisode(image, title, guid, url) {
-        var singleDownload = singleDownloadComponent.createObject(podbird, {"image": image, "title": title, "guid": guid})
+    function downloadEpisode(image, title, guid, url, disableMobileDownload) {
+        var singleDownload = singleDownloadComponent.createObject(podbird, {"image": image, "title": title, "guid": guid , allowMobileDownload : !disableMobileDownload })
         singleDownload.download(url)
     }
 

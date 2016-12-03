@@ -212,6 +212,23 @@ Page {
                 onClicked: mainStack.push(Qt.resolvedUrl("../settings/DownloadSetting.qml"))
             }
 
+ 	ListItem {
+                ListItemLayout {
+                    id: downloadWifiOnlyLayout
+                    title.text: i18n.tr("Only download over wifi")
+                    title.color: podbird.appTheme.baseText
+                    summary.text: i18n.tr("Download episodes only when the device is using WiFi")
+                    summary.color: podbird.appTheme.baseSubText
+                    Switch {
+                        SlotsLayout.position: SlotsLayout.Last
+                        checked: podbird.settings.downloadOverWifiOnly
+                        onClicked: podbird.settings.downloadOverWifiOnly = checked
+                    }
+                }
+                divider.visible: false
+                height: downloadWifiOnlyLayout.height
+            }
+
             ListItem {
                 id: refreshArtListItem
 

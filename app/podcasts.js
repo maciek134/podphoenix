@@ -360,7 +360,7 @@ function autoDownloadEpisodes(maxEpisodeDownload) {
             var loopCount = maxEpisodeDownload > rs2.rows.length ? rs2.rows.length : maxEpisodeDownload
             for (var j=0; j < loopCount; j++) {
                 if (!rs2.rows.item(j).downloadedfile && !rs2.rows.item(j).listened && rs2.rows.item(j).audiourl) {
-                    podbird.downloadEpisode(rs.rows.item(i).image, rs2.rows.item(j).name, rs2.rows.item(j).guid, rs2.rows.item(j).audiourl)
+                    podbird.downloadEpisode(rs.rows.item(i).image, rs2.rows.item(j).name, rs2.rows.item(j).guid, rs2.rows.item(j).audiourl, podbird.settings.downloadOverWifiOnly)
                     tx.executeSql("UPDATE Episode SET queued=1 WHERE guid = ?", [rs2.rows.item(j).guid]);
                 }
             }

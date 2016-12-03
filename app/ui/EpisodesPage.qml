@@ -166,7 +166,7 @@ Page {
                                     episodeModel.setProperty(index, "queued", 1)
                                     tx.executeSql("UPDATE Episode SET queued=1 WHERE guid = ?", [episodeModel.get(index).guid]);
                                     if (episodeModel.get(index).audiourl) {
-                                        podbird.downloadEpisode(episodeModel.get(index).image, episodeModel.get(index).name, episodeModel.get(index).guid, episodeModel.get(index).audiourl)
+                                        podbird.downloadEpisode(episodeModel.get(index).image, episodeModel.get(index).name, episodeModel.get(index).guid, episodeModel.get(index).audiourl, false)
                                     } else {
                                         console.log("[ERROR]: Invalid download url: " + episodeModel.get(index).audiourl)
                                     }
@@ -633,7 +633,7 @@ Page {
                                 });
                                 episodeModel.setProperty(model.index, "queued", 1)
                                 if (model.audiourl) {
-                                    podbird.downloadEpisode(model.image, model.name, model.guid, model.audiourl)
+                                    podbird.downloadEpisode(model.image, model.name, model.guid, model.audiourl, false)
                                 } else {
                                     console.log("[ERROR]: Invalid download url: " + model.audiourl)
                                 }
