@@ -61,7 +61,7 @@ Component {
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignHCenter
             linkColor: podbird.appTheme.linkText
-            text: i18n.tr("Episodes can be swiped left to reveal more actions. You can also multi-select them by long-pressing on an episode.")
+            text: i18n.tr("Episodes can be swiped left to reveal more actions (or right click if you're using a mouse). You can also multi-select them by long-pressing on an episode.")
             onLinkActivated: Qt.openUrlExternally(link)
         }
     }
