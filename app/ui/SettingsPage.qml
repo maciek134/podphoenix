@@ -376,53 +376,32 @@ pointing at invalid files have also been cleaned up.")
 
             // Go through every downloaded file and check if they are orphaned
             for (var l = 0; l < filelist.length; l++) {
-                var isOrphanFile = true
+                var rs2 = tx.executeSql("SELECT rowid FROM Episode WHERE downloadedfile = ?", [fileManager.podcastDirectory + "/" + filelist[l]])
 
-                // Go through every podcast
-                for (var i=0; i < rs.rows.length; i++) {
-                    var podcast = rs.rows.item(i);
-                    var rs2 = tx.executeSql("SELECT rowid, * FROM Episode WHERE podcast=?", [podcast.rowid]);
-
-                    // Go through every episode in the podcast
-                    for (var j=0; j < rs2.rows.length; j++) {
-                        var episode = rs2.rows.item(j);
-                        if (episode.downloadedfile) {
-                            if(fileManager.podcastDirectory + "/" + filelist[l] === episode.downloadedfile) {
-                                isOrphanFile = false
-                            }
-                        }
-                    }
-                }
-
-                if (isOrphanFile) {
+                if (rs2.rows.length == 0) {
                     orphanListItem.fileCount++
                     fileManager.deleteFile(fileManager.podcastDirectory + "/" + filelist[l])
                     console.log("[LOG]: Removed Orphan File: " + fileManager.podcastDirectory + "/" + filelist[l])
                 }
             }
 
-            // Go through every podcast in the db and find orphaned links
-            for (i=0; i < rs.rows.length; i++) {
+            // Filter all episode with downloadedfile links and check if they are orphaned links or not
+            var rs2 = tx.executeSql("SELECT rowid, * FROM Episode WHERE downloadedfile IS NOT NULL")
+            for (var i=0; i<rs2.rows.length; i++) {
                 var isOrphanLink = true
-                podcast = rs.rows.item(i);
-                rs2 = tx.executeSql("SELECT rowid, * FROM Episode WHERE podcast=?", [podcast.rowid]);
+                var episode = rs2.rows.item(i);
 
-                // Go through every episode in the podcast
-                for (j=0; j < rs2.rows.length; j++) {
-                    episode = rs2.rows.item(j);
-                    if (episode.downloadedfile) {
-                        for (l = 0; l < filelist.length; l++) {
-                            if(episode.downloadedfile === fileManager.podcastDirectory + "/" + filelist[l]) {
-                                isOrphanLink = false
-                            }
-                        }
-
-                        if (isOrphanLink) {
-                            orphanListItem.linkCount++
-                            tx.executeSql("UPDATE Episode SET downloadedfile = NULL WHERE guid = ?", [episode.guid]);
-                            console.log("[LOG]: Removed Orphan Link: " + episode.downloadedfile)
-                        }
+                for (var l = 0; l < filelist.length; l++) {
+                    if(episode.downloadedfile === fileManager.podcastDirectory + "/" + filelist[l]) {
+                        isOrphanLink = false
+                        break
                     }
+                }
+
+                if (isOrphanLink) {
+                    orphanListItem.linkCount++
+                    tx.executeSql("UPDATE Episode SET downloadedfile = NULL WHERE guid = ?", [episode.guid]);
+                    console.log("[LOG]: Removed Orphan Link: " + episode.downloadedfile)
                 }
             }
         });
