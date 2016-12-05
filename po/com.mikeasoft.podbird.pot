@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-29 16:55+0530\n"
+"POT-Creation-Date: 2016-12-05 17:48+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -499,11 +499,11 @@ msgid "Free space by removing orphaned downloaded files and links"
 msgstr ""
 
 #: ../app/ui/SettingsPage.qml:297
-msgid "Removed Orphaned files and links"
+msgid "Removed orphaned files and links"
 msgstr ""
 
 #: ../app/ui/SettingsPage.qml:297
-msgid "No Orphans found!"
+msgid "No orphans found!"
 msgstr ""
 
 #: ../app/ui/SettingsPage.qml:298
@@ -612,10 +612,10 @@ msgstr ""
 msgid "Finish"
 msgstr ""
 
-#: /home/krnekhelesh/Development/devel-branch-sync-4-build/po/Podbird.desktop.in.h:1
+#: /home/krnekhelesh/Development/Builds/build-devel-branch-sync-4-UbuntuSDK_for_desktop_GCC_amd64_ubuntu_sdk_15_04-Default/po/Podbird.desktop.in.h:1
 msgid "The chirpiest podcast manager for Ubuntu"
 msgstr ""
 
-#: /home/krnekhelesh/Development/devel-branch-sync-4-build/po/Podbird.desktop.in.h:2
+#: /home/krnekhelesh/Development/Builds/build-devel-branch-sync-4-UbuntuSDK_for_desktop_GCC_amd64_ubuntu_sdk_15_04-Default/po/Podbird.desktop.in.h:2
 msgid "podcast;audio;itunes;broadcast;digital;stream;podcatcher;video;vodcast;"
 msgstr ""
