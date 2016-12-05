@@ -215,7 +215,7 @@ Page {
  	ListItem {
                 ListItemLayout {
                     id: downloadWifiOnlyLayout
-                    title.text: i18n.tr("Only download over wifi")
+                    title.text: i18n.tr("Only download over WiFi")
                     title.color: podbird.appTheme.baseText
                     summary.text: i18n.tr("Download episodes only when the device is using WiFi")
                     summary.color: podbird.appTheme.baseSubText

@@ -602,7 +602,7 @@ Page {
                 actions: [
                     Action {
                         iconName: model.listened ? "view-collapse" : "select"
-                        text: model.listened ? i18n.tr("Make as unheard") : i18n.tr("Mark as listened")
+                        text: model.listened ? i18n.tr("Mark as unheard") : i18n.tr("Mark as listened")
                         onTriggered: {
                             var db = Podcasts.init();
                             db.transaction(function (tx) {
