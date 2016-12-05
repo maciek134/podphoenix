@@ -294,7 +294,7 @@ Page {
 
                     property int orphanCount: 0
 
-                    title: orphanCount > 0 ? i18n.tr("Removed Orphaned files and links") : i18n.tr("No Orphans found!")
+                    title: orphanCount > 0 ? i18n.tr("Removed orphaned files and links") : i18n.tr("No orphans found!")
                     text: orphanCount > 0 ? i18n.tr("All orphaned files have been deleted to recover disk space. Orphaned links \
 pointing at invalid files have also been cleaned up.")
                                           : i18n.tr("No orphaned files have been found to recover disk space. Podbird database is clean.")
