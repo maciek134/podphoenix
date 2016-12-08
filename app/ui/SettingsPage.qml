@@ -222,7 +222,7 @@ Page {
                     id: refreshArt
                     title.text: i18n.tr("Refresh podcast artwork")
                     title.color: podbird.appTheme.baseText
-                    summary.text: i18n.tr("Update all podcasts artwork and fix missing ones (this only works with podcasts added via iTunes® search)")
+                    summary.text: i18n.tr("Update all podcasts artwork and fix missing ones")
                     summary.color: podbird.appTheme.baseSubText
                     summary.maximumLineCount: 3
                     ProgressionSlot{}
