@@ -569,8 +569,8 @@ Page {
                 title.text: model.name !== undefined ? model.name.trim() : "Undefined"
                 title.color: downloader.downloadingGuid === model.guid ? podbird.appTheme.focusText
                                                                        : podbird.appTheme.baseText
-                // #FIXME: Change this 2 to prevent title eliding when UITK is updated to rev > 1800
-                title.maximumLineCount: 1
+                title.wrapMode: Text.WordWrap
+                title.maximumLineCount: 2
 
                 subtitle.text: model.duration === 0 || model.duration === undefined ? model.downloadedfile ? "📎 " + Qt.formatDate(new Date(model.published), "MMM d, yyyy")
                                                                                                            : Qt.formatDate(new Date(model.published), "MMM d, yyyy")

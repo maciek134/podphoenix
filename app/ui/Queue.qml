@@ -56,8 +56,8 @@ ListView {
             }
 
             title.text: layout.metaModel.name
-            // #FIXME: Change this 2 to prevent title eliding when UITK is updated to rev > 1800
-            title.maximumLineCount: 1
+            title.wrapMode: Text.WordWrap
+            title.maximumLineCount: 2
             title.color: player.playlist.currentIndex === index ? podbird.appTheme.focusText
                                                                 : podbird.appTheme.baseText
 
