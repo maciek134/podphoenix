@@ -339,7 +339,13 @@ pointing at invalid files have also been cleaned up.")
     }
 
     function getPodcastCoverArt(name, feedUrl, image) {
-        var coverArt
+        // Default first to iTunes to fetch cover art. Fallback to feed url if podcast cannot be
+        // found in iTunes.
+        getCoverArtItunes(name, feedUrl, image)
+    }
+
+    function getCoverArtItunes(name, feedUrl, image) {
+        var coverArt = ""
         var url = "https://itunes.apple.com/search?term=" + name + "&media=podcast&entity=podcast"
         var xhr = new XMLHttpRequest;
         xhr.open("GET", url);
@@ -359,9 +365,49 @@ pointing at invalid files have also been cleaned up.")
                         }
                     }
                 }
+
+                // If the podcast is not found on iTunes, fallback to its feed url for fetching cover art
+                if (coverArt == "") {
+                    getCoverArtFeedUrl(name, feedUrl, image)
+                }
             }
         }
         xhr.send();
+    }
+
+    function getCoverArtFeedUrl(name, feedUrl, image) {
+        console.log("Fetching cover art from feed")
+        var coverArt
+        var xhr = new XMLHttpRequest;
+        xhr.open("GET", feedUrl)
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                var e = xhr.responseXML.documentElement;
+
+                for(var h = 0; h < e.childNodes.length; h++) {
+                    if(e.childNodes[h].nodeName === "channel") {
+                        var c = e.childNodes[h];
+                        for(var j = 0; j < c.childNodes.length; j++) {
+                            var nodeName = c.childNodes[j].nodeName;
+                            if (nodeName === "image") {
+                                var el = c.childNodes[j];
+                                for (var l = 0; l < el.attributes.length; l++) {
+                                    if(el.attributes[l].nodeName === "href") {
+                                        coverArt = el.attributes[l].nodeValue;
+                                        if (coverArt) {
+                                            fileManager.deleteFile(image);
+                                            imageDownloader.addDownload(feedUrl, coverArt)
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        xhr.send()
     }
 
     function removeOrphans() {
