@@ -24,7 +24,8 @@
 #include "filemanager.h"
 
 FileManager::FileManager(QObject *parent):
-    QObject(parent)
+    QObject(parent),
+    m_podcastDir(QStandardPaths::writableLocation(QStandardPaths::DataLocation) + QDir::separator() + "podcasts")
 {
     // Remove any downloads that haven't been collected previously (because we were closed before they finished)
     QString downloadManagerPath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QDir::separator() + "ubuntu-download-manager" + QDir::separator() + "com.mikeasoft.podbird";
@@ -38,6 +39,11 @@ FileManager::~FileManager() {
 
 }
 
+QString FileManager::podcastDirectory() const
+{
+    return m_podcastDir;
+}
+
 void FileManager::deleteFile(QString path) {
     QFile file(path);
     if (file.exists()) {
@@ -46,17 +52,16 @@ void FileManager::deleteFile(QString path) {
 }
 
 QString FileManager::saveDownload(QString origPath) {
-    QString destination = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + QDir::separator() + "podcasts";
-    QDir destDir(destination);
+    QDir destDir(m_podcastDir);
     if(!destDir.exists()) {
-        destDir.mkpath(destination);
+        destDir.mkpath(m_podcastDir);
     }
     QFileInfo fi(origPath);
     QFile *destFile;
     QString filePath;
     int attempts = 0;
     do {
-        filePath = destination + QDir::separator() + fi.fileName();
+        filePath = m_podcastDir + QDir::separator() + fi.fileName();
         if (attempts > 0) {
             filePath += "." + QString::number(attempts);
         }
@@ -65,4 +70,12 @@ QString FileManager::saveDownload(QString origPath) {
     } while (destFile->exists());
     QFile::rename(origPath, filePath);
     return filePath;
+}
+
+QStringList FileManager::getDownloadedEpisodes() {
+    QDir destDir(m_podcastDir);
+    QStringList filters;
+    filters << "*.mp3" << "*.mp3.*" << "*.m4a" << "*.m4a.*" << "*.ogg" << "*.ogg.*" << "*.oga" << "*.oga.*" << "*.wma";
+    destDir.setNameFilters(filters);
+    return destDir.entryList();
 }

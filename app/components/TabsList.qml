@@ -24,32 +24,36 @@ ActionList {
 
     children: [
         Action {
+            iconName: "slideshow"
             text: i18n.tr("Episodes")
-            visible: tabs.selectedTab !== episodesTab
+            enabled: tabs.selectedTab !== episodesTab
             onTriggered: {
                 tabs.selectedTabIndex = 0
             }
         },
 
         Action {
+            iconName: "add"
             text: i18n.tr("Add New Podcasts")
-            visible: tabs.selectedTab !== searchTab
+            enabled: tabs.selectedTab !== searchTab
             onTriggered: {
                 tabs.selectedTabIndex = 1
             }
         },
 
         Action {
+            iconSource: Qt.resolvedUrl("../graphics/podcast-symbol.png")
             text: i18n.tr("Podcasts")
-            visible: tabs.selectedTab !== podcastTab
+            enabled: tabs.selectedTab !== podcastTab
             onTriggered: {
                 tabs.selectedTabIndex = 2
             }
         },
 
         Action {
+            iconName: "settings"
             text: i18n.tr("Settings")
-            visible: tabs.selectedTab !== settingsTab
+            enabled: tabs.selectedTab !== settingsTab
             onTriggered: {
                 tabs.selectedTabIndex = 3
             }

@@ -98,9 +98,8 @@ MainView {
         id: themeManager
         source: settings.themeName
         onSourceChanged: {
-            theme.palette.normal.backgroundText = UbuntuColors.lightGrey
-            theme.name = settings.themeName == "Dark.qml" ? "Ubuntu.Components.Themes.SuruDark"
-                                                          : "Ubuntu.Components.Themes.Ambiance"
+            podbird.theme.name = settings.themeName == "Dark.qml" ? "Ubuntu.Components.Themes.SuruDark"
+                                                                  : "Ubuntu.Components.Themes.Ambiance"
         }
     }
 
@@ -127,13 +126,34 @@ MainView {
 
     SingleDownload {
         id: imageDownloader
-        property string feed;
+
+        property string feed
+        property var queue: []
+        property int queueLength: 0
+
         onFinished: {
             var db = Podcasts.init();
             var finalLocation = fileManager.saveDownload(path);
             db.transaction(function (tx) {
-                tx.executeSql("UPDATE Podcast SET image=? WHERE feed=?", [finalLocation, feed]);
+                tx.executeSql("UPDATE Podcast SET image=? WHERE feed=?", [finalLocation, imageDownloader.feed]);
+                queue.shift();
+                queueLength--
+                if (queue.length > 0) {
+                    imageDownloader.feed = queue[0][0];
+                    download(queue[0][1]);
+                } else {
+                    feed = "";
+                }
             });
+        }
+
+        function addDownload(feed, url) {
+            queue.push([feed, url]);
+            queueLength++
+            if (queue.length == 1) {
+                imageDownloader.feed = feed;
+                download(url);
+            }
         }
     }
 

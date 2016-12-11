@@ -204,7 +204,7 @@ Page {
         id: emptyStateComponent
         EmptyState {
             icon.source: searchPage.header !== searchHeader ? Qt.resolvedUrl("../graphics/owlSearch.svg") : Qt.resolvedUrl("../graphics/notFound.svg")
-            title: searchPage.header !== searchHeader ? i18n.tr("Looking to add a new Podcast?") : i18n.tr("No Podcasts found")
+            title: searchPage.header !== searchHeader ? i18n.tr("Looking to add a new podcast?") : i18n.tr("No Podcasts Found")
             subTitle: searchPage.header !== searchHeader ? i18n.tr("Click the 'magnifier' at the top to search or the 'plus' button to add by URL")
                                                          : i18n.tr("No podcasts found matching the search term.")
         }
@@ -276,8 +276,7 @@ Page {
                     onClicked: {
                         if (!model.subscribed) {
                             Podcasts.subscribe(model.artist, model.name, model.feed, model.image);
-                            imageDownloader.feed = model.feed;
-                            imageDownloader.download(model.image);
+                            imageDownloader.addDownload(model.feed, model.image)
                         } else {
                             var db = Podcasts.init();
                             db.transaction(function (tx) {
@@ -440,8 +439,7 @@ Page {
 
                 if(name != "") {
                     Podcasts.subscribe(artist, name, feed, image);
-                    imageDownloader.feed = feed;
-                    imageDownloader.download(image);
+                    imageDownloader.addDownload(feed, image)
                     tabs.selectedTabIndex = 2;
                 } else {
                     PopupUtils.open(subscribeFailedDialog);
