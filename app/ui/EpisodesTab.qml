@@ -183,7 +183,7 @@ Tab {
                                         episodesModel.setProperty(index, "queued", 1)
                                         tx.executeSql("UPDATE Episode SET queued=1 WHERE guid = ?", [episodesModel.get(index).guid]);
                                         if (episodesModel.get(index).audiourl) {
-                                            podbird.downloadEpisode(episodesModel.get(index).image, episodesModel.get(index).name, episodesModel.get(index).guid, episodesModel.get(index).audiourl)
+                                            podbird.downloadEpisode(episodesModel.get(index).image, episodesModel.get(index).name, episodesModel.get(index).guid, episodesModel.get(index).audiourl, false)
                                         } else {
                                             console.log("[ERROR]: Invalid download url: " + episodesModel.get(index).audiourl)
                                         }
@@ -468,7 +468,7 @@ Tab {
                             Image {
                                 height: width
                                 width: units.gu(6)
-                                source: modelData.image !== undefined ? modelData.image : Qt.resolvedUrl("../graphics/podbird.png")
+                                source: modelData.metadata.custom.image !== undefined ? modelData.metadata.custom.image : Qt.resolvedUrl("../graphics/podbird.png")
                                 SlotsLayout.position: SlotsLayout.Leading
                                 sourceSize { width: width; height: height }
                             }
@@ -477,7 +477,7 @@ Tab {
                                 spacing: units.gu(0.5)
 
                                 Label {
-                                    text: modelData.title
+                                    text: modelData.metadata.title
                                     width: parent.width
                                     elide: Text.ElideRight
                                 }
@@ -597,7 +597,7 @@ Tab {
                                     });
                                     episodesModel.setProperty(model.index, "queued", 1)
                                     if (model.audiourl) {
-                                        podbird.downloadEpisode(model.image, model.name, model.guid, model.audiourl)
+                                        podbird.downloadEpisode(model.image, model.name, model.guid, model.audiourl, false)
                                     } else {
                                         console.log("[ERROR]: Invalid download url: " + model.audiourl)
                                     }

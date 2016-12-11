@@ -356,12 +356,13 @@ function autoDownloadEpisodes(maxEpisodeDownload) {
         var rs = tx.executeSql("SELECT rowid, * FROM Podcast ORDER BY name ASC");
         for (var i=0; i < rs.rows.length; i++) {
             var podcast = rs.rows.item(i);
-            var rs2 = tx.executeSql("SELECT rowid, * FROM Episode WHERE podcast=? ORDER BY published DESC", [rs.rows.item(i).rowid]);
+            var rs2 = tx.executeSql("SELECT rowid, * FROM Episode WHERE podcast=? ORDER BY published DESC", [podcast.rowid]);
             var loopCount = maxEpisodeDownload > rs2.rows.length ? rs2.rows.length : maxEpisodeDownload
             for (var j=0; j < loopCount; j++) {
-                if (!rs2.rows.item(j).downloadedfile && !rs2.rows.item(j).listened && rs2.rows.item(j).audiourl) {
-                    podbird.downloadEpisode(rs.rows.item(i).image, rs2.rows.item(j).name, rs2.rows.item(j).guid, rs2.rows.item(j).audiourl)
-                    tx.executeSql("UPDATE Episode SET queued=1 WHERE guid = ?", [rs2.rows.item(j).guid]);
+                var  episode = rs2.rows.item(j);
+                if ( !episode.downloadedfile && !episode.listened && episode.audiourl && !episode.queued ) {
+                    podbird.downloadEpisode(podcast.image, episode.name, episode.guid, episode.audiourl, podbird.settings.downloadOverWifiOnly)
+                    tx.executeSql("UPDATE Episode SET queued=1 WHERE guid = ?", [episode.guid]);
                 }
             }
         }

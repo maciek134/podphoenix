@@ -166,7 +166,7 @@ Page {
                                     episodeModel.setProperty(index, "queued", 1)
                                     tx.executeSql("UPDATE Episode SET queued=1 WHERE guid = ?", [episodeModel.get(index).guid]);
                                     if (episodeModel.get(index).audiourl) {
-                                        podbird.downloadEpisode(episodeModel.get(index).image, episodeModel.get(index).name, episodeModel.get(index).guid, episodeModel.get(index).audiourl)
+                                        podbird.downloadEpisode(episodeModel.get(index).image, episodeModel.get(index).name, episodeModel.get(index).guid, episodeModel.get(index).audiourl, false)
                                     } else {
                                         console.log("[ERROR]: Invalid download url: " + episodeModel.get(index).audiourl)
                                     }
@@ -602,6 +602,7 @@ Page {
                 actions: [
                     Action {
                         iconName: model.listened ? "view-collapse" : "select"
+                        text: model.listened ? i18n.tr("Mark as unheard") : i18n.tr("Mark as listened")
                         onTriggered: {
                             var db = Podcasts.init();
                             db.transaction(function (tx) {
@@ -617,6 +618,7 @@ Page {
                     Action {
                         enabled: downloader.downloadingGuid !== model.guid
                         iconName: model.downloadedfile ? "delete" : (model.queued && downloader.downloadingGuid !== model.guid ? "history" : "save")
+                        text: model.downloadedfile ? i18n.tr("Delete downloaded file") : (model.queued && downloader.downloadingGuid !== model.guid ? i18n.tr("Queued") : i18n.tr("Download"))
                         onTriggered: {
                             var db = Podcasts.init();
                             if (model.downloadedfile) {
@@ -631,7 +633,7 @@ Page {
                                 });
                                 episodeModel.setProperty(model.index, "queued", 1)
                                 if (model.audiourl) {
-                                    podbird.downloadEpisode(model.image, model.name, model.guid, model.audiourl)
+                                    podbird.downloadEpisode(model.image, model.name, model.guid, model.audiourl, false)
                                 } else {
                                     console.log("[ERROR]: Invalid download url: " + model.audiourl)
                                 }
@@ -641,6 +643,7 @@ Page {
 
                     Action {
                         iconName: "add-to-playlist"
+                        text: i18n.tr("Add to playlist")
                         onTriggered: {
                             var url = model.downloadedfile ? "file://" + model.downloadedfile : model.audiourl
                             player.addEpisodeToQueue(model.guid, model.image, model.name, model.artist, url)
@@ -649,6 +652,7 @@ Page {
 
                     Action {
                         iconName: model.favourited ? "unlike" : "like"
+                        text: model.favourited ? i18n.tr("Unfavourite") : i18n.tr("Favourite")
                         onTriggered: {
                             var db = Podcasts.init();
                             db.transaction(function (tx) {
@@ -663,6 +667,7 @@ Page {
 
                     Action {
                         iconName: "info"
+                        text: i18n.tr("Show episode description")
                         onTriggered: {
                             var popup = PopupUtils.open(episodeDescriptionDialog, episodesPage);
                             popup.description = model.description
