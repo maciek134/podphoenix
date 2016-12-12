@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-03-19 19:22+0530\n"
+"POT-Creation-Date: 2016-12-08 17:29+0000\n"
 "PO-Revision-Date: 2016-05-16 08:33+0000\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <sr@li.org>\n"
@@ -16,22 +16,22 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Launchpad-Export-Date: 2016-05-17 06:02+0000\n"
-"X-Generator: Launchpad (build 18025)\n"
+"X-Launchpad-Export-Date: 2016-12-12 05:24+0000\n"
+"X-Generator: Launchpad (build 18292)\n"
 
-#: ../app/components/TabsList.qml:27 ../app/ui/EpisodesTab.qml:48
+#: ../app/components/TabsList.qml:28 ../app/ui/EpisodesTab.qml:48
 msgid "Episodes"
 msgstr "Епизоде"
 
-#: ../app/components/TabsList.qml:35 ../app/ui/SearchPage.qml:41
+#: ../app/components/TabsList.qml:37 ../app/ui/SearchPage.qml:41
 msgid "Add New Podcasts"
 msgstr ""
 
-#: ../app/components/TabsList.qml:43 ../app/ui/PodcastsTab.qml:42
+#: ../app/components/TabsList.qml:46 ../app/ui/PodcastsTab.qml:42
 msgid "Podcasts"
 msgstr "Подемисије"
 
-#: ../app/components/TabsList.qml:51 ../app/ui/SettingsPage.qml:32
+#: ../app/components/TabsList.qml:55 ../app/ui/SettingsPage.qml:34
 msgid "Settings"
 msgstr "Подешавања"
 
@@ -39,24 +39,24 @@ msgstr "Подешавања"
 msgid "Skip"
 msgstr "Прескочи"
 
-#: ../app/podcasts.js:282
+#: ../app/podcasts.js:298
 #, no-c-format, qt-format
 msgid "%1 hr %2 min"
 msgstr "%1 ч %2 мин"
 
-#: ../app/podcasts.js:291
+#: ../app/podcasts.js:307
 #, no-c-format, qt-format
 msgid "%1 hr"
 msgstr "%1 ч"
 
-#: ../app/podcasts.js:299
+#: ../app/podcasts.js:315
 #, no-c-format, qt-format
 msgid "%1 min"
 msgstr "%1 мин"
 
 #. TRANSLATORS: About as in information about the app
 #: ../app/settings/About.qml:28 ../app/settings/About.qml:46
-#: ../app/ui/SettingsPage.qml:222
+#: ../app/ui/SettingsPage.qml:338
 msgid "About"
 msgstr "О програму"
 
@@ -144,17 +144,17 @@ msgid_plural "%1 episodes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../app/settings/ThemeSetting.qml:29 ../app/ui/SettingsPage.qml:144
+#: ../app/settings/ThemeSetting.qml:29 ../app/ui/SettingsPage.qml:146
 msgid "Theme"
 msgstr "Тема"
 
 #. TRANSLATORS: Light Theme
-#: ../app/settings/ThemeSetting.qml:41 ../app/ui/SettingsPage.qml:145
+#: ../app/settings/ThemeSetting.qml:41 ../app/ui/SettingsPage.qml:147
 msgid "Light"
 msgstr "Светло"
 
 #. TRANSLATORS: Dark Theme
-#: ../app/settings/ThemeSetting.qml:43 ../app/ui/SettingsPage.qml:145
+#: ../app/settings/ThemeSetting.qml:43 ../app/ui/SettingsPage.qml:147
 msgid "Dark"
 msgstr "Тамно"
 
@@ -218,7 +218,7 @@ msgid "Are you sure you want to unsubscribe from <b>%1</b>?"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:323 ../app/ui/SearchPage.qml:130
-#: ../app/ui/SettingsPage.qml:83 ../app/ui/SettingsPage.qml:118
+#: ../app/ui/SettingsPage.qml:85 ../app/ui/SettingsPage.qml:120
 msgid "Cancel"
 msgstr ""
 
@@ -227,7 +227,7 @@ msgid "Episode Description"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:356 ../app/ui/EpisodesTab.qml:418
-#: ../app/ui/SearchPage.qml:179
+#: ../app/ui/SearchPage.qml:179 ../app/ui/SettingsPage.qml:320
 msgid "Close"
 msgstr ""
 
@@ -249,6 +249,42 @@ msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:538
 msgid "Downloaded"
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:605
+msgid "Make as unheard"
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:605
+msgid "Mark as listened"
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:621
+msgid "Delete downloaded file"
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:621
+msgid "Queued"
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:621
+msgid "Download"
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:646
+msgid "Add to playlist"
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:655
+msgid "Unfavourite"
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:655
+msgid "Favourite"
+msgstr ""
+
+#: ../app/ui/EpisodesPage.qml:670
+msgid "Show episode description"
 msgstr ""
 
 #: ../app/ui/EpisodesTab.qml:82
@@ -356,13 +392,13 @@ msgstr ""
 msgid "No Podcast Subscriptions"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:127
+#: ../app/ui/PodcastsTab.qml:127 ../app/ui/SearchPage.qml:207
 msgid "No Podcasts Found"
 msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:128
 msgid ""
-"You haven't subscribed to any podcasts yet, visit the 'Find New Podcasts' "
+"You haven't subscribed to any podcasts yet, visit the 'Add New Podcasts' "
 "page to add some."
 msgstr ""
 
@@ -398,11 +434,7 @@ msgid "Please check the URL and try again"
 msgstr ""
 
 #: ../app/ui/SearchPage.qml:207
-msgid "Looking to add a new Podcast?"
-msgstr ""
-
-#: ../app/ui/SearchPage.qml:207
-msgid "No Podcasts found"
+msgid "Looking to add a new podcast?"
 msgstr ""
 
 #: ../app/ui/SearchPage.qml:208
@@ -416,81 +448,129 @@ msgstr ""
 
 #. TRANSLATORS: The first argument here is the date of when the podcast was last updated followed by
 #. the podcast description.
-#: ../app/ui/SearchPage.qml:314
+#: ../app/ui/SearchPage.qml:313
 #, qt-format
 msgid ""
 "Last Updated: %1\n"
 "%2"
 msgstr ""
 
-#: ../app/ui/SearchPage.qml:371
+#: ../app/ui/SearchPage.qml:370
 msgid "Not Available"
 msgstr ""
 
 #. TRANSLATORS: This strings refers to the seeking of the episode playback. Users can set how far they
 #. want to seek forward when pressing on this button.
-#: ../app/ui/SettingsPage.qml:63 ../app/ui/SettingsPage.qml:169
+#: ../app/ui/SettingsPage.qml:65 ../app/ui/SettingsPage.qml:171
 msgid "Skip forward"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:70 ../app/ui/SettingsPage.qml:105
-#: ../app/ui/SettingsPage.qml:170 ../app/ui/SettingsPage.qml:177
+#: ../app/ui/SettingsPage.qml:72 ../app/ui/SettingsPage.qml:107
+#: ../app/ui/SettingsPage.qml:172 ../app/ui/SettingsPage.qml:179
 #, qt-format
 msgid "%1 seconds"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:75 ../app/ui/SettingsPage.qml:110
-msgid "Ok"
+#: ../app/ui/SettingsPage.qml:77 ../app/ui/SettingsPage.qml:112
+msgid "OK"
 msgstr ""
 
 #. TRANSLATORS: This strings refers to the seeking of the episode playback. Users can set how far they
 #. want to seek backward when pressing on this button.
-#: ../app/ui/SettingsPage.qml:98 ../app/ui/SettingsPage.qml:176
+#: ../app/ui/SettingsPage.qml:100 ../app/ui/SettingsPage.qml:178
 msgid "Skip back"
 msgstr ""
 
 #. TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
 #. that doesn't fit into any other category.
-#: ../app/ui/SettingsPage.qml:139
+#: ../app/ui/SettingsPage.qml:141
 msgid "General Settings"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:152
+#: ../app/ui/SettingsPage.qml:154
 msgid "Displays podcasts in a list view"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:164
+#: ../app/ui/SettingsPage.qml:166
 msgid "Playback Settings"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:182
+#: ../app/ui/SettingsPage.qml:184
 msgid "Podcast Episode Settings"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:188
+#: ../app/ui/SettingsPage.qml:190
 msgid "Automatically delete old episodes"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:190
+#: ../app/ui/SettingsPage.qml:192
 msgid ""
 "Delete episodes that are older than a given number of days for each podcast"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:202
+#: ../app/ui/SettingsPage.qml:204
 msgid "Automatically download new episodes"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:204
+#: ../app/ui/SettingsPage.qml:206
 msgid "Default number of new episodes to download for each podcast"
+msgstr ""
+
+#: ../app/ui/SettingsPage.qml:218
+msgid "Only download over wifi"
+msgstr ""
+
+#: ../app/ui/SettingsPage.qml:220
+msgid "Download episodes only when the device is using WiFi"
+msgstr ""
+
+#: ../app/ui/SettingsPage.qml:240
+msgid "Refresh podcast artwork"
+msgstr ""
+
+#: ../app/ui/SettingsPage.qml:225
+msgid "Update all podcasts artwork and fix missing ones"
+msgstr ""
+
+#: ../app/ui/SettingsPage.qml:271
+msgid "Storage Settings"
+msgstr ""
+
+#: ../app/ui/SettingsPage.qml:282
+msgid "Delete orphaned files and links"
+msgstr ""
+
+#: ../app/ui/SettingsPage.qml:284
+msgid "Free space by removing orphaned downloaded files and links"
+msgstr ""
+
+#: ../app/ui/SettingsPage.qml:297
+msgid "Removed orphaned files and links"
+msgstr ""
+
+#: ../app/ui/SettingsPage.qml:297
+msgid "No orphans found!"
+msgstr ""
+
+#: ../app/ui/SettingsPage.qml:315
+msgid ""
+"All orphaned files have been deleted to recover disk space. Orphaned links "
+"pointing at invalid files have also been cleaned up."
+msgstr ""
+
+#: ../app/ui/SettingsPage.qml:317
+msgid ""
+"No orphaned files have been found to recover disk space. Podbird database is "
+"clean."
 msgstr ""
 
 #. TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
 #. that doesn't fit into any other category.
-#: ../app/ui/SettingsPage.qml:216
+#: ../app/ui/SettingsPage.qml:332
 msgid "Misc."
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:232
+#: ../app/ui/SettingsPage.qml:348
 msgid "Report Bug"
 msgstr ""
 
@@ -550,8 +630,9 @@ msgstr ""
 
 #: ../app/welcomewizard/Slide5.qml:64
 msgid ""
-"Episodes can be swiped left to reveal more actions. You can also multi-"
-"select them by long-pressing on an episode."
+"Episodes can be swiped left to reveal more actions (or right click if you're "
+"using a mouse). You can also multi-select them by long-pressing on an "
+"episode."
 msgstr ""
 
 #: ../app/welcomewizard/Slide6.qml:45
@@ -578,11 +659,11 @@ msgstr ""
 msgid "Finish"
 msgstr ""
 
-#: /home/krnekhelesh/Development/devel-branch-sync-3-build/po/Podbird.desktop.in.h:1
+#: /home/krnekhelesh/Development/build-devel-branch-sync-5-UbuntuSDK_for_desktop_GCC_amd64_ubuntu_sdk_15_04-Default/po/Podbird.desktop.in.h:1
 msgid "The chirpiest podcast manager for Ubuntu"
 msgstr ""
 
-#: /home/krnekhelesh/Development/devel-branch-sync-3-build/po/Podbird.desktop.in.h:2
+#: /home/krnekhelesh/Development/build-devel-branch-sync-5-UbuntuSDK_for_desktop_GCC_amd64_ubuntu_sdk_15_04-Default/po/Podbird.desktop.in.h:2
 msgid ""
 "podcast;audio;itunes;broadcast;digital;stream;podcatcher;video;vodcast;"
 msgstr ""
