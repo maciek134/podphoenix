@@ -7,21 +7,21 @@ msgid ""
 msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-12-08 17:29+0000\n"
-"PO-Revision-Date: 2015-10-22 11:47+0000\n"
-"Last-Translator: Krzysztof Tataradziński <Unknown>\n"
+"POT-Creation-Date: 2016-12-12 14:55+0000\n"
+"PO-Revision-Date: 2016-12-12 09:08+0000\n"
+"Last-Translator: Piotr Strębski <strebski@o2.pl>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Launchpad-Export-Date: 2016-12-12 05:24+0000\n"
-"X-Generator: Launchpad (build 18292)\n"
+"X-Launchpad-Export-Date: 2016-12-13 05:51+0000\n"
+"X-Generator: Launchpad (build 18293)\n"
 
 #: ../app/components/TabsList.qml:28 ../app/ui/EpisodesTab.qml:48
 msgid "Episodes"
-msgstr ""
+msgstr "Odcinki"
 
 #: ../app/components/TabsList.qml:37 ../app/ui/SearchPage.qml:41
 msgid "Add New Podcasts"
@@ -177,33 +177,34 @@ msgstr "Zrezygnuj z subskrypcji"
 #, qt-format
 msgid "%1 item selected"
 msgid_plural "%1 items selected"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Zaznaczono %1 element"
+msgstr[1] "Zaznaczono %1 elementy"
+msgstr[2] "Zaznaczono %1 elementów"
 
 #: ../app/ui/EpisodesPage.qml:125 ../app/ui/EpisodesTab.qml:143
 #: ../app/ui/NowPlayingPage.qml:42
 msgid "Back"
-msgstr ""
+msgstr "Wstecz"
 
 #: ../app/ui/EpisodesPage.qml:137 ../app/ui/EpisodesTab.qml:155
 msgid "Mark Listened"
-msgstr ""
+msgstr "Oznacz przesłuchane"
 
 #: ../app/ui/EpisodesPage.qml:156 ../app/ui/EpisodesTab.qml:173
 msgid "Download episode(s)"
-msgstr ""
+msgstr "Pobierz odcinek(-ki)"
 
 #: ../app/ui/EpisodesPage.qml:184 ../app/ui/EpisodesTab.qml:201
 msgid "Delete episode(s)"
-msgstr ""
+msgstr "Usuń odcinek(-ki)"
 
 #: ../app/ui/EpisodesPage.qml:207 ../app/ui/EpisodesTab.qml:224
 msgid "Favourite episode(s)"
-msgstr ""
+msgstr "Ulubiony odcinek(-ki)"
 
 #: ../app/ui/EpisodesPage.qml:229 ../app/ui/EpisodesTab.qml:270
 msgid "Add to queue"
-msgstr ""
+msgstr "Dodaj do kolejki"
 
 #: ../app/ui/EpisodesPage.qml:258 ../app/ui/EpisodesTab.qml:120
 msgid "Search episode"
@@ -253,56 +254,56 @@ msgid "Downloaded"
 msgstr "Pobrano"
 
 #: ../app/ui/EpisodesPage.qml:605
-msgid "Make as unheard"
+msgid "Mark as unheard"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:605
 msgid "Mark as listened"
-msgstr ""
+msgstr "Oznacz jako przesłuchane"
 
 #: ../app/ui/EpisodesPage.qml:621
 msgid "Delete downloaded file"
-msgstr ""
+msgstr "Usuń pobrany plik"
 
 #: ../app/ui/EpisodesPage.qml:621
 msgid "Queued"
-msgstr ""
+msgstr "W kolejce"
 
 #: ../app/ui/EpisodesPage.qml:621
 msgid "Download"
-msgstr ""
+msgstr "Pobierz"
 
 #: ../app/ui/EpisodesPage.qml:646
 msgid "Add to playlist"
-msgstr ""
+msgstr "Dodaj do listy odtwarzania"
 
 #: ../app/ui/EpisodesPage.qml:655
 msgid "Unfavourite"
-msgstr ""
+msgstr "Odznacz jako ulubione"
 
 #: ../app/ui/EpisodesPage.qml:655
 msgid "Favourite"
-msgstr ""
+msgstr "Ulubione"
 
 #: ../app/ui/EpisodesPage.qml:670
 msgid "Show episode description"
-msgstr ""
+msgstr "Wyświetl opis odcinka"
 
 #: ../app/ui/EpisodesTab.qml:82
 msgid "Recent"
-msgstr ""
+msgstr "Ostatnie"
 
 #: ../app/ui/EpisodesTab.qml:82
 msgid "Downloads"
-msgstr ""
+msgstr "Pobrane"
 
 #: ../app/ui/EpisodesTab.qml:82
 msgid "Favourites"
-msgstr ""
+msgstr "Ulubione"
 
 #: ../app/ui/EpisodesTab.qml:247
 msgid "Unfavourite episode(s)"
-msgstr ""
+msgstr "Odznacz jako ulubiony odcinek(-ki)"
 
 #: ../app/ui/EpisodesTab.qml:310
 msgid "No New Episodes"
@@ -310,11 +311,11 @@ msgstr "Brak nowych odcinków"
 
 #: ../app/ui/EpisodesTab.qml:312
 msgid "No Downloaded Episodes"
-msgstr ""
+msgstr "Brak pobranych odcinków"
 
 #: ../app/ui/EpisodesTab.qml:314
 msgid "No Favourited Episodes"
-msgstr ""
+msgstr "Brak ulubionych odcinków"
 
 #: ../app/ui/EpisodesTab.qml:316
 msgid "No Episodes Found"
@@ -326,11 +327,11 @@ msgstr "Brak więcej odcinków do odsłuchania!"
 
 #: ../app/ui/EpisodesTab.qml:324
 msgid "No episodes have been downloaded for offline listening"
-msgstr ""
+msgstr "Nie pobrano żadnego odcinka do słuchania w trybie offline"
 
 #: ../app/ui/EpisodesTab.qml:326
 msgid "No episodes have been favourited."
-msgstr ""
+msgstr "Żaden odcinek nie został oznaczony jako ulubiony."
 
 #: ../app/ui/EpisodesTab.qml:328
 msgid "No Episodes found matching the search term."
@@ -338,11 +339,11 @@ msgstr "Nie znaleziono odcinków spełniających kryteria wyszukiwania"
 
 #: ../app/ui/EpisodesTab.qml:457
 msgid "Downloads in progress"
-msgstr ""
+msgstr "Pobieranie w toku"
 
 #: ../app/ui/EpisodesTab.qml:497
 msgid "Downloaded episodes"
-msgstr ""
+msgstr "Pobrane odcinki"
 
 #: ../app/ui/EpisodesTab.qml:507
 msgid "Today"
@@ -374,11 +375,11 @@ msgstr "Teraz odtwarzany"
 
 #: ../app/ui/NowPlayingPage.qml:73
 msgid "Full view"
-msgstr ""
+msgstr "Pełny widok"
 
 #: ../app/ui/NowPlayingPage.qml:73
 msgid "Queue"
-msgstr ""
+msgstr "Kolejka"
 
 #: ../app/ui/PodcastsTab.qml:57 ../app/ui/SearchPage.qml:55
 #: ../app/ui/SearchPage.qml:161
@@ -402,6 +403,8 @@ msgid ""
 "You haven't subscribed to any podcasts yet, visit the 'Add New Podcasts' "
 "page to add some."
 msgstr ""
+"Nie subskrybujesz jeszcze żadnych podcastów; odwiedź stronę \"Dodaj nowy "
+"podcast\", aby dodać trochę."
 
 #: ../app/ui/PodcastsTab.qml:129 ../app/ui/SearchPage.qml:209
 msgid "No podcasts found matching the search term."
@@ -437,7 +440,7 @@ msgstr "Sprawdź URL i spróbuj ponownie"
 
 #: ../app/ui/SearchPage.qml:207
 msgid "Looking to add a new podcast?"
-msgstr ""
+msgstr "Chcesz dodać nowy podcast?"
 
 #: ../app/ui/SearchPage.qml:208
 msgid ""
@@ -478,7 +481,7 @@ msgstr "%1 sekund"
 
 #: ../app/ui/SettingsPage.qml:77 ../app/ui/SettingsPage.qml:112
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #. TRANSLATORS: This strings refers to the seeking of the episode playback. Users can set how far they
 #. want to seek backward when pressing on this button.
@@ -494,7 +497,7 @@ msgstr "Ustawienia ogólne"
 
 #: ../app/ui/SettingsPage.qml:154
 msgid "Displays podcasts in a list view"
-msgstr ""
+msgstr "Wyświetla podcasty w widoku listy"
 
 #: ../app/ui/SettingsPage.qml:166
 msgid "Playback Settings"
@@ -522,52 +525,57 @@ msgid "Default number of new episodes to download for each podcast"
 msgstr "Domyślna liczba nowych odcinków do pobrania dla każdego podcastu"
 
 #: ../app/ui/SettingsPage.qml:218
-msgid "Only download over wifi"
+msgid "Only download over WiFi"
 msgstr ""
 
 #: ../app/ui/SettingsPage.qml:220
 msgid "Download episodes only when the device is using WiFi"
-msgstr ""
+msgstr "Pobieraj odcinki tylko wtedy, gdy urządzenie korzysta z Wi-Fi"
 
 #: ../app/ui/SettingsPage.qml:240
 msgid "Refresh podcast artwork"
-msgstr ""
+msgstr "Odśwież okładkę podcastu"
 
-#: ../app/ui/SettingsPage.qml:225
+#: ../app/ui/SettingsPage.qml:242
 msgid "Update all podcasts artwork and fix missing ones"
-msgstr ""
+msgstr "Zaktualizuj wszystkie okładki podcastów i napraw brakujące"
 
 #: ../app/ui/SettingsPage.qml:271
 msgid "Storage Settings"
-msgstr ""
+msgstr "Ustawienia zapisywania"
 
 #: ../app/ui/SettingsPage.qml:282
 msgid "Delete orphaned files and links"
-msgstr ""
+msgstr "Usuń osierocone pliki i odnośniki"
 
 #: ../app/ui/SettingsPage.qml:284
 msgid "Free space by removing orphaned downloaded files and links"
-msgstr ""
+msgstr "Zwolnij miejsce usuwając osierocone pobrane pliki i odnośniki"
 
-#: ../app/ui/SettingsPage.qml:297
+#: ../app/ui/SettingsPage.qml:314
 msgid "Removed orphaned files and links"
-msgstr ""
+msgstr "Usunięto osierocone pliki i odnośniki"
 
-#: ../app/ui/SettingsPage.qml:297
+#: ../app/ui/SettingsPage.qml:314
 msgid "No orphans found!"
-msgstr ""
+msgstr "Nie odnaleziono żadnych sierot!"
 
 #: ../app/ui/SettingsPage.qml:315
 msgid ""
 "All orphaned files have been deleted to recover disk space. Orphaned links "
 "pointing at invalid files have also been cleaned up."
 msgstr ""
+"Wszystkie osierocone pliki zostały usunięte w celu odzyskania miejsca na "
+"dysku. Osierocone odnośniki wskazujące na nieprawidłowe pliki zostały "
+"również wyczyszczone."
 
 #: ../app/ui/SettingsPage.qml:317
 msgid ""
 "No orphaned files have been found to recover disk space. Podbird database is "
 "clean."
 msgstr ""
+"Nie odnaleziono osieroconych plików w celu odzyskania miejsca na dysku. Baza "
+"danych Podbird jest czysta."
 
 #. TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
 #. that doesn't fit into any other category.
@@ -641,7 +649,7 @@ msgstr ""
 
 #: ../app/welcomewizard/Slide5.qml:45
 msgid "Touch Gestures"
-msgstr ""
+msgstr "Gesty dotyku"
 
 #: ../app/welcomewizard/Slide5.qml:64
 msgid ""
@@ -649,6 +657,9 @@ msgid ""
 "using a mouse). You can also multi-select them by long-pressing on an "
 "episode."
 msgstr ""
+"Odcinki można przeciągać w lewo, aby odsłonić więcej działań (lub kliknij "
+"prawym przyciskiem, jeśli używasz myszy). Można również wybrać wiele "
+"odcinków długo naciskając na jednym z nich."
 
 #: ../app/welcomewizard/Slide6.qml:45
 msgid "Support"
@@ -676,29 +687,13 @@ msgstr "Mamy nadzieje, że Podbird przypadnie ci do gustu!"
 msgid "Finish"
 msgstr "Koniec"
 
-#: /home/krnekhelesh/Development/build-devel-branch-sync-5-UbuntuSDK_for_desktop_GCC_amd64_ubuntu_sdk_15_04-Default/po/Podbird.desktop.in.h:1
+#: /home/mike/src/podbird/podbird/po/Podbird.desktop.in.h:1
 msgid "The chirpiest podcast manager for Ubuntu"
 msgstr "Rozćwierkany menadżer podcastów na Ubuntu"
 
-#: /home/krnekhelesh/Development/build-devel-branch-sync-5-UbuntuSDK_for_desktop_GCC_amd64_ubuntu_sdk_15_04-Default/po/Podbird.desktop.in.h:2
+#: /home/mike/src/podbird/podbird/po/Podbird.desktop.in.h:2
 msgid ""
 "podcast;audio;itunes;broadcast;digital;stream;podcatcher;video;vodcast;"
 msgstr ""
 "podcast;dźwięk;itunes;nadawanie;cyfrowe;strumieniowanie;podcatcher;wideo;vodc"
 "ast;"
-
-#~ msgid ""
-#~ "You haven't subscribed to any podcasts yet, visit the 'Find New Podcasts' "
-#~ "page to add some."
-#~ msgstr ""
-#~ "Nie zostały zasubskrybowane żadne podcasty. Otwórz stronę \"Znajdź nowe "
-#~ "Podcasty\", by jakieś dodać."
-
-#~ msgid "No Podcasts found"
-#~ msgstr "Nie znaleziono podcastów"
-
-#~ msgid "Looking to add a new Podcast?"
-#~ msgstr "Chciałbyś dodać nowy podcast?"
-
-#~ msgid "Ok"
-#~ msgstr "Ok"

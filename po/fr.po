@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-12-08 17:29+0000\n"
-"PO-Revision-Date: 2016-04-03 17:19+0000\n"
-"Last-Translator: Anne017 <anneonyme017@openmailbox.org>\n"
+"POT-Creation-Date: 2016-12-12 14:55+0000\n"
+"PO-Revision-Date: 2016-12-12 17:52+0000\n"
+"Last-Translator: cm-t arudy <arudy@singularity.fr>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Launchpad-Export-Date: 2016-12-12 05:24+0000\n"
-"X-Generator: Launchpad (build 18292)\n"
+"X-Launchpad-Export-Date: 2016-12-13 05:51+0000\n"
+"X-Generator: Launchpad (build 18293)\n"
 
 #: ../app/components/TabsList.qml:28 ../app/ui/EpisodesTab.qml:48
 msgid "Episodes"
@@ -248,40 +248,40 @@ msgid "Downloaded"
 msgstr "Téléchargés"
 
 #: ../app/ui/EpisodesPage.qml:605
-msgid "Make as unheard"
-msgstr ""
+msgid "Mark as unheard"
+msgstr "Marquer comme non écouté"
 
 #: ../app/ui/EpisodesPage.qml:605
 msgid "Mark as listened"
-msgstr ""
+msgstr "Marquer comme écouté"
 
 #: ../app/ui/EpisodesPage.qml:621
 msgid "Delete downloaded file"
-msgstr ""
+msgstr "Supprimer le fichier téléchargé"
 
 #: ../app/ui/EpisodesPage.qml:621
 msgid "Queued"
-msgstr ""
+msgstr "Mis en file d'attente"
 
 #: ../app/ui/EpisodesPage.qml:621
 msgid "Download"
-msgstr ""
+msgstr "Télécharger"
 
 #: ../app/ui/EpisodesPage.qml:646
 msgid "Add to playlist"
-msgstr ""
+msgstr "Ajouter à la liste de lecture"
 
 #: ../app/ui/EpisodesPage.qml:655
 msgid "Unfavourite"
-msgstr ""
+msgstr "Enlever des favoris"
 
 #: ../app/ui/EpisodesPage.qml:655
 msgid "Favourite"
-msgstr ""
+msgstr "Favoris"
 
 #: ../app/ui/EpisodesPage.qml:670
 msgid "Show episode description"
-msgstr ""
+msgstr "Afficher la description de l'épisode"
 
 #: ../app/ui/EpisodesTab.qml:82
 msgid "Recent"
@@ -397,6 +397,8 @@ msgid ""
 "You haven't subscribed to any podcasts yet, visit the 'Add New Podcasts' "
 "page to add some."
 msgstr ""
+"Vous ne vous êtes pas encore abonné à des podcasts, visitez la page "
+"« Ajouter de nouveaux podcasts » pour en ajouter."
 
 #: ../app/ui/PodcastsTab.qml:129 ../app/ui/SearchPage.qml:209
 msgid "No podcasts found matching the search term."
@@ -431,7 +433,7 @@ msgstr "Veuillez vérifier l'URL et réessayer"
 
 #: ../app/ui/SearchPage.qml:207
 msgid "Looking to add a new podcast?"
-msgstr ""
+msgstr "À la recherche de nouveaux podcasts ?"
 
 #: ../app/ui/SearchPage.qml:208
 msgid ""
@@ -473,7 +475,7 @@ msgstr "%1 secondes"
 
 #: ../app/ui/SettingsPage.qml:77 ../app/ui/SettingsPage.qml:112
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #. TRANSLATORS: This strings refers to the seeking of the episode playback. Users can set how far they
 #. want to seek backward when pressing on this button.
@@ -520,52 +522,59 @@ msgstr ""
 "Nombre par défaut de nouveaux épisodes à télécharger pour chaque podcast"
 
 #: ../app/ui/SettingsPage.qml:218
-msgid "Only download over wifi"
-msgstr ""
+msgid "Only download over WiFi"
+msgstr "Télécharger uniquement via Wi-Fi"
 
 #: ../app/ui/SettingsPage.qml:220
 msgid "Download episodes only when the device is using WiFi"
 msgstr ""
+"Télécharger les épisodes seulement lorsque l'appareil est connecté au Wi-Fi"
 
 #: ../app/ui/SettingsPage.qml:240
 msgid "Refresh podcast artwork"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:225
+#: ../app/ui/SettingsPage.qml:242
 msgid "Update all podcasts artwork and fix missing ones"
 msgstr ""
 
 #: ../app/ui/SettingsPage.qml:271
 msgid "Storage Settings"
-msgstr ""
+msgstr "Paramètres de stockage"
 
 #: ../app/ui/SettingsPage.qml:282
 msgid "Delete orphaned files and links"
-msgstr ""
+msgstr "Supprimer les fichiers et liens orphelins"
 
 #: ../app/ui/SettingsPage.qml:284
 msgid "Free space by removing orphaned downloaded files and links"
 msgstr ""
+"Liberer de l'espace en supprimant les fichiers téléchargés et les liens"
 
-#: ../app/ui/SettingsPage.qml:297
+#: ../app/ui/SettingsPage.qml:314
 msgid "Removed orphaned files and links"
-msgstr ""
+msgstr "Fichiers orphelins et liens supprimés"
 
-#: ../app/ui/SettingsPage.qml:297
+#: ../app/ui/SettingsPage.qml:314
 msgid "No orphans found!"
-msgstr ""
+msgstr "Aucun orphelin trouvé !"
 
 #: ../app/ui/SettingsPage.qml:315
 msgid ""
 "All orphaned files have been deleted to recover disk space. Orphaned links "
 "pointing at invalid files have also been cleaned up."
 msgstr ""
+"Tous les fichiers orphelins ont été supprimés afin de récupérer de l'espace "
+"disque. Les liens orphelins pointant sur des fichiers non valides ont aussi "
+"été nettoyés."
 
 #: ../app/ui/SettingsPage.qml:317
 msgid ""
 "No orphaned files have been found to recover disk space. Podbird database is "
 "clean."
 msgstr ""
+"Aucun fichier orphelin trouvé pour récupérer de l'espace disque. La base de "
+"données de Podbird est saine."
 
 #. TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
 #. that doesn't fit into any other category.
@@ -648,6 +657,9 @@ msgid ""
 "using a mouse). You can also multi-select them by long-pressing on an "
 "episode."
 msgstr ""
+"Les épisodes peuvent être glissés afin de révéler plus d'actions (ou par "
+"clic droit si vous utilisez une souris). Vous pouvez aussi faire une "
+"sélection multiple en effectuant une pression longue sur un épisode."
 
 #: ../app/welcomewizard/Slide6.qml:45
 msgid "Support"
@@ -675,37 +687,13 @@ msgstr "Nous espérons que vous apprécierez l'utilisation de Podbird !"
 msgid "Finish"
 msgstr "Terminer"
 
-#: /home/krnekhelesh/Development/build-devel-branch-sync-5-UbuntuSDK_for_desktop_GCC_amd64_ubuntu_sdk_15_04-Default/po/Podbird.desktop.in.h:1
+#: /home/mike/src/podbird/podbird/po/Podbird.desktop.in.h:1
 msgid "The chirpiest podcast manager for Ubuntu"
 msgstr "Le gestionnaire de podcasts le plus gai pour Ubuntu"
 
-#: /home/krnekhelesh/Development/build-devel-branch-sync-5-UbuntuSDK_for_desktop_GCC_amd64_ubuntu_sdk_15_04-Default/po/Podbird.desktop.in.h:2
+#: /home/mike/src/podbird/podbird/po/Podbird.desktop.in.h:2
 msgid ""
 "podcast;audio;itunes;broadcast;digital;stream;podcatcher;video;vodcast;"
 msgstr ""
 "podcast;baladodiffusion;audio;itunes;émission;numérique;flux;podcatcher;vidéo"
 ";vodcast;"
-
-#~ msgid ""
-#~ "You haven't subscribed to any podcasts yet, visit the 'Find New Podcasts' "
-#~ "page to add some."
-#~ msgstr ""
-#~ "Vous ne vous êtes pas encore abonné à un podcast, parcourez la page "
-#~ "« Trouver de nouveaux podcasts » pour en ajouter."
-
-#~ msgid "No Podcasts found"
-#~ msgstr "Aucun podcast trouvé"
-
-#~ msgid "Looking to add a new Podcast?"
-#~ msgstr "Vous cherchez à ajouter un nouveau podcast ?"
-
-#~ msgid "Ok"
-#~ msgstr "OK"
-
-#~ msgid ""
-#~ "Episodes can be swiped left to reveal more actions. You can also multi-"
-#~ "select them by long-pressing on an episode."
-#~ msgstr ""
-#~ "Il est possible de faire glisser les épisodes à gauche pour afficher plus "
-#~ "d'actions. Vous pouvez également en faire une sélection multiple en "
-#~ "réalisant un maintien long sur un épisode."

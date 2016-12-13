@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-12-08 17:29+0000\n"
+"POT-Creation-Date: 2016-12-12 14:55+0000\n"
 "PO-Revision-Date: 2015-04-21 13:50+0000\n"
 "Last-Translator: Sasa Batistic <Unknown>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
@@ -16,8 +16,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || "
 "n%100==4 ? 3 : 0);\n"
-"X-Launchpad-Export-Date: 2016-12-12 05:24+0000\n"
-"X-Generator: Launchpad (build 18292)\n"
+"X-Launchpad-Export-Date: 2016-12-13 05:51+0000\n"
+"X-Generator: Launchpad (build 18293)\n"
 
 #: ../app/components/TabsList.qml:28 ../app/ui/EpisodesTab.qml:48
 msgid "Episodes"
@@ -249,7 +249,7 @@ msgid "Downloaded"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:605
-msgid "Make as unheard"
+msgid "Mark as unheard"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:605
@@ -516,7 +516,7 @@ msgid "Default number of new episodes to download for each podcast"
 msgstr ""
 
 #: ../app/ui/SettingsPage.qml:218
-msgid "Only download over wifi"
+msgid "Only download over WiFi"
 msgstr ""
 
 #: ../app/ui/SettingsPage.qml:220
@@ -527,7 +527,7 @@ msgstr ""
 msgid "Refresh podcast artwork"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:225
+#: ../app/ui/SettingsPage.qml:242
 msgid "Update all podcasts artwork and fix missing ones"
 msgstr ""
 
@@ -543,11 +543,11 @@ msgstr ""
 msgid "Free space by removing orphaned downloaded files and links"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:297
+#: ../app/ui/SettingsPage.qml:314
 msgid "Removed orphaned files and links"
 msgstr ""
 
-#: ../app/ui/SettingsPage.qml:297
+#: ../app/ui/SettingsPage.qml:314
 msgid "No orphans found!"
 msgstr ""
 
@@ -658,18 +658,11 @@ msgstr ""
 msgid "Finish"
 msgstr ""
 
-#: /home/krnekhelesh/Development/build-devel-branch-sync-5-UbuntuSDK_for_desktop_GCC_amd64_ubuntu_sdk_15_04-Default/po/Podbird.desktop.in.h:1
+#: /home/mike/src/podbird/podbird/po/Podbird.desktop.in.h:1
 msgid "The chirpiest podcast manager for Ubuntu"
 msgstr ""
 
-#: /home/krnekhelesh/Development/build-devel-branch-sync-5-UbuntuSDK_for_desktop_GCC_amd64_ubuntu_sdk_15_04-Default/po/Podbird.desktop.in.h:2
+#: /home/mike/src/podbird/podbird/po/Podbird.desktop.in.h:2
 msgid ""
 "podcast;audio;itunes;broadcast;digital;stream;podcatcher;video;vodcast;"
 msgstr ""
-
-#~ msgid ""
-#~ "You haven't subscribed to any podcasts yet, visit the 'Find New Podcasts' "
-#~ "page to add some."
-#~ msgstr ""
-#~ "Niste se še naročili na nobeno poddajo, obiščite stran 'Najdi nove poddaje' "
-#~ "za dodanje novih."

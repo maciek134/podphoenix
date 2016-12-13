@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-12-08 17:29+0000\n"
-"PO-Revision-Date: 2015-09-14 11:13+0000\n"
+"POT-Creation-Date: 2016-12-12 14:55+0000\n"
+"PO-Revision-Date: 2016-12-12 06:51+0000\n"
 "Last-Translator: Yuri Chornoivan <yurchor@gmail.com>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -16,12 +16,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Launchpad-Export-Date: 2016-12-12 05:24+0000\n"
-"X-Generator: Launchpad (build 18292)\n"
+"X-Launchpad-Export-Date: 2016-12-13 05:51+0000\n"
+"X-Generator: Launchpad (build 18293)\n"
 
 #: ../app/components/TabsList.qml:28 ../app/ui/EpisodesTab.qml:48
 msgid "Episodes"
-msgstr ""
+msgstr "Серії"
 
 #: ../app/components/TabsList.qml:37 ../app/ui/SearchPage.qml:41
 msgid "Add New Podcasts"
@@ -177,33 +177,34 @@ msgstr "Відписатися"
 #, qt-format
 msgid "%1 item selected"
 msgid_plural "%1 items selected"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Позначено %1 об’єкт"
+msgstr[1] "Позначено %1 об’єкти"
+msgstr[2] "Позначено %1 об’єктів"
 
 #: ../app/ui/EpisodesPage.qml:125 ../app/ui/EpisodesTab.qml:143
 #: ../app/ui/NowPlayingPage.qml:42
 msgid "Back"
-msgstr ""
+msgstr "Назад"
 
 #: ../app/ui/EpisodesPage.qml:137 ../app/ui/EpisodesTab.qml:155
 msgid "Mark Listened"
-msgstr ""
+msgstr "Позначити як прослуханий"
 
 #: ../app/ui/EpisodesPage.qml:156 ../app/ui/EpisodesTab.qml:173
 msgid "Download episode(s)"
-msgstr ""
+msgstr "Отримати серії"
 
 #: ../app/ui/EpisodesPage.qml:184 ../app/ui/EpisodesTab.qml:201
 msgid "Delete episode(s)"
-msgstr ""
+msgstr "Вилучити серії"
 
 #: ../app/ui/EpisodesPage.qml:207 ../app/ui/EpisodesTab.qml:224
 msgid "Favourite episode(s)"
-msgstr ""
+msgstr "Вибрати серії"
 
 #: ../app/ui/EpisodesPage.qml:229 ../app/ui/EpisodesTab.qml:270
 msgid "Add to queue"
-msgstr ""
+msgstr "Додати до черги відтворення"
 
 #: ../app/ui/EpisodesPage.qml:258 ../app/ui/EpisodesTab.qml:120
 msgid "Search episode"
@@ -253,56 +254,56 @@ msgid "Downloaded"
 msgstr "Отримано"
 
 #: ../app/ui/EpisodesPage.qml:605
-msgid "Make as unheard"
+msgid "Mark as unheard"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:605
 msgid "Mark as listened"
-msgstr ""
+msgstr "Позначити як прослухані"
 
 #: ../app/ui/EpisodesPage.qml:621
 msgid "Delete downloaded file"
-msgstr ""
+msgstr "Вилучити отриманий файл"
 
 #: ../app/ui/EpisodesPage.qml:621
 msgid "Queued"
-msgstr ""
+msgstr "Поставлено до черги"
 
 #: ../app/ui/EpisodesPage.qml:621
 msgid "Download"
-msgstr ""
+msgstr "Отримати"
 
 #: ../app/ui/EpisodesPage.qml:646
 msgid "Add to playlist"
-msgstr ""
+msgstr "Додати до списку відтворення"
 
 #: ../app/ui/EpisodesPage.qml:655
 msgid "Unfavourite"
-msgstr ""
+msgstr "Вилучити з вибраних"
 
 #: ../app/ui/EpisodesPage.qml:655
 msgid "Favourite"
-msgstr ""
+msgstr "Додати до вибраних"
 
 #: ../app/ui/EpisodesPage.qml:670
 msgid "Show episode description"
-msgstr ""
+msgstr "Показати опис серії"
 
 #: ../app/ui/EpisodesTab.qml:82
 msgid "Recent"
-msgstr ""
+msgstr "Нещодавні"
 
 #: ../app/ui/EpisodesTab.qml:82
 msgid "Downloads"
-msgstr ""
+msgstr "Отримані"
 
 #: ../app/ui/EpisodesTab.qml:82
 msgid "Favourites"
-msgstr ""
+msgstr "Вибрані"
 
 #: ../app/ui/EpisodesTab.qml:247
 msgid "Unfavourite episode(s)"
-msgstr ""
+msgstr "Вилучити серію з вибраних"
 
 #: ../app/ui/EpisodesTab.qml:310
 msgid "No New Episodes"
@@ -310,11 +311,11 @@ msgstr "Немає нових епізодів"
 
 #: ../app/ui/EpisodesTab.qml:312
 msgid "No Downloaded Episodes"
-msgstr ""
+msgstr "Немає отриманих серій"
 
 #: ../app/ui/EpisodesTab.qml:314
 msgid "No Favourited Episodes"
-msgstr ""
+msgstr "Немає вибраних серій"
 
 #: ../app/ui/EpisodesTab.qml:316
 msgid "No Episodes Found"
@@ -326,11 +327,11 @@ msgstr "Більше немає епізодів для прослуховува
 
 #: ../app/ui/EpisodesTab.qml:324
 msgid "No episodes have been downloaded for offline listening"
-msgstr ""
+msgstr "Для прослуховування поза мережею не було отримано жодної серії"
 
 #: ../app/ui/EpisodesTab.qml:326
 msgid "No episodes have been favourited."
-msgstr ""
+msgstr "Жодну серію не було вибрано."
 
 #: ../app/ui/EpisodesTab.qml:328
 msgid "No Episodes found matching the search term."
@@ -338,11 +339,11 @@ msgstr "Критеріям пошуку не відповідає жоден е�
 
 #: ../app/ui/EpisodesTab.qml:457
 msgid "Downloads in progress"
-msgstr ""
+msgstr "Триває отримання"
 
 #: ../app/ui/EpisodesTab.qml:497
 msgid "Downloaded episodes"
-msgstr ""
+msgstr "Отримані серії"
 
 #: ../app/ui/EpisodesTab.qml:507
 msgid "Today"
@@ -374,11 +375,11 @@ msgstr "Зараз відтворюєтья"
 
 #: ../app/ui/NowPlayingPage.qml:73
 msgid "Full view"
-msgstr ""
+msgstr "Повний перегляд"
 
 #: ../app/ui/NowPlayingPage.qml:73
 msgid "Queue"
-msgstr ""
+msgstr "Черга"
 
 #: ../app/ui/PodcastsTab.qml:57 ../app/ui/SearchPage.qml:55
 #: ../app/ui/SearchPage.qml:161
@@ -402,6 +403,8 @@ msgid ""
 "You haven't subscribed to any podcasts yet, visit the 'Add New Podcasts' "
 "page to add some."
 msgstr ""
+"Ви ще не підписалися на жодну трансляцію. Відвідайте сторінку «Додати нову "
+"трансляцію» і додайте щось."
 
 #: ../app/ui/PodcastsTab.qml:129 ../app/ui/SearchPage.qml:209
 msgid "No podcasts found matching the search term."
@@ -437,7 +440,7 @@ msgstr "Будь ласка, перевірте адресу і повторіт
 
 #: ../app/ui/SearchPage.qml:207
 msgid "Looking to add a new podcast?"
-msgstr ""
+msgstr "Хочете додати нову трансляцію?"
 
 #: ../app/ui/SearchPage.qml:208
 msgid ""
@@ -479,7 +482,7 @@ msgstr "%1 сек."
 
 #: ../app/ui/SettingsPage.qml:77 ../app/ui/SettingsPage.qml:112
 msgid "OK"
-msgstr ""
+msgstr "Гаразд"
 
 #. TRANSLATORS: This strings refers to the seeking of the episode playback. Users can set how far they
 #. want to seek backward when pressing on this button.
@@ -495,7 +498,7 @@ msgstr "Загальні параметри"
 
 #: ../app/ui/SettingsPage.qml:154
 msgid "Displays podcasts in a list view"
-msgstr ""
+msgstr "Показує список трансляцій"
 
 #: ../app/ui/SettingsPage.qml:166
 msgid "Playback Settings"
@@ -524,52 +527,56 @@ msgid "Default number of new episodes to download for each podcast"
 msgstr "Типова кількість нових епізодів для отримання для кожної трансляції"
 
 #: ../app/ui/SettingsPage.qml:218
-msgid "Only download over wifi"
+msgid "Only download over WiFi"
 msgstr ""
 
 #: ../app/ui/SettingsPage.qml:220
 msgid "Download episodes only when the device is using WiFi"
-msgstr ""
+msgstr "Отримувати серії, лише якщо пристрій використовує WiFi"
 
 #: ../app/ui/SettingsPage.qml:240
 msgid "Refresh podcast artwork"
-msgstr ""
+msgstr "Оновити зображення трансляції"
 
-#: ../app/ui/SettingsPage.qml:225
+#: ../app/ui/SettingsPage.qml:242
 msgid "Update all podcasts artwork and fix missing ones"
-msgstr ""
+msgstr "Оновити зображення усіх трансляцій і додати пропущені"
 
 #: ../app/ui/SettingsPage.qml:271
 msgid "Storage Settings"
-msgstr ""
+msgstr "Параметри зберігання"
 
 #: ../app/ui/SettingsPage.qml:282
 msgid "Delete orphaned files and links"
-msgstr ""
+msgstr "Вилучити осиротілі файли і посилання"
 
 #: ../app/ui/SettingsPage.qml:284
 msgid "Free space by removing orphaned downloaded files and links"
-msgstr ""
+msgstr "Вивільнити місце вилученням осиротілих отриманих файлів і посилань"
 
-#: ../app/ui/SettingsPage.qml:297
+#: ../app/ui/SettingsPage.qml:314
 msgid "Removed orphaned files and links"
-msgstr ""
+msgstr "Вилучено осиротілі файли і посилання"
 
-#: ../app/ui/SettingsPage.qml:297
+#: ../app/ui/SettingsPage.qml:314
 msgid "No orphans found!"
-msgstr ""
+msgstr "Осиротілих об’єктів не знайдено!"
 
 #: ../app/ui/SettingsPage.qml:315
 msgid ""
 "All orphaned files have been deleted to recover disk space. Orphaned links "
 "pointing at invalid files have also been cleaned up."
 msgstr ""
+"Для вивільнення місця на диску було вилучено усі осиротілі файли. Осиротілі "
+"посилання, що вказують на некоректні файли, також було вилучено."
 
 #: ../app/ui/SettingsPage.qml:317
 msgid ""
 "No orphaned files have been found to recover disk space. Podbird database is "
 "clean."
 msgstr ""
+"Осиротілих файлів для вивільнення місця на диску не знайдено. База даних "
+"Podbird чиста."
 
 #. TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
 #. that doesn't fit into any other category.
@@ -642,7 +649,7 @@ msgstr ""
 
 #: ../app/welcomewizard/Slide5.qml:45
 msgid "Touch Gestures"
-msgstr ""
+msgstr "Сенсорні жести"
 
 #: ../app/welcomewizard/Slide5.qml:64
 msgid ""
@@ -650,6 +657,10 @@ msgid ""
 "using a mouse). You can also multi-select them by long-pressing on an "
 "episode."
 msgstr ""
+"Список серій можна перетягнути ліворуч для вивільнення додаткового простору "
+"дій (або можна клацнути правою кнопкою миші, якщо ви користуєтеся мишею). Ви "
+"також можете позначити декілька серій одразу тривалим натисканням пунктів "
+"серій."
 
 #: ../app/welcomewizard/Slide6.qml:45
 msgid "Support"
@@ -677,29 +688,13 @@ msgstr "Сподіваємося, вам сподобається Podbird!"
 msgid "Finish"
 msgstr "Завершити"
 
-#: /home/krnekhelesh/Development/build-devel-branch-sync-5-UbuntuSDK_for_desktop_GCC_amd64_ubuntu_sdk_15_04-Default/po/Podbird.desktop.in.h:1
+#: /home/mike/src/podbird/podbird/po/Podbird.desktop.in.h:1
 msgid "The chirpiest podcast manager for Ubuntu"
 msgstr "Найвеселіший засіб керування трансляціями для Ubuntu"
 
-#: /home/krnekhelesh/Development/build-devel-branch-sync-5-UbuntuSDK_for_desktop_GCC_amd64_ubuntu_sdk_15_04-Default/po/Podbird.desktop.in.h:2
+#: /home/mike/src/podbird/podbird/po/Podbird.desktop.in.h:2
 msgid ""
 "podcast;audio;itunes;broadcast;digital;stream;podcatcher;video;vodcast;"
 msgstr ""
 "podcast;audio;itunes;broadcast;digital;stream;podcatcher;video;vodcast;подкас"
 "т;трансляція;аудіо;звук;айтюнс;цифровий;потік;відео;водкаст;"
-
-#~ msgid ""
-#~ "You haven't subscribed to any podcasts yet, visit the 'Find New Podcasts' "
-#~ "page to add some."
-#~ msgstr ""
-#~ "Ви ще не підписалися на жодну трансляцію. Зверніться до сторінки «Пошук "
-#~ "нових трансляцій», щоб додати трансляції."
-
-#~ msgid "Looking to add a new Podcast?"
-#~ msgstr "Хочете додати нову трансляцію?"
-
-#~ msgid "No Podcasts found"
-#~ msgstr "Трансляцій не знайдено"
-
-#~ msgid "Ok"
-#~ msgstr "Гаразд"

@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-12-08 17:29+0000\n"
-"PO-Revision-Date: 2016-03-29 07:40+0000\n"
+"POT-Creation-Date: 2016-12-12 14:55+0000\n"
+"PO-Revision-Date: 2016-12-12 07:15+0000\n"
 "Last-Translator: Richard Somlói <ricsipontaz@gmail.com>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2016-12-12 05:24+0000\n"
-"X-Generator: Launchpad (build 18292)\n"
+"X-Launchpad-Export-Date: 2016-12-13 05:51+0000\n"
+"X-Generator: Launchpad (build 18293)\n"
 
 #: ../app/components/TabsList.qml:28 ../app/ui/EpisodesTab.qml:48
 msgid "Episodes"
@@ -248,40 +248,40 @@ msgid "Downloaded"
 msgstr "Letöltve"
 
 #: ../app/ui/EpisodesPage.qml:605
-msgid "Make as unheard"
+msgid "Mark as unheard"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:605
 msgid "Mark as listened"
-msgstr ""
+msgstr "Hallgatottnak jelölés"
 
 #: ../app/ui/EpisodesPage.qml:621
 msgid "Delete downloaded file"
-msgstr ""
+msgstr "Letöltött fájl törlése"
 
 #: ../app/ui/EpisodesPage.qml:621
 msgid "Queued"
-msgstr ""
+msgstr "Sorba állítva"
 
 #: ../app/ui/EpisodesPage.qml:621
 msgid "Download"
-msgstr ""
+msgstr "Letöltés"
 
 #: ../app/ui/EpisodesPage.qml:646
 msgid "Add to playlist"
-msgstr ""
+msgstr "Lejátszólistához"
 
 #: ../app/ui/EpisodesPage.qml:655
 msgid "Unfavourite"
-msgstr ""
+msgstr "Nem kedvenc"
 
 #: ../app/ui/EpisodesPage.qml:655
 msgid "Favourite"
-msgstr ""
+msgstr "Kedvenc"
 
 #: ../app/ui/EpisodesPage.qml:670
 msgid "Show episode description"
-msgstr ""
+msgstr "Részleírás megjelenítése"
 
 #: ../app/ui/EpisodesTab.qml:82
 msgid "Recent"
@@ -397,6 +397,8 @@ msgid ""
 "You haven't subscribed to any podcasts yet, visit the 'Add New Podcasts' "
 "page to add some."
 msgstr ""
+"Még nem iratkozott fel egyetlen podcast-re sem. Az „Új Podcast hozzáadása” "
+"oldalon adhat hozzá újakat."
 
 #: ../app/ui/PodcastsTab.qml:129 ../app/ui/SearchPage.qml:209
 msgid "No podcasts found matching the search term."
@@ -431,7 +433,7 @@ msgstr "Ellenőrizze az URL-t és próbálja újra"
 
 #: ../app/ui/SearchPage.qml:207
 msgid "Looking to add a new podcast?"
-msgstr ""
+msgstr "Új podcast-et szeretne hozzáadni?"
 
 #: ../app/ui/SearchPage.qml:208
 msgid ""
@@ -473,7 +475,7 @@ msgstr "%1 másodperc"
 
 #: ../app/ui/SettingsPage.qml:77 ../app/ui/SettingsPage.qml:112
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #. TRANSLATORS: This strings refers to the seeking of the episode playback. Users can set how far they
 #. want to seek backward when pressing on this button.
@@ -517,52 +519,54 @@ msgid "Default number of new episodes to download for each podcast"
 msgstr "A Podcastenként automatikusan letöltődő részek mennyisége"
 
 #: ../app/ui/SettingsPage.qml:218
-msgid "Only download over wifi"
+msgid "Only download over WiFi"
 msgstr ""
 
 #: ../app/ui/SettingsPage.qml:220
 msgid "Download episodes only when the device is using WiFi"
-msgstr ""
+msgstr "Részek letöltés csak akkor, ha az eszköz WiFin kapcsolódik"
 
 #: ../app/ui/SettingsPage.qml:240
 msgid "Refresh podcast artwork"
-msgstr ""
+msgstr "Podcast grafikák letöltése"
 
-#: ../app/ui/SettingsPage.qml:225
+#: ../app/ui/SettingsPage.qml:242
 msgid "Update all podcasts artwork and fix missing ones"
-msgstr ""
+msgstr "Frissíti a meglévő és letölti a hiányzó podcast grafikákat."
 
 #: ../app/ui/SettingsPage.qml:271
 msgid "Storage Settings"
-msgstr ""
+msgstr "Tárhely beállítások"
 
 #: ../app/ui/SettingsPage.qml:282
 msgid "Delete orphaned files and links"
-msgstr ""
+msgstr "Felesleges fájlok és hivatkozások törlése"
 
 #: ../app/ui/SettingsPage.qml:284
 msgid "Free space by removing orphaned downloaded files and links"
-msgstr ""
+msgstr "Helyet szabadít fel a felesleges fájlok és hivatkozások törlésével"
 
-#: ../app/ui/SettingsPage.qml:297
+#: ../app/ui/SettingsPage.qml:314
 msgid "Removed orphaned files and links"
-msgstr ""
+msgstr "Felesleges fájlok és hivatkozások eltávolítása"
 
-#: ../app/ui/SettingsPage.qml:297
+#: ../app/ui/SettingsPage.qml:314
 msgid "No orphans found!"
-msgstr ""
+msgstr "Nincs felesleges fájl!"
 
 #: ../app/ui/SettingsPage.qml:315
 msgid ""
 "All orphaned files have been deleted to recover disk space. Orphaned links "
 "pointing at invalid files have also been cleaned up."
 msgstr ""
+"Minden felesleges fájl és hivatkozás eltávolítása került, ezzel helyet "
+"felszabadítva."
 
 #: ../app/ui/SettingsPage.qml:317
 msgid ""
 "No orphaned files have been found to recover disk space. Podbird database is "
 "clean."
-msgstr ""
+msgstr "Nincsenek felesleges fájlok, teljesen tiszta a Podbird adatbázisa."
 
 #. TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
 #. that doesn't fit into any other category.
@@ -644,6 +648,9 @@ msgid ""
 "using a mouse). You can also multi-select them by long-pressing on an "
 "episode."
 msgstr ""
+"A részek balra húzásával érhetőek el további műveletek (vagy egér esetén a "
+"jobb egérgombbal). Több rész egyidejű kijelöléséhez tartsa hosszan az ujját "
+"az egyes részeken."
 
 #: ../app/welcomewizard/Slide6.qml:45
 msgid "Support"
@@ -671,34 +678,11 @@ msgstr "Reméljük a Podbird elnyeri a tetszését!"
 msgid "Finish"
 msgstr "Befejezés"
 
-#: /home/krnekhelesh/Development/build-devel-branch-sync-5-UbuntuSDK_for_desktop_GCC_amd64_ubuntu_sdk_15_04-Default/po/Podbird.desktop.in.h:1
+#: /home/mike/src/podbird/podbird/po/Podbird.desktop.in.h:1
 msgid "The chirpiest podcast manager for Ubuntu"
 msgstr "A legvidámabb podcast kezelő Ubuntuhoz"
 
-#: /home/krnekhelesh/Development/build-devel-branch-sync-5-UbuntuSDK_for_desktop_GCC_amd64_ubuntu_sdk_15_04-Default/po/Podbird.desktop.in.h:2
+#: /home/mike/src/podbird/podbird/po/Podbird.desktop.in.h:2
 msgid ""
 "podcast;audio;itunes;broadcast;digital;stream;podcatcher;video;vodcast;"
 msgstr "podcast;audio;itunes;broadcast;digital;stream;video;vodcast;"
-
-#~ msgid "Looking to add a new Podcast?"
-#~ msgstr "Új Podcastet szeretne hozzáadni?"
-
-#~ msgid "No Podcasts found"
-#~ msgstr "Nem található ilyen Podcast"
-
-#~ msgid ""
-#~ "You haven't subscribed to any podcasts yet, visit the 'Find New Podcasts' "
-#~ "page to add some."
-#~ msgstr ""
-#~ "Nem iratkozott fel még egy Podcastre sem, a „Podcast hozzáadása” oldalon "
-#~ "változtathat ezen."
-
-#~ msgid "Ok"
-#~ msgstr "OK"
-
-#~ msgid ""
-#~ "Episodes can be swiped left to reveal more actions. You can also multi-"
-#~ "select them by long-pressing on an episode."
-#~ msgstr ""
-#~ "A részeket balra csúsztatva érhetőek el a műveletek. A többes kijelöléshez "
-#~ "tartsa nyomva hosszan az ujját egy részen."
