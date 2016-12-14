@@ -2,13 +2,13 @@
 # Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
 # This file is distributed under the same license as the podbird package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
-# GunChleoc <fios@foramnagaidhlig.net>, 2015.
+# GunChleoc <fios@foramnagaidhlig.net>, 2015, 2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-12-12 14:55+0000\n"
-"PO-Revision-Date: 2016-12-12 15:42+0000\n"
+"PO-Revision-Date: 2016-12-13 20:15+0000\n"
 "Last-Translator: GunChleoc <Unknown>\n"
 "Language-Team: Fòram na Gàidhlig\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 || n==11) ? 0 : (n==2 || n==12) ? 1 : "
 "(n > 2 && n < 20) ? 2 : 3;\n"
-"X-Launchpad-Export-Date: 2016-12-13 05:51+0000\n"
+"X-Launchpad-Export-Date: 2016-12-14 05:36+0000\n"
 "X-Generator: Launchpad (build 18293)\n"
 "Language: gd\n"
 
@@ -182,8 +182,10 @@ msgstr "Cuir crìoch air an fh-sgrìobhadh"
 #, qt-format
 msgid "%1 item selected"
 msgid_plural "%1 items selected"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 nì air a thaghadh"
+msgstr[1] "%1 nì air a thaghadh"
+msgstr[2] "%1 nithean air an taghadh"
+msgstr[3] "%1 nì air a thaghadh"
 
 #: ../app/ui/EpisodesPage.qml:125 ../app/ui/EpisodesTab.qml:143
 #: ../app/ui/NowPlayingPage.qml:42
@@ -192,7 +194,7 @@ msgstr "Air ais"
 
 #: ../app/ui/EpisodesPage.qml:137 ../app/ui/EpisodesTab.qml:155
 msgid "Mark Listened"
-msgstr ""
+msgstr "Cuir comharra gun deach èisteachd ris"
 
 #: ../app/ui/EpisodesPage.qml:156 ../app/ui/EpisodesTab.qml:173
 msgid "Download episode(s)"
@@ -261,19 +263,19 @@ msgstr "Air a luchdadh a-nuas"
 
 #: ../app/ui/EpisodesPage.qml:605
 msgid "Mark as unheard"
-msgstr ""
+msgstr "Cuir comharra nach deach èisteachd ris"
 
 #: ../app/ui/EpisodesPage.qml:605
 msgid "Mark as listened"
-msgstr ""
+msgstr "Cuir comharra gun deach èisteachd ris"
 
 #: ../app/ui/EpisodesPage.qml:621
 msgid "Delete downloaded file"
-msgstr ""
+msgstr "Sguab às faidhle air a luchdadh a-nuas"
 
 #: ../app/ui/EpisodesPage.qml:621
 msgid "Queued"
-msgstr ""
+msgstr "Sa chiutha"
 
 #: ../app/ui/EpisodesPage.qml:621
 msgid "Download"
@@ -285,7 +287,7 @@ msgstr "Cuir ris an liosta-chluiche"
 
 #: ../app/ui/EpisodesPage.qml:655
 msgid "Unfavourite"
-msgstr ""
+msgstr "Thoir air falbh o na h-annsachdan"
 
 #: ../app/ui/EpisodesPage.qml:655
 msgid "Favourite"
@@ -293,7 +295,7 @@ msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:670
 msgid "Show episode description"
-msgstr ""
+msgstr "Seall tuairisgeul an eapasoid"
 
 #: ../app/ui/EpisodesTab.qml:82
 msgid "Recent"
@@ -305,7 +307,7 @@ msgstr "Luchdaidhean a-nuas"
 
 #: ../app/ui/EpisodesTab.qml:82
 msgid "Favourites"
-msgstr ""
+msgstr "Na h-annsachdan"
 
 #: ../app/ui/EpisodesTab.qml:247
 msgid "Unfavourite episode(s)"
@@ -621,7 +623,7 @@ msgid ""
 "Podbird uses the iTunes® database to provide access to a huge collection of "
 "podcasts. You can also add podcasts by their URL."
 msgstr ""
-"Cleachdaidh Podbirdan an stòr-dàta aig iTunes® gus cothrom fhaighinn air "
+"Cleachdaidh Podbird an an stòr-dàta aig iTunes® gus cothrom fhaighinn air "
 "cruinneachadh mòr de phod-chraolaidhean. 'S urrainn dhut pod-chraolaidhean a "
 "chur ris leis an URL aca cuideachd."
 
@@ -643,7 +645,7 @@ msgstr ""
 #. Hallo or Bonjour etc to symbolize the internationalization feature in podbird.
 #: ../app/welcomewizard/Slide4.qml:48
 msgid "Hallo! Bonjour!"
-msgstr "Bonjour!"
+msgstr "Hallo! Bore da!"
 
 #: ../app/welcomewizard/Slide4.qml:67
 #, qt-format
@@ -656,7 +658,7 @@ msgstr ""
 
 #: ../app/welcomewizard/Slide5.qml:45
 msgid "Touch Gestures"
-msgstr ""
+msgstr "Gluasadan suathaidh"
 
 #: ../app/welcomewizard/Slide5.qml:64
 msgid ""
