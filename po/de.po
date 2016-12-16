@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-12-12 14:55+0000\n"
-"PO-Revision-Date: 2016-12-14 21:20+0000\n"
-"Last-Translator: M. Müller <Unknown>\n"
+"PO-Revision-Date: 2016-12-15 13:04+0000\n"
+"Last-Translator: Alexander Dobetsberger <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2016-12-15 05:10+0000\n"
+"X-Launchpad-Export-Date: 2016-12-16 05:56+0000\n"
 "X-Generator: Launchpad (build 18293)\n"
 
 #: ../app/components/TabsList.qml:28 ../app/ui/EpisodesTab.qml:48
@@ -273,15 +273,15 @@ msgstr "Zur Wiedergabeliste hinzufügen"
 
 #: ../app/ui/EpisodesPage.qml:655
 msgid "Unfavourite"
-msgstr ""
+msgstr "Auf Favouriten entfernen"
 
 #: ../app/ui/EpisodesPage.qml:655
 msgid "Favourite"
-msgstr ""
+msgstr "Zu Favouriten hinzufügen"
 
 #: ../app/ui/EpisodesPage.qml:670
 msgid "Show episode description"
-msgstr ""
+msgstr "Episodenbeschreibung anzeigen"
 
 #: ../app/ui/EpisodesTab.qml:82
 msgid "Recent"
@@ -559,12 +559,17 @@ msgid ""
 "All orphaned files have been deleted to recover disk space. Orphaned links "
 "pointing at invalid files have also been cleaned up."
 msgstr ""
+"Alle verwaisten Dateien wurden gelöscht um Speicherplatz zu schaffen. "
+"Verwaiste Links die auf ungültige Dateien verwisen haben wurden ebenfallst "
+"entfernt."
 
 #: ../app/ui/SettingsPage.qml:317
 msgid ""
 "No orphaned files have been found to recover disk space. Podbird database is "
 "clean."
 msgstr ""
+"Es wurde keine verwaisten Dateien gefunden um Speicherplatz zu schaffen. Die "
+"Podbird Datenbank ist sauber."
 
 #. TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
 #. that doesn't fit into any other category.
@@ -646,6 +651,9 @@ msgid ""
 "using a mouse). You can also multi-select them by long-pressing on an "
 "episode."
 msgstr ""
+"Episoden können nach links gewischt (oder mit der rechten Maustaste "
+"angeklickt)  werden,  um mehr Aktionen anzuzeigen. Sie können außerdem "
+"mehrere Episoden mit einem langen drücken darauf auswählen."
 
 #: ../app/welcomewizard/Slide6.qml:45
 msgid "Support"
