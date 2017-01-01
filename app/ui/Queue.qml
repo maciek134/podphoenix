@@ -83,6 +83,7 @@ ListView {
             if (player.playlist.currentIndex === index) {
                 player.toggle()
             } else {
+                player.savePosition()
                 player.playlist.currentIndex = index
             }
         }

@@ -234,7 +234,7 @@ Page {
                             var index = episodeList.ViewItems.selectedIndices[i]
                             if (episodeModel.get(index).audiourl) {
                                 var url = episodeModel.get(index).downloadedfile ? "file://" + episodeModel.get(index).downloadedfile : episodeModel.get(index).audiourl
-                                player.addEpisodeToQueue(episodeModel.get(index).guid, episodeModel.get(index).image, episodeModel.get(index).name, episodeModel.get(index).artist, url)
+                                player.addEpisodeToQueue(episodeModel.get(index).guid, episodeModel.get(index).image, episodeModel.get(index).name, episodeModel.get(index).artist, url, episodeModel.get(index).position)
                             }
                         }
 
@@ -646,7 +646,7 @@ Page {
                         text: i18n.tr("Add to playlist")
                         onTriggered: {
                             var url = model.downloadedfile ? "file://" + model.downloadedfile : model.audiourl
-                            player.addEpisodeToQueue(model.guid, model.image, model.name, model.artist, url)
+                            player.addEpisodeToQueue(model.guid, model.image, model.name, model.artist, url, model.position)
                         }
                     },
 

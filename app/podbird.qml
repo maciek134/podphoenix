@@ -245,6 +245,7 @@ MainView {
                 artist: "",
                 image: "",
                 guid: "",
+                position: 0,
             }
 
             source = source.toString()
@@ -255,26 +256,50 @@ MainView {
         function toggle() {
             if (playbackState === MediaPlayer.PlayingState) {
                 pause()
+                // Save the current position when we pause
+                savePosition()
             } else {
                 play()
+                // Clear the last saved position when we start playing again
+                clearPosition()
             }
         }
 
-        function playEpisode(guid, image, name, artist, url) {
+        function savePosition() {
+            if (currentGuid) {
+                var db = Podcasts.init()
+                db.transaction(function (tx) {
+                    tx.executeSql("UPDATE Episode SET position=? WHERE guid=?", [player.position, currentGuid])
+                    tx.executeSql("UPDATE Queue SET position=? WHERE guid=?", [player.position, currentGuid])
+                })
+            }
+        }
+
+        function clearPosition() {
+            if (currentGuid) {
+                var db = Podcasts.init()
+                db.transaction(function (tx) {
+                    tx.executeSql("UPDATE Episode SET position=NULL WHERE guid=?", [currentGuid])
+                })
+            }
+        }
+
+        function playEpisode(guid, image, name, artist, url, position) {
             // Clear current queue
             player.playlist.clear()
             Podcasts.clearQueue()
 
             // Add episode to queue
-            Podcasts.addItemToQueue(guid, image, name, artist, url)
+            Podcasts.addItemToQueue(guid, image, name, artist, url, position)
             player.playlist.addItem(url)
-
+            
             // Play episode
+            pendingSeek = position
             player.play()
         }
 
-        function addEpisodeToQueue(guid, image, name, artist, url) {
-            Podcasts.addItemToQueue(guid, image, name, artist, url)
+        function addEpisodeToQueue(guid, image, name, artist, url, position) {
+            Podcasts.addItemToQueue(guid, image, name, artist, url, position)
             player.playlist.addItem(url)
 
             // If added episode is the first one in the queue, then set the current metadata
@@ -286,11 +311,13 @@ MainView {
                 currentArtist = artist
                 currentImage = image
                 currentUrl = url
+                pendingSeek = position
             }
         }
 
         property bool endOfMedia: false
         property double progress: 0
+        property int pendingSeek: 0
 
         playlist: Playlist {
             playbackMode: Playlist.Sequential
@@ -305,11 +332,28 @@ MainView {
                 currentArtist = meta.artist
                 currentImage = meta.image
                 currentGuid = meta.guid
+                player.pendingSeek = meta.position
+            }
+        }
+
+        onPlaybackStateChanged: {
+            if (playbackState === MediaPlayer.PlayingState && pendingSeek !== 0) {
+                player.seek(pendingSeek)
+                player.clearPosition()
+                pendingSeek = 0;
             }
         }
 
         onStatusChanged: {
-            if (status === MediaPlayer.EndOfMedia) {
+            if (status === MediaPlayer.Loading) {
+                if (playbackState === MediaPlayer.PlayingState && pendingSeek !== 0) {
+                    player.seek(pendingSeek)
+                    player.clearPosition()
+                    pendingSeek = 0;
+                } else {
+                    play()
+                }
+            } else if (status === MediaPlayer.EndOfMedia) {
                 console.log("[LOG]: End of Media. Stopping.")
                 endOfMedia = true
                 stop()
@@ -325,13 +369,16 @@ MainView {
                     // Play then pause otherwise when we come from EndOfMedia
                     // it calls next() until EndOfMedia again.
                     play()
+                    pause()
                 }
-
-                pause()
             }
 
             // Always reset endOfMedia
             endOfMedia = false
+        }
+
+        Component.onDestruction: {
+            savePosition()
         }
     }
 

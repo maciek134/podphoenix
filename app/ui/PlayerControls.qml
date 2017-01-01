@@ -97,8 +97,7 @@ Rectangle {
             visible: playButton.pressed
         }
 
-        onClicked: player.playbackState === MediaPlayer.PlayingState ? player.pause()
-                                                                     : player.play()
+        onClicked: player.toggle()
 
         Icon {
             color: "white"

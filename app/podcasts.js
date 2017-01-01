@@ -49,6 +49,16 @@ function init() {
                 tx.executeSql('UPDATE Episode SET favourited=?', [false]);
             });
         }
+
+        /*
+        Schema Upgrade to v1.3 which adds position information to the episode queue
+        */
+        if (db.version === "1.2") {
+            console.log("Upgrading database from %1 -> v1.3".arg(db.version))
+            db.changeVersion("1.2", "1.3", function(tx) {
+                tx.executeSql('ALTER TABLE Queue ADD position INTEGER');
+            });
+        }
     } catch(ex) {
         console.log(ex)
     }
@@ -57,12 +67,12 @@ function init() {
 }
 
 // Function to add item to queue
-function addItemToQueue(guid, image, name, artist, url) {
+function addItemToQueue(guid, image, name, artist, url, position) {
     var db = init()
 
     db.transaction(function(tx) {
         var ind = getNextIndex(tx);
-        var rs = tx.executeSql("INSERT OR REPLACE INTO Queue (ind, guid, image, name, artist, url) VALUES (?, ?, ?, ?, ?, ?)", [ind, guid, image, name, artist, url]);
+        var rs = tx.executeSql("INSERT OR REPLACE INTO Queue (ind, guid, image, name, artist, url, position) VALUES (?, ?, ?, ?, ?, ?, ?)", [ind, guid, image, name, artist, url, position]);
         if (rs.rowsAffected > 0) {
             console.log("[LOG]: QUEUE add OK")
             console.log("[LOG]: URL Added to queue: " + url)
@@ -103,6 +113,7 @@ function lookup(source) {
         artist: "",
         image: "",
         guid: "",
+        position: 0,
     }
 
     db.transaction(function(tx) {
@@ -114,6 +125,7 @@ function lookup(source) {
                 meta.artist = episode.artist
                 meta.image = episode.image
                 meta.guid = episode.guid
+                meta.position = episode.position
                 break
             }
         }

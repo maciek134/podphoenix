@@ -181,7 +181,10 @@ Item {
                 anchors.verticalCenter: parent.verticalCenter
                 enabled: player.playlist.canGoPrevious
                 opacity: enabled ? 1.0 : 0.4
-                onClicked: player.playlist.previous()
+                onClicked: {
+                    player.savePosition()
+                    player.playlist.previous()
+                }
                 
                 Icon {
                     id: mediaBackwardIcon
@@ -233,7 +236,7 @@ Item {
                 width: units.gu(10)
                 height: width
                 opacity: playButton.pressed ? 0.4 : 1.0
-                onClicked: player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
+                onClicked: player.toggle()
                 
                 Icon {
                     id: playIcon
@@ -288,7 +291,10 @@ Item {
                 anchors.verticalCenter: parent.verticalCenter
                 enabled: player.playlist.canGoNext
                 opacity: enabled ? 1.0 : 0.4
-                onClicked: player.playlist.next()
+                onClicked: {
+                    player.savePosition()
+                    player.playlist.next()
+                }
                 
                 Icon {
                     id: mediaForwardIcon

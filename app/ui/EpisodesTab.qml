@@ -275,7 +275,7 @@ Tab {
                                 var index = episodeList.ViewItems.selectedIndices[i]
                                 if (episodesModel.get(index).audiourl) {
                                     var url = episodesModel.get(index).downloadedfile ? "file://" + episodesModel.get(index).downloadedfile : episodesModel.get(index).audiourl
-                                    player.addEpisodeToQueue(episodesModel.get(index).guid, episodesModel.get(index).image, episodesModel.get(index).name, episodesModel.get(index).artist, url)
+                                    player.addEpisodeToQueue(episodesModel.get(index).guid, episodesModel.get(index).image, episodesModel.get(index).name, episodesModel.get(index).artist, url, episodesModel.get(index).position)
                                 }
                             }
 
@@ -579,6 +579,26 @@ Tab {
                 trailingActions: ListItemActions {
                     actions: [
                         Action {
+                            iconName: model.listened ? "view-collapse" : "select"
+                            onTriggered: {
+                                var db = Podcasts.init();
+                                db.transaction(function (tx) {
+                                    if (model.listened) {
+                                        tx.executeSql("UPDATE Episode SET listened=0 WHERE guid=?", [model.guid])
+                                        episodesModel.setProperty(model.index, "listened", 0)
+                                    }
+                                    else {
+                                        tx.executeSql("UPDATE Episode SET listened=1 WHERE guid=?", [model.guid])
+                                        episodesModel.setProperty(model.index, "listened", 1)
+                                        if (episodesPageHeaderSections.selectedIndex === 0) {
+                                            episodesModel.remove(model.index, 1)
+                                        }
+                                    }
+                                });
+                            }
+                        },
+
+                        Action {
                             iconName: model.downloadedfile ? "delete" : (model.queued && downloader.downloadingGuid !== model.guid ? "history" : "save")
                             onTriggered: {
                                 var db = Podcasts.init();
@@ -606,30 +626,10 @@ Tab {
                         },
 
                         Action {
-                            iconName: model.listened ? "view-collapse" : "select"
-                            onTriggered: {
-                                var db = Podcasts.init();
-                                db.transaction(function (tx) {
-                                    if (model.listened) {
-                                        tx.executeSql("UPDATE Episode SET listened=0 WHERE guid=?", [model.guid])
-                                        episodesModel.setProperty(model.index, "listened", 0)
-                                    }
-                                    else {
-                                        tx.executeSql("UPDATE Episode SET listened=1 WHERE guid=?", [model.guid])
-                                        episodesModel.setProperty(model.index, "listened", 1)
-                                        if (episodesPageHeaderSections.selectedIndex === 0) {
-                                            episodesModel.remove(model.index, 1)
-                                        }
-                                    }
-                                });
-                            }
-                        },
-
-                        Action {
                             iconName: "add-to-playlist"
                             onTriggered: {
                                 var url = model.downloadedfile ? "file://" + model.downloadedfile : model.audiourl
-                                player.addEpisodeToQueue(model.guid, model.image, model.name, model.artist, url)
+                                player.addEpisodeToQueue(model.guid, model.image, model.name, model.artist, url, model.position)
                             }
                         },
 
@@ -669,8 +669,9 @@ Tab {
                         selected = !selected
                     } else {
                         if (currentGuid !== model.guid) {
-                            currentUrl = model.downloadedfile ? "file://" + model.downloadedfile : model.audiourl;
-                            player.playEpisode(model.guid, model.image, model.name, model.artist, currentUrl)
+                            player.savePosition()
+                            currentUrl = model.downloadedfile ? "file://" + model.downloadedfile : model.audiourl
+                            player.playEpisode(model.guid, model.image, model.name, model.artist, currentUrl, model.position)
                         }
                     }
                 }
