@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-12-12 14:55+0000\n"
+"POT-Creation-Date: 2017-01-01 14:37+0000\n"
 "PO-Revision-Date: 2015-04-21 13:50+0000\n"
 "Last-Translator: Sasa Batistic <Unknown>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
@@ -16,8 +16,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || "
 "n%100==4 ? 3 : 0);\n"
-"X-Launchpad-Export-Date: 2016-12-13 05:51+0000\n"
-"X-Generator: Launchpad (build 18293)\n"
+"X-Launchpad-Export-Date: 2017-01-03 06:16+0000\n"
+"X-Generator: Launchpad (build 18298)\n"
 
 #: ../app/components/TabsList.qml:28 ../app/ui/EpisodesTab.qml:48
 msgid "Episodes"
@@ -39,17 +39,17 @@ msgstr "Nastavitve"
 msgid "Skip"
 msgstr ""
 
-#: ../app/podcasts.js:298
+#: ../app/podcasts.js:310
 #, no-c-format, qt-format
 msgid "%1 hr %2 min"
 msgstr ""
 
-#: ../app/podcasts.js:307
+#: ../app/podcasts.js:319
 #, no-c-format, qt-format
 msgid "%1 hr"
 msgstr ""
 
-#: ../app/podcasts.js:315
+#: ../app/podcasts.js:327
 #, no-c-format, qt-format
 msgid "%1 min"
 msgstr "%1 min"
@@ -64,7 +64,7 @@ msgstr "O programu"
 msgid "Credits"
 msgstr ""
 
-#. TRANSLATORS: Podbird version number e.g Version 0.7
+#. TRANSLATORS: Podbird version number e.g Version 0.8
 #: ../app/settings/About.qml:92
 #, qt-format
 msgid "Version %1"
@@ -353,13 +353,13 @@ msgid "Older"
 msgstr ""
 
 #. TRANSLATORS: The string shown in the UI is -15s to denote the number of seconds that the podcast playback will skip backward.
-#: ../app/ui/FullPlayingView.qml:215
+#: ../app/ui/FullPlayingView.qml:218
 #, no-c-format, qt-format
 msgid "-%1s"
 msgstr ""
 
 #. TRANSLATORS: The string shown in the UI is +15s to denote the number of seconds that the podcast playback will skip forward.
-#: ../app/ui/FullPlayingView.qml:276
+#: ../app/ui/FullPlayingView.qml:279
 #, no-c-format, qt-format
 msgid "+%1s"
 msgstr ""
@@ -658,11 +658,13 @@ msgstr ""
 msgid "Finish"
 msgstr ""
 
-#: /home/mike/src/podbird/podbird/po/Podbird.desktop.in.h:1
+#: /home/mike/src/podbird/build-podbird-Ubuntu_Device2_GCC_armhf_ubuntu_sdk_15_04_builder_armhf-Default/po/Podbird.desktop.in.h:1
+#: Podbird.desktop.in.h:1
 msgid "The chirpiest podcast manager for Ubuntu"
 msgstr ""
 
-#: /home/mike/src/podbird/podbird/po/Podbird.desktop.in.h:2
+#: /home/mike/src/podbird/build-podbird-Ubuntu_Device2_GCC_armhf_ubuntu_sdk_15_04_builder_armhf-Default/po/Podbird.desktop.in.h:2
+#: Podbird.desktop.in.h:2
 msgid ""
 "podcast;audio;itunes;broadcast;digital;stream;podcatcher;video;vodcast;"
 msgstr ""

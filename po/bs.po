@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-12-12 14:55+0000\n"
+"POT-Creation-Date: 2017-01-01 14:37+0000\n"
 "PO-Revision-Date: 2015-09-12 16:08+0000\n"
 "Last-Translator: Kenan Gutić <Unknown>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
@@ -16,8 +16,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Launchpad-Export-Date: 2016-12-13 05:51+0000\n"
-"X-Generator: Launchpad (build 18293)\n"
+"X-Launchpad-Export-Date: 2017-01-03 06:16+0000\n"
+"X-Generator: Launchpad (build 18298)\n"
 
 #: ../app/components/TabsList.qml:28 ../app/ui/EpisodesTab.qml:48
 msgid "Episodes"
@@ -39,17 +39,17 @@ msgstr "Postavke"
 msgid "Skip"
 msgstr "Preskoči"
 
-#: ../app/podcasts.js:298
+#: ../app/podcasts.js:310
 #, no-c-format, qt-format
 msgid "%1 hr %2 min"
 msgstr "%1 h %2 min"
 
-#: ../app/podcasts.js:307
+#: ../app/podcasts.js:319
 #, no-c-format, qt-format
 msgid "%1 hr"
 msgstr "%1 h"
 
-#: ../app/podcasts.js:315
+#: ../app/podcasts.js:327
 #, no-c-format, qt-format
 msgid "%1 min"
 msgstr "%1 min"
@@ -64,7 +64,7 @@ msgstr "O aplikaciji"
 msgid "Credits"
 msgstr "Zasluge"
 
-#. TRANSLATORS: Podbird version number e.g Version 0.7
+#. TRANSLATORS: Podbird version number e.g Version 0.8
 #: ../app/settings/About.qml:92
 #, qt-format
 msgid "Version %1"
@@ -357,13 +357,13 @@ msgid "Older"
 msgstr "Starije"
 
 #. TRANSLATORS: The string shown in the UI is -15s to denote the number of seconds that the podcast playback will skip backward.
-#: ../app/ui/FullPlayingView.qml:215
+#: ../app/ui/FullPlayingView.qml:218
 #, no-c-format, qt-format
 msgid "-%1s"
 msgstr "-%1s"
 
 #. TRANSLATORS: The string shown in the UI is +15s to denote the number of seconds that the podcast playback will skip forward.
-#: ../app/ui/FullPlayingView.qml:276
+#: ../app/ui/FullPlayingView.qml:279
 #, no-c-format, qt-format
 msgid "+%1s"
 msgstr "+%1s"
@@ -678,11 +678,13 @@ msgstr "Nadamo se da ste uživali koristeći Podbird!"
 msgid "Finish"
 msgstr "Završi"
 
-#: /home/mike/src/podbird/podbird/po/Podbird.desktop.in.h:1
+#: /home/mike/src/podbird/build-podbird-Ubuntu_Device2_GCC_armhf_ubuntu_sdk_15_04_builder_armhf-Default/po/Podbird.desktop.in.h:1
+#: Podbird.desktop.in.h:1
 msgid "The chirpiest podcast manager for Ubuntu"
 msgstr "Najpričljiviji podcastmenadžer za Ubuntu"
 
-#: /home/mike/src/podbird/podbird/po/Podbird.desktop.in.h:2
+#: /home/mike/src/podbird/build-podbird-Ubuntu_Device2_GCC_armhf_ubuntu_sdk_15_04_builder_armhf-Default/po/Podbird.desktop.in.h:2
+#: Podbird.desktop.in.h:2
 msgid ""
 "podcast;audio;itunes;broadcast;digital;stream;podcatcher;video;vodcast;"
 msgstr ""
