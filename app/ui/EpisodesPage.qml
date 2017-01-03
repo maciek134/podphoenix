@@ -682,8 +682,18 @@ Page {
                     selected = !selected
                 } else {
                     if (currentGuid !== model.guid) {
-                        currentUrl = model.downloadedfile ? "file://" + model.downloadedfile : model.audiourl;
-                        player.playEpisode(model.guid, model.image, model.name, model.artist, currentUrl)
+                        player.savePosition()
+                        currentUrl = model.downloadedfile ? "file://" + model.downloadedfile : model.audiourl
+                        // We need to refetch the episode position as it may have changed without the model refreshing
+                        var db = Podcasts.init()
+                        db.transaction(function (tx) {
+                            var position = 0
+                            var rs = tx.executeSql("SELECT position FROM Episode WHERE guid=? AND position > 0", [model.guid])
+                            if (rs.rows.length > 0) {
+                                position = rs.rows.item(0).position
+                            }
+                            player.playEpisode(model.guid, model.image, model.name, model.artist, currentUrl, position)
+                        });
                     }
                 }
             }

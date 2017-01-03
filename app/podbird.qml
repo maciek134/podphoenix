@@ -221,6 +221,21 @@ MainView {
         }
     }
 
+    // This reduces incidences of media-hub getting confused and 
+    // continuing to play the previous file when clearing a playlist
+    // and starting a new episode
+    Timer {
+        id: playStarter
+        interval: 500
+        onTriggered: {
+            // Ideally we'd check the buffer progress here and base it on that
+            // but media-hub doesn't report it correctly
+            console.log("Starting playback")
+            player.play()
+            player.restorePosition()
+        }
+    }
+
     MediaPlayer {
         id: player
 
@@ -275,6 +290,14 @@ MainView {
             }
         }
 
+        function restorePosition() {
+            if (playbackState === MediaPlayer.PlayingState && pendingSeek !== 0) {
+                player.seek(pendingSeek)
+                player.clearPosition()
+                pendingSeek = 0;
+            }
+        }
+
         function clearPosition() {
             if (currentGuid) {
                 var db = Podcasts.init()
@@ -285,6 +308,8 @@ MainView {
         }
 
         function playEpisode(guid, image, name, artist, url, position) {
+            player.pause()
+
             // Clear current queue
             player.playlist.clear()
             Podcasts.clearQueue()
@@ -295,7 +320,7 @@ MainView {
             
             // Play episode
             pendingSeek = position
-            player.play()
+            playStarter.restart()
         }
 
         function addEpisodeToQueue(guid, image, name, artist, url, position) {
@@ -337,23 +362,11 @@ MainView {
         }
 
         onPlaybackStateChanged: {
-            if (playbackState === MediaPlayer.PlayingState && pendingSeek !== 0) {
-                player.seek(pendingSeek)
-                player.clearPosition()
-                pendingSeek = 0;
-            }
+            restorePosition()
         }
 
         onStatusChanged: {
-            if (status === MediaPlayer.Loading) {
-                if (playbackState === MediaPlayer.PlayingState && pendingSeek !== 0) {
-                    player.seek(pendingSeek)
-                    player.clearPosition()
-                    pendingSeek = 0;
-                } else {
-                    play()
-                }
-            } else if (status === MediaPlayer.EndOfMedia) {
+            if (status === MediaPlayer.EndOfMedia) {
                 console.log("[LOG]: End of Media. Stopping.")
                 endOfMedia = true
                 stop()

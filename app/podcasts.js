@@ -117,17 +117,14 @@ function lookup(source) {
     }
 
     db.transaction(function(tx) {
-        var rs = tx.executeSql("SELECT * FROM Queue ORDER BY ind ASC");
-        for(var i = 0; i < rs.rows.length; i++) {
-            var episode = rs.rows.item(i);
-            if (source  === episode.url) {
-                meta.name = episode.name
-                meta.artist = episode.artist
-                meta.image = episode.image
-                meta.guid = episode.guid
-                meta.position = episode.position
-                break
-            }
+        var rs = tx.executeSql("SELECT * FROM Queue WHERE url = ?", [source]);
+        if (rs.rows.length > 0) {
+            var episode = rs.rows.item(0);
+            meta.name = episode.name
+            meta.artist = episode.artist
+            meta.image = episode.image
+            meta.guid = episode.guid
+            meta.position = episode.position
         }
     });
 
