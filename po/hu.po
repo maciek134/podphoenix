@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2017-01-01 14:37+0000\n"
-"PO-Revision-Date: 2016-12-13 18:36+0000\n"
+"PO-Revision-Date: 2017-01-03 07:58+0000\n"
 "Last-Translator: Richard Somlói <ricsipontaz@gmail.com>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2017-01-03 06:16+0000\n"
+"X-Launchpad-Export-Date: 2017-01-04 06:22+0000\n"
 "X-Generator: Launchpad (build 18298)\n"
 
 #: ../app/components/TabsList.qml:28 ../app/ui/EpisodesTab.qml:48
@@ -325,7 +325,7 @@ msgstr "Nincs rész letöltve internet nélküli hallgatáshoz"
 
 #: ../app/ui/EpisodesTab.qml:326
 msgid "No episodes have been favourited."
-msgstr "Nincs kedven rész."
+msgstr "Egy részt se jelölt még kedvencnek."
 
 #: ../app/ui/EpisodesTab.qml:328
 msgid "No Episodes found matching the search term."
@@ -397,7 +397,7 @@ msgid ""
 "You haven't subscribed to any podcasts yet, visit the 'Add New Podcasts' "
 "page to add some."
 msgstr ""
-"Még nem iratkozott fel egyetlen podcast-re sem. Az „Új Podcast hozzáadása” "
+"Még nem iratkozott fel egyetlen podcast-re sem. A „Podcast hozzáadása” "
 "oldalon adhat hozzá újakat."
 
 #: ../app/ui/PodcastsTab.qml:129 ../app/ui/SearchPage.qml:209
@@ -491,7 +491,7 @@ msgstr "Általános beállítások"
 
 #: ../app/ui/SettingsPage.qml:154
 msgid "Displays podcasts in a list view"
-msgstr "Porcastek megjelenítés listanézetben"
+msgstr "Porcastek megjelenítése listanézetben"
 
 #: ../app/ui/SettingsPage.qml:166
 msgid "Playback Settings"
@@ -516,7 +516,7 @@ msgstr "Új részek automatikus letöltése"
 
 #: ../app/ui/SettingsPage.qml:206
 msgid "Default number of new episodes to download for each podcast"
-msgstr "A Podcastenként automatikusan letöltődő részek mennyisége"
+msgstr "A Podcastenként automatikusan letöltődő részek száma"
 
 #: ../app/ui/SettingsPage.qml:218
 msgid "Only download over WiFi"
@@ -524,7 +524,7 @@ msgstr "Csak WiFin keresztül töltse le"
 
 #: ../app/ui/SettingsPage.qml:220
 msgid "Download episodes only when the device is using WiFi"
-msgstr "Részek letöltés csak akkor, ha az eszköz WiFin kapcsolódik"
+msgstr "Részek letöltése csak WiFi kapcsolaton keresztül"
 
 #: ../app/ui/SettingsPage.qml:240
 msgid "Refresh podcast artwork"
