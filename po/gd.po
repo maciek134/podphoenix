@@ -2,13 +2,13 @@
 # Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
 # This file is distributed under the same license as the podbird package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
-# GunChleoc <fios@foramnagaidhlig.net>, 2015, 2016.
+# GunChleoc <fios@foramnagaidhlig.net>, 2015, 2016, 2017.
 msgid ""
 msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2017-01-01 14:37+0000\n"
-"PO-Revision-Date: 2016-12-13 20:15+0000\n"
+"PO-Revision-Date: 2017-03-09 20:53+0000\n"
 "Last-Translator: GunChleoc <Unknown>\n"
 "Language-Team: Fòram na Gàidhlig\n"
 "MIME-Version: 1.0\n"
@@ -16,8 +16,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 || n==11) ? 0 : (n==2 || n==12) ? 1 : "
 "(n > 2 && n < 20) ? 2 : 3;\n"
-"X-Launchpad-Export-Date: 2017-01-04 06:22+0000\n"
-"X-Generator: Launchpad (build 18298)\n"
+"X-Launchpad-Export-Date: 2017-03-14 07:29+0000\n"
+"X-Generator: Launchpad (build 18331)\n"
 "Language: gd\n"
 
 #: ../app/components/TabsList.qml:28 ../app/ui/EpisodesTab.qml:48
@@ -198,15 +198,15 @@ msgstr "Cuir comharra gun deach èisteachd ris"
 
 #: ../app/ui/EpisodesPage.qml:156 ../app/ui/EpisodesTab.qml:173
 msgid "Download episode(s)"
-msgstr ""
+msgstr "Luchdaich a-nuas eapasod(an)"
 
 #: ../app/ui/EpisodesPage.qml:184 ../app/ui/EpisodesTab.qml:201
 msgid "Delete episode(s)"
-msgstr ""
+msgstr "Sguab às eapasod(an)"
 
 #: ../app/ui/EpisodesPage.qml:207 ../app/ui/EpisodesTab.qml:224
 msgid "Favourite episode(s)"
-msgstr ""
+msgstr "Cuir eapasod(an) ris na h-annsachdan"
 
 #: ../app/ui/EpisodesPage.qml:229 ../app/ui/EpisodesTab.qml:270
 msgid "Add to queue"
@@ -291,7 +291,7 @@ msgstr "Thoir air falbh o na h-annsachdan"
 
 #: ../app/ui/EpisodesPage.qml:655
 msgid "Favourite"
-msgstr ""
+msgstr "Cuir ris na h-annsachdan"
 
 #: ../app/ui/EpisodesPage.qml:670
 msgid "Show episode description"
@@ -311,7 +311,7 @@ msgstr "Na h-annsachdan"
 
 #: ../app/ui/EpisodesTab.qml:247
 msgid "Unfavourite episode(s)"
-msgstr ""
+msgstr "Thoir eapasod(an) air falbh o na h-annsachdan"
 
 #: ../app/ui/EpisodesTab.qml:310
 msgid "No New Episodes"
@@ -319,11 +319,11 @@ msgstr "Chan eil eapasod ùr ann"
 
 #: ../app/ui/EpisodesTab.qml:312
 msgid "No Downloaded Episodes"
-msgstr ""
+msgstr "Cha deach gin a luchdadh a-nuas"
 
 #: ../app/ui/EpisodesTab.qml:314
 msgid "No Favourited Episodes"
-msgstr ""
+msgstr "Chan eil annsachd ann"
 
 #: ../app/ui/EpisodesTab.qml:316
 msgid "No Episodes Found"
@@ -335,11 +335,11 @@ msgstr "Chan eil barrachd eapasodan ri an èisteachd riutha ann!"
 
 #: ../app/ui/EpisodesTab.qml:324
 msgid "No episodes have been downloaded for offline listening"
-msgstr ""
+msgstr "Cha deach eapasod a luchdadh a-nuas a chum èisteachd far loidhne"
 
 #: ../app/ui/EpisodesTab.qml:326
 msgid "No episodes have been favourited."
-msgstr ""
+msgstr "Cha deach eapasod a chur ris na h-annsachdan."
 
 #: ../app/ui/EpisodesTab.qml:328
 msgid "No Episodes found matching the search term."
@@ -351,7 +351,7 @@ msgstr "Rudan 'gan luchdadh a-nuas"
 
 #: ../app/ui/EpisodesTab.qml:497
 msgid "Downloaded episodes"
-msgstr ""
+msgstr "Eapasodan a chaidh a luchdadh a-nuas"
 
 #: ../app/ui/EpisodesTab.qml:507
 msgid "Today"
@@ -411,6 +411,8 @@ msgid ""
 "You haven't subscribed to any podcasts yet, visit the 'Add New Podcasts' "
 "page to add some."
 msgstr ""
+"Cha do rinn thu fo-sgrìobhadh gu pod-chraoladh fhathast, tadhail air an "
+"duilleag \"Cuir ris pod-chraolaidhean ùra\" gus fear no dhà a chur ris."
 
 #: ../app/ui/PodcastsTab.qml:129 ../app/ui/SearchPage.qml:209
 msgid "No podcasts found matching the search term."
@@ -447,7 +449,7 @@ msgstr "Thoir sùil air an URL is feuch ris a-rithist"
 
 #: ../app/ui/SearchPage.qml:207
 msgid "Looking to add a new podcast?"
-msgstr ""
+msgstr "Am bu toigh leat pod-chraoladh ùr a chur ris?"
 
 #: ../app/ui/SearchPage.qml:208
 msgid ""
@@ -505,7 +507,7 @@ msgstr "Roghainnean coitcheann"
 
 #: ../app/ui/SettingsPage.qml:154
 msgid "Displays podcasts in a list view"
-msgstr ""
+msgstr "Seallaidh seo liosta dhe na pod-chaolaidhean"
 
 #: ../app/ui/SettingsPage.qml:166
 msgid "Playback Settings"
@@ -538,51 +540,63 @@ msgstr ""
 
 #: ../app/ui/SettingsPage.qml:218
 msgid "Only download over WiFi"
-msgstr ""
+msgstr "Na luchdaich a-nuas ach le WiFi"
 
 #: ../app/ui/SettingsPage.qml:220
 msgid "Download episodes only when the device is using WiFi"
 msgstr ""
+"Na luchdaich a-nuas eapasodan ach nuair a bhios an t-uidheam a' cleachdadh "
+"WiFi"
 
 #: ../app/ui/SettingsPage.qml:240
 msgid "Refresh podcast artwork"
-msgstr ""
+msgstr "Ath-nuadhaich obair-ealain a' phod-chaolaidh"
 
 #: ../app/ui/SettingsPage.qml:242
 msgid "Update all podcasts artwork and fix missing ones"
 msgstr ""
+"Ùraich obair-ealain nam pod-chaolaidhean uile agus càraich an fheadhainn a "
+"tha a dìth"
 
 #: ../app/ui/SettingsPage.qml:271
 msgid "Storage Settings"
-msgstr ""
+msgstr "Roghainnean an stòrais"
 
 #: ../app/ui/SettingsPage.qml:282
 msgid "Delete orphaned files and links"
-msgstr ""
+msgstr "Sguab às dìlleachdain de dh'fhaidhlichean is ceanglaichean"
 
 #: ../app/ui/SettingsPage.qml:284
 msgid "Free space by removing orphaned downloaded files and links"
 msgstr ""
+"Saor àite a' sguabadh às dìlleachdain de dh'fhaidhlichean is ceanglaichean a "
+"chaidh a luchdadh a-nuas"
 
 #: ../app/ui/SettingsPage.qml:314
 msgid "Removed orphaned files and links"
 msgstr ""
+"Chaidh dìlleachdain de dh'fhaidhlichean is ceanglaichean a thoirt air falbh"
 
 #: ../app/ui/SettingsPage.qml:314
 msgid "No orphans found!"
-msgstr ""
+msgstr "Cha deach dìlleachdan a lorg!"
 
 #: ../app/ui/SettingsPage.qml:315
 msgid ""
 "All orphaned files have been deleted to recover disk space. Orphaned links "
 "pointing at invalid files have also been cleaned up."
 msgstr ""
+"Chaidh a h-uile dìlleachdan dhe dh'fhaidhle a sguabadh às gus àite a "
+"shaoradh air an diosg. Chaidh ceanglaichean a thomh ri faidhlichean nach eil "
+"ann tuilleadh a sgioblachadh cuideachd."
 
 #: ../app/ui/SettingsPage.qml:317
 msgid ""
 "No orphaned files have been found to recover disk space. Podbird database is "
 "clean."
 msgstr ""
+"Cha deach faidhle a lorg a tha 'na dhìlleachdan gus àite a shaoradh. Tha "
+"stòr-dàta Podbird glan."
 
 #. TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
 #. that doesn't fit into any other category.
@@ -666,6 +680,9 @@ msgid ""
 "using a mouse). You can also multi-select them by long-pressing on an "
 "episode."
 msgstr ""
+"Grad-shlaighd eapasod gun taobh chlì gus barrachd gnìomhan a nochdadh (no "
+"dèan briogadh deas ma tha luchag agad). 'S urrainn dhut iomadh dhiubh a "
+"thaghadh le brùthadh fada air eapasod."
 
 #: ../app/welcomewizard/Slide6.qml:45
 msgid "Support"
