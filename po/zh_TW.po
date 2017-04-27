@@ -8,23 +8,23 @@ msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2017-01-01 14:37+0000\n"
-"PO-Revision-Date: 2015-04-21 14:09+0000\n"
-"Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
+"PO-Revision-Date: 2017-04-27 03:03+0000\n"
+"Last-Translator: Po-Hsu Lin <po-hsu.lin@canonical.com>\n"
 "Language-Team: Chinese (Traditional) <zh_TW@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Launchpad-Export-Date: 2017-01-04 06:22+0000\n"
-"X-Generator: Launchpad (build 18298)\n"
+"X-Launchpad-Export-Date: 2017-04-27 05:55+0000\n"
+"X-Generator: Launchpad (build 18364)\n"
 
 #: ../app/components/TabsList.qml:28 ../app/ui/EpisodesTab.qml:48
 msgid "Episodes"
-msgstr ""
+msgstr "節目"
 
 #: ../app/components/TabsList.qml:37 ../app/ui/SearchPage.qml:41
 msgid "Add New Podcasts"
-msgstr ""
+msgstr "新增新的Podcast"
 
 #: ../app/components/TabsList.qml:46 ../app/ui/PodcastsTab.qml:42
 msgid "Podcasts"
@@ -32,32 +32,32 @@ msgstr "Podcast"
 
 #: ../app/components/TabsList.qml:55 ../app/ui/SettingsPage.qml:34
 msgid "Settings"
-msgstr ""
+msgstr "設定"
 
 #: ../app/components/Walkthrough.qml:89
 msgid "Skip"
-msgstr ""
+msgstr "略過"
 
 #: ../app/podcasts.js:310
 #, no-c-format, qt-format
 msgid "%1 hr %2 min"
-msgstr ""
+msgstr "%1 小時 %2 分鐘"
 
 #: ../app/podcasts.js:319
 #, no-c-format, qt-format
 msgid "%1 hr"
-msgstr ""
+msgstr "%1 小時"
 
 #: ../app/podcasts.js:327
 #, no-c-format, qt-format
 msgid "%1 min"
-msgstr ""
+msgstr "%1 分鐘"
 
 #. TRANSLATORS: About as in information about the app
 #: ../app/settings/About.qml:28 ../app/settings/About.qml:46
 #: ../app/ui/SettingsPage.qml:338
 msgid "About"
-msgstr ""
+msgstr "關於本軟體"
 
 #: ../app/settings/About.qml:46
 msgid "Credits"
@@ -67,11 +67,11 @@ msgstr "鳴謝"
 #: ../app/settings/About.qml:92
 #, qt-format
 msgid "Version %1"
-msgstr ""
+msgstr "版本：%1"
 
 #: ../app/settings/About.qml:113
 msgid "Released under the terms of the GNU GPL v3"
-msgstr ""
+msgstr "於 GNU GPL v3 條款下釋出"
 
 #: ../app/settings/About.qml:123
 #, qt-format
@@ -168,8 +168,7 @@ msgstr "取消訂閱"
 #, qt-format
 msgid "%1 item selected"
 msgid_plural "%1 items selected"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "已選擇 %1 個項目"
 
 #: ../app/ui/EpisodesPage.qml:125 ../app/ui/EpisodesTab.qml:143
 #: ../app/ui/NowPlayingPage.qml:42
@@ -194,7 +193,7 @@ msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:229 ../app/ui/EpisodesTab.qml:270
 msgid "Add to queue"
-msgstr ""
+msgstr "加入佇列中"
 
 #: ../app/ui/EpisodesPage.qml:258 ../app/ui/EpisodesTab.qml:120
 msgid "Search episode"
@@ -225,7 +224,7 @@ msgstr "關閉"
 
 #: ../app/ui/EpisodesPage.qml:384
 msgid "No episodes found"
-msgstr ""
+msgstr "沒有找到任何節目"
 
 #: ../app/ui/EpisodesPage.qml:385
 msgid "No episodes found matching the search term."
@@ -233,15 +232,15 @@ msgstr "找不到符合搜尋字詞的節目。"
 
 #: ../app/ui/EpisodesPage.qml:502
 msgid "Unheard"
-msgstr ""
+msgstr "尚未聽過"
 
 #: ../app/ui/EpisodesPage.qml:519
 msgid "Listened"
-msgstr ""
+msgstr "已收聽"
 
 #: ../app/ui/EpisodesPage.qml:538
 msgid "Downloaded"
-msgstr ""
+msgstr "已下載"
 
 #: ../app/ui/EpisodesPage.qml:605
 msgid "Mark as unheard"
@@ -257,15 +256,15 @@ msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:621
 msgid "Queued"
-msgstr ""
+msgstr "已放入佇列"
 
 #: ../app/ui/EpisodesPage.qml:621
 msgid "Download"
-msgstr ""
+msgstr "下載"
 
 #: ../app/ui/EpisodesPage.qml:646
 msgid "Add to playlist"
-msgstr ""
+msgstr "加入播放清單中"
 
 #: ../app/ui/EpisodesPage.qml:655
 msgid "Unfavourite"
@@ -281,11 +280,11 @@ msgstr ""
 
 #: ../app/ui/EpisodesTab.qml:82
 msgid "Recent"
-msgstr ""
+msgstr "最近播放"
 
 #: ../app/ui/EpisodesTab.qml:82
 msgid "Downloads"
-msgstr ""
+msgstr "下載"
 
 #: ../app/ui/EpisodesTab.qml:82
 msgid "Favourites"
@@ -297,7 +296,7 @@ msgstr ""
 
 #: ../app/ui/EpisodesTab.qml:310
 msgid "No New Episodes"
-msgstr ""
+msgstr "沒有新的節目"
 
 #: ../app/ui/EpisodesTab.qml:312
 msgid "No Downloaded Episodes"
@@ -313,7 +312,7 @@ msgstr ""
 
 #: ../app/ui/EpisodesTab.qml:322
 msgid "No more episodes to listen to!"
-msgstr ""
+msgstr "沒有可以收聽的節目了！"
 
 #: ../app/ui/EpisodesTab.qml:324
 msgid "No episodes have been downloaded for offline listening"
@@ -325,11 +324,11 @@ msgstr ""
 
 #: ../app/ui/EpisodesTab.qml:328
 msgid "No Episodes found matching the search term."
-msgstr ""
+msgstr "沒有找到符合搜尋關鍵字的節目。"
 
 #: ../app/ui/EpisodesTab.qml:457
 msgid "Downloads in progress"
-msgstr ""
+msgstr "正在下載"
 
 #: ../app/ui/EpisodesTab.qml:497
 msgid "Downloaded episodes"
@@ -337,11 +336,11 @@ msgstr ""
 
 #: ../app/ui/EpisodesTab.qml:507
 msgid "Today"
-msgstr ""
+msgstr "今天"
 
 #: ../app/ui/EpisodesTab.qml:511
 msgid "Yesterday"
-msgstr ""
+msgstr "昨天"
 
 #: ../app/ui/EpisodesTab.qml:515
 msgid "Older"
@@ -369,7 +368,7 @@ msgstr ""
 
 #: ../app/ui/NowPlayingPage.qml:73
 msgid "Queue"
-msgstr ""
+msgstr "佇列"
 
 #: ../app/ui/PodcastsTab.qml:57 ../app/ui/SearchPage.qml:55
 #: ../app/ui/SearchPage.qml:161
@@ -378,7 +377,7 @@ msgstr "搜尋 Podcast"
 
 #: ../app/ui/PodcastsTab.qml:97
 msgid "Search podcast"
-msgstr ""
+msgstr "尋找 podcast"
 
 #: ../app/ui/PodcastsTab.qml:127
 msgid "No Podcast Subscriptions"
@@ -414,7 +413,7 @@ msgstr "儲存 Podcast"
 
 #: ../app/ui/SearchPage.qml:149
 msgid "Feed URL"
-msgstr ""
+msgstr "來源網址"
 
 #: ../app/ui/SearchPage.qml:176
 msgid "Unable to subscribe"
@@ -445,10 +444,12 @@ msgid ""
 "Last Updated: %1\n"
 "%2"
 msgstr ""
+"最後更新：%1\n"
+"%2"
 
 #: ../app/ui/SearchPage.qml:370
 msgid "Not Available"
-msgstr ""
+msgstr "無法使用"
 
 #. TRANSLATORS: This strings refers to the seeking of the episode playback. Users can set how far they
 #. want to seek forward when pressing on this button.
@@ -460,11 +461,11 @@ msgstr ""
 #: ../app/ui/SettingsPage.qml:172 ../app/ui/SettingsPage.qml:179
 #, qt-format
 msgid "%1 seconds"
-msgstr ""
+msgstr "%1 秒"
 
 #: ../app/ui/SettingsPage.qml:77 ../app/ui/SettingsPage.qml:112
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #. TRANSLATORS: This strings refers to the seeking of the episode playback. Users can set how far they
 #. want to seek backward when pressing on this button.
@@ -476,7 +477,7 @@ msgstr ""
 #. that doesn't fit into any other category.
 #: ../app/ui/SettingsPage.qml:141
 msgid "General Settings"
-msgstr ""
+msgstr "一般設定"
 
 #: ../app/ui/SettingsPage.qml:154
 msgid "Displays podcasts in a list view"
@@ -484,28 +485,28 @@ msgstr ""
 
 #: ../app/ui/SettingsPage.qml:166
 msgid "Playback Settings"
-msgstr ""
+msgstr "播放設定"
 
 #: ../app/ui/SettingsPage.qml:184
 msgid "Podcast Episode Settings"
-msgstr ""
+msgstr "Podcast節目設定"
 
 #: ../app/ui/SettingsPage.qml:190
 msgid "Automatically delete old episodes"
-msgstr ""
+msgstr "自動刪除舊的節目"
 
 #: ../app/ui/SettingsPage.qml:192
 msgid ""
 "Delete episodes that are older than a given number of days for each podcast"
-msgstr ""
+msgstr "刪除每個Podcast中過舊於特定天數的節目"
 
 #: ../app/ui/SettingsPage.qml:204
 msgid "Automatically download new episodes"
-msgstr ""
+msgstr "自動下載新的節目"
 
 #: ../app/ui/SettingsPage.qml:206
 msgid "Default number of new episodes to download for each podcast"
-msgstr ""
+msgstr "每個Podcast預設下載新節目的數量"
 
 #: ../app/ui/SettingsPage.qml:218
 msgid "Only download over WiFi"
@@ -525,7 +526,7 @@ msgstr ""
 
 #: ../app/ui/SettingsPage.qml:271
 msgid "Storage Settings"
-msgstr ""
+msgstr "儲存設定"
 
 #: ../app/ui/SettingsPage.qml:282
 msgid "Delete orphaned files and links"
@@ -559,15 +560,15 @@ msgstr ""
 #. that doesn't fit into any other category.
 #: ../app/ui/SettingsPage.qml:332
 msgid "Misc."
-msgstr ""
+msgstr "其他"
 
 #: ../app/ui/SettingsPage.qml:348
 msgid "Report Bug"
-msgstr ""
+msgstr "回報臭蟲"
 
 #: ../app/welcomewizard/Slide1.qml:42
 msgid "Welcome to Podbird"
-msgstr ""
+msgstr "歡迎來到 Podbird"
 
 #: ../app/welcomewizard/Slide1.qml:50
 msgid ""
@@ -576,20 +577,23 @@ msgid ""
 "\n"
 "Chirp Chirp..."
 msgstr ""
+"享受您最愛的 Podcast 節目，Podbird是Ubuntu最高調的Podcast管理程式。\n"
+"\n"
+"高調 高調..."
 
 #: ../app/welcomewizard/Slide1.qml:72
 msgid "Swipe to move between pages"
-msgstr ""
+msgstr "滑動以在頁面中移動"
 
 #: ../app/welcomewizard/Slide2.qml:45
 msgid "Discover New Podcasts"
-msgstr ""
+msgstr "發現新的 Podcast"
 
 #: ../app/welcomewizard/Slide2.qml:62
 msgid ""
 "Podbird uses the iTunes® database to provide access to a huge collection of "
 "podcasts. You can also add podcasts by their URL."
-msgstr ""
+msgstr "Podbird 利用 iTunes® 資料庫來提供龐大的podcast收藏。你也可以以網址來增加新的podcast。"
 
 #: ../app/welcomewizard/Slide3.qml:45
 msgid "Smart Settings"
@@ -599,25 +603,25 @@ msgstr ""
 msgid ""
 "Podbird can optionally download new episodes and clean up old episodes "
 "automatically, this can be enabled from the settings page."
-msgstr ""
+msgstr "Podbird 可以選擇性的下載新的節目並自動清除舊的節目，這可以從設定頁面中啟用。"
 
 #. TRANSLATORS: This text should be in a language different from the language set by the user.
 #. For instance, if the app was in english, then it is appropriate to set this string as
 #. Hallo or Bonjour etc to symbolize the internationalization feature in podbird.
 #: ../app/welcomewizard/Slide4.qml:48
 msgid "Hallo! Bonjour!"
-msgstr ""
+msgstr "Hallo! Bonjour!"
 
 #: ../app/welcomewizard/Slide4.qml:67
 #, qt-format
 msgid ""
 "Podbird is available in over 15 languages and is translated by the %1 "
 "community"
-msgstr ""
+msgstr "Podbird 已提供於15種語言並且是由 %1 社群所翻譯"
 
 #: ../app/welcomewizard/Slide5.qml:45
 msgid "Touch Gestures"
-msgstr ""
+msgstr "觸控手勢"
 
 #: ../app/welcomewizard/Slide5.qml:64
 msgid ""
@@ -628,7 +632,7 @@ msgstr ""
 
 #: ../app/welcomewizard/Slide6.qml:45
 msgid "Support"
-msgstr ""
+msgstr "支援"
 
 #. TRANSLATORS: The %1 points to a url defined in html format <a href=\link\>Link</a>.
 #: ../app/welcomewizard/Slide6.qml:65
@@ -636,27 +640,29 @@ msgstr ""
 msgid ""
 "If you find any bugs or have any feature requests, let us know on our "
 "project page at %1"
-msgstr ""
+msgstr "如果您發現任何錯誤或是有任何功能上的建議，請在我們的項目頁面 %1 上讓我們知道"
 
 #: ../app/welcomewizard/Slide7.qml:45
 msgid "Enjoy"
-msgstr ""
+msgstr "使用愉快！"
 
 #: ../app/welcomewizard/Slide7.qml:62
 msgid "We hope you enjoy using Podbird!"
-msgstr ""
+msgstr "我們希望你享受使用Podbird!"
 
 #: ../app/welcomewizard/Slide7.qml:76
 msgid "Finish"
-msgstr ""
+msgstr "完成"
 
 #: /home/mike/src/podbird/build-podbird-Ubuntu_Device2_GCC_armhf_ubuntu_sdk_15_04_builder_armhf-Default/po/Podbird.desktop.in.h:1
 #: Podbird.desktop.in.h:1
 msgid "The chirpiest podcast manager for Ubuntu"
-msgstr ""
+msgstr "Ubuntu 最高調的 podcast 管理工具"
 
 #: /home/mike/src/podbird/build-podbird-Ubuntu_Device2_GCC_armhf_ubuntu_sdk_15_04_builder_armhf-Default/po/Podbird.desktop.in.h:2
 #: Podbird.desktop.in.h:2
 msgid ""
 "podcast;audio;itunes;broadcast;digital;stream;podcatcher;video;vodcast;"
 msgstr ""
+"廣播;串流;播客;影片;podcast;audio;itunes;broadcast;digital;stream;podcatcher;video;vo"
+"dcast;"
