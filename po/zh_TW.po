@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2017-01-01 14:37+0000\n"
-"PO-Revision-Date: 2017-04-27 03:03+0000\n"
-"Last-Translator: Po-Hsu Lin <po-hsu.lin@canonical.com>\n"
+"PO-Revision-Date: 2017-04-28 06:43+0000\n"
+"Last-Translator: extraymond@gmail.com <extraymond@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <zh_TW@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Launchpad-Export-Date: 2017-04-28 05:50+0000\n"
+"X-Launchpad-Export-Date: 2017-04-29 05:41+0000\n"
 "X-Generator: Launchpad (build 18364)\n"
 
 #: ../app/components/TabsList.qml:28 ../app/ui/EpisodesTab.qml:48
@@ -76,11 +76,11 @@ msgstr "於 GNU GPL v3 條款下釋出"
 #: ../app/settings/About.qml:123
 #, qt-format
 msgid "Source code available on %1"
-msgstr ""
+msgstr "可於 %1 取得原始碼"
 
 #: ../app/settings/CleanSetting.qml:29
 msgid "Delete older than"
-msgstr ""
+msgstr "刪除早於"
 
 #: ../app/settings/CleanSetting.qml:40 ../app/settings/DownloadSetting.qml:40
 msgid "Never"
