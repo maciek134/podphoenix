@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2017-01-01 14:37+0000\n"
-"PO-Revision-Date: 2016-12-13 00:13+0000\n"
-"Last-Translator: José Carlos Casimiro <Unknown>\n"
+"PO-Revision-Date: 2017-05-30 11:55+0000\n"
+"Last-Translator: Ivo Xavier <ivoxavier.8@gmail.com>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2017-01-03 06:16+0000\n"
-"X-Generator: Launchpad (build 18298)\n"
+"X-Launchpad-Export-Date: 2017-05-31 06:44+0000\n"
+"X-Generator: Launchpad (build 18391)\n"
 
 #: ../app/components/TabsList.qml:28 ../app/ui/EpisodesTab.qml:48
 msgid "Episodes"
@@ -24,7 +24,7 @@ msgstr "Episódios"
 
 #: ../app/components/TabsList.qml:37 ../app/ui/SearchPage.qml:41
 msgid "Add New Podcasts"
-msgstr ""
+msgstr "Adicionar novos podcasts"
 
 #: ../app/components/TabsList.qml:46 ../app/ui/PodcastsTab.qml:42
 msgid "Podcasts"
@@ -249,39 +249,39 @@ msgstr "Descarregados"
 
 #: ../app/ui/EpisodesPage.qml:605
 msgid "Mark as unheard"
-msgstr ""
+msgstr "Marcar como não ouvido"
 
 #: ../app/ui/EpisodesPage.qml:605
 msgid "Mark as listened"
-msgstr ""
+msgstr "Marcar como ouvido"
 
 #: ../app/ui/EpisodesPage.qml:621
 msgid "Delete downloaded file"
-msgstr ""
+msgstr "Eliminar o ficheiro transferido"
 
 #: ../app/ui/EpisodesPage.qml:621
 msgid "Queued"
-msgstr ""
+msgstr "Na fila"
 
 #: ../app/ui/EpisodesPage.qml:621
 msgid "Download"
-msgstr ""
+msgstr "Transferir"
 
 #: ../app/ui/EpisodesPage.qml:646
 msgid "Add to playlist"
-msgstr ""
+msgstr "Adicionar à playlist"
 
 #: ../app/ui/EpisodesPage.qml:655
 msgid "Unfavourite"
-msgstr ""
+msgstr "Não favoritos"
 
 #: ../app/ui/EpisodesPage.qml:655
 msgid "Favourite"
-msgstr ""
+msgstr "Favorito"
 
 #: ../app/ui/EpisodesPage.qml:670
 msgid "Show episode description"
-msgstr ""
+msgstr "Mostrar descrição do episódio"
 
 #: ../app/ui/EpisodesTab.qml:82
 msgid "Recent"
@@ -397,6 +397,8 @@ msgid ""
 "You haven't subscribed to any podcasts yet, visit the 'Add New Podcasts' "
 "page to add some."
 msgstr ""
+"Ainda não subscreveu nenhum podcast, visite a página \"Adicionar novos "
+"podcasts\" para adicionar alguns."
 
 #: ../app/ui/PodcastsTab.qml:129 ../app/ui/SearchPage.qml:209
 msgid "No podcasts found matching the search term."
@@ -431,7 +433,7 @@ msgstr "Verifique o URL e tente novamente"
 
 #: ../app/ui/SearchPage.qml:207
 msgid "Looking to add a new podcast?"
-msgstr ""
+msgstr "À procura de um novo podcast?"
 
 #: ../app/ui/SearchPage.qml:208
 msgid ""
@@ -473,7 +475,7 @@ msgstr "%1 segundos"
 
 #: ../app/ui/SettingsPage.qml:77 ../app/ui/SettingsPage.qml:112
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #. TRANSLATORS: This strings refers to the seeking of the episode playback. Users can set how far they
 #. want to seek backward when pressing on this button.
@@ -519,39 +521,40 @@ msgstr "Número de novos episódios para download para cada podcast"
 
 #: ../app/ui/SettingsPage.qml:218
 msgid "Only download over WiFi"
-msgstr ""
+msgstr "Transferir apenas com WiFi"
 
 #: ../app/ui/SettingsPage.qml:220
 msgid "Download episodes only when the device is using WiFi"
-msgstr ""
+msgstr "Transferir episódios apenas com WiFi ligado"
 
 #: ../app/ui/SettingsPage.qml:240
 msgid "Refresh podcast artwork"
-msgstr ""
+msgstr "Atualizar ícone do podcast"
 
 #: ../app/ui/SettingsPage.qml:242
 msgid "Update all podcasts artwork and fix missing ones"
 msgstr ""
+"Atualizar todos os ícones dos podcasts e arranjar os que estão em falta"
 
 #: ../app/ui/SettingsPage.qml:271
 msgid "Storage Settings"
-msgstr ""
+msgstr "Configuração de armazenamento"
 
 #: ../app/ui/SettingsPage.qml:282
 msgid "Delete orphaned files and links"
-msgstr ""
+msgstr "Eliminar ficheiros e links órfãos"
 
 #: ../app/ui/SettingsPage.qml:284
 msgid "Free space by removing orphaned downloaded files and links"
-msgstr ""
+msgstr "Liberte espaço ao remover ficheiros e links transferidos órfãos"
 
 #: ../app/ui/SettingsPage.qml:314
 msgid "Removed orphaned files and links"
-msgstr ""
+msgstr "Remover ficheiros e links órfãos"
 
 #: ../app/ui/SettingsPage.qml:314
 msgid "No orphans found!"
-msgstr ""
+msgstr "Sem órfãos encontrados!"
 
 #: ../app/ui/SettingsPage.qml:315
 msgid ""
@@ -645,6 +648,9 @@ msgid ""
 "using a mouse). You can also multi-select them by long-pressing on an "
 "episode."
 msgstr ""
+"Os episódios podem ser deslizados da esquerda para revelar mais ações (ou "
+"clicar com o botão direito do rato, se aplicável). Você pode também fazer "
+"multi-seleção ao pressionar continuamente num episódio."
 
 #: ../app/welcomewizard/Slide6.qml:45
 msgid "Support"
