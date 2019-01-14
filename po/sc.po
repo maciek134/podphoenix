@@ -8,19 +8,19 @@ msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2017-01-01 14:37+0000\n"
-"PO-Revision-Date: 2019-01-13 00:41+0000\n"
+"PO-Revision-Date: 2019-01-13 21:24+0000\n"
 "Last-Translator: amm <Unknown>\n"
 "Language-Team: Sardinian <sc@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n!=1;\n"
-"X-Launchpad-Export-Date: 2019-01-13 05:42+0000\n"
+"X-Launchpad-Export-Date: 2019-01-14 05:46+0000\n"
 "X-Generator: Launchpad (build 18855)\n"
 
 #: ../app/components/TabsList.qml:28 ../app/ui/EpisodesTab.qml:48
 msgid "Episodes"
-msgstr ""
+msgstr "Episòdios"
 
 #: ../app/components/TabsList.qml:37 ../app/ui/SearchPage.qml:41
 msgid "Add New Podcasts"
@@ -76,7 +76,7 @@ msgstr "Publicadu a suta de sa lisséntzia GNU GPL v3"
 #: ../app/settings/About.qml:123
 #, qt-format
 msgid "Source code available on %1"
-msgstr ""
+msgstr "Su còdighe de orìgine est a disponimentu in %1"
 
 #: ../app/settings/CleanSetting.qml:29
 msgid "Delete older than"
@@ -105,8 +105,8 @@ msgstr[1] "%1 meses"
 #, qt-format
 msgid "%1 year"
 msgid_plural "%1 years"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 annu"
+msgstr[1] "%1 annos"
 
 #. TRANSLATORS: The first argument is the name of creator of Podbird (Michael Sheldon)
 #: ../app/settings/Credits.qml:31
@@ -120,7 +120,7 @@ msgstr "Isvilupadores"
 
 #: ../app/settings/Credits.qml:33
 msgid "Designer"
-msgstr ""
+msgstr "Disegnadore"
 
 #: ../app/settings/Credits.qml:34
 msgid "Translators"
@@ -128,7 +128,7 @@ msgstr "Tradutores"
 
 #: ../app/settings/DownloadSetting.qml:29
 msgid "Download at most"
-msgstr ""
+msgstr "Iscàrriga a su màssimu"
 
 #: ../app/settings/DownloadSetting.qml:41
 #: ../app/settings/DownloadSetting.qml:42
@@ -137,8 +137,8 @@ msgstr ""
 #, qt-format
 msgid "%1 episode"
 msgid_plural "%1 episodes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 episòdiu"
+msgstr[1] "%1 episòdios"
 
 #: ../app/settings/ThemeSetting.qml:29 ../app/ui/SettingsPage.qml:146
 msgid "Theme"
@@ -160,7 +160,7 @@ msgstr "Podcast"
 
 #: ../app/ui/EpisodesPage.qml:62 ../app/ui/EpisodesTab.qml:62
 msgid "Search Episode"
-msgstr ""
+msgstr "Chirca episòdios"
 
 #: ../app/ui/EpisodesPage.qml:70 ../app/ui/EpisodesPage.qml:306
 #: ../app/ui/SearchPage.qml:275
@@ -186,15 +186,15 @@ msgstr "Sinnala comente ascurtadu"
 
 #: ../app/ui/EpisodesPage.qml:156 ../app/ui/EpisodesTab.qml:173
 msgid "Download episode(s)"
-msgstr ""
+msgstr "Iscàrriga episòdiu/-os"
 
 #: ../app/ui/EpisodesPage.qml:184 ../app/ui/EpisodesTab.qml:201
 msgid "Delete episode(s)"
-msgstr ""
+msgstr "Cantzella episòdiu/-os"
 
 #: ../app/ui/EpisodesPage.qml:207 ../app/ui/EpisodesTab.qml:224
 msgid "Favourite episode(s)"
-msgstr ""
+msgstr "Episòdiu/-os preferidos"
 
 #: ../app/ui/EpisodesPage.qml:229 ../app/ui/EpisodesTab.qml:270
 msgid "Add to queue"
@@ -202,16 +202,16 @@ msgstr "Agiunghe a sa coa"
 
 #: ../app/ui/EpisodesPage.qml:258 ../app/ui/EpisodesTab.qml:120
 msgid "Search episode"
-msgstr ""
+msgstr "Chirca s'episòdiu"
 
 #: ../app/ui/EpisodesPage.qml:303
 msgid "Unsubscribe Confirmation"
-msgstr ""
+msgstr "Cunfirma s'annullamentu de sa sutiscritzione"
 
 #: ../app/ui/EpisodesPage.qml:304
 #, qt-format
 msgid "Are you sure you want to unsubscribe from <b>%1</b>?"
-msgstr ""
+msgstr "Seguru chi boles annullare sa sutiscritzione a <b>%1</b>?"
 
 #: ../app/ui/EpisodesPage.qml:323 ../app/ui/SearchPage.qml:130
 #: ../app/ui/SettingsPage.qml:85 ../app/ui/SettingsPage.qml:120
@@ -220,7 +220,7 @@ msgstr "Annulla"
 
 #: ../app/ui/EpisodesPage.qml:345 ../app/ui/EpisodesTab.qml:407
 msgid "Episode Description"
-msgstr ""
+msgstr "Descritzione de s'episòdiu"
 
 #: ../app/ui/EpisodesPage.qml:356 ../app/ui/EpisodesTab.qml:418
 #: ../app/ui/SearchPage.qml:179 ../app/ui/SettingsPage.qml:320
@@ -229,11 +229,11 @@ msgstr "Serra"
 
 #: ../app/ui/EpisodesPage.qml:384
 msgid "No episodes found"
-msgstr ""
+msgstr "Perunu episòdiu agatadu"
 
 #: ../app/ui/EpisodesPage.qml:385
 msgid "No episodes found matching the search term."
-msgstr ""
+msgstr "Perunu episòdiu agatadu chi cointzidat cun sa chirca."
 
 #: ../app/ui/EpisodesPage.qml:502
 msgid "Unheard"
@@ -261,7 +261,7 @@ msgstr "Cantzella archìviu iscarrigadu"
 
 #: ../app/ui/EpisodesPage.qml:621
 msgid "Queued"
-msgstr ""
+msgstr "In coa"
 
 #: ../app/ui/EpisodesPage.qml:621
 msgid "Download"
@@ -281,7 +281,7 @@ msgstr "Preferidos"
 
 #: ../app/ui/EpisodesPage.qml:670
 msgid "Show episode description"
-msgstr ""
+msgstr "Ammustra sa descritzione de s'episòdiu"
 
 #: ../app/ui/EpisodesTab.qml:82
 msgid "Recent"
@@ -297,7 +297,7 @@ msgstr "Preferidos"
 
 #: ../app/ui/EpisodesTab.qml:247
 msgid "Unfavourite episode(s)"
-msgstr ""
+msgstr "Boga s'episòdiu dae is preferidos"
 
 #: ../app/ui/EpisodesTab.qml:310
 msgid "No New Episodes"
@@ -440,7 +440,7 @@ msgstr ""
 
 #: ../app/ui/SearchPage.qml:275
 msgid "Subscribe"
-msgstr ""
+msgstr "Sutaiscrie·ti"
 
 #. TRANSLATORS: The first argument here is the date of when the podcast was last updated followed by
 #. the podcast description.
@@ -450,42 +450,44 @@ msgid ""
 "Last Updated: %1\n"
 "%2"
 msgstr ""
+"Ùrtima atualizatzione: %1\n"
+"%2"
 
 #: ../app/ui/SearchPage.qml:370
 msgid "Not Available"
-msgstr ""
+msgstr "Non disponìbile"
 
 #. TRANSLATORS: This strings refers to the seeking of the episode playback. Users can set how far they
 #. want to seek forward when pressing on this button.
 #: ../app/ui/SettingsPage.qml:65 ../app/ui/SettingsPage.qml:171
 msgid "Skip forward"
-msgstr ""
+msgstr "Brica in antis"
 
 #: ../app/ui/SettingsPage.qml:72 ../app/ui/SettingsPage.qml:107
 #: ../app/ui/SettingsPage.qml:172 ../app/ui/SettingsPage.qml:179
 #, qt-format
 msgid "%1 seconds"
-msgstr ""
+msgstr "%1 segundos"
 
 #: ../app/ui/SettingsPage.qml:77 ../app/ui/SettingsPage.qml:112
 msgid "OK"
-msgstr ""
+msgstr "AB"
 
 #. TRANSLATORS: This strings refers to the seeking of the episode playback. Users can set how far they
 #. want to seek backward when pressing on this button.
 #: ../app/ui/SettingsPage.qml:100 ../app/ui/SettingsPage.qml:178
 msgid "Skip back"
-msgstr ""
+msgstr "Brinca in segus"
 
 #. TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
 #. that doesn't fit into any other category.
 #: ../app/ui/SettingsPage.qml:141
 msgid "General Settings"
-msgstr ""
+msgstr "Cunfiguratziones generales"
 
 #: ../app/ui/SettingsPage.qml:154
 msgid "Displays podcasts in a list view"
-msgstr ""
+msgstr "Ammustra podcasts in una lista"
 
 #: ../app/ui/SettingsPage.qml:166
 msgid "Playback Settings"
@@ -514,7 +516,7 @@ msgstr ""
 
 #: ../app/ui/SettingsPage.qml:218
 msgid "Only download over WiFi"
-msgstr ""
+msgstr "Iscàrriga isceti tràmite WiFi"
 
 #: ../app/ui/SettingsPage.qml:220
 msgid "Download episodes only when the device is using WiFi"
@@ -564,15 +566,15 @@ msgstr ""
 #. that doesn't fit into any other category.
 #: ../app/ui/SettingsPage.qml:332
 msgid "Misc."
-msgstr ""
+msgstr "Misc."
 
 #: ../app/ui/SettingsPage.qml:348
 msgid "Report Bug"
-msgstr ""
+msgstr "Sinnala una faddina"
 
 #: ../app/welcomewizard/Slide1.qml:42
 msgid "Welcome to Podbird"
-msgstr ""
+msgstr "Ti donamus su benebènnidu a Podbird"
 
 #: ../app/welcomewizard/Slide1.qml:50
 msgid ""
@@ -584,7 +586,7 @@ msgstr ""
 
 #: ../app/welcomewizard/Slide1.qml:72
 msgid "Swipe to move between pages"
-msgstr ""
+msgstr "Iscurre pro mòere intre pàginas"
 
 #: ../app/welcomewizard/Slide2.qml:45
 msgid "Discover New Podcasts"
@@ -598,7 +600,7 @@ msgstr ""
 
 #: ../app/welcomewizard/Slide3.qml:45
 msgid "Smart Settings"
-msgstr ""
+msgstr "Cunfiguratzione intelligente"
 
 #: ../app/welcomewizard/Slide3.qml:62
 msgid ""
@@ -611,7 +613,7 @@ msgstr ""
 #. Hallo or Bonjour etc to symbolize the internationalization feature in podbird.
 #: ../app/welcomewizard/Slide4.qml:48
 msgid "Hallo! Bonjour!"
-msgstr ""
+msgstr "Hallo! Bonjour!"
 
 #: ../app/welcomewizard/Slide4.qml:67
 #, qt-format
@@ -619,6 +621,8 @@ msgid ""
 "Podbird is available in over 15 languages and is translated by the %1 "
 "community"
 msgstr ""
+"Podbird est a disponimentu in prus de 15 limbas e est tradùidu dae sa "
+"comunidade %1"
 
 #: ../app/welcomewizard/Slide5.qml:45
 msgid "Touch Gestures"
@@ -633,7 +637,7 @@ msgstr ""
 
 #: ../app/welcomewizard/Slide6.qml:45
 msgid "Support"
-msgstr ""
+msgstr "Agiudu"
 
 #. TRANSLATORS: The %1 points to a url defined in html format <a href=\link\>Link</a>.
 #: ../app/welcomewizard/Slide6.qml:65
@@ -645,7 +649,7 @@ msgstr ""
 
 #: ../app/welcomewizard/Slide7.qml:45
 msgid "Enjoy"
-msgstr ""
+msgstr "Ispàssia·ti"
 
 #: ../app/welcomewizard/Slide7.qml:62
 msgid "We hope you enjoy using Podbird!"
