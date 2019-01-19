@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2017-01-01 14:37+0000\n"
-"PO-Revision-Date: 2016-12-12 17:53+0000\n"
-"Last-Translator: Víctor R. Ruiz <Unknown>\n"
+"PO-Revision-Date: 2019-01-18 19:21+0000\n"
+"Last-Translator: Adolfo Jayme <fitoschido@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2018-08-18 06:19+0000\n"
-"X-Generator: Launchpad (build 18752)\n"
+"X-Launchpad-Export-Date: 2019-01-19 05:46+0000\n"
+"X-Generator: Launchpad (build 18856)\n"
 
 #: ../app/components/TabsList.qml:28 ../app/ui/EpisodesTab.qml:48
 msgid "Episodes"
@@ -24,11 +24,11 @@ msgstr "Episodios"
 
 #: ../app/components/TabsList.qml:37 ../app/ui/SearchPage.qml:41
 msgid "Add New Podcasts"
-msgstr "Añadir podcasts"
+msgstr "Añadir pódcast nuevos"
 
 #: ../app/components/TabsList.qml:46 ../app/ui/PodcastsTab.qml:42
 msgid "Podcasts"
-msgstr "Podcasts"
+msgstr "Pódcast"
 
 #: ../app/components/TabsList.qml:55 ../app/ui/SettingsPage.qml:34
 msgid "Settings"
@@ -491,7 +491,7 @@ msgstr "Configuración general"
 
 #: ../app/ui/SettingsPage.qml:154
 msgid "Displays podcasts in a list view"
-msgstr "Muestra los podcasts en una lista"
+msgstr "Muestra los pódcast en una lista"
 
 #: ../app/ui/SettingsPage.qml:166
 msgid "Playback Settings"
@@ -499,7 +499,7 @@ msgstr "Configuración de reproducción"
 
 #: ../app/ui/SettingsPage.qml:184
 msgid "Podcast Episode Settings"
-msgstr "Configuración de episodios de podcast"
+msgstr "Configuración de episodios de pódcast"
 
 #: ../app/ui/SettingsPage.qml:190
 msgid "Automatically delete old episodes"
