@@ -8,19 +8,19 @@ msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2017-01-01 14:37+0000\n"
-"PO-Revision-Date: 2015-09-14 20:53+0000\n"
+"PO-Revision-Date: 2019-05-01 05:36+0000\n"
 "Last-Translator: Patrik Sonestad <patrik@sonestad.se>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2018-08-18 06:19+0000\n"
-"X-Generator: Launchpad (build 18752)\n"
+"X-Launchpad-Export-Date: 2019-05-02 05:53+0000\n"
+"X-Generator: Launchpad (build 18928)\n"
 
 #: ../app/components/TabsList.qml:28 ../app/ui/EpisodesTab.qml:48
 msgid "Episodes"
-msgstr ""
+msgstr "Avsnitt"
 
 #: ../app/components/TabsList.qml:37 ../app/ui/SearchPage.qml:41
 msgid "Add New Podcasts"
@@ -172,33 +172,33 @@ msgstr "Avsluta prenumeration"
 #, qt-format
 msgid "%1 item selected"
 msgid_plural "%1 items selected"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 objekt markerat"
+msgstr[1] "%1 objekt markerade"
 
 #: ../app/ui/EpisodesPage.qml:125 ../app/ui/EpisodesTab.qml:143
 #: ../app/ui/NowPlayingPage.qml:42
 msgid "Back"
-msgstr ""
+msgstr "Bakåt"
 
 #: ../app/ui/EpisodesPage.qml:137 ../app/ui/EpisodesTab.qml:155
 msgid "Mark Listened"
-msgstr ""
+msgstr "Markera som avlyssnat"
 
 #: ../app/ui/EpisodesPage.qml:156 ../app/ui/EpisodesTab.qml:173
 msgid "Download episode(s)"
-msgstr ""
+msgstr "Hämta avsnitt"
 
 #: ../app/ui/EpisodesPage.qml:184 ../app/ui/EpisodesTab.qml:201
 msgid "Delete episode(s)"
-msgstr ""
+msgstr "Radera avsnitt"
 
 #: ../app/ui/EpisodesPage.qml:207 ../app/ui/EpisodesTab.qml:224
 msgid "Favourite episode(s)"
-msgstr ""
+msgstr "Favoritavsnitt"
 
 #: ../app/ui/EpisodesPage.qml:229 ../app/ui/EpisodesTab.qml:270
 msgid "Add to queue"
-msgstr ""
+msgstr "Lägg till i kö"
 
 #: ../app/ui/EpisodesPage.qml:258 ../app/ui/EpisodesTab.qml:120
 msgid "Search episode"
@@ -285,19 +285,19 @@ msgstr ""
 
 #: ../app/ui/EpisodesTab.qml:82
 msgid "Recent"
-msgstr ""
+msgstr "Senaste"
 
 #: ../app/ui/EpisodesTab.qml:82
 msgid "Downloads"
-msgstr ""
+msgstr "Hämtningar"
 
 #: ../app/ui/EpisodesTab.qml:82
 msgid "Favourites"
-msgstr ""
+msgstr "Favoriter"
 
 #: ../app/ui/EpisodesTab.qml:247
 msgid "Unfavourite episode(s)"
-msgstr ""
+msgstr "Ta bort favoritmärkning"
 
 #: ../app/ui/EpisodesTab.qml:310
 msgid "No New Episodes"
@@ -305,11 +305,11 @@ msgstr "Inga nya avsnitt"
 
 #: ../app/ui/EpisodesTab.qml:312
 msgid "No Downloaded Episodes"
-msgstr ""
+msgstr "Inga hämtade avsnitt"
 
 #: ../app/ui/EpisodesTab.qml:314
 msgid "No Favourited Episodes"
-msgstr ""
+msgstr "Inga favoritavsnitt"
 
 #: ../app/ui/EpisodesTab.qml:316
 msgid "No Episodes Found"
@@ -321,11 +321,11 @@ msgstr "Inga fler avsnitt att lyssna på!"
 
 #: ../app/ui/EpisodesTab.qml:324
 msgid "No episodes have been downloaded for offline listening"
-msgstr ""
+msgstr "Inga avsnitt har hämtats för lyssning i frånkopplat läge"
 
 #: ../app/ui/EpisodesTab.qml:326
 msgid "No episodes have been favourited."
-msgstr ""
+msgstr "Inga avsnitt har markerats som favorit"
 
 #: ../app/ui/EpisodesTab.qml:328
 msgid "No Episodes found matching the search term."
@@ -333,11 +333,11 @@ msgstr "Inga avsnitt hittades med dessa söktermer."
 
 #: ../app/ui/EpisodesTab.qml:457
 msgid "Downloads in progress"
-msgstr ""
+msgstr "Pågående hämtningar"
 
 #: ../app/ui/EpisodesTab.qml:497
 msgid "Downloaded episodes"
-msgstr ""
+msgstr "Hämtade avsnitt"
 
 #: ../app/ui/EpisodesTab.qml:507
 msgid "Today"
@@ -369,11 +369,11 @@ msgstr "Nu spelas"
 
 #: ../app/ui/NowPlayingPage.qml:73
 msgid "Full view"
-msgstr ""
+msgstr "Komplett vy"
 
 #: ../app/ui/NowPlayingPage.qml:73
 msgid "Queue"
-msgstr ""
+msgstr "Spelkö"
 
 #: ../app/ui/PodcastsTab.qml:57 ../app/ui/SearchPage.qml:55
 #: ../app/ui/SearchPage.qml:161
@@ -489,7 +489,7 @@ msgstr "Allmänna Inställningar"
 
 #: ../app/ui/SettingsPage.qml:154
 msgid "Displays podcasts in a list view"
-msgstr ""
+msgstr "Visa poddsändningar i en listvy"
 
 #: ../app/ui/SettingsPage.qml:166
 msgid "Playback Settings"
@@ -637,7 +637,7 @@ msgstr ""
 
 #: ../app/welcomewizard/Slide5.qml:45
 msgid "Touch Gestures"
-msgstr ""
+msgstr "Gester"
 
 #: ../app/welcomewizard/Slide5.qml:64
 msgid ""
