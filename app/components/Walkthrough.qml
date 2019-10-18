@@ -32,13 +32,13 @@ Page {
     property list<Component> model
 
     // Property to set the color of bottom cirle to indicate the user's progress
-    property color completeColor: "green"
+    property color completeColor: "#299ABF"
 
     // Property to set the color of the bottom circle to indicate the slide still left to cover
-    property color inCompleteColor: "lightgrey"
+    property color inCompleteColor: theme.palette.normal.base
 
     // Property to set the color of the skip welcome wizard text
-    property color skipTextColor: "grey"
+    property color skipTextColor: theme.palette.normal.baseText
 
     // Property to signal walkthrough completion
     signal finished
@@ -145,7 +145,7 @@ Page {
             right: parent.right
         }
 
-        iconName: "chevron"
+        iconName: "go-next"
         visible: enabled
         enabled: listView.currentIndex !== listView.count-1
         onClicked: listView.currentIndex++
@@ -162,8 +162,7 @@ Page {
             left: parent.left
         }
 
-        iconName: "chevron"
-        rotation: 180
+        iconName: "go-previous"
         visible: enabled
         enabled: listView.currentIndex !== 0
         onClicked: listView.currentIndex--
