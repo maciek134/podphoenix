@@ -26,7 +26,7 @@ QtObject {
     // Main Text Colors
     property color baseText: "White"
     property color baseSubText: "#999999"
-    property color focusText: "#35AF44"
+    property color focusText: UbuntuColors.blue
     property color linkText: "Cyan"
 
     // Icon Colors

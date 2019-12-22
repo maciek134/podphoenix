@@ -41,31 +41,41 @@ Component {
             id: introductionText
             text: i18n.tr("Welcome to Podbird")
             textSize: Label.XLarge
+            width: parent.width
             height: contentHeight
             anchors.centerIn: parent
+            wrapMode: Text.WordWrap
+            horizontalAlignment: Text.AlignHCenter
         }
 
         Label {
             id: bodyText
             text: i18n.tr("Enjoy your favourite shows with Podbird, the chirpiest podcast \
 manager for Ubuntu.\n\nChirp Chirp...")
-            anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.margins: units.gu(1)
-            anchors.top: introductionText.bottom
-            anchors.topMargin: units.gu(4)
-            anchors.bottom: swipeText.top
+
+            anchors {
+                left: parent.left
+                right: parent.right
+                margins: units.gu(1)
+                top: introductionText.bottom
+                topMargin: units.gu(4)
+                bottom: swipeText.top
+            }
+
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignHCenter
         }
 
         Label {
             id: swipeText
-            anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.margins: units.gu(1)
-            anchors.bottom: parent.bottom
-            color: "grey"
+            anchors {
+                left: parent.left
+                right: parent.right
+                margins: units.gu(1)
+                bottom: parent.bottom
+            }
+
+            color: theme.palette.normal.baseText
             textSize: Label.Small
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignHCenter

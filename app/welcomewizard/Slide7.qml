@@ -19,9 +19,9 @@
 import QtQuick 2.4
 import Ubuntu.Components 1.3
 
-// Slide 5
+// Slide 6
 Component {
-    id: slide5
+    id: slide6
     Item {
         id: slide1Container
 
@@ -33,7 +33,7 @@ Component {
                 horizontalCenter: parent.horizontalCenter
             }
             fillMode: Image.PreserveAspectFit
-            source: Qt.resolvedUrl("../graphics/support.png")
+            source: Qt.resolvedUrl("../graphics/gift.png")
         }
 
         Label {
@@ -42,7 +42,7 @@ Component {
             elide: Text.ElideRight
             textSize: Label.XLarge
             maximumLineCount: 2
-            text: i18n.tr("Support")
+            text: i18n.tr("Enjoy")
             horizontalAlignment: Text.AlignHCenter
             width: parent.width
             wrapMode: Text.WordWrap
@@ -52,18 +52,28 @@ Component {
             id: finalMessage
             anchors {
                 top: introductionText.bottom
-                bottom: parent.bottom
+                bottom: continueButton.top
                 left: parent.left
                 right: parent.right
                 margins: units.gu(1)
                 topMargin: units.gu(4)
             }
-            wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignHCenter
-            linkColor: podbird.appTheme.linkText
-            // TRANSLATORS: The %1 points to a url defined in html format <a href=\link\>Link</a>.
-            text: i18n.tr("If you find any bugs or have any feature requests, let us know on our project page at %1").arg("<a href=\"https://launchpad.net/podbird\">launchpad.net</a>")
-            onLinkActivated: Qt.openUrlExternally(link)
+            text: i18n.tr("We hope you enjoy using Podbird!")
+            wrapMode: Text.WordWrap
+        }
+
+        Button {
+            id: continueButton
+            anchors {
+                bottom: parent.bottom
+                bottomMargin: units.gu(3)
+                horizontalCenter: parent.horizontalCenter
+            }
+            width: Math.min(parent.width/1.3, units.gu(40))
+            color: theme.palette.normal.positive
+            text: i18n.tr("Finish")
+            onClicked: finished()
         }
     }
 }

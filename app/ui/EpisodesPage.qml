@@ -721,7 +721,6 @@ Page {
         Scrollbar {
             flickableItem: episodeList
             align: Qt.AlignTrailing
-            StyleHints { sliderColor: podbird.appTheme.focusText }
         }
     }
 

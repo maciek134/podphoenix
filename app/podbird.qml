@@ -16,9 +16,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick 2.4
+import QtQuick 2.9
 import Podbird 1.0
-import QtMultimedia 5.6
+import QtMultimedia 5.9
 import Ubuntu.Connectivity 1.0
 import Qt.labs.settings 1.0
 import Ubuntu.Components 1.3
@@ -221,7 +221,7 @@ MainView {
         }
     }
 
-    // This reduces incidences of media-hub getting confused and 
+    // This reduces incidences of media-hub getting confused and
     // continuing to play the previous file when clearing a playlist
     // and starting a new episode
     Timer {
@@ -238,6 +238,8 @@ MainView {
 
     MediaPlayer {
         id: player
+
+        onPositionChanged: console.log("DEBUG: player position changed to: ", position)
 
         // Wrapper function around decodeURIComponent() to prevent exceptions
         // from bubbling up to the app.
@@ -317,7 +319,7 @@ MainView {
             // Add episode to queue
             Podcasts.addItemToQueue(guid, image, name, artist, url, position)
             player.playlist.addItem(url)
-            
+
             // Play episode
             pendingSeek = position
             playStarter.restart()
@@ -358,10 +360,12 @@ MainView {
                 currentImage = meta.image
                 currentGuid = meta.guid
                 player.pendingSeek = meta.position
+                console.log("DEBUG: player.pendingSeek: ", player.pendingSeek, " meta.position ", meta.position)
             }
         }
 
         onPlaybackStateChanged: {
+            console.log("DEBUG: Restoring Position to: ", player.position)
             restorePosition()
         }
 
@@ -371,6 +375,9 @@ MainView {
                 endOfMedia = true
                 stop()
             }
+
+            player.playbackRate = 3.0
+            console.log("playBackRate is ", playbackRate)
         }
 
         onStopped: {
