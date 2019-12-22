@@ -70,7 +70,6 @@ Component {
                 bottomMargin: units.gu(3)
                 horizontalCenter: parent.horizontalCenter
             }
-            //height: units.gu(6)
             width: Math.min(parent.width/1.3, units.gu(40))
             color: theme.palette.normal.positive
             text: i18n.tr("Finish")
