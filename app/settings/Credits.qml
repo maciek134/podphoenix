@@ -28,10 +28,10 @@ Item {
         Component.onCompleted: initialize()
         function initialize() {
             // TRANSLATORS: The first argument is the name of creator of Podbird (Michael Sheldon)
-            creditsModel.append({ name: i18n.tr("%1 (Creator)").arg("Michael Sheldon"), title: i18n.tr("Developers"), url: "https://launchpad.net/~michael-sheldon" })
+            creditsModel.append({ name: i18n.tr("%1 (Creator)").arg("Michael Sheldon"), title: i18n.tr("Developers"), url: "http://blog.mikeasoft.com" })
             creditsModel.append({ name: "Nekhelesh Ramananthan", title: i18n.tr("Developers"), url: "https://launchpad.net/~nik90" })
-            creditsModel.append({ name: "Kevin Feyder", title: i18n.tr("Designer"), url: "https://plus.google.com/116231235687734373591" })
-            creditsModel.append({ name: "Ubuntu Translators Community", title: i18n.tr("Translators"), url: "http://community.ubuntu.com/contribute/translations" })
+            creditsModel.append({ name: "Kevin Feyder", title: i18n.tr("Designer"), url: "https://feyder.design/" })
+            creditsModel.append({ name: "Ubuntu Translators Community", title: i18n.tr("Translators"), url: "https://discourse.ubuntu.com/t/translations/32" })
         }
     }
 
