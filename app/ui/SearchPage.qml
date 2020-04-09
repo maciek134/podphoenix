@@ -19,7 +19,9 @@
 import QtQuick 2.4
 import Ubuntu.Components 1.3
 import QtQuick.LocalStorage 2.0
+import QtQuick.XmlListModel 2.0
 import Ubuntu.Components.Popups 1.3
+import Ubuntu.Content 1.3
 import "../podcasts.js" as Podcasts
 import "../components"
 
@@ -65,6 +67,17 @@ Page {
                 onTriggered: {
                     searchPage.header = addHeader
                     feedUrlField.item.forceActiveFocus()
+                }
+            },
+            Action {
+                text:i18n.tr("Import Podcasts")
+                iconName: "import"
+                onTriggered: {
+                    var importPage = mainStack.push(Qt.resolvedUrl("ImportPage.qml"),{"contentType": ContentType.Unknown, "handler": ContentHandler.Source})
+                    importPage.imported.connect(function(fileUrl) {
+                        mainStack.pop()
+                        parseOPML(fileUrl)
+                    })
                 }
             }
         ]
@@ -123,6 +136,7 @@ Page {
                 onTriggered: {
                     resultsView.forceActiveFocus()
                     subscribeFromFeed(feedUrlField.item.text);
+                    tabs.selectedTabIndex = 2;
                 }
             },
             Action {
@@ -150,6 +164,7 @@ Page {
             onAccepted: {
                 resultsView.forceActiveFocus()
                 subscribeFromFeed(feedUrlField.text);
+                tabs.selectedTabIndex = 2;
             }
         }
     }
@@ -292,7 +307,6 @@ Page {
                                 }
                             });
                         }
-                        tabs.selectedTabIndex = 2;
                     }
                 }
             }
@@ -412,6 +426,8 @@ Page {
             var artist = "";
             var image = "";
             if (xhr.readyState === XMLHttpRequest.DONE) {
+                if(loadingDialog.visible)
+                    progressBar.value++
                 if (xhr.status < 200 || xhr.status > 299 || xhr.responseXML === null) {
                     PopupUtils.open(subscribeFailedDialog);
                     searchPage.header = addHeader
@@ -440,7 +456,6 @@ Page {
                 if(name != "") {
                     Podcasts.subscribe(artist, name, feed, image);
                     imageDownloader.addDownload(feed, image)
-                    tabs.selectedTabIndex = 2;
                 } else {
                     PopupUtils.open(subscribeFailedDialog);
                     searchPage.header = addHeader
@@ -450,5 +465,57 @@ Page {
             }
         }
         xhr.send();
+    }
+
+    function parseOPML(fileUrl) {
+        opmlModel.source = fileUrl;
+        opmlModel.reload()
+    }
+
+    XmlListModel {
+        id:opmlModel
+
+        query: "/opml/body/outline"
+        XmlRole { name: "text"; query: "@text/string()" }
+        XmlRole { name: "type"; query: "@type/string()" }
+        XmlRole { name: "xmlUrl"; query: "@xmlUrl/string()" }
+
+        onRowsInserted: {
+            progressBar.minimumValue = first
+            progressBar.maximumValue = last
+            progressBar.value = first
+            loadingDialog.show()
+            for(var i=first;i<=last;i++){
+                subscribeFromFeed(opmlModel.get(i).xmlUrl)
+            }
+        }
+    }
+
+    Dialog {
+        id: loadingDialog
+
+        modal: true;
+        title: i18n.tr("Please wait!")
+        text: i18n.tr("Importing podcasts.")
+
+        ActivityIndicator {
+            running: true
+        }
+
+        ProgressBar {
+            id:progressBar
+
+            onValueChanged: {
+                if(value > maximumValue) {
+                    PopupUtils.close(loadingDialog)
+                    tabs.selectedTabIndex = 2;
+                }
+            }
+        }
+
+        Label {
+            text: progressBar.value + "/" + (progressBar.maximumValue+1) + " " + i18n.tr("imported")
+            horizontalAlignment: Text.AlignHCenter
+        }
     }
 }
