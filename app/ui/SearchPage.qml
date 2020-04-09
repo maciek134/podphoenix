@@ -495,8 +495,8 @@ Page {
         id: loadingDialog
 
         modal: true;
-        title: i18n.tr("Please wait!")
-        text: i18n.tr("Importing podcasts.")
+        title: i18n.tr("Please wait")
+        text: i18n.tr("Importing podcasts...")
 
         ActivityIndicator {
             running: true

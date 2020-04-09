@@ -3,7 +3,6 @@ import Ubuntu.Components 1.3
 import Ubuntu.Content 1.3
 
 
-
 Page {
     id: picker
     property var activeTransfer
@@ -23,8 +22,8 @@ Page {
         anchors { fill: parent; topMargin: picker.header.height }
         visible: parent.visible
         showTitle: false
-        contentType: picker.contentType //ContentType.Pictures
-        handler: picker.handler //ContentHandler.Source
+        contentType: picker.contentType
+        handler: picker.handler
 
         onPeerSelected: {
             peer.selectionType = ContentTransfer.Single
@@ -44,7 +43,6 @@ Page {
             })
         }
 
-
         onCancelPressed: {
             pageStack.pop()
         }
@@ -55,6 +53,7 @@ Page {
         anchors.fill: parent
         activeTransfer: picker.activeTransfer
     }
+
     Component {
         id: resultComponent
         ContentItem {}
