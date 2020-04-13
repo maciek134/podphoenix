@@ -307,6 +307,7 @@ Page {
                                 }
                             });
                         }
+                        model.subscribed=!model.subscribed;
                     }
                 }
             }
