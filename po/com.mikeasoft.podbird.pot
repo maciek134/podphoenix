@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-25 12:20+0000\n"
+"POT-Creation-Date: 2020-04-13 18:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,9 +24,9 @@ msgstr ""
 msgid "Episodes"
 msgstr ""
 
-#: ../app/components/TabsList.qml:37 ../app/ui/SearchPage.qml:41
+#: ../app/components/TabsList.qml:37 ../app/ui/SearchPage.qml:43
 #: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/components/TabsList.qml:37
-#: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/SearchPage.qml:41
+#: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/SearchPage.qml:43
 msgid "Add New Podcasts"
 msgstr ""
 
@@ -209,10 +209,10 @@ msgid "Search Episode"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:70 ../app/ui/EpisodesPage.qml:306
-#: ../app/ui/SearchPage.qml:275
+#: ../app/ui/SearchPage.qml:290
 #: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/EpisodesPage.qml:70
 #: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/EpisodesPage.qml:306
-#: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/SearchPage.qml:275
+#: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/SearchPage.qml:290
 msgid "Unsubscribe"
 msgstr ""
 
@@ -281,10 +281,10 @@ msgstr ""
 msgid "Are you sure you want to unsubscribe from <b>%1</b>?"
 msgstr ""
 
-#: ../app/ui/EpisodesPage.qml:323 ../app/ui/SearchPage.qml:130
+#: ../app/ui/EpisodesPage.qml:323 ../app/ui/SearchPage.qml:144
 #: ../app/ui/SettingsPage.qml:85 ../app/ui/SettingsPage.qml:120
 #: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/EpisodesPage.qml:323
-#: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/SearchPage.qml:130
+#: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/SearchPage.qml:144
 #: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/SettingsPage.qml:85
 #: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/SettingsPage.qml:120
 msgid "Cancel"
@@ -297,10 +297,10 @@ msgid "Episode Description"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:356 ../app/ui/EpisodesTab.qml:418
-#: ../app/ui/SearchPage.qml:179 ../app/ui/SettingsPage.qml:320
+#: ../app/ui/SearchPage.qml:194 ../app/ui/SettingsPage.qml:320
 #: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/EpisodesPage.qml:356
 #: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/EpisodesTab.qml:418
-#: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/SearchPage.qml:179
+#: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/SearchPage.qml:194
 #: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/SettingsPage.qml:320
 msgid "Close"
 msgstr ""
@@ -474,6 +474,11 @@ msgstr ""
 msgid "+%1s"
 msgstr ""
 
+#: ../app/ui/ImportPage.qml:18
+#: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/ImportPage.qml:18
+msgid "Choose"
+msgstr ""
+
 #: ../app/ui/NowPlayingPage.qml:34
 #: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/NowPlayingPage.qml:34
 msgid "Now Playing"
@@ -489,11 +494,11 @@ msgstr ""
 msgid "Queue"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:57 ../app/ui/SearchPage.qml:55
-#: ../app/ui/SearchPage.qml:161
+#: ../app/ui/PodcastsTab.qml:57 ../app/ui/SearchPage.qml:57
+#: ../app/ui/SearchPage.qml:176
 #: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/PodcastsTab.qml:57
-#: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/SearchPage.qml:55
-#: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/SearchPage.qml:161
+#: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/SearchPage.qml:57
+#: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/SearchPage.qml:176
 msgid "Search Podcast"
 msgstr ""
 
@@ -507,9 +512,9 @@ msgstr ""
 msgid "No Podcast Subscriptions"
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:127 ../app/ui/SearchPage.qml:207
+#: ../app/ui/PodcastsTab.qml:127 ../app/ui/SearchPage.qml:222
 #: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/PodcastsTab.qml:127
-#: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/SearchPage.qml:207
+#: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/SearchPage.qml:222
 msgid "No Podcasts Found"
 msgstr ""
 
@@ -520,9 +525,9 @@ msgid ""
 "page to add some."
 msgstr ""
 
-#: ../app/ui/PodcastsTab.qml:129 ../app/ui/SearchPage.qml:209
+#: ../app/ui/PodcastsTab.qml:129 ../app/ui/SearchPage.qml:224
 #: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/PodcastsTab.qml:129
-#: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/SearchPage.qml:209
+#: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/SearchPage.qml:224
 msgid "No podcasts found matching the search term."
 msgstr ""
 
@@ -534,60 +539,80 @@ msgid_plural "%1 unheard episodes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../app/ui/SearchPage.qml:63
-#: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/SearchPage.qml:63
+#: ../app/ui/SearchPage.qml:65
+#: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/SearchPage.qml:65
 msgid "Add Podcast"
 msgstr ""
 
-#: ../app/ui/SearchPage.qml:122
-#: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/SearchPage.qml:122
+#: ../app/ui/SearchPage.qml:73
+#: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/SearchPage.qml:73
+msgid "Import Podcasts"
+msgstr ""
+
+#: ../app/ui/SearchPage.qml:135
+#: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/SearchPage.qml:135
 msgid "Save Podcast"
 msgstr ""
 
-#: ../app/ui/SearchPage.qml:149
-#: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/SearchPage.qml:149
+#: ../app/ui/SearchPage.qml:163
+#: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/SearchPage.qml:163
 msgid "Feed URL"
 msgstr ""
 
-#: ../app/ui/SearchPage.qml:176
-#: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/SearchPage.qml:176
+#: ../app/ui/SearchPage.qml:191
+#: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/SearchPage.qml:191
 msgid "Unable to subscribe"
 msgstr ""
 
-#: ../app/ui/SearchPage.qml:177
-#: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/SearchPage.qml:177
+#: ../app/ui/SearchPage.qml:192
+#: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/SearchPage.qml:192
 msgid "Please check the URL and try again"
 msgstr ""
 
-#: ../app/ui/SearchPage.qml:207
-#: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/SearchPage.qml:207
+#: ../app/ui/SearchPage.qml:222
+#: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/SearchPage.qml:222
 msgid "Looking to add a new podcast?"
 msgstr ""
 
-#: ../app/ui/SearchPage.qml:208
-#: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/SearchPage.qml:208
+#: ../app/ui/SearchPage.qml:223
+#: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/SearchPage.qml:223
 msgid ""
 "Click the 'magnifier' at the top to search or the 'plus' button to add by URL"
 msgstr ""
 
-#: ../app/ui/SearchPage.qml:275
-#: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/SearchPage.qml:275
+#: ../app/ui/SearchPage.qml:290
+#: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/SearchPage.qml:290
 msgid "Subscribe"
 msgstr ""
 
 #. TRANSLATORS: The first argument here is the date of when the podcast was last updated followed by
 #. the podcast description.
-#: ../app/ui/SearchPage.qml:313
-#: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/SearchPage.qml:313
+#: ../app/ui/SearchPage.qml:328
+#: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/SearchPage.qml:327
 #, qt-format
 msgid ""
 "Last Updated: %1\n"
 "%2"
 msgstr ""
 
-#: ../app/ui/SearchPage.qml:370
-#: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/SearchPage.qml:370
+#: ../app/ui/SearchPage.qml:385
+#: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/SearchPage.qml:384
 msgid "Not Available"
+msgstr ""
+
+#: ../app/ui/SearchPage.qml:499
+#: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/SearchPage.qml:498
+msgid "Please wait"
+msgstr ""
+
+#: ../app/ui/SearchPage.qml:500
+#: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/SearchPage.qml:499
+msgid "Importing podcasts..."
+msgstr ""
+
+#: ../app/ui/SearchPage.qml:518
+#: ../build/arm-linux-gnueabihf/app/install/share/qml/podbird/ui/SearchPage.qml:517
+msgid "imported"
 msgstr ""
 
 #. TRANSLATORS: This strings refers to the seeking of the episode playback. Users can set how far they
