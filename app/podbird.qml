@@ -375,9 +375,6 @@ MainView {
                 endOfMedia = true
                 stop()
             }
-
-            player.playbackRate = 3.0
-            console.log("playBackRate is ", playbackRate)
         }
 
         onStopped: {
