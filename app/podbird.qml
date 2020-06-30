@@ -316,6 +316,7 @@ MainView {
             player.playlist.clear()
             Podcasts.clearQueue()
 
+            url = decodeFileURI(url)
             // Add episode to queue
             Podcasts.addItemToQueue(guid, image, name, artist, url, position)
             player.playlist.addItem(url)
@@ -326,6 +327,7 @@ MainView {
         }
 
         function addEpisodeToQueue(guid, image, name, artist, url, position) {
+            url = decodeFileURI(url)
             Podcasts.addItemToQueue(guid, image, name, artist, url, position)
             player.playlist.addItem(url)
 
