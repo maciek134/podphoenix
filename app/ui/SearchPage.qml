@@ -162,7 +162,7 @@ Page {
             placeholderText: i18n.tr("Feed URL")
             onAccepted: {
                 resultsView.forceActiveFocus()
-                subscribeFromFeed(feedUrlField.text);
+                subscribeFromFeed(feedUrlField.item.text);
             }
         }
     }
