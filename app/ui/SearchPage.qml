@@ -158,7 +158,7 @@ Page {
     Component {
         id: feedUrlComponent
         TextField {
-            inputMethodHints: Qt.ImhUrlCharactersOnly
+            inputMethodHints: Qt.ImhUrlCharactersOnly | Qt.ImhNoPredictiveText
             placeholderText: i18n.tr("Feed URL")
             onAccepted: {
                 resultsView.forceActiveFocus()
