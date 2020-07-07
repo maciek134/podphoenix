@@ -136,7 +136,6 @@ Page {
                 onTriggered: {
                     resultsView.forceActiveFocus()
                     subscribeFromFeed(feedUrlField.item.text);
-                    tabs.selectedTabIndex = 2;
                 }
             },
             Action {
@@ -163,8 +162,7 @@ Page {
             placeholderText: i18n.tr("Feed URL")
             onAccepted: {
                 resultsView.forceActiveFocus()
-                subscribeFromFeed(feedUrlField.text);
-                tabs.selectedTabIndex = 2;
+                subscribeFromFeed(feedUrlField.item.text);
             }
         }
     }
@@ -427,7 +425,7 @@ Page {
             var artist = "";
             var image = "";
             if (xhr.readyState === XMLHttpRequest.DONE) {
-                if(loadingDialog.visible)
+                if(loadingDialog)
                     progressBar.value++
                 if (xhr.status < 200 || xhr.status > 299 || xhr.responseXML === null) {
                     PopupUtils.open(subscribeFailedDialog);
@@ -456,7 +454,9 @@ Page {
 
                 if(name != "") {
                     Podcasts.subscribe(artist, name, feed, image);
-                    imageDownloader.addDownload(feed, image)
+                    imageDownloader.addDownload(feed, image);
+                    if (!loadingDialog)
+                        tabs.selectedTabIndex = 2;
                 } else {
                     PopupUtils.open(subscribeFailedDialog);
                     searchPage.header = addHeader
