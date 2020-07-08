@@ -180,6 +180,20 @@ Page {
                 onClicked: PopupUtils.open(skipBackDialog, settingsPage);
             }
 
+            ListItem {
+                ListItemLayout {
+                    id: continueWhereStopped
+                    title.text: i18n.tr("Continue where stopped")
+                    Switch {
+                        SlotsLayout.position: SlotsLayout.Last
+                        checked: podbird.settings.continueWhereStopped
+                        onClicked: podbird.settings.continueWhereStopped = checked
+                    }
+                }
+                divider.visible: false
+                height: gridViewLayout.height
+            }
+
             HeaderListItem {
                 title.text: i18n.tr("Podcast Episode Settings")
             }

@@ -42,13 +42,6 @@ MainView {
     theme.name: settings.themeName == "Dark.qml" ? "Ubuntu.Components.Themes.SuruDark"
                                                  : "Ubuntu.Components.Themes.Ambiance"
 
-    Component.onDestruction: {
-        var db = Podcasts.init()
-        db.transaction(function (tx) {
-            tx.executeSql('UPDATE Episode SET queued=0 WHERE queued=1');
-        })
-        Podcasts.clearQueue()
-    }
 
     // RefreshModel function to call refreshModel() function of the tab currently
     // visible on application start.
@@ -62,9 +55,6 @@ MainView {
 
     Component.onCompleted: {
         var db = Podcasts.init()
-        db.transaction(function (tx) {
-            tx.executeSql('UPDATE Episode SET queued=0 WHERE queued=1');
-        })
 
         var today = new Date()
         // Only automatically check for podcasts on launch once every 12 hours
@@ -126,6 +116,8 @@ MainView {
         property bool showListView: true
         property int skipForward: 30
         property int skipBack: 10
+        property bool continueWhereStopped: true
+        property int playlistIndex: -1
         property bool downloadOverWifiOnly: true
     }
 
@@ -232,14 +224,15 @@ MainView {
             // but media-hub doesn't report it correctly
             console.log("Starting playback")
             player.play()
-            player.restorePosition()
         }
     }
 
     MediaPlayer {
         id: player
 
-        onPositionChanged: console.log("DEBUG: player position changed to: ", position)
+        onPositionChanged: {
+            restorePosition()
+        }
 
         // Wrapper function around decodeURIComponent() to prevent exceptions
         // from bubbling up to the app.
@@ -277,26 +270,42 @@ MainView {
                 savePosition()
             } else {
                 play()
-                // Clear the last saved position when we start playing again
-                clearPosition()
             }
         }
 
         function savePosition() {
+            podbird.settings.playlistIndex = playlist.currentIndex
             if (currentGuid) {
                 var db = Podcasts.init()
                 db.transaction(function (tx) {
                     tx.executeSql("UPDATE Episode SET position=? WHERE guid=?", [player.position, currentGuid])
                     tx.executeSql("UPDATE Queue SET position=? WHERE guid=?", [player.position, currentGuid])
+                    //if(player.position / player.duration > 0.90)
+                    //  tx.executeSql("UPDATE Episode SET listened=1 WHERE guid=?", [currentGuid])
                 })
             }
         }
 
+        function restoreFromQueue() {
+            var db = Podcasts.init()
+            db.transaction(function (tx) {
+                var rs = tx.executeSql("SELECT * FROM Queue")
+                for (var i=0; i<rs.rows.length;i++) {
+                    var episode = rs.rows.item(i)
+                    console.log(episode.name)
+                    player.playlist.addItem(episode.url)
+                }
+            })
+            if(playlist.itemCount > podbird.settings.playlistIndex)
+                playlist.currentIndex = podbird.settings.playlistIndex
+        }
+
         function restorePosition() {
-            if (playbackState === MediaPlayer.PlayingState && pendingSeek !== 0) {
-                player.seek(pendingSeek)
-                player.clearPosition()
-                pendingSeek = 0;
+            if(playbackState === MediaPlayer.PlayingState && status === MediaPlayer.Loaded && pendingSeek){
+                //ugly hack because seek function does not seems to work async
+                var p = pendingSeek
+                pendingSeek = 0
+                player.seek(p)
             }
         }
 
@@ -345,7 +354,6 @@ MainView {
         }
 
         property bool endOfMedia: false
-        property double progress: 0
         property int pendingSeek: 0
 
         playlist: Playlist {
@@ -361,14 +369,8 @@ MainView {
                 currentArtist = meta.artist
                 currentImage = meta.image
                 currentGuid = meta.guid
-                player.pendingSeek = meta.position
-                console.log("DEBUG: player.pendingSeek: ", player.pendingSeek, " meta.position ", meta.position)
+                player.pendingSeek = podbird.settings.continueWhereStopped && meta.position > 5000 ? meta.position : 0
             }
-        }
-
-        onPlaybackStateChanged: {
-            console.log("DEBUG: Restoring Position to: ", player.position)
-            restorePosition()
         }
 
         onStatusChanged: {
@@ -398,6 +400,10 @@ MainView {
 
         Component.onDestruction: {
             savePosition()
+        }
+
+        Component.onCompleted: {
+            restoreFromQueue()
         }
     }
 

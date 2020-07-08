@@ -104,6 +104,10 @@ function clearQueue() {
     db.transaction(function(tx) {
         tx.executeSql("DELETE FROM Queue");
     });
+
+    db.transaction(function (tx) {
+        tx.executeSql('UPDATE Episode SET queued=0 WHERE queued=1');
+    });
 }
 
 function lookup(source) {

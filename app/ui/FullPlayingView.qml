@@ -133,10 +133,24 @@ Item {
             maximumValue: player.duration
             value: player.position
             height: units.gu(2)
-            
-            onValueChanged: {
-                if (pressed) {
-                    player.seek(value);
+
+            property bool seeking: false
+            property bool seeked: false
+
+            onSeekingChanged: {
+                if (seeking === false) {
+                    startTime.text = Podcasts.formatTime(player.position / 1000)
+                }
+            }
+
+            onPressedChanged: {
+                seeking = pressed
+
+                if (!pressed) {
+                    seeked = true
+                    player.seek(value)
+
+                    startTime.text = Podcasts.formatTime(value / 1000)
                 }
             }
             
@@ -146,7 +160,16 @@ Item {
         
         Connections {
             target: player
-            onPositionChanged: scrubber.value = player.position
+            onPositionChanged: {
+                // seeked is a workaround for bug 1310706 as the first position after a seek is sometimes invalid (0)
+                if (scrubber.seeking === false && !scrubber.seeked) {
+                    startTime.text = Podcasts.formatTime(player.position / 1000)
+                    endTime.text = Podcasts.formatTime(player.duration / 1000)
+
+                    scrubber.value = player.position
+                }
+                scrubber.seeked = false;
+            }
         }
         
         Label {
