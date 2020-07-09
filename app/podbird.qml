@@ -280,8 +280,8 @@ MainView {
                 db.transaction(function (tx) {
                     tx.executeSql("UPDATE Episode SET position=? WHERE guid=?", [player.position, currentGuid])
                     tx.executeSql("UPDATE Queue SET position=? WHERE guid=?", [player.position, currentGuid])
-                    //if(player.position / player.duration > 0.90)
-                    //  tx.executeSql("UPDATE Episode SET listened=1 WHERE guid=?", [currentGuid])
+                    if(player.position / player.duration > 0.90)
+                        tx.executeSql("UPDATE Episode SET listened=1 WHERE guid=?", [currentGuid])
                 })
             }
         }
@@ -292,7 +292,6 @@ MainView {
                 var rs = tx.executeSql("SELECT * FROM Queue")
                 for (var i=0; i<rs.rows.length;i++) {
                     var episode = rs.rows.item(i)
-                    console.log(episode.name)
                     player.playlist.addItem(episode.url)
                 }
             })

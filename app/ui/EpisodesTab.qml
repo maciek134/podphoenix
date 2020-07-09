@@ -544,8 +544,8 @@ Tab {
 
                     subtitle.text: model.duration === 0 || model.duration === undefined ? model.downloadedfile ? "📎 " + model.artist
                                                                                                                : model.artist
-                    : model.downloadedfile ? "📎 " + Podcasts.formatEpisodeTime(model.position/1000) + "/" + Podcasts.formatEpisodeTime(model.duration) + " | " + model.artist
-                    : Podcasts.formatEpisodeTime(model.position/1000) + "/" + Podcasts.formatEpisodeTime(model.duration) + " | " + model.artist
+                    : model.downloadedfile ? "📎 " + (model.position ? Podcasts.formatEpisodeTime(model.position/1000) + "/" : "") + Podcasts.formatEpisodeTime(model.duration) + " | " + model.artist
+                    : (model.position ? Podcasts.formatEpisodeTime(model.position/1000) + "/" : "") + Podcasts.formatEpisodeTime(model.duration) + " | " + model.artist
                     subtitle.color: podbird.appTheme.baseSubText
 
                     Image {

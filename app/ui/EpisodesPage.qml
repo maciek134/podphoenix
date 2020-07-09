@@ -574,8 +574,8 @@ Page {
 
                 subtitle.text: model.duration === 0 || model.duration === undefined ? model.downloadedfile ? "📎 " + Qt.formatDate(new Date(model.published), "MMM d, yyyy")
                                                                                                            : Qt.formatDate(new Date(model.published), "MMM d, yyyy")
-                : model.downloadedfile ? "📎 " + Podcasts.formatEpisodeTime(model.position/1000) + "/" + Podcasts.formatEpisodeTime(model.duration) + " | " + Qt.formatDate(new Date(model.published), "MMM d, yyyy")
-                : Podcasts.formatEpisodeTime(model.position/1000) + "/" + Podcasts.formatEpisodeTime(model.duration) + " | " + Qt.formatDate(new Date(model.published), "MMM d, yyyy")
+                : model.downloadedfile ? "📎 " + (model.position ? Podcasts.formatEpisodeTime(model.position/1000) + "/" : "") + Podcasts.formatEpisodeTime(model.duration) + " | " + Qt.formatDate(new Date(model.published), "MMM d, yyyy")
+                : (model.position ? Podcasts.formatEpisodeTime(model.position/1000) + "/" : "") + Podcasts.formatEpisodeTime(model.duration) + " | " + Qt.formatDate(new Date(model.published), "MMM d, yyyy")
                 subtitle.color: podbird.appTheme.baseSubText
 
                 padding.top: units.gu(1)
