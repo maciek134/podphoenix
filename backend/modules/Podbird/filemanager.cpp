@@ -19,6 +19,7 @@
 #include <QFile>
 #include <QDebug>
 #include <QDir>
+#include <QUrl>
 #include <QStandardPaths>
 
 #include "filemanager.h"
@@ -56,7 +57,7 @@ QString FileManager::saveDownload(QString origPath) {
     QString filePath;
     int attempts = 0;
     do {
-        filePath = m_podcastDir + QDir::separator() + fi.fileName();
+        filePath = m_podcastDir + QDir::separator() + QUrl::fromPercentEncoding(fi.fileName().toUtf8());
         if (attempts > 0) {
             filePath += "." + QString::number(attempts);
         }
