@@ -15,8 +15,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Launchpad-Export-Date: 2020-07-10 06:13+0000\n"
-"X-Generator: Launchpad (build 4809fcb62f445aaa3ae919f7f6c3cc7d156ea57a)\n"
+"X-Launchpad-Export-Date: 2020-11-02 04:50+0000\n"
+"X-Generator: Launchpad (build 96ff31b88b65a0d0ea73b89333fe7c4a2669d8fb)\n"
 
 #: ../app/components/TabsList.qml:28 ../app/ui/EpisodesTab.qml:48
 msgid "Episodes"
