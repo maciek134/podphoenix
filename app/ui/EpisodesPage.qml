@@ -37,8 +37,6 @@ Page {
     property string tempGuid: "NULL"
     property string mode: "listened"
 
-    property bool episodesUpdating: false;
-
     Component.onCompleted: {
         loadEpisodes(episodeId, episodeArtist, episodeImage)
         if (downloader.downloadingGuid != "")

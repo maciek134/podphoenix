@@ -31,7 +31,6 @@ Tab {
     property var today: new Date()
     property int dayToMs: 86400000
     property string tempGuid: "NULL"
-    property bool episodesUpdating: false
 
     TabsList {
         id: tabsList

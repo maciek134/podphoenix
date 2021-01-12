@@ -4,7 +4,8 @@
         "audio",
         "connectivity",
         "usermetrics",
-        "content_exchange"
+        "content_exchange",
+        "keep-display-on"
     ],
     "policy_version": 16.04
 }
