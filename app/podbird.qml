@@ -24,6 +24,7 @@ import Qt.labs.settings 1.0
 import Ubuntu.Components 1.3
 import QtQuick.LocalStorage 2.0
 import Ubuntu.DownloadManager 1.2
+import QtSystemInfo 5.5
 import "ui"
 import "themes" as Themes
 import "podcasts.js" as Podcasts
@@ -42,6 +43,12 @@ MainView {
     theme.name: settings.themeName == "Dark.qml" ? "Ubuntu.Components.Themes.SuruDark"
                                                  : "Ubuntu.Components.Themes.Ambiance"
 
+    property bool episodesUpdating: false;
+
+    ScreenSaver {
+        id: screenSaver
+        screenSaverEnabled: !episodesUpdating
+    }
 
     // RefreshModel function to call refreshModel() function of the tab currently
     // visible on application start.
@@ -51,6 +58,7 @@ MainView {
         } else if (tabs.selectedTab === podcastTab) {
             podcastPage.item.refreshModel()
         }
+        episodesUpdating = false;
     }
 
     Component.onCompleted: {
@@ -58,7 +66,8 @@ MainView {
 
         var today = new Date()
         // Only automatically check for podcasts on launch once every 12 hours
-        if (Math.floor((today - settings.lastUpdate)/86400000) >= 0.5) {
+        if (Math.floor((today - settings.lastUpdate)/86400000) >= settings.refreshEpisodes/24.0) {
+            episodesUpdating = true;
             Podcasts.updateEpisodes(refreshModels)
         }
         loadingIndicator.opacity = 0
@@ -116,6 +125,7 @@ MainView {
         property bool showListView: true
         property int skipForward: 30
         property int skipBack: 10
+        property int refreshEpisodes: 12
         property bool continueWhereStopped: true
         property int playlistIndex: -1
         property bool downloadOverWifiOnly: true

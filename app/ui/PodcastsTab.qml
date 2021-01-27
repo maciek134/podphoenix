@@ -28,8 +28,6 @@ import "../components"
 Page {
     id: podcastPage
 
-    property bool episodesUpdating: false;
-
     TabsList {
         id: tabsList
     }

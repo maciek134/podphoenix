@@ -126,6 +126,41 @@ Page {
             }
         }
 
+        Component {
+            id: refreshDialog
+            Dialog {
+                id: dialogInternal
+                // TRANSLATORS: This strings refers to refreshing podcasts. Users can set how often they
+                // want to check for new episodes.
+                title: i18n.tr("Refresh podcasts after")
+                Slider {
+                    id: slider
+                    width: parent.width
+                    minimumValue: 0
+                    maximumValue: 72
+                    value: podbird.settings.refreshEpisodes
+                    function formatValue(v) { return i18n.tr("%1 hours").arg(Math.round(v)) }
+                    StyleHints { foregroundColor: podbird.appTheme.focusText }
+                }
+
+                Button {
+                    text: i18n.tr("OK")
+                    color: podbird.appTheme.positiveActionButton
+                    onClicked: {
+                        podbird.settings.refreshEpisodes = Math.round(slider.value)
+                        PopupUtils.close(dialogInternal)
+                    }
+                }
+                Button {
+                    text: i18n.tr("Cancel")
+                    color: podbird.appTheme.neutralActionButton
+                    onClicked: {
+                        PopupUtils.close(dialogInternal)
+                    }
+                }
+            }
+        }
+
         Column {
             id: settingsColumn
 
@@ -196,6 +231,13 @@ Page {
 
             HeaderListItem {
                 title.text: i18n.tr("Podcast Episode Settings")
+            }
+
+            SingleValueListItem {
+                divider.visible: false
+                title.text: i18n.tr("Refresh podcasts after")
+                value: i18n.tr("%1 hours").arg(podbird.settings.refreshEpisodes)
+                onClicked: PopupUtils.open(refreshDialog, settingsPage);
             }
 
             ListItem {
