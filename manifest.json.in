@@ -9,7 +9,7 @@
             "desktop": "Podbird.desktop"
         }
     },
-    "version": "0.8.10",
+    "version": "0.8.11",
     "maintainer": "Michael Sheldon <mike@mikeasoft.com>",
     "framework": "ubuntu-sdk-16.04.2"
 }
