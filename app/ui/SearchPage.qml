@@ -500,7 +500,7 @@ Page {
         text: i18n.tr("Importing podcasts...")
 
         ActivityIndicator {
-            running: true
+            running: parent.visible
         }
 
         ProgressBar {
