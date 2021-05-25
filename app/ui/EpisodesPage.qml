@@ -750,6 +750,12 @@ Page {
     }
 
     function updateEpisodesDatabase() {
+        var db = Podcasts.init();
+        db.transaction(function (tx) {
+            //refresh all episodes for this podcast, do not care about last update
+            var rs = tx.executeSql("UPDATE Podcast SET lastupdate=0 WHERE rowid=?", [episodeId]);
+        });
+
         episodesUpdating = true;
         Podcasts.updateEpisodes(refreshModel)
     }
