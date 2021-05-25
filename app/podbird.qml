@@ -25,6 +25,7 @@ import Ubuntu.Components 1.3
 import QtQuick.LocalStorage 2.0
 import Ubuntu.DownloadManager 1.2
 import QtSystemInfo 5.5
+import Ubuntu.Content 1.3
 import "ui"
 import "themes" as Themes
 import "podcasts.js" as Podcasts
@@ -70,7 +71,6 @@ MainView {
             episodesUpdating = true;
             Podcasts.updateEpisodes(refreshModels)
         }
-        loadingIndicator.opacity = 0
         // Only perform cleanup of old episodes once a day
         if (Math.floor((today - settings.lastCheck)/86400000) >= 1 && settings.retentionDays !== -1) {
             Podcasts.cleanUp(today, settings.retentionDays)
@@ -529,21 +529,4 @@ MainView {
             }
         ]
     }
-
-    Rectangle {
-        id: loadingIndicator
-        color: podbird.appTheme.background
-        anchors.fill: parent
-
-        ActivityIndicator {
-            anchors.centerIn: parent
-            running: true
-        }
-
-        Behavior on opacity {
-            UbuntuNumberAnimation {
-            }
-        }
-    }
-
 }
