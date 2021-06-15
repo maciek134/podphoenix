@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: podbird\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2020-04-13 18:20+0000\n"
-"PO-Revision-Date: 2017-12-16 01:20+0000\n"
+"PO-Revision-Date: 2021-06-14 20:48+0000\n"
 "Last-Translator: Andi Chandler <Unknown>\n"
 "Language-Team: English (United Kingdom) <en_GB@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2021-05-26 07:26+0000\n"
-"X-Generator: Launchpad (build 30919b71da718d7d3f6b69e715e9fe95f7c3c5de)\n"
+"X-Launchpad-Export-Date: 2021-06-15 04:56+0000\n"
+"X-Generator: Launchpad (build ed184eb8c3e03c8a0c3f47e69a5c546619a1af7c)\n"
 
 #: ../app/components/TabsList.qml:28 ../app/ui/EpisodesTab.qml:48
 msgid "Episodes"
@@ -365,7 +365,7 @@ msgstr "+%1s"
 
 #: ../app/ui/ImportPage.qml:18
 msgid "Choose"
-msgstr ""
+msgstr "Choose"
 
 #: ../app/ui/NowPlayingPage.qml:34
 msgid "Now Playing"
@@ -421,7 +421,7 @@ msgstr "Add Podcast"
 
 #: ../app/ui/SearchPage.qml:73
 msgid "Import Podcasts"
-msgstr ""
+msgstr "Import Podcasts"
 
 #: ../app/ui/SearchPage.qml:135
 msgid "Save Podcast"
@@ -470,15 +470,15 @@ msgstr "Not Available"
 
 #: ../app/ui/SearchPage.qml:499
 msgid "Please wait"
-msgstr ""
+msgstr "Please wait"
 
 #: ../app/ui/SearchPage.qml:500
 msgid "Importing podcasts..."
-msgstr ""
+msgstr "Importing podcasts..."
 
 #: ../app/ui/SearchPage.qml:518
 msgid "imported"
-msgstr ""
+msgstr "imported"
 
 #. TRANSLATORS: This strings refers to the seeking of the episode playback. Users can set how far they
 #. want to seek forward when pressing on this button.
