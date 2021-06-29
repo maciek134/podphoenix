@@ -184,7 +184,7 @@ function updateEpisodes(refreshModel) {
     var db = Podcasts.init();
     db.transaction(function(tx) {
         var rs = tx.executeSql("SELECT rowid, feed FROM Podcast");
-        tx.executeSql("UPDATE Podcast SET lastupdate=CURRENT_TIMESTAMP");
+        var rs_timestamp = tx.executeSql("SELECT lastupdate FROM Podcast");
         var xhr = [];
         var xhrComplete = [];
         for(var i = 0; i < rs.rows.length; i++) {
@@ -236,7 +236,8 @@ function updateEpisodes(refreshModel) {
                                             if (!track.hasOwnProperty("guid")) {
                                                 track['guid'] = track.audiourl;
                                             }
-                                            
+                                            //do not check every episode in database, just ~11.5 days before last update
+                                            if(new Date(rs_timestamp.rows.item(i).lastupdate).getTime()<(track['published']+1000000000))
                                             db.transaction(function(tx2) {
                                                 var ers = tx2.executeSql("SELECT rowid FROM Episode WHERE guid=?", [track.guid]);
                                                 if (ers.rows.length === 0) {
@@ -257,6 +258,7 @@ function updateEpisodes(refreshModel) {
                                 }
                             }
                         } catch (error) {
+                            console.log("[LOG]: Response: " + xhr[i].response)
                             console.log("[WARNING]: Failed to parse " + rs.rows.item(i).feed + ": " + error);
                         }
                     }
@@ -268,6 +270,9 @@ function updateEpisodes(refreshModel) {
                         }
                     }
                     if(allComplete) {
+                        db.transaction(function(tx) {
+                            tx.executeSql("UPDATE Podcast SET lastupdate=CURRENT_TIMESTAMP");
+                        })
                         console.log("[LOG]: Finished checking for new episodes..")
                         podbird.settings.lastUpdate = new Date();
                         refreshModel();
