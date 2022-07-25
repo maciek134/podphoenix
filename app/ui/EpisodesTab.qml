@@ -720,62 +720,44 @@ Tab {
 
         // Episode Model for the what's new view
         if (episodesPageHeaderSections.selectedIndex === 0) {
-            var today = new Date()
-            var dayToMs = 86400000; //1 * 24 * 60 * 60 * 1000
-            var todayCount, yesterdayCount, diff
-
-            todayCount = 0
-            yesterdayCount = 0
-
             db.transaction(function (tx) {
-                var rs = tx.executeSql("SELECT rowid, * FROM Podcast ORDER BY name ASC");
-                for (i=0; i < rs.rows.length; i++) {
-                    var podcast = rs.rows.item(i);
-                    var rs2 = tx.executeSql("SELECT rowid, * FROM Episode WHERE podcast=? ORDER BY published DESC", [rs.rows.item(i).rowid]);
-                    for (j=0; j < rs2.rows.length; j++) {
-                        episode = rs2.rows.item(j)
-                        diff = Math.floor((today - episode.published)/dayToMs)
-                        if (diff < 7 && !episode.listened) {
-                            if (diff < 1) {
-                                episodesModel.insert(todayCount, {"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : podcast.image, "artist" : podcast.artist, "audiourl" : episode.audiourl, "queued": episode.queued, "favourited": episode.favourited, "diff": "Today"})
-                                todayCount++;
-                            } else if (diff < 2) {
-                                episodesModel.insert(todayCount + yesterdayCount, {"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : podcast.image, "artist" : podcast.artist, "audiourl" : episode.audiourl, "queued": episode.queued, "favourited": episode.favourited, "diff": "Yesterday"})
-                                yesterdayCount++;
-                            } else {
-                                episodesModel.append({"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : podcast.image, "artist" : podcast.artist, "audiourl" : episode.audiourl, "queued": episode.queued, "favourited": episode.favourited, "diff": "Older"})
-                            }
-                        } else if (diff >= 7) {
-                            if (episode.downloadedfile != null) {
-                                episodesModel.append({"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : podcast.image, "artist" : podcast.artist, "audiourl" : episode.audiourl, "queued": episode.queued, "favourited": episode.favourited, "diff": "Older"})
-                            }
-                        }
-                    }
+                function getEpisodes(startTime, endTime, name) {
+                    const todaysEpisodes = tx.executeSql(`
+                        SELECT e.*, p.image as image, p.artist as artist
+                        FROM Podcast as p
+                        JOIN Episode as e
+                        ON p.rowid = e.podcast
+                        WHERE e.listened = 0 and (datetime(ROUND(e.published/1000), 'unixepoch') >= date('now', '${startTime}')) and (datetime(ROUND(e.published/1000), 'unixepoch') < date('now', '${endTime}'))
+                        ORDER BY e.published DESC
+                    `)
 
-                    if (podcast.lastupdate === null && !episodesUpdating) {
-                        updateEpisodesDatabase();
+                    for (i=0; i < todaysEpisodes.rows.length; i++) {
+                        episode = todaysEpisodes.rows.item(i)
+                        episodesModel.append({"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : episode.image, "artist" : episode.artist, "audiourl" : episode.audiourl, "queued": episode.queued, "favourited": episode.favourited, "diff": name})
                     }
                 }
+
+                getEpisodes("-1 day", "0 hours", "Today")
+                getEpisodes("-2 days", "-1 day", "Yesterday")
+                getEpisodes("-7 days", "-2 day", "Older")
             });
         }
 
         // Episode Model for the downloaded view
         else if (episodesPageHeaderSections.selectedIndex === 1) {
             db.transaction(function (tx) {
-                var rs = tx.executeSql("SELECT rowid, * FROM Podcast ORDER BY name ASC");
-                for (i=0; i < rs.rows.length; i++) {
-                    var podcast = rs.rows.item(i);
-                    var rs2 = tx.executeSql("SELECT rowid, * FROM Episode WHERE podcast=? ORDER BY published DESC", [rs.rows.item(i).rowid]);
-                    for (j=0; j < rs2.rows.length; j++) {
-                        episode = rs2.rows.item(j)
-                        if (episode.downloadedfile) {
-                            episodesModel.append({"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : podcast.image, "artist" : podcast.artist, "audiourl" : episode.audiourl, "queued": episode.queued, "favourited": episode.favourited, "diff": "Null"})
-                        }
-                    }
+                const todaysEpisodes = tx.executeSql(`
+                    SELECT e.*, p.image as image, p.artist as artist
+                    FROM Podcast as p
+                    JOIN Episode as e
+                    ON p.rowid = e.podcast
+                    WHERE e.downloadedfile IS NOT NULL
+                    ORDER BY e.published DESC
+                `)
 
-                    if (podcast.lastupdate === null && !episodesUpdating) {
-                        updateEpisodesDatabase();
-                    }
+                for (i=0; i < todaysEpisodes.rows.length; i++) {
+                    episode = todaysEpisodes.rows.item(i)
+                    episodesModel.append({"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : episode.image, "artist" : episode.artist, "audiourl" : episode.audiourl, "queued": episode.queued, "favourited": episode.favourited, "diff": "Null"})
                 }
             });
         }
@@ -783,20 +765,18 @@ Tab {
         // Episode Model for the favourites view
         else if (episodesPageHeaderSections.selectedIndex === 2) {
             db.transaction(function (tx) {
-                var rs = tx.executeSql("SELECT rowid, * FROM Podcast ORDER BY name ASC");
-                for (i=0; i < rs.rows.length; i++) {
-                    var podcast = rs.rows.item(i);
-                    var rs2 = tx.executeSql("SELECT rowid, * FROM Episode WHERE podcast=? ORDER BY published DESC", [rs.rows.item(i).rowid]);
-                    for (j=0; j < rs2.rows.length; j++) {
-                        episode = rs2.rows.item(j)
-                        if (episode.favourited) {
-                            episodesModel.append({"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : podcast.image, "artist" : podcast.artist, "audiourl" : episode.audiourl, "queued": episode.queued, "favourited": episode.favourited, "diff": "Null"})
-                        }
-                    }
+                const todaysEpisodes = tx.executeSql(`
+                    SELECT e.*, p.image as image, p.artist as artist
+                    FROM Podcast as p
+                    JOIN Episode as e
+                    ON p.rowid = e.podcast
+                    WHERE e.favourited
+                    ORDER BY e.published DESC
+                `)
 
-                    if (podcast.lastupdate === null && !episodesUpdating) {
-                        updateEpisodesDatabase();
-                    }
+                for (i=0; i < todaysEpisodes.rows.length; i++) {
+                    episode = todaysEpisodes.rows.item(i)
+                    episodesModel.append({"guid" : episode.guid, "listened" : episode.listened, "published": episode.published, "name" : episode.name, "description" : episode.description, "duration" : episode.duration, "position" : episode.position, "downloadedfile" : episode.downloadedfile, "image" : episode.image, "artist" : episode.artist, "audiourl" : episode.audiourl, "queued": episode.queued, "favourited": episode.favourited, "diff": "Null"})
                 }
             });
         }
@@ -810,4 +790,3 @@ Tab {
         Podcasts.updateEpisodes(refreshModel)
     }
 }
-

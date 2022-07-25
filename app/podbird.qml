@@ -34,7 +34,7 @@ MainView {
     id: podbird
 
     objectName: "mainView"
-    applicationName: "com.mikeasoft.podbird"
+    applicationName: "soy.iko.podphoenix"
     anchorToKeyboard: true
 
     width: units.gu(50)

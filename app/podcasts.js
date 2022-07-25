@@ -20,48 +20,91 @@ function init() {
     var db = LocalStorage.openDatabaseSync("Podbird", "", "Database of subscribed podcasts and their episodes", 1000000);
 
     db.transaction(function(tx) {
-        tx.executeSql('CREATE TABLE IF NOT EXISTS Podcast(artist TEXT, name TEXT, description TEXT, feed TEXT, image TEXT, lastupdate TIMESTAMP)');
-        tx.executeSql('CREATE TABLE IF NOT EXISTS Episode(guid TEXT, podcast INTEGER, name TEXT, subtitle TEXT, description TEXT, duration INTEGER, audiourl TEXT, downloadedfile TEXT, published TIMESTAMP, queued BOOLEAN, listened BOOLEAN, favourited BOOLEAN, position INTEGER, FOREIGN KEY(podcast) REFERENCES Podcast(rowid))');
-        tx.executeSql('CREATE TABLE IF NOT EXISTS Queue(ind INTEGER NOT NULL, guid TEXT, image TEXT, name TEXT, artist TEXT, url TEXT)');
+        tx.executeSql(`
+            CREATE TABLE IF NOT EXISTS Podcast (
+                artist text,
+                name text,
+                description text,
+                feed text,
+                image text,
+                lastupdate timestamp
+            );
+        `)
+        tx.executeSql(`
+          CREATE INDEX IF NOT EXISTS podcast_feed ON Podcast (feed);
+        `)
+        tx.executeSql(`
+          CREATE INDEX IF NOT EXISTS podcast_lastupdate ON Podcast (lastupdate);
+        `)
+        tx.executeSql(`
+          CREATE TABLE IF NOT EXISTS Episode (
+            guid text,
+            podcast integer,
+            name text,
+            subtitle text,
+            description text,
+            duration integer,
+            audiourl text,
+            downloadedfile text,
+            published timestamp,
+            queued boolean,
+            listened boolean,
+            favourited boolean,
+            position integer,
+            FOREIGN KEY (podcast) REFERENCES Podcast (rowid)
+          );
+        `)
+        tx.executeSql(`
+          CREATE INDEX IF NOT EXISTS episode_guid ON Episode (guid);
+        `)
+        tx.executeSql(`
+          CREATE INDEX IF NOT EXISTS episode_podcast ON Episode (podcast);
+        `)
+        tx.executeSql(`
+          CREATE INDEX IF NOT EXISTS episode_published ON Episode (published);
+        `)
+        tx.executeSql(`
+          CREATE INDEX IF NOT EXISTS episode_queued ON Episode (queued);
+        `)
+        tx.executeSql(`
+          CREATE INDEX IF NOT EXISTS episode_listened ON Episode (listened);
+        `)
+        tx.executeSql(`
+          CREATE INDEX IF NOT EXISTS episode_favourited ON Episode (favourited);
+        `)
+        tx.executeSql(`
+          CREATE INDEX IF NOT EXISTS episode_position ON Episode (position);
+        `)
+        tx.executeSql(`
+          CREATE INDEX IF NOT EXISTS episode_downloadedfile ON Episode (downloadedfile);
+        `)
+        tx.executeSql(`
+          CREATE INDEX IF NOT EXISTS episode_name ON Episode (name);
+        `)
+        tx.executeSql(`
+          CREATE TABLE IF NOT EXISTS Queue (
+            position integer,
+            ind integer NOT NULL,
+            guid text,
+            image text,
+            name text,
+            artist text,
+            url text
+          );
+        `)
+        tx.executeSql(`
+          CREATE INDEX IF NOT EXISTS queue_position ON Queue (position);
+        `)
+        tx.executeSql(`
+          CREATE INDEX IF NOT EXISTS queue_ind ON Queue (ind);
+        `)
+        tx.executeSql(`
+          CREATE INDEX IF NOT EXISTS queue_guid ON Queue (guid);
+        `)
+        tx.executeSql(`
+          CREATE INDEX IF NOT EXISTS queue_url ON Queue (url);
+        `);
     });
-
-    try {
-        /*
-        Schema Upgrade to v1.1 which adds a new queued boolean variable which is needed to track the queued status
-        of a episode properly.
-        */
-        if (db.version === "1.0" || db.version === "") {
-            console.log("Upgrading database from %1 -> v1.1".arg(db.version))
-            db.changeVersion(db.version, "1.1", function(tx) {
-                tx.executeSql('ALTER TABLE Episode ADD queued BOOLEAN');
-                tx.executeSql('UPDATE Episode SET queued=0');
-            });
-        }
-
-        /*
-        Schema Upgrade to v1.2 which adds a new favourited boolean variable which is needed to track the favourite status
-        of an episode.
-        */
-        if (db.version === "1.1") {
-            console.log("Upgrading database from %1 -> v1.2".arg(db.version))
-            db.changeVersion("1.1", "1.2", function(tx) {
-                tx.executeSql('ALTER TABLE Episode ADD favourited BOOLEAN');
-                tx.executeSql('UPDATE Episode SET favourited=?', [false]);
-            });
-        }
-
-        /*
-        Schema Upgrade to v1.3 which adds position information to the episode queue
-        */
-        if (db.version === "1.2") {
-            console.log("Upgrading database from %1 -> v1.3".arg(db.version))
-            db.changeVersion("1.2", "1.3", function(tx) {
-                tx.executeSql('ALTER TABLE Queue ADD position INTEGER');
-            });
-        }
-    } catch(ex) {
-        console.log(ex)
-    }
 
     return db;
 }
