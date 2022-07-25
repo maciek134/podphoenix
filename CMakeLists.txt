@@ -1,5 +1,5 @@
 project(podbird C CXX)
-cmake_minimum_required(VERSION 2.8.9)
+cmake_minimum_required(VERSION 2.8.12)
 
 # Do not remove this line, its required for the correct functionality of the Ubuntu-SDK
 set(UBUNTU_MANIFEST_PATH "manifest.json.in" CACHE INTERNAL "Tells QtCreator location and name of the manifest file")
@@ -24,7 +24,7 @@ execute_process(
 option(INSTALL_TESTS "Install the tests on make install" on)
 
 set(APP_NAME          podbird)
-set(APP_ID            "com.mikeasoft.podbird")
+set(APP_ID            "soy.iko.podphoenix")
 if(DEFINED ENV{DESKTOP_BUILD})
     set(PODBIRD_DIR "/usr/share/podbird/qml/podbird")
     set(ICON "/usr/share/podbird/podbird.png")
@@ -87,4 +87,3 @@ add_custom_target("run" /usr/bin/qmlscene -I ${CMAKE_BINARY_DIR}/backend  ${CMAK
 
 # No op custom target for all not compiled files, so they show up in the QtCreator project tree
 add_custom_target("podbird_ClickFiles" ALL SOURCES "Podbird.apparmor" "manifest.json.in")
-
