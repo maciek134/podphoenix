@@ -467,7 +467,7 @@ Tab {
                             Image {
                                 height: width
                                 width: units.gu(6)
-                                source: modelData.metadata.custom.image !== undefined ? modelData.metadata.custom.image : Qt.resolvedUrl("../graphics/podbird.png")
+                                source: modelData.metadata.custom.image !== undefined ? modelData.metadata.custom.image : Qt.resolvedUrl("../graphics/logo.png")
                                 SlotsLayout.position: SlotsLayout.Leading
                                 sourceSize { width: width; height: height }
                             }
@@ -550,7 +550,7 @@ Tab {
                     Image {
                         height: width
                         width: units.gu(6)
-                        source: model.image !== undefined ? model.image : Qt.resolvedUrl("../graphics/podbird.png")
+                        source: model.image !== undefined ? model.image : Qt.resolvedUrl("../graphics/logo.png")
                         SlotsLayout.position: SlotsLayout.Leading
                         sourceSize { width: width; height: height }
                     }

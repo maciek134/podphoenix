@@ -32,7 +32,7 @@ Component {
                 bottomMargin: units.gu(6)
                 horizontalCenter: parent.horizontalCenter
             }
-            source: Qt.resolvedUrl("../graphics/podbird.png")
+            source: Qt.resolvedUrl("../graphics/logo.png")
             fillMode: Image.PreserveAspectFit
             antialiasing: true
         }

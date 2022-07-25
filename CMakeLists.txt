@@ -31,16 +31,16 @@ execute_process(
 
 option(INSTALL_TESTS "Install the tests on make install" on)
 
-set(APP_NAME          podphoenix)
+set(APP_NAME          Podphoenix)
 set(APP_ID            "soy.iko.podphoenix")
 if(DEFINED ENV{DESKTOP_BUILD})
     set(PODBIRD_DIR "/usr/share/podbird/qml/podbird")
-    set(ICON "/usr/share/podbird/podbird.png")
+    set(ICON "/usr/share/podbird/logo.png")
     set(SPLASH "/usr/share/podbird/splash.png")
     set(QT_IMPORTS_DIR "/usr/lib/${ARCH_TRIPLET}/qt5/qml/")
 else(DEFINED ENV{DESKTOP_BUILD})
     set(PODBIRD_DIR "share/qml/podbird")
-    set(ICON "podbird.png")
+    set(ICON "logo.png")
     set(SPLASH "splash.png")
     set(QT_IMPORTS_DIR "lib/${ARCH_TRIPLET}")
 endif(DEFINED ENV{DESKTOP_BUILD})
@@ -72,7 +72,7 @@ if(NOT DEFINED ENV{DESKTOP_BUILD})
             DESTINATION ${CMAKE_INSTALL_PREFIX})
 endif(NOT DEFINED ENV{DESKTOP_BUILD})
 
-install(FILES "podbird.png" DESTINATION ${DATA_DIR})
+install(FILES "logo.png" DESTINATION ${DATA_DIR})
 install(FILES "splash.png" DESTINATION ${DATA_DIR})
 install(FILES "Podbird.apparmor" DESTINATION ${DATA_DIR})
 

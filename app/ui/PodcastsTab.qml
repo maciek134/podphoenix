@@ -161,7 +161,7 @@ Page {
             model: sortedPodcastModel
             delegate: Card {
                 id: albumCard
-                coverArt: model.image !== undefined ? model.image : Qt.resolvedUrl("../graphics/podbird.png")
+                coverArt: model.image !== undefined ? model.image : Qt.resolvedUrl("../graphics/logo.png")
                 primaryText: model.name !== undefined ? model.name.trim() : "Undefined"
                 secondaryText: model.episodeCount > 0 ? model.episodeCount
                                                       : ""
@@ -217,7 +217,7 @@ Page {
                     Image {
                         height: width
                         width: units.gu(6)
-                        source: model.image !== undefined ? model.image : Qt.resolvedUrl("../graphics/podbird.png")
+                        source: model.image !== undefined ? model.image : Qt.resolvedUrl("../graphics/logo.png")
                         SlotsLayout.position: SlotsLayout.Leading
                         sourceSize { width: width; height: height }
                     }
