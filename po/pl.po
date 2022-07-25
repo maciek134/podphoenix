@@ -1,0 +1,719 @@
+# Polish translation for podbird
+# Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
+# This file is distributed under the same license as the podbird package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: podbird\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2020-04-13 18:20+0000\n"
+"PO-Revision-Date: 2016-12-13 20:09+0000\n"
+"Last-Translator: Krzysztof Tataradziński <Unknown>\n"
+"Language-Team: Polish <pl@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Launchpad-Export-Date: 2021-06-30 06:28+0000\n"
+"X-Generator: Launchpad (build c11083652ba158ce73cebdfd79e69cf6f7d05a73)\n"
+
+#: ../app/components/TabsList.qml:28 ../app/ui/EpisodesTab.qml:48
+msgid "Episodes"
+msgstr "Odcinki"
+
+#: ../app/components/TabsList.qml:37 ../app/ui/SearchPage.qml:43
+msgid "Add New Podcasts"
+msgstr "Dodaj nowy podcast"
+
+#: ../app/components/TabsList.qml:46 ../app/ui/PodcastsTab.qml:42
+msgid "Podcasts"
+msgstr "Podcasty"
+
+#: ../app/components/TabsList.qml:55 ../app/ui/SettingsPage.qml:34
+msgid "Settings"
+msgstr "Ustawienia"
+
+#: ../app/components/Walkthrough.qml:89
+msgid "Skip"
+msgstr "Pomiń"
+
+#: ../app/podcasts.js:307
+#, no-c-format, qt-format
+msgid "%1 hr %2 min"
+msgstr "%1 godz. %2 min."
+
+#: ../app/podcasts.js:316
+#, no-c-format, qt-format
+msgid "%1 hr"
+msgstr "%1 godz."
+
+#: ../app/podcasts.js:324
+#, no-c-format, qt-format
+msgid "%1 min"
+msgstr "%1 min."
+
+#. TRANSLATORS: About as in information about the app
+#: ../app/settings/About.qml:28 ../app/settings/About.qml:46
+#: ../app/ui/SettingsPage.qml:338
+msgid "About"
+msgstr "O programie"
+
+#: ../app/settings/About.qml:46
+msgid "Credits"
+msgstr "Twórcy"
+
+#. TRANSLATORS: Podbird version number e.g Version 0.8
+#: ../app/settings/About.qml:92
+#, qt-format
+msgid "Version %1"
+msgstr "Wersja %1"
+
+#: ../app/settings/About.qml:113
+msgid "Released under the terms of the GNU GPL v3"
+msgstr "Wydano zgodnie z licencją GNU GPL v3"
+
+#: ../app/settings/About.qml:123
+#, qt-format
+msgid "Source code available on %1"
+msgstr "Kod źródłowy dostępny na %1"
+
+#: ../app/settings/CleanSetting.qml:29
+msgid "Delete older than"
+msgstr "Usuń starsze niż"
+
+#: ../app/settings/CleanSetting.qml:40 ../app/settings/DownloadSetting.qml:40
+msgid "Never"
+msgstr "Nigdy"
+
+#: ../app/settings/CleanSetting.qml:41
+#, qt-format
+msgid "%1 day"
+msgid_plural "%1 days"
+msgstr[0] "%1 dzień"
+msgstr[1] "%1 dni"
+msgstr[2] "%1 dni"
+
+#: ../app/settings/CleanSetting.qml:42 ../app/settings/CleanSetting.qml:43
+#: ../app/settings/CleanSetting.qml:44
+#, qt-format
+msgid "%1 month"
+msgid_plural "%1 months"
+msgstr[0] "%1 miesiąc"
+msgstr[1] "%1 miesiące"
+msgstr[2] "%1 miesięcy"
+
+#: ../app/settings/CleanSetting.qml:45
+#, qt-format
+msgid "%1 year"
+msgid_plural "%1 years"
+msgstr[0] "%1 rok"
+msgstr[1] "%1 lata"
+msgstr[2] "%1 lat"
+
+#. TRANSLATORS: The first argument is the name of creator of Podbird (Michael Sheldon)
+#: ../app/settings/Credits.qml:31
+#, qt-format
+msgid "%1 (Creator)"
+msgstr "%1 (Twórca)"
+
+#: ../app/settings/Credits.qml:31 ../app/settings/Credits.qml:32
+msgid "Developers"
+msgstr "Autorzy"
+
+#: ../app/settings/Credits.qml:33
+msgid "Designer"
+msgstr "Projektant"
+
+#: ../app/settings/Credits.qml:34
+msgid "Translators"
+msgstr "Tłumacze"
+
+#: ../app/settings/DownloadSetting.qml:29
+msgid "Download at most"
+msgstr "Ściągnij co najwyżej"
+
+#: ../app/settings/DownloadSetting.qml:41
+#: ../app/settings/DownloadSetting.qml:42
+#: ../app/settings/DownloadSetting.qml:43
+#: ../app/settings/DownloadSetting.qml:44
+#, qt-format
+msgid "%1 episode"
+msgid_plural "%1 episodes"
+msgstr[0] "%1 odcinek"
+msgstr[1] "%1 odcinki"
+msgstr[2] "%1 odcinków"
+
+#: ../app/settings/ThemeSetting.qml:29 ../app/ui/SettingsPage.qml:146
+msgid "Theme"
+msgstr "Motyw"
+
+#. TRANSLATORS: Light Theme
+#: ../app/settings/ThemeSetting.qml:41 ../app/ui/SettingsPage.qml:147
+msgid "Light"
+msgstr "Jasny"
+
+#. TRANSLATORS: Dark Theme
+#: ../app/settings/ThemeSetting.qml:43 ../app/ui/SettingsPage.qml:147
+msgid "Dark"
+msgstr "Ciemny"
+
+#: ../app/ui/EpisodesPage.qml:52
+msgid "Podcast"
+msgstr "Podcast"
+
+#: ../app/ui/EpisodesPage.qml:62 ../app/ui/EpisodesTab.qml:62
+msgid "Search Episode"
+msgstr "Wyszukaj epizod"
+
+#: ../app/ui/EpisodesPage.qml:70 ../app/ui/EpisodesPage.qml:306
+#: ../app/ui/SearchPage.qml:290
+msgid "Unsubscribe"
+msgstr "Zrezygnuj z subskrypcji"
+
+#. TRANSLATORS: This is the page title. Keep it short. Otherwise it will just be elided.
+#: ../app/ui/EpisodesPage.qml:110 ../app/ui/EpisodesTab.qml:128
+#, qt-format
+msgid "%1 item selected"
+msgid_plural "%1 items selected"
+msgstr[0] "Zaznaczono %1 element"
+msgstr[1] "Zaznaczono %1 elementy"
+msgstr[2] "Zaznaczono %1 elementów"
+
+#: ../app/ui/EpisodesPage.qml:125 ../app/ui/EpisodesTab.qml:143
+#: ../app/ui/NowPlayingPage.qml:42
+msgid "Back"
+msgstr "Wstecz"
+
+#: ../app/ui/EpisodesPage.qml:137 ../app/ui/EpisodesTab.qml:155
+msgid "Mark Listened"
+msgstr "Oznacz przesłuchane"
+
+#: ../app/ui/EpisodesPage.qml:156 ../app/ui/EpisodesTab.qml:173
+msgid "Download episode(s)"
+msgstr "Pobierz odcinek(-ki)"
+
+#: ../app/ui/EpisodesPage.qml:184 ../app/ui/EpisodesTab.qml:201
+msgid "Delete episode(s)"
+msgstr "Usuń odcinek(-ki)"
+
+#: ../app/ui/EpisodesPage.qml:207 ../app/ui/EpisodesTab.qml:224
+msgid "Favourite episode(s)"
+msgstr "Ulubiony odcinek(-ki)"
+
+#: ../app/ui/EpisodesPage.qml:229 ../app/ui/EpisodesTab.qml:270
+msgid "Add to queue"
+msgstr "Dodaj do kolejki"
+
+#: ../app/ui/EpisodesPage.qml:258 ../app/ui/EpisodesTab.qml:120
+msgid "Search episode"
+msgstr "Znajdź odcinek"
+
+#: ../app/ui/EpisodesPage.qml:303
+msgid "Unsubscribe Confirmation"
+msgstr "Potwierdzenie rezygnacji"
+
+#: ../app/ui/EpisodesPage.qml:304
+#, qt-format
+msgid "Are you sure you want to unsubscribe from <b>%1</b>?"
+msgstr "Czy na pewno zrezygnować z subskrybcji <b>%1</b>?"
+
+#: ../app/ui/EpisodesPage.qml:323 ../app/ui/SearchPage.qml:144
+#: ../app/ui/SettingsPage.qml:85 ../app/ui/SettingsPage.qml:120
+msgid "Cancel"
+msgstr "Anuluj"
+
+#: ../app/ui/EpisodesPage.qml:345 ../app/ui/EpisodesTab.qml:407
+msgid "Episode Description"
+msgstr "Opis odcinka"
+
+#: ../app/ui/EpisodesPage.qml:356 ../app/ui/EpisodesTab.qml:418
+#: ../app/ui/SearchPage.qml:194 ../app/ui/SettingsPage.qml:320
+msgid "Close"
+msgstr "Zamknij"
+
+#: ../app/ui/EpisodesPage.qml:384
+msgid "No episodes found"
+msgstr "Nie znaleziono odcinków"
+
+#: ../app/ui/EpisodesPage.qml:385
+msgid "No episodes found matching the search term."
+msgstr "Dla podanej frazy nie odnaleziono żadnych epizodów"
+
+#: ../app/ui/EpisodesPage.qml:502
+msgid "Unheard"
+msgstr "Nieprzesłuchane"
+
+#: ../app/ui/EpisodesPage.qml:519
+msgid "Listened"
+msgstr "Przesłuchane"
+
+#: ../app/ui/EpisodesPage.qml:538
+msgid "Downloaded"
+msgstr "Pobrano"
+
+#: ../app/ui/EpisodesPage.qml:605
+msgid "Mark as unheard"
+msgstr "Oznacz jako nieodsłuchane"
+
+#: ../app/ui/EpisodesPage.qml:605
+msgid "Mark as listened"
+msgstr "Oznacz jako przesłuchane"
+
+#: ../app/ui/EpisodesPage.qml:621
+msgid "Delete downloaded file"
+msgstr "Usuń pobrany plik"
+
+#: ../app/ui/EpisodesPage.qml:621
+msgid "Queued"
+msgstr "W kolejce"
+
+#: ../app/ui/EpisodesPage.qml:621
+msgid "Download"
+msgstr "Pobierz"
+
+#: ../app/ui/EpisodesPage.qml:646
+msgid "Add to playlist"
+msgstr "Dodaj do listy odtwarzania"
+
+#: ../app/ui/EpisodesPage.qml:655
+msgid "Unfavourite"
+msgstr "Odznacz jako ulubione"
+
+#: ../app/ui/EpisodesPage.qml:655
+msgid "Favourite"
+msgstr "Ulubione"
+
+#: ../app/ui/EpisodesPage.qml:670
+msgid "Show episode description"
+msgstr "Wyświetl opis odcinka"
+
+#: ../app/ui/EpisodesTab.qml:82
+msgid "Recent"
+msgstr "Ostatnie"
+
+#: ../app/ui/EpisodesTab.qml:82
+msgid "Downloads"
+msgstr "Pobrane"
+
+#: ../app/ui/EpisodesTab.qml:82
+msgid "Favourites"
+msgstr "Ulubione"
+
+#: ../app/ui/EpisodesTab.qml:247
+msgid "Unfavourite episode(s)"
+msgstr "Odznacz jako ulubiony odcinek(-ki)"
+
+#: ../app/ui/EpisodesTab.qml:310
+msgid "No New Episodes"
+msgstr "Brak nowych odcinków"
+
+#: ../app/ui/EpisodesTab.qml:312
+msgid "No Downloaded Episodes"
+msgstr "Brak pobranych odcinków"
+
+#: ../app/ui/EpisodesTab.qml:314
+msgid "No Favourited Episodes"
+msgstr "Brak ulubionych odcinków"
+
+#: ../app/ui/EpisodesTab.qml:316
+msgid "No Episodes Found"
+msgstr "Nie znaleziono odcinków"
+
+#: ../app/ui/EpisodesTab.qml:322
+msgid "No more episodes to listen to!"
+msgstr "Brak więcej odcinków do odsłuchania!"
+
+#: ../app/ui/EpisodesTab.qml:324
+msgid "No episodes have been downloaded for offline listening"
+msgstr "Nie pobrano żadnego odcinka do słuchania w trybie offline"
+
+#: ../app/ui/EpisodesTab.qml:326
+msgid "No episodes have been favourited."
+msgstr "Żaden odcinek nie został oznaczony jako ulubiony."
+
+#: ../app/ui/EpisodesTab.qml:328
+msgid "No Episodes found matching the search term."
+msgstr "Nie znaleziono odcinków spełniających kryteria wyszukiwania"
+
+#: ../app/ui/EpisodesTab.qml:457
+msgid "Downloads in progress"
+msgstr "Pobieranie w toku"
+
+#: ../app/ui/EpisodesTab.qml:497
+msgid "Downloaded episodes"
+msgstr "Pobrane odcinki"
+
+#: ../app/ui/EpisodesTab.qml:507
+msgid "Today"
+msgstr "Dziś"
+
+#: ../app/ui/EpisodesTab.qml:511
+msgid "Yesterday"
+msgstr "Wczoraj"
+
+#: ../app/ui/EpisodesTab.qml:515
+msgid "Older"
+msgstr "Starsze"
+
+#. TRANSLATORS: The string shown in the UI is -15s to denote the number of seconds that the podcast playback will skip backward.
+#: ../app/ui/FullPlayingView.qml:218
+#, no-c-format, qt-format
+msgid "-%1s"
+msgstr "-%1 s"
+
+#. TRANSLATORS: The string shown in the UI is +15s to denote the number of seconds that the podcast playback will skip forward.
+#: ../app/ui/FullPlayingView.qml:279
+#, no-c-format, qt-format
+msgid "+%1s"
+msgstr "+%1 s"
+
+#: ../app/ui/ImportPage.qml:18
+msgid "Choose"
+msgstr ""
+
+#: ../app/ui/NowPlayingPage.qml:34
+msgid "Now Playing"
+msgstr "Teraz odtwarzany"
+
+#: ../app/ui/NowPlayingPage.qml:73
+msgid "Full view"
+msgstr "Pełny widok"
+
+#: ../app/ui/NowPlayingPage.qml:73
+msgid "Queue"
+msgstr "Kolejka"
+
+#: ../app/ui/PodcastsTab.qml:57 ../app/ui/SearchPage.qml:57
+#: ../app/ui/SearchPage.qml:176
+msgid "Search Podcast"
+msgstr "Znajdź podcast"
+
+#: ../app/ui/PodcastsTab.qml:97
+msgid "Search podcast"
+msgstr "Znajdź podcast"
+
+#: ../app/ui/PodcastsTab.qml:127
+msgid "No Podcast Subscriptions"
+msgstr "Brak subskrypcji podcastów"
+
+#: ../app/ui/PodcastsTab.qml:127 ../app/ui/SearchPage.qml:222
+msgid "No Podcasts Found"
+msgstr "Nie odnaleziono podcastów"
+
+#: ../app/ui/PodcastsTab.qml:128
+msgid ""
+"You haven't subscribed to any podcasts yet, visit the 'Add New Podcasts' "
+"page to add some."
+msgstr ""
+"Nie subskrybujesz jeszcze żadnych podcastów; odwiedź stronę \"Dodaj nowy "
+"podcast\", aby dodać trochę."
+
+#: ../app/ui/PodcastsTab.qml:129 ../app/ui/SearchPage.qml:224
+msgid "No podcasts found matching the search term."
+msgstr "Dla podanej frazy nie odnaleziono żadnych podcastów."
+
+#: ../app/ui/PodcastsTab.qml:215
+#, qt-format
+msgid "%1 unheard episode"
+msgid_plural "%1 unheard episodes"
+msgstr[0] "%1 nieodsłuchany epizod"
+msgstr[1] "%1 nieodsłuchane epizody"
+msgstr[2] "%1 nieodsłuchanych epizodów"
+
+#: ../app/ui/SearchPage.qml:65
+msgid "Add Podcast"
+msgstr "Dodaj Podcast"
+
+#: ../app/ui/SearchPage.qml:73
+msgid "Import Podcasts"
+msgstr ""
+
+#: ../app/ui/SearchPage.qml:135
+msgid "Save Podcast"
+msgstr "Zapisz podcast"
+
+#: ../app/ui/SearchPage.qml:163
+msgid "Feed URL"
+msgstr "Adres URL RSS"
+
+#: ../app/ui/SearchPage.qml:191
+msgid "Unable to subscribe"
+msgstr "Nie można zasubskrybować"
+
+#: ../app/ui/SearchPage.qml:192
+msgid "Please check the URL and try again"
+msgstr "Sprawdź URL i spróbuj ponownie"
+
+#: ../app/ui/SearchPage.qml:222
+msgid "Looking to add a new podcast?"
+msgstr "Chcesz dodać nowy podcast?"
+
+#: ../app/ui/SearchPage.qml:223
+msgid ""
+"Click the 'magnifier' at the top to search or the 'plus' button to add by URL"
+msgstr ""
+"Wybierz przycisk 'lupy' u góry, by wyszukać albo przycisk 'plus' by dodać URL"
+
+#: ../app/ui/SearchPage.qml:290
+msgid "Subscribe"
+msgstr "Subskrybuj"
+
+#. TRANSLATORS: The first argument here is the date of when the podcast was last updated followed by
+#. the podcast description.
+#: ../app/ui/SearchPage.qml:328
+#, qt-format
+msgid ""
+"Last Updated: %1\n"
+"%2"
+msgstr ""
+"Ostatnio zaktualizowano: %1\n"
+"%2"
+
+#: ../app/ui/SearchPage.qml:385
+msgid "Not Available"
+msgstr "Niedostępne"
+
+#: ../app/ui/SearchPage.qml:499
+msgid "Please wait"
+msgstr ""
+
+#: ../app/ui/SearchPage.qml:500
+msgid "Importing podcasts..."
+msgstr ""
+
+#: ../app/ui/SearchPage.qml:518
+msgid "imported"
+msgstr ""
+
+#. TRANSLATORS: This strings refers to the seeking of the episode playback. Users can set how far they
+#. want to seek forward when pressing on this button.
+#: ../app/ui/SettingsPage.qml:65 ../app/ui/SettingsPage.qml:171
+msgid "Skip forward"
+msgstr "Przewiń w przód"
+
+#: ../app/ui/SettingsPage.qml:72 ../app/ui/SettingsPage.qml:107
+#: ../app/ui/SettingsPage.qml:172 ../app/ui/SettingsPage.qml:179
+#, qt-format
+msgid "%1 seconds"
+msgstr "%1 sekund"
+
+#: ../app/ui/SettingsPage.qml:77 ../app/ui/SettingsPage.qml:112
+msgid "OK"
+msgstr "OK"
+
+#. TRANSLATORS: This strings refers to the seeking of the episode playback. Users can set how far they
+#. want to seek backward when pressing on this button.
+#: ../app/ui/SettingsPage.qml:100 ../app/ui/SettingsPage.qml:178
+msgid "Skip back"
+msgstr "Przewiń w tył"
+
+#. TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
+#. that doesn't fit into any other category.
+#: ../app/ui/SettingsPage.qml:141
+msgid "General Settings"
+msgstr "Ustawienia ogólne"
+
+#: ../app/ui/SettingsPage.qml:154
+msgid "Displays podcasts in a list view"
+msgstr "Wyświetla podcasty w widoku listy"
+
+#: ../app/ui/SettingsPage.qml:166
+msgid "Playback Settings"
+msgstr "Ustawienia odtwarzania"
+
+#: ../app/ui/SettingsPage.qml:184
+msgid "Podcast Episode Settings"
+msgstr "Ustawienia odcinków podcastu"
+
+#: ../app/ui/SettingsPage.qml:190
+msgid "Automatically delete old episodes"
+msgstr "Automatycznie usuń stare odcinki"
+
+#: ../app/ui/SettingsPage.qml:192
+msgid ""
+"Delete episodes that are older than a given number of days for each podcast"
+msgstr "Dla każdego podcastu, usuwa odcinki starsze niż określona ilość dni"
+
+#: ../app/ui/SettingsPage.qml:204
+msgid "Automatically download new episodes"
+msgstr "Automatycznie ściągnij nowe odcinki"
+
+#: ../app/ui/SettingsPage.qml:206
+msgid "Default number of new episodes to download for each podcast"
+msgstr "Domyślna liczba nowych odcinków do pobrania dla każdego podcastu"
+
+#: ../app/ui/SettingsPage.qml:218
+msgid "Only download over WiFi"
+msgstr "Pobieraj tylko przez WiFi"
+
+#: ../app/ui/SettingsPage.qml:220
+msgid "Download episodes only when the device is using WiFi"
+msgstr "Pobieraj odcinki tylko wtedy, gdy urządzenie korzysta z Wi-Fi"
+
+#: ../app/ui/SettingsPage.qml:240
+msgid "Refresh podcast artwork"
+msgstr "Odśwież okładkę podcastu"
+
+#: ../app/ui/SettingsPage.qml:242
+msgid "Update all podcasts artwork and fix missing ones"
+msgstr "Zaktualizuj wszystkie okładki podcastów i napraw brakujące"
+
+#: ../app/ui/SettingsPage.qml:271
+msgid "Storage Settings"
+msgstr "Ustawienia zapisywania"
+
+#: ../app/ui/SettingsPage.qml:282
+msgid "Delete orphaned files and links"
+msgstr "Usuń osierocone pliki i odnośniki"
+
+#: ../app/ui/SettingsPage.qml:284
+msgid "Free space by removing orphaned downloaded files and links"
+msgstr "Zwolnij miejsce usuwając osierocone pobrane pliki i odnośniki"
+
+#: ../app/ui/SettingsPage.qml:314
+msgid "Removed orphaned files and links"
+msgstr "Usunięto osierocone pliki i odnośniki"
+
+#: ../app/ui/SettingsPage.qml:314
+msgid "No orphans found!"
+msgstr "Nie odnaleziono żadnych sierot!"
+
+#: ../app/ui/SettingsPage.qml:315
+msgid ""
+"All orphaned files have been deleted to recover disk space. Orphaned links "
+"pointing at invalid files have also been cleaned up."
+msgstr ""
+"Wszystkie osierocone pliki zostały usunięte w celu odzyskania miejsca na "
+"dysku. Osierocone odnośniki wskazujące na nieprawidłowe pliki zostały "
+"również wyczyszczone."
+
+#: ../app/ui/SettingsPage.qml:317
+msgid ""
+"No orphaned files have been found to recover disk space. Podbird database is "
+"clean."
+msgstr ""
+"Nie odnaleziono osieroconych plików w celu odzyskania miejsca na dysku. Baza "
+"danych Podbird jest czysta."
+
+#. TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
+#. that doesn't fit into any other category.
+#: ../app/ui/SettingsPage.qml:332
+msgid "Misc."
+msgstr "Różne"
+
+#: ../app/ui/SettingsPage.qml:348
+msgid "Report Bug"
+msgstr "Zgłoś błąd"
+
+#: ../app/welcomewizard/Slide1.qml:42
+msgid "Welcome to Podbird"
+msgstr "Witaj w Podbird"
+
+#: ../app/welcomewizard/Slide1.qml:53
+msgid ""
+"Enjoy your favourite shows with Podbird, the chirpiest podcast manager for "
+"Ubuntu.\n"
+"\n"
+"Chirp Chirp..."
+msgstr ""
+"Ciesz się ulubionymi audycjami z Podbirdem, najbardziej rozćwierkanym "
+"menadżerze podcastów dla Ubuntu.\n"
+"\n"
+"Ćwir, Ćwir..."
+
+#: ../app/welcomewizard/Slide1.qml:82
+msgid "Swipe to move between pages"
+msgstr "Przesuń palcem, aby poruszać się między stronami"
+
+#: ../app/welcomewizard/Slide2.qml:45
+msgid "Discover New Podcasts"
+msgstr "Odkryj Nowe Podcasty"
+
+#: ../app/welcomewizard/Slide2.qml:62
+msgid ""
+"Podbird uses the iTunes® database to provide access to a huge collection of "
+"podcasts. You can also add podcasts by their URL."
+msgstr ""
+"Podbird używa bazy danych iTunes®, aby dostarczyć ogromną kolekcję "
+"podcastów. Oczywiście możesz dodać swój własny podając adres URL."
+
+#: ../app/welcomewizard/Slide3.qml:45
+msgid "Smart Settings"
+msgstr "Inteligentne ustawienia"
+
+#: ../app/welcomewizard/Slide3.qml:62
+msgid ""
+"Podbird can optionally download new episodes and clean up old episodes "
+"automatically, this can be enabled from the settings page."
+msgstr ""
+"Podbird może ściągać nowe odcinki i automatycznie usuwać stare. Opcję tą "
+"możesz włączyć w ustawieniach."
+
+#. TRANSLATORS: This text should be in a language different from the language set by the user.
+#. For instance, if the app was in english, then it is appropriate to set this string as
+#. Hallo or Bonjour etc to symbolize the internationalization feature in podbird.
+#: ../app/welcomewizard/Slide4.qml:48
+msgid "Hallo! Bonjour!"
+msgstr "Hello! Olá!"
+
+#: ../app/welcomewizard/Slide4.qml:67
+#, qt-format
+msgid ""
+"Podbird is available in over 15 languages and is translated by the %1 "
+"community"
+msgstr ""
+"Podbird jest dostępny w ponad 15 językach i jest tłumaczony przez "
+"społeczność %1"
+
+#: ../app/welcomewizard/Slide5.qml:45
+msgid "Touch Gestures"
+msgstr "Gesty dotyku"
+
+#: ../app/welcomewizard/Slide5.qml:64
+msgid ""
+"Episodes can be swiped left to reveal more actions (or right click if you're "
+"using a mouse). You can also multi-select them by long-pressing on an "
+"episode."
+msgstr ""
+"Odcinki można przeciągać w lewo, aby odsłonić więcej działań (lub kliknij "
+"prawym przyciskiem, jeśli używasz myszy). Można również wybrać wiele "
+"odcinków długo naciskając na jednym z nich."
+
+#: ../app/welcomewizard/Slide6.qml:45
+msgid "Support"
+msgstr "Wsparcie"
+
+#. TRANSLATORS: The %1 points to a url defined in html format <a href=\link\>Link</a>.
+#: ../app/welcomewizard/Slide6.qml:65
+#, qt-format
+msgid ""
+"If you find any bugs or have any feature requests, let us know on our "
+"project page at %1"
+msgstr ""
+"Jeśli znajdziesz błąd bądź masz pomysł ulepszenia aplikacji, daj nam znać na "
+"naszej stronie projektu %1"
+
+#: ../app/welcomewizard/Slide7.qml:45
+msgid "Enjoy"
+msgstr "Zapraszamy"
+
+#: ../app/welcomewizard/Slide7.qml:62
+msgid "We hope you enjoy using Podbird!"
+msgstr "Mamy nadzieje, że Podbird przypadnie ci do gustu!"
+
+#: ../app/welcomewizard/Slide7.qml:75
+msgid "Finish"
+msgstr "Koniec"
+
+#: ../app/po/Podbird.desktop.in.h:1
+msgid "The chirpiest podcast manager for Ubuntu"
+msgstr "Rozćwierkany menadżer podcastów na Ubuntu"
+
+#: ../app/po/Podbird.desktop.in.h:2
+msgid ""
+"podcast;audio;itunes;broadcast;digital;stream;podcatcher;video;vodcast;"
+msgstr ""
+"podcast;dźwięk;itunes;nadawanie;cyfrowe;strumieniowanie;podcatcher;wideo;vodc"
+"ast;"

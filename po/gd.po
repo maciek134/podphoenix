@@ -1,0 +1,742 @@
+# Gaelic; Scottish translation for podbird
+# Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
+# This file is distributed under the same license as the podbird package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
+# GunChleoc <fios@foramnagaidhlig.net>, 2015, 2016, 2017.
+msgid ""
+msgstr ""
+"Project-Id-Version: podbird\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2020-04-13 18:20+0000\n"
+"PO-Revision-Date: 2017-03-09 20:53+0000\n"
+"Last-Translator: GunChleoc <Unknown>\n"
+"Language-Team: Fòram na Gàidhlig\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1 || n==11) ? 0 : (n==2 || n==12) ? 1 : "
+"(n > 2 && n < 20) ? 2 : 3;\n"
+"X-Launchpad-Export-Date: 2021-06-30 06:28+0000\n"
+"X-Generator: Launchpad (build c11083652ba158ce73cebdfd79e69cf6f7d05a73)\n"
+"Language: gd\n"
+
+#: ../app/components/TabsList.qml:28 ../app/ui/EpisodesTab.qml:48
+msgid "Episodes"
+msgstr "Eapasodan"
+
+#: ../app/components/TabsList.qml:37 ../app/ui/SearchPage.qml:43
+msgid "Add New Podcasts"
+msgstr "Cuir pod-chraolaidhean ùra ris"
+
+#: ../app/components/TabsList.qml:46 ../app/ui/PodcastsTab.qml:42
+msgid "Podcasts"
+msgstr "Pod-chraolaidhean"
+
+#: ../app/components/TabsList.qml:55 ../app/ui/SettingsPage.qml:34
+msgid "Settings"
+msgstr "Roghainnean"
+
+#: ../app/components/Walkthrough.qml:89
+msgid "Skip"
+msgstr "Gearr leum thairis air"
+
+#: ../app/podcasts.js:307
+#, no-c-format, qt-format
+msgid "%1 hr %2 min"
+msgstr "%1 uair %2 mion"
+
+#: ../app/podcasts.js:316
+#, no-c-format, qt-format
+msgid "%1 hr"
+msgstr "%1 uair"
+
+#: ../app/podcasts.js:324
+#, no-c-format, qt-format
+msgid "%1 min"
+msgstr "%1 mion"
+
+#. TRANSLATORS: About as in information about the app
+#: ../app/settings/About.qml:28 ../app/settings/About.qml:46
+#: ../app/ui/SettingsPage.qml:338
+msgid "About"
+msgstr "Mu dhèidhinn"
+
+#: ../app/settings/About.qml:46
+msgid "Credits"
+msgstr "Urram"
+
+#. TRANSLATORS: Podbird version number e.g Version 0.8
+#: ../app/settings/About.qml:92
+#, qt-format
+msgid "Version %1"
+msgstr "Tionndadh %1"
+
+#: ../app/settings/About.qml:113
+msgid "Released under the terms of the GNU GPL v3"
+msgstr "'Ga sgaoileadh fo theirmichean a' cheadachais GNU GPL v3"
+
+#: ../app/settings/About.qml:123
+#, qt-format
+msgid "Source code available on %1"
+msgstr "Tha am bun-tùs ri fhaighinn air %1"
+
+#: ../app/settings/CleanSetting.qml:29
+msgid "Delete older than"
+msgstr "Sguab às an fheadhainn nas sine na"
+
+#: ../app/settings/CleanSetting.qml:40 ../app/settings/DownloadSetting.qml:40
+msgid "Never"
+msgstr "Chan ann idir"
+
+#: ../app/settings/CleanSetting.qml:41
+#, qt-format
+msgid "%1 day"
+msgid_plural "%1 days"
+msgstr[0] "%1 latha"
+msgstr[1] "%1 latha"
+msgstr[2] "%1 làithean"
+msgstr[3] "%1 latha"
+
+#: ../app/settings/CleanSetting.qml:42 ../app/settings/CleanSetting.qml:43
+#: ../app/settings/CleanSetting.qml:44
+#, qt-format
+msgid "%1 month"
+msgid_plural "%1 months"
+msgstr[0] "%1 mhìos"
+msgstr[1] "%1 mhìos"
+msgstr[2] "%1 mìosan"
+msgstr[3] "%1 mìos"
+
+#: ../app/settings/CleanSetting.qml:45
+#, qt-format
+msgid "%1 year"
+msgid_plural "%1 years"
+msgstr[0] "%1 bhliadhna"
+msgstr[1] "%1 bhliadhna"
+msgstr[2] "%1 bliadhnaichean"
+msgstr[3] "%1 bliadhna"
+
+#. TRANSLATORS: The first argument is the name of creator of Podbird (Michael Sheldon)
+#: ../app/settings/Credits.qml:31
+#, qt-format
+msgid "%1 (Creator)"
+msgstr "%1 (cruthadair)"
+
+#: ../app/settings/Credits.qml:31 ../app/settings/Credits.qml:32
+msgid "Developers"
+msgstr "Luchd-leasachaidh"
+
+#: ../app/settings/Credits.qml:33
+msgid "Designer"
+msgstr "Dealbhaiche"
+
+#: ../app/settings/Credits.qml:34
+msgid "Translators"
+msgstr "Eadar-theangadairean"
+
+#: ../app/settings/DownloadSetting.qml:29
+msgid "Download at most"
+msgstr "Luchdaich a-nuas air a char as motha"
+
+#: ../app/settings/DownloadSetting.qml:41
+#: ../app/settings/DownloadSetting.qml:42
+#: ../app/settings/DownloadSetting.qml:43
+#: ../app/settings/DownloadSetting.qml:44
+#, qt-format
+msgid "%1 episode"
+msgid_plural "%1 episodes"
+msgstr[0] "%1 eapasod"
+msgstr[1] "%1 eapasod"
+msgstr[2] "%1 eapasodan"
+msgstr[3] "%1 eapasod"
+
+#: ../app/settings/ThemeSetting.qml:29 ../app/ui/SettingsPage.qml:146
+msgid "Theme"
+msgstr "Ùrlar"
+
+#. TRANSLATORS: Light Theme
+#: ../app/settings/ThemeSetting.qml:41 ../app/ui/SettingsPage.qml:147
+msgid "Light"
+msgstr "Soilleir"
+
+#. TRANSLATORS: Dark Theme
+#: ../app/settings/ThemeSetting.qml:43 ../app/ui/SettingsPage.qml:147
+msgid "Dark"
+msgstr "Dorcha"
+
+#: ../app/ui/EpisodesPage.qml:52
+msgid "Podcast"
+msgstr "Pod-chraoladh"
+
+#: ../app/ui/EpisodesPage.qml:62 ../app/ui/EpisodesTab.qml:62
+msgid "Search Episode"
+msgstr "Lorg airson eapasod"
+
+#: ../app/ui/EpisodesPage.qml:70 ../app/ui/EpisodesPage.qml:306
+#: ../app/ui/SearchPage.qml:290
+msgid "Unsubscribe"
+msgstr "Cuir crìoch air an fh-sgrìobhadh"
+
+#. TRANSLATORS: This is the page title. Keep it short. Otherwise it will just be elided.
+#: ../app/ui/EpisodesPage.qml:110 ../app/ui/EpisodesTab.qml:128
+#, qt-format
+msgid "%1 item selected"
+msgid_plural "%1 items selected"
+msgstr[0] "%1 nì air a thaghadh"
+msgstr[1] "%1 nì air a thaghadh"
+msgstr[2] "%1 nithean air an taghadh"
+msgstr[3] "%1 nì air a thaghadh"
+
+#: ../app/ui/EpisodesPage.qml:125 ../app/ui/EpisodesTab.qml:143
+#: ../app/ui/NowPlayingPage.qml:42
+msgid "Back"
+msgstr "Air ais"
+
+#: ../app/ui/EpisodesPage.qml:137 ../app/ui/EpisodesTab.qml:155
+msgid "Mark Listened"
+msgstr "Cuir comharra gun deach èisteachd ris"
+
+#: ../app/ui/EpisodesPage.qml:156 ../app/ui/EpisodesTab.qml:173
+msgid "Download episode(s)"
+msgstr "Luchdaich a-nuas eapasod(an)"
+
+#: ../app/ui/EpisodesPage.qml:184 ../app/ui/EpisodesTab.qml:201
+msgid "Delete episode(s)"
+msgstr "Sguab às eapasod(an)"
+
+#: ../app/ui/EpisodesPage.qml:207 ../app/ui/EpisodesTab.qml:224
+msgid "Favourite episode(s)"
+msgstr "Cuir eapasod(an) ris na h-annsachdan"
+
+#: ../app/ui/EpisodesPage.qml:229 ../app/ui/EpisodesTab.qml:270
+msgid "Add to queue"
+msgstr "Cuir ris a' chiutha"
+
+#: ../app/ui/EpisodesPage.qml:258 ../app/ui/EpisodesTab.qml:120
+msgid "Search episode"
+msgstr "Lorg airson eapasod"
+
+#: ../app/ui/EpisodesPage.qml:303
+msgid "Unsubscribe Confirmation"
+msgstr "Dearbhadh air crìoch an fho-sgrìobhaidh"
+
+#: ../app/ui/EpisodesPage.qml:304
+#, qt-format
+msgid "Are you sure you want to unsubscribe from <b>%1</b>?"
+msgstr ""
+"A bheil thu cinnteach gu cheil thu airson crìoch a chur air an fho-"
+"sgrìobhadh gu <b>%1</b>?"
+
+#: ../app/ui/EpisodesPage.qml:323 ../app/ui/SearchPage.qml:144
+#: ../app/ui/SettingsPage.qml:85 ../app/ui/SettingsPage.qml:120
+msgid "Cancel"
+msgstr "Sguir dheth"
+
+#: ../app/ui/EpisodesPage.qml:345 ../app/ui/EpisodesTab.qml:407
+msgid "Episode Description"
+msgstr "Tuairisgeul an eapasoid"
+
+#: ../app/ui/EpisodesPage.qml:356 ../app/ui/EpisodesTab.qml:418
+#: ../app/ui/SearchPage.qml:194 ../app/ui/SettingsPage.qml:320
+msgid "Close"
+msgstr "Dùin"
+
+#: ../app/ui/EpisodesPage.qml:384
+msgid "No episodes found"
+msgstr "Cha deach eapasod a lorg"
+
+#: ../app/ui/EpisodesPage.qml:385
+msgid "No episodes found matching the search term."
+msgstr "Cha deach eapasod a lorg a fhreagras ris an fhacal-luirg."
+
+#: ../app/ui/EpisodesPage.qml:502
+msgid "Unheard"
+msgstr "Gun èisteachd ris"
+
+#: ../app/ui/EpisodesPage.qml:519
+msgid "Listened"
+msgstr "Air èisteachd ris"
+
+#: ../app/ui/EpisodesPage.qml:538
+msgid "Downloaded"
+msgstr "Air a luchdadh a-nuas"
+
+#: ../app/ui/EpisodesPage.qml:605
+msgid "Mark as unheard"
+msgstr "Cuir comharra nach deach èisteachd ris"
+
+#: ../app/ui/EpisodesPage.qml:605
+msgid "Mark as listened"
+msgstr "Cuir comharra gun deach èisteachd ris"
+
+#: ../app/ui/EpisodesPage.qml:621
+msgid "Delete downloaded file"
+msgstr "Sguab às faidhle air a luchdadh a-nuas"
+
+#: ../app/ui/EpisodesPage.qml:621
+msgid "Queued"
+msgstr "Sa chiutha"
+
+#: ../app/ui/EpisodesPage.qml:621
+msgid "Download"
+msgstr "Luchdaich a-nuas"
+
+#: ../app/ui/EpisodesPage.qml:646
+msgid "Add to playlist"
+msgstr "Cuir ris an liosta-chluiche"
+
+#: ../app/ui/EpisodesPage.qml:655
+msgid "Unfavourite"
+msgstr "Thoir air falbh o na h-annsachdan"
+
+#: ../app/ui/EpisodesPage.qml:655
+msgid "Favourite"
+msgstr "Cuir ris na h-annsachdan"
+
+#: ../app/ui/EpisodesPage.qml:670
+msgid "Show episode description"
+msgstr "Seall tuairisgeul an eapasoid"
+
+#: ../app/ui/EpisodesTab.qml:82
+msgid "Recent"
+msgstr "O chionn goirid"
+
+#: ../app/ui/EpisodesTab.qml:82
+msgid "Downloads"
+msgstr "Luchdaidhean a-nuas"
+
+#: ../app/ui/EpisodesTab.qml:82
+msgid "Favourites"
+msgstr "Na h-annsachdan"
+
+#: ../app/ui/EpisodesTab.qml:247
+msgid "Unfavourite episode(s)"
+msgstr "Thoir eapasod(an) air falbh o na h-annsachdan"
+
+#: ../app/ui/EpisodesTab.qml:310
+msgid "No New Episodes"
+msgstr "Chan eil eapasod ùr ann"
+
+#: ../app/ui/EpisodesTab.qml:312
+msgid "No Downloaded Episodes"
+msgstr "Cha deach gin a luchdadh a-nuas"
+
+#: ../app/ui/EpisodesTab.qml:314
+msgid "No Favourited Episodes"
+msgstr "Chan eil annsachd ann"
+
+#: ../app/ui/EpisodesTab.qml:316
+msgid "No Episodes Found"
+msgstr "Cha deach eapasod a lorg"
+
+#: ../app/ui/EpisodesTab.qml:322
+msgid "No more episodes to listen to!"
+msgstr "Chan eil barrachd eapasodan ri an èisteachd riutha ann!"
+
+#: ../app/ui/EpisodesTab.qml:324
+msgid "No episodes have been downloaded for offline listening"
+msgstr "Cha deach eapasod a luchdadh a-nuas a chum èisteachd far loidhne"
+
+#: ../app/ui/EpisodesTab.qml:326
+msgid "No episodes have been favourited."
+msgstr "Cha deach eapasod a chur ris na h-annsachdan."
+
+#: ../app/ui/EpisodesTab.qml:328
+msgid "No Episodes found matching the search term."
+msgstr "Cha deach eapasod a lorg a fhreagras ris an fhacal-luirg."
+
+#: ../app/ui/EpisodesTab.qml:457
+msgid "Downloads in progress"
+msgstr "Rudan 'gan luchdadh a-nuas"
+
+#: ../app/ui/EpisodesTab.qml:497
+msgid "Downloaded episodes"
+msgstr "Eapasodan a chaidh a luchdadh a-nuas"
+
+#: ../app/ui/EpisodesTab.qml:507
+msgid "Today"
+msgstr "An-diugh"
+
+#: ../app/ui/EpisodesTab.qml:511
+msgid "Yesterday"
+msgstr "An-dè"
+
+#: ../app/ui/EpisodesTab.qml:515
+msgid "Older"
+msgstr "Nas sine"
+
+#. TRANSLATORS: The string shown in the UI is -15s to denote the number of seconds that the podcast playback will skip backward.
+#: ../app/ui/FullPlayingView.qml:218
+#, no-c-format, qt-format
+msgid "-%1s"
+msgstr "-%1s"
+
+#. TRANSLATORS: The string shown in the UI is +15s to denote the number of seconds that the podcast playback will skip forward.
+#: ../app/ui/FullPlayingView.qml:279
+#, no-c-format, qt-format
+msgid "+%1s"
+msgstr "+%1s"
+
+#: ../app/ui/ImportPage.qml:18
+msgid "Choose"
+msgstr ""
+
+#: ../app/ui/NowPlayingPage.qml:34
+msgid "Now Playing"
+msgstr "'Ga chluich an-dràsta"
+
+#: ../app/ui/NowPlayingPage.qml:73
+msgid "Full view"
+msgstr "Sealladh slàn"
+
+#: ../app/ui/NowPlayingPage.qml:73
+msgid "Queue"
+msgstr "Ciutha"
+
+#: ../app/ui/PodcastsTab.qml:57 ../app/ui/SearchPage.qml:57
+#: ../app/ui/SearchPage.qml:176
+msgid "Search Podcast"
+msgstr "Lorg airson pod-chraoladh"
+
+#: ../app/ui/PodcastsTab.qml:97
+msgid "Search podcast"
+msgstr "Lorg airson pod-chraoladh"
+
+#: ../app/ui/PodcastsTab.qml:127
+msgid "No Podcast Subscriptions"
+msgstr "Chan eil fo-sgrìobhadh pod-chraolaidh ann"
+
+#: ../app/ui/PodcastsTab.qml:127 ../app/ui/SearchPage.qml:222
+msgid "No Podcasts Found"
+msgstr "Cha deach pod-chraoladh a lorg"
+
+#: ../app/ui/PodcastsTab.qml:128
+msgid ""
+"You haven't subscribed to any podcasts yet, visit the 'Add New Podcasts' "
+"page to add some."
+msgstr ""
+"Cha do rinn thu fo-sgrìobhadh gu pod-chraoladh fhathast, tadhail air an "
+"duilleag \"Cuir ris pod-chraolaidhean ùra\" gus fear no dhà a chur ris."
+
+#: ../app/ui/PodcastsTab.qml:129 ../app/ui/SearchPage.qml:224
+msgid "No podcasts found matching the search term."
+msgstr "Cha deach pod-chraoladh a lorg a fhreagras ris an fhacal-luirg."
+
+#: ../app/ui/PodcastsTab.qml:215
+#, qt-format
+msgid "%1 unheard episode"
+msgid_plural "%1 unheard episodes"
+msgstr[0] "%1 eapasod nach do dh'èist thu ris"
+msgstr[1] "%1 eapasod nach do dh'èist thu riutha"
+msgstr[2] "%1 eapasodan nach do dh'èist thu riutha"
+msgstr[3] "%1 eapasod nach do dh'èist thu riutha"
+
+#: ../app/ui/SearchPage.qml:65
+msgid "Add Podcast"
+msgstr "Cuir pod-chraoladh ris"
+
+#: ../app/ui/SearchPage.qml:73
+msgid "Import Podcasts"
+msgstr ""
+
+#: ../app/ui/SearchPage.qml:135
+msgid "Save Podcast"
+msgstr "Sàbhail am pod-chraoladh"
+
+#: ../app/ui/SearchPage.qml:163
+msgid "Feed URL"
+msgstr "URL an inbhir"
+
+#: ../app/ui/SearchPage.qml:191
+msgid "Unable to subscribe"
+msgstr "Cha ghabh crìoch a chur air an fho-sgrìobhadh"
+
+#: ../app/ui/SearchPage.qml:192
+msgid "Please check the URL and try again"
+msgstr "Thoir sùil air an URL is feuch ris a-rithist"
+
+#: ../app/ui/SearchPage.qml:222
+msgid "Looking to add a new podcast?"
+msgstr "Am bu toigh leat pod-chraoladh ùr a chur ris?"
+
+#: ../app/ui/SearchPage.qml:223
+msgid ""
+"Click the 'magnifier' at the top to search or the 'plus' button to add by URL"
+msgstr ""
+"Briog air a' \"mheudaichear\" aig a' bharr airson lorg no air a' phutan "
+"\"plus\" gus URL a chur ris"
+
+#: ../app/ui/SearchPage.qml:290
+msgid "Subscribe"
+msgstr "Fo-sgrìobh"
+
+#. TRANSLATORS: The first argument here is the date of when the podcast was last updated followed by
+#. the podcast description.
+#: ../app/ui/SearchPage.qml:328
+#, qt-format
+msgid ""
+"Last Updated: %1\n"
+"%2"
+msgstr ""
+"An t-ùrachadh mu dheireadh: %1\n"
+"%2"
+
+#: ../app/ui/SearchPage.qml:385
+msgid "Not Available"
+msgstr "Chan eil seo ri fhaighinn"
+
+#: ../app/ui/SearchPage.qml:499
+msgid "Please wait"
+msgstr ""
+
+#: ../app/ui/SearchPage.qml:500
+msgid "Importing podcasts..."
+msgstr ""
+
+#: ../app/ui/SearchPage.qml:518
+msgid "imported"
+msgstr ""
+
+#. TRANSLATORS: This strings refers to the seeking of the episode playback. Users can set how far they
+#. want to seek forward when pressing on this button.
+#: ../app/ui/SettingsPage.qml:65 ../app/ui/SettingsPage.qml:171
+msgid "Skip forward"
+msgstr "Leum air adhart"
+
+#: ../app/ui/SettingsPage.qml:72 ../app/ui/SettingsPage.qml:107
+#: ../app/ui/SettingsPage.qml:172 ../app/ui/SettingsPage.qml:179
+#, qt-format
+msgid "%1 seconds"
+msgstr "%1 diog(an)"
+
+#: ../app/ui/SettingsPage.qml:77 ../app/ui/SettingsPage.qml:112
+msgid "OK"
+msgstr "Ceart ma-thà"
+
+#. TRANSLATORS: This strings refers to the seeking of the episode playback. Users can set how far they
+#. want to seek backward when pressing on this button.
+#: ../app/ui/SettingsPage.qml:100 ../app/ui/SettingsPage.qml:178
+msgid "Skip back"
+msgstr "Leum air ais"
+
+#. TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
+#. that doesn't fit into any other category.
+#: ../app/ui/SettingsPage.qml:141
+msgid "General Settings"
+msgstr "Roghainnean coitcheann"
+
+#: ../app/ui/SettingsPage.qml:154
+msgid "Displays podcasts in a list view"
+msgstr "Seallaidh seo liosta dhe na pod-chaolaidhean"
+
+#: ../app/ui/SettingsPage.qml:166
+msgid "Playback Settings"
+msgstr "Roghainnean na cluiche"
+
+#: ../app/ui/SettingsPage.qml:184
+msgid "Podcast Episode Settings"
+msgstr "Roghainnean eapasodan nam pod-chraolaidhean"
+
+#: ../app/ui/SettingsPage.qml:190
+msgid "Automatically delete old episodes"
+msgstr "Sguab às seann eapasodan gu fèin-obrachail"
+
+#: ../app/ui/SettingsPage.qml:192
+msgid ""
+"Delete episodes that are older than a given number of days for each podcast"
+msgstr ""
+"Sguab às eapasodan a tha nas sine na àireamh de làithean a shònraich thu "
+"airson gach pod-chraolaidh"
+
+#: ../app/ui/SettingsPage.qml:204
+msgid "Automatically download new episodes"
+msgstr "Luchdaich a-nuas eapasodan ùra gu fèin-obrachail"
+
+#: ../app/ui/SettingsPage.qml:206
+msgid "Default number of new episodes to download for each podcast"
+msgstr ""
+"An àireamh thùsail de dh'eapasodan ùra ri an luchdadh a-nuas airson gach pod-"
+"chraolaidh"
+
+#: ../app/ui/SettingsPage.qml:218
+msgid "Only download over WiFi"
+msgstr "Na luchdaich a-nuas ach le WiFi"
+
+#: ../app/ui/SettingsPage.qml:220
+msgid "Download episodes only when the device is using WiFi"
+msgstr ""
+"Na luchdaich a-nuas eapasodan ach nuair a bhios an t-uidheam a' cleachdadh "
+"WiFi"
+
+#: ../app/ui/SettingsPage.qml:240
+msgid "Refresh podcast artwork"
+msgstr "Ath-nuadhaich obair-ealain a' phod-chaolaidh"
+
+#: ../app/ui/SettingsPage.qml:242
+msgid "Update all podcasts artwork and fix missing ones"
+msgstr ""
+"Ùraich obair-ealain nam pod-chaolaidhean uile agus càraich an fheadhainn a "
+"tha a dìth"
+
+#: ../app/ui/SettingsPage.qml:271
+msgid "Storage Settings"
+msgstr "Roghainnean an stòrais"
+
+#: ../app/ui/SettingsPage.qml:282
+msgid "Delete orphaned files and links"
+msgstr "Sguab às dìlleachdain de dh'fhaidhlichean is ceanglaichean"
+
+#: ../app/ui/SettingsPage.qml:284
+msgid "Free space by removing orphaned downloaded files and links"
+msgstr ""
+"Saor àite a' sguabadh às dìlleachdain de dh'fhaidhlichean is ceanglaichean a "
+"chaidh a luchdadh a-nuas"
+
+#: ../app/ui/SettingsPage.qml:314
+msgid "Removed orphaned files and links"
+msgstr ""
+"Chaidh dìlleachdain de dh'fhaidhlichean is ceanglaichean a thoirt air falbh"
+
+#: ../app/ui/SettingsPage.qml:314
+msgid "No orphans found!"
+msgstr "Cha deach dìlleachdan a lorg!"
+
+#: ../app/ui/SettingsPage.qml:315
+msgid ""
+"All orphaned files have been deleted to recover disk space. Orphaned links "
+"pointing at invalid files have also been cleaned up."
+msgstr ""
+"Chaidh a h-uile dìlleachdan dhe dh'fhaidhle a sguabadh às gus àite a "
+"shaoradh air an diosg. Chaidh ceanglaichean a thomh ri faidhlichean nach eil "
+"ann tuilleadh a sgioblachadh cuideachd."
+
+#: ../app/ui/SettingsPage.qml:317
+msgid ""
+"No orphaned files have been found to recover disk space. Podbird database is "
+"clean."
+msgstr ""
+"Cha deach faidhle a lorg a tha 'na dhìlleachdan gus àite a shaoradh. Tha "
+"stòr-dàta Podbird glan."
+
+#. TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
+#. that doesn't fit into any other category.
+#: ../app/ui/SettingsPage.qml:332
+msgid "Misc."
+msgstr "Measg."
+
+#: ../app/ui/SettingsPage.qml:348
+msgid "Report Bug"
+msgstr "Dèan aithris air buga"
+
+#: ../app/welcomewizard/Slide1.qml:42
+msgid "Welcome to Podbird"
+msgstr "Fàilte gu Podbird"
+
+#: ../app/welcomewizard/Slide1.qml:53
+msgid ""
+"Enjoy your favourite shows with Podbird, the chirpiest podcast manager for "
+"Ubuntu.\n"
+"\n"
+"Chirp Chirp..."
+msgstr ""
+"Gabh tlachd às na prògraman as fhearr leat le Podbird, manaidsear pod-"
+"chraolaidhean airson Ubuntu.\n"
+"\n"
+"Bìd bìd..."
+
+#: ../app/welcomewizard/Slide1.qml:82
+msgid "Swipe to move between pages"
+msgstr "Grad-shlaighd gus gluasad eadar duilleagan"
+
+#: ../app/welcomewizard/Slide2.qml:45
+msgid "Discover New Podcasts"
+msgstr "Lorg pod-chraolaidhean ùra"
+
+#: ../app/welcomewizard/Slide2.qml:62
+msgid ""
+"Podbird uses the iTunes® database to provide access to a huge collection of "
+"podcasts. You can also add podcasts by their URL."
+msgstr ""
+"Cleachdaidh Podbird an an stòr-dàta aig iTunes® gus cothrom fhaighinn air "
+"cruinneachadh mòr de phod-chraolaidhean. 'S urrainn dhut pod-chraolaidhean a "
+"chur ris leis an URL aca cuideachd."
+
+#: ../app/welcomewizard/Slide3.qml:45
+msgid "Smart Settings"
+msgstr "Roghainnean glice"
+
+#: ../app/welcomewizard/Slide3.qml:62
+msgid ""
+"Podbird can optionally download new episodes and clean up old episodes "
+"automatically, this can be enabled from the settings page."
+msgstr ""
+"Tha comas aig Podbird eapasodan ùra a luchdadh a-nuas is an t-seann "
+"fheadhainn a sgioblachadh gu fèin-obrachail, 's urrainn dhut seo a chur an "
+"comas o dhuilleag nan roghainnean."
+
+#. TRANSLATORS: This text should be in a language different from the language set by the user.
+#. For instance, if the app was in english, then it is appropriate to set this string as
+#. Hallo or Bonjour etc to symbolize the internationalization feature in podbird.
+#: ../app/welcomewizard/Slide4.qml:48
+msgid "Hallo! Bonjour!"
+msgstr "Hallo! Bore da!"
+
+#: ../app/welcomewizard/Slide4.qml:67
+#, qt-format
+msgid ""
+"Podbird is available in over 15 languages and is translated by the %1 "
+"community"
+msgstr ""
+"Tha Podbird ri fhaighinn ann an corr is 15 cànanan agus 'ga eadar-"
+"theangachadh leis a' choimhearsnachd %1"
+
+#: ../app/welcomewizard/Slide5.qml:45
+msgid "Touch Gestures"
+msgstr "Gluasadan suathaidh"
+
+#: ../app/welcomewizard/Slide5.qml:64
+msgid ""
+"Episodes can be swiped left to reveal more actions (or right click if you're "
+"using a mouse). You can also multi-select them by long-pressing on an "
+"episode."
+msgstr ""
+"Grad-shlaighd eapasod gun taobh chlì gus barrachd gnìomhan a nochdadh (no "
+"dèan briogadh deas ma tha luchag agad). 'S urrainn dhut iomadh dhiubh a "
+"thaghadh le brùthadh fada air eapasod."
+
+#: ../app/welcomewizard/Slide6.qml:45
+msgid "Support"
+msgstr "Taic"
+
+#. TRANSLATORS: The %1 points to a url defined in html format <a href=\link\>Link</a>.
+#: ../app/welcomewizard/Slide6.qml:65
+#, qt-format
+msgid ""
+"If you find any bugs or have any feature requests, let us know on our "
+"project page at %1"
+msgstr ""
+"Ma lorgas tu buga sam bith no ma tha iarrtas fearta agad, cuir fios thugainn "
+"air duilleag a' phròiseact againn air %1"
+
+#: ../app/welcomewizard/Slide7.qml:45
+msgid "Enjoy"
+msgstr "Gabh tlachd"
+
+#: ../app/welcomewizard/Slide7.qml:62
+msgid "We hope you enjoy using Podbird!"
+msgstr "Tha sinn an dòchas gun gabh thu tlachd le Podbird!"
+
+#: ../app/welcomewizard/Slide7.qml:75
+msgid "Finish"
+msgstr "Crìochnaich"
+
+#: ../app/po/Podbird.desktop.in.h:1
+msgid "The chirpiest podcast manager for Ubuntu"
+msgstr "Manaidsear phod-chraolaidhean airson Ubuntu"
+
+#: ../app/po/Podbird.desktop.in.h:2
+msgid ""
+"podcast;audio;itunes;broadcast;digital;stream;podcatcher;video;vodcast;"
+msgstr ""
+"podcast;audio;itunes;broadcast;digital;stream;podcatcher;video;vodcast;pod-"
+"chraoladh;pod-chraolaidhean;fuaim;craoladh;digiteac;sruth;"

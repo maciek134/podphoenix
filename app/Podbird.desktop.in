@@ -1,0 +1,14 @@
+[Desktop Entry]
+Name=Podbird
+_Comment=The chirpiest podcast manager for Ubuntu
+_Keywords=podcast;audio;itunes;broadcast;digital;stream;podcatcher;video;vodcast;
+Exec=@EXEC@
+Icon=@ICON@
+Terminal=false
+Type=Application
+X-Ubuntu-Touch=true
+X-Ubuntu-Splash-Image=@SPLASH@
+X-Ubuntu-Splash-Color=#93E6FD
+
+
+

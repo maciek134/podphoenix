@@ -1,0 +1,37 @@
+Source: podbird
+Section: sound
+Priority: optional
+Maintainer: Michael Sheldon <michael.sheldon@canonical.com>
+Build-Depends: cmake,
+               dbus,
+               debhelper (>= 9),
+               dh-translations,
+               pkg-config,
+               qtdeclarative5-dev-tools,
+               qt5-default,
+               qtbase5-dev,
+               qtdeclarative5-dev,
+Standards-Version: 3.9.5
+Homepage: https://launchpad.net/podbird
+Vcs-Bzr: https://code.launchpad.net/~michael-sheldon/podbird/trunk
+Vcs-Browser: http://bazaar.launchpad.net/~michael-sheldon/podbird/trunk/files
+
+Package: podbird
+Architecture: any
+Depends: qmlscene,
+         qml-module-qtmultimedia,
+         qml-module-qt-labs-settings,
+         qml-module-qtquick-localstorage,
+         qml-module-ubuntu-connectivity,
+         qtdeclarative5-gsettings1.0,
+         qtdeclarative5-qtquick2-plugin,
+         qtdeclarative5-ubuntu-download-manager0.1,
+         qtdeclarative5-ubuntu-ui-toolkit-plugin,
+         qtdeclarative5-usermetrics0.1,
+         ubuntu-download-manager,
+         ubuntu-ui-toolkit-theme (>= 0.1.49+14.10.20140707),
+         ${misc:Depends},
+         ${shlibs:Depends},
+Description: Podcast manager
+ Podbird lets you easily search for new podcasts, and either stream them or 
+ download them for offline listening.

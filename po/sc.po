@@ -1,0 +1,714 @@
+# Sardinian translation for podbird
+# Copyright (c) 2019 Rosetta Contributors and Canonical Ltd 2019
+# This file is distributed under the same license as the podbird package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: podbird\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2020-04-13 18:20+0000\n"
+"PO-Revision-Date: 2021-11-20 18:41+0000\n"
+"Last-Translator: amm <Unknown>\n"
+"Language-Team: Sardinian <sc@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n!=1;\n"
+"X-Launchpad-Export-Date: 2021-11-21 06:56+0000\n"
+"X-Generator: Launchpad (build ad4ef5362dff26fb27989d006230bae6da62d38c)\n"
+
+#: ../app/components/TabsList.qml:28 ../app/ui/EpisodesTab.qml:48
+msgid "Episodes"
+msgstr "Episòdios"
+
+#: ../app/components/TabsList.qml:37 ../app/ui/SearchPage.qml:43
+msgid "Add New Podcasts"
+msgstr "Agiunghe podcasts noos"
+
+#: ../app/components/TabsList.qml:46 ../app/ui/PodcastsTab.qml:42
+msgid "Podcasts"
+msgstr "Podcasts"
+
+#: ../app/components/TabsList.qml:55 ../app/ui/SettingsPage.qml:34
+msgid "Settings"
+msgstr "Cunfiguratziones"
+
+#: ../app/components/Walkthrough.qml:89
+msgid "Skip"
+msgstr "Brinca"
+
+#: ../app/podcasts.js:307
+#, no-c-format, qt-format
+msgid "%1 hr %2 min"
+msgstr "%1 h %2 min"
+
+#: ../app/podcasts.js:316
+#, no-c-format, qt-format
+msgid "%1 hr"
+msgstr "%1 h"
+
+#: ../app/podcasts.js:324
+#, no-c-format, qt-format
+msgid "%1 min"
+msgstr "%1 min"
+
+#. TRANSLATORS: About as in information about the app
+#: ../app/settings/About.qml:28 ../app/settings/About.qml:46
+#: ../app/ui/SettingsPage.qml:338
+msgid "About"
+msgstr "Informatziones"
+
+#: ../app/settings/About.qml:46
+msgid "Credits"
+msgstr "Crèditos"
+
+#. TRANSLATORS: Podbird version number e.g Version 0.8
+#: ../app/settings/About.qml:92
+#, qt-format
+msgid "Version %1"
+msgstr "Versione %1"
+
+#: ../app/settings/About.qml:113
+msgid "Released under the terms of the GNU GPL v3"
+msgstr "Publicadu a suta de sa lisséntzia GNU GPL v3"
+
+#: ../app/settings/About.qml:123
+#, qt-format
+msgid "Source code available on %1"
+msgstr "Su còdighe de orìgine est a disponimentu in %1"
+
+#: ../app/settings/CleanSetting.qml:29
+msgid "Delete older than"
+msgstr "Cantzella prus antigos de"
+
+#: ../app/settings/CleanSetting.qml:40 ../app/settings/DownloadSetting.qml:40
+msgid "Never"
+msgstr "Mai"
+
+#: ../app/settings/CleanSetting.qml:41
+#, qt-format
+msgid "%1 day"
+msgid_plural "%1 days"
+msgstr[0] "%1 die"
+msgstr[1] "%1 dies"
+
+#: ../app/settings/CleanSetting.qml:42 ../app/settings/CleanSetting.qml:43
+#: ../app/settings/CleanSetting.qml:44
+#, qt-format
+msgid "%1 month"
+msgid_plural "%1 months"
+msgstr[0] "%1 mese"
+msgstr[1] "%1 meses"
+
+#: ../app/settings/CleanSetting.qml:45
+#, qt-format
+msgid "%1 year"
+msgid_plural "%1 years"
+msgstr[0] "%1 annu"
+msgstr[1] "%1 annos"
+
+#. TRANSLATORS: The first argument is the name of creator of Podbird (Michael Sheldon)
+#: ../app/settings/Credits.qml:31
+#, qt-format
+msgid "%1 (Creator)"
+msgstr "%1 (Creadore)"
+
+#: ../app/settings/Credits.qml:31 ../app/settings/Credits.qml:32
+msgid "Developers"
+msgstr "Isvilupadores"
+
+#: ../app/settings/Credits.qml:33
+msgid "Designer"
+msgstr "Disegnadore"
+
+#: ../app/settings/Credits.qml:34
+msgid "Translators"
+msgstr "Tradutores"
+
+#: ../app/settings/DownloadSetting.qml:29
+msgid "Download at most"
+msgstr "Iscàrriga a su màssimu"
+
+#: ../app/settings/DownloadSetting.qml:41
+#: ../app/settings/DownloadSetting.qml:42
+#: ../app/settings/DownloadSetting.qml:43
+#: ../app/settings/DownloadSetting.qml:44
+#, qt-format
+msgid "%1 episode"
+msgid_plural "%1 episodes"
+msgstr[0] "%1 episòdiu"
+msgstr[1] "%1 episòdios"
+
+#: ../app/settings/ThemeSetting.qml:29 ../app/ui/SettingsPage.qml:146
+msgid "Theme"
+msgstr "Tema"
+
+#. TRANSLATORS: Light Theme
+#: ../app/settings/ThemeSetting.qml:41 ../app/ui/SettingsPage.qml:147
+msgid "Light"
+msgstr "Craru"
+
+#. TRANSLATORS: Dark Theme
+#: ../app/settings/ThemeSetting.qml:43 ../app/ui/SettingsPage.qml:147
+msgid "Dark"
+msgstr "Iscuru"
+
+#: ../app/ui/EpisodesPage.qml:52
+msgid "Podcast"
+msgstr "Podcast"
+
+#: ../app/ui/EpisodesPage.qml:62 ../app/ui/EpisodesTab.qml:62
+msgid "Search Episode"
+msgstr "Chirca episòdios"
+
+#: ../app/ui/EpisodesPage.qml:70 ../app/ui/EpisodesPage.qml:306
+#: ../app/ui/SearchPage.qml:290
+msgid "Unsubscribe"
+msgstr "Annulla sa sutiscritzione"
+
+#. TRANSLATORS: This is the page title. Keep it short. Otherwise it will just be elided.
+#: ../app/ui/EpisodesPage.qml:110 ../app/ui/EpisodesTab.qml:128
+#, qt-format
+msgid "%1 item selected"
+msgid_plural "%1 items selected"
+msgstr[0] "%1 cuntenutu seletzionadu"
+msgstr[1] "%1 cuntenutos eletzionados"
+
+#: ../app/ui/EpisodesPage.qml:125 ../app/ui/EpisodesTab.qml:143
+#: ../app/ui/NowPlayingPage.qml:42
+msgid "Back"
+msgstr "In segus"
+
+#: ../app/ui/EpisodesPage.qml:137 ../app/ui/EpisodesTab.qml:155
+msgid "Mark Listened"
+msgstr "Sinnala comente ascurtadu"
+
+#: ../app/ui/EpisodesPage.qml:156 ../app/ui/EpisodesTab.qml:173
+msgid "Download episode(s)"
+msgstr "Iscàrriga episòdiu/-os"
+
+#: ../app/ui/EpisodesPage.qml:184 ../app/ui/EpisodesTab.qml:201
+msgid "Delete episode(s)"
+msgstr "Cantzella episòdiu/-os"
+
+#: ../app/ui/EpisodesPage.qml:207 ../app/ui/EpisodesTab.qml:224
+msgid "Favourite episode(s)"
+msgstr "Episòdiu/-os preferidos"
+
+#: ../app/ui/EpisodesPage.qml:229 ../app/ui/EpisodesTab.qml:270
+msgid "Add to queue"
+msgstr "Agiunghe a sa coa"
+
+#: ../app/ui/EpisodesPage.qml:258 ../app/ui/EpisodesTab.qml:120
+msgid "Search episode"
+msgstr "Chirca s'episòdiu"
+
+#: ../app/ui/EpisodesPage.qml:303
+msgid "Unsubscribe Confirmation"
+msgstr "Cunfirma s'annullamentu de sa sutiscritzione"
+
+#: ../app/ui/EpisodesPage.qml:304
+#, qt-format
+msgid "Are you sure you want to unsubscribe from <b>%1</b>?"
+msgstr "Seguru chi boles annullare sa sutiscritzione a <b>%1</b>?"
+
+#: ../app/ui/EpisodesPage.qml:323 ../app/ui/SearchPage.qml:144
+#: ../app/ui/SettingsPage.qml:85 ../app/ui/SettingsPage.qml:120
+msgid "Cancel"
+msgstr "Annulla"
+
+#: ../app/ui/EpisodesPage.qml:345 ../app/ui/EpisodesTab.qml:407
+msgid "Episode Description"
+msgstr "Descritzione de s'episòdiu"
+
+#: ../app/ui/EpisodesPage.qml:356 ../app/ui/EpisodesTab.qml:418
+#: ../app/ui/SearchPage.qml:194 ../app/ui/SettingsPage.qml:320
+msgid "Close"
+msgstr "Serra"
+
+#: ../app/ui/EpisodesPage.qml:384
+msgid "No episodes found"
+msgstr "Perunu episòdiu agatadu"
+
+#: ../app/ui/EpisodesPage.qml:385
+msgid "No episodes found matching the search term."
+msgstr "Perunu episòdiu agatadu chi cointzidat cun sa chirca."
+
+#: ../app/ui/EpisodesPage.qml:502
+msgid "Unheard"
+msgstr "No ascurtados"
+
+#: ../app/ui/EpisodesPage.qml:519
+msgid "Listened"
+msgstr "Ascurtados"
+
+#: ../app/ui/EpisodesPage.qml:538
+msgid "Downloaded"
+msgstr "Iscarrigados"
+
+#: ../app/ui/EpisodesPage.qml:605
+msgid "Mark as unheard"
+msgstr "Sinnala comente no ascurtados"
+
+#: ../app/ui/EpisodesPage.qml:605
+msgid "Mark as listened"
+msgstr "Sinnala comente ascurtados"
+
+#: ../app/ui/EpisodesPage.qml:621
+msgid "Delete downloaded file"
+msgstr "Cantzella archìviu iscarrigadu"
+
+#: ../app/ui/EpisodesPage.qml:621
+msgid "Queued"
+msgstr "In coa"
+
+#: ../app/ui/EpisodesPage.qml:621
+msgid "Download"
+msgstr "Iscàrriga"
+
+#: ../app/ui/EpisodesPage.qml:646
+msgid "Add to playlist"
+msgstr "Agiunghe a sa lista de riprodutzione"
+
+#: ../app/ui/EpisodesPage.qml:655
+msgid "Unfavourite"
+msgstr "Boga dae is preferidos"
+
+#: ../app/ui/EpisodesPage.qml:655
+msgid "Favourite"
+msgstr "Preferidos"
+
+#: ../app/ui/EpisodesPage.qml:670
+msgid "Show episode description"
+msgstr "Ammustra sa descritzione de s'episòdiu"
+
+#: ../app/ui/EpisodesTab.qml:82
+msgid "Recent"
+msgstr "Reghentes"
+
+#: ../app/ui/EpisodesTab.qml:82
+msgid "Downloads"
+msgstr "Iscarrigados"
+
+#: ../app/ui/EpisodesTab.qml:82
+msgid "Favourites"
+msgstr "Preferidos"
+
+#: ../app/ui/EpisodesTab.qml:247
+msgid "Unfavourite episode(s)"
+msgstr "Boga s'episòdiu dae is preferidos"
+
+#: ../app/ui/EpisodesTab.qml:310
+msgid "No New Episodes"
+msgstr "Perunu episòdiu nou"
+
+#: ../app/ui/EpisodesTab.qml:312
+msgid "No Downloaded Episodes"
+msgstr "Perunu episòdiu iscarrigadu"
+
+#: ../app/ui/EpisodesTab.qml:314
+msgid "No Favourited Episodes"
+msgstr "Perunu episòdiu in is preferidos"
+
+#: ../app/ui/EpisodesTab.qml:316
+msgid "No Episodes Found"
+msgstr "Perunu episòdiu agatadu"
+
+#: ../app/ui/EpisodesTab.qml:322
+msgid "No more episodes to listen to!"
+msgstr "Perunu episòdiu de ascurtare"
+
+#: ../app/ui/EpisodesTab.qml:324
+msgid "No episodes have been downloaded for offline listening"
+msgstr "Perunu episòdiu iscarrigadu pro s'iscortu in foras de lìnia"
+
+#: ../app/ui/EpisodesTab.qml:326
+msgid "No episodes have been favourited."
+msgstr "Perunu episòdiu in is preferidos"
+
+#: ../app/ui/EpisodesTab.qml:328
+msgid "No Episodes found matching the search term."
+msgstr "Perunu episòdiu agatadu tràmite custa chirca"
+
+#: ../app/ui/EpisodesTab.qml:457
+msgid "Downloads in progress"
+msgstr "Iscarrigamentos in protzessu"
+
+#: ../app/ui/EpisodesTab.qml:497
+msgid "Downloaded episodes"
+msgstr "Episòdios iscarrigados"
+
+#: ../app/ui/EpisodesTab.qml:507
+msgid "Today"
+msgstr "Oe"
+
+#: ../app/ui/EpisodesTab.qml:511
+msgid "Yesterday"
+msgstr "Eris"
+
+#: ../app/ui/EpisodesTab.qml:515
+msgid "Older"
+msgstr "Prus betzu"
+
+#. TRANSLATORS: The string shown in the UI is -15s to denote the number of seconds that the podcast playback will skip backward.
+#: ../app/ui/FullPlayingView.qml:218
+#, no-c-format, qt-format
+msgid "-%1s"
+msgstr "-%1s"
+
+#. TRANSLATORS: The string shown in the UI is +15s to denote the number of seconds that the podcast playback will skip forward.
+#: ../app/ui/FullPlayingView.qml:279
+#, no-c-format, qt-format
+msgid "+%1s"
+msgstr "+%1s"
+
+#: ../app/ui/ImportPage.qml:18
+msgid "Choose"
+msgstr "Sèbera"
+
+#: ../app/ui/NowPlayingPage.qml:34
+msgid "Now Playing"
+msgstr "Riproduende"
+
+#: ../app/ui/NowPlayingPage.qml:73
+msgid "Full view"
+msgstr "Visualizatzione intrea"
+
+#: ../app/ui/NowPlayingPage.qml:73
+msgid "Queue"
+msgstr "Coa"
+
+#: ../app/ui/PodcastsTab.qml:57 ../app/ui/SearchPage.qml:57
+#: ../app/ui/SearchPage.qml:176
+msgid "Search Podcast"
+msgstr "Chirca podcast"
+
+#: ../app/ui/PodcastsTab.qml:97
+msgid "Search podcast"
+msgstr "Chirca podcast"
+
+#: ../app/ui/PodcastsTab.qml:127
+msgid "No Podcast Subscriptions"
+msgstr "Peruna sutaiscritzione a podcasts"
+
+#: ../app/ui/PodcastsTab.qml:127 ../app/ui/SearchPage.qml:222
+msgid "No Podcasts Found"
+msgstr "Perunu podcast agatadu"
+
+#: ../app/ui/PodcastsTab.qml:128
+msgid ""
+"You haven't subscribed to any podcasts yet, visit the 'Add New Podcasts' "
+"page to add some."
+msgstr ""
+"No ti ses sutiscritu in perunu podcast, bae a «Agiunghe podcasts nous» pro "
+"nde agiùnghere."
+
+#: ../app/ui/PodcastsTab.qml:129 ../app/ui/SearchPage.qml:224
+msgid "No podcasts found matching the search term."
+msgstr "Perunu podcast agatadu tràmite custa chirca."
+
+#: ../app/ui/PodcastsTab.qml:215
+#, qt-format
+msgid "%1 unheard episode"
+msgid_plural "%1 unheard episodes"
+msgstr[0] "%1 episòdiu de ascurtare"
+msgstr[1] "%1 episòdios de ascurtare"
+
+#: ../app/ui/SearchPage.qml:65
+msgid "Add Podcast"
+msgstr "Agiunghe podcast"
+
+#: ../app/ui/SearchPage.qml:73
+msgid "Import Podcasts"
+msgstr "Importa podcasts"
+
+#: ../app/ui/SearchPage.qml:135
+msgid "Save Podcast"
+msgstr "Sarva podcast"
+
+#: ../app/ui/SearchPage.qml:163
+msgid "Feed URL"
+msgstr "URL de su canale"
+
+#: ../app/ui/SearchPage.qml:191
+msgid "Unable to subscribe"
+msgstr "Impossìbile sutaiscriere"
+
+#: ../app/ui/SearchPage.qml:192
+msgid "Please check the URL and try again"
+msgstr "Verifica s'URL e torra·bi a proare"
+
+#: ../app/ui/SearchPage.qml:222
+msgid "Looking to add a new podcast?"
+msgstr "Ses chirchende de agiùnghere unu podcast nou?"
+
+#: ../app/ui/SearchPage.qml:223
+msgid ""
+"Click the 'magnifier' at the top to search or the 'plus' button to add by URL"
+msgstr ""
+"Incarca sa «lente» in artu pro chircare o su sìmbulu + pro agiùnghere un'URL."
+
+#: ../app/ui/SearchPage.qml:290
+msgid "Subscribe"
+msgstr "Sutaiscrie·ti"
+
+#. TRANSLATORS: The first argument here is the date of when the podcast was last updated followed by
+#. the podcast description.
+#: ../app/ui/SearchPage.qml:328
+#, qt-format
+msgid ""
+"Last Updated: %1\n"
+"%2"
+msgstr ""
+"Ùrtima atualizatzione: %1\n"
+"%2"
+
+#: ../app/ui/SearchPage.qml:385
+msgid "Not Available"
+msgstr "Non disponìbile"
+
+#: ../app/ui/SearchPage.qml:499
+msgid "Please wait"
+msgstr "Abeta"
+
+#: ../app/ui/SearchPage.qml:500
+msgid "Importing podcasts..."
+msgstr "Importende podcasts..."
+
+#: ../app/ui/SearchPage.qml:518
+msgid "imported"
+msgstr "importados"
+
+#. TRANSLATORS: This strings refers to the seeking of the episode playback. Users can set how far they
+#. want to seek forward when pressing on this button.
+#: ../app/ui/SettingsPage.qml:65 ../app/ui/SettingsPage.qml:171
+msgid "Skip forward"
+msgstr "Brica in antis"
+
+#: ../app/ui/SettingsPage.qml:72 ../app/ui/SettingsPage.qml:107
+#: ../app/ui/SettingsPage.qml:172 ../app/ui/SettingsPage.qml:179
+#, qt-format
+msgid "%1 seconds"
+msgstr "%1 segundos"
+
+#: ../app/ui/SettingsPage.qml:77 ../app/ui/SettingsPage.qml:112
+msgid "OK"
+msgstr "AB"
+
+#. TRANSLATORS: This strings refers to the seeking of the episode playback. Users can set how far they
+#. want to seek backward when pressing on this button.
+#: ../app/ui/SettingsPage.qml:100 ../app/ui/SettingsPage.qml:178
+msgid "Skip back"
+msgstr "Brinca in segus"
+
+#. TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
+#. that doesn't fit into any other category.
+#: ../app/ui/SettingsPage.qml:141
+msgid "General Settings"
+msgstr "Cunfiguratziones generales"
+
+#: ../app/ui/SettingsPage.qml:154
+msgid "Displays podcasts in a list view"
+msgstr "Ammustra podcasts in una lista"
+
+#: ../app/ui/SettingsPage.qml:166
+msgid "Playback Settings"
+msgstr "Cunfiguratziones de riprodutzione"
+
+#: ../app/ui/SettingsPage.qml:184
+msgid "Podcast Episode Settings"
+msgstr "Cunfiguratzione de episòdios"
+
+#: ../app/ui/SettingsPage.qml:190
+msgid "Automatically delete old episodes"
+msgstr "Cantzella in automàticu episòdios antigos"
+
+#: ../app/ui/SettingsPage.qml:192
+msgid ""
+"Delete episodes that are older than a given number of days for each podcast"
+msgstr ""
+"Cantzella is episòdios prus antigos de unu nùmeru ispetzìficu de dies pro "
+"cada podcast"
+
+#: ../app/ui/SettingsPage.qml:204
+msgid "Automatically download new episodes"
+msgstr "Iscàrriga in automàticu is episòdios noos"
+
+#: ../app/ui/SettingsPage.qml:206
+msgid "Default number of new episodes to download for each podcast"
+msgstr "Nùmeru predefinidu de episòdios de iscarrigare pro cada podcast"
+
+#: ../app/ui/SettingsPage.qml:218
+msgid "Only download over WiFi"
+msgstr "Iscàrriga isceti tràmite WiFi"
+
+#: ../app/ui/SettingsPage.qml:220
+msgid "Download episodes only when the device is using WiFi"
+msgstr "Iscàrriga episòdios isceti cando su dispositivu est impreende WiFi"
+
+#: ../app/ui/SettingsPage.qml:240
+msgid "Refresh podcast artwork"
+msgstr "Atualiza is cobertas de is podcasts"
+
+#: ../app/ui/SettingsPage.qml:242
+msgid "Update all podcasts artwork and fix missing ones"
+msgstr ""
+"Atualiza is cobertas de totu is podcasts e agata cussas chi ammancant"
+
+#: ../app/ui/SettingsPage.qml:271
+msgid "Storage Settings"
+msgstr "Cunfiguratziones de memòria"
+
+#: ../app/ui/SettingsPage.qml:282
+msgid "Delete orphaned files and links"
+msgstr "Cantzella archìvios e ligàmenes òrfanos"
+
+#: ../app/ui/SettingsPage.qml:284
+msgid "Free space by removing orphaned downloaded files and links"
+msgstr "Lìbera ispàtziu cantzellende archìvios e ligàmenes òrfanos"
+
+#: ../app/ui/SettingsPage.qml:314
+msgid "Removed orphaned files and links"
+msgstr "Archìvios e ligàmenes òrfanos cantzellados"
+
+#: ../app/ui/SettingsPage.qml:314
+msgid "No orphans found!"
+msgstr "Perunu agatadu"
+
+#: ../app/ui/SettingsPage.qml:315
+msgid ""
+"All orphaned files have been deleted to recover disk space. Orphaned links "
+"pointing at invalid files have also been cleaned up."
+msgstr ""
+"Archìvios òrfanos cantzellados pro recuperare ispàtziu in su discu. "
+"Limpiados puru is ligàmenes òrfanos acapiados a archìvios invàlidos."
+
+#: ../app/ui/SettingsPage.qml:317
+msgid ""
+"No orphaned files have been found to recover disk space. Podbird database is "
+"clean."
+msgstr ""
+"Perunu archìviu òrfanu agatadu pro recuperare ispàtziu in su discu. Sa base "
+"de datos de Podbird est lìmpia."
+
+#. TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
+#. that doesn't fit into any other category.
+#: ../app/ui/SettingsPage.qml:332
+msgid "Misc."
+msgstr "Misc."
+
+#: ../app/ui/SettingsPage.qml:348
+msgid "Report Bug"
+msgstr "Sinnala una faddina"
+
+#: ../app/welcomewizard/Slide1.qml:42
+msgid "Welcome to Podbird"
+msgstr "Ti donamus su benebènnidu a Podbird"
+
+#: ../app/welcomewizard/Slide1.qml:53
+msgid ""
+"Enjoy your favourite shows with Podbird, the chirpiest podcast manager for "
+"Ubuntu.\n"
+"\n"
+"Chirp Chirp..."
+msgstr ""
+"Ispassia·ti ascurtende is trasmissiones preferidas tuas cun Podbird, su prus "
+"gestore de podcast allegru pro Ubuntu.\n"
+"\n"
+"Piu piu..."
+
+#: ../app/welcomewizard/Slide1.qml:82
+msgid "Swipe to move between pages"
+msgstr "Iscurre pro mòere intre pàginas"
+
+#: ../app/welcomewizard/Slide2.qml:45
+msgid "Discover New Podcasts"
+msgstr "Iscoberi podcasts noos"
+
+#: ../app/welcomewizard/Slide2.qml:62
+msgid ""
+"Podbird uses the iTunes® database to provide access to a huge collection of "
+"podcasts. You can also add podcasts by their URL."
+msgstr ""
+"Podbird impreat sa base de datos de iTunes® pro frunire atzessu a una "
+"colletzione manna de podcasts, e nde podes puru agiùnghere tràmite s'URL "
+"issoro."
+
+#: ../app/welcomewizard/Slide3.qml:45
+msgid "Smart Settings"
+msgstr "Cunfiguratzione intelligente"
+
+#: ../app/welcomewizard/Slide3.qml:62
+msgid ""
+"Podbird can optionally download new episodes and clean up old episodes "
+"automatically, this can be enabled from the settings page."
+msgstr ""
+"Podbird podet iscarrigare episòdios noos e limpiare cussos betzos in manera "
+"automàtica. Custa optzione podet èssere ativada dae sa cunfiguratzione."
+
+#. TRANSLATORS: This text should be in a language different from the language set by the user.
+#. For instance, if the app was in english, then it is appropriate to set this string as
+#. Hallo or Bonjour etc to symbolize the internationalization feature in podbird.
+#: ../app/welcomewizard/Slide4.qml:48
+msgid "Hallo! Bonjour!"
+msgstr "Hallo! Bonjour!"
+
+#: ../app/welcomewizard/Slide4.qml:67
+#, qt-format
+msgid ""
+"Podbird is available in over 15 languages and is translated by the %1 "
+"community"
+msgstr ""
+"Podbird est a disponimentu in prus de 15 limbas e est tradùidu dae sa "
+"comunidade %1"
+
+#: ../app/welcomewizard/Slide5.qml:45
+msgid "Touch Gestures"
+msgstr "Gestos"
+
+#: ../app/welcomewizard/Slide5.qml:64
+msgid ""
+"Episodes can be swiped left to reveal more actions (or right click if you're "
+"using a mouse). You can also multi-select them by long-pressing on an "
+"episode."
+msgstr ""
+"Faghende iscùrrere is episòdios a manca s'ant a ammustrare àteras atziones "
+"(o cun su butone deretu si ses impreende unu sòrighe). Nde podes fintzas "
+"seletzionare prus de unu tochende e mantenende un'episòdiu."
+
+#: ../app/welcomewizard/Slide6.qml:45
+msgid "Support"
+msgstr "Agiudu"
+
+#. TRANSLATORS: The %1 points to a url defined in html format <a href=\link\>Link</a>.
+#: ../app/welcomewizard/Slide6.qml:65
+#, qt-format
+msgid ""
+"If you find any bugs or have any feature requests, let us know on our "
+"project page at %1"
+msgstr ""
+"Si agatas faddinas o boles pedire funtzionalidades noas, iscrie·si a sa "
+"pàgina de su progetu: %1"
+
+#: ../app/welcomewizard/Slide7.qml:45
+msgid "Enjoy"
+msgstr "Ispàssia·ti"
+
+#: ../app/welcomewizard/Slide7.qml:62
+msgid "We hope you enjoy using Podbird!"
+msgstr "Ispàssia·ti cun Podbird!"
+
+#: ../app/welcomewizard/Slide7.qml:75
+msgid "Finish"
+msgstr "Fatu"
+
+#: ../app/po/Podbird.desktop.in.h:1
+msgid "The chirpiest podcast manager for Ubuntu"
+msgstr "Su prus gestore de podcast allegru pro Ubuntu"
+
+#: ../app/po/Podbird.desktop.in.h:2
+msgid ""
+"podcast;audio;itunes;broadcast;digital;stream;podcatcher;video;vodcast;"
+msgstr ""
+"podcast;audio;itunes;trasmissione;digitale;stream;podcatcher;vìdeu;vodcast;"
