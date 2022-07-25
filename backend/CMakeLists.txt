@@ -15,7 +15,8 @@ add_library(Podbirdbackend MODULE
 set_target_properties(Podbirdbackend PROPERTIES
          LIBRARY_OUTPUT_DIRECTORY Podbird)
 
-qt5_use_modules(Podbirdbackend Gui Qml Quick)
+# qt5_use_modules(Podbirdbackend Gui Qml Quick)
+target_link_libraries(Podbirdbackend Qt5::Qml Qt5::Gui Qt5::Quick)
 
 # Copy qmldir file to build dir for running in QtCreator
 add_custom_target(Podbirdbackend-qmldir ALL
@@ -26,4 +27,3 @@ add_custom_target(Podbirdbackend-qmldir ALL
 # Install plugin file
 install(TARGETS Podbirdbackend DESTINATION ${QT_IMPORTS_DIR}/Podbird/)
 install(FILES   modules/Podbird/qmldir DESTINATION ${QT_IMPORTS_DIR}/Podbird/)
-
