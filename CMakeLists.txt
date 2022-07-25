@@ -1,6 +1,14 @@
 project(podbird C CXX)
 cmake_minimum_required(VERSION 2.8.12)
 
+if(NOT CMAKE_BUILD_TYPE)
+  set(CMAKE_BUILD_TYPE Release)
+endif()
+
+set(CMAKE_CXX_FLAGS "-Wall -Wextra")
+set(CMAKE_CXX_FLAGS_DEBUG "-g")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3")
+
 # Do not remove this line, its required for the correct functionality of the Ubuntu-SDK
 set(UBUNTU_MANIFEST_PATH "manifest.json.in" CACHE INTERNAL "Tells QtCreator location and name of the manifest file")
 set (CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
@@ -23,7 +31,7 @@ execute_process(
 
 option(INSTALL_TESTS "Install the tests on make install" on)
 
-set(APP_NAME          podbird)
+set(APP_NAME          podphoenix)
 set(APP_ID            "soy.iko.podphoenix")
 if(DEFINED ENV{DESKTOP_BUILD})
     set(PODBIRD_DIR "/usr/share/podbird/qml/podbird")
