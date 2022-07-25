@@ -72,7 +72,7 @@ Page {
                     Image {
                         height: width
                         width: Math.min(parent.width/2, parent.height/2)
-                        source: "../graphics/podbird.png"
+                        source: "../graphics/logo.png"
                         anchors.horizontalCenter: parent.horizontalCenter
                     }
 
