@@ -1,92 +1,117 @@
 # Dutch translation for podbird
 # Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
 # This file is distributed under the same license as the podbird package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
 #
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
+# Heimen Stoffels <vistausss@fastmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: podbird\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2020-04-13 18:20+0000\n"
-"PO-Revision-Date: 2016-12-12 08:16+0000\n"
-"Last-Translator: Hannie Dumoleyn <Unknown>\n"
-"Language-Team: Dutch <nl@li.org>\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-07-25 12:35+0000\n"
+"PO-Revision-Date: 2022-07-26 17:53+0200\n"
+"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
+"Language-Team: Dutch\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Launchpad-Export-Date: 2021-06-30 06:28+0000\n"
-"X-Generator: Launchpad (build c11083652ba158ce73cebdfd79e69cf6f7d05a73)\n"
+"X-Generator: Lokalize 22.04.3\n"
 
-#: ../app/components/TabsList.qml:28 ../app/ui/EpisodesTab.qml:48
+#: ../app/components/TabsList.qml:28 ../app/ui/EpisodesTab.qml:47
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/components/TabsList.qml:28
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:47
 msgid "Episodes"
 msgstr "Afleveringen"
 
 #: ../app/components/TabsList.qml:37 ../app/ui/SearchPage.qml:43
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/components/TabsList.qml:37
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SearchPage.qml:43
 msgid "Add New Podcasts"
-msgstr "Nieuwe podcasts toevoegen"
+msgstr "Podcasts toevoegen"
 
-#: ../app/components/TabsList.qml:46 ../app/ui/PodcastsTab.qml:42
+#: ../app/components/TabsList.qml:46 ../app/ui/PodcastsTab.qml:40
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/components/TabsList.qml:46
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/PodcastsTab.qml:40
 msgid "Podcasts"
 msgstr "Podcasts"
 
 #: ../app/components/TabsList.qml:55 ../app/ui/SettingsPage.qml:34
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/components/TabsList.qml:55
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:34
 msgid "Settings"
 msgstr "Instellingen"
 
 #: ../app/components/Walkthrough.qml:89
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/components/Walkthrough.qml:89
 msgid "Skip"
 msgstr "Overslaan"
 
-#: ../app/podcasts.js:307
+#: ../app/podcasts.js:359
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/podcasts.js:316
 #, no-c-format, qt-format
 msgid "%1 hr %2 min"
-msgstr "%1 uur %2 min"
+msgstr "%1 uur en %2 min."
 
-#: ../app/podcasts.js:316
+#: ../app/podcasts.js:368
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/podcasts.js:325
 #, no-c-format, qt-format
 msgid "%1 hr"
 msgstr "%1 uur"
 
-#: ../app/podcasts.js:324
+#: ../app/podcasts.js:376
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/podcasts.js:333
 #, no-c-format, qt-format
 msgid "%1 min"
-msgstr "%1 min"
+msgstr "%1 min."
 
 #. TRANSLATORS: About as in information about the app
 #: ../app/settings/About.qml:28 ../app/settings/About.qml:46
-#: ../app/ui/SettingsPage.qml:338
+#: ../app/ui/SettingsPage.qml:394
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/settings/About.qml:28
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/settings/About.qml:46
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:394
 msgid "About"
 msgstr "Over"
 
 #: ../app/settings/About.qml:46
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/settings/About.qml:46
 msgid "Credits"
 msgstr "Met dank aan"
 
 #. TRANSLATORS: Podbird version number e.g Version 0.8
 #: ../app/settings/About.qml:92
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/settings/About.qml:92
 #, qt-format
 msgid "Version %1"
 msgstr "Versie %1"
 
 #: ../app/settings/About.qml:113
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/settings/About.qml:113
 msgid "Released under the terms of the GNU GPL v3"
-msgstr "Uitgebracht onder de voorwaarden van de GNU GPL v3"
+msgstr "Uitgebracht onder de voorwaarden van de GNU GPL v3-licentie"
 
 #: ../app/settings/About.qml:123
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/settings/About.qml:123
 #, qt-format
 msgid "Source code available on %1"
-msgstr "Broncode beschikbaar op %1"
+msgstr "De broncode is beschikbaar op %1"
 
 #: ../app/settings/CleanSetting.qml:29
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/settings/CleanSetting.qml:29
 msgid "Delete older than"
 msgstr "Verwijder ouder dan"
 
 #: ../app/settings/CleanSetting.qml:40 ../app/settings/DownloadSetting.qml:40
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/settings/CleanSetting.qml:40
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/settings/DownloadSetting.qml:40
 msgid "Never"
 msgstr "Nooit"
 
 #: ../app/settings/CleanSetting.qml:41
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/settings/CleanSetting.qml:41
 #, qt-format
 msgid "%1 day"
 msgid_plural "%1 days"
@@ -95,6 +120,9 @@ msgstr[1] "%1 dagen"
 
 #: ../app/settings/CleanSetting.qml:42 ../app/settings/CleanSetting.qml:43
 #: ../app/settings/CleanSetting.qml:44
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/settings/CleanSetting.qml:42
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/settings/CleanSetting.qml:43
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/settings/CleanSetting.qml:44
 #, qt-format
 msgid "%1 month"
 msgid_plural "%1 months"
@@ -102,313 +130,417 @@ msgstr[0] "%1 maand"
 msgstr[1] "%1 maanden"
 
 #: ../app/settings/CleanSetting.qml:45
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/settings/CleanSetting.qml:45
 #, qt-format
 msgid "%1 year"
 msgid_plural "%1 years"
 msgstr[0] "%1 jaar"
-msgstr[1] "%1 jaren"
+msgstr[1] "%1 jaar"
 
 #. TRANSLATORS: The first argument is the name of creator of Podbird (Michael Sheldon)
 #: ../app/settings/Credits.qml:31
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/settings/Credits.qml:31
 #, qt-format
 msgid "%1 (Creator)"
-msgstr "%1 (Maker)"
+msgstr "%1 (maker)"
 
 #: ../app/settings/Credits.qml:31 ../app/settings/Credits.qml:32
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/settings/Credits.qml:31
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/settings/Credits.qml:32
 msgid "Developers"
 msgstr "Ontwikkelaars"
 
 #: ../app/settings/Credits.qml:33
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/settings/Credits.qml:33
 msgid "Designer"
 msgstr "Ontwerper"
 
 #: ../app/settings/Credits.qml:34
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/settings/Credits.qml:34
 msgid "Translators"
 msgstr "Vertalers"
 
 #: ../app/settings/DownloadSetting.qml:29
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/settings/DownloadSetting.qml:29
 msgid "Download at most"
-msgstr "Download maximaal"
+msgstr "Maximaal aantal downloads"
 
 #: ../app/settings/DownloadSetting.qml:41
 #: ../app/settings/DownloadSetting.qml:42
 #: ../app/settings/DownloadSetting.qml:43
 #: ../app/settings/DownloadSetting.qml:44
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/settings/DownloadSetting.qml:41
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/settings/DownloadSetting.qml:42
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/settings/DownloadSetting.qml:43
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/settings/DownloadSetting.qml:44
 #, qt-format
 msgid "%1 episode"
 msgid_plural "%1 episodes"
 msgstr[0] "%1 aflevering"
 msgstr[1] "%1 afleveringen"
 
-#: ../app/settings/ThemeSetting.qml:29 ../app/ui/SettingsPage.qml:146
+#: ../app/settings/ThemeSetting.qml:29 ../app/ui/SettingsPage.qml:181
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/settings/ThemeSetting.qml:29
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:181
 msgid "Theme"
 msgstr "Thema"
 
 #. TRANSLATORS: Light Theme
-#: ../app/settings/ThemeSetting.qml:41 ../app/ui/SettingsPage.qml:147
+#: ../app/settings/ThemeSetting.qml:41 ../app/ui/SettingsPage.qml:182
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/settings/ThemeSetting.qml:41
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:182
 msgid "Light"
 msgstr "Licht"
 
 #. TRANSLATORS: Dark Theme
-#: ../app/settings/ThemeSetting.qml:43 ../app/ui/SettingsPage.qml:147
+#: ../app/settings/ThemeSetting.qml:43 ../app/ui/SettingsPage.qml:182
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/settings/ThemeSetting.qml:43
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:182
 msgid "Dark"
 msgstr "Donker"
 
-#: ../app/ui/EpisodesPage.qml:52
+#: ../app/ui/EpisodesPage.qml:50
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:50
 msgid "Podcast"
 msgstr "Podcast"
 
-#: ../app/ui/EpisodesPage.qml:62 ../app/ui/EpisodesTab.qml:62
+#: ../app/ui/EpisodesPage.qml:60 ../app/ui/EpisodesTab.qml:61
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:60
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:61
 msgid "Search Episode"
-msgstr "Aflevering zoeken"
+msgstr "Zoeken naar aflevering"
 
-#: ../app/ui/EpisodesPage.qml:70 ../app/ui/EpisodesPage.qml:306
-#: ../app/ui/SearchPage.qml:290
+#: ../app/ui/EpisodesPage.qml:68 ../app/ui/EpisodesPage.qml:304
+#: ../app/ui/SearchPage.qml:288
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:68
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:304
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SearchPage.qml:288
 msgid "Unsubscribe"
-msgstr "Opzeggen"
+msgstr "Deabonneren"
 
 #. TRANSLATORS: This is the page title. Keep it short. Otherwise it will just be elided.
-#: ../app/ui/EpisodesPage.qml:110 ../app/ui/EpisodesTab.qml:128
+#: ../app/ui/EpisodesPage.qml:108 ../app/ui/EpisodesTab.qml:127
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:108
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:127
 #, qt-format
 msgid "%1 item selected"
 msgid_plural "%1 items selected"
 msgstr[0] "%1 item geselecteerd"
 msgstr[1] "%1 items geselecteerd"
 
-#: ../app/ui/EpisodesPage.qml:125 ../app/ui/EpisodesTab.qml:143
+#: ../app/ui/EpisodesPage.qml:123 ../app/ui/EpisodesTab.qml:142
 #: ../app/ui/NowPlayingPage.qml:42
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:123
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:142
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/NowPlayingPage.qml:42
 msgid "Back"
 msgstr "Terug"
 
-#: ../app/ui/EpisodesPage.qml:137 ../app/ui/EpisodesTab.qml:155
+#: ../app/ui/EpisodesPage.qml:135 ../app/ui/EpisodesTab.qml:154
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:135
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:154
 msgid "Mark Listened"
 msgstr "Markeren als beluisterd"
 
-#: ../app/ui/EpisodesPage.qml:156 ../app/ui/EpisodesTab.qml:173
+#: ../app/ui/EpisodesPage.qml:154 ../app/ui/EpisodesTab.qml:172
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:154
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:172
 msgid "Download episode(s)"
 msgstr "Aflevering(en) downloaden"
 
-#: ../app/ui/EpisodesPage.qml:184 ../app/ui/EpisodesTab.qml:201
+#: ../app/ui/EpisodesPage.qml:182 ../app/ui/EpisodesTab.qml:200
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:182
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:200
 msgid "Delete episode(s)"
 msgstr "Aflevering(en) verwijderen"
 
-#: ../app/ui/EpisodesPage.qml:207 ../app/ui/EpisodesTab.qml:224
+#: ../app/ui/EpisodesPage.qml:205 ../app/ui/EpisodesTab.qml:223
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:205
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:223
 msgid "Favourite episode(s)"
 msgstr "Favoriete aflevering(en)"
 
-#: ../app/ui/EpisodesPage.qml:229 ../app/ui/EpisodesTab.qml:270
+#: ../app/ui/EpisodesPage.qml:227 ../app/ui/EpisodesTab.qml:269
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:227
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:269
 msgid "Add to queue"
-msgstr "Aan wachtrij toevoegen"
+msgstr "Toevoegen aan wachtrij"
 
-#: ../app/ui/EpisodesPage.qml:258 ../app/ui/EpisodesTab.qml:120
+#: ../app/ui/EpisodesPage.qml:256 ../app/ui/EpisodesTab.qml:119
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:256
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:119
 msgid "Search episode"
-msgstr "Aflevering zoeken"
+msgstr "Zoeken naar aflevering"
 
-#: ../app/ui/EpisodesPage.qml:303
+#: ../app/ui/EpisodesPage.qml:301
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:301
 msgid "Unsubscribe Confirmation"
-msgstr "Opzeggen bevestigen"
+msgstr "Deabonneren bevestigen"
 
-#: ../app/ui/EpisodesPage.qml:304
+#: ../app/ui/EpisodesPage.qml:302
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:302
 #, qt-format
 msgid "Are you sure you want to unsubscribe from <b>%1</b>?"
-msgstr "Weet u zeker dat u <b>%1</b> wilt opzeggen?"
+msgstr "Weet je zeker dat je je abonnement op <b>%1</b> wilt opzeggen?"
 
-#: ../app/ui/EpisodesPage.qml:323 ../app/ui/SearchPage.qml:144
+#: ../app/ui/EpisodesPage.qml:321 ../app/ui/SearchPage.qml:143
 #: ../app/ui/SettingsPage.qml:85 ../app/ui/SettingsPage.qml:120
+#: ../app/ui/SettingsPage.qml:155
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:321
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SearchPage.qml:143
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:85
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:120
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:155
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: ../app/ui/EpisodesPage.qml:345 ../app/ui/EpisodesTab.qml:407
+#: ../app/ui/EpisodesPage.qml:343 ../app/ui/EpisodesTab.qml:406
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:343
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:406
 msgid "Episode Description"
-msgstr "Beschrijving aflevering"
+msgstr "Afleveringsbeschrijving"
 
-#: ../app/ui/EpisodesPage.qml:356 ../app/ui/EpisodesTab.qml:418
-#: ../app/ui/SearchPage.qml:194 ../app/ui/SettingsPage.qml:320
+#: ../app/ui/EpisodesPage.qml:354 ../app/ui/EpisodesTab.qml:417
+#: ../app/ui/SearchPage.qml:192 ../app/ui/SettingsPage.qml:376
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:354
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:417
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SearchPage.qml:192
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:376
 msgid "Close"
 msgstr "Sluiten"
 
-#: ../app/ui/EpisodesPage.qml:384
+#: ../app/ui/EpisodesPage.qml:382
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:382
 msgid "No episodes found"
 msgstr "Geen afleveringen gevonden"
 
-#: ../app/ui/EpisodesPage.qml:385
+#: ../app/ui/EpisodesPage.qml:383
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:383
 msgid "No episodes found matching the search term."
-msgstr "Er zijn geen afleveringen gevonden die overeenkomen met de zoekterm."
+msgstr ""
+"Er zijn geen afleveringen gevonden die overeenkomen met de zoekopdracht."
 
-#: ../app/ui/EpisodesPage.qml:502
+#: ../app/ui/EpisodesPage.qml:500
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:500
 msgid "Unheard"
 msgstr "Niet beluisterd"
 
-#: ../app/ui/EpisodesPage.qml:519
+#: ../app/ui/EpisodesPage.qml:517
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:517
 msgid "Listened"
 msgstr "Beluisterd"
 
-#: ../app/ui/EpisodesPage.qml:538
+#: ../app/ui/EpisodesPage.qml:536
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:536
 msgid "Downloaded"
 msgstr "Gedownload"
 
-#: ../app/ui/EpisodesPage.qml:605
+#: ../app/ui/EpisodesPage.qml:603
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:603
 msgid "Mark as unheard"
-msgstr ""
+msgstr "Markeren als niet-beluisterd"
 
-#: ../app/ui/EpisodesPage.qml:605
+#: ../app/ui/EpisodesPage.qml:603
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:603
 msgid "Mark as listened"
-msgstr "Als beluisterd markeren"
+msgstr "Markeren als beluisterd"
 
-#: ../app/ui/EpisodesPage.qml:621
+#: ../app/ui/EpisodesPage.qml:619
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:619
 msgid "Delete downloaded file"
 msgstr "Gedownload bestand verwijderen"
 
-#: ../app/ui/EpisodesPage.qml:621
+#: ../app/ui/EpisodesPage.qml:619
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:619
 msgid "Queued"
-msgstr "In de wachtrij gezet"
+msgstr "In de wachtrij geplaatst"
 
-#: ../app/ui/EpisodesPage.qml:621
+#: ../app/ui/EpisodesPage.qml:619
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:619
 msgid "Download"
 msgstr "Downloaden"
 
-#: ../app/ui/EpisodesPage.qml:646
+#: ../app/ui/EpisodesPage.qml:644
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:644
 msgid "Add to playlist"
-msgstr "Aan afspeellijst toevoegen"
+msgstr "Toevoegen aan afspeellijst"
 
-#: ../app/ui/EpisodesPage.qml:655
+#: ../app/ui/EpisodesPage.qml:653
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:653
 msgid "Unfavourite"
-msgstr "Geen favoriet"
+msgstr "Verw. uit favorieten"
 
-#: ../app/ui/EpisodesPage.qml:655
+#: ../app/ui/EpisodesPage.qml:653
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:653
 msgid "Favourite"
-msgstr "Favoriet"
+msgstr "Toev. aan favorieten"
 
-#: ../app/ui/EpisodesPage.qml:670
+#: ../app/ui/EpisodesPage.qml:668
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:668
 msgid "Show episode description"
-msgstr "Beschrijving van aflevering tonen"
+msgstr "Afleveringsbeschrijving tonen"
 
-#: ../app/ui/EpisodesTab.qml:82
+#: ../app/ui/EpisodesTab.qml:81
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:81
 msgid "Recent"
 msgstr "Recent"
 
-#: ../app/ui/EpisodesTab.qml:82
+#: ../app/ui/EpisodesTab.qml:81
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:81
 msgid "Downloads"
 msgstr "Downloads"
 
-#: ../app/ui/EpisodesTab.qml:82
+#: ../app/ui/EpisodesTab.qml:81
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:81
 msgid "Favourites"
 msgstr "Favorieten"
 
-#: ../app/ui/EpisodesTab.qml:247
+#: ../app/ui/EpisodesTab.qml:246
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:246
 msgid "Unfavourite episode(s)"
 msgstr "Niet-favoriete aflevering(en)"
 
-#: ../app/ui/EpisodesTab.qml:310
+#: ../app/ui/EpisodesTab.qml:309
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:309
 msgid "No New Episodes"
-msgstr "Geen nieuwe afleveringen"
+msgstr "Er zijn geen nieuwe afleveringen"
 
-#: ../app/ui/EpisodesTab.qml:312
+#: ../app/ui/EpisodesTab.qml:311
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:311
 msgid "No Downloaded Episodes"
-msgstr "Geen gedownloade afleveringen"
+msgstr "Er zijn geen gedownloade afleveringen"
 
-#: ../app/ui/EpisodesTab.qml:314
+#: ../app/ui/EpisodesTab.qml:313
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:313
 msgid "No Favourited Episodes"
-msgstr "Geen favoriete afleveringen"
+msgstr "Je hebt geen favoriete afleveringen"
 
-#: ../app/ui/EpisodesTab.qml:316
+#: ../app/ui/EpisodesTab.qml:315
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:315
 msgid "No Episodes Found"
-msgstr "Geen afleveringen gevonden"
+msgstr "Er zijn geen afleveringen gevonden"
 
-#: ../app/ui/EpisodesTab.qml:322
+#: ../app/ui/EpisodesTab.qml:321
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:321
 msgid "No more episodes to listen to!"
-msgstr "Geen afleveringen om te beluisteren!"
+msgstr "Er zijn geen afleveringen om te beluisteren!"
 
-#: ../app/ui/EpisodesTab.qml:324
+#: ../app/ui/EpisodesTab.qml:323
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:323
 msgid "No episodes have been downloaded for offline listening"
-msgstr "Er zijn geen afleveringen om offline naar te luisteren gedownload"
+msgstr "Er zijn geen afleveringen om offline naar te luisteren"
 
-#: ../app/ui/EpisodesTab.qml:326
+#: ../app/ui/EpisodesTab.qml:325
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:325
 msgid "No episodes have been favourited."
-msgstr "Er zijn geen afleveringen favoriet gemaakt."
+msgstr "Er zijn geen afleveringen toegevoegd aan de favorieten."
 
-#: ../app/ui/EpisodesTab.qml:328
+#: ../app/ui/EpisodesTab.qml:327
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:327
 msgid "No Episodes found matching the search term."
-msgstr "Geen afleveringen gevonden die overeenkomt met uw zoekterm."
+msgstr ""
+"Er zijn geen afleveringen gevonden die overeenkomen met de zoekopdracht."
 
-#: ../app/ui/EpisodesTab.qml:457
+#: ../app/ui/EpisodesTab.qml:456
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:456
 msgid "Downloads in progress"
 msgstr "Downloads worden uitgevoerd"
 
-#: ../app/ui/EpisodesTab.qml:497
+#: ../app/ui/EpisodesTab.qml:496
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:496
 msgid "Downloaded episodes"
 msgstr "Gedownloade afleveringen"
 
-#: ../app/ui/EpisodesTab.qml:507
+#: ../app/ui/EpisodesTab.qml:506
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:506
 msgid "Today"
 msgstr "Vandaag"
 
-#: ../app/ui/EpisodesTab.qml:511
+#: ../app/ui/EpisodesTab.qml:510
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:510
 msgid "Yesterday"
 msgstr "Gisteren"
 
-#: ../app/ui/EpisodesTab.qml:515
+#: ../app/ui/EpisodesTab.qml:514
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:514
 msgid "Older"
 msgstr "Ouder"
 
 #. TRANSLATORS: The string shown in the UI is -15s to denote the number of seconds that the podcast playback will skip backward.
-#: ../app/ui/FullPlayingView.qml:218
+#: ../app/ui/FullPlayingView.qml:241
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/FullPlayingView.qml:241
 #, no-c-format, qt-format
 msgid "-%1s"
 msgstr "-%1s"
 
 #. TRANSLATORS: The string shown in the UI is +15s to denote the number of seconds that the podcast playback will skip forward.
-#: ../app/ui/FullPlayingView.qml:279
+#: ../app/ui/FullPlayingView.qml:302
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/FullPlayingView.qml:302
 #, no-c-format, qt-format
 msgid "+%1s"
 msgstr "+%1s"
 
 #: ../app/ui/ImportPage.qml:18
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/ImportPage.qml:18
 msgid "Choose"
-msgstr ""
+msgstr "Kiezen"
 
 #: ../app/ui/NowPlayingPage.qml:34
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/NowPlayingPage.qml:34
 msgid "Now Playing"
-msgstr "Nu aan het afspelen"
+msgstr "Je luistert naar"
 
 #: ../app/ui/NowPlayingPage.qml:73
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/NowPlayingPage.qml:73
 msgid "Full view"
-msgstr "Volledig scherm"
+msgstr "Schermvullende weergave"
 
 #: ../app/ui/NowPlayingPage.qml:73
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/NowPlayingPage.qml:73
 msgid "Queue"
 msgstr "Wachtrij"
 
-#: ../app/ui/PodcastsTab.qml:57 ../app/ui/SearchPage.qml:57
-#: ../app/ui/SearchPage.qml:176
+#: ../app/ui/PodcastsTab.qml:55 ../app/ui/SearchPage.qml:57
+#: ../app/ui/SearchPage.qml:174
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/PodcastsTab.qml:55
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SearchPage.qml:57
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SearchPage.qml:174
 msgid "Search Podcast"
-msgstr "Podcast zoeken"
+msgstr "Zoeken naar podcast"
 
-#: ../app/ui/PodcastsTab.qml:97
+#: ../app/ui/PodcastsTab.qml:95
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/PodcastsTab.qml:95
 msgid "Search podcast"
-msgstr "Podcast zoeken"
+msgstr "Zoeken naar podcast"
 
-#: ../app/ui/PodcastsTab.qml:127
+#: ../app/ui/PodcastsTab.qml:125
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/PodcastsTab.qml:125
 msgid "No Podcast Subscriptions"
-msgstr "Geen podcast-inschrijvingen"
+msgstr "Je hebt geen podcastabonnementen"
 
-#: ../app/ui/PodcastsTab.qml:127 ../app/ui/SearchPage.qml:222
+#: ../app/ui/PodcastsTab.qml:125 ../app/ui/SearchPage.qml:220
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/PodcastsTab.qml:125
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SearchPage.qml:220
 msgid "No Podcasts Found"
-msgstr "Geen podcasts gevonden"
+msgstr "Er zijn geen podcasts gevonden"
 
-#: ../app/ui/PodcastsTab.qml:128
+#: ../app/ui/PodcastsTab.qml:126
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/PodcastsTab.qml:126
 msgid ""
 "You haven't subscribed to any podcasts yet, visit the 'Add New Podcasts' "
 "page to add some."
 msgstr ""
-"U bent nog niet op een podcast geabonneerd; ga naar de pagina ‘Nieuwe "
-"podcasts toevoegen’ om er een paar toe te voegen."
+"Je bent nog niet op een podcast geabonneerd. Ga naar de pagina ‘Podcasts"
+" toevoegen’ om podcasts toe te voegen."
 
-#: ../app/ui/PodcastsTab.qml:129 ../app/ui/SearchPage.qml:224
+#: ../app/ui/PodcastsTab.qml:127 ../app/ui/SearchPage.qml:222
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/PodcastsTab.qml:127
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SearchPage.qml:222
 msgid "No podcasts found matching the search term."
-msgstr "Er zijn geen podcasts gevonden die overeenkomen met de zoekterm."
+msgstr "Er zijn geen podcasts gevonden die overeenkomen met de zoekopdracht."
 
-#: ../app/ui/PodcastsTab.qml:215
+#: ../app/ui/PodcastsTab.qml:213
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/PodcastsTab.qml:213
 #, qt-format
 msgid "%1 unheard episode"
 msgid_plural "%1 unheard episodes"
@@ -416,47 +548,57 @@ msgstr[0] "%1 niet-beluisterde aflevering"
 msgstr[1] "%1 niet-beluisterde afleveringen"
 
 #: ../app/ui/SearchPage.qml:65
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SearchPage.qml:65
 msgid "Add Podcast"
 msgstr "Podcast toevoegen"
 
 #: ../app/ui/SearchPage.qml:73
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SearchPage.qml:73
 msgid "Import Podcasts"
-msgstr ""
+msgstr "Podcasts importeren"
 
 #: ../app/ui/SearchPage.qml:135
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SearchPage.qml:135
 msgid "Save Podcast"
 msgstr "Podcast opslaan"
 
-#: ../app/ui/SearchPage.qml:163
+#: ../app/ui/SearchPage.qml:162
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SearchPage.qml:162
 msgid "Feed URL"
-msgstr "Feed URL"
+msgstr "Feed-url"
 
-#: ../app/ui/SearchPage.qml:191
+#: ../app/ui/SearchPage.qml:189
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SearchPage.qml:189
 msgid "Unable to subscribe"
-msgstr "Inschrijven niet mogelijk"
+msgstr "Het abonneren is mislukt"
 
-#: ../app/ui/SearchPage.qml:192
+#: ../app/ui/SearchPage.qml:190
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SearchPage.qml:190
 msgid "Please check the URL and try again"
-msgstr "Controleer de URL en probeer het opnieuw"
+msgstr "Controleer de url en probeer het opnieuw"
 
-#: ../app/ui/SearchPage.qml:222
+#: ../app/ui/SearchPage.qml:220
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SearchPage.qml:220
 msgid "Looking to add a new podcast?"
-msgstr "Bent u op zoek naar een nieuwe podcast om toe te voegen?"
+msgstr "Wil je een podcast toevoegen?"
 
-#: ../app/ui/SearchPage.qml:223
+#: ../app/ui/SearchPage.qml:221
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SearchPage.qml:221
 msgid ""
 "Click the 'magnifier' at the top to search or the 'plus' button to add by URL"
 msgstr ""
-"Klik op het \"vergrootglas\" om te zoeken of op de \"plus \"-knop om via een "
-"webadres toe te voegen."
+"Klik op het vergrootglas bovenaan om te zoeken of op de plusknop om een url"
+" toe te voegen."
 
-#: ../app/ui/SearchPage.qml:290
+#: ../app/ui/SearchPage.qml:288
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SearchPage.qml:288
 msgid "Subscribe"
-msgstr "Inschrijven"
+msgstr "Abonneren"
 
 #. TRANSLATORS: The first argument here is the date of when the podcast was last updated followed by
 #. the podcast description.
-#: ../app/ui/SearchPage.qml:328
+#: ../app/ui/SearchPage.qml:326
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SearchPage.qml:326
 #, qt-format
 msgid ""
 "Last Updated: %1\n"
@@ -465,253 +607,330 @@ msgstr ""
 "Laatst bijgewerkt: %1\n"
 "%2"
 
-#: ../app/ui/SearchPage.qml:385
+#: ../app/ui/SearchPage.qml:383
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SearchPage.qml:383
 msgid "Not Available"
 msgstr "Niet beschikbaar"
 
 #: ../app/ui/SearchPage.qml:499
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SearchPage.qml:499
 msgid "Please wait"
-msgstr ""
+msgstr "Even geduld…"
 
 #: ../app/ui/SearchPage.qml:500
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SearchPage.qml:500
 msgid "Importing podcasts..."
-msgstr ""
+msgstr "Bezig met importeren…"
 
 #: ../app/ui/SearchPage.qml:518
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SearchPage.qml:518
 msgid "imported"
-msgstr ""
+msgstr "geïmporteerd"
 
 #. TRANSLATORS: This strings refers to the seeking of the episode playback. Users can set how far they
 #. want to seek forward when pressing on this button.
-#: ../app/ui/SettingsPage.qml:65 ../app/ui/SettingsPage.qml:171
+#: ../app/ui/SettingsPage.qml:65 ../app/ui/SettingsPage.qml:206
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:65
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:206
 msgid "Skip forward"
-msgstr "Doorgaan overslaan"
+msgstr "Doorspoelen overslaan"
 
 #: ../app/ui/SettingsPage.qml:72 ../app/ui/SettingsPage.qml:107
-#: ../app/ui/SettingsPage.qml:172 ../app/ui/SettingsPage.qml:179
+#: ../app/ui/SettingsPage.qml:207 ../app/ui/SettingsPage.qml:214
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:72
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:107
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:207
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:214
 #, qt-format
 msgid "%1 seconds"
 msgstr "%1 seconden"
 
 #: ../app/ui/SettingsPage.qml:77 ../app/ui/SettingsPage.qml:112
+#: ../app/ui/SettingsPage.qml:147
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:77
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:112
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:147
 msgid "OK"
-msgstr "Ok"
+msgstr "Oké"
 
 #. TRANSLATORS: This strings refers to the seeking of the episode playback. Users can set how far they
 #. want to seek backward when pressing on this button.
-#: ../app/ui/SettingsPage.qml:100 ../app/ui/SettingsPage.qml:178
+#: ../app/ui/SettingsPage.qml:100 ../app/ui/SettingsPage.qml:213
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:100
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:213
 msgid "Skip back"
-msgstr "Terug overslaan"
+msgstr "Terugspoelen overslaan"
+
+#. TRANSLATORS: This strings refers to refreshing podcasts. Users can set how often they
+#. want to check for new episodes.
+#: ../app/ui/SettingsPage.qml:135 ../app/ui/SettingsPage.qml:238
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:135
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:238
+#| msgid "Refresh podcast artwork"
+msgid "Refresh podcasts after"
+msgstr "Podcasts bijwerken, elke"
+
+#: ../app/ui/SettingsPage.qml:142 ../app/ui/SettingsPage.qml:239
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:142
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:239
+#, qt-format
+#| msgid "%1 hr"
+msgid "%1 hours"
+msgstr "%1 uur"
 
 #. TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
 #. that doesn't fit into any other category.
-#: ../app/ui/SettingsPage.qml:141
+#: ../app/ui/SettingsPage.qml:176
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:176
 msgid "General Settings"
 msgstr "Algemene instellingen"
 
-#: ../app/ui/SettingsPage.qml:154
+#: ../app/ui/SettingsPage.qml:189
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:189
 msgid "Displays podcasts in a list view"
-msgstr "Toont podcasts in lijstweergave"
+msgstr "Toont podcasts in een lijstweergave"
 
-#: ../app/ui/SettingsPage.qml:166
+#: ../app/ui/SettingsPage.qml:201
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:201
 msgid "Playback Settings"
-msgstr "Afspeelopties"
+msgstr "Luisteropties"
 
-#: ../app/ui/SettingsPage.qml:184
+#: ../app/ui/SettingsPage.qml:221
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:221
+msgid "Continue where stopped"
+msgstr "Doorgaan vanaf vorige positie"
+
+#: ../app/ui/SettingsPage.qml:233
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:233
 msgid "Podcast Episode Settings"
-msgstr "Instellingen van podcastaflevering"
+msgstr "Afleveringsinstellingen"
 
-#: ../app/ui/SettingsPage.qml:190
+#: ../app/ui/SettingsPage.qml:246
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:246
 msgid "Automatically delete old episodes"
 msgstr "Oude afleveringen automatisch verwijderen"
 
-#: ../app/ui/SettingsPage.qml:192
+#: ../app/ui/SettingsPage.qml:248
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:248
 msgid ""
 "Delete episodes that are older than a given number of days for each podcast"
 msgstr ""
-"Afleveringen die ouder zijn dan een gegeven aantal dagen automatisch "
-"verwijderen"
+"Verwijder automatisch afleveringen die ouder zijn dan het opgegeven aantal"
+" dagen"
 
-#: ../app/ui/SettingsPage.qml:204
+#: ../app/ui/SettingsPage.qml:260
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:260
 msgid "Automatically download new episodes"
-msgstr "Automatisch nieuwe afleveringen downloaden"
+msgstr "Nieuwe afleveringen automatisch downloaden"
 
-#: ../app/ui/SettingsPage.qml:206
+#: ../app/ui/SettingsPage.qml:262
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:262
 msgid "Default number of new episodes to download for each podcast"
 msgstr ""
-"Aantal nieuwe afleveringen dat standaard gedownload wordt voor elke podcast"
+"Het aantal nieuwe afleveringen per podcast dat standaard gedownload wordt"
 
-#: ../app/ui/SettingsPage.qml:218
+#: ../app/ui/SettingsPage.qml:274
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:274
 msgid "Only download over WiFi"
-msgstr ""
+msgstr "Alleen downloaden via wifi"
 
-#: ../app/ui/SettingsPage.qml:220
+#: ../app/ui/SettingsPage.qml:276
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:276
 msgid "Download episodes only when the device is using WiFi"
-msgstr "Afleveringen alleen downloaden als het apparaat wifi gebruikt"
-
-#: ../app/ui/SettingsPage.qml:240
-msgid "Refresh podcast artwork"
-msgstr "Podcast-artwork verversen"
-
-#: ../app/ui/SettingsPage.qml:242
-msgid "Update all podcasts artwork and fix missing ones"
 msgstr ""
-"Alle artwork voor podcasts bijwerken en ontbrekend artwork herstellen"
+"Download afleveringen alleen als het apparaat verbonden is met een"
+" wifi-netwerk"
 
-#: ../app/ui/SettingsPage.qml:271
+#: ../app/ui/SettingsPage.qml:296
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:296
+msgid "Refresh podcast artwork"
+msgstr "Podcasthoezen bijwerken"
+
+#: ../app/ui/SettingsPage.qml:298
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:298
+msgid "Update all podcasts artwork and fix missing ones"
+msgstr "Werk alle podcasthoezen bij en herstel ontbrekende hoezen"
+
+#: ../app/ui/SettingsPage.qml:327
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:327
 msgid "Storage Settings"
-msgstr "Instellingen voor opslag"
+msgstr "Opslaginstellingen"
 
-#: ../app/ui/SettingsPage.qml:282
+#: ../app/ui/SettingsPage.qml:338
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:338
 msgid "Delete orphaned files and links"
-msgstr "Verweesde bestanden en koppelingen verwijderen"
+msgstr "Oude bestanden en links verwijderen"
 
-#: ../app/ui/SettingsPage.qml:284
+#: ../app/ui/SettingsPage.qml:340
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:340
 msgid "Free space by removing orphaned downloaded files and links"
 msgstr ""
-"Maak ruimte vrij door verweesde gedownloade bestanden en koppelingen te "
-"verwijderen"
+"Maak ruimte vrij door oude, gedownloade bestanden en links te verwijderen"
 
-#: ../app/ui/SettingsPage.qml:314
+#: ../app/ui/SettingsPage.qml:370
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:370
 msgid "Removed orphaned files and links"
-msgstr "Verwijderde verweesde bestanden en koppelingen"
+msgstr "Verwijderde oude bestanden en links"
 
-#: ../app/ui/SettingsPage.qml:314
+#: ../app/ui/SettingsPage.qml:370
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:370
 msgid "No orphans found!"
-msgstr "Geen wezen gevonden!"
+msgstr "Er zijn geen oude bestanden aangetroffen!"
 
-#: ../app/ui/SettingsPage.qml:315
+#: ../app/ui/SettingsPage.qml:371
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:371
 msgid ""
 "All orphaned files have been deleted to recover disk space. Orphaned links "
 "pointing at invalid files have also been cleaned up."
 msgstr ""
-"Alle verweesde bestanden zijn verwijderd om schijfruimte terug te krijgen. "
-"Verweesde koppelingen die verwijzen naar ongeldige bestanden zijn ook "
-"opgeruimd."
+"Alle oude bestanden zijn verwijderd om schijfruimte terug te winnen. Links"
+" die verwezen naar ongeldige bestanden zijn eveneens opgeruimd."
 
-#: ../app/ui/SettingsPage.qml:317
+#: ../app/ui/SettingsPage.qml:373
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:373
 msgid ""
 "No orphaned files have been found to recover disk space. Podbird database is "
 "clean."
 msgstr ""
-"Er zijn geen verweesde bestanden gevonden om schijfruimte terug te krijgen. "
-"De Podbird-database is schoon."
+"Er zijn geen oude bestanden aangetroffen. De Podphoenix-databank is volledig"
+" opgeruimd."
 
 #. TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
 #. that doesn't fit into any other category.
-#: ../app/ui/SettingsPage.qml:332
+#: ../app/ui/SettingsPage.qml:388
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:388
 msgid "Misc."
 msgstr "Overig"
 
-#: ../app/ui/SettingsPage.qml:348
+#: ../app/ui/SettingsPage.qml:404
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:404
 msgid "Report Bug"
-msgstr "Fout melden"
+msgstr "Bug melden"
 
 #: ../app/welcomewizard/Slide1.qml:42
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/welcomewizard/Slide1.qml:42
 msgid "Welcome to Podbird"
-msgstr "Welkom bij Podbird"
+msgstr "Welkom bij Podphoenix"
 
 #: ../app/welcomewizard/Slide1.qml:53
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/welcomewizard/Slide1.qml:53
 msgid ""
 "Enjoy your favourite shows with Podbird, the chirpiest podcast manager for "
 "Ubuntu.\n"
 "\n"
 "Chirp Chirp..."
 msgstr ""
-"Geniet van jouw favoriete shows met Podbird, de handigste podcastbeheerder "
-"voor Ubuntu."
+"Luister naar je favoriete shows met Podphoenix, de handigste podcastbeheerder"
+" op Ubuntu.\n"
+"\n"
+"Krauw, krauw…"
 
 #: ../app/welcomewizard/Slide1.qml:82
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/welcomewizard/Slide1.qml:82
 msgid "Swipe to move between pages"
-msgstr "Veeg om tussen pagina's te navigeren"
+msgstr "Veeg om van pagina te wisselen"
 
 #: ../app/welcomewizard/Slide2.qml:45
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/welcomewizard/Slide2.qml:45
 msgid "Discover New Podcasts"
-msgstr "Nieuwe Podcasts ontdekken"
+msgstr "Podcasts ontdekken"
 
 #: ../app/welcomewizard/Slide2.qml:62
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/welcomewizard/Slide2.qml:62
 msgid ""
 "Podbird uses the iTunes® database to provide access to a huge collection of "
 "podcasts. You can also add podcasts by their URL."
 msgstr ""
-"Podbird gebruikt de iTunes® database om toegang te bieden tot een grote "
-"collectie van podcasts. U kunt ook Podcasts toevoegen via webadres."
+"Podphoenix maakt gebruik van de iTunes®-databank, waardoor er toegang is tot"
+" een enorme verzameling podcasts. Je kunt ook podcasts toevoegen via een url."
 
 #: ../app/welcomewizard/Slide3.qml:45
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/welcomewizard/Slide3.qml:45
 msgid "Smart Settings"
 msgstr "Slimme Instellingen"
 
 #: ../app/welcomewizard/Slide3.qml:62
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/welcomewizard/Slide3.qml:62
 msgid ""
 "Podbird can optionally download new episodes and clean up old episodes "
 "automatically, this can be enabled from the settings page."
 msgstr ""
-"Podbird kan desgewenst automatisch nieuwe afleveringen downloaden en oude "
-"afleveringen verwijderen; dit kan geactiveerd worden in de "
-"Instellingenpagina."
+"Podphoenix kan desgewenst automatisch nieuwe afleveringen downloaden en oude"
+" afleveringen verwijderen. Dit kan worden ingeschakeld in de instellingen."
 
 #. TRANSLATORS: This text should be in a language different from the language set by the user.
 #. For instance, if the app was in english, then it is appropriate to set this string as
 #. Hallo or Bonjour etc to symbolize the internationalization feature in podbird.
 #: ../app/welcomewizard/Slide4.qml:48
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/welcomewizard/Slide4.qml:48
 msgid "Hallo! Bonjour!"
-msgstr "Hello! Bonjour!"
+msgstr "Hallo! Bonjour!"
 
 #: ../app/welcomewizard/Slide4.qml:67
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/welcomewizard/Slide4.qml:67
 #, qt-format
 msgid ""
 "Podbird is available in over 15 languages and is translated by the %1 "
 "community"
 msgstr ""
-"Podbird is beschikbaar in meer dan 15 talen en is vertaald door de %1 "
-"community"
+"Podphoenix is beschikbaar in meer dan 15 talen en is vertaald door de "
+"%1-gemeenschap"
 
 #: ../app/welcomewizard/Slide5.qml:45
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/welcomewizard/Slide5.qml:45
 msgid "Touch Gestures"
 msgstr "Aanraakgebaren"
 
 #: ../app/welcomewizard/Slide5.qml:64
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/welcomewizard/Slide5.qml:64
 msgid ""
 "Episodes can be swiped left to reveal more actions (or right click if you're "
 "using a mouse). You can also multi-select them by long-pressing on an "
 "episode."
 msgstr ""
-"Afleveringen kunnen naar links geveegd worden voor meer acties (of klik met "
-"rechts als u een muis gebruikt). U kunt ook meerdere selecties maken door "
-"lang te drukken op een aflevering."
+"Veeg afleveringen naar links (of klik met de rechtermuisknop) om meer acties"
+" te tonen. Selecteer meerdere afleveringen door één aflevering lang ingedrukt"
+" te houden."
 
 #: ../app/welcomewizard/Slide6.qml:45
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/welcomewizard/Slide6.qml:45
 msgid "Support"
 msgstr "Ondersteuning"
 
 #. TRANSLATORS: The %1 points to a url defined in html format <a href=\link\>Link</a>.
 #: ../app/welcomewizard/Slide6.qml:65
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/welcomewizard/Slide6.qml:65
 #, qt-format
 msgid ""
 "If you find any bugs or have any feature requests, let us know on our "
 "project page at %1"
 msgstr ""
-"Als u fouten aantreft of verzoeken heeft inzake functies, laat het ons dan "
-"weten op onze projectpagina op %1"
+"Als je bugs tegenkomt of ideeën wilt delen, laat het ons dan weten via %1"
 
 #: ../app/welcomewizard/Slide7.qml:45
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/welcomewizard/Slide7.qml:45
 msgid "Enjoy"
-msgstr "Geniet ervan"
+msgstr "Veel plezier"
 
 #: ../app/welcomewizard/Slide7.qml:62
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/welcomewizard/Slide7.qml:62
 msgid "We hope you enjoy using Podbird!"
-msgstr "Wij hopen dat u plezier heeft in het gebruiken van Podbird!"
+msgstr "Wij hopen dat je Podphoenix met alle plezier gebruikt!"
 
 #: ../app/welcomewizard/Slide7.qml:75
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/welcomewizard/Slide7.qml:75
 msgid "Finish"
 msgstr "Voltooien"
 
-#: ../app/po/Podbird.desktop.in.h:1
+#: ../build/aarch64-linux-gnu/app/po/Podbird.desktop.in.h:1
+#: ../build/x86_64-linux-gnu/app/po/Podbird.desktop.in.h:1
+#: /Users/iko/Developer/podbird/build/aarch64-linux-gnu/app/po/Podbird.desktop.in.h:1
 msgid "The chirpiest podcast manager for Ubuntu"
-msgstr "Het vrolijkste podcastbeheerprogramma voor Ubuntu"
+msgstr "De vrolijkste podcastbeheerder voor Ubuntu"
 
-#: ../app/po/Podbird.desktop.in.h:2
-msgid ""
-"podcast;audio;itunes;broadcast;digital;stream;podcatcher;video;vodcast;"
+#: ../build/aarch64-linux-gnu/app/po/Podbird.desktop.in.h:2
+#: ../build/x86_64-linux-gnu/app/po/Podbird.desktop.in.h:2
+#: /Users/iko/Developer/podbird/build/aarch64-linux-gnu/app/po/Podbird.desktop.in.h:2
+msgid "podcast;audio;itunes;broadcast;digital;stream;podcatcher;video;vodcast;"
 msgstr ""
 "podcast;audio;itunes;broadcast;digital;stream;podcatcher;video;vodcast;"
