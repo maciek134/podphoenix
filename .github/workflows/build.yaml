@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: ["master"]
+  pull_request:
+    branches: ["master"]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        arch:
+          - arm64
+          - armhf
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+
+      - name: Install clickable
+        run: |
+          sudo apt install adb git python3 python3-pip python3-setuptools
+          pip3 install --user clickable-ut --upgrade
+          echo 'export PATH="$PATH:$HOME/.local/bin"' >> ~/.bashrc
+
+      - name: Build
+        run: clickable build --arch=${{ matrix.arch }} --output dist-${{ matrix.arch }}
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: podhoenix-${{ matrix.arch }}
+          path: dist-${{ matrix.arch }}/*
