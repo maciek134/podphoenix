@@ -24,11 +24,11 @@ msgstr "Episodios"
 
 #: ../app/components/TabsList.qml:37 ../app/ui/SearchPage.qml:43
 msgid "Add New Podcasts"
-msgstr "Añadir pódcast nuevos"
+msgstr "Añadir podcasts nuevos"
 
 #: ../app/components/TabsList.qml:46 ../app/ui/PodcastsTab.qml:42
 msgid "Podcasts"
-msgstr "Pódcast"
+msgstr "Podcasts"
 
 #: ../app/components/TabsList.qml:55 ../app/ui/SettingsPage.qml:34
 msgid "Settings"
@@ -36,7 +36,7 @@ msgstr "Configuración"
 
 #: ../app/components/Walkthrough.qml:89
 msgid "Skip"
-msgstr "Omitir"
+msgstr "Saltar"
 
 #: ../app/podcasts.js:307
 #, no-c-format, qt-format
@@ -112,7 +112,7 @@ msgstr[1] "%1 años"
 #: ../app/settings/Credits.qml:31
 #, qt-format
 msgid "%1 (Creator)"
-msgstr "%1 (creador)"
+msgstr "%1 (Creador)"
 
 #: ../app/settings/Credits.qml:31 ../app/settings/Credits.qml:32
 msgid "Developers"
@@ -261,7 +261,7 @@ msgstr "Eliminar archivo descargado"
 
 #: ../app/ui/EpisodesPage.qml:621
 msgid "Queued"
-msgstr "Encolado"
+msgstr "En cola"
 
 #: ../app/ui/EpisodesPage.qml:621
 msgid "Download"
@@ -437,7 +437,7 @@ msgstr "No se ha podido suscribir"
 
 #: ../app/ui/SearchPage.qml:192
 msgid "Please check the URL and try again"
-msgstr "Compruebe el URL e inténtelo de nuevo"
+msgstr "Compruebe la URL e inténtelo de nuevo"
 
 #: ../app/ui/SearchPage.qml:222
 msgid "Looking to add a new podcast?"
@@ -447,12 +447,12 @@ msgstr "¿Buscando añadir un nuevo podcast?"
 msgid ""
 "Click the 'magnifier' at the top to search or the 'plus' button to add by URL"
 msgstr ""
-"Toque el icono de la lupa en la parte superior para buscar. Toque el + para "
+"Toque el icono de la lupa en la parte superior para buscar. Toque el botón + para "
 "añadir por URL"
 
 #: ../app/ui/SearchPage.qml:290
 msgid "Subscribe"
-msgstr "Suscribir"
+msgstr "Suscribirse"
 
 #. TRANSLATORS: The first argument here is the date of when the podcast was last updated followed by
 #. the podcast description.
@@ -511,7 +511,7 @@ msgstr "Configuración general"
 
 #: ../app/ui/SettingsPage.qml:154
 msgid "Displays podcasts in a list view"
-msgstr "Muestra los pódcast en una lista"
+msgstr "Muestra los podcasts en una lista"
 
 #: ../app/ui/SettingsPage.qml:166
 msgid "Playback Settings"
@@ -519,7 +519,7 @@ msgstr "Configuración de reproducción"
 
 #: ../app/ui/SettingsPage.qml:184
 msgid "Podcast Episode Settings"
-msgstr "Configuración de episodios de pódcast"
+msgstr "Configuración de episodios de podcasts"
 
 #: ../app/ui/SettingsPage.qml:190
 msgid "Automatically delete old episodes"
@@ -547,7 +547,7 @@ msgstr "Sólo descargar mediante WiFi"
 
 #: ../app/ui/SettingsPage.qml:220
 msgid "Download episodes only when the device is using WiFi"
-msgstr "Descargar episodios solo cuando se está usando wifi"
+msgstr "Descargar episodios sólo cuando se está usando wifi"
 
 #: ../app/ui/SettingsPage.qml:240
 msgid "Refresh podcast artwork"
@@ -556,7 +556,7 @@ msgstr "Refrescar la imagen del podcast"
 #: ../app/ui/SettingsPage.qml:242
 msgid "Update all podcasts artwork and fix missing ones"
 msgstr ""
-"Actualizar las imágenes de todos los podcast y arreglar las que faltan."
+"Actualizar las imágenes de todos los podcasts y arreglar las que faltan."
 
 #: ../app/ui/SettingsPage.qml:271
 msgid "Storage Settings"
@@ -635,7 +635,7 @@ msgid ""
 "podcasts. You can also add podcasts by their URL."
 msgstr ""
 "Podbird usa la base de datos de iTunes® para ofrecerle una gran colección de "
-"podcasts. También puede añadir los suyos con un URL."
+"podcasts. También puede añadir los suyos con una URL."
 
 #: ../app/welcomewizard/Slide3.qml:45
 msgid "Smart Settings"
