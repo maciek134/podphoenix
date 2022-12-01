@@ -8,6 +8,12 @@ on:
 
 jobs:
   build:
+    strategy:
+      matrix:
+        arch:
+          - arm64
+          - armhf
+
     runs-on: ubuntu-latest
 
     steps:
@@ -22,9 +28,9 @@ jobs:
           echo 'export PATH="$PATH:$HOME/.local/bin"' >> ~/.bashrc
 
       - name: Build
-        run: clickable build --output dist
+        run: clickable build —arch=${{ matrix.arch }} --output dist-${{ matrix.arch }}
 
       - uses: actions/upload-artifact@v3
         with:
-          name: podhoenix
-          path: dist/*
+          name: podhoenix-${{ matrix.arch }}
+          path: dist-${{ matrix.arch }}/*
