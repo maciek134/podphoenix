@@ -28,7 +28,7 @@ jobs:
           echo 'export PATH="$PATH:$HOME/.local/bin"' >> ~/.bashrc
 
       - name: Build
-        run: clickable build —arch=${{ matrix.arch }} --output dist-${{ matrix.arch }}
+        run: clickable build --arch=${{ matrix.arch }} --output dist-${{ matrix.arch }}
 
       - uses: actions/upload-artifact@v3
         with:
