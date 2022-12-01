@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-25 12:35+0000\n"
+"POT-Creation-Date: 2022-12-01 13:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -48,19 +48,19 @@ msgid "Skip"
 msgstr ""
 
 #: ../app/podcasts.js:359
-#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/podcasts.js:316
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/podcasts.js:359
 #, no-c-format, qt-format
 msgid "%1 hr %2 min"
 msgstr ""
 
 #: ../app/podcasts.js:368
-#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/podcasts.js:325
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/podcasts.js:368
 #, no-c-format, qt-format
 msgid "%1 hr"
 msgstr ""
 
 #: ../app/podcasts.js:376
-#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/podcasts.js:333
+#: ../build/x86_64-linux-gnu/app/install/share/qml/podbird/podcasts.js:376
 #, no-c-format, qt-format
 msgid "%1 min"
 msgstr ""
@@ -886,14 +886,12 @@ msgstr ""
 msgid "Finish"
 msgstr ""
 
-#: ../build/aarch64-linux-gnu/app/po/Podbird.desktop.in.h:1
 #: ../build/x86_64-linux-gnu/app/po/Podbird.desktop.in.h:1
-#: /Users/iko/Developer/podbird/build/aarch64-linux-gnu/app/po/Podbird.desktop.in.h:1
+#: /home/nicolas/podphoenix/build/aarch64-linux-gnu/app/po/Podbird.desktop.in.h:1
 msgid "The chirpiest podcast manager for Ubuntu"
 msgstr ""
 
-#: ../build/aarch64-linux-gnu/app/po/Podbird.desktop.in.h:2
 #: ../build/x86_64-linux-gnu/app/po/Podbird.desktop.in.h:2
-#: /Users/iko/Developer/podbird/build/aarch64-linux-gnu/app/po/Podbird.desktop.in.h:2
+#: /home/nicolas/podphoenix/build/aarch64-linux-gnu/app/po/Podbird.desktop.in.h:2
 msgid "podcast;audio;itunes;broadcast;digital;stream;podcatcher;video;vodcast;"
 msgstr ""
