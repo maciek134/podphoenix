@@ -21,13 +21,13 @@ import Ubuntu.Components 1.3
 
 QtObject {
     // MainView
-    property color background: "#242423"
+    property color background: "#000000"
 
     // Main Text Colors
     property color baseText: "White"
     property color baseSubText: "#999999"
-    property color focusText: UbuntuColors.blue
-    property color linkText: "Cyan"
+    property color focusText: UbuntuColors.red
+    property color linkText: "Red"
 
     // Icon Colors
     property color baseIcon: "White"
