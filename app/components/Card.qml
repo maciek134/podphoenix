@@ -31,7 +31,7 @@ AbstractButton {
 
     Image {
         id: imgFrame
-        width: parent.width/1.2
+        width: parent.width
         height: width
         anchors.top: parent.top
         anchors.horizontalCenter: parent.horizontalCenter
@@ -40,9 +40,10 @@ AbstractButton {
 
         Loader {
             id: hintLoader
-            anchors.verticalCenter: parent.top
+            anchors.top: parent.top
+            anchors.topMargin: units.gu(0.5)
             anchors.right: parent.right
-            anchors.rightMargin: units.gu(-0.5)
+            anchors.rightMargin: units.gu(0.5)
             sourceComponent: secondaryText !== "" ? hintComponent : undefined
         }
 
@@ -52,7 +53,7 @@ AbstractButton {
                 color: podbird.appTheme.focusText
                 width: secondaryLabel.implicitWidth + units.gu(1)
                 height: secondaryLabel.implicitHeight + units.gu(1)
-                radius: units.gu(0.5)
+                radius: units.gu(3)
                 visible: secondaryLabel.text !== ""
                 Label {
                     id: secondaryLabel

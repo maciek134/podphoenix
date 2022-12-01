@@ -156,13 +156,13 @@ Page {
 
         CardView {
             id: cardView
-            clip: true
-            heightOffset: units.gu(4)
+            clip: false
+            heightOffset: units.gu(0)
+            widthOffset: units.gu(0)
             model: sortedPodcastModel
             delegate: Card {
                 id: albumCard
-                coverArt: model.image !== undefined ? model.image : Qt.resolvedUrl("../graphics/logo.png")
-                primaryText: model.name !== undefined ? model.name.trim() : "Undefined"
+                coverArt: model.image !== undefined ? model.image : Qt.resolvedUrl("../graphics/podbird.png")
                 secondaryText: model.episodeCount > 0 ? model.episodeCount
                                                       : ""
                 onClicked: {
@@ -217,7 +217,7 @@ Page {
                     Image {
                         height: width
                         width: units.gu(6)
-                        source: model.image !== undefined ? model.image : Qt.resolvedUrl("../graphics/logo.png")
+                        source: model.image !== undefined ? model.image : Qt.resolvedUrl("../graphics/podbird.png")
                         SlotsLayout.position: SlotsLayout.Leading
                         sourceSize { width: width; height: height }
                     }
@@ -270,18 +270,14 @@ Page {
 
         db.transaction(function (tx) {
             podcastModel.clear();
-            var rs = tx.executeSql(`
-                SELECT p.rowid as rowid, p.*, COUNT(e.rowid) as episodeCount
-                FROM Podcast as p
-                JOIN Episode as e
-                ON p.rowid = e.podcast
-                WHERE e.listened = 0
-                GROUP BY p.rowid
-                ORDER BY p.name ASC
-            `);
+            var rs = tx.executeSql("SELECT rowid, * FROM Podcast ORDER BY name ASC");
             for(var i = 0; i < rs.rows.length; i++) {
                 var podcast = rs.rows.item(i);
-                podcastModel.append({"id" : podcast.rowid, "name" : podcast.name, "artist" : podcast.artist, "image" : podcast.image, "episodeCount" : podcast.episodeCount});
+                var rs2 = tx.executeSql("SELECT Count(*) AS epcount FROM Episode WHERE podcast=? AND NOT listened", [rs.rows.item(i).rowid]);
+                podcastModel.append({"id" : podcast.rowid, "name" : podcast.name, "artist" : podcast.artist, "image" : podcast.image, "episodeCount" : rs2.rows.item(0).epcount});
+                if (podcast.lastupdate === null && !episodesUpdating) {
+                    updateEpisodesDatabase();
+                }
             }
         });
 
@@ -293,3 +289,4 @@ Page {
         Podcasts.updateEpisodes(refreshModel)
     }
 }
+
