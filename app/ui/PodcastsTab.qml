@@ -270,14 +270,18 @@ Page {
 
         db.transaction(function (tx) {
             podcastModel.clear();
-            var rs = tx.executeSql("SELECT rowid, * FROM Podcast ORDER BY name ASC");
+            var rs = tx.executeSql(`
+                SELECT p.rowid as rowid, p.*, COUNT(e.rowid) as episodeCount
+                FROM Podcast as p
+                JOIN Episode as e
+                ON p.rowid = e.podcast
+                WHERE e.listened = 0
+                GROUP BY p.rowid
+                ORDER BY p.name ASC
+            `);
             for(var i = 0; i < rs.rows.length; i++) {
                 var podcast = rs.rows.item(i);
-                var rs2 = tx.executeSql("SELECT Count(*) AS epcount FROM Episode WHERE podcast=? AND NOT listened", [rs.rows.item(i).rowid]);
-                podcastModel.append({"id" : podcast.rowid, "name" : podcast.name, "artist" : podcast.artist, "image" : podcast.image, "episodeCount" : rs2.rows.item(0).epcount});
-                if (podcast.lastupdate === null && !episodesUpdating) {
-                    updateEpisodesDatabase();
-                }
+                podcastModel.append({"id" : podcast.rowid, "name" : podcast.name, "artist" : podcast.artist, "image" : podcast.image, "episodeCount" : podcast.episodeCount});
             }
         });
 
