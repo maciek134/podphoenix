@@ -23,7 +23,7 @@ GridView {
 
     anchors {
         fill: parent
-        margins: units.gu(1)
+        margins: units.gu(0)
     }
 
     cellHeight: cellSize + heightOffset
@@ -31,12 +31,12 @@ GridView {
 
     header: Item {
         width: parent.width
-        height: units.gu(2)
+        height: units.gu(0)
     }
 
     readonly property int columns: parseInt(width / itemWidth) || 1  // never drop to 0
     readonly property int cellSize: width / columns
-    property int itemWidth: units.gu(15)
+    property int itemWidth: units.gu(13)
     property int heightOffset: 0
     property int widthOffset: 0
 
