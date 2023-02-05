@@ -1,13 +1,13 @@
 /*
- * Copyright 2015 Podbird Team
+ * Copyright 2015 Podphoenix Team
  *
- * This file is part of Podbird.
+ * This file is part of Podphoenix.
  *
- * Podbird is free software; you can redistribute it and/or modify
+ * Podphoenix is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; version 3.
  *
- * Podbird is distributed in the hope that it will be useful,
+ * Podphoenix is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -44,7 +44,7 @@ Component {
             maximumLineCount: 2
             // TRANSLATORS: This text should be in a language different from the language set by the user.
             // For instance, if the app was in english, then it is appropriate to set this string as
-            // Hallo or Bonjour etc to symbolize the internationalization feature in podbird.
+            // Hallo or Bonjour etc to symbolize the internationalization feature in podphoenix.
             text: i18n.tr("Hallo! Bonjour!")
             horizontalAlignment: Text.AlignHCenter
             width: parent.width
@@ -63,8 +63,8 @@ Component {
             }
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignHCenter
-            linkColor: podbird.appTheme.linkText
-            text: i18n.tr("Podbird is available in over 15 languages and is translated by the %1 community").arg("<a href=\"http://community.ubuntu.com/contribute/translations\">Ubuntu Translators</a>")
+            linkColor: podphoenix.appTheme.linkText
+            text: i18n.tr("Podphoenix is available in over 15 languages and is translated by the %1 community").arg("<a href=\"http://community.ubuntu.com/contribute/translations\">Ubuntu Translators</a>")
             onLinkActivated: Qt.openUrlExternally(link)
         }
     }

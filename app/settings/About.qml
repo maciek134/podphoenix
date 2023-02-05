@@ -1,13 +1,13 @@
 /*
- * Copyright 2015-2016 Podbird Team
+ * Copyright 2015-2016 Podphoenix Team
  *
- * This file is part of Podbird.
+ * This file is part of Podphoenix.
  *
- * Podbird is free software; you can redistribute it and/or modify
+ * Podphoenix is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; version 3.
  *
- * Podbird is distributed in the hope that it will be useful,
+ * Podphoenix is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -28,7 +28,7 @@ Page {
         title: i18n.tr("About")
 
         StyleHints {
-            backgroundColor: podbird.appTheme.background
+            backgroundColor: podphoenix.appTheme.background
         }
 
         extension: Sections {
@@ -40,7 +40,7 @@ Page {
             }
 
             StyleHints {
-                selectedSectionColor: podbird.appTheme.focusText
+                selectedSectionColor: podphoenix.appTheme.focusText
             }
             // TRANSTORS: Credits as in the code and design contributors to the app
             model: [i18n.tr("About"), i18n.tr("Credits")]
@@ -83,12 +83,12 @@ Page {
                             textSize: Label.XLarge
                             font.weight: Font.DemiBold
                             horizontalAlignment: Text.AlignHCenter
-                            text: "Podbird"
+                            text: "Podphoenix"
                         }
                         Label {
                             width: parent.width
                             horizontalAlignment: Text.AlignHCenter
-                            // TRANSLATORS: Podbird version number e.g Version 0.8
+                            // TRANSLATORS: Podphoenix version number e.g Version 0.8
                             text: i18n.tr("Version %1").arg("0.8")
                         }
                     }
@@ -103,7 +103,7 @@ Page {
                             width: parent.width
                             wrapMode: Text.WordWrap
                             horizontalAlignment: Text.AlignHCenter
-                            text: "(C) 2015 Podbird Team"
+                            text: "(C) 2015 Podphoenix Team"
                         }
                         Label {
                             textSize: Label.Small
@@ -119,8 +119,8 @@ Page {
                         wrapMode: Text.WordWrap
                         textSize: Label.Small
                         horizontalAlignment: Text.AlignHCenter
-                        linkColor: podbird.appTheme.linkText
-                        text: i18n.tr("Source code available on %1").arg("<a href=\"https://launchpad.net/podbird\">launchpad.net</a>")
+                        linkColor: podphoenix.appTheme.linkText
+                        text: i18n.tr("Source code available on %1").arg("<a href=\"https://github.com/ilyakooo0/podphoenix\">github.com</a>")
                         onLinkActivated: Qt.openUrlExternally(link)
                     }
                 }

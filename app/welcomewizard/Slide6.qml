@@ -1,13 +1,13 @@
 /*
- * Copyright 2015 Podbird Team
+ * Copyright 2015 Podphoenix Team
  *
- * This file is part of Podbird.
+ * This file is part of Podphoenix.
  *
- * Podbird is free software; you can redistribute it and/or modify
+ * Podphoenix is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; version 3.
  *
- * Podbird is distributed in the hope that it will be useful,
+ * Podphoenix is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -60,9 +60,9 @@ Component {
             }
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignHCenter
-            linkColor: podbird.appTheme.linkText
+            linkColor: podphoenix.appTheme.linkText
             // TRANSLATORS: The %1 points to a url defined in html format <a href=\link\>Link</a>.
-            text: i18n.tr("If you find any bugs or have any feature requests, let us know on our project page at %1").arg("<a href=\"https://launchpad.net/podbird\">launchpad.net</a>")
+            text: i18n.tr("If you find any bugs or have any feature requests, let us know on our project page at %1").arg("<a href=\"https://github.com/ilyakooo0/podphoenix/issues\">github.com</a>")
             onLinkActivated: Qt.openUrlExternally(link)
         }
     }

@@ -1,13 +1,13 @@
 /*
- * Copyright 2016 Podbird Team
+ * Copyright 2016 Podphoenix Team
  *
- * This file is part of Podbird.
+ * This file is part of Podphoenix.
  *
- * Podbird is free software; you can redistribute it and/or modify
+ * Podphoenix is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; version 3.
  *
- * Podbird is distributed in the hope that it will be useful,
+ * Podphoenix is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -103,7 +103,7 @@ Item {
             textSize: Label.Large
             maximumLineCount: 2
             wrapMode: Text.WordWrap
-            color: podbird.appTheme.baseText
+            color: podphoenix.appTheme.baseText
         }
         
         Label {
@@ -115,7 +115,7 @@ Item {
             text: currentArtist
             elide: Text.ElideRight
             textSize: Label.Small
-            color: podbird.appTheme.baseSubText
+            color: podphoenix.appTheme.baseSubText
         }
         
         Slider {
@@ -155,7 +155,7 @@ Item {
             }
             
             function formatValue(v) { return Podcasts.formatTime(v/1000); }
-            StyleHints { foregroundColor: podbird.appTheme.focusText }
+            StyleHints { foregroundColor: podphoenix.appTheme.focusText }
         }
         
         Connections {
@@ -177,7 +177,7 @@ Item {
             textSize: Label.Small
             anchors.left: scrubber.left
             anchors.top: scrubber.bottom
-            color: podbird.appTheme.baseText
+            color: podphoenix.appTheme.baseText
             text: Podcasts.formatTime(player.position / 1000)
         }
         
@@ -186,7 +186,7 @@ Item {
             textSize: Label.Small
             anchors.right: scrubber.right
             anchors.top: scrubber.bottom
-            color: podbird.appTheme.baseText
+            color: podphoenix.appTheme.baseText
             text: Podcasts.formatTime(player.duration / 1000)
         }
         
@@ -214,7 +214,7 @@ Item {
                     width: units.gu(3)
                     height: width
                     anchors.centerIn: parent
-                    color: podbird.appTheme.baseIcon
+                    color: podphoenix.appTheme.baseIcon
                     name: "media-skip-backward"
                 }
             }
@@ -227,7 +227,7 @@ Item {
                 opacity: player.position === 0 ? 0.4 : 1.0
                 onClicked: {
                     if (player.position > 0) {
-                        player.seek(player.position - podbird.settings.skipBack * 1000);
+                        player.seek(player.position - podphoenix.settings.skipBack * 1000);
                     }
                 }
                 
@@ -238,9 +238,9 @@ Item {
                     Label {
                         // TRANSLATORS: The string shown in the UI is -15s to denote the number of seconds that the podcast playback will skip backward.
                         // xgettext: no-c-format
-                        text: i18n.tr("-%1s").arg(podbird.settings.skipBack)
+                        text: i18n.tr("-%1s").arg(podphoenix.settings.skipBack)
                         textSize: Label.XxSmall
-                        color: podbird.appTheme.baseText
+                        color: podphoenix.appTheme.baseText
                         anchors.verticalCenter: skipBackwardIcon.verticalCenter
                     }
                     
@@ -249,7 +249,7 @@ Item {
                         width: units.gu(3)
                         height: width
                         name: "media-seek-backward"
-                        color: podbird.appTheme.baseIcon
+                        color: podphoenix.appTheme.baseIcon
                     }
                 }
             }
@@ -266,7 +266,7 @@ Item {
                     width: units.gu(6)
                     height: width
                     anchors.centerIn: parent
-                    color: podbird.appTheme.baseIcon
+                    color: podphoenix.appTheme.baseIcon
                     name: player.playbackState === MediaPlayer.PlayingState ? "media-playback-pause"
                                                                             : "media-playback-start"
                 }
@@ -280,7 +280,7 @@ Item {
                 opacity: player.position === 0 ? 0.4 : 1.0
                 onClicked: {
                     if (player.position > 0) {
-                        player.seek(player.position + podbird.settings.skipForward * 1000);
+                        player.seek(player.position + podphoenix.settings.skipForward * 1000);
                     }
                 }
                 
@@ -293,15 +293,15 @@ Item {
                         width: units.gu(3)
                         height: width
                         name: "media-seek-forward"
-                        color: podbird.appTheme.baseIcon
+                        color: podphoenix.appTheme.baseIcon
                     }
                     
                     Label {
                         // TRANSLATORS: The string shown in the UI is +15s to denote the number of seconds that the podcast playback will skip forward.
                         // xgettext: no-c-format
-                        text: i18n.tr("+%1s").arg(podbird.settings.skipForward)
+                        text: i18n.tr("+%1s").arg(podphoenix.settings.skipForward)
                         textSize: Label.XxSmall
-                        color: podbird.appTheme.baseText
+                        color: podphoenix.appTheme.baseText
                         anchors.verticalCenter: skipForwardIcon.verticalCenter
                     }
                 }
@@ -324,7 +324,7 @@ Item {
                     width: units.gu(3)
                     height: width
                     anchors.centerIn: parent
-                    color: podbird.appTheme.baseIcon
+                    color: podphoenix.appTheme.baseIcon
                     name: "media-skip-forward"
                 }
             }

@@ -1,13 +1,13 @@
 /*
  * Copyright 2015-2016 Michael Sheldon <mike@mikeasoft.com>
  *
- * This file is part of Podbird.
+ * This file is part of Podphoenix.
  *
- * Podbird is free software; you can redistribute it and/or modify
+ * Podphoenix is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; version 3.
  *
- * Podbird is distributed in the hope that it will be useful,
+ * Podphoenix is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -47,7 +47,7 @@ Tab {
             title: i18n.tr("Episodes")
 
             StyleHints {
-                backgroundColor: podbird.appTheme.background
+                backgroundColor: podphoenix.appTheme.background
             }
 
             leadingActionBar {
@@ -75,7 +75,7 @@ Tab {
                 }
 
                 StyleHints {
-                    selectedSectionColor: podbird.appTheme.focusText
+                    selectedSectionColor: podphoenix.appTheme.focusText
                 }
 
                 model: [i18n.tr("Recent"), i18n.tr("Downloads"), i18n.tr("Favourites")]
@@ -90,7 +90,7 @@ Tab {
             visible: episodesPage.header === searchHeader
 
             StyleHints {
-                backgroundColor: podbird.appTheme.background
+                backgroundColor: podphoenix.appTheme.background
             }
 
             contents: Loader {
@@ -133,7 +133,7 @@ Tab {
             }
 
             StyleHints {
-                backgroundColor: podbird.appTheme.background
+                backgroundColor: podphoenix.appTheme.background
             }
 
             leadingActionBar.actions: [
@@ -182,7 +182,7 @@ Tab {
                                         episodesModel.setProperty(index, "queued", 1)
                                         tx.executeSql("UPDATE Episode SET queued=1 WHERE guid = ?", [episodesModel.get(index).guid]);
                                         if (episodesModel.get(index).audiourl) {
-                                            podbird.downloadEpisode(episodesModel.get(index).image, episodesModel.get(index).name, episodesModel.get(index).guid, episodesModel.get(index).audiourl, false)
+                                            podphoenix.downloadEpisode(episodesModel.get(index).image, episodesModel.get(index).name, episodesModel.get(index).guid, episodesModel.get(index).audiourl, false)
                                         } else {
                                             console.log("[ERROR]: Invalid download url: " + episodesModel.get(index).audiourl)
                                         }
@@ -415,7 +415,7 @@ Tab {
 
                 Button {
                     text: i18n.tr("Close")
-                    color: podbird.appTheme.positiveActionButton
+                    color: podphoenix.appTheme.positiveActionButton
                     onClicked: {
                         PopupUtils.close(dialogInternal)
                     }
@@ -529,15 +529,15 @@ Tab {
                 id: listItem
 
                 divider.visible: false
-                highlightColor: podbird.appTheme.hightlightListView
+                highlightColor: podphoenix.appTheme.hightlightListView
                 height: downloader.downloadingGuid === model.guid ? listItemLayout.height + progressBarLoader.height + units.gu(1) : listItemLayout.height + units.gu(0.5)
 
                 ListItemLayout {
                     id: listItemLayout
 
                     title.text: model.name !== undefined ? model.name.trim() : "Undefined"
-                    title.color: downloader.downloadingGuid === model.guid ? podbird.appTheme.focusText
-                                                                           : podbird.appTheme.baseText
+                    title.color: downloader.downloadingGuid === model.guid ? podphoenix.appTheme.focusText
+                                                                           : podphoenix.appTheme.baseText
                     title.wrapMode: Text.WordWrap
                     title.maximumLineCount: 1
 
@@ -545,7 +545,7 @@ Tab {
                                                                                                                : model.artist
                     : model.downloadedfile ? "📎 " + (model.position ? Podcasts.formatEpisodeTime(model.position/1000) + "/" : "") + Podcasts.formatEpisodeTime(model.duration) + " | " + model.artist
                     : (model.position ? Podcasts.formatEpisodeTime(model.position/1000) + "/" : "") + Podcasts.formatEpisodeTime(model.duration) + " | " + model.artist
-                    subtitle.color: podbird.appTheme.baseSubText
+                    subtitle.color: podphoenix.appTheme.baseSubText
 
                     Image {
                         height: width
@@ -616,7 +616,7 @@ Tab {
                                     });
                                     episodesModel.setProperty(model.index, "queued", 1)
                                     if (model.audiourl) {
-                                        podbird.downloadEpisode(model.image, model.name, model.guid, model.audiourl, false)
+                                        podphoenix.downloadEpisode(model.image, model.name, model.guid, model.audiourl, false)
                                     } else {
                                         console.log("[ERROR]: Invalid download url: " + model.audiourl)
                                     }
@@ -702,7 +702,7 @@ Tab {
             Scrollbar {
                 flickableItem: episodeList
                 align: Qt.AlignTrailing
-                StyleHints { sliderColor: podbird.appTheme.focusText }
+                StyleHints { sliderColor: podphoenix.appTheme.focusText }
             }
 
             PullToRefresh {

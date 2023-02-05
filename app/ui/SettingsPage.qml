@@ -1,13 +1,13 @@
 /*
- * Copyright 2015-2016 Podbird Team
+ * Copyright 2015-2016 Podphoenix Team
  *
- * This file is part of Podbird.
+ * This file is part of Podphoenix.
  *
- * Podbird is free software; you can redistribute it and/or modify
+ * Podphoenix is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; version 3.
  *
- * Podbird is distributed in the hope that it will be useful,
+ * Podphoenix is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -34,7 +34,7 @@ Page {
         title: i18n.tr("Settings")
 
         StyleHints {
-            backgroundColor: podbird.appTheme.background
+            backgroundColor: podphoenix.appTheme.background
         }
 
         leadingActionBar {
@@ -68,22 +68,22 @@ Page {
                     width: parent.width
                     minimumValue: 0
                     maximumValue: 60
-                    value: podbird.settings.skipForward
+                    value: podphoenix.settings.skipForward
                     function formatValue(v) { return i18n.tr("%1 seconds").arg(Math.round(v)) }
-                    StyleHints { foregroundColor: podbird.appTheme.focusText }
+                    StyleHints { foregroundColor: podphoenix.appTheme.focusText }
                 }
 
                 Button {
                     text: i18n.tr("OK")
-                    color: podbird.appTheme.positiveActionButton
+                    color: podphoenix.appTheme.positiveActionButton
                     onClicked: {
-                        podbird.settings.skipForward = Math.round(slider.value)
+                        podphoenix.settings.skipForward = Math.round(slider.value)
                         PopupUtils.close(dialogInternal)
                     }
                 }
                 Button {
                     text: i18n.tr("Cancel")
-                    color: podbird.appTheme.neutralActionButton
+                    color: podphoenix.appTheme.neutralActionButton
                     onClicked: {
                         PopupUtils.close(dialogInternal)
                     }
@@ -103,22 +103,22 @@ Page {
                     width: parent.width
                     minimumValue: 0
                     maximumValue: 60
-                    value: podbird.settings.skipBack
+                    value: podphoenix.settings.skipBack
                     function formatValue(v) { return i18n.tr("%1 seconds").arg(Math.round(v)) }
-                    StyleHints { foregroundColor: podbird.appTheme.focusText }
+                    StyleHints { foregroundColor: podphoenix.appTheme.focusText }
                 }
 
                 Button {
                     text: i18n.tr("OK")
-                    color: podbird.appTheme.positiveActionButton
+                    color: podphoenix.appTheme.positiveActionButton
                     onClicked: {
-                        podbird.settings.skipBack = Math.round(slider.value)
+                        podphoenix.settings.skipBack = Math.round(slider.value)
                         PopupUtils.close(dialogInternal)
                     }
                 }
                 Button {
                     text: i18n.tr("Cancel")
-                    color: podbird.appTheme.neutralActionButton
+                    color: podphoenix.appTheme.neutralActionButton
                     onClicked: {
                         PopupUtils.close(dialogInternal)
                     }
@@ -138,22 +138,22 @@ Page {
                     width: parent.width
                     minimumValue: 0
                     maximumValue: 72
-                    value: podbird.settings.refreshEpisodes
+                    value: podphoenix.settings.refreshEpisodes
                     function formatValue(v) { return i18n.tr("%1 hours").arg(Math.round(v)) }
-                    StyleHints { foregroundColor: podbird.appTheme.focusText }
+                    StyleHints { foregroundColor: podphoenix.appTheme.focusText }
                 }
 
                 Button {
                     text: i18n.tr("OK")
-                    color: podbird.appTheme.positiveActionButton
+                    color: podphoenix.appTheme.positiveActionButton
                     onClicked: {
-                        podbird.settings.refreshEpisodes = Math.round(slider.value)
+                        podphoenix.settings.refreshEpisodes = Math.round(slider.value)
                         PopupUtils.close(dialogInternal)
                     }
                 }
                 Button {
                     text: i18n.tr("Cancel")
-                    color: podbird.appTheme.neutralActionButton
+                    color: podphoenix.appTheme.neutralActionButton
                     onClicked: {
                         PopupUtils.close(dialogInternal)
                     }
@@ -179,7 +179,7 @@ Page {
             SingleValueListItem {
                 divider.visible: false
                 title.text: i18n.tr("Theme")
-                value: podbird.settings.themeName.split(".qml")[0] === "Light" ? i18n.tr("Light") : i18n.tr("Dark")
+                value: podphoenix.settings.themeName.split(".qml")[0] === "Light" ? i18n.tr("Light") : i18n.tr("Dark")
                 onClicked: mainStack.push(Qt.resolvedUrl("../settings/ThemeSetting.qml"))
             }
 
@@ -189,8 +189,8 @@ Page {
                     title.text: i18n.tr("Displays podcasts in a list view")
                     Switch {
                         SlotsLayout.position: SlotsLayout.Last
-                        checked: podbird.settings.showListView
-                        onClicked: podbird.settings.showListView = checked
+                        checked: podphoenix.settings.showListView
+                        onClicked: podphoenix.settings.showListView = checked
                     }
                 }
                 divider.visible: false
@@ -204,14 +204,14 @@ Page {
             SingleValueListItem {
                 divider.visible: false
                 title.text: i18n.tr("Skip forward")
-                value: i18n.tr("%1 seconds").arg(podbird.settings.skipForward)
+                value: i18n.tr("%1 seconds").arg(podphoenix.settings.skipForward)
                 onClicked: PopupUtils.open(skipForwardDialog, settingsPage);
             }
 
             SingleValueListItem {
                 divider.visible: false
                 title.text: i18n.tr("Skip back")
-                value: i18n.tr("%1 seconds").arg(podbird.settings.skipBack)
+                value: i18n.tr("%1 seconds").arg(podphoenix.settings.skipBack)
                 onClicked: PopupUtils.open(skipBackDialog, settingsPage);
             }
 
@@ -221,8 +221,8 @@ Page {
                     title.text: i18n.tr("Continue where stopped")
                     Switch {
                         SlotsLayout.position: SlotsLayout.Last
-                        checked: podbird.settings.continueWhereStopped
-                        onClicked: podbird.settings.continueWhereStopped = checked
+                        checked: podphoenix.settings.continueWhereStopped
+                        onClicked: podphoenix.settings.continueWhereStopped = checked
                     }
                 }
                 divider.visible: false
@@ -236,7 +236,7 @@ Page {
             SingleValueListItem {
                 divider.visible: false
                 title.text: i18n.tr("Refresh podcasts after")
-                value: i18n.tr("%1 hours").arg(podbird.settings.refreshEpisodes)
+                value: i18n.tr("%1 hours").arg(podphoenix.settings.refreshEpisodes)
                 onClicked: PopupUtils.open(refreshDialog, settingsPage);
             }
 
@@ -244,9 +244,9 @@ Page {
                 ListItemLayout {
                     id: deleteLayout
                     title.text: i18n.tr("Automatically delete old episodes")
-                    title.color: podbird.appTheme.baseText
+                    title.color: podphoenix.appTheme.baseText
                     summary.text: i18n.tr("Delete episodes that are older than a given number of days for each podcast")
-                    summary.color: podbird.appTheme.baseSubText
+                    summary.color: podphoenix.appTheme.baseSubText
                     ProgressionSlot {}
                 }
                 divider.visible: false
@@ -258,9 +258,9 @@ Page {
                 ListItemLayout {
                     id: downloadLayout
                     title.text: i18n.tr("Automatically download new episodes")
-                    title.color: podbird.appTheme.baseText
+                    title.color: podphoenix.appTheme.baseText
                     summary.text: i18n.tr("Default number of new episodes to download for each podcast")
-                    summary.color: podbird.appTheme.baseSubText
+                    summary.color: podphoenix.appTheme.baseSubText
                     ProgressionSlot{}
                 }
                 divider.visible: false
@@ -272,13 +272,13 @@ Page {
                 ListItemLayout {
                     id: downloadWifiOnlyLayout
                     title.text: i18n.tr("Only download over WiFi")
-                    title.color: podbird.appTheme.baseText
+                    title.color: podphoenix.appTheme.baseText
                     summary.text: i18n.tr("Download episodes only when the device is using WiFi")
-                    summary.color: podbird.appTheme.baseSubText
+                    summary.color: podphoenix.appTheme.baseSubText
                     Switch {
                         SlotsLayout.position: SlotsLayout.Last
-                        checked: podbird.settings.downloadOverWifiOnly
-                        onClicked: podbird.settings.downloadOverWifiOnly = checked
+                        checked: podphoenix.settings.downloadOverWifiOnly
+                        onClicked: podphoenix.settings.downloadOverWifiOnly = checked
                     }
                 }
                 divider.visible: false
@@ -294,9 +294,9 @@ Page {
                 ListItemLayout {
                     id: refreshArt
                     title.text: i18n.tr("Refresh podcast artwork")
-                    title.color: podbird.appTheme.baseText
+                    title.color: podphoenix.appTheme.baseText
                     summary.text: i18n.tr("Update all podcasts artwork and fix missing ones")
-                    summary.color: podbird.appTheme.baseSubText
+                    summary.color: podphoenix.appTheme.baseSubText
                     summary.maximumLineCount: 3
                     ProgressionSlot{}
                 }
@@ -336,9 +336,9 @@ Page {
                 ListItemLayout {
                     id: orphanLayout
                     title.text: i18n.tr("Delete orphaned files and links")
-                    title.color: podbird.appTheme.baseText
+                    title.color: podphoenix.appTheme.baseText
                     summary.text: i18n.tr("Free space by removing orphaned downloaded files and links")
-                    summary.color: podbird.appTheme.baseSubText
+                    summary.color: podphoenix.appTheme.baseSubText
                     ProgressionSlot {}
                 }
 
@@ -370,11 +370,11 @@ Page {
                     title: orphanCount > 0 ? i18n.tr("Removed orphaned files and links") : i18n.tr("No orphans found!")
                     text: orphanCount > 0 ? i18n.tr("All orphaned files have been deleted to recover disk space. Orphaned links \
 pointing at invalid files have also been cleaned up.")
-                                          : i18n.tr("No orphaned files have been found to recover disk space. Podbird database is clean.")
+                                          : i18n.tr("No orphaned files have been found to recover disk space. Podphoenix database is clean.")
 
                     Button {
                         text: i18n.tr("Close")
-                        color: podbird.appTheme.positiveActionButton
+                        color: podphoenix.appTheme.positiveActionButton
                         onClicked: {
                             PopupUtils.close(dialogInternal)
                         }
@@ -392,7 +392,7 @@ pointing at invalid files have also been cleaned up.")
                 ListItemLayout {
                     // TRANSLATORS: About as in information about the app
                     title.text: i18n.tr("About")
-                    title.color: podbird.appTheme.baseText
+                    title.color: podphoenix.appTheme.baseText
                     ProgressionSlot {}
                 }
                 divider.visible: false
@@ -402,11 +402,11 @@ pointing at invalid files have also been cleaned up.")
             ListItem {
                 ListItemLayout {
                     title.text: i18n.tr("Report Bug")
-                    title.color: podbird.appTheme.baseText
+                    title.color: podphoenix.appTheme.baseText
                     ProgressionSlot {}
                 }
                 divider.visible: false
-                onClicked: Qt.openUrlExternally("https://bugs.launchpad.net/podbird/+filebug")
+                onClicked: Qt.openUrlExternally("https://github.com/ilyakooo0/podphoenix/issues")
             }
         }
     }

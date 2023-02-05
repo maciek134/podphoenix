@@ -1,13 +1,13 @@
 /*
  * Copyright 2015-2016 Michael Sheldon <mike@mikeasoft.com>
  *
- * This file is part of Podbird.
+ * This file is part of Podphoenix.
  *
- * Podbird is free software; you can redistribute it and/or modify
+ * Podphoenix is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; version 3.
  *
- * Podbird is distributed in the hope that it will be useful,
+ * Podphoenix is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -23,7 +23,7 @@ import Ubuntu.Components 1.3
 Rectangle {
     id: controlRect
 
-    color: podbird.appTheme.bottomBarBackground
+    color: podphoenix.appTheme.bottomBarBackground
 
     MouseArea {
         z: -1
@@ -47,7 +47,7 @@ Rectangle {
         id: progressBarHint
         anchors.left: parent.left
         anchors.top: cover.bottom
-        color: podbird.appTheme.focusText
+        color: podphoenix.appTheme.focusText
         height: units.gu(0.25)
         width: player.duration > 0 ? (player.position / player.duration) * parent.width : 0
     }

@@ -1,13 +1,13 @@
 /*
- * Copyright 2016 Podbird Team
+ * Copyright 2016 Podphoenix Team
  *
- * This file is part of Podbird.
+ * This file is part of Podphoenix.
  *
- * Podbird is free software; you can redistribute it and/or modify
+ * Podphoenix is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; version 3.
  *
- * Podbird is distributed in the hope that it will be useful,
+ * Podphoenix is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -60,7 +60,7 @@ Component {
             }
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignHCenter
-            linkColor: podbird.appTheme.linkText
+            linkColor: podphoenix.appTheme.linkText
             text: i18n.tr("Episodes can be swiped left to reveal more actions (or right click if you're using a mouse). You can also multi-select them by long-pressing on an episode.")
             onLinkActivated: Qt.openUrlExternally(link)
         }

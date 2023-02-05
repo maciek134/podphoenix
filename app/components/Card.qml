@@ -1,13 +1,13 @@
 /*
- * Copyright 2016 Podbird Team
+ * Copyright 2016 Podphoenix Team
  *
- * This file is part of Podbird.
+ * This file is part of Podphoenix.
  *
- * Podbird is free software; you can redistribute it and/or modify
+ * Podphoenix is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; version 3.
  *
- * Podbird is distributed in the hope that it will be useful,
+ * Podphoenix is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -50,7 +50,7 @@ AbstractButton {
         Component {
             id: hintComponent
             Rectangle {
-                color: podbird.appTheme.focusText
+                color: podphoenix.appTheme.focusText
                 width: secondaryLabel.implicitWidth + units.gu(1)
                 height: secondaryLabel.implicitHeight + units.gu(1)
                 radius: units.gu(3)
@@ -75,7 +75,7 @@ AbstractButton {
             right: imgFrame.right
             margins: units.gu(1)
         }
-        color: podbird.appTheme.baseText
+        color: podphoenix.appTheme.baseText
         elide: Text.ElideRight
         textSize: Label.Small
         wrapMode: Text.WordWrap
