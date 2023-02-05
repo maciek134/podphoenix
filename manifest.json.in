@@ -9,7 +9,7 @@
             "desktop": "Podphoenix.desktop"
         }
     },
-    "version": "0.1.1.0",
+    "version": "0.1.2.0",
     "maintainer": "Ilia Kostiuchenko <mail@iko.soy>",
     "framework": "@CLICK_FRAMEWORK@"
 }
