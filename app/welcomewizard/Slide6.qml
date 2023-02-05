@@ -62,7 +62,7 @@ Component {
             horizontalAlignment: Text.AlignHCenter
             linkColor: podphoenix.appTheme.linkText
             // TRANSLATORS: The %1 points to a url defined in html format <a href=\link\>Link</a>.
-            text: i18n.tr("If you find any bugs or have any feature requests, let us know on our project page at %1").arg("<a href=\"https://launchpad.net/podphoenix\">launchpad.net</a>")
+            text: i18n.tr("If you find any bugs or have any feature requests, let us know on our project page at %1").arg("<a href=\"https://github.com/ilyakooo0/podphoenix/issues\">github.com</a>")
             onLinkActivated: Qt.openUrlExternally(link)
         }
     }

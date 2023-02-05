@@ -30,6 +30,7 @@ Item {
             // TRANSLATORS: The first argument is the name of creator of Podphoenix (Michael Sheldon)
             creditsModel.append({ name: i18n.tr("%1 (Creator)").arg("Michael Sheldon"), title: i18n.tr("Developers"), url: "http://blog.mikeasoft.com" })
             creditsModel.append({ name: "Nekhelesh Ramananthan", title: i18n.tr("Developers"), url: "https://launchpad.net/~nik90" })
+            creditsModel.append({ name: "Ilia Kostiuchenko", title: i18n.tr("Developers"), url: "https://github.com/ilyakooo0" })
             creditsModel.append({ name: "Kevin Feyder", title: i18n.tr("Designer"), url: "https://feyder.design/" })
             creditsModel.append({ name: "Ubuntu Translators Community", title: i18n.tr("Translators"), url: "https://discourse.ubuntu.com/t/translations/32" })
         }

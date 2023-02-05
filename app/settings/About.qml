@@ -120,7 +120,7 @@ Page {
                         textSize: Label.Small
                         horizontalAlignment: Text.AlignHCenter
                         linkColor: podphoenix.appTheme.linkText
-                        text: i18n.tr("Source code available on %1").arg("<a href=\"https://launchpad.net/podphoenix\">launchpad.net</a>")
+                        text: i18n.tr("Source code available on %1").arg("<a href=\"https://github.com/ilyakooo0/podphoenix\">github.com</a>")
                         onLinkActivated: Qt.openUrlExternally(link)
                     }
                 }

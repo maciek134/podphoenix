@@ -406,7 +406,7 @@ pointing at invalid files have also been cleaned up.")
                     ProgressionSlot {}
                 }
                 divider.visible: false
-                onClicked: Qt.openUrlExternally("https://bugs.launchpad.net/podphoenix/+filebug")
+                onClicked: Qt.openUrlExternally("https://github.com/ilyakooo0/podphoenix/issues")
             }
         }
     }
