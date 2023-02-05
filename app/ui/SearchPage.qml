@@ -1,13 +1,13 @@
 /*
  * Copyright 2015-2016 Michael Sheldon <mike@mikeasoft.com>
  *
- * This file is part of Podbird.
+ * This file is part of Podphoenix.
  *
- * Podbird is free software; you can redistribute it and/or modify
+ * Podphoenix is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; version 3.
  *
- * Podbird is distributed in the hope that it will be useful,
+ * Podphoenix is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -43,7 +43,7 @@ Page {
         title: i18n.tr("Add New Podcasts")
 
         StyleHints {
-            backgroundColor: podbird.appTheme.background
+            backgroundColor: podphoenix.appTheme.background
         }
 
         leadingActionBar {
@@ -89,7 +89,7 @@ Page {
         visible: searchPage.header === searchHeader
 
         StyleHints {
-            backgroundColor: podbird.appTheme.background
+            backgroundColor: podphoenix.appTheme.background
         }
 
         contents: Loader {
@@ -118,7 +118,7 @@ Page {
         visible: searchPage.header === addHeader
 
         StyleHints {
-            backgroundColor: podbird.appTheme.background
+            backgroundColor: podphoenix.appTheme.background
         }
 
         contents: Loader {
@@ -190,7 +190,7 @@ Page {
             text: i18n.tr("Please check the URL and try again")
             Button {
                 text: i18n.tr("Close")
-                color: podbird.appTheme.neutralActionButton
+                color: podphoenix.appTheme.neutralActionButton
                 onClicked: {
                     PopupUtils.close(dialogInternal)
                 }
@@ -261,7 +261,7 @@ Page {
             divider.visible: false
             highlightColor: "Transparent"
             height: expanded ? listItemLayout.height +  descriptionLoader.height + units.gu(1) : listItemLayout.height + units.gu(0.5)
-            color: index % 2 === 0 ? podbird.appTheme.hightlightListView : "Transparent"
+            color: index % 2 === 0 ? podphoenix.appTheme.hightlightListView : "Transparent"
 
             ListItemLayout {
                 id: listItemLayout
@@ -269,7 +269,7 @@ Page {
                 title.text: model.name
 
                 subtitle.text: model.artist
-                subtitle.color: podbird.appTheme.baseSubText
+                subtitle.color: podphoenix.appTheme.baseSubText
 
                 padding.top: units.gu(1)
                 padding.bottom: units.gu(0.5)
@@ -326,8 +326,8 @@ Page {
                     text: i18n.tr("Last Updated: %1\n%2").arg(model.releaseDate.split("T")[0]).arg(model.description)
                     wrapMode: Text.WordWrap
                     textSize: Label.Small
-                    color: podbird.appTheme.baseSubText
-                    linkColor: podbird.appTheme.linkText
+                    color: podphoenix.appTheme.baseSubText
+                    linkColor: podphoenix.appTheme.linkText
                     height: expanded ? contentHeight : 0
                     onLinkActivated: Qt.openUrlExternally(link)
                     Behavior on height {

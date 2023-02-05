@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-01 14:54+0000\n"
+"POT-Creation-Date: 2023-02-05 07:24+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,36 +19,48 @@ msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
 #: ../app/components/TabsList.qml:28 ../app/ui/EpisodesTab.qml:47
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/components/TabsList.qml:28
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:47
 msgid "Episodes"
 msgstr ""
 
 #: ../app/components/TabsList.qml:37 ../app/ui/SearchPage.qml:43
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/components/TabsList.qml:37
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SearchPage.qml:43
 msgid "Add New Podcasts"
 msgstr ""
 
 #: ../app/components/TabsList.qml:46 ../app/ui/PodcastsTab.qml:40
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/components/TabsList.qml:46
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/PodcastsTab.qml:40
 msgid "Podcasts"
 msgstr ""
 
 #: ../app/components/TabsList.qml:55 ../app/ui/SettingsPage.qml:34
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/components/TabsList.qml:55
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:34
 msgid "Settings"
 msgstr ""
 
 #: ../app/components/Walkthrough.qml:89
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/components/Walkthrough.qml:89
 msgid "Skip"
 msgstr ""
 
 #: ../app/podcasts.js:359
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/podcasts.js:359
 #, no-c-format, qt-format
 msgid "%1 hr %2 min"
 msgstr ""
 
 #: ../app/podcasts.js:368
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/podcasts.js:368
 #, no-c-format, qt-format
 msgid "%1 hr"
 msgstr ""
 
 #: ../app/podcasts.js:376
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/podcasts.js:376
 #, no-c-format, qt-format
 msgid "%1 min"
 msgstr ""
@@ -56,37 +68,49 @@ msgstr ""
 #. TRANSLATORS: About as in information about the app
 #: ../app/settings/About.qml:28 ../app/settings/About.qml:46
 #: ../app/ui/SettingsPage.qml:394
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/settings/About.qml:28
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/settings/About.qml:46
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:394
 msgid "About"
 msgstr ""
 
 #: ../app/settings/About.qml:46
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/settings/About.qml:46
 msgid "Credits"
 msgstr ""
 
+#. TRANSLATORS: Podphoenix version number e.g Version 0.8
 #. TRANSLATORS: Podbird version number e.g Version 0.8
 #: ../app/settings/About.qml:92
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/settings/About.qml:92
 #, qt-format
 msgid "Version %1"
 msgstr ""
 
 #: ../app/settings/About.qml:113
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/settings/About.qml:113
 msgid "Released under the terms of the GNU GPL v3"
 msgstr ""
 
 #: ../app/settings/About.qml:123
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/settings/About.qml:123
 #, qt-format
 msgid "Source code available on %1"
 msgstr ""
 
 #: ../app/settings/CleanSetting.qml:29
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/settings/CleanSetting.qml:29
 msgid "Delete older than"
 msgstr ""
 
 #: ../app/settings/CleanSetting.qml:40 ../app/settings/DownloadSetting.qml:40
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/settings/CleanSetting.qml:40
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/settings/DownloadSetting.qml:40
 msgid "Never"
 msgstr ""
 
 #: ../app/settings/CleanSetting.qml:41
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/settings/CleanSetting.qml:41
 #, qt-format
 msgid "%1 day"
 msgid_plural "%1 days"
@@ -95,6 +119,9 @@ msgstr[1] ""
 
 #: ../app/settings/CleanSetting.qml:42 ../app/settings/CleanSetting.qml:43
 #: ../app/settings/CleanSetting.qml:44
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/settings/CleanSetting.qml:42
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/settings/CleanSetting.qml:43
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/settings/CleanSetting.qml:44
 #, qt-format
 msgid "%1 month"
 msgid_plural "%1 months"
@@ -102,31 +129,39 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: ../app/settings/CleanSetting.qml:45
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/settings/CleanSetting.qml:45
 #, qt-format
 msgid "%1 year"
 msgid_plural "%1 years"
 msgstr[0] ""
 msgstr[1] ""
 
+#. TRANSLATORS: The first argument is the name of creator of Podphoenix (Michael Sheldon)
 #. TRANSLATORS: The first argument is the name of creator of Podbird (Michael Sheldon)
 #: ../app/settings/Credits.qml:31
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/settings/Credits.qml:31
 #, qt-format
 msgid "%1 (Creator)"
 msgstr ""
 
 #: ../app/settings/Credits.qml:31 ../app/settings/Credits.qml:32
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/settings/Credits.qml:31
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/settings/Credits.qml:32
 msgid "Developers"
 msgstr ""
 
 #: ../app/settings/Credits.qml:33
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/settings/Credits.qml:33
 msgid "Designer"
 msgstr ""
 
 #: ../app/settings/Credits.qml:34
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/settings/Credits.qml:34
 msgid "Translators"
 msgstr ""
 
 #: ../app/settings/DownloadSetting.qml:29
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/settings/DownloadSetting.qml:29
 msgid "Download at most"
 msgstr ""
 
@@ -134,6 +169,10 @@ msgstr ""
 #: ../app/settings/DownloadSetting.qml:42
 #: ../app/settings/DownloadSetting.qml:43
 #: ../app/settings/DownloadSetting.qml:44
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/settings/DownloadSetting.qml:41
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/settings/DownloadSetting.qml:42
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/settings/DownloadSetting.qml:43
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/settings/DownloadSetting.qml:44
 #, qt-format
 msgid "%1 episode"
 msgid_plural "%1 episodes"
@@ -141,34 +180,48 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: ../app/settings/ThemeSetting.qml:29 ../app/ui/SettingsPage.qml:181
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/settings/ThemeSetting.qml:29
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:181
 msgid "Theme"
 msgstr ""
 
 #. TRANSLATORS: Light Theme
 #: ../app/settings/ThemeSetting.qml:41 ../app/ui/SettingsPage.qml:182
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/settings/ThemeSetting.qml:41
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:182
 msgid "Light"
 msgstr ""
 
 #. TRANSLATORS: Dark Theme
 #: ../app/settings/ThemeSetting.qml:43 ../app/ui/SettingsPage.qml:182
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/settings/ThemeSetting.qml:43
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:182
 msgid "Dark"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:50
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:50
 msgid "Podcast"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:60 ../app/ui/EpisodesTab.qml:61
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:60
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:61
 msgid "Search Episode"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:68 ../app/ui/EpisodesPage.qml:304
 #: ../app/ui/SearchPage.qml:288
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:68
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:304
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SearchPage.qml:288
 msgid "Unsubscribe"
 msgstr ""
 
 #. TRANSLATORS: This is the page title. Keep it short. Otherwise it will just be elided.
 #: ../app/ui/EpisodesPage.qml:108 ../app/ui/EpisodesTab.qml:127
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:108
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:127
 #, qt-format
 msgid "%1 item selected"
 msgid_plural "%1 items selected"
@@ -177,38 +230,55 @@ msgstr[1] ""
 
 #: ../app/ui/EpisodesPage.qml:123 ../app/ui/EpisodesTab.qml:142
 #: ../app/ui/NowPlayingPage.qml:42
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:123
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:142
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/NowPlayingPage.qml:42
 msgid "Back"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:135 ../app/ui/EpisodesTab.qml:154
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:135
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:154
 msgid "Mark Listened"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:154 ../app/ui/EpisodesTab.qml:172
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:154
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:172
 msgid "Download episode(s)"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:182 ../app/ui/EpisodesTab.qml:200
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:182
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:200
 msgid "Delete episode(s)"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:205 ../app/ui/EpisodesTab.qml:223
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:205
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:223
 msgid "Favourite episode(s)"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:227 ../app/ui/EpisodesTab.qml:269
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:227
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:269
 msgid "Add to queue"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:256 ../app/ui/EpisodesTab.qml:119
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:256
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:119
 msgid "Search episode"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:301
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:301
 msgid "Unsubscribe Confirmation"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:302
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:302
 #, qt-format
 msgid "Are you sure you want to unsubscribe from <b>%1</b>?"
 msgstr ""
@@ -216,198 +286,257 @@ msgstr ""
 #: ../app/ui/EpisodesPage.qml:321 ../app/ui/SearchPage.qml:143
 #: ../app/ui/SettingsPage.qml:85 ../app/ui/SettingsPage.qml:120
 #: ../app/ui/SettingsPage.qml:155
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:321
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SearchPage.qml:143
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:85
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:120
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:155
 msgid "Cancel"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:343 ../app/ui/EpisodesTab.qml:406
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:343
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:406
 msgid "Episode Description"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:354 ../app/ui/EpisodesTab.qml:417
 #: ../app/ui/SearchPage.qml:192 ../app/ui/SettingsPage.qml:376
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:354
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:417
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SearchPage.qml:192
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:376
 msgid "Close"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:382
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:382
 msgid "No episodes found"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:383
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:383
 msgid "No episodes found matching the search term."
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:500
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:500
 msgid "Unheard"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:517
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:517
 msgid "Listened"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:536
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:536
 msgid "Downloaded"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:603
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:603
 msgid "Mark as unheard"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:603
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:603
 msgid "Mark as listened"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:619
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:619
 msgid "Delete downloaded file"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:619
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:619
 msgid "Queued"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:619
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:619
 msgid "Download"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:644
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:644
 msgid "Add to playlist"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:653
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:653
 msgid "Unfavourite"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:653
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:653
 msgid "Favourite"
 msgstr ""
 
 #: ../app/ui/EpisodesPage.qml:668
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesPage.qml:668
 msgid "Show episode description"
 msgstr ""
 
 #: ../app/ui/EpisodesTab.qml:81
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:81
 msgid "Recent"
 msgstr ""
 
 #: ../app/ui/EpisodesTab.qml:81
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:81
 msgid "Downloads"
 msgstr ""
 
 #: ../app/ui/EpisodesTab.qml:81
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:81
 msgid "Favourites"
 msgstr ""
 
 #: ../app/ui/EpisodesTab.qml:246
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:246
 msgid "Unfavourite episode(s)"
 msgstr ""
 
 #: ../app/ui/EpisodesTab.qml:309
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:309
 msgid "No New Episodes"
 msgstr ""
 
 #: ../app/ui/EpisodesTab.qml:311
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:311
 msgid "No Downloaded Episodes"
 msgstr ""
 
 #: ../app/ui/EpisodesTab.qml:313
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:313
 msgid "No Favourited Episodes"
 msgstr ""
 
 #: ../app/ui/EpisodesTab.qml:315
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:315
 msgid "No Episodes Found"
 msgstr ""
 
 #: ../app/ui/EpisodesTab.qml:321
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:321
 msgid "No more episodes to listen to!"
 msgstr ""
 
 #: ../app/ui/EpisodesTab.qml:323
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:323
 msgid "No episodes have been downloaded for offline listening"
 msgstr ""
 
 #: ../app/ui/EpisodesTab.qml:325
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:325
 msgid "No episodes have been favourited."
 msgstr ""
 
 #: ../app/ui/EpisodesTab.qml:327
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:327
 msgid "No Episodes found matching the search term."
 msgstr ""
 
 #: ../app/ui/EpisodesTab.qml:456
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:456
 msgid "Downloads in progress"
 msgstr ""
 
 #: ../app/ui/EpisodesTab.qml:496
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:496
 msgid "Downloaded episodes"
 msgstr ""
 
 #: ../app/ui/EpisodesTab.qml:506
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:506
 msgid "Today"
 msgstr ""
 
 #: ../app/ui/EpisodesTab.qml:510
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:510
 msgid "Yesterday"
 msgstr ""
 
 #: ../app/ui/EpisodesTab.qml:514
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/EpisodesTab.qml:514
 msgid "Older"
 msgstr ""
 
 #. TRANSLATORS: The string shown in the UI is -15s to denote the number of seconds that the podcast playback will skip backward.
 #: ../app/ui/FullPlayingView.qml:241
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/FullPlayingView.qml:241
 #, no-c-format, qt-format
 msgid "-%1s"
 msgstr ""
 
 #. TRANSLATORS: The string shown in the UI is +15s to denote the number of seconds that the podcast playback will skip forward.
 #: ../app/ui/FullPlayingView.qml:302
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/FullPlayingView.qml:302
 #, no-c-format, qt-format
 msgid "+%1s"
 msgstr ""
 
 #: ../app/ui/ImportPage.qml:18
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/ImportPage.qml:18
 msgid "Choose"
 msgstr ""
 
 #: ../app/ui/NowPlayingPage.qml:34
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/NowPlayingPage.qml:34
 msgid "Now Playing"
 msgstr ""
 
 #: ../app/ui/NowPlayingPage.qml:73
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/NowPlayingPage.qml:73
 msgid "Full view"
 msgstr ""
 
 #: ../app/ui/NowPlayingPage.qml:73
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/NowPlayingPage.qml:73
 msgid "Queue"
 msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:55 ../app/ui/SearchPage.qml:57
 #: ../app/ui/SearchPage.qml:174
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/PodcastsTab.qml:55
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SearchPage.qml:57
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SearchPage.qml:174
 msgid "Search Podcast"
 msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:95
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/PodcastsTab.qml:95
 msgid "Search podcast"
 msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:125
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/PodcastsTab.qml:125
 msgid "No Podcast Subscriptions"
 msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:125 ../app/ui/SearchPage.qml:220
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/PodcastsTab.qml:125
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SearchPage.qml:220
 msgid "No Podcasts Found"
 msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:126
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/PodcastsTab.qml:126
 msgid ""
 "You haven't subscribed to any podcasts yet, visit the 'Add New Podcasts' "
 "page to add some."
 msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:127 ../app/ui/SearchPage.qml:222
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/PodcastsTab.qml:127
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SearchPage.qml:222
 msgid "No podcasts found matching the search term."
 msgstr ""
 
 #: ../app/ui/PodcastsTab.qml:213
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/PodcastsTab.qml:213
 #, qt-format
 msgid "%1 unheard episode"
 msgid_plural "%1 unheard episodes"
@@ -415,45 +544,55 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: ../app/ui/SearchPage.qml:65
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SearchPage.qml:65
 msgid "Add Podcast"
 msgstr ""
 
 #: ../app/ui/SearchPage.qml:73
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SearchPage.qml:73
 msgid "Import Podcasts"
 msgstr ""
 
 #: ../app/ui/SearchPage.qml:135
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SearchPage.qml:135
 msgid "Save Podcast"
 msgstr ""
 
 #: ../app/ui/SearchPage.qml:162
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SearchPage.qml:162
 msgid "Feed URL"
 msgstr ""
 
 #: ../app/ui/SearchPage.qml:189
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SearchPage.qml:189
 msgid "Unable to subscribe"
 msgstr ""
 
 #: ../app/ui/SearchPage.qml:190
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SearchPage.qml:190
 msgid "Please check the URL and try again"
 msgstr ""
 
 #: ../app/ui/SearchPage.qml:220
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SearchPage.qml:220
 msgid "Looking to add a new podcast?"
 msgstr ""
 
 #: ../app/ui/SearchPage.qml:221
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SearchPage.qml:221
 msgid ""
 "Click the 'magnifier' at the top to search or the 'plus' button to add by URL"
 msgstr ""
 
 #: ../app/ui/SearchPage.qml:288
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SearchPage.qml:288
 msgid "Subscribe"
 msgstr ""
 
 #. TRANSLATORS: The first argument here is the date of when the podcast was last updated followed by
 #. the podcast description.
 #: ../app/ui/SearchPage.qml:326
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SearchPage.qml:326
 #, qt-format
 msgid ""
 "Last Updated: %1\n"
@@ -461,51 +600,70 @@ msgid ""
 msgstr ""
 
 #: ../app/ui/SearchPage.qml:383
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SearchPage.qml:383
 msgid "Not Available"
 msgstr ""
 
 #: ../app/ui/SearchPage.qml:499
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SearchPage.qml:499
 msgid "Please wait"
 msgstr ""
 
 #: ../app/ui/SearchPage.qml:500
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SearchPage.qml:500
 msgid "Importing podcasts..."
 msgstr ""
 
 #: ../app/ui/SearchPage.qml:518
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SearchPage.qml:518
 msgid "imported"
 msgstr ""
 
 #. TRANSLATORS: This strings refers to the seeking of the episode playback. Users can set how far they
 #. want to seek forward when pressing on this button.
 #: ../app/ui/SettingsPage.qml:65 ../app/ui/SettingsPage.qml:206
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:65
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:206
 msgid "Skip forward"
 msgstr ""
 
 #: ../app/ui/SettingsPage.qml:72 ../app/ui/SettingsPage.qml:107
 #: ../app/ui/SettingsPage.qml:207 ../app/ui/SettingsPage.qml:214
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:72
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:107
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:207
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:214
 #, qt-format
 msgid "%1 seconds"
 msgstr ""
 
 #: ../app/ui/SettingsPage.qml:77 ../app/ui/SettingsPage.qml:112
 #: ../app/ui/SettingsPage.qml:147
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:77
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:112
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:147
 msgid "OK"
 msgstr ""
 
 #. TRANSLATORS: This strings refers to the seeking of the episode playback. Users can set how far they
 #. want to seek backward when pressing on this button.
 #: ../app/ui/SettingsPage.qml:100 ../app/ui/SettingsPage.qml:213
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:100
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:213
 msgid "Skip back"
 msgstr ""
 
 #. TRANSLATORS: This strings refers to refreshing podcasts. Users can set how often they
 #. want to check for new episodes.
 #: ../app/ui/SettingsPage.qml:135 ../app/ui/SettingsPage.qml:238
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:135
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:238
 msgid "Refresh podcasts after"
 msgstr ""
 
 #: ../app/ui/SettingsPage.qml:142 ../app/ui/SettingsPage.qml:239
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:142
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:239
 #, qt-format
 msgid "%1 hours"
 msgstr ""
@@ -513,79 +671,98 @@ msgstr ""
 #. TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
 #. that doesn't fit into any other category.
 #: ../app/ui/SettingsPage.qml:176
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:176
 msgid "General Settings"
 msgstr ""
 
 #: ../app/ui/SettingsPage.qml:189
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:189
 msgid "Displays podcasts in a list view"
 msgstr ""
 
 #: ../app/ui/SettingsPage.qml:201
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:201
 msgid "Playback Settings"
 msgstr ""
 
 #: ../app/ui/SettingsPage.qml:221
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:221
 msgid "Continue where stopped"
 msgstr ""
 
 #: ../app/ui/SettingsPage.qml:233
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:233
 msgid "Podcast Episode Settings"
 msgstr ""
 
 #: ../app/ui/SettingsPage.qml:246
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:246
 msgid "Automatically delete old episodes"
 msgstr ""
 
 #: ../app/ui/SettingsPage.qml:248
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:248
 msgid ""
 "Delete episodes that are older than a given number of days for each podcast"
 msgstr ""
 
 #: ../app/ui/SettingsPage.qml:260
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:260
 msgid "Automatically download new episodes"
 msgstr ""
 
 #: ../app/ui/SettingsPage.qml:262
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:262
 msgid "Default number of new episodes to download for each podcast"
 msgstr ""
 
 #: ../app/ui/SettingsPage.qml:274
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:274
 msgid "Only download over WiFi"
 msgstr ""
 
 #: ../app/ui/SettingsPage.qml:276
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:276
 msgid "Download episodes only when the device is using WiFi"
 msgstr ""
 
 #: ../app/ui/SettingsPage.qml:296
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:296
 msgid "Refresh podcast artwork"
 msgstr ""
 
 #: ../app/ui/SettingsPage.qml:298
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:298
 msgid "Update all podcasts artwork and fix missing ones"
 msgstr ""
 
 #: ../app/ui/SettingsPage.qml:327
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:327
 msgid "Storage Settings"
 msgstr ""
 
 #: ../app/ui/SettingsPage.qml:338
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:338
 msgid "Delete orphaned files and links"
 msgstr ""
 
 #: ../app/ui/SettingsPage.qml:340
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:340
 msgid "Free space by removing orphaned downloaded files and links"
 msgstr ""
 
 #: ../app/ui/SettingsPage.qml:370
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:370
 msgid "Removed orphaned files and links"
 msgstr ""
 
 #: ../app/ui/SettingsPage.qml:370
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:370
 msgid "No orphans found!"
 msgstr ""
 
 #: ../app/ui/SettingsPage.qml:371
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:371
 msgid ""
 "All orphaned files have been deleted to recover disk space. Orphaned links "
 "pointing at invalid files have also been cleaned up."
@@ -593,75 +770,86 @@ msgstr ""
 
 #: ../app/ui/SettingsPage.qml:373
 msgid ""
-"No orphaned files have been found to recover disk space. Podbird database is "
-"clean."
+"No orphaned files have been found to recover disk space. Podphoenix database "
+"is clean."
 msgstr ""
 
 #. TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
 #. that doesn't fit into any other category.
 #: ../app/ui/SettingsPage.qml:388
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:388
 msgid "Misc."
 msgstr ""
 
 #: ../app/ui/SettingsPage.qml:404
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:404
 msgid "Report Bug"
 msgstr ""
 
 #: ../app/welcomewizard/Slide1.qml:42
-msgid "Welcome to Podbird"
+msgid "Welcome to Podphoenix"
 msgstr ""
 
 #: ../app/welcomewizard/Slide1.qml:53
 msgid ""
-"Enjoy your favourite shows with Podbird, the chirpiest podcast manager for "
-"Ubuntu.\n"
+"Enjoy your favourite shows with Podphoenix, the chirpiest podcast manager "
+"for Ubuntu.\n"
 "\n"
 "Chirp Chirp..."
 msgstr ""
 
 #: ../app/welcomewizard/Slide1.qml:82
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/welcomewizard/Slide1.qml:82
 msgid "Swipe to move between pages"
 msgstr ""
 
 #: ../app/welcomewizard/Slide2.qml:45
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/welcomewizard/Slide2.qml:45
 msgid "Discover New Podcasts"
 msgstr ""
 
 #: ../app/welcomewizard/Slide2.qml:62
 msgid ""
-"Podbird uses the iTunes® database to provide access to a huge collection of "
-"podcasts. You can also add podcasts by their URL."
+"Podphoenix uses the iTunes® database to provide access to a huge collection "
+"of podcasts. You can also add podcasts by their URL."
 msgstr ""
 
 #: ../app/welcomewizard/Slide3.qml:45
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/welcomewizard/Slide3.qml:45
 msgid "Smart Settings"
 msgstr ""
 
 #: ../app/welcomewizard/Slide3.qml:62
 msgid ""
-"Podbird can optionally download new episodes and clean up old episodes "
+"Podphoenix can optionally download new episodes and clean up old episodes "
 "automatically, this can be enabled from the settings page."
 msgstr ""
 
 #. TRANSLATORS: This text should be in a language different from the language set by the user.
 #. For instance, if the app was in english, then it is appropriate to set this string as
+#. Hallo or Bonjour etc to symbolize the internationalization feature in podphoenix.
+#. TRANSLATORS: This text should be in a language different from the language set by the user.
+#. For instance, if the app was in english, then it is appropriate to set this string as
 #. Hallo or Bonjour etc to symbolize the internationalization feature in podbird.
 #: ../app/welcomewizard/Slide4.qml:48
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/welcomewizard/Slide4.qml:48
 msgid "Hallo! Bonjour!"
 msgstr ""
 
 #: ../app/welcomewizard/Slide4.qml:67
 #, qt-format
 msgid ""
-"Podbird is available in over 15 languages and is translated by the %1 "
+"Podphoenix is available in over 15 languages and is translated by the %1 "
 "community"
 msgstr ""
 
 #: ../app/welcomewizard/Slide5.qml:45
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/welcomewizard/Slide5.qml:45
 msgid "Touch Gestures"
 msgstr ""
 
 #: ../app/welcomewizard/Slide5.qml:64
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/welcomewizard/Slide5.qml:64
 msgid ""
 "Episodes can be swiped left to reveal more actions (or right click if you're "
 "using a mouse). You can also multi-select them by long-pressing on an "
@@ -669,11 +857,13 @@ msgid ""
 msgstr ""
 
 #: ../app/welcomewizard/Slide6.qml:45
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/welcomewizard/Slide6.qml:45
 msgid "Support"
 msgstr ""
 
 #. TRANSLATORS: The %1 points to a url defined in html format <a href=\link\>Link</a>.
 #: ../app/welcomewizard/Slide6.qml:65
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/welcomewizard/Slide6.qml:65
 #, qt-format
 msgid ""
 "If you find any bugs or have any feature requests, let us know on our "
@@ -681,21 +871,70 @@ msgid ""
 msgstr ""
 
 #: ../app/welcomewizard/Slide7.qml:45
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/welcomewizard/Slide7.qml:45
 msgid "Enjoy"
 msgstr ""
 
 #: ../app/welcomewizard/Slide7.qml:62
-msgid "We hope you enjoy using Podbird!"
+msgid "We hope you enjoy using Podphoenix!"
 msgstr ""
 
 #: ../app/welcomewizard/Slide7.qml:75
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/welcomewizard/Slide7.qml:75
 msgid "Finish"
 msgstr ""
 
-#: /home/nicolas/podphoenix/build/aarch64-linux-gnu/app/po/Podbird.desktop.in.h:1
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/ui/SettingsPage.qml:373
+msgid ""
+"No orphaned files have been found to recover disk space. Podbird database is "
+"clean."
+msgstr ""
+
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/welcomewizard/Slide1.qml:42
+msgid "Welcome to Podbird"
+msgstr ""
+
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/welcomewizard/Slide1.qml:53
+msgid ""
+"Enjoy your favourite shows with Podbird, the chirpiest podcast manager for "
+"Ubuntu.\n"
+"\n"
+"Chirp Chirp..."
+msgstr ""
+
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/welcomewizard/Slide2.qml:62
+msgid ""
+"Podbird uses the iTunes® database to provide access to a huge collection of "
+"podcasts. You can also add podcasts by their URL."
+msgstr ""
+
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/welcomewizard/Slide3.qml:62
+msgid ""
+"Podbird can optionally download new episodes and clean up old episodes "
+"automatically, this can be enabled from the settings page."
+msgstr ""
+
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/welcomewizard/Slide4.qml:67
+#, qt-format
+msgid ""
+"Podbird is available in over 15 languages and is translated by the %1 "
+"community"
+msgstr ""
+
+#: ../build/aarch64-linux-gnu/app/install/share/qml/podbird/welcomewizard/Slide7.qml:62
+msgid "We hope you enjoy using Podbird!"
+msgstr ""
+
+#: ../build/aarch64-linux-gnu/app/po/Podbird.desktop.in.h:1
+#: ../build/arm-linux-gnueabihf/app/po/Podbird.desktop.in.h:1
+#: ../build/x86_64-linux-gnu/app/po/Podbird.desktop.in.h:1
+#: /home/iko/Developer/podphoenix/build/arm-linux-gnueabihf/app/po/Podbird.desktop.in.h:1
 msgid "The chirpiest podcast manager for Ubuntu"
 msgstr ""
 
-#: /home/nicolas/podphoenix/build/aarch64-linux-gnu/app/po/Podbird.desktop.in.h:2
+#: ../build/aarch64-linux-gnu/app/po/Podbird.desktop.in.h:2
+#: ../build/arm-linux-gnueabihf/app/po/Podbird.desktop.in.h:2
+#: ../build/x86_64-linux-gnu/app/po/Podbird.desktop.in.h:2
+#: /home/iko/Developer/podphoenix/build/arm-linux-gnueabihf/app/po/Podbird.desktop.in.h:2
 msgid "podcast;audio;itunes;broadcast;digital;stream;podcatcher;video;vodcast;"
 msgstr ""

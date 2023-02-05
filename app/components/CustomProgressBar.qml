@@ -1,13 +1,13 @@
 /*
- * Copyright 2015-2016 Podbird Team
+ * Copyright 2015-2016 Podphoenix Team
  *
- * This file is part of Podbird.
+ * This file is part of Podphoenix.
  *
- * Podbird is free software; you can redistribute it and/or modify
+ * Podphoenix is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; version 3.
  *
- * Podbird is distributed in the hope that it will be useful,
+ * Podphoenix is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -34,7 +34,7 @@ Rectangle {
         radius: parent.radius
         anchors.left: parent.left
         anchors.top: parent.top
-        color: podbird.appTheme.focusText
+        color: podphoenix.appTheme.focusText
         width: progress >= 0 && progress <= 100 ? (progress / 100) * parent.width : parent.width / 6
 
         SequentialAnimation {

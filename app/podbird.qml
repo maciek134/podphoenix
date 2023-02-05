@@ -1,13 +1,13 @@
 /*
  * Copyright 2015-2016 Michael Sheldon <mike@mikeasoft.com>
  *
- * This file is part of Podbird.
+ * This file is part of Podphoenix.
  *
- * Podbird is free software; you can redistribute it and/or modify
+ * Podphoenix is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; version 3.
  *
- * Podbird is distributed in the hope that it will be useful,
+ * Podphoenix is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -17,7 +17,7 @@
  */
 
 import QtQuick 2.9
-import Podbird 1.0
+import Podphoenix 1.0
 import QtMultimedia 5.9
 import Ubuntu.Connectivity 1.0
 import Qt.labs.settings 1.0
@@ -31,7 +31,7 @@ import "themes" as Themes
 import "podcasts.js" as Podcasts
 
 MainView {
-    id: podbird
+    id: podphoenix
 
     objectName: "mainView"
     applicationName: "soy.iko.podphoenix"
@@ -85,12 +85,12 @@ MainView {
         interval: 500
         repeat: false
         onTriggered: {
-            if (!NetworkingStatus.online || podbird.settings.maxEpisodeDownload === -1) {
+            if (!NetworkingStatus.online || podphoenix.settings.maxEpisodeDownload === -1) {
                 console.log("[LOG]: Skipped autodownloading of new episodes...")
                 console.log("[LOG]: Online connectivity: " + NetworkingStatus.online)
-                console.log("[LOG]: User settings (maxEpisodeDownload): " + podbird.settings.maxEpisodeDownload)
+                console.log("[LOG]: User settings (maxEpisodeDownload): " + podphoenix.settings.maxEpisodeDownload)
             } else {
-                Podcasts.autoDownloadEpisodes(podbird.settings.maxEpisodeDownload)
+                Podcasts.autoDownloadEpisodes(podphoenix.settings.maxEpisodeDownload)
             }
         }
     }
@@ -105,7 +105,7 @@ MainView {
         id: themeManager
         source: settings.themeName
         onSourceChanged: {
-            podbird.theme.name = settings.themeName == "Dark.qml" ? "Ubuntu.Components.Themes.SuruDark"
+            podphoenix.theme.name = settings.themeName == "Dark.qml" ? "Ubuntu.Components.Themes.SuruDark"
                                                                   : "Ubuntu.Components.Themes.Ambiance"
         }
     }
@@ -189,7 +189,7 @@ MainView {
             return false;
         }
 
-        var singleDownload = singleDownloadComponent.createObject(podbird, {"image": image, "title": title, "guid": guid, allowMobileDownload : !disableMobileDownload })
+        var singleDownload = singleDownloadComponent.createObject(podphoenix, {"image": image, "title": title, "guid": guid, allowMobileDownload : !disableMobileDownload })
         singleDownload.download(url)
     }
 
@@ -284,7 +284,7 @@ MainView {
         }
 
         function savePosition() {
-            podbird.settings.playlistIndex = playlist.currentIndex
+            podphoenix.settings.playlistIndex = playlist.currentIndex
             if (currentGuid) {
                 var db = Podcasts.init()
                 db.transaction(function (tx) {
@@ -305,8 +305,8 @@ MainView {
                     player.playlist.addItem(episode.url)
                 }
             })
-            if(playlist.itemCount > podbird.settings.playlistIndex)
-                playlist.currentIndex = podbird.settings.playlistIndex
+            if(playlist.itemCount > podphoenix.settings.playlistIndex)
+                playlist.currentIndex = podphoenix.settings.playlistIndex
         }
 
         function restorePosition() {
@@ -378,7 +378,7 @@ MainView {
                 currentArtist = meta.artist
                 currentImage = meta.image
                 currentGuid = meta.guid
-                player.pendingSeek = podbird.settings.continueWhereStopped && meta.position > 5000 ? meta.position : 0
+                player.pendingSeek = podphoenix.settings.continueWhereStopped && meta.position > 5000 ? meta.position : 0
             }
         }
 

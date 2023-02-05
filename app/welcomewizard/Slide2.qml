@@ -1,13 +1,13 @@
 /*
- * Copyright 2015 Podbird Team
+ * Copyright 2015 Podphoenix Team
  *
- * This file is part of Podbird.
+ * This file is part of Podphoenix.
  *
- * Podbird is free software; you can redistribute it and/or modify
+ * Podphoenix is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; version 3.
  *
- * Podbird is distributed in the hope that it will be useful,
+ * Podphoenix is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -59,7 +59,7 @@ Component {
                 topMargin: units.gu(4)
             }
             horizontalAlignment: Text.AlignHCenter
-            text: i18n.tr("Podbird uses the iTunes® database to provide access to a huge collection of podcasts. You can also add podcasts by their URL.")
+            text: i18n.tr("Podphoenix uses the iTunes® database to provide access to a huge collection of podcasts. You can also add podcasts by their URL.")
             wrapMode: Text.WordWrap
         }
     }

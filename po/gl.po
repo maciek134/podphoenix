@@ -1,11 +1,11 @@
-# Galician translation for podbird
+# Galician translation for podphoenix
 # Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
-# This file is distributed under the same license as the podbird package.
+# This file is distributed under the same license as the podphoenix package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: podbird\n"
+"Project-Id-Version: podphoenix\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2020-04-13 18:20+0000\n"
 "PO-Revision-Date: 2017-01-18 01:50+0000\n"
@@ -63,7 +63,7 @@ msgstr "Sobre"
 msgid "Credits"
 msgstr "Créditos"
 
-#. TRANSLATORS: Podbird version number e.g Version 0.8
+#. TRANSLATORS: Podphoenix version number e.g Version 0.8
 #: ../app/settings/About.qml:92
 #, qt-format
 msgid "Version %1"
@@ -108,7 +108,7 @@ msgid_plural "%1 years"
 msgstr[0] "%1 ano"
 msgstr[1] "%1 anos"
 
-#. TRANSLATORS: The first argument is the name of creator of Podbird (Michael Sheldon)
+#. TRANSLATORS: The first argument is the name of creator of Podphoenix (Michael Sheldon)
 #: ../app/settings/Credits.qml:31
 #, qt-format
 msgid "%1 (Creator)"
@@ -583,11 +583,11 @@ msgstr ""
 
 #: ../app/ui/SettingsPage.qml:317
 msgid ""
-"No orphaned files have been found to recover disk space. Podbird database is "
+"No orphaned files have been found to recover disk space. Podphoenix database is "
 "clean."
 msgstr ""
 "Non se atoparon ficheiros orfos para recuperar espazo no disco. A base de "
-"datos de Podbird está limpa."
+"datos de Podphoenix está limpa."
 
 #. TRANSLATORS: Shortened form of "Miscellaneous" which is shown to denote other setting options
 #. that doesn't fit into any other category.
@@ -600,17 +600,17 @@ msgid "Report Bug"
 msgstr "Informar dun fallo"
 
 #: ../app/welcomewizard/Slide1.qml:42
-msgid "Welcome to Podbird"
-msgstr "Benvido/a ao Podbird"
+msgid "Welcome to Podphoenix"
+msgstr "Benvido/a ao Podphoenix"
 
 #: ../app/welcomewizard/Slide1.qml:53
 msgid ""
-"Enjoy your favourite shows with Podbird, the chirpiest podcast manager for "
+"Enjoy your favourite shows with Podphoenix, the chirpiest podcast manager for "
 "Ubuntu.\n"
 "\n"
 "Chirp Chirp..."
 msgstr ""
-"Goce dos seus programas favoritos co Podbird, o xestor de podcasts máis "
+"Goce dos seus programas favoritos co Podphoenix, o xestor de podcasts máis "
 "rechouchiante de Ubuntu.\n"
 "\n"
 "Pío pío..."
@@ -625,10 +625,10 @@ msgstr "Descubrir novos podcasts"
 
 #: ../app/welcomewizard/Slide2.qml:62
 msgid ""
-"Podbird uses the iTunes® database to provide access to a huge collection of "
+"Podphoenix uses the iTunes® database to provide access to a huge collection of "
 "podcasts. You can also add podcasts by their URL."
 msgstr ""
-"O Podbird usa a base de datos de iTunes® para permitirlle o acceso a unha "
+"O Podphoenix usa a base de datos de iTunes® para permitirlle o acceso a unha "
 "gran colección de podcasts. Tamén pode engadir un podcast mediante unha URL."
 
 #: ../app/welcomewizard/Slide3.qml:45
@@ -637,15 +637,15 @@ msgstr "Axustes intelixentes"
 
 #: ../app/welcomewizard/Slide3.qml:62
 msgid ""
-"Podbird can optionally download new episodes and clean up old episodes "
+"Podphoenix can optionally download new episodes and clean up old episodes "
 "automatically, this can be enabled from the settings page."
 msgstr ""
-"O Podbird tamén pode descargar novos episodios e eliminar os antigos "
+"O Podphoenix tamén pode descargar novos episodios e eliminar os antigos "
 "automaticamente. Esta opción actívase nos axustes."
 
 #. TRANSLATORS: This text should be in a language different from the language set by the user.
 #. For instance, if the app was in english, then it is appropriate to set this string as
-#. Hallo or Bonjour etc to symbolize the internationalization feature in podbird.
+#. Hallo or Bonjour etc to symbolize the internationalization feature in podphoenix.
 #: ../app/welcomewizard/Slide4.qml:48
 msgid "Hallo! Bonjour!"
 msgstr "Hallo! Bonjour!"
@@ -653,10 +653,10 @@ msgstr "Hallo! Bonjour!"
 #: ../app/welcomewizard/Slide4.qml:67
 #, qt-format
 msgid ""
-"Podbird is available in over 15 languages and is translated by the %1 "
+"Podphoenix is available in over 15 languages and is translated by the %1 "
 "community"
 msgstr ""
-"O Podbird está dispoñíbel en máis de 15 idiomas e é traducido pola "
+"O Podphoenix está dispoñíbel en máis de 15 idiomas e é traducido pola "
 "comunidade %1"
 
 #: ../app/welcomewizard/Slide5.qml:45
@@ -692,18 +692,18 @@ msgid "Enjoy"
 msgstr "Goce"
 
 #: ../app/welcomewizard/Slide7.qml:62
-msgid "We hope you enjoy using Podbird!"
-msgstr "Esperamos que goce co Podbird."
+msgid "We hope you enjoy using Podphoenix!"
+msgstr "Esperamos que goce co Podphoenix."
 
 #: ../app/welcomewizard/Slide7.qml:75
 msgid "Finish"
 msgstr "Rematar"
 
-#: ../app/po/Podbird.desktop.in.h:1
+#: ../app/po/Podphoenix.desktop.in.h:1
 msgid "The chirpiest podcast manager for Ubuntu"
 msgstr "O xestor de podcasts máis rechouchiante para Ubuntu"
 
-#: ../app/po/Podbird.desktop.in.h:2
+#: ../app/po/Podphoenix.desktop.in.h:2
 msgid ""
 "podcast;audio;itunes;broadcast;digital;stream;podcatcher;video;vodcast;"
 msgstr "podcast;audio;itunes;son;dixital;fluxo;stream;vídeo;vodcast;"

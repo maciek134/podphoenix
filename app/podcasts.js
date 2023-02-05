@@ -1,13 +1,13 @@
 /*
- * Copyright 2015 Podbird Team
+ * Copyright 2015 Podphoenix Team
  *
- * This file is part of Podbird.
+ * This file is part of Podphoenix.
  *
- * Podbird is free software; you can redistribute it and/or modify
+ * Podphoenix is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; version 3.
  *
- * Podbird is distributed in the hope that it will be useful,
+ * Podphoenix is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -17,7 +17,7 @@
  */
 
 function init() {
-    var db = LocalStorage.openDatabaseSync("Podbird", "", "Database of subscribed podcasts and their episodes", 1000000);
+    var db = LocalStorage.openDatabaseSync("Podphoenix", "", "Database of subscribed podcasts and their episodes", 1000000);
 
     db.transaction(function(tx) {
         tx.executeSql(`
@@ -317,7 +317,7 @@ function updateEpisodes(refreshModel) {
                             tx.executeSql("UPDATE Podcast SET lastupdate=CURRENT_TIMESTAMP");
                         })
                         console.log("[LOG]: Finished checking for new episodes..")
-                        podbird.settings.lastUpdate = new Date();
+                        podphoenix.settings.lastUpdate = new Date();
                         refreshModel();
                     }
                 }
@@ -422,7 +422,7 @@ function autoDownloadEpisodes(maxEpisodeDownload) {
             for (var j=0; j < loopCount; j++) {
                 var  episode = rs2.rows.item(j);
                 if ( !episode.downloadedfile && !episode.listened && episode.audiourl && !episode.queued ) {
-                    podbird.downloadEpisode(podcast.image, episode.name, episode.guid, episode.audiourl, podbird.settings.downloadOverWifiOnly)
+                    podphoenix.downloadEpisode(podcast.image, episode.name, episode.guid, episode.audiourl, podphoenix.settings.downloadOverWifiOnly)
                     tx.executeSql("UPDATE Episode SET queued=1 WHERE guid = ?", [episode.guid]);
                 }
             }
