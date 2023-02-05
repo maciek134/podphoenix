@@ -10,6 +10,6 @@
         }
     },
     "version": "0.1.1.0",
-    "maintainer": "Ilia Kostiuchenko <mike@mikeasoft.com>",
+    "maintainer": "Ilia Kostiuchenko <mail@iko.soy>",
     "framework": "@CLICK_FRAMEWORK@"
 }
