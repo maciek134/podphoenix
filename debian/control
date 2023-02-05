@@ -12,9 +12,9 @@ Build-Depends: cmake,
                qtbase5-dev,
                qtdeclarative5-dev,
 Standards-Version: 3.9.5
-Homepage: https://launchpad.net/podbird
-Vcs-Bzr: https://code.launchpad.net/~michael-sheldon/podbird/trunk
-Vcs-Browser: http://bazaar.launchpad.net/~michael-sheldon/podbird/trunk/files
+Homepage: https://github.com/ilyakooo0/podphoenix
+Vcs-Bzr: https://github.com/ilyakooo0/podphoenix
+Vcs-Browser: https://github.com/ilyakooo0/podphoenix
 
 Package: podbird
 Architecture: any

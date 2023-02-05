@@ -1,13 +1,13 @@
 /*
- * Copyright 2015-2016 Podbird Team
+ * Copyright 2015-2016 Podphoenix Team
  *
- * This file is part of Podbird.
+ * This file is part of Podphoenix.
  *
- * Podbird is free software; you can redistribute it and/or modify
+ * Podphoenix is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; version 3.
  *
- * Podbird is distributed in the hope that it will be useful,
+ * Podphoenix is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -27,9 +27,10 @@ Item {
         id: creditsModel
         Component.onCompleted: initialize()
         function initialize() {
-            // TRANSLATORS: The first argument is the name of creator of Podbird (Michael Sheldon)
+            // TRANSLATORS: The first argument is the name of creator of Podphoenix (Michael Sheldon)
             creditsModel.append({ name: i18n.tr("%1 (Creator)").arg("Michael Sheldon"), title: i18n.tr("Developers"), url: "http://blog.mikeasoft.com" })
             creditsModel.append({ name: "Nekhelesh Ramananthan", title: i18n.tr("Developers"), url: "https://launchpad.net/~nik90" })
+            creditsModel.append({ name: "Ilia Kostiuchenko", title: i18n.tr("Developers"), url: "https://github.com/ilyakooo0" })
             creditsModel.append({ name: "Kevin Feyder", title: i18n.tr("Designer"), url: "https://feyder.design/" })
             creditsModel.append({ name: "Ubuntu Translators Community", title: i18n.tr("Translators"), url: "https://discourse.ubuntu.com/t/translations/32" })
         }
@@ -58,7 +59,7 @@ Item {
         delegate: ListItem {
             ListItemLayout {
                 title.text: model.name
-                title.color: podbird.appTheme.baseText
+                title.color: podphoenix.appTheme.baseText
                 ProgressionSlot {}
             }
             divider.visible: false

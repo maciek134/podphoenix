@@ -1,13 +1,13 @@
 /*
- * Copyright 2016 Podbird Team
+ * Copyright 2016 Podphoenix Team
  *
- * This file is part of Podbird.
+ * This file is part of Podphoenix.
  *
- * Podbird is free software; you can redistribute it and/or modify
+ * Podphoenix is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; version 3.
  *
- * Podbird is distributed in the hope that it will be useful,
+ * Podphoenix is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -58,11 +58,11 @@ ListView {
             title.text: layout.metaModel.name
             title.wrapMode: Text.WordWrap
             title.maximumLineCount: 2
-            title.color: player.playlist.currentIndex === index ? podbird.appTheme.focusText
-                                                                : podbird.appTheme.baseText
+            title.color: player.playlist.currentIndex === index ? podphoenix.appTheme.focusText
+                                                                : podphoenix.appTheme.baseText
 
             subtitle.text: layout.metaModel.artist
-            subtitle.color: podbird.appTheme.baseSubText
+            subtitle.color: podphoenix.appTheme.baseSubText
         }
 
         leadingActions: ListItemActions {

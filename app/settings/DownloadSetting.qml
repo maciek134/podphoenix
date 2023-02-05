@@ -1,13 +1,13 @@
 /*
- * Copyright 2015-2016 Podbird Team
+ * Copyright 2015-2016 Podphoenix Team
  *
- * This file is part of Podbird.
+ * This file is part of Podphoenix.
  *
- * Podbird is free software; you can redistribute it and/or modify
+ * Podphoenix is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; version 3.
  *
- * Podbird is distributed in the hope that it will be useful,
+ * Podphoenix is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -29,7 +29,7 @@ Page {
         title: i18n.tr("Download at most")
         flickable: download
         StyleHints {
-            backgroundColor: podbird.appTheme.background
+            backgroundColor: podphoenix.appTheme.background
         }
     }
 
@@ -63,20 +63,20 @@ Page {
 
             ListItemLayout {
                 title.text: model.name
-                title.color: podbird.appTheme.baseText
+                title.color: podphoenix.appTheme.baseText
 
                 Icon {
                     width: units.gu(2)
                     height: width
                     name: "ok"
-                    color: podbird.appTheme.baseText
-                    visible: podbird.settings.maxEpisodeDownload === model.value
+                    color: podphoenix.appTheme.baseText
+                    visible: podphoenix.settings.maxEpisodeDownload === model.value
                     SlotsLayout.position: SlotsLayout.Trailing
                 }
             }
 
             onClicked: {
-                podbird.settings.maxEpisodeDownload = model.value
+                podphoenix.settings.maxEpisodeDownload = model.value
             }
         }
     }

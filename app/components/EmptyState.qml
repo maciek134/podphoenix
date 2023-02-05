@@ -38,7 +38,7 @@ Item {
         id: emptyIcon
         width: units.gu(22)
         height: units.gu(12)
-        color: podbird.appTheme.baseIcon
+        color: podphoenix.appTheme.baseIcon
         anchors.horizontalCenter: parent.horizontalCenter
     }
 
@@ -48,7 +48,7 @@ Item {
         anchors.topMargin: units.gu(5)
         width: parent.width
         textSize: Label.Large
-        color: podbird.appTheme.baseText
+        color: podphoenix.appTheme.baseText
         horizontalAlignment: Text.AlignHCenter
         wrapMode: Text.WrapAtWordBoundaryOrAnywhere
     }
@@ -57,7 +57,7 @@ Item {
         id: emptySublabel
         width: parent.width
         anchors.top: emptyLabel.bottom
-        color: podbird.appTheme.baseSubText
+        color: podphoenix.appTheme.baseSubText
         horizontalAlignment: Text.AlignHCenter
         wrapMode: Text.WrapAtWordBoundaryOrAnywhere
     }
