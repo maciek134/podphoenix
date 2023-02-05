@@ -5,8 +5,8 @@
     "title": "@APP_NAME@",
     "hooks": {
         "Podphoenix": {
-            "apparmor": "Podbird.apparmor",
-            "desktop": "Podbird.desktop"
+            "apparmor": "Podphoenix.apparmor",
+            "desktop": "Podphoenix.desktop"
         }
     },
     "version": "0.1.1.0",

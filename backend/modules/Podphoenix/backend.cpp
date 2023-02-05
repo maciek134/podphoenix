@@ -1,13 +1,13 @@
 /*
  * Copyright 2015 Michael Sheldon <mike@mikeasoft.com>
  *
- * This file is part of Podbird.
+ * This file is part of Podphoenix.
  *
- * Podbird is free software; you can redistribute it and/or modify
+ * Podphoenix is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; version 3.
  *
- * Podbird is distributed in the hope that it will be useful,
+ * Podphoenix is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -25,7 +25,7 @@
 
 void BackendPlugin::registerTypes(const char *uri)
 {
-    Q_ASSERT(uri == QLatin1String("Podbird"));
+    Q_ASSERT(uri == QLatin1String("Podphoenix"));
 
     qmlRegisterType<FileManager>(uri, 1, 0, "FileManager");
 }
