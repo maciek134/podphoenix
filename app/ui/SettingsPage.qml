@@ -268,6 +268,23 @@ Page {
                 onClicked: mainStack.push(Qt.resolvedUrl("../settings/DownloadSetting.qml"))
             }
 
+            ListItem {
+                ListItemLayout {
+                    id: deleteListened
+                    title.text: i18n.tr("Automatically delete listened episodes")
+                    title.color: podphoenix.appTheme.baseText
+                    summary.text: i18n.tr("Automatically delete listened episodes on application start")
+                    summary.color: podphoenix.appTheme.baseSubText
+                    Switch {
+                        SlotsLayout.position: SlotsLayout.Last
+                        checked: podphoenix.settings.deleteListened
+                        onClicked: podphoenix.settings.deleteListened = checked
+                    }
+                }
+                divider.visible: false
+                height: deleteListened.height
+            }
+
  	ListItem {
                 ListItemLayout {
                     id: downloadWifiOnlyLayout
