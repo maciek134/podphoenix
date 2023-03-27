@@ -401,7 +401,11 @@ function cleanUp(today, retentionDays) {
             var rs2 = tx.executeSql("SELECT rowid, * FROM Episode WHERE podcast=?", [rs.rows.item(i).rowid]);
             for (var j=0; j< rs2.rows.length; j++) {
                 var diff = Math.floor((today - rs2.rows.item(j).published)/dayToMs)
-                if (rs2.rows.item(j).downloadedfile && diff > retentionDays) {
+                var item = rs2.rows.item(j);
+                if (!item.favourited && item.downloadedfile && (
+                    diff > retentionDays
+                    || (podphoenix.settings.deleteListened && item.listened)
+                )) {
                     fileManager.deleteFile(rs2.rows.item(j).downloadedfile)
                     tx.executeSql("UPDATE Episode SET downloadedfile = NULL WHERE guid = ?", [rs2.rows.item(j).guid]);
                 }

@@ -122,6 +122,7 @@ MainView {
         property bool firstRun: true
         property int maxEpisodeDownload: -1
         property bool hideListened: false
+        property bool deleteListened: false
         property bool showListView: true
         property int skipForward: 30
         property int skipBack: 10
@@ -387,6 +388,12 @@ MainView {
                 console.log("[LOG]: End of Media. Stopping.")
                 endOfMedia = true
                 stop()
+
+                Podcasts.init().transaction(function(tx) {
+                    // Playlist finished, mark all playlist as played.
+                    tx.executeSql("UPDATE Episode SET listened=1 WHERE guid in (SELECT guid FROM Queue)");
+                    refreshModels();
+                })
             }
         }
 
