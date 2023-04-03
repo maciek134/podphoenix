@@ -271,11 +271,10 @@ Page {
         db.transaction(function (tx) {
             podcastModel.clear();
             var rs = tx.executeSql(`
-                SELECT p.rowid as rowid, p.*, COUNT(e.rowid) as episodeCount
+                SELECT p.rowid as rowid, p.*, sum(CASE WHEN e.listened = 0 THEN 1 ELSE 0 END) as episodeCount
                 FROM Podcast as p
                 JOIN Episode as e
                 ON p.rowid = e.podcast
-                WHERE e.listened = 0
                 GROUP BY p.rowid
                 ORDER BY p.name ASC
             `);
