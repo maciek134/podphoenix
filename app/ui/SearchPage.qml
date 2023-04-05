@@ -394,6 +394,15 @@ Page {
         xhr.open("GET", feedUrl);
         xhr.onreadystatechange = function() {
             if (xhr.readyState === XMLHttpRequest.DONE) {
+                const location = xhr.getResponseHeader('Location');
+                if (location) {
+                    // for some reason a 302 will also include anything that was
+                    // returned in the original redirect in the body, breaking XML
+                    // just re-launch the request with the new location
+                    getPodcastDescription(location, index);
+                    return;
+                }
+
                 var e = xhr.responseXML.documentElement;
                 for(var h = 0; h < e.childNodes.length; h++) {
                     if(e.childNodes[h].nodeName === "channel") {

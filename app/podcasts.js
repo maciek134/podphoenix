@@ -239,6 +239,18 @@ function updateEpisodes(refreshModel) {
                 xhr[i].open("GET", url);
                 xhr[i].onreadystatechange = function() {
                     if (xhr[i].readyState === XMLHttpRequest.DONE) {
+                        const location = xhr[i].getResponseHeader('Location');
+                        if (location) {
+                            // for some reason a 302 will also include anything that was
+                            // returned in the original redirect in the body, breaking XML
+                            // just re-launch the request with the new location
+                            const newXhr = new XMLHttpRequest();
+                            newXhr.open("GET", location);
+                            newXhr.onreadystatechange = xhr[i].onreadystatechange;
+                            newXhr.send();
+                            xhr[i] = newXhr;
+                            return;
+                        }
                         xhrComplete[i] = true;
 
                         try {
