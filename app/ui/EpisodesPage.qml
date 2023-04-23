@@ -736,7 +736,7 @@ Page {
 
         var db = Podcasts.init();
         db.transaction(function (tx) {
-            var rs = tx.executeSql("SELECT rowid, * FROM Episode WHERE podcast=? ORDER BY published DESC", [pid]);
+            var rs = tx.executeSql("SELECT rowid, * FROM Episode WHERE podcast=? ORDER BY published", [pid]);
             for(i = 0; i < rs.rows.length; i++) {
                 episode = rs.rows.item(i);
                 if (!episode.listened) {
