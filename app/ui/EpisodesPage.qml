@@ -22,11 +22,19 @@ import Ubuntu.Components 1.3
 import QtQuick.LocalStorage 2.0
 import Ubuntu.DownloadManager 1.2
 import Ubuntu.Components.Popups 1.3
+import Lomiri.Components.Pickers 1.3
 import "../podcasts.js" as Podcasts
 import "../components"
 
 Page {
     id: episodesPage
+
+    enum DateFilter {
+        None,
+        EarlierThan,
+        LaterThan,
+        Between
+    }
 
     visible: false
 
@@ -36,6 +44,10 @@ Page {
     property string episodeImage
     property string tempGuid: "NULL"
     property string mode: "listened"
+    property bool sortAscending: false
+    property int dateFilter: EpisodesPage.DateFilter.None
+    property date publishedDateFilter: new Date()
+    property date publishedDateFilterTo: new Date()
 
     Component.onCompleted: {
         loadEpisodes(episodeId, episodeArtist, episodeImage)
@@ -54,7 +66,23 @@ Page {
             backgroundColor: podphoenix.appTheme.background
         }
 
+        trailingActionBar.numberOfSlots: 4
         trailingActionBar.actions: [
+            Action {
+                iconName: episodesPage.sortAscending ? "down" : "up"
+                text: episodesPage.sortAscending ? i18n.tr("Ascending") : i18n.tr("Descending")
+                onTriggered: {
+                    episodesPage.sortAscending = !episodesPage.sortAscending;
+                    episodesPage.refreshModel();
+                }
+            },
+            Action {
+                iconName: episodesPage.dateFilter === EpisodesPage.DateFilter.None ? "filters" : "filter"
+                text: i18n.tr("Sort & Filter")
+                onTriggered: {
+                    PopupUtils.open(sortFilterDialogComponent, episodesPage);
+                }
+            },
             Action {
                 iconName: "search"
                 text: i18n.tr("Search Episode")
@@ -291,6 +319,112 @@ Page {
                 }
             });
             refreshModel();
+        }
+    }
+
+    Component {
+        id: sortFilterDialogComponent
+        Dialog {
+            id: sortFilterDialog
+
+            title: i18n.tr("Sort & Filter")
+
+            Component.onCompleted: {
+                // WORKAROUND: Avoid UI glitch in OptionSelector when initially selecting 1+ index
+
+                sortSelector.selectedIndex = episodesPage.sortAscending ? 0 : 1;
+
+                let currentDateFilter = filterSelector.model.findIndex(obj => {
+                  return obj.value === episodesPage.dateFilter;
+                })
+                filterSelector.selectedIndex = currentDateFilter;
+            }
+
+            OptionSelector {
+                id: sortSelector
+                text: i18n.tr("Sort by date")
+                model: [
+                    i18n.tr("Ascending"),
+                    i18n.tr("Descending")
+                ]
+            }
+
+            Label {
+                text: i18n.tr("Filter by date")
+            }
+
+            OptionSelector {
+                id: filterSelector
+                model: [
+                    { name: i18n.tr("None"), value: EpisodesPage.DateFilter.None },
+                    { name: i18n.tr("Earlier than"), value: EpisodesPage.DateFilter.EarlierThan },
+                    { name: i18n.tr("Later than"), value: EpisodesPage.DateFilter.LaterThan },
+                    { name: i18n.tr("Between"), value: EpisodesPage.DateFilter.Between }
+                ]
+                delegate: filterSelectorDelegate
+            }
+
+            Component {
+                id: filterSelectorDelegate
+                OptionSelectorDelegate { text: modelData.name}
+            }
+
+            Label {
+                visible: filterSelector.model[filterSelector.selectedIndex].value === EpisodesPage.DateFilter.Between
+                text: i18n.tr("From:")
+            }
+
+            DatePicker {
+                id: datePicker
+                visible: filterSelector.model[filterSelector.selectedIndex].value !== EpisodesPage.DateFilter.None
+                date: episodesPage.publishedDateFilter
+                minimum: {
+                    let d = new Date();
+                    d.setFullYear(d.getFullYear() - 40);
+                    return d;
+                }
+                maximum: new Date()
+            }
+
+            Label {
+                visible: filterSelector.model[filterSelector.selectedIndex].value === EpisodesPage.DateFilter.Between
+                text: i18n.tr("To:")
+            }
+
+            DatePicker {
+                id: datePickerTo
+                visible: filterSelector.model[filterSelector.selectedIndex].value === EpisodesPage.DateFilter.Between
+                date: episodesPage.publishedDateFilterTo
+                minimum: datePicker.date
+                maximum: new Date()
+            }
+
+            Button {
+                text: i18n.tr("Apply")
+                color: podphoenix.appTheme.positiveActionButton
+                onClicked: {
+                    episodesPage.sortAscending = sortSelector.selectedIndex === 0;
+                    let date = datePicker.date;
+                    date.setHours(0,0,0,0);
+                    episodesPage.publishedDateFilter = date;
+
+                    if (filterSelector.model[filterSelector.selectedIndex].value === EpisodesPage.DateFilter.Between) {
+                        let dateTo = datePickerTo.date;
+                        dateTo.setHours(0,0,0,0);
+                        episodesPage.publishedDateFilterTo = dateTo;
+                    }
+                    episodesPage.dateFilter = filterSelector.model[filterSelector.selectedIndex].value;
+                    episodesPage.refreshModel();
+                    PopupUtils.close(sortFilterDialog);
+                }
+            }
+            Button {
+                text: i18n.tr("Cancel")
+                color: podphoenix.appTheme.neutralActionButton
+                onClicked: {
+                    PopupUtils.close(sortFilterDialog);
+                }
+            }
         }
     }
 
@@ -736,7 +870,45 @@ Page {
 
         var db = Podcasts.init();
         db.transaction(function (tx) {
-            var rs = tx.executeSql("SELECT rowid, * FROM Episode WHERE podcast=? ORDER BY published DESC", [pid]);
+            var order  = episodesPage.sortAscending ? "ASC" : "DESC";
+            var dateFilter = episodesPage.dateFilter;
+            var filterDate = episodesPage.publishedDateFilter;
+            var filterDateTo = episodesPage.publishedDateFilterTo;
+            var dateCompare = "";
+            switch (dateFilter) {
+                case EpisodesPage.DateFilter.LaterThan:
+                    dateCompare = ">";
+                    break;
+                case EpisodesPage.DateFilter.Between:
+                    dateCompare = ">=";
+                    break;
+                case EpisodesPage.DateFilter.EarlierThan:
+                default:
+                    dateCompare = "<";
+                    break;
+            }
+            var dateFilterStatement = "";
+            if (episodesPage.dateFilter !== EpisodesPage.DateFilter.None) {
+                dateFilterStatement = " AND datetime(published / 1000, 'unixepoch') " + dateCompare + " datetime(?)";
+            }
+
+            if (episodesPage.dateFilter === EpisodesPage.DateFilter.Between) {
+                dateFilterStatement += " AND datetime(published / 1000, 'unixepoch') <= datetime(?)";
+            }
+
+            var formattedFilterDate = Qt.formatDateTime(filterDate, "yyyy-MM-dd HH:mm:ss.zzz");
+            var formattedFilterDateTo = Qt.formatDateTime(filterDateTo, "yyyy-MM-dd HH:mm:ss.zzz");
+            var selectStatement = "SELECT rowid, * FROM Episode";
+            var whereStatement = " WHERE podcast=? " + dateFilterStatement;
+            var orderStatement = " ORDER BY published " + order;
+            var bindValues = [pid];
+            if (episodesPage.dateFilter === EpisodesPage.DateFilter.Between) {
+                bindValues = [pid, formattedFilterDate, formattedFilterDateTo];
+            } else if (episodesPage.dateFilter !== EpisodesPage.DateFilter.None) {
+                bindValues = [pid, formattedFilterDate];
+            }
+
+            var rs = tx.executeSql(selectStatement + whereStatement + orderStatement, bindValues);
             for(i = 0; i < rs.rows.length; i++) {
                 episode = rs.rows.item(i);
                 if (!episode.listened) {
