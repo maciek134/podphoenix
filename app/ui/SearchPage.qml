@@ -408,9 +408,27 @@ Page {
                     if(e.childNodes[h].nodeName === "channel") {
                         var c = e.childNodes[h];
                         for(var j = 0; j < c.childNodes.length; j++) {
-                            if (c.childNodes[j].nodeName === "description") {
-                                description = c.childNodes[j].childNodes[0].nodeValue
-                                if (description != undefined) {
+                            var node = c.childNodes[j];
+                            var nodeName = (node.localName ? node.localName : node.nodeName).toLowerCase();
+                            // Helper to get text content - iterate all child nodes to find text/CDATA
+                            var getTextContent = function(n) {
+                                var text = "";
+                                if (n.childNodes) {
+                                    for (var m = 0; m < n.childNodes.length; m++) {
+                                        var child = n.childNodes[m];
+                                        // nodeType 3 = TEXT_NODE, nodeType 4 = CDATA_SECTION_NODE
+                                        // Also check nodeName for #text and #cdata-section as fallback
+                                        if (child.nodeType === 3 || child.nodeType === 4 ||
+                                            child.nodeName === "#text" || child.nodeName === "#cdata-section") {
+                                            text += child.nodeValue || "";
+                                        }
+                                    }
+                                }
+                                return text.trim();
+                            };
+                            if (nodeName === "description" || nodeName === "summary" || nodeName === "subtitle") {
+                                description = getTextContent(node);
+                                if (description != undefined && description !== "") {
                                     searchResults.setProperty(index, "description", description)
                                     return
                                 }
@@ -447,12 +465,29 @@ Page {
                 for(var h = 0; h < e.childNodes.length; h++) {
                     if(e.childNodes[h].nodeName === "channel") {
                         var c = e.childNodes[h];
+                        // Helper to get text content - iterate all child nodes to find text/CDATA
+                        var getTextContent = function(n) {
+                            var text = "";
+                            if (n.childNodes) {
+                                for (var m = 0; m < n.childNodes.length; m++) {
+                                    var child = n.childNodes[m];
+                                    // nodeType 3 = TEXT_NODE, nodeType 4 = CDATA_SECTION_NODE
+                                    // Also check nodeName for #text and #cdata-section as fallback
+                                    if (child.nodeType === 3 || child.nodeType === 4 ||
+                                        child.nodeName === "#text" || child.nodeName === "#cdata-section") {
+                                        text += child.nodeValue || "";
+                                    }
+                                }
+                            }
+                            return text.trim();
+                        };
                         for(var j = 0; j < c.childNodes.length; j++) {
-                            var nodeName = c.childNodes[j].nodeName;
-                            if (nodeName === "title")               name = c.childNodes[j].childNodes[0].nodeValue;
-                            else if (nodeName === "author")         artist = c.childNodes[j].childNodes[0].nodeValue;
+                            var node = c.childNodes[j];
+                            var nodeName = (node.localName ? node.localName : node.nodeName).toLowerCase();
+                            if (nodeName === "title")               name = getTextContent(node);
+                            else if (nodeName === "author")         artist = getTextContent(node);
                             else if (nodeName === "image") {
-                                var el = c.childNodes[j];
+                                var el = node;
                                 for (var l = 0; l < el.attributes.length; l++) {
                                     if(el.attributes[l].nodeName === "href")         image = el.attributes[l].nodeValue;
                                 }

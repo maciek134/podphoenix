@@ -262,40 +262,84 @@ function updateEpisodes(refreshModel) {
                                         if(c.childNodes[j].nodeName === "item") {
                                             var t = c.childNodes[j];
                                             var track = {}
+                                            // Debug: log first item's structure
+                                            if (j < 2) {
+                                                console.log("[DEBUG] Parsing item " + j);
+                                            }
                                             for(var k = 0; k < t.childNodes.length; k++) {
                                                 try {
-                                                    var nodeName = t.childNodes[k].nodeName.toLowerCase();
-                                                    if (nodeName === "title")               track['name'] = t.childNodes[k].childNodes[0].nodeValue;
-                                                    else if (nodeName === "description")    track['description'] = t.childNodes[k].childNodes[0].nodeValue;
-                                                    else if (nodeName === "guid")           track['guid'] = t.childNodes[k].childNodes[0].nodeValue;
-                                                    else if (nodeName === "pubdate")        track['published'] = new Date(t.childNodes[k].childNodes[0].nodeValue).getTime();
-                                                    else if (nodeName === "duration") {
-                                                        var dur = t.childNodes[k].childNodes[0].nodeValue.split(":");
-                                                        if (dur.length === 1) {
-                                                            track['duration'] = parseInt(dur[0]);
-                                                        } else if (dur.length === 2) {
-                                                            track['duration'] = parseInt(dur[0]) * 60 + parseInt(dur[1]);
-                                                        } else if (dur.length === 3) {
-                                                            track['duration'] = parseInt(dur[0]) * 3600 + parseInt(dur[1]) * 60 + parseInt(dur[2]);
+                                                        var node = t.childNodes[k];
+                                                        var nodeName = (node.localName ? node.localName : node.nodeName).toLowerCase();
+                                                        // Debug: log node info for first item
+                                                        if (j < 1 && nodeName && nodeName !== "#text") {
+                                                            console.log("[DEBUG] Node " + k + ": nodeName=" + node.nodeName + ", localName=" + node.localName + ", computed=" + nodeName);
                                                         }
-                                                    } else if (nodeName === "enclosure") {
-                                                        var el = t.childNodes[k];
-                                                        for (var l = 0; l < el.attributes.length; l++) {
-                                                            if(el.attributes[l].nodeName === "url")         track['audiourl'] = el.attributes[l].nodeValue;
+                                                        // Helper to get text content - iterate all child nodes to find text/CDATA
+                                                        var getTextContent = function(n) {
+                                                            var text = "";
+                                                            if (n.childNodes) {
+                                                                for (var m = 0; m < n.childNodes.length; m++) {
+                                                                    var child = n.childNodes[m];
+                                                                    // Debug: log child node info for first item's title
+                                                                    if (j < 1 && nodeName === "title") {
+                                                                        console.log("[DEBUG] Title child " + m + ": nodeType=" + child.nodeType + ", nodeName=" + child.nodeName + ", value='" + (child.nodeValue || "").substring(0, 30) + "'");
+                                                                    }
+                                                                    // nodeType 3 = TEXT_NODE, nodeType 4 = CDATA_SECTION_NODE
+                                                                    // Also check nodeName for #text and #cdata-section as fallback
+                                                                    if (child.nodeType === 3 || child.nodeType === 4 ||
+                                                                        child.nodeName === "#text" || child.nodeName === "#cdata-section") {
+                                                                        text += child.nodeValue || "";
+                                                                    }
+                                                                }
+                                                            }
+                                                            return text.trim();
+                                                        };
+                                                        // Accept common variants and namespaced tags (eg. itunes:subtitle/summary)
+                                                        if (nodeName === "title" && !track['name']) {
+                                                            track['name'] = getTextContent(node);
+                                                            if (j < 1) console.log("[DEBUG] Got title: " + track['name']);
                                                         }
+                                                        else if ((nodeName === "description" || nodeName === "summary" || nodeName === "subtitle") && !track['description']) {
+                                                            track['description'] = getTextContent(node);
+                                                            if (j < 1) console.log("[DEBUG] Got description (first 50 chars): " + (track['description'] || "").substring(0, 50));
+                                                        }
+                                                        else if (nodeName === "guid")           track['guid'] = getTextContent(node);
+                                                        else if (nodeName === "pubdate")        track['published'] = getTextContent(node) ? new Date(getTextContent(node)).getTime() : undefined;
+                                                        else if (nodeName === "duration") {
+                                                            var durRaw = getTextContent(node);
+                                                            if (durRaw) {
+                                                                var dur = durRaw.split(":");
+                                                                if (dur.length === 1) {
+                                                                    track['duration'] = parseInt(dur[0]);
+                                                                } else if (dur.length === 2) {
+                                                                    track['duration'] = parseInt(dur[0]) * 60 + parseInt(dur[1]);
+                                                                } else if (dur.length === 3) {
+                                                                    track['duration'] = parseInt(dur[0]) * 3600 + parseInt(dur[1]) * 60 + parseInt(dur[2]);
+                                                                }
+                                                            }
+                                                        } else if (nodeName === "enclosure") {
+                                                            var el = node;
+                                                            for (var l = 0; l < el.attributes.length; l++) {
+                                                                if(el.attributes[l].nodeName === "url")         track['audiourl'] = el.attributes[l].nodeValue;
+                                                            }
+                                                        }
+                                                    } catch(err) {
+                                                        console.debug("Error: " + err.message);
                                                     }
-                                                } catch(err) {
-                                                    console.debug("Error: " + err.message);
-                                                }
                                             }
                                             if (!track.hasOwnProperty("guid")) {
                                                 track['guid'] = track.audiourl;
                                             }
+                                            // Debug: log track data for first few items
+                                            if (j < 3) {
+                                                console.log("[DEBUG] Track " + j + " - name: '" + track.name + "', desc: '" + (track.description || "").substring(0, 30) + "...', guid: " + track.guid);
+                                            }
                                             //do not check every episode in database, just ~11.5 days before last update
                                             if(new Date(rs_timestamp.rows.item(i).lastupdate).getTime()<(track['published']+1000000000))
                                             db.transaction(function(tx2) {
-                                                var ers = tx2.executeSql("SELECT rowid FROM Episode WHERE guid=?", [track.guid]);
+                                                var ers = tx2.executeSql("SELECT rowid, name, description FROM Episode WHERE guid=?", [track.guid]);
                                                 if (ers.rows.length === 0) {
+                                                    console.log("[DEBUG] Inserting episode: " + track.name);
                                                     tx2.executeSql("INSERT INTO Episode(podcast, name, description, audiourl, guid, listened, queued, favourited, duration, published) VALUES(?, ?, ? , ?, ?, ?, ?, ?, ?, ?)", [pid,
                                                                                                                                                                                                                                 track.name,
                                                                                                                                                                                                                                 track.description,
@@ -306,6 +350,15 @@ function updateEpisodes(refreshModel) {
                                                                                                                                                                                                                                 false,
                                                                                                                                                                                                                                 track.duration,
                                                                                                                                                                                                                                 track.published]);
+                                                } else {
+                                                    // Update existing episodes that have missing name or description
+                                                    var existingEp = ers.rows.item(0);
+                                                    if ((!existingEp.name || existingEp.name === "") && track.name) {
+                                                        tx2.executeSql("UPDATE Episode SET name=? WHERE guid=?", [track.name, track.guid]);
+                                                    }
+                                                    if ((!existingEp.description || existingEp.description === "") && track.description) {
+                                                        tx2.executeSql("UPDATE Episode SET description=? WHERE guid=?", [track.description, track.guid]);
+                                                    }
                                                 }
                                             });
                                         }

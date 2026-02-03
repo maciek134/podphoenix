@@ -478,9 +478,10 @@ pointing at invalid files have also been cleaned up.")
                     if(e.childNodes[h].nodeName === "channel") {
                         var c = e.childNodes[h];
                         for(var j = 0; j < c.childNodes.length; j++) {
-                            var nodeName = c.childNodes[j].nodeName;
+                            var node = c.childNodes[j];
+                            var nodeName = (node.localName ? node.localName : node.nodeName).toLowerCase();
                             if (nodeName === "image") {
-                                var el = c.childNodes[j];
+                                var el = node;
                                 for (var l = 0; l < el.attributes.length; l++) {
                                     if(el.attributes[l].nodeName === "href") {
                                         coverArt = el.attributes[l].nodeValue;
