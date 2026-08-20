@@ -89,7 +89,7 @@ Page {
                             width: parent.width
                             horizontalAlignment: Text.AlignHCenter
                             // TRANSLATORS: Podphoenix version number e.g Version 0.8
-                            text: i18n.tr("Version %1").arg("0.8")
+                            text: i18n.tr("Version %1").arg("0.1.2.2")
                         }
                     }
 
@@ -103,7 +103,7 @@ Page {
                             width: parent.width
                             wrapMode: Text.WordWrap
                             horizontalAlignment: Text.AlignHCenter
-                            text: "(C) 2015 Podphoenix Team"
+                            text: "(C) 2026 Podphoenix Team"
                         }
                         Label {
                             textSize: Label.Small
@@ -120,7 +120,7 @@ Page {
                         textSize: Label.Small
                         horizontalAlignment: Text.AlignHCenter
                         linkColor: podphoenix.appTheme.linkText
-                        text: i18n.tr("Source code available on %1").arg("<a href=\"https://github.com/ilyakooo0/podphoenix\">github.com</a>")
+                        text: i18n.tr("Source code available on %1").arg("<a href=\"https://github.com/maciek134/podphoenix\">github.com</a>")
                         onLinkActivated: Qt.openUrlExternally(link)
                     }
                 }

@@ -9,7 +9,7 @@
             "desktop": "Podphoenix.desktop"
         }
     },
-    "version": "0.1.2.1",
-    "maintainer": "Ilia Kostiuchenko <mail@iko.soy>",
+    "version": "0.1.2.2",
+    "maintainer": "Maciej Sopyło <me@klh.io>",
     "framework": "@CLICK_FRAMEWORK@"
 }
